@@ -1,5 +1,5 @@
-RSpec.describe Ruby::Openai do
+RSpec.describe Ruby::OpenAI do
   it "has a version number" do
-    expect(Ruby::Openai::VERSION).not_to be nil
+    expect(Ruby::OpenAI::VERSION).not_to be nil
   end
 end

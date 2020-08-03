@@ -1,7 +1,7 @@
 require "ruby/openai/version"
 
 module Ruby
-  module Openai
+  module OpenAI
     class Error < StandardError; end
     # Your code goes here...
   end
