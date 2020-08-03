@@ -1,3 +1,5 @@
+require "httparty"
+require "ruby/openai/client"
 require "ruby/openai/version"
 
 module Ruby
