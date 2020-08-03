@@ -11,3 +11,4 @@
 .rspec_status
 
 .byebug_history
+.env
