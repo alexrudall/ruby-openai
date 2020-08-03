@@ -1,0 +1,23 @@
+AllCops:
+  TargetRubyVersion: 2.7
+
+  NewCops: enable
+
+Style/Documentation:
+  # Skips checking to make sure top level modules / classes have a comment.
+  Enabled: false
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - "Rakefile"
+    - "**/*.rake"
+    - "spec/**/*.rb"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
