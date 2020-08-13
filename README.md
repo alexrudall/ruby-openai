@@ -1,3 +1,5 @@
+[![Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=svg](https://circleci.com/gh/alexrudall/ruby-openai)
+
 # Ruby::OpenAI
 
 A simple Ruby wrapper for the [OpenAI GPT-3 API](https://openai.com/blog/openai-api/).
