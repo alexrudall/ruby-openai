@@ -3,9 +3,10 @@ require "ruby/openai"
 require "vcr"
 
 VCR.configure do |c|
-  c.cassette_library_dir = "spec/fixtures/cassettes"
   c.hook_into :webmock
+  c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = { record: :new_episodes }
+  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { ENV["OPENAI_ACCESS_TOKEN"] }
 end
 
 RSpec.configure do |c|

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/davinci/completions
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Thu, 13 Aug 2020 12:20:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '228'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Organization:
+      - none
+      Openai-Processing-Ms:
+      - '324'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - cd6d813e9eec94a0f870dc380c91cc1d
+    body:
+      encoding: UTF-8
+      string: '{"id": "cmpl-t4gaGL2jzYXHDkUl5CpvltL1", "object": "text_completion",
+        "created": 1597321227, "model": "davinci:2020-05-03", "choices": [{"text":
+        ", there lived a great", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+
+'
+  recorded_at: Thu, 13 Aug 2020 12:20:28 GMT
+recorded_with: VCR 6.0.0
