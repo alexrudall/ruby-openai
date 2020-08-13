@@ -1,6 +1,7 @@
-[![Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=svg)](https://circleci.com/gh/alexrudall/ruby-openai)
-
 # Ruby::OpenAI
+
+[![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/master/LICENSE.txt)
 
 A simple Ruby wrapper for the [OpenAI GPT-3 API](https://openai.com/blog/openai-api/).
 
