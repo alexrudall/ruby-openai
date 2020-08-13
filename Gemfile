@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in ruby-openai.gemspec
+# Include gem dependencies from ruby-openai.gemspec
 gemspec
 
 gem "byebug", "~> 11.1.3"
