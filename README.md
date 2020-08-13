@@ -1,4 +1,4 @@
-[![Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=svg](https://circleci.com/gh/alexrudall/ruby-openai)
+[![Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=svg)](https://circleci.com/gh/alexrudall/ruby-openai)
 
 # Ruby::OpenAI
 
