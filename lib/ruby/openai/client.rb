@@ -15,8 +15,7 @@ module OpenAI
           "Authorization" => "Bearer #{@access_token}"
         },
         body: {
-          prompt: prompt,
-          max_tokens: max_tokens
+          prompt: prompt, max_tokens: max_tokens
         }.to_json
       )
     end
