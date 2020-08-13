@@ -16,7 +16,7 @@ RSpec.configure do |c|
   # Disable RSpec exposing methods globally on `Module` and `main`
   c.disable_monkey_patching!
 
-  c.expect_with :rspec do |c|
-    c.syntax = :expect
+  c.expect_with :rspec do |rspec|
+    rspec.syntax = :expect
   end
 end
