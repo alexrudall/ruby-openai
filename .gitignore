@@ -12,3 +12,5 @@
 
 .byebug_history
 .env
+
+*.gem
