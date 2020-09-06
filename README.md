@@ -23,10 +23,12 @@ Or install it yourself as:
 
 ## Usage
 
-Add your key to your .env file:
+Get your API key from [https://beta.openai.com/docs/developer-quickstart/your-api-keys](https://beta.openai.com/docs/developer-quickstart/your-api-keys)
+
+Add your secret key to your .env file:
 
 ```
-    OPENAI_ACCESS_TOKEN=keygoeshere
+    OPENAI_ACCESS_TOKEN=secretkeygoeshere
 ```
 
 Create a client:
@@ -41,7 +43,6 @@ Use it to hit the OpenAI API for a completion:
     response = client.call(engine: "davinci", prompt: "Once upon a time", max_tokens: 5)
     response.parsed_response['choices'].map{ |c| c["text"] }
 ```
-
 
 ## Development
 
