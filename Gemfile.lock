@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     ruby-openai (0.1.0)
-      dotenv
-      httparty
+      dotenv (~> 2.7.6)
+      httparty (~> 0.18.1)
 
 GEM
   remote: https://rubygems.org/
