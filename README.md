@@ -23,7 +23,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add your key to your .env file:
+
+```
+    OPENAI_ACCESS_TOKEN=keygoeshere
+```
+
+Create a client:
+
+```
+    client = OpenAI::Client.new
+```
+
+Use it to hit the OpenAI API for a completion:
+
+```
+    response = client.call(engine: "davinci", prompt: "Once upon a time", max_tokens: 5)
+    response.parsed_response['choices'].map{ |c| c["text"] }
+```
+
 
 ## Development
 
