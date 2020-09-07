@@ -6,13 +6,6 @@ orbs:
   ruby: circleci/ruby@1.0
 
 jobs:
-  build: # our first job, named "build"
-    docker:
-      - image: cimg/ruby:2.7-node # use a tailored CircleCI docker image.
-    steps:
-      - checkout # pull down our git code.
-      - ruby/install-deps # use the ruby orb to install dependencies
-
   test:  # our next job, called "test"
     # we can run "parallel job containers" to enable speeding up our tests;
     # this splits our tests across multiple containers.
@@ -30,9 +23,6 @@ jobs:
 # We use workflows to orchestrate the jobs that we declared above.
 workflows:
   version: 2
-  build_and_test:    # The name of our workflow is "build_and_test"
+  test:    # The name of our workflow is "test"
     jobs:             # The list of jobs we run as part of this workflow.
-      - build         # Run build first.
-      - test:         # Then run test,
-          requires:   # Test requires that build passes for it to run.
-            - build   # Finally, run the build job.
+      - test
