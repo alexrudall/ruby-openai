@@ -1,18 +1,15 @@
 version: 2.1 # Use 2.1 to enable using orbs and other features.
 
 # Declare the orbs that we'll use in our config.
-# read more about orbs: https://circleci.com/docs/2.0/using-orbs/
 orbs:
   ruby: circleci/ruby@1.0
+  rubocop: hanachin/rubocop@0.0.6
 
 jobs:
-  test:  # our next job, called "test"
-    # we can run "parallel job containers" to enable speeding up our tests;
-    # this splits our tests across multiple containers.
+  test:
     parallelism: 1
     docker:
-      - image: cimg/ruby:2.7-node # this is our primary docker image, where step commands run.
-    # A series of steps to run, some are similar to those in "build".
+      - image: cimg/ruby:2.7-node
     steps:
       - checkout
       - ruby/install-deps
@@ -20,9 +17,9 @@ jobs:
           name: Run tests
           command: bundle exec rspec -fd
 
-# We use workflows to orchestrate the jobs that we declared above.
 workflows:
   version: 2
-  test:    # The name of our workflow is "test"
-    jobs:             # The list of jobs we run as part of this workflow.
+  checks:
+    jobs:
+      - rubocop/rubocop
       - test
