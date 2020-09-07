@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2020-09-08
+
+### Added
+
+- Run Rubocop on pulls using CircleCI.
+
+### Changed
+
+- Clean up CircleCI config file.
+
 ## [0.1.0] - 2020-09-06
 
 ### Added
