@@ -3,9 +3,18 @@ version: 2.1 # Use 2.1 to enable using orbs and other features.
 # Declare the orbs that we'll use in our config.
 orbs:
   ruby: circleci/ruby@1.0
-  rubocop: hanachin/rubocop@0.0.6
 
 jobs:
+  rubocop:
+    parallelism: 1
+    docker:
+      - image: cimg/ruby:2.7-node
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Run Rubocop
+          command: bundle exec rubocop
   test:
     parallelism: 1
     docker:
@@ -21,5 +30,5 @@ workflows:
   version: 2
   checks:
     jobs:
-      - rubocop/rubocop
+      - rubocop
       - test
