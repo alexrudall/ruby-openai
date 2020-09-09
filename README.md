@@ -31,7 +31,7 @@ Get your API key from [https://beta.openai.com/docs/developer-quickstart/your-ap
 If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your secret key to your .env file:
 
 ```
-    OPENAI_ACCESS_TOKEN=secretkeygoeshere
+    OPENAI_ACCESS_TOKEN=access_token_goes_here
 ```
 
 And create a client:
@@ -42,7 +42,7 @@ And create a client:
 
 ### Without dotenv
 
-Alternativeely you can pass your key directly to a new client:
+Alternatively you can pass your key directly to a new client:
 
 ```
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
