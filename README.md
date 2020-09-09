@@ -26,23 +26,36 @@ Or install it yourself as:
 
 Get your API key from [https://beta.openai.com/docs/developer-quickstart/your-api-keys](https://beta.openai.com/docs/developer-quickstart/your-api-keys)
 
-Add your secret key to your .env file:
+### With dotenv
+
+If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your secret key to your .env file:
 
 ```
     OPENAI_ACCESS_TOKEN=secretkeygoeshere
 ```
 
-Create a client:
+And create a client:
 
 ```
     client = OpenAI::Client.new
 ```
 
-Use it to hit the OpenAI API for a completion:
+### Without dotenv
+
+Alternativeely you can pass your key directly to a new client:
+
+```
+    client = OpenAI::Client.new(access_token: "access_token_goes_here")
+```
+
+### Get a response
+
+The engine options are currently "ada", "babbage", "curie" and "davinci". Hit the OpenAI API for a completion:
 
 ```
     response = client.call(engine: "davinci", prompt: "Once upon a time", max_tokens: 5)
-    response.parsed_response['choices'].map{ |c| c["text"] }
+    puts response.parsed_response['choices'].map{ |c| c["text"] }
+    => [", there lived a great"]
 ```
 
 ## Development

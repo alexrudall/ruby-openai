@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2020-09-09
+
+### Added
+
+- Add tests and cached responses for the different engines.
+- Add issue templates.
+
+### Changed
+
+- Add README instructions for using the gem without dotenv.
+- Add list of engines to README.
+
 ## [0.1.1] - 2020-09-08
 
 ### Added
