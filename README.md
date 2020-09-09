@@ -42,7 +42,7 @@ And create a client:
 
 ### Without dotenv
 
-You can pass your key directly to a new client:
+Alternativeely you can pass your key directly to a new client:
 
 ```
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
@@ -50,11 +50,11 @@ You can pass your key directly to a new client:
 
 ### Get a response
 
-Hit the OpenAI API for a completion:
+The engine options are currently "ada", "babbage", "curie" and "davinci". Hit the OpenAI API for a completion:
 
 ```
     response = client.call(engine: "davinci", prompt: "Once upon a time", max_tokens: 5)
-    response.parsed_response['choices'].map{ |c| c["text"] }
+    puts response.parsed_response['choices'].map{ |c| c["text"] }
     => [", there lived a great"]
 ```
 
