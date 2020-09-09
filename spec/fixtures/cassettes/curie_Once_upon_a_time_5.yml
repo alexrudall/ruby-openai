@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/curie/completions
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Wed, 09 Sep 2020 20:05:29 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '226'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Organization:
+      - none
+      Openai-Processing-Ms:
+      - '448'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 2812406f94aef4417cce88e1d216af90
+    body:
+      encoding: UTF-8
+      string: '{"id": "cmpl-LuvFGN7S1fA3zHOGbRVZuT1k", "object": "text_completion",
+        "created": 1599681929, "model": "curie:2020-05-03", "choices": [{"text": "
+        Sheriff Zac Purcell,", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+
+'
+  recorded_at: Wed, 09 Sep 2020 20:05:29 GMT
+recorded_with: VCR 6.0.0
