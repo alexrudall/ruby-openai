@@ -1,9 +1,9 @@
 RSpec.describe OpenAI::Client do
   describe "#search" do
     context "with documents and a query", :vcr do
-      let(:action) { "search" }
       let(:documents) { %w[washington hospital school] }
       let(:query) { "the president" }
+
       let(:response) do
         OpenAI::Client.new.search(
           engine: engine,
@@ -12,7 +12,7 @@ RSpec.describe OpenAI::Client do
         )
       end
       let(:best_match) { JSON.parse(response.body)["data"].max_by { |d| d["score"] }["document"] }
-      let(:cassette) { "#{engine} #{action} #{query}".downcase }
+      let(:cassette) { "#{engine} search #{query}".downcase }
 
       context "with engine: ada" do
         let(:engine) { "ada" }

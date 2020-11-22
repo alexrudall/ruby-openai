@@ -1,9 +1,9 @@
 RSpec.describe OpenAI::Client do
   describe "#call" do
     context "with a prompt and max_tokens", :vcr do
-      let(:action) { "completions" }
       let(:prompt) { "Once upon a time" }
       let(:max_tokens) { 5 }
+
       let(:response) do
         OpenAI::Client.new.call(
           engine: engine,
@@ -12,7 +12,7 @@ RSpec.describe OpenAI::Client do
         )
       end
       let(:text) { JSON.parse(response.body)["choices"].first["text"] }
-      let(:cassette) { "#{engine} #{action} #{prompt}".downcase }
+      let(:cassette) { "#{engine} completions #{prompt}".downcase }
 
       context "with engine: ada" do
         let(:engine) { "ada" }
