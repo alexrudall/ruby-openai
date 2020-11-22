@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/babbage/search
+    body:
+      encoding: UTF-8
+      string: '{"documents":["washington","hospital","school"],"query":"the president"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Sun, 22 Nov 2020 15:13:53 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '19'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - 2dc162c050717f4854a2e45e420bb046
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "search_result",
+              "document": 0,
+              "score": 131.262
+            },
+            {
+              "object": "search_result",
+              "document": 1,
+              "score": 17.693
+            },
+            {
+              "object": "search_result",
+              "document": 2,
+              "score": 29.388
+            }
+          ],
+          "model": "babbage:2020-05-03"
+        }
+  recorded_at: Sun, 22 Nov 2020 15:13:54 GMT
+recorded_with: VCR 6.0.0

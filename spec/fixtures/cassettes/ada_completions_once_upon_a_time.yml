@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/babbage/completions
+    uri: https://api.openai.com/v1/engines/ada/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx/1.17.10
       Date:
-      - Wed, 09 Sep 2020 20:04:08 GMT
+      - Sun, 22 Nov 2020 15:15:57 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '228'
+      - '218'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -37,19 +37,19 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Organization:
-      - none
+      - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '264'
+      - '42'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 53e0156c61ead94ec7daf4e8127a5c6a
+      - 0672e94976924d46e23632cc93c948e9
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-ZbzYhOiveeAK2qABymEVgXxE", "object": "text_completion",
-        "created": 1599681848, "model": "babbage:2020-05-03", "choices": [{"text":
-        " I read a book called", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id": "cmpl-cY6OBlhqWwh2NVxghDwsm1Tc", "object": "text_completion",
+        "created": 1606058157, "model": "ada:2020-05-03", "choices": [{"text": ",
+        I used to get", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Wed, 09 Sep 2020 20:04:11 GMT
+  recorded_at: Sun, 22 Nov 2020 15:15:57 GMT
 recorded_with: VCR 6.0.0

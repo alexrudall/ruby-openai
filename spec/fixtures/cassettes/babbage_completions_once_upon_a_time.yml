@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/ada/completions
+    uri: https://api.openai.com/v1/engines/babbage/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx/1.17.10
       Date:
-      - Wed, 09 Sep 2020 20:04:06 GMT
+      - Sun, 22 Nov 2020 15:15:58 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '222'
+      - '232'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -37,19 +37,20 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Organization:
-      - none
+      - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '255'
+      - '60'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 62b7273083744c9c65cc57cb42e2603d
+      - e6e27450a573f158234fd8d4753b8ce0
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-R2Jbhixj6pNBHCcfoVAwPzDH", "object": "text_completion",
-        "created": 1599681846, "model": "ada:2020-05-03", "choices": [{"text": ",
-        there was a power", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id": "cmpl-ph6ruv77V68R0PS9hC8ACwIN", "object": "text_completion",
+        "created": 1606058158, "model": "babbage:2020-05-03", "choices": [{"text":
+        ", poor parents would have", "index": 0, "logprobs": null, "finish_reason":
+        "length"}]}
 
 '
-  recorded_at: Wed, 09 Sep 2020 20:04:07 GMT
+  recorded_at: Sun, 22 Nov 2020 15:15:58 GMT
 recorded_with: VCR 6.0.0
