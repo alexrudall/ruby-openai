@@ -4,7 +4,13 @@ RSpec.describe OpenAI::Client do
       let(:action) { "search" }
       let(:documents) { %w[washington hospital school] }
       let(:query) { "the president" }
-      let(:response) { OpenAI::Client.new.search(engine: engine, documents: documents, query: query) }
+      let(:response) do
+        OpenAI::Client.new.search(
+          engine: engine,
+          documents: documents,
+          query: query
+        )
+      end
       let(:best_match) { JSON.parse(response.body)["data"].max_by { |d| d["score"] }["document"] }
       let(:cassette) { "#{engine} #{action} #{query}".downcase }
 
