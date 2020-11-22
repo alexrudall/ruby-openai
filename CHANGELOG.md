@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add method to use the search endpoint.
+
 ## [0.1.4] - 2020-10-18
 
 ### Changed
