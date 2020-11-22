@@ -7,16 +7,14 @@ module OpenAI
       @access_token = access_token || ENV["OPENAI_ACCESS_TOKEN"]
     end
 
-    def call(engine:, prompt:, max_tokens:, version: default_version)
+    def completions(engine:, version: default_version, parameters: {})
       self.class.post(
         "/#{version}/engines/#{engine}/completions",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: {
-          prompt: prompt, max_tokens: max_tokens
-        }.to_json
+        body: parameters.to_json
       )
     end
 
@@ -32,6 +30,27 @@ module OpenAI
         }.to_json
       )
     end
+
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Layout/LineLength
+    def call(engine:, prompt:, max_tokens:, version: default_version)
+      warn "[DEPRECATION] `Client#call` is deprecated and will be removed in a future version of ruby-openai.
+        Please use `Client#completions` instead, like this:
+        client.completions(engine: 'davinci', parameters: { prompt: 'Once upon a time', max_tokens: 5 })
+      "
+      self.class.post(
+        "/#{version}/engines/#{engine}/completions",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}"
+        },
+        body: {
+          prompt: prompt, max_tokens: max_tokens
+        }.to_json
+      )
+    end
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Layout/LineLength
 
     private
 

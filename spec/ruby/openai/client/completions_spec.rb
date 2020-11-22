@@ -5,10 +5,12 @@ RSpec.describe OpenAI::Client do
       let(:max_tokens) { 5 }
 
       let(:response) do
-        OpenAI::Client.new.call(
+        OpenAI::Client.new.completions(
           engine: engine,
-          prompt: prompt,
-          max_tokens: max_tokens
+          parameters: {
+            prompt: prompt,
+            max_tokens: max_tokens
+          }
         )
       end
       let(:text) { JSON.parse(response.body)["choices"].first["text"] }
