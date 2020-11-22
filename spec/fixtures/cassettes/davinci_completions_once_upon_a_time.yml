@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/curie/completions
+    uri: https://api.openai.com/v1/engines/davinci/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx/1.17.10
       Date:
-      - Wed, 09 Sep 2020 20:05:29 GMT
+      - Sun, 22 Nov 2020 15:16:01 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '226'
+      - '223'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -37,19 +37,19 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Organization:
-      - none
+      - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '448'
+      - '700'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 2812406f94aef4417cce88e1d216af90
+      - ec1467617a0295fc296e8a0092b5ae37
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-LuvFGN7S1fA3zHOGbRVZuT1k", "object": "text_completion",
-        "created": 1599681929, "model": "curie:2020-05-03", "choices": [{"text": "
-        Sheriff Zac Purcell,", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id": "cmpl-1x7cgTdqIX6e1aLAbyIrpKgt", "object": "text_completion",
+        "created": 1606058160, "model": "davinci:2020-05-03", "choices": [{"text":
+        ",\u201d said the", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Wed, 09 Sep 2020 20:05:29 GMT
+  recorded_at: Sun, 22 Nov 2020 15:16:01 GMT
 recorded_with: VCR 6.0.0
