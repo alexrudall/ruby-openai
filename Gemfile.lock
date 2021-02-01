@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (0.3.0)
+    ruby-openai (1.0.0)
       dotenv (~> 2.7.6)
       httparty (~> 0.18.1)
 
@@ -77,4 +77,4 @@ DEPENDENCIES
   webmock (~> 3.11.2)
 
 BUNDLED WITH
-   2.1.4
+   2.2.3
