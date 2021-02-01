@@ -21,7 +21,7 @@ RSpec.describe OpenAI::Client do
 
         it "can make a request to the OpenAI API" do
           VCR.use_cassette(cassette) do
-            expect(text.split(" ").empty?).to eq(false)
+            expect(text.split.empty?).to eq(false)
           end
         end
       end
@@ -31,7 +31,7 @@ RSpec.describe OpenAI::Client do
 
         it "can make a request to the OpenAI API" do
           VCR.use_cassette(cassette) do
-            expect(text.split(" ").empty?).to eq(false)
+            expect(text.split.empty?).to eq(false)
           end
         end
       end
@@ -41,7 +41,7 @@ RSpec.describe OpenAI::Client do
 
         it "can make a request to the OpenAI API" do
           VCR.use_cassette(cassette) do
-            expect(text.split(" ").empty?).to eq(false)
+            expect(text.split.empty?).to eq(false)
           end
         end
       end
@@ -51,7 +51,7 @@ RSpec.describe OpenAI::Client do
 
         it "can make a request to the OpenAI API" do
           VCR.use_cassette(cassette) do
-            expect(text.split(" ").empty?).to eq(false)
+            expect(text.split.empty?).to eq(false)
           end
         end
       end
