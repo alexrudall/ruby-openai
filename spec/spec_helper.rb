@@ -20,3 +20,5 @@ RSpec.configure do |c|
     rspec.syntax = :expect
   end
 end
+
+RSPEC_ROOT = File.dirname __FILE__

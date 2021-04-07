@@ -1,4 +1,5 @@
 require "httparty"
+require "ruby/openai/files"
 require "ruby/openai/client"
 require "ruby/openai/version"
 require "dotenv/load"

@@ -18,6 +18,10 @@ module OpenAI
       )
     end
 
+    def files
+      @files ||= OpenAI::Files.new(access_token: @access_token)
+    end
+
     def search(engine:, documents:, query:, version: default_version)
       self.class.post(
         "/#{version}/engines/#{engine}/search",

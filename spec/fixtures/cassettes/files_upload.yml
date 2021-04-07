@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "--------------------------w-az1okA9HoaoGva\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"puppy.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
+        \"puppy A is happy\", \"metadata\": \"emotional state of puppy A\"}\n{\"text\":
+        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------w-az1okA9HoaoGva\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------w-az1okA9HoaoGva--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=------------------------w-az1okA9HoaoGva
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Wed, 07 Apr 2021 19:49:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '185'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 955b9bf585df3e5fc7a4098101b178b1
+      Openai-Processing-Ms:
+      - '1117'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "file-pDTosJYQGemK2gpx61qoPN17",
+          "object": "file",
+          "bytes": 140,
+          "created_at": 1617824991,
+          "filename": "puppy.jsonl",
+          "purpose": "answers",
+          "status": "uploaded"
+        }
+  recorded_at: Wed, 07 Apr 2021 19:49:51 GMT
+recorded_with: VCR 6.0.0
