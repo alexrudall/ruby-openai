@@ -7,12 +7,14 @@ RSpec.describe OpenAI::Client do
     describe "#upload" do
       let(:cassette) { "files upload" }
       let(:purpose) { "answers" }
-      let(:response) { OpenAI::Client.new.files.upload(parameters: { file: file, purpose: purpose }) }
+      let(:response) do
+        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: purpose })
+      end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r['filename']).to eq(filename)
+          expect(r["filename"]).to eq(filename)
         end
       end
     end
@@ -24,7 +26,7 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r['data'][0]['filename']).to eq(filename)
+          expect(r["data"][0]["filename"]).to eq(filename)
         end
       end
     end
@@ -36,7 +38,7 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r['filename']).to eq(filename)
+          expect(r["filename"]).to eq(filename)
         end
       end
     end
@@ -48,8 +50,8 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r['id']).to eq(id)
-          expect(r['deleted']).to eq(true)
+          expect(r["id"]).to eq(id)
+          expect(r["deleted"]).to eq(true)
         end
       end
     end

@@ -29,7 +29,7 @@ module OpenAI
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: { file: file, query: query }.merge(documents ? { documents: documents } : { file: file }).to_json
+        body: { query: query }.merge(documents_or_file(documents: documents, file: file)).to_json
       )
     end
 
@@ -37,6 +37,10 @@ module OpenAI
 
     def default_version
       "v1".freeze
+    end
+
+    def documents_or_file(documents: nil, file: nil)
+      documents ? { documents: documents } : { file: file }
     end
   end
 end

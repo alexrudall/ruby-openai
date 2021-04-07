@@ -28,7 +28,7 @@ module OpenAI
       )
     end
 
-    def retrieve(version: default_version, id:)
+    def retrieve(id:, version: default_version)
       self.class.get(
         "/#{version}/files/#{id}",
         headers: {
@@ -38,7 +38,7 @@ module OpenAI
       )
     end
 
-    def delete(version: default_version, id:)
+    def delete(id:, version: default_version)
       self.class.delete(
         "/#{version}/files/#{id}",
         headers: {

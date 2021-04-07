@@ -25,7 +25,7 @@ RSpec.describe OpenAI::Client do
 
         it "finds the best match" do
           VCR.use_cassette(cassette) do
-            expect(response.parsed_response['data'][0]["text"]).to eq("puppy A is happy")
+            expect(response.parsed_response["data"][0]["text"]).to eq("puppy A is happy")
           end
         end
       end
