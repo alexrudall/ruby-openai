@@ -22,16 +22,14 @@ module OpenAI
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
 
-    def search(engine:, documents:, query:, version: default_version)
+    def search(engine:, query:, documents: nil, file: nil, version: default_version)
       self.class.post(
         "/#{version}/engines/#{engine}/search",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: {
-          documents: documents, query: query
-        }.to_json
+        body: { file: file, query: query }.merge(documents ? { documents: documents } : { file: file }).to_json
       )
     end
 
