@@ -68,6 +68,24 @@ Pass documents and a query string to get semantic search scores against each doc
     => [202.0, 48.052, 19.247]
 ```
 
+### Files
+
+Put your data in a `.jsonl` file like this:
+
+```
+    {"text": "puppy A is happy", "metadata": "emotional state of puppy A"}
+    {"text": "puppy B is sad", "metadata": "emotional state of puppy B"}
+```
+
+and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
+
+```
+    client.files.upload(parameters: { file: 'path/to/puppy.jsonl', purpose: 'search' })
+    client.files.list
+    client.files.retrieve(id: 123)
+    client.files.delete(id: 123)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
