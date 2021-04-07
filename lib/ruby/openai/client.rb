@@ -18,16 +18,18 @@ module OpenAI
       )
     end
 
-    def search(engine:, documents:, query:, version: default_version)
+    def files
+      @files ||= OpenAI::Files.new(access_token: @access_token)
+    end
+
+    def search(engine:, query:, documents: nil, file: nil, version: default_version)
       self.class.post(
         "/#{version}/engines/#{engine}/search",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: {
-          documents: documents, query: query
-        }.to_json
+        body: { query: query }.merge(documents_or_file(documents: documents, file: file)).to_json
       )
     end
 
@@ -35,6 +37,10 @@ module OpenAI
 
     def default_version
       "v1".freeze
+    end
+
+    def documents_or_file(documents: nil, file: nil)
+      documents ? { documents: documents } : { file: file }
     end
   end
 end

@@ -1,5 +1,5 @@
 RSpec.describe OpenAI::Client do
-  describe "#call" do
+  describe "#completions" do
     context "with a prompt and max_tokens", :vcr do
       let(:prompt) { "Once upon a time" }
       let(:max_tokens) { 5 }
@@ -19,7 +19,7 @@ RSpec.describe OpenAI::Client do
       context "with engine: ada" do
         let(:engine) { "ada" }
 
-        it "can make a request to the OpenAI API" do
+        it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(text.split.empty?).to eq(false)
           end
@@ -29,7 +29,7 @@ RSpec.describe OpenAI::Client do
       context "with engine: babbage" do
         let(:engine) { "babbage" }
 
-        it "can make a request to the OpenAI API" do
+        it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(text.split.empty?).to eq(false)
           end
@@ -39,7 +39,7 @@ RSpec.describe OpenAI::Client do
       context "with engine: curie" do
         let(:engine) { "curie" }
 
-        it "can make a request to the OpenAI API" do
+        it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(text.split.empty?).to eq(false)
           end
@@ -49,7 +49,7 @@ RSpec.describe OpenAI::Client do
       context "with engine: davinci" do
         let(:engine) { "davinci" }
 
-        it "can make a request to the OpenAI API" do
+        it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(text.split.empty?).to eq(false)
           end

@@ -58,6 +58,24 @@ The engine options are currently "ada", "babbage", "curie" and "davinci". Hit th
     => [", there lived a great"]
 ```
 
+### Files
+
+Put your data in a `.jsonl` file like this:
+
+```
+    {"text": "puppy A is happy", "metadata": "emotional state of puppy A"}
+    {"text": "puppy B is sad", "metadata": "emotional state of puppy B"}
+```
+
+and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
+
+```
+    client.files.upload(parameters: { file: 'path/to/puppy.jsonl', purpose: 'search' })
+    client.files.list
+    client.files.retrieve(id: 123)
+    client.files.delete(id: 123)
+```
+
 ### Search
 
 Pass documents and a query string to get semantic search scores against each document:
@@ -66,6 +84,12 @@ Pass documents and a query string to get semantic search scores against each doc
     response = client.search(engine: "ada", documents: %w[washington hospital school], query: "president")
     puts response["data"].map { |d| d["score"] }
     => [202.0, 48.052, 19.247]
+```
+
+You can alternatively search using the ID of a file you've uploaded:
+
+```
+    client.search(engine: "ada", file: "abc123", query: "happy")
 ```
 
 ## Development
