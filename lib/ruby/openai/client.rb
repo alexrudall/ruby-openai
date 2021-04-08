@@ -7,6 +7,17 @@ module OpenAI
       @access_token = access_token || ENV["OPENAI_ACCESS_TOKEN"]
     end
 
+    def answers(version: default_version, parameters: {})
+      self.class.post(
+        "/#{version}/answers",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}"
+        },
+        body: parameters.to_json
+      )
+    end
+
     def completions(engine:, version: default_version, parameters: {})
       self.class.post(
         "/#{version}/engines/#{engine}/completions",

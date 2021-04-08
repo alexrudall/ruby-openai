@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/answers
+    body:
+      encoding: UTF-8
+      string: '{"model":"davinci","question":"which puppy is happy?","examples":[["What
+        is human life expectancy in the United States?","78 years."]],"examples_context":"In
+        2017, U.S. life expectancy was 78.6 years.","file":"file-lh3jNIi13J42WczTc29IZfqS"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Thu, 08 Apr 2021 17:03:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 5e2eec4770964badb30eec54873b2e5f
+      Openai-Processing-Ms:
+      - '2980'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "answers": [
+            "puppy A\n\n===\nContext: puppy A is happy puppy B is sad"
+          ],
+          "completion": "cmpl-2mSLUyoYm4crElNCZNrG3s6CWAXCR",
+          "file": "file-lh3jNIi13J42WczTc29IZfqS",
+          "model": "davinci:2020-05-03",
+          "object": "answer",
+          "search_model": "ada:2020-05-03",
+          "selected_documents": [
+            {
+              "document": 1,
+              "object": "search_result",
+              "score": 203.703,
+              "text": "puppy B is sad"
+            },
+            {
+              "document": 0,
+              "object": "search_result",
+              "score": 276.094,
+              "text": "puppy A is happy"
+            }
+          ]
+        }
+  recorded_at: Thu, 08 Apr 2021 17:03:01 GMT
+recorded_with: VCR 6.0.0

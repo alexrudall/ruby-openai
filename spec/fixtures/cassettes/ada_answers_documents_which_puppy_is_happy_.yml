@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/answers
+    body:
+      encoding: UTF-8
+      string: '{"model":"ada","question":"which puppy is happy?","examples":[["What
+        is human life expectancy in the United States?","78 years."]],"examples_context":"In
+        2017, U.S. life expectancy was 78.6 years.","documents":["Puppy A is happy","Puppy
+        B is sad."]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Thu, 08 Apr 2021 16:48:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - f620149dea3fccc3b6d72042a5a15b85
+      Openai-Processing-Ms:
+      - '2226'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "answers": [
+            "Puppy A.\n==="
+          ],
+          "completion": "cmpl-2mS7NpUU3dnQ0DZOxQcPt2eG1sux3",
+          "model": "ada:2020-05-03",
+          "object": "answer",
+          "search_model": "ada",
+          "selected_documents": [
+            {
+              "document": 0,
+              "text": "Puppy A is happy "
+            },
+            {
+              "document": 1,
+              "text": "Puppy B is sad. "
+            }
+          ]
+        }
+  recorded_at: Thu, 08 Apr 2021 16:48:26 GMT
+recorded_with: VCR 6.0.0

@@ -42,7 +42,6 @@ RSpec.describe OpenAI::Client do
         )
       end
       let(:best_match) { JSON.parse(response.body)["data"].max_by { |d| d["score"] }["document"] }
-      let(:cassette) { "#{engine} search #{query}".downcase }
 
       context "with engine: ada" do
         let(:engine) { "ada" }
