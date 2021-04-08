@@ -48,7 +48,7 @@ RSpec.describe OpenAI::Client do
             question: question,
             examples: examples,
             examples_context: examples_context,
-            documents: documents,
+            documents: documents
           }
         )
       end
