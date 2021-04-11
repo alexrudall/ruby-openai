@@ -11,11 +11,19 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: purpose })
       end
 
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["filename"]).to eq(filename)
+      context "with a valid JSON lines file" do
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            r = JSON.parse(response.body)
+            expect(r["filename"]).to eq(filename)
+          end
         end
+      end
+
+      context "with an invalid file" do
+        let(:filename) { File.join("errors", "missing_quote.jsonl") }
+
+        it { expect { response }.to raise_error(JSON::ParserError) }
       end
     end
 

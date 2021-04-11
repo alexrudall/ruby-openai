@@ -18,13 +18,15 @@ module OpenAI
     end
 
     def upload(version: default_version, parameters: {})
+      file = validate(file: parameters[:file])
+
       self.class.post(
         "/#{version}/files",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: parameters.merge(file: File.open(parameters[:file]))
+        body: parameters.merge(file: file)
       )
     end
 
@@ -52,6 +54,14 @@ module OpenAI
 
     def default_version
       "v1".freeze
+    end
+
+    def validate(file:)
+      File.open(file).each_line.with_index do |line, index|
+        JSON.parse(line)
+      rescue JSON::ParserError => e
+        raise JSON::ParserError, "#{e.message} - found on line #{index + 1} of #{file}"
+      end
     end
   end
 end
