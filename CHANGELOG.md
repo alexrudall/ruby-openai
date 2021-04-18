@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Client#classifications endpoint to predict the most likely labels based on example a file.
+- Add Client#classifications to predict the most likely labels based on examples or a file.
 
 ## [1.2.2] - 2021-04-18
 
