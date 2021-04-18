@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Client#classifications to predict the most likely labels based on examples or a file.
 
+### Fixed
+
+- Fixed Files#upload which was previously broken by the validation code!
+
 ## [1.2.2] - 2021-04-18
 
 ### Changed

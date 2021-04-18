@@ -18,7 +18,7 @@ module OpenAI
     end
 
     def upload(version: default_version, parameters: {})
-      file = validate(file: parameters[:file])
+      validate(file: parameters[:file])
 
       self.class.post(
         "/#{version}/files",
@@ -26,7 +26,7 @@ module OpenAI
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         },
-        body: parameters.merge(file: file)
+        body: parameters.merge(file: File.open(parameters[:file]))
       )
     end
 
