@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/classifications
+    body:
+      encoding: UTF-8
+      string: '{"model":"ada","query":"It is a raining day :(","examples":[["A happy
+        moment","Positive"],["I am sad.","Negative"],["I am feeling awesome","Positive"]]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Sun, 18 Apr 2021 17:28:33 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 36c26eae2d39b001732fad24b3aa4797
+      Openai-Processing-Ms:
+      - '1165'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "completion": "cmpl-2q5VhIIMKlyv7mQy3PnFeSxIV2hdf",
+          "label": "Negative",
+          "model": "ada:2020-05-03",
+          "object": "classification",
+          "search_model": "ada",
+          "selected_examples": [
+            {
+              "document": 2,
+              "label": "Positive",
+              "text": "I am feeling awesome"
+            },
+            {
+              "document": 0,
+              "label": "Positive",
+              "text": "A happy moment"
+            },
+            {
+              "document": 1,
+              "label": "Negative",
+              "text": "I am sad."
+            }
+          ]
+        }
+  recorded_at: Sun, 18 Apr 2021 17:28:33 GMT
+recorded_with: VCR 6.0.0

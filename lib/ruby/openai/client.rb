@@ -18,6 +18,17 @@ module OpenAI
       )
     end
 
+    def classifications(version: default_version, parameters: {})
+      self.class.post(
+        "/#{version}/classifications",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}"
+        },
+        body: parameters.to_json
+      )
+    end
+
     def completions(engine:, version: default_version, parameters: {})
       self.class.post(
         "/#{version}/engines/#{engine}/completions",
