@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Client#search(parameters:) to allow passing `max_rerank` or `return_metadata`.
 - Deprecate Client#search with query, file or document parameters at the top level.
+- Thanks [@stevegeek](https://github.com/stevegeek) for pointing this issue out!
 
 ## [1.2.1] - 2021-04-11
 
