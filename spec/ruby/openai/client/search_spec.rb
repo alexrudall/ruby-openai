@@ -18,8 +18,10 @@ RSpec.describe OpenAI::Client do
         let(:response) do
           OpenAI::Client.new.search(
             engine: engine,
-            file: file_id,
-            query: query
+            parameters: {
+              file: file_id,
+              query: query
+            }
           )
         end
 
@@ -37,8 +39,10 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.search(
           engine: engine,
-          documents: documents,
-          query: query
+          parameters: {
+            documents: documents,
+            query: query
+          }
         )
       end
       let(:best_match) { JSON.parse(response.body)["data"].max_by { |d| d["score"] }["document"] }
