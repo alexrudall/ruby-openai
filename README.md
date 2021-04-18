@@ -107,7 +107,7 @@ Pass documents, a question string, and an example question/response to get an an
     })
 ```
 
-You can alternatively search using the ID of a file you've uploaded:
+Or use the ID of a file you've uploaded:
 
 ```
     response = client.answers(parameters: {
@@ -116,6 +116,32 @@ You can alternatively search using the ID of a file you've uploaded:
         model: "curie",
         examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
         examples: [["What is human life expectancy in the United States?","78 years."]],
+    })
+```
+
+### Classifications
+
+Pass examples and a query to predict the most likely labels:
+
+```
+    response = client.classifications(parameters: {
+        examples: [
+            ["A happy moment", "Positive"],
+            ["I am sad.", "Negative"],
+            ["I am feeling awesome", "Positive"]
+        ],
+        query: "It is a raining day :(",
+        model: "ada"
+    })
+```
+
+Or use the ID of a file you've uploaded:
+
+```
+    response = client.classifications(parameters: {
+        file: "123abc,
+        query: "It is a raining day :(",
+        model: "ada"
     })
 ```
 
