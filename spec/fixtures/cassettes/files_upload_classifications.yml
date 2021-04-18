@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "--------------------------HLWqBd4VRwVGrv4o\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"train.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
+        \"good film, but very glum.\", \"label\": \"Positive\"}\n{\"text\": \"i sympathize
+        with the plight of these families, but the movie doesn't do a very good job
+        conveying the issue at hand.\", \"label\": \"Negative\"}\n{\"text\": \"the
+        very definition of the `small' movie, but it is a good stepping stone for
+        director sprecher.\", \"label\": \"Positive\"}\n\r\n--------------------------HLWqBd4VRwVGrv4o\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nclassifications\r\n--------------------------HLWqBd4VRwVGrv4o--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=------------------------HLWqBd4VRwVGrv4o
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.10
+      Date:
+      - Sun, 18 Apr 2021 19:39:10 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '219'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 7e1258fe2da537be5b504072441ff3b0
+      Openai-Processing-Ms:
+      - '1089'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "file-x0L6ARCLbkDPtrX75D70fIM1",
+          "object": "file",
+          "bytes": 340,
+          "created_at": 1618774750,
+          "filename": "train.jsonl",
+          "purpose": "classifications",
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Sun, 18 Apr 2021 19:39:10 GMT
+recorded_with: VCR 6.0.0
