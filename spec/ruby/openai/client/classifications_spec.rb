@@ -35,11 +35,13 @@ RSpec.describe OpenAI::Client do
     context "with examples" do
       let(:query) { "It is a raining day :(" }
       let(:cassette) { "#{engine} classifications examples #{query}".downcase }
-      let(:examples) { [
-        ["A happy moment", "Positive"],
-        ["I am sad.", "Negative"],
-        ["I am feeling awesome", "Positive"]
-      ] }
+      let(:examples) do
+        [
+          ["A happy moment", "Positive"],
+          ["I am sad.", "Negative"],
+          ["I am feeling awesome", "Positive"]
+        ]
+      end
 
       let(:response) do
         OpenAI::Client.new.classifications(
