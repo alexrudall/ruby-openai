@@ -33,6 +33,8 @@ module OpenAI
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
 
+    # rubocop:disable Layout/LineLength
+    # rubocop:disable Metrics/ParameterLists
     def search(engine:, query: nil, documents: nil, file: nil, version: default_version, parameters: {})
       return legacy_search(engine: engine, query: query, documents: documents, file: file, version: version) if query || documents || file
 
@@ -45,6 +47,8 @@ module OpenAI
         body: parameters.to_json
       )
     end
+    # rubocop:enable Layout/LineLength
+    # rubocop:enable Metrics/ParameterLists
 
     private
 
