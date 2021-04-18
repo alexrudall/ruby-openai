@@ -82,7 +82,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 Pass documents and a query string to get semantic search scores against each document:
 
 ```
-    response = client.search(engine: "ada", documents: %w[washington hospital school], query: "president")
+    response = client.search(engine: "ada", parameters: { documents: %w[washington hospital school], query: "president" })
     puts response["data"].map { |d| d["score"] }
     => [202.0, 48.052, 19.247]
 ```
@@ -90,7 +90,7 @@ Pass documents and a query string to get semantic search scores against each doc
 You can alternatively search using the ID of a file you've uploaded:
 
 ```
-    client.search(engine: "ada", file: "abc123", query: "happy")
+    client.search(engine: "ada", parameters: { file: "abc123", query: "happy" })
 ```
 
 ### Answers
