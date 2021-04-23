@@ -145,6 +145,25 @@ Or use the ID of a file you've uploaded:
     })
 ```
 
+### Tokenizing 
+
+As per the [OpenAI docs](https://beta.openai.com/tokenizer?view=bpe)
+
+> The GPT family of models process text using tokens, which are common sequences of characters found in text. The models understand the statistical relationships between these tokens, and excel at producing the next token in a sequence of tokens.
+
+`OpenAI::Tokens` is an implementation in Ruby of https://github.com/latitudegames/GPT-3-Encoder
+
+```ruby
+    OpenAI::Tokens.encode("A tokenizer!") 
+    # > [32, 11241, 7509, 0]
+
+    OpenAI::Tokens.decode([32, 11241, 7509, 0])
+    # > "A tokenizer!"
+
+    OpenAI::Tokens.tokenize("A tokenizer!")
+    # > ["A", " token", "izer", "!"]
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
