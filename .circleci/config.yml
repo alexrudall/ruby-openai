@@ -34,7 +34,7 @@ workflows:
   checks:
     jobs:
       - rubocop
-      - test
-        matrix:
-            parameters:
-              ruby-image: ['cimg/ruby:2.4-node', 'cimg/ruby:2.5-node', 'cimg/ruby:2.6-node', 'cimg/ruby:2.7-node', 'cimg/ruby:3.0-node']
+      - test:
+          matrix:
+              parameters:
+                ruby-image: ['cimg/ruby:2.4-node', 'cimg/ruby:2.5-node', 'cimg/ruby:2.6-node', 'cimg/ruby:2.7-node', 'cimg/ruby:3.0-node']
