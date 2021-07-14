@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 2.5
   NewCops: enable
   SuggestExtensions: false
 
