@@ -9,19 +9,29 @@ A simple Ruby wrapper for the [OpenAI GPT-3 API](https://openai.com/blog/openai-
 
 ## Installation
 
+### Bundler
+
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby-openai'
+    gem 'ruby-openai'
 ```
 
 And then execute:
 
-    $ bundle install
+$ bundle install
 
-Or install it yourself as:
+### Gem install
 
-    $ gem install ruby-openai
+Or install with:
+
+$ gem install ruby-openai
+    
+and require with:
+
+```ruby
+    require "ruby/openai"
+```
 
 ## Usage
 
@@ -38,7 +48,6 @@ If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your s
 And create a client:
 
 ```ruby
-    require "ruby/openai"
     client = OpenAI::Client.new
 ```
 
@@ -47,7 +56,6 @@ And create a client:
 Alternatively you can pass your key directly to a new client:
 
 ```ruby
-    require "ruby/openai"
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
