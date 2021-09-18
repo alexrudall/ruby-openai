@@ -9,19 +9,29 @@ A simple Ruby wrapper for the [OpenAI GPT-3 API](https://openai.com/blog/openai-
 
 ## Installation
 
+### Bundler
+
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruby-openai'
+    gem 'ruby-openai'
 ```
 
 And then execute:
 
-    $ bundle install
+$ bundle install
 
-Or install it yourself as:
+### Gem install
 
-    $ gem install ruby-openai
+Or install with:
+
+$ gem install ruby-openai
+    
+and require with:
+
+```ruby
+    require "ruby/openai"
+```
 
 ## Usage
 
@@ -37,7 +47,7 @@ If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your s
 
 And create a client:
 
-```
+```ruby
     client = OpenAI::Client.new
 ```
 
@@ -45,7 +55,7 @@ And create a client:
 
 Alternatively you can pass your key directly to a new client:
 
-```
+```ruby
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
@@ -53,7 +63,7 @@ Alternatively you can pass your key directly to a new client:
 
 The engine options are currently "ada", "babbage", "curie" and "davinci". Hit the OpenAI API for a completion:
 
-```
+```ruby
     response = client.completions(engine: "davinci", parameters: { prompt: "Once upon a time", max_tokens: 5 })
     puts response.parsed_response['choices'].map{ |c| c["text"] }
     => [", there lived a great"]
@@ -63,14 +73,14 @@ The engine options are currently "ada", "babbage", "curie" and "davinci". Hit th
 
 Put your data in a `.jsonl` file like this:
 
-```
+```json
     {"text": "puppy A is happy", "metadata": "emotional state of puppy A"}
     {"text": "puppy B is sad", "metadata": "emotional state of puppy B"}
 ```
 
 and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
 
-```
+```ruby
     client.files.upload(parameters: { file: 'path/to/puppy.jsonl', purpose: 'search' })
     client.files.list
     client.files.retrieve(id: 123)
@@ -81,7 +91,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 
 Pass documents and a query string to get semantic search scores against each document:
 
-```
+```ruby
     response = client.search(engine: "ada", parameters: { documents: %w[washington hospital school], query: "president" })
     puts response["data"].map { |d| d["score"] }
     => [202.0, 48.052, 19.247]
@@ -89,7 +99,7 @@ Pass documents and a query string to get semantic search scores against each doc
 
 You can alternatively search using the ID of a file you've uploaded:
 
-```
+```ruby
     client.search(engine: "ada", parameters: { file: "abc123", query: "happy" })
 ```
 
@@ -97,7 +107,7 @@ You can alternatively search using the ID of a file you've uploaded:
 
 Pass documents, a question string, and an example question/response to get an answer to a question:
 
-```
+```ruby
     response = client.answers(parameters: {
         documents: ["Puppy A is happy.", "Puppy B is sad."],
         question: "which puppy is happy?",
@@ -109,7 +119,7 @@ Pass documents, a question string, and an example question/response to get an an
 
 Or use the ID of a file you've uploaded:
 
-```
+```ruby
     response = client.answers(parameters: {
         file: "123abc",
         question: "which puppy is happy?",
@@ -123,7 +133,7 @@ Or use the ID of a file you've uploaded:
 
 Pass examples and a query to predict the most likely labels:
 
-```
+```ruby
     response = client.classifications(parameters: {
         examples: [
             ["A happy moment", "Positive"],
@@ -137,7 +147,7 @@ Pass examples and a query to predict the most likely labels:
 
 Or use the ID of a file you've uploaded:
 
-```
+```ruby
     response = client.classifications(parameters: {
         file: "123abc,
         query: "It is a raining day :(",
