@@ -237,6 +237,19 @@ This fine-tuned model name can then be used in classifications:
 
 Do not pass the engine parameter when using a fine-tuned model.
 
+### Embeddings
+
+You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
+
+```ruby
+    client.embeddings(
+        engine: "babbage-similarity",
+        parameters: {
+          input: "The food was delicious and the waiter..."
+        }
+    )
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
