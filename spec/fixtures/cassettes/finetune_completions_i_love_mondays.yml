@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","prompt":"I
+        love Mondays"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 21:19:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '574'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - 9ea6ab953e2a39ed6fbc08d610d9f3e9
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id": "cmpl-4E445YpvIZ3EcIZQkIDewWP0Fj6xb", "object": "text_completion",
+        "created": 1639257565, "model": "ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52",
+        "choices": [{"text": "! But this month I say that to win over the family,
+        compete in Mary", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+
+'
+  recorded_at: Sat, 11 Dec 2021 21:19:26 GMT
+recorded_with: VCR 6.0.0

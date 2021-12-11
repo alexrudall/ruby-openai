@@ -15,8 +15,12 @@ module OpenAI
       post(url: "/#{version}/classifications", parameters: parameters)
     end
 
-    def completions(engine:, version: default_version, parameters: {})
-      post(url: "/#{version}/engines/#{engine}/completions", parameters: parameters)
+    def completions(engine: nil, version: default_version, parameters: {})
+      if engine
+        post(url: "/#{version}/engines/#{engine}/completions", parameters: parameters)
+      else
+        post(url: "/#{version}/completions", parameters: parameters)
+      end
     end
 
     def engines
@@ -25,6 +29,10 @@ module OpenAI
 
     def files
       @files ||= OpenAI::Files.new(access_token: @access_token)
+    end
+
+    def finetunes
+      @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
     end
 
     # rubocop:disable Layout/LineLength

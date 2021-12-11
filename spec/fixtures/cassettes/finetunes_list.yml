@@ -1,0 +1,127 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 21:11:43 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '5844'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 32e50e49961e75a023b40a11114c8f2e
+      Openai-Processing-Ms:
+      - '735'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "ft-ZzqySi12E41glJjrUwaOKhGS",
+              "object": "fine-tune",
+              "created_at": 1639254869,
+              "fine_tuned_model": null,
+              "hyperparams": {
+                "batch_size": null,
+                "learning_rate_multiplier": null,
+                "n_epochs": 4,
+                "prompt_loss_weight": 0.1,
+                "use_packing": null
+              },
+              "model": "ada",
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [],
+              "status": "cancelled",
+              "training_files": [
+                {
+                  "id": "file-YPzuQhPbFHWuqQRHdsLDm5qh",
+                  "object": "file",
+                  "bytes": 159,
+                  "created_at": 1639253361,
+                  "filename": "sentiment.jsonl",
+                  "purpose": "fine-tune",
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "updated_at": 1639254870,
+              "validation_files": []
+            },
+            {
+              "id": "ft-8L9s8NyryUH1jTVKedLfnjED",
+              "object": "fine-tune",
+              "created_at": 1639257031,
+              "fine_tuned_model": "ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-21-11-26",
+              "hyperparams": {
+                "batch_size": 1,
+                "learning_rate_multiplier": 0.05,
+                "n_epochs": 4,
+                "prompt_loss_weight": 0.1,
+                "use_packing": false
+              },
+              "model": "ada",
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [
+                {
+                  "id": "file-0lauqh5FEYpGD7kaPafOTgjd",
+                  "object": "file",
+                  "bytes": 407,
+                  "created_at": 1639257088,
+                  "filename": "compiled_results.csv",
+                  "purpose": "fine-tune-results",
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "status": "succeeded",
+              "training_files": [
+                {
+                  "id": "file-YPzuQhPbFHWuqQRHdsLDm5qh",
+                  "object": "file",
+                  "bytes": 159,
+                  "created_at": 1639253361,
+                  "filename": "sentiment.jsonl",
+                  "purpose": "fine-tune",
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "updated_at": 1639257091,
+              "validation_files": []
+            }
+          ]
+        }
+  recorded_at: Sat, 11 Dec 2021 21:11:43 GMT
+recorded_with: VCR 6.0.0
