@@ -1,12 +1,11 @@
 RSpec.describe OpenAI::Client do
   describe "#embeddings", :vcr do
     let(:input) { "The food was delicious and the waiter..." }
-    let(:cassette) { "#{engine} classifications #{input}".downcase }
+    let(:cassette) { "#{engine} embeddings #{input}".downcase }
     let(:response) do
       OpenAI::Client.new.embeddings(
         engine: engine,
         parameters: {
-          engine: engine,
           input: input
         }
       )
