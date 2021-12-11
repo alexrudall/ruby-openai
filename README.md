@@ -61,7 +61,14 @@ Alternatively you can pass your key directly to a new client:
 
 ### Engines
 
-There are different engines that can be used to generate text:
+There are different engines that can be used to generate text. For a full list and to retrieve information about a single engine:
+
+```ruby
+    client.engines.list
+    client.engines.retrieve(id: 'ada')
+```
+
+#### Examples
 
 - [Base](https://beta.openai.com/docs/engines/base-series)
   - ada

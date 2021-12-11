@@ -1,0 +1,340 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/engines
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 15:36:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '6514'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 1aa145479898e5f7d2587a9e6b7ea2bf
+      Openai-Processing-Ms:
+      - '4486'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "ada",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-code-search-code",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-code-search-text",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-instruct-beta",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-search-document",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-search-query",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "ada-similarity",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-code-search-code",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-code-search-text",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-instruct-beta",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-search-document",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-search-query",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "babbage-similarity",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie-instruct-beta",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie-instruct-beta-v2",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie-search-document",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie-search-query",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "curie-similarity",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "cushman-codex",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "davinci",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "davinci-codex",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "davinci-instruct-beta",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "davinci-instruct-beta-v3",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            },
+            {
+              "id": "davinci-similarity",
+              "object": "engine",
+              "created": null,
+              "max_replicas": null,
+              "owner": "openai",
+              "permissions": null,
+              "ready": true,
+              "ready_replicas": null,
+              "replicas": null
+            }
+          ]
+        }
+  recorded_at: Sat, 11 Dec 2021 15:36:02 GMT
+recorded_with: VCR 6.0.0
