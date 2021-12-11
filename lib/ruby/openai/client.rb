@@ -27,6 +27,10 @@ module OpenAI
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
 
+    def finetunes
+      @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
+    end
+
     # rubocop:disable Layout/LineLength
     # rubocop:disable Metrics/ParameterLists
     def search(engine:, query: nil, documents: nil, file: nil, version: default_version, parameters: {})
