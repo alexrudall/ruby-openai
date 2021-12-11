@@ -63,10 +63,21 @@ Alternatively you can pass your key directly to a new client:
 
 There are different engines that can be used to generate text:
 
-    - [Base](https://beta.openai.com/docs/engines/base-series): ada, babbage, curie, davinci
-    - [Instruct](https://beta.openai.com/docs/engines/instruct-series-beta): ada-instruct-beta, babbage-instruct-beta, curie-instruct-beta-v2, davinci-instruct-beta-v3
-    - [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta): davinci-codex, cushman-codex
-    - [Content Filter](https://beta.openai.com/docs/engines/content-filter): content-filter-alpha
+- [Base](https://beta.openai.com/docs/engines/base-series)
+  - ada
+  - babbage
+  - curie
+  - davinci
+- [Instruct](https://beta.openai.com/docs/engines/instruct-series-beta)
+  - ada-instruct-beta
+  - babbage-instruct-beta
+  - curie-instruct-beta-v2
+  - davinci-instruct-beta-v3
+- [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta)
+  - davinci-codex
+  - cushman-codex
+- [Content Filter](https://beta.openai.com/docs/engines/content-filter)
+  - content-filter-alpha
 
 ### Completions
 
