@@ -13,7 +13,7 @@ RSpec.describe OpenAI::Client do
           }
         )
       end
-      let(:text) { JSON.parse(response.body)["choices"].first["text"] }
+      let(:text) { JSON.parse(response.body)["choices"][0]["text"] }
       let(:cassette) { "#{engine} completions #{prompt}".downcase }
 
       context "with engine: ada" do

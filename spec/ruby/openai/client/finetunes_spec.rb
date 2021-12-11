@@ -37,7 +37,7 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r["data"].first["object"]).to eq("fine-tune")
+          expect(r["data"][0]["object"]).to eq("fine-tune")
         end
       end
     end
@@ -75,7 +75,7 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r["data"].first["object"]).to eq("fine-tune-event")
+          expect(r["data"][0]["object"]).to eq("fine-tune-event")
         end
       end
     end

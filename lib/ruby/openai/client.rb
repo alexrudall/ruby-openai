@@ -23,6 +23,10 @@ module OpenAI
       end
     end
 
+    def embeddings(engine:, version: default_version, parameters: {})
+      post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
+    end
+
     def engines
       @engines ||= OpenAI::Engines.new(access_token: @access_token)
     end
