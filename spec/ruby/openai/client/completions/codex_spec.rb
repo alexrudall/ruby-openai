@@ -1,7 +1,7 @@
 RSpec.describe OpenAI::Client do
-  describe "#completions" do
+  describe "#codex: codex engines" do
     context "with a prompt and max_tokens", :vcr do
-      let(:prompt) { "Once upon a time" }
+      let(:prompt) { "def hello_world\nputs" }
       let(:max_tokens) { 5 }
 
       let(:response) do
@@ -16,8 +16,8 @@ RSpec.describe OpenAI::Client do
       let(:text) { JSON.parse(response.body)["choices"].first["text"] }
       let(:cassette) { "#{engine} completions #{prompt}".downcase }
 
-      context "with engine: ada" do
-        let(:engine) { "ada" }
+      context "with engine: davinci-codex" do
+        let(:engine) { "davinci-codex" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
@@ -26,28 +26,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: babbage" do
-        let(:engine) { "babbage" }
-
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            expect(text.split.empty?).to eq(false)
-          end
-        end
-      end
-
-      context "with engine: curie" do
-        let(:engine) { "curie" }
-
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            expect(text.split.empty?).to eq(false)
-          end
-        end
-      end
-
-      context "with engine: davinci" do
-        let(:engine) { "davinci" }
+      context "with engine: cushman-codex" do
+        let(:engine) { "cushman-codex" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do

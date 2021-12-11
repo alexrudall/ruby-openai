@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/curie-instruct-beta-v2/completions
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 13:44:14 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '242'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - curie-instruct-beta:002
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '1229'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 75f9dfe5a3ac713934bc37aad4086f07
+    body:
+      encoding: UTF-8
+      string: '{"id": "cmpl-4Dwxa6ZzGlkrCqOdiDXtKnvmMHv0C", "object": "text_completion",
+        "created": 1639230254, "model": "curie-instruct-beta:002", "choices": [{"text":
+        " there was a kingdom that", "index": 0, "logprobs": null, "finish_reason":
+        "length"}]}
+
+'
+  recorded_at: Sat, 11 Dec 2021 13:44:14 GMT
+recorded_with: VCR 6.0.0

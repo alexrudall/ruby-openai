@@ -26,7 +26,7 @@ $ bundle install
 Or install with:
 
 $ gem install ruby-openai
-    
+
 and require with:
 
 ```ruby
@@ -59,9 +59,18 @@ Alternatively you can pass your key directly to a new client:
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
+### Engines
+
+There are different engines that can be used to generate text:
+
+    - [Base](https://beta.openai.com/docs/engines/base-series): ada, babbage, curie, davinci
+    - [Instruct](https://beta.openai.com/docs/engines/instruct-series-beta): ada-instruct-beta, babbage-instruct-beta, curie-instruct-beta-v2, davinci-instruct-beta-v3
+    - [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta): davinci-codex, cushman-codex
+    - [Content Filter](https://beta.openai.com/docs/engines/content-filter): content-filter-alpha
+
 ### Completions
 
-The engine options are currently "ada", "babbage", "curie" and "davinci". Hit the OpenAI API for a completion:
+Hit the OpenAI API for a completion:
 
 ```ruby
     response = client.completions(engine: "davinci", parameters: { prompt: "Once upon a time", max_tokens: 5 })
