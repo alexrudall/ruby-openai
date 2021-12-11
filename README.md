@@ -182,6 +182,61 @@ Or use the ID of a file you've uploaded:
     })
 ```
 
+### Fine-tunes
+
+Put your fine-tuning data in a `.jsonl` file like this:
+
+```json
+    {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+    {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
+```
+
+and pass the path to `client.files.upload` to upload it to OpenAI and get its ID:
+
+```ruby
+    response = client.files.upload(parameters: { file: 'path/to/sentiment.jsonl', purpose: 'fine-tune' })
+    file_id = JSON.parse(response.body)["id"]
+```
+
+You can then use this ID to create a fine-tune model:
+
+```ruby
+    response = client.finetunes.create(
+        parameters: {
+        training_file: file_id,
+        model: "ada"
+    })
+    fine_tune_id = JSON.parse(response.body)["id"]
+```
+
+That will give you the fine-tune ID. If you made a mistake you can cancel the fine-tune model before it is processed:
+
+```ruby
+    client.finetunes.cancel(id: fine_tune_id)
+```
+
+You may need to wait a short time for processing to complete. Once processed, you can use list or retrieve to get the name of the fine-tuned model:
+
+```ruby
+    client.finetunes.list
+    response = client.finetunes.retrieve(id: fine_tune_id)
+    fine_tuned_model = JSON.parse(response.body)["fine_tuned_model"]
+```
+
+This fine-tuned model name can then be used in classifications:
+
+```ruby
+    response = client.completions(
+        parameters: {
+            model: fine_tuned_model,
+            prompt: "I love Mondays!"
+        }
+    )
+    JSON.parse(response.body)["choices"].map { |c| c["text"] }
+```
+
+Do not pass the engine parameter when using a fine-tuned model.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
