@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 20:34:29 GMT
+      - Sat, 11 Dec 2021 21:10:31 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 4854bdab0dd2726fd089a78fd7a23916
+      - 39eedc659198d0b6ace84e510ee0a054
       Openai-Processing-Ms:
-      - '909'
+      - '901'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,15 +46,15 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ft-ZzqySi12E41glJjrUwaOKhGS",
+          "id": "ft-8L9s8NyryUH1jTVKedLfnjED",
           "object": "fine-tune",
-          "created_at": 1639254869,
+          "created_at": 1639257031,
           "events": [
             {
               "object": "fine-tune-event",
-              "created_at": 1639254869,
+              "created_at": 1639257031,
               "level": "info",
-              "message": "Created fine-tune: ft-ZzqySi12E41glJjrUwaOKhGS"
+              "message": "Created fine-tune: ft-8L9s8NyryUH1jTVKedLfnjED"
             }
           ],
           "fine_tuned_model": null,
@@ -81,8 +81,8 @@ http_interactions:
               "status_details": null
             }
           ],
-          "updated_at": 1639254869,
+          "updated_at": 1639257031,
           "validation_files": []
         }
-  recorded_at: Sat, 11 Dec 2021 20:34:29 GMT
+  recorded_at: Sat, 11 Dec 2021 21:10:31 GMT
 recorded_with: VCR 6.0.0

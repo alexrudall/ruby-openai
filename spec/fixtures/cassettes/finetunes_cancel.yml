@@ -91,4 +91,58 @@ http_interactions:
           "validation_files": []
         }
   recorded_at: Sat, 11 Dec 2021 20:34:30 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes/ft-8L9s8NyryUH1jTVKedLfnjED/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 21:11:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '199'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 2eb9e5493d497095aa2f73353e3dbfdd
+      Openai-Processing-Ms:
+      - '345'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "code": null,
+            "message": "Cannot cancel a job ft-8L9s8NyryUH1jTVKedLfnjED that already has status \"succeeded\".",
+            "param": null,
+            "type": "invalid_request_error"
+          }
+        }
+  recorded_at: Sat, 11 Dec 2021 21:11:54 GMT
 recorded_with: VCR 6.0.0
