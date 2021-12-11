@@ -198,7 +198,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI and get its ID
     file_id = JSON.parse(response.body)["id"]
 ```
 
-You can then use this ID to create a fine-tune model:
+You can then use this file ID to create a fine-tune model:
 
 ```ruby
     response = client.finetunes.create(
