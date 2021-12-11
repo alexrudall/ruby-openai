@@ -19,6 +19,10 @@ module OpenAI
       post(url: "/#{version}/engines/#{engine}/completions", parameters: parameters)
     end
 
+    def engines
+      @engines ||= OpenAI::Engines.new(access_token: @access_token)
+    end
+
     def files
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
