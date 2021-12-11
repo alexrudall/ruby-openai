@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/content-filter-alpha/completions
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"<|endoftext|>[A very rude word!]\n--\nLabel:","max_tokens":1,"temperature":0.0,"top_p":0,"logprobs":10}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 14:47:38 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - toxicity-double-18
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '1144'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - 4f99e0f9154076a031c4672e62680778
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id": "cmpl-4DxwwKICvr2sHfav7qetrlw3BPkUE", "object": "text_completion",
+        "created": 1639234058, "model": "toxicity-double-18", "choices": [{"text":
+        "2", "index": 0, "logprobs": {"tokens": ["2"], "token_logprobs": [-0.21323708],
+        "top_logprobs": [{"0": -1.9954998, "1": -2.8919287, "2": -0.21323708, "3":
+        -9.250633, "4": -10.043808}], "text_offset": [42]}, "finish_reason": "length"}]}
+
+'
+  recorded_at: Sat, 11 Dec 2021 14:47:38 GMT
+recorded_with: VCR 6.0.0
