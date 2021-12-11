@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/engines/ada-instruct-beta/completions
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 11 Dec 2021 13:42:36 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '240'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - ada-instruct-beta:001
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '1389'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 2b902a8bde43146ca7d58ab586a910c4
+    body:
+      encoding: UTF-8
+      string: '{"id": "cmpl-4Dww0Xmygv3rwZODPoUufK86cJlz2", "object": "text_completion",
+        "created": 1639230156, "model": "ada-instruct-beta:001", "choices": [{"text":
+        " there was a lovely young", "index": 0, "logprobs": null, "finish_reason":
+        "length"}]}
+
+'
+  recorded_at: Sat, 11 Dec 2021 13:42:37 GMT
+recorded_with: VCR 6.0.0

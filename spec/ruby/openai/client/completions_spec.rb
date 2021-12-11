@@ -55,6 +55,46 @@ RSpec.describe OpenAI::Client do
           end
         end
       end
+
+      context "with engine: ada-instruct-beta" do
+        let(:engine) { "ada-instruct-beta" }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(text.split.empty?).to eq(false)
+          end
+        end
+      end
+
+      context "with engine: babbage-instruct-beta" do
+        let(:engine) { "babbage-instruct-beta" }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(text.split.empty?).to eq(false)
+          end
+        end
+      end
+
+      context "with engine: curie-instruct-beta-v2" do
+        let(:engine) { "curie-instruct-beta-v2" }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(text.split.empty?).to eq(false)
+          end
+        end
+      end
+
+      context "with engine: davinci-instruct-beta-v3" do
+        let(:engine) { "davinci-instruct-beta-v3" }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(text.split.empty?).to eq(false)
+          end
+        end
+      end
     end
   end
 end
