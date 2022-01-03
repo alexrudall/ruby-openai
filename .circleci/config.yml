@@ -8,7 +8,7 @@ jobs:
   rubocop:
     parallelism: 1
     docker:
-      - image: cimg/ruby:3.0-node
+      - image: cimg/ruby:3.1-node
     steps:
       - checkout
       - ruby/install-deps
@@ -37,4 +37,9 @@ workflows:
       - test:
           matrix:
               parameters:
-                ruby-image: ['cimg/ruby:2.5-node', 'cimg/ruby:2.6-node', 'cimg/ruby:2.7-node', 'cimg/ruby:3.0-node']
+                ruby-image:
+                  - cimg/ruby:2.5-node
+                  - cimg/ruby:2.6-node
+                  - cimg/ruby:2.7-node
+                  - cimg/ruby:3.0-node
+                  - cimg/ruby:3.1-node
