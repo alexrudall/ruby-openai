@@ -5,17 +5,17 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------HLWqBd4VRwVGrv4o\r\nContent-Disposition:
+      string: "--------------------------5BPhfhy7gYGJQxWP\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"train.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
         \"good film, but very glum.\", \"label\": \"Positive\"}\n{\"text\": \"i sympathize
         with the plight of these families, but the movie doesn't do a very good job
         conveying the issue at hand.\", \"label\": \"Negative\"}\n{\"text\": \"the
         very definition of the `small' movie, but it is a good stepping stone for
-        director sprecher.\", \"label\": \"Positive\"}\n\r\n--------------------------HLWqBd4VRwVGrv4o\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nclassifications\r\n--------------------------HLWqBd4VRwVGrv4o--\r\n"
+        director sprecher.\", \"label\": \"Positive\"}\n\r\n--------------------------5BPhfhy7gYGJQxWP\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nclassifications\r\n--------------------------5BPhfhy7gYGJQxWP--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------HLWqBd4VRwVGrv4o
+      - multipart/form-data; boundary=------------------------5BPhfhy7gYGJQxWP
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -29,10 +29,8 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Sun, 18 Apr 2021 19:39:10 GMT
+      - Sun, 30 Jan 2022 16:19:03 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -44,9 +42,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 7e1258fe2da537be5b504072441ff3b0
+      - ebfa70c98e6aa8c665164f279ab783e3
       Openai-Processing-Ms:
-      - '1089'
+      - '1111'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -55,14 +53,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "file-x0L6ARCLbkDPtrX75D70fIM1",
           "object": "file",
-          "bytes": 340,
-          "created_at": 1618774750,
-          "filename": "train.jsonl",
+          "id": "file-zznVeDsAnXqPZIzWJIw4WzrD",
           "purpose": "classifications",
+          "filename": "train.jsonl",
+          "bytes": 340,
+          "created_at": 1643559543,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Sun, 18 Apr 2021 19:39:10 GMT
+  recorded_at: Sun, 30 Jan 2022 16:19:03 GMT
 recorded_with: VCR 6.0.0
