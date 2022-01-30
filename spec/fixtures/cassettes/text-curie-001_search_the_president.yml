@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/davinci/search
+    uri: https://api.openai.com/v1/engines/text-curie-001/search
     body:
       encoding: UTF-8
-      string: '{"file":"file-O7sl7uF0sTQknHVIP1k9X7jU","query":"happy"}'
+      string: '{"documents":["washington","hospital","school"],"query":"the president"}'
     headers:
       Content-Type:
       - application/json
@@ -22,14 +22,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Wed, 07 Apr 2021 20:52:47 GMT
+      - Sun, 30 Jan 2022 16:25:14 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '196'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -37,15 +35,17 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '629'
+      - '860'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Vary:
+      - Accept-Encoding
       X-Request-Id:
-      - 39d38e1a87158f31fc8d6ddd23d0e2c5
+      - fb4ed13eac3bc38c79a0501380dd7c23
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "list",
@@ -53,11 +53,20 @@ http_interactions:
             {
               "object": "search_result",
               "document": 0,
-              "score": 616.181,
-              "text": "puppy A is happy"
+              "score": 64.201
+            },
+            {
+              "object": "search_result",
+              "document": 1,
+              "score": -431.391
+            },
+            {
+              "object": "search_result",
+              "document": 2,
+              "score": -464.598
             }
           ],
-          "model": "davinci:2020-05-03"
+          "model": "text-curie:001"
         }
-  recorded_at: Wed, 07 Apr 2021 20:52:47 GMT
+  recorded_at: Sun, 30 Jan 2022 16:25:14 GMT
 recorded_with: VCR 6.0.0

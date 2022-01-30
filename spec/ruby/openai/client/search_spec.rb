@@ -12,9 +12,9 @@ RSpec.describe OpenAI::Client do
         JSON.parse(response.body)["id"]
       end
 
-      context "with engine: davinci" do
+      context "with engine: text-davinci-001" do
         let(:query) { "happy" }
-        let(:engine) { "davinci" }
+        let(:engine) { "text-davinci-001" }
         let(:response) do
           OpenAI::Client.new.search(
             engine: engine,
@@ -47,8 +47,8 @@ RSpec.describe OpenAI::Client do
       end
       let(:best_match) { JSON.parse(response.body)["data"].max_by { |d| d["score"] }["document"] }
 
-      context "with engine: ada" do
-        let(:engine) { "ada" }
+      context "with engine: text-ada-001" do
+        let(:engine) { "text-ada-001" }
 
         it "finds the best match" do
           VCR.use_cassette(cassette) do
@@ -57,8 +57,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: babbage" do
-        let(:engine) { "babbage" }
+      context "with engine: text-babbage-001" do
+        let(:engine) { "text-babbage-001" }
 
         it "finds the best match" do
           VCR.use_cassette(cassette) do
@@ -67,8 +67,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: curie" do
-        let(:engine) { "curie" }
+      context "with engine: text-curie-001" do
+        let(:engine) { "text-curie-001" }
 
         it "finds the best match" do
           VCR.use_cassette(cassette) do
@@ -77,8 +77,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: davinci" do
-        let(:engine) { "davinci" }
+      context "with engine: text-davinci-001" do
+        let(:engine) { "text-davinci-001" }
 
         it "finds the best match" do
           VCR.use_cassette(cassette) do

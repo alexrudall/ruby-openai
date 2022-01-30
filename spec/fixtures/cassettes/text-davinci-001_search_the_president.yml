@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/curie/search
+    uri: https://api.openai.com/v1/engines/text-davinci-001/search
     body:
       encoding: UTF-8
       string: '{"documents":["washington","hospital","school"],"query":"the president"}'
@@ -22,10 +22,8 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Sun, 22 Nov 2020 15:13:54 GMT
+      - Sun, 30 Jan 2022 16:25:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,13 +35,15 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '25'
+      - '49'
+      Openai-Version:
+      - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Vary:
       - Accept-Encoding
       X-Request-Id:
-      - 37e703cf3aad08924c3f58f1facaae8b
+      - 1de47c4ee540f260f6fecea337911977
     body:
       encoding: ASCII-8BIT
       string: |
@@ -53,20 +53,20 @@ http_interactions:
             {
               "object": "search_result",
               "document": 0,
-              "score": 148.381
+              "score": 180.308
             },
             {
               "object": "search_result",
               "document": 1,
-              "score": 43.463
+              "score": -475.931
             },
             {
               "object": "search_result",
               "document": 2,
-              "score": 53.351
+              "score": -426.813
             }
           ],
-          "model": "curie:2020-05-03"
+          "model": "text-davinci:001"
         }
-  recorded_at: Sun, 22 Nov 2020 15:13:55 GMT
+  recorded_at: Sun, 30 Jan 2022 16:25:15 GMT
 recorded_with: VCR 6.0.0
