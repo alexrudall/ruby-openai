@@ -1,5 +1,5 @@
 RSpec.describe OpenAI::Client do
-  describe "#completions: instruct engines" do
+  describe "#completions: GPT-3 engines" do
     context "with a prompt and max_tokens", :vcr do
       let(:prompt) { "Once upon a time" }
       let(:max_tokens) { 5 }
@@ -16,8 +16,8 @@ RSpec.describe OpenAI::Client do
       let(:text) { JSON.parse(response.body)["choices"][0]["text"] }
       let(:cassette) { "#{engine} completions #{prompt}".downcase }
 
-      context "with engine: ada-instruct-beta" do
-        let(:engine) { "ada-instruct-beta" }
+      context "with engine: text-ada-001" do
+        let(:engine) { "text-ada-001" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
@@ -26,8 +26,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: babbage-instruct-beta" do
-        let(:engine) { "babbage-instruct-beta" }
+      context "with engine: text-babbage-001" do
+        let(:engine) { "text-babbage-001" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
@@ -36,8 +36,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: curie-instruct-beta-v2" do
-        let(:engine) { "curie-instruct-beta-v2" }
+      context "with engine: text-curie-001" do
+        let(:engine) { "text-curie-001" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
@@ -46,8 +46,8 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with engine: davinci-instruct-beta-v3" do
-        let(:engine) { "davinci-instruct-beta-v3" }
+      context "with engine: text-davinci-001" do
+        let(:engine) { "text-davinci-001" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do

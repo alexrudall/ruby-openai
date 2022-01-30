@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/davinci/completions
+    uri: https://api.openai.com/v1/engines/text-babbage-001/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -22,34 +22,36 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Sun, 22 Nov 2020 15:16:01 GMT
+      - Sun, 30 Jan 2022 16:11:36 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '223'
+      - '228'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - no-cache, must-revalidate
+      Openai-Model:
+      - text-babbage:001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '700'
+      - '1284'
+      Openai-Version:
+      - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - ec1467617a0295fc296e8a0092b5ae37
+      - 8d4bbd6dbb2e5202dcce1379fc0de61b
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-1x7cgTdqIX6e1aLAbyIrpKgt", "object": "text_completion",
-        "created": 1606058160, "model": "davinci:2020-05-03", "choices": [{"text":
-        ",\u201d said the", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id": "cmpl-4W75cCmcM46IsZyJj8Fh0kRj8fmRz", "object": "text_completion",
+        "created": 1643559096, "model": "text-babbage:001", "choices": [{"text": ",
+        a group of dream", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Sun, 22 Nov 2020 15:16:01 GMT
+  recorded_at: Sun, 30 Jan 2022 16:11:36 GMT
 recorded_with: VCR 6.0.0

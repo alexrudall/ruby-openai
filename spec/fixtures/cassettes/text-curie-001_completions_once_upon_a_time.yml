@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/ada-instruct-beta/completions
+    uri: https://api.openai.com/v1/engines/text-curie-001/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 13:42:36 GMT
+      - Sun, 30 Jan 2022 16:11:38 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '240'
+      - '223'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -35,24 +35,23 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - ada-instruct-beta:001
+      - text-curie:001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1389'
+      - '1247'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 2b902a8bde43146ca7d58ab586a910c4
+      - f0b3b34291b410afe1d8c3c6acd26e83
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4Dww0Xmygv3rwZODPoUufK86cJlz2", "object": "text_completion",
-        "created": 1639230156, "model": "ada-instruct-beta:001", "choices": [{"text":
-        " there was a lovely young", "index": 0, "logprobs": null, "finish_reason":
-        "length"}]}
+      string: '{"id": "cmpl-4W75eFCVvh8fFk6mBMhH2LXZpl0IW", "object": "text_completion",
+        "created": 1643559098, "model": "text-curie:001", "choices": [{"text": "\n\nThere
+        was a", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Sat, 11 Dec 2021 13:42:37 GMT
+  recorded_at: Sun, 30 Jan 2022 16:11:38 GMT
 recorded_with: VCR 6.0.0
