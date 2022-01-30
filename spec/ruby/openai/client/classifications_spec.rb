@@ -21,8 +21,8 @@ RSpec.describe OpenAI::Client do
         )
       end
 
-      context "with engine: curie" do
-        let(:engine) { "curie" }
+      context "with engine: text-curie-001" do
+        let(:engine) { "text-curie-001" }
 
         it "classifies the query" do
           VCR.use_cassette(cassette) do
@@ -53,8 +53,8 @@ RSpec.describe OpenAI::Client do
         )
       end
 
-      context "with engine: ada" do
-        let(:engine) { "ada" }
+      context "with engine: text-ada-001" do
+        let(:engine) { "text-ada-001" }
 
         it "classifies the query" do
           VCR.use_cassette(cassette) do

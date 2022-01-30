@@ -26,12 +26,12 @@ RSpec.describe OpenAI::Client do
         )
       end
 
-      context "with engine: davinci" do
-        let(:engine) { "davinci" }
+      context "with engine: text-davinci-001" do
+        let(:engine) { "text-davinci-001" }
 
         it "answers the question" do
           VCR.use_cassette(cassette) do
-            expect(response.parsed_response["answers"][0]).to include("puppy A is happy")
+            expect(response.parsed_response["answers"][0].downcase).to include("puppy a is happy")
           end
         end
       end
@@ -53,8 +53,8 @@ RSpec.describe OpenAI::Client do
         )
       end
 
-      context "with engine: ada" do
-        let(:engine) { "ada" }
+      context "with engine: text-ada-001" do
+        let(:engine) { "text-ada-001" }
 
         it "answers the question" do
           VCR.use_cassette(cassette) do

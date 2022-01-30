@@ -65,21 +65,16 @@ There are different engines that can be used to generate text. For a full list a
 
 ```ruby
     client.engines.list
-    client.engines.retrieve(id: 'ada')
+    client.engines.retrieve(id: 'text-ada-001')
 ```
 
 #### Examples
 
-- [Base](https://beta.openai.com/docs/engines/base-series)
-  - ada
-  - babbage
-  - curie
-  - davinci
-- [Instruct](https://beta.openai.com/docs/engines/instruct-series-beta)
-  - ada-instruct-beta
-  - babbage-instruct-beta
-  - curie-instruct-beta-v2
-  - davinci-instruct-beta-v3
+- [GPT-3](https://beta.openai.com/docs/engines/gpt-3)
+  - text-ada-001
+  - text-babbage-001
+  - text-curie-001
+  - text-davinci-001
 - [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta)
   - davinci-codex
   - cushman-codex
@@ -91,7 +86,7 @@ There are different engines that can be used to generate text. For a full list a
 Hit the OpenAI API for a completion:
 
 ```ruby
-    response = client.completions(engine: "davinci", parameters: { prompt: "Once upon a time", max_tokens: 5 })
+    response = client.completions(engine: "text-davinci-001", parameters: { prompt: "Once upon a time", max_tokens: 5 })
     puts response.parsed_response['choices'].map{ |c| c["text"] }
     => [", there lived a great"]
 ```
@@ -119,7 +114,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 Pass documents and a query string to get semantic search scores against each document:
 
 ```ruby
-    response = client.search(engine: "ada", parameters: { documents: %w[washington hospital school], query: "president" })
+    response = client.search(engine: "text-ada-001", parameters: { documents: %w[washington hospital school], query: "president" })
     puts response["data"].map { |d| d["score"] }
     => [202.0, 48.052, 19.247]
 ```
@@ -127,7 +122,7 @@ Pass documents and a query string to get semantic search scores against each doc
 You can alternatively search using the ID of a file you've uploaded:
 
 ```ruby
-    client.search(engine: "ada", parameters: { file: "abc123", query: "happy" })
+    client.search(engine: "text-ada-001", parameters: { file: "abc123", query: "happy" })
 ```
 
 ### Answers
@@ -138,7 +133,7 @@ Pass documents, a question string, and an example question/response to get an an
     response = client.answers(parameters: {
         documents: ["Puppy A is happy.", "Puppy B is sad."],
         question: "which puppy is happy?",
-        model: "curie",
+        model: "text-curie-001",
         examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
         examples: [["What is human life expectancy in the United States?","78 years."]],
     })
@@ -150,7 +145,7 @@ Or use the ID of a file you've uploaded:
     response = client.answers(parameters: {
         file: "123abc",
         question: "which puppy is happy?",
-        model: "curie",
+        model: "text-curie-001",
         examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
         examples: [["What is human life expectancy in the United States?","78 years."]],
     })
@@ -168,7 +163,7 @@ Pass examples and a query to predict the most likely labels:
             ["I am feeling awesome", "Positive"]
         ],
         query: "It is a raining day :(",
-        model: "ada"
+        model: "text-ada-001"
     })
 ```
 
@@ -178,7 +173,7 @@ Or use the ID of a file you've uploaded:
     response = client.classifications(parameters: {
         file: "123abc,
         query: "It is a raining day :(",
-        model: "ada"
+        model: "text-ada-001"
     })
 ```
 
@@ -204,7 +199,7 @@ You can then use this file ID to create a fine-tune model:
     response = client.finetunes.create(
         parameters: {
         training_file: file_id,
-        model: "ada"
+        model: "text-ada-001"
     })
     fine_tune_id = JSON.parse(response.body)["id"]
 ```

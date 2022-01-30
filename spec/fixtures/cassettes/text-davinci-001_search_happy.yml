@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/babbage-instruct-beta/completions
+    uri: https://api.openai.com/v1/engines/text-davinci-001/search
     body:
       encoding: UTF-8
-      string: '{"prompt":"Once upon a time","max_tokens":5}'
+      string: '{"file":"file-vtIIcGiQectbHxCyxOdKZM3b","query":"happy"}'
     headers:
       Content-Type:
       - application/json
@@ -23,36 +23,39 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 13:44:11 GMT
+      - Sun, 30 Jan 2022 16:25:07 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '250'
+      - '194'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
       - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - babbage-instruct-beta:001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1295'
+      - '1707'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - a4db45194657ff33df6eadff026e73ea
+      - be7f28bdc845822bcac45f8bcb18bd7b
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4DwxXyY6iwaXy5h6C247oXhKqWDCD", "object": "text_completion",
-        "created": 1639230251, "model": "babbage-instruct-beta:001", "choices": [{"text":
-        " there was a wonderful princess", "index": 0, "logprobs": null, "finish_reason":
-        "length"}]}
-
-'
-  recorded_at: Sat, 11 Dec 2021 13:44:11 GMT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "search_result",
+              "document": 0,
+              "score": 232.212,
+              "text": "puppy A is happy"
+            }
+          ],
+          "model": "text-davinci:001"
+        }
+  recorded_at: Sun, 30 Jan 2022 16:25:07 GMT
 recorded_with: VCR 6.0.0

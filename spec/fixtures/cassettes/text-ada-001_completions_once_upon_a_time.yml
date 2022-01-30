@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/davinci-instruct-beta-v3/completions
+    uri: https://api.openai.com/v1/engines/text-ada-001/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 13:44:16 GMT
+      - Sun, 30 Jan 2022 16:11:33 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '250'
+      - '225'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -35,24 +35,23 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - davinci-instruct-v3:2021-11-19
+      - text-ada:001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1319'
+      - '1351'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 0bdb1ff60af077b445bd557ff958ba3f
+      - a6e47be5dc97f2192dfe2b52bca2191a
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4DwxckyfJXHj7jBsZ3VQqiF0CdV8Z", "object": "text_completion",
-        "created": 1639230256, "model": "davinci-instruct-v3:2021-11-19", "choices":
-        [{"text": " there was a kingdom where", "index": 0, "logprobs": null, "finish_reason":
-        "length"}]}
+      string: '{"id": "cmpl-4W75Z5vGHOiD1WcoMdr0hg0bXUmyf", "object": "text_completion",
+        "created": 1643559093, "model": "text-ada:001", "choices": [{"text": " there
+        was a cave\n", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Sat, 11 Dec 2021 13:44:16 GMT
+  recorded_at: Sun, 30 Jan 2022 16:11:33 GMT
 recorded_with: VCR 6.0.0

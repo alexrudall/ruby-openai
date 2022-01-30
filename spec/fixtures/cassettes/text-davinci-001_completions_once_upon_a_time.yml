@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/curie-instruct-beta-v2/completions
+    uri: https://api.openai.com/v1/engines/text-davinci-001/completions
     body:
       encoding: UTF-8
       string: '{"prompt":"Once upon a time","max_tokens":5}'
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 13:44:14 GMT
+      - Sun, 30 Jan 2022 16:11:42 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '242'
+      - '232'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -35,24 +35,23 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - curie-instruct-beta:002
+      - text-davinci:001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1229'
+      - '1996'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 75f9dfe5a3ac713934bc37aad4086f07
+      - 1596375a5f21746eefb7a41be39bfaea
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4Dwxa6ZzGlkrCqOdiDXtKnvmMHv0C", "object": "text_completion",
-        "created": 1639230254, "model": "curie-instruct-beta:002", "choices": [{"text":
-        " there was a kingdom that", "index": 0, "logprobs": null, "finish_reason":
-        "length"}]}
+      string: '{"id": "cmpl-4W75hj4F1IxStKlPO6ryL7LHmt1kp", "object": "text_completion",
+        "created": 1643559101, "model": "text-davinci:001", "choices": [{"text": ",
+        there was a princess", "index": 0, "logprobs": null, "finish_reason": "length"}]}
 
 '
-  recorded_at: Sat, 11 Dec 2021 13:44:14 GMT
+  recorded_at: Sun, 30 Jan 2022 16:11:42 GMT
 recorded_with: VCR 6.0.0
