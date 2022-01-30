@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------kn_8_UCUXEgqsPIG\r\nContent-Disposition:
+      string: "--------------------------1OvJr7SWFlUdu6fE\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"puppy.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
         \"puppy A is happy\", \"metadata\": \"emotional state of puppy A\"}\n{\"text\":
-        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------kn_8_UCUXEgqsPIG\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------kn_8_UCUXEgqsPIG--\r\n"
+        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------1OvJr7SWFlUdu6fE\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------1OvJr7SWFlUdu6fE--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------kn_8_UCUXEgqsPIG
+      - multipart/form-data; boundary=------------------------1OvJr7SWFlUdu6fE
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -26,14 +26,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Thu, 08 Apr 2021 16:59:15 GMT
+      - Sun, 30 Jan 2022 16:16:05 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '185'
+      - '211'
       Connection:
       - keep-alive
       Openai-Version:
@@ -41,9 +39,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 952b50c37313b0ad2aeef2f84788bec2
+      - 7357f8a8857c862b95d0fc5380286a1e
       Openai-Processing-Ms:
-      - '1058'
+      - '1329'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -52,13 +50,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "file-lh3jNIi13J42WczTc29IZfqS",
           "object": "file",
-          "bytes": 140,
-          "created_at": 1617901155,
-          "filename": "puppy.jsonl",
+          "id": "file-Vi7YSx8iOBC0m82JF5UV97Ey",
           "purpose": "answers",
-          "status": "uploaded"
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1643559365,
+          "status": "uploaded",
+          "status_details": null
         }
-  recorded_at: Thu, 08 Apr 2021 16:59:15 GMT
+  recorded_at: Sun, 30 Jan 2022 16:16:05 GMT
 recorded_with: VCR 6.0.0

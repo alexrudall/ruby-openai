@@ -5,9 +5,9 @@ http_interactions:
     uri: https://api.openai.com/v1/answers
     body:
       encoding: UTF-8
-      string: '{"model":"davinci","question":"which puppy is happy?","examples":[["What
+      string: '{"model":"text-davinci-001","question":"which puppy is happy?","examples":[["What
         is human life expectancy in the United States?","78 years."]],"examples_context":"In
-        2017, U.S. life expectancy was 78.6 years.","file":"file-lh3jNIi13J42WczTc29IZfqS"}'
+        2017, U.S. life expectancy was 78.6 years.","file":"file-Vi7YSx8iOBC0m82JF5UV97Ey"}'
     headers:
       Content-Type:
       - application/json
@@ -24,56 +24,52 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Thu, 08 Apr 2021 17:03:01 GMT
+      - Sun, 30 Jan 2022 16:16:49 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '508'
       Connection:
       - keep-alive
-      Vary:
-      - Accept-Encoding
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5e2eec4770964badb30eec54873b2e5f
+      - bc827b1f27f7c75bed9ffbdc8ee8669c
       Openai-Processing-Ms:
-      - '2980'
+      - '2987'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: |
         {
           "answers": [
-            "puppy A\n\n===\nContext: puppy A is happy puppy B is sad"
+            "Puppy A is happy."
           ],
-          "completion": "cmpl-2mSLUyoYm4crElNCZNrG3s6CWAXCR",
-          "file": "file-lh3jNIi13J42WczTc29IZfqS",
-          "model": "davinci:2020-05-03",
+          "completion": "cmpl-4W7AfVqrqLX0JOp9BSpdyVaXLvuwW",
+          "file": "file-Vi7YSx8iOBC0m82JF5UV97Ey",
+          "model": "text-davinci:001",
           "object": "answer",
           "search_model": "ada:2020-05-03",
           "selected_documents": [
             {
               "document": 1,
               "object": "search_result",
-              "score": 203.703,
+              "score": 203.57,
               "text": "puppy B is sad"
             },
             {
               "document": 0,
               "object": "search_result",
-              "score": 276.094,
+              "score": 275.341,
               "text": "puppy A is happy"
             }
           ]
         }
-  recorded_at: Thu, 08 Apr 2021 17:03:01 GMT
+  recorded_at: Sun, 30 Jan 2022 16:16:49 GMT
 recorded_with: VCR 6.0.0
