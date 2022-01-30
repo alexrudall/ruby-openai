@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/engines/ada
+    uri: https://api.openai.com/v1/engines/text-ada-001
     body:
       encoding: US-ASCII
       string: ''
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 15:58:42 GMT
+      - Sun, 30 Jan 2022 16:20:29 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '190'
+      - '199'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - ba309d0cf6aab3e56cddcdfd722995de
+      - 061725e0311083a7c53adae8b31fe652
       Openai-Processing-Ms:
-      - '366'
+      - '487'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,15 +46,15 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ada",
           "object": "engine",
-          "created": null,
-          "max_replicas": null,
-          "owner": "openai",
-          "permissions": null,
+          "id": "text-ada-001",
           "ready": true,
+          "owner": "openai",
+          "created": null,
+          "permissions": null,
+          "replicas": null,
           "ready_replicas": null,
-          "replicas": null
+          "max_replicas": null
         }
-  recorded_at: Sat, 11 Dec 2021 15:58:42 GMT
+  recorded_at: Sun, 30 Jan 2022 16:20:29 GMT
 recorded_with: VCR 6.0.0
