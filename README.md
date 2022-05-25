@@ -35,7 +35,7 @@ and require with:
 
 ## Usage
 
-Get your API key from [https://beta.openai.com/docs/developer-quickstart/your-api-keys](https://beta.openai.com/docs/developer-quickstart/your-api-keys)
+Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
 
 ### With dotenv
 
