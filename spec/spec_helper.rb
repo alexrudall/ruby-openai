@@ -6,7 +6,7 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = { record: :new_episodes }
-  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { ENV["OPENAI_ACCESS_TOKEN"] }
+  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { ENV.fetch("OPENAI_ACCESS_TOKEN") }
 end
 
 RSpec.configure do |c|

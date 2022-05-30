@@ -4,7 +4,7 @@ module OpenAI
     base_uri "https://api.openai.com"
 
     def initialize(access_token: nil)
-      @access_token = access_token || ENV["OPENAI_ACCESS_TOKEN"]
+      @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
     end
 
     def answers(version: default_version, parameters: {})
