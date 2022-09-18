@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 30 Jan 2022 16:19:28 GMT
+      - Sun, 18 Sep 2022 22:34:39 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '889'
+      - '890'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 657446753de2f736cd60ff026ab10404
+      - 86ddbce62befba37c6129d068b825f26
       Openai-Processing-Ms:
-      - '3842'
+      - '1385'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,10 +46,10 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "completion": "cmpl-4W7DEC8IpKxNE0nD65RROYcPscBJY",
+          "completion": "cmpl-5rx9zUbBdZdxuLmxEhauFeQdRGSt8",
           "file": "file-zznVeDsAnXqPZIzWJIw4WzrD",
           "label": "Positive",
-          "model": "text-curie:001",
+          "model": "text-curie-001",
           "object": "classification",
           "search_model": "ada:2020-05-03",
           "selected_examples": [
@@ -57,24 +57,24 @@ http_interactions:
               "document": 1,
               "label": "Negative",
               "object": "search_result",
-              "score": 147.785,
+              "score": 147.951,
               "text": "i sympathize with the plight of these families, but the movie doesn't do a very good job conveying the issue at hand."
             },
             {
               "document": 0,
               "label": "Positive",
               "object": "search_result",
-              "score": 138.811,
+              "score": 138.368,
               "text": "the very definition of the `small' movie, but it is a good stepping stone for director sprecher."
             },
             {
               "document": 2,
               "label": "Positive",
               "object": "search_result",
-              "score": 214.54,
+              "score": 214.552,
               "text": "good film, but very glum."
             }
           ]
         }
-  recorded_at: Sun, 30 Jan 2022 16:19:28 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sun, 18 Sep 2022 22:34:39 GMT
+recorded_with: VCR 6.1.0

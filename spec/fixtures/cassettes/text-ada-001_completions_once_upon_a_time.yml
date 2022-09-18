@@ -54,4 +54,57 @@ http_interactions:
 
 '
   recorded_at: Sun, 30 Jan 2022 16:11:33 GMT
-recorded_with: VCR 6.0.0
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"text-ada-001","prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 18 Sep 2022 22:24:49 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '279'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - text-ada-001
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '164'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 8eee37c439779988bd1430a34e4068e6
+    body:
+      encoding: UTF-8
+      string: '{"id":"cmpl-5rx0TL5dkyxtKNUG6A9Z3Aye3j2KH","object":"text_completion","created":1663539889,"model":"text-ada-001","choices":[{"text":"
+        there was a chicken\n","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+
+'
+  recorded_at: Sun, 18 Sep 2022 22:24:49 GMT
+recorded_with: VCR 6.1.0

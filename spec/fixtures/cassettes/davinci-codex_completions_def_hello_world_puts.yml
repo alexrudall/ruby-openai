@@ -54,4 +54,57 @@ http_interactions:
 
 '
   recorded_at: Sat, 11 Dec 2021 14:28:41 GMT
-recorded_with: VCR 6.0.0
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"davinci-codex","prompt":"def hello_world\nputs","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 18 Sep 2022 22:17:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '269'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - davinci-codex
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '422'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - da703e822c17f5075eb0ce986648f8e4
+    body:
+      encoding: UTF-8
+      string: '{"id":"cmpl-5rwtfJs0CXIGQ5VhHSLGmInG9bic2","object":"text_completion","created":1663539467,"model":"davinci-codex","choices":[{"text":"
+        \"#{Time.","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
+
+'
+  recorded_at: Sun, 18 Sep 2022 22:17:48 GMT
+recorded_with: VCR 6.1.0

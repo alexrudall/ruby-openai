@@ -84,7 +84,12 @@ There are different models that can be used to generate text. For a full list an
 Hit the OpenAI API for a completion:
 
 ```ruby
-    response = client.completions(engine: "text-davinci-001", parameters: { prompt: "Once upon a time", max_tokens: 5 })
+    response = client.completions(
+        parameters: {
+            model: "text-davinci-001",
+            prompt: "Once upon a time",
+            max_tokens: 5
+        })
     puts response.parsed_response['choices'].map{ |c| c["text"] }
     => [", there lived a great"]
 ```
@@ -111,9 +116,9 @@ You can use the embeddings endpoint to get a vector of numbers representing an i
 
 ```ruby
     client.embeddings(
-        engine: "babbage-similarity",
         parameters: {
-          input: "The food was delicious and the waiter..."
+            model: "babbage-similarity",
+            input: "The food was delicious and the waiter..."
         }
     )
 ```
@@ -188,8 +193,6 @@ This fine-tuned model name can then be used in classifications:
     )
     JSON.parse(response.body)["choices"].map { |c| c["text"] }
 ```
-
-Do not pass the engine parameter when using a fine-tuned model.
 
 ### Moderations
 

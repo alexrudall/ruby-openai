@@ -15,20 +15,16 @@ module OpenAI
       post(url: "/#{version}/classifications", parameters: parameters)
     end
 
-    def completions(engine: nil, version: default_version, parameters: {})
-      if engine
-        post(url: "/#{version}/engines/#{engine}/completions", parameters: parameters)
-      else
-        post(url: "/#{version}/completions", parameters: parameters)
-      end
+    def completions(version: default_version, parameters: {})
+      post(url: "/#{version}/completions", parameters: parameters)
     end
 
     def edits(version: default_version, parameters: {})
       post(url: "/#{version}/edits", parameters: parameters)
     end
 
-    def embeddings(engine:, version: default_version, parameters: {})
-      post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
+    def embeddings(version: default_version, parameters: {})
+      post(url: "/#{version}/embeddings", parameters: parameters)
     end
 
     def files
