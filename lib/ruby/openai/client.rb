@@ -15,7 +15,9 @@ module OpenAI
       post(url: "/#{version}/classifications", parameters: parameters)
     end
 
-    def completions(version: default_version, parameters: {})
+    def completions(engine: nil, version: default_version, parameters: {})
+      parameters = deprecate_engine(engine: engine, method: "completions", parameters: parameters)
+
       post(url: "/#{version}/completions", parameters: parameters)
     end
 
@@ -23,7 +25,9 @@ module OpenAI
       post(url: "/#{version}/edits", parameters: parameters)
     end
 
-    def embeddings(version: default_version, parameters: {})
+    def embeddings(engine: nil, version: default_version, parameters: {})
+      parameters = deprecate_engine(engine: engine, method: "embeddings", parameters: parameters)
+
       post(url: "/#{version}/embeddings", parameters: parameters)
     end
 
@@ -44,6 +48,19 @@ module OpenAI
     end
 
     private
+
+    def deprecate_engine(engine:, method:, parameters:)
+      return parameters unless engine
+
+      parameters = { model: engine }.merge(parameters)
+
+      warn "[DEPRECATION WARNING] [ruby-openai] Passing `engine` directly to `Client##{method}` is
+      deprecated and will be removed in ruby-openai 3.0. Pass `model` within `parameters` instead:
+      client.completions(parameters: { #{parameters.map { |k, v| "#{k}: \"#{v}\"" }.join(', ')} })
+      "
+
+      parameters
+    end
 
     def default_version
       "v1".freeze
