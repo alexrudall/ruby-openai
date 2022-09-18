@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/moderations
+    body:
+      encoding: UTF-8
+      string: '{"input":"I''m worried about that."}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 18 Sep 2022 17:38:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '730'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 2f0b1171e28a315fbdddc7843fa54848
+      Openai-Processing-Ms:
+      - '132'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "modr-5rsXqMsFFzPc1cQHpZSXqZirTAZ6i",
+          "model": "text-moderation-003",
+          "results": [
+            {
+              "categories": {
+                "hate": false,
+                "hate/threatening": false,
+                "self-harm": false,
+                "sexual": false,
+                "sexual/minors": false,
+                "violence": false,
+                "violence/graphic": false
+              },
+              "category_scores": {
+                "hate": 5.505014632944949e-05,
+                "hate/threatening": 2.4553044113417855e-06,
+                "self-harm": 0.00010162237595068291,
+                "sexual": 3.4607543057063594e-05,
+                "sexual/minors": 1.4058183296583593e-05,
+                "violence": 0.00017292634584009647,
+                "violence/graphic": 5.601859811577015e-06
+              },
+              "flagged": false
+            }
+          ]
+        }
+  recorded_at: Sun, 18 Sep 2022 17:38:58 GMT
+recorded_with: VCR 6.0.0
