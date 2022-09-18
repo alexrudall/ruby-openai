@@ -194,22 +194,6 @@ Pass a string to check if it violates OpenAI's Content Policy:
     => 5.505014632944949e-05
 ```
 
-### Searches
-
-Pass documents and a query string to get semantic search scores against each document:
-
-```ruby
-    response = client.search(engine: "text-ada-001", parameters: { documents: %w[washington hospital school], query: "president" })
-    puts response["data"].map { |d| d["score"] }
-    => [202.0, 48.052, 19.247]
-```
-
-You can alternatively search using the ID of a file you've uploaded:
-
-```ruby
-    client.search(engine: "text-ada-001", parameters: { file: "abc123", query: "happy" })
-```
-
 ### Classifications
 
 Pass examples and a query to predict the most likely labels:
