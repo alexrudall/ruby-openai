@@ -1,25 +1,25 @@
 RSpec.describe OpenAI::Client do
-  describe "#engines" do
+  describe "#models" do
     describe "#list", :vcr do
-      let(:response) { OpenAI::Client.new.engines.list }
-      let(:cassette) { "engines list" }
+      let(:response) { OpenAI::Client.new.models.list }
+      let(:cassette) { "models list" }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r["data"][0]["object"]).to eq("engine")
+          expect(r["data"][0]["object"]).to eq("model")
         end
       end
     end
 
     describe "#retrieve" do
-      let(:cassette) { "engines retrieve" }
-      let(:response) { OpenAI::Client.new.engines.retrieve(id: "text-ada-001") }
+      let(:cassette) { "models retrieve" }
+      let(:response) { OpenAI::Client.new.models.retrieve(id: "text-ada-001") }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r["object"]).to eq("engine")
+          expect(r["object"]).to eq("model")
         end
       end
     end

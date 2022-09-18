@@ -61,16 +61,23 @@ Alternatively you can pass your key directly to a new client:
 
 #### Examples
 
-- [GPT-3](https://beta.openai.com/docs/engines/gpt-3)
+- [GPT-3](https://beta.openai.com/docs/models/gpt-3)
   - text-ada-001
   - text-babbage-001
   - text-curie-001
   - text-davinci-001
-- [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta)
+- [Codex (private beta)](https://beta.openai.com/docs/models/codex-series-private-beta)
   - code-davinci-002
   - code-cushman-001
-- [Content Filter](https://beta.openai.com/docs/engines/content-filter)
-  - content-filter-alpha
+
+### Models
+
+There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
+
+```ruby
+    client.models.list
+    client.models.retrieve(id: 'text-ada-001')
+```
 
 ### Completions
 
@@ -244,15 +251,6 @@ Or use the ID of a file you've uploaded:
         examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
         examples: [["What is human life expectancy in the United States?","78 years."]],
     })
-```
-
-### Engines
-
-There are different engines that can be used to generate text. For a full list and to retrieve information about a single engine:
-
-```ruby
-    client.engines.list
-    client.engines.retrieve(id: 'text-ada-001')
 ```
 
 ## Development

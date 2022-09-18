@@ -1,0 +1,102 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://api.openai.com/v1/models
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <OPENAI_ACCESS_TOKEN>
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Sun, 18 Sep 2022 21:46:54 GMT
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "46837"
+        Connection:
+          - keep-alive
+        Openai-Version:
+          - "2020-10-01"
+        Openai-Organization:
+          - user-jxm65ijkzc1qrfhc0ij8moic
+        X-Request-Id:
+          - cf1ed8fab8ed440010a7c5e904ac84d5
+        Openai-Processing-Ms:
+          - "85"
+        Access-Control-Allow-Origin:
+          - "*"
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: |
+          {
+            "object": "list",
+            "data": [
+              {
+                "id": "davinci-instruct-beta",
+                "object": "model",
+                "created": 1649364042,
+                "owned_by": "openai",
+                "permission": [
+                  {
+                    "id": "modelperm-pPolEHQ65AbhqzcT7XlXv1iC",
+                    "object": "model_permission",
+                    "created": 1660336443,
+                    "allow_create_engine": false,
+                    "allow_sampling": true,
+                    "allow_logprobs": true,
+                    "allow_search_indices": false,
+                    "allow_view": true,
+                    "allow_fine_tuning": false,
+                    "organization": "*",
+                    "group": null,
+                    "is_blocking": false
+                  }
+                ],
+                "root": "davinci-instruct-beta",
+                "parent": null
+              },
+              {
+                "id": "text-similarity-ada-001",
+                "object": "model",
+                "created": 1651172505,
+                "owned_by": "openai-dev",
+                "permission": [
+                  {
+                    "id": "modelperm-OrGsJ4CakWd69AofnU1cMDRO",
+                    "object": "model_permission",
+                    "created": 1660857033,
+                    "allow_create_engine": false,
+                    "allow_sampling": true,
+                    "allow_logprobs": true,
+                    "allow_search_indices": true,
+                    "allow_view": true,
+                    "allow_fine_tuning": false,
+                    "organization": "*",
+                    "group": null,
+                    "is_blocking": false
+                  }
+                ],
+                "root": "text-similarity-ada-001",
+                "parent": null
+              }
+            ]
+          }
+    recorded_at: Sun, 18 Sep 2022 21:46:54 GMT
+recorded_with: VCR 6.0.0

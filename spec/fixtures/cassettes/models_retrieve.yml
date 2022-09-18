@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/engines/text-ada-001
+    uri: https://api.openai.com/v1/models/text-ada-001
     body:
       encoding: US-ASCII
       string: ''
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 30 Jan 2022 16:20:29 GMT
+      - Sun, 18 Sep 2022 21:46:55 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '199'
+      - '559'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 061725e0311083a7c53adae8b31fe652
+      - 92bed19660e85b5502f0eed782a1b3d1
       Openai-Processing-Ms:
-      - '487'
+      - '26'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,15 +46,28 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "object": "engine",
           "id": "text-ada-001",
-          "ready": true,
-          "owner": "openai",
-          "created": null,
-          "permissions": null,
-          "replicas": null,
-          "ready_replicas": null,
-          "max_replicas": null
+          "object": "model",
+          "created": 1649364042,
+          "owned_by": "openai",
+          "permission": [
+            {
+              "id": "modelperm-npoyVTo7XoAfTYTuTbeAo3yg",
+              "object": "model_permission",
+              "created": 1661880157,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ],
+          "root": "text-ada-001",
+          "parent": null
         }
-  recorded_at: Sun, 30 Jan 2022 16:20:29 GMT
+  recorded_at: Sun, 18 Sep 2022 21:46:55 GMT
 recorded_with: VCR 6.0.0

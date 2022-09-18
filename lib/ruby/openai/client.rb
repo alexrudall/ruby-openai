@@ -31,16 +31,16 @@ module OpenAI
       post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
     end
 
-    def engines
-      @engines ||= OpenAI::Engines.new(access_token: @access_token)
-    end
-
     def files
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
 
     def finetunes
       @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
+    end
+
+    def models
+      @models ||= OpenAI::Models.new(access_token: @access_token)
     end
 
     def moderations(version: default_version, parameters: {})

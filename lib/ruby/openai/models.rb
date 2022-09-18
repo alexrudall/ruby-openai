@@ -1,5 +1,5 @@
 module OpenAI
-  class Engines
+  class Models
     include HTTParty
     base_uri "https://api.openai.com"
 
@@ -9,7 +9,7 @@ module OpenAI
 
     def list(version: default_version)
       self.class.get(
-        "/#{version}/engines",
+        "/#{version}/models",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
@@ -19,7 +19,7 @@ module OpenAI
 
     def retrieve(id:, version: default_version)
       self.class.get(
-        "/#{version}/engines/#{id}",
+        "/#{version}/models/#{id}",
         headers: {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
