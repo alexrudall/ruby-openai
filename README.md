@@ -76,8 +76,8 @@ There are different engines that can be used to generate text. For a full list a
   - text-curie-001
   - text-davinci-001
 - [Codex (private beta)](https://beta.openai.com/docs/engines/codex-series-private-beta)
-  - davinci-codex
-  - cushman-codex
+  - code-davinci-002
+  - code-cushman-001
 - [Content Filter](https://beta.openai.com/docs/engines/content-filter)
   - content-filter-alpha
 
