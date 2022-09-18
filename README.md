@@ -59,15 +59,6 @@ Alternatively you can pass your key directly to a new client:
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
-### Engines
-
-There are different engines that can be used to generate text. For a full list and to retrieve information about a single engine:
-
-```ruby
-    client.engines.list
-    client.engines.retrieve(id: 'text-ada-001')
-```
-
 #### Examples
 
 - [GPT-3](https://beta.openai.com/docs/engines/gpt-3)
@@ -91,6 +82,19 @@ Hit the OpenAI API for a completion:
     => [", there lived a great"]
 ```
 
+### Embeddings
+
+You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
+
+```ruby
+    client.embeddings(
+        engine: "babbage-similarity",
+        parameters: {
+          input: "The food was delicious and the waiter..."
+        }
+    )
+```
+
 ### Files
 
 Put your data in a `.jsonl` file like this:
@@ -107,74 +111,6 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
     client.files.list
     client.files.retrieve(id: 123)
     client.files.delete(id: 123)
-```
-
-### Search
-
-Pass documents and a query string to get semantic search scores against each document:
-
-```ruby
-    response = client.search(engine: "text-ada-001", parameters: { documents: %w[washington hospital school], query: "president" })
-    puts response["data"].map { |d| d["score"] }
-    => [202.0, 48.052, 19.247]
-```
-
-You can alternatively search using the ID of a file you've uploaded:
-
-```ruby
-    client.search(engine: "text-ada-001", parameters: { file: "abc123", query: "happy" })
-```
-
-### Answers
-
-Pass documents, a question string, and an example question/response to get an answer to a question:
-
-```ruby
-    response = client.answers(parameters: {
-        documents: ["Puppy A is happy.", "Puppy B is sad."],
-        question: "which puppy is happy?",
-        model: "text-curie-001",
-        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
-        examples: [["What is human life expectancy in the United States?","78 years."]],
-    })
-```
-
-Or use the ID of a file you've uploaded:
-
-```ruby
-    response = client.answers(parameters: {
-        file: "123abc",
-        question: "which puppy is happy?",
-        model: "text-curie-001",
-        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
-        examples: [["What is human life expectancy in the United States?","78 years."]],
-    })
-```
-
-### Classifications
-
-Pass examples and a query to predict the most likely labels:
-
-```ruby
-    response = client.classifications(parameters: {
-        examples: [
-            ["A happy moment", "Positive"],
-            ["I am sad.", "Negative"],
-            ["I am feeling awesome", "Positive"]
-        ],
-        query: "It is a raining day :(",
-        model: "text-ada-001"
-    })
-```
-
-Or use the ID of a file you've uploaded:
-
-```ruby
-    response = client.classifications(parameters: {
-        file: "123abc,
-        query: "It is a raining day :(",
-        model: "text-ada-001"
-    })
 ```
 
 ### Fine-tunes
@@ -232,17 +168,91 @@ This fine-tuned model name can then be used in classifications:
 
 Do not pass the engine parameter when using a fine-tuned model.
 
-### Embeddings
+### Moderations
 
-You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
+Pass a string to check if it violates OpenAI's Content Policy:
 
 ```ruby
-    client.embeddings(
-        engine: "babbage-similarity",
-        parameters: {
-          input: "The food was delicious and the waiter..."
-        }
-    )
+    response = client.moderations(parameters: { input: "I'm worried about that." })
+    puts response.dig("results", 0, "category_scores", "hate")
+    => 5.505014632944949e-05
+```
+
+### Searches
+
+Pass documents and a query string to get semantic search scores against each document:
+
+```ruby
+    response = client.search(engine: "text-ada-001", parameters: { documents: %w[washington hospital school], query: "president" })
+    puts response["data"].map { |d| d["score"] }
+    => [202.0, 48.052, 19.247]
+```
+
+You can alternatively search using the ID of a file you've uploaded:
+
+```ruby
+    client.search(engine: "text-ada-001", parameters: { file: "abc123", query: "happy" })
+```
+
+### Classifications
+
+Pass examples and a query to predict the most likely labels:
+
+```ruby
+    response = client.classifications(parameters: {
+        examples: [
+            ["A happy moment", "Positive"],
+            ["I am sad.", "Negative"],
+            ["I am feeling awesome", "Positive"]
+        ],
+        query: "It is a raining day :(",
+        model: "text-ada-001"
+    })
+```
+
+Or use the ID of a file you've uploaded:
+
+```ruby
+    response = client.classifications(parameters: {
+        file: "123abc,
+        query: "It is a raining day :(",
+        model: "text-ada-001"
+    })
+```
+
+### Answers
+
+Pass documents, a question string, and an example question/response to get an answer to a question:
+
+```ruby
+    response = client.answers(parameters: {
+        documents: ["Puppy A is happy.", "Puppy B is sad."],
+        question: "which puppy is happy?",
+        model: "text-curie-001",
+        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
+        examples: [["What is human life expectancy in the United States?","78 years."]],
+    })
+```
+
+Or use the ID of a file you've uploaded:
+
+```ruby
+    response = client.answers(parameters: {
+        file: "123abc",
+        question: "which puppy is happy?",
+        model: "text-curie-001",
+        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
+        examples: [["What is human life expectancy in the United States?","78 years."]],
+    })
+```
+
+### Engines
+
+There are different engines that can be used to generate text. For a full list and to retrieve information about a single engine:
+
+```ruby
+    client.engines.list
+    client.engines.retrieve(id: 'text-ada-001')
 ```
 
 ## Development
