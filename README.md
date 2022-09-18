@@ -168,6 +168,16 @@ This fine-tuned model name can then be used in classifications:
 
 Do not pass the engine parameter when using a fine-tuned model.
 
+### Moderations
+
+Pass a string to check if it violates OpenAI's Content Policy:
+
+```ruby
+    response = client.moderations(parameters: { input: "I'm worried about that." })
+    puts response.dig("results", 0, "category_scores", "hate")
+    => 5.505014632944949e-05
+```
+
 ### Searches
 
 Pass documents and a query string to get semantic search scores against each document:
