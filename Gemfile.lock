@@ -60,7 +60,7 @@ GEM
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     unicode-display_width (2.3.0)
-    vcr (6.0.0)
+    vcr (6.1.0)
     webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -75,7 +75,7 @@ DEPENDENCIES
   rspec (~> 3.11)
   rubocop (~> 1.36.0)
   ruby-openai!
-  vcr (~> 6.0.0)
+  vcr (~> 6.1.0)
   webmock (~> 3.18.1)
 
 BUNDLED WITH
