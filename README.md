@@ -82,6 +82,22 @@ Hit the OpenAI API for a completion:
     => [", there lived a great"]
 ```
 
+### Edits
+
+Send a string and some instructions for what to do to the string:
+
+```ruby
+    response = client.edits(
+        parameters: {
+            model: "text-davinci-edit-001",
+            input: "What day of the wek is it?",
+            instruction: "Fix the spelling mistakes"
+        }
+    )
+    puts response.dig("choices", 0, "text")
+    => What day of the week is it?
+```
+
 ### Embeddings
 
 You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
