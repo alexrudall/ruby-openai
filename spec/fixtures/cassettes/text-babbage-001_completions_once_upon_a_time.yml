@@ -2,60 +2,6 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/text-babbage-001/completions
-    body:
-      encoding: UTF-8
-      string: '{"prompt":"Once upon a time","max_tokens":5}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sun, 30 Jan 2022 16:11:36 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '228'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - text-babbage:001
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      Openai-Processing-Ms:
-      - '1284'
-      Openai-Version:
-      - '2020-10-01'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Request-Id:
-      - 8d4bbd6dbb2e5202dcce1379fc0de61b
-    body:
-      encoding: UTF-8
-      string: '{"id": "cmpl-4W75cCmcM46IsZyJj8Fh0kRj8fmRz", "object": "text_completion",
-        "created": 1643559096, "model": "text-babbage:001", "choices": [{"text": ",
-        a group of dream", "index": 0, "logprobs": null, "finish_reason": "length"}]}
-
-'
-  recorded_at: Sun, 30 Jan 2022 16:11:36 GMT
-- request:
-    method: post
     uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
@@ -77,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:24:50 GMT
+      - Sun, 18 Sep 2022 22:48:40 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '286'
+      - '280'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -93,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '297'
+      - '331'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 77a27942ee6f3b35bffbca024d73895b
+      - 02ac25aca1c8db7e30002e997043ff7e
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rx0UmtEBHc7tlj6ARcWwC67pYOKV","object":"text_completion","created":1663539890,"model":"text-babbage-001","choices":[{"text":"
-        there was a Princess who","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-5rxNYUDGnooH6rB3LwDuGXyHgxHNt","object":"text_completion","created":1663541320,"model":"text-babbage-001","choices":[{"text":"\n\n
+        sorcerers used","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:24:50 GMT
+  recorded_at: Sun, 18 Sep 2022 22:48:40 GMT
 recorded_with: VCR 6.1.0

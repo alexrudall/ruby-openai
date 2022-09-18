@@ -2,60 +2,6 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/text-davinci-001/completions
-    body:
-      encoding: UTF-8
-      string: '{"prompt":"Once upon a time","max_tokens":5}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sun, 30 Jan 2022 16:11:42 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '232'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - text-davinci:001
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      Openai-Processing-Ms:
-      - '1996'
-      Openai-Version:
-      - '2020-10-01'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Request-Id:
-      - 1596375a5f21746eefb7a41be39bfaea
-    body:
-      encoding: UTF-8
-      string: '{"id": "cmpl-4W75hj4F1IxStKlPO6ryL7LHmt1kp", "object": "text_completion",
-        "created": 1643559101, "model": "text-davinci:001", "choices": [{"text": ",
-        there was a princess", "index": 0, "logprobs": null, "finish_reason": "length"}]}
-
-'
-  recorded_at: Sun, 30 Jan 2022 16:11:42 GMT
-- request:
-    method: post
     uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
@@ -77,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:24:51 GMT
+      - Sun, 18 Sep 2022 22:48:41 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '280'
+      - '282'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -93,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '350'
+      - '77'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 152a3dc1400ba089a9849ad8337d90af
+      - 963087a8069769ff3e50e4898daeffa1
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rx0VS5jcF111VxB4fvG801uUsDKB","object":"text_completion","created":1663539891,"model":"text-davinci-001","choices":[{"text":",
-        there was a green","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-5rxNZ7duuqR0GxBTAWMDdLr4koBtF","object":"text_completion","created":1663541321,"model":"text-davinci-001","choices":[{"text":",
+        there was a kingdom","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:24:51 GMT
+  recorded_at: Sun, 18 Sep 2022 22:48:41 GMT
 recorded_with: VCR 6.1.0

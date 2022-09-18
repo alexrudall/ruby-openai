@@ -2,60 +2,6 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/davinci-codex/completions
-    body:
-      encoding: UTF-8
-      string: '{"prompt":"def hello_world\nputs","max_tokens":5}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sat, 11 Dec 2021 14:28:41 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '232'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - davinci-codex:2021-08-03
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      Openai-Processing-Ms:
-      - '112'
-      Openai-Version:
-      - '2020-10-01'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Request-Id:
-      - 620002067f1c531d20194d4ff8aa535e
-    body:
-      encoding: UTF-8
-      string: '{"id": "cmpl-4Dxebd8C1FSZ0DU164ghEhDsg445a", "object": "text_completion",
-        "created": 1639232921, "model": "davinci-codex:2021-08-03", "choices": [{"text":
-        " \"hello_world", "index": 0, "logprobs": null, "finish_reason": "length"}]}
-
-'
-  recorded_at: Sat, 11 Dec 2021 14:28:41 GMT
-- request:
-    method: post
     uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
@@ -77,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:17:47 GMT
+      - Sun, 18 Sep 2022 22:48:38 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '269'
+      - '273'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -93,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '422'
+      - '202'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - da703e822c17f5075eb0ce986648f8e4
+      - 856a99377bdaadc5a2771a94fb728aab
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rwtfJs0CXIGQ5VhHSLGmInG9bic2","object":"text_completion","created":1663539467,"model":"davinci-codex","choices":[{"text":"
-        \"#{Time.","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
+      string: '{"id":"cmpl-5rxNWkT8xM7EeLdb1cI6atm8melhC","object":"text_completion","created":1663541318,"model":"davinci-codex","choices":[{"text":"
+        ''Hello, World","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:17:48 GMT
+  recorded_at: Sun, 18 Sep 2022 22:48:38 GMT
 recorded_with: VCR 6.1.0
