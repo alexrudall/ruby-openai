@@ -14,7 +14,7 @@ Use the [OpenAI GPT-3 API](https://openai.com/blog/openai-api/) with Ruby! ðŸ¤–â
 Add this line to your application's Gemfile:
 
 ```ruby
-    gem 'ruby-openai'
+    gem "ruby-openai"
 ```
 
 And then execute:
@@ -76,7 +76,7 @@ There are different models that can be used to generate text. For a full list an
 
 ```ruby
     client.models.list
-    client.models.retrieve(id: 'text-ada-001')
+    client.models.retrieve(id: "text-ada-001")
 ```
 
 ### Completions
@@ -90,7 +90,7 @@ Hit the OpenAI API for a completion:
             prompt: "Once upon a time",
             max_tokens: 5
         })
-    puts response.parsed_response['choices'].map{ |c| c["text"] }
+    puts response.parsed_response["choices"].map{ |c| c["text"] }
     => [", there lived a great"]
 ```
 
@@ -135,7 +135,7 @@ Put your data in a `.jsonl` file like this:
 and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
 
 ```ruby
-    client.files.upload(parameters: { file: 'path/to/puppy.jsonl', purpose: 'search' })
+    client.files.upload(parameters: { file: "path/to/puppy.jsonl", purpose: "search" })
     client.files.list
     client.files.retrieve(id: 123)
     client.files.delete(id: 123)
@@ -153,7 +153,7 @@ Put your fine-tuning data in a `.jsonl` file like this:
 and pass the path to `client.files.upload` to upload it to OpenAI and get its ID:
 
 ```ruby
-    response = client.files.upload(parameters: { file: 'path/to/sentiment.jsonl', purpose: 'fine-tune' })
+    response = client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
     file_id = JSON.parse(response.body)["id"]
 ```
 
