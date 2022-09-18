@@ -47,31 +47,7 @@ module OpenAI
       post(url: "/#{version}/moderations", parameters: parameters)
     end
 
-    # rubocop:disable Layout/LineLength
-    # rubocop:disable Metrics/ParameterLists
-    def search(engine:, query: nil, documents: nil, file: nil, version: default_version, parameters: {})
-      return legacy_search(engine: engine, query: query, documents: documents, file: file, version: version) if query || documents || file
-
-      post(url: "/#{version}/engines/#{engine}/search", parameters: parameters)
-    end
-    # rubocop:enable Layout/LineLength
-    # rubocop:enable Metrics/ParameterLists
-
     private
-
-    # rubocop:disable Layout/LineLength
-    def legacy_search(engine:, query:, documents: nil, file: nil, version: default_version)
-      warn "[DEPRECATION] Passing `query`, `documents` or `file` directly to `Client#search` is deprecated and will be removed in a future version of ruby-openai.
-        Please nest these terms within `parameters` instead, like this:
-        client.search(engine: 'davinci', parameters: { query: 'president', documents: %w[washington hospital school] })
-      "
-
-      post(
-        url: "/#{version}/engines/#{engine}/search",
-        parameters: { query: query }.merge(documents_or_file(documents: documents, file: file))
-      )
-    end
-    # rubocop:enable Layout/LineLength
 
     def default_version
       "v1".freeze
