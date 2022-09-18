@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/models/text-ada-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 18 Sep 2022 21:46:55 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '559'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 92bed19660e85b5502f0eed782a1b3d1
+      Openai-Processing-Ms:
+      - '26'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "text-ada-001",
+          "object": "model",
+          "created": 1649364042,
+          "owned_by": "openai",
+          "permission": [
+            {
+              "id": "modelperm-npoyVTo7XoAfTYTuTbeAo3yg",
+              "object": "model_permission",
+              "created": 1661880157,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ],
+          "root": "text-ada-001",
+          "parent": null
+        }
+  recorded_at: Sun, 18 Sep 2022 21:46:55 GMT
+recorded_with: VCR 6.0.0

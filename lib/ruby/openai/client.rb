@@ -43,6 +43,10 @@ module OpenAI
       @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
     end
 
+    def models
+      @models ||= OpenAI::Models.new(access_token: @access_token)
+    end
+
     def moderations(version: default_version, parameters: {})
       post(url: "/#{version}/moderations", parameters: parameters)
     end
