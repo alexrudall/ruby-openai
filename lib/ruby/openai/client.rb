@@ -23,12 +23,12 @@ module OpenAI
       end
     end
 
-    def embeddings(engine:, version: default_version, parameters: {})
-      post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
+    def edits(version: default_version, parameters: {})
+      post(url: "/#{version}/edits", parameters: parameters)
     end
 
-    def moderations(version: default_version, parameters: {})
-      post(url: "/#{version}/moderations", parameters: parameters)
+    def embeddings(engine:, version: default_version, parameters: {})
+      post(url: "/#{version}/engines/#{engine}/embeddings", parameters: parameters)
     end
 
     def engines
@@ -41,6 +41,10 @@ module OpenAI
 
     def finetunes
       @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
+    end
+
+    def moderations(version: default_version, parameters: {})
+      post(url: "/#{version}/moderations", parameters: parameters)
     end
 
     # rubocop:disable Layout/LineLength
