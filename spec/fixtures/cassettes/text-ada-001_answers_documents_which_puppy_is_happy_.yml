@@ -26,11 +26,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 30 Jan 2022 16:16:09 GMT
+      - Sun, 18 Sep 2022 22:34:37 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '331'
+      - '330'
       Connection:
       - keep-alive
       Openai-Version:
@@ -38,9 +38,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - be362b341dd06a59d42ae1994932019f
+      - 716e092d498c54229ca90b5d63d4f65a
       Openai-Processing-Ms:
-      - '433'
+      - '434'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -50,10 +50,10 @@ http_interactions:
       string: |
         {
           "answers": [
-            "Puppy A."
+            "Puppy A"
           ],
-          "completion": "cmpl-4W7A18AiSyZCqH2awBgSXI8mqgU7d",
-          "model": "text-ada:001",
+          "completion": "cmpl-5rx9xRsCJ1FOHVNbWV0eepz2H2R3F",
+          "model": "text-ada-001",
           "object": "answer",
           "search_model": "ada",
           "selected_documents": [
@@ -67,5 +67,5 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sun, 30 Jan 2022 16:16:09 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sun, 18 Sep 2022 22:34:37 GMT
+recorded_with: VCR 6.1.0

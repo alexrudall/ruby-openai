@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/cushman-codex/completions
+    uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
-      string: '{"prompt":"def hello_world\nputs","max_tokens":5}'
+      string: '{"model":"cushman-codex","prompt":"def hello_world\nputs","max_tokens":5}'
     headers:
       Content-Type:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 14:28:42 GMT
+      - Sun, 18 Sep 2022 22:48:38 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '235'
+      - '275'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -35,23 +35,22 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - cushman-codex:2021-08-03
+      - cushman-codex
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '94'
+      - '81'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 3c4166aca39c7f1a5a9755c0164def58
+      - fcc527d548b9a7631a86a815a93dc452
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4DxecKDxIwOWRnsa3jA7AutClZRC0", "object": "text_completion",
-        "created": 1639232922, "model": "cushman-codex:2021-08-03", "choices": [{"text":
-        " \"Hello World!\"", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id":"cmpl-5rxNWAw9yygW2XB1g4cNqqAa2JrKt","object":"text_completion","created":1663541318,"model":"cushman-codex","choices":[{"text":"
+        \"Hello World\"","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
 
 '
-  recorded_at: Sat, 11 Dec 2021 14:28:42 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sun, 18 Sep 2022 22:48:38 GMT
+recorded_with: VCR 6.1.0

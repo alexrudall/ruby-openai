@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/engines/text-ada-001/completions
+    uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
-      string: '{"prompt":"Once upon a time","max_tokens":5}'
+      string: '{"model":"text-ada-001","prompt":"Once upon a time","max_tokens":5}'
     headers:
       Content-Type:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 30 Jan 2022 16:11:33 GMT
+      - Sun, 18 Sep 2022 22:48:39 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '225'
+      - '278'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -35,23 +35,22 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - text-ada:001
+      - text-ada-001
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1351'
+      - '47'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - a6e47be5dc97f2192dfe2b52bca2191a
+      - af3ca1cff71ac6dc7402c39c946fc246
     body:
       encoding: UTF-8
-      string: '{"id": "cmpl-4W75Z5vGHOiD1WcoMdr0hg0bXUmyf", "object": "text_completion",
-        "created": 1643559093, "model": "text-ada:001", "choices": [{"text": " there
-        was a cave\n", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      string: '{"id":"cmpl-5rxNXnki3F6nvpZiinFLD8zy0eccI","object":"text_completion","created":1663541319,"model":"text-ada-001","choices":[{"text":"
+        there was a dragon\n","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 30 Jan 2022 16:11:33 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sun, 18 Sep 2022 22:48:39 GMT
+recorded_with: VCR 6.1.0

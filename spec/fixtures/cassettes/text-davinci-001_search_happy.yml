@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/completions
+    uri: https://api.openai.com/v1/engines/text-davinci-001/search
     body:
       encoding: UTF-8
-      string: '{"model":"davinci-codex","prompt":"def hello_world\nputs","max_tokens":5}'
+      string: '{"file":"file-l4emIKLTNw9aaVtm4459lDHe","query":"happy"}'
     headers:
       Content-Type:
       - application/json
@@ -23,34 +23,39 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:48:38 GMT
+      - Mon, 19 Sep 2022 11:30:21 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '273'
+      - '193'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
       - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - davinci-codex
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '202'
+      - '1644'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 856a99377bdaadc5a2771a94fb728aab
+      - 0d7a0b06368a01ca087c8bcd4c9ddedf
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rxNWkT8xM7EeLdb1cI6atm8melhC","object":"text_completion","created":1663541318,"model":"davinci-codex","choices":[{"text":"
-        ''Hello, World","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
-
-'
-  recorded_at: Sun, 18 Sep 2022 22:48:38 GMT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "search_result",
+              "document": 0,
+              "score": 197.14,
+              "text": "puppy A is happy"
+            }
+          ],
+          "model": "text-davinci:001"
+        }
+  recorded_at: Mon, 19 Sep 2022 11:30:21 GMT
 recorded_with: VCR 6.1.0

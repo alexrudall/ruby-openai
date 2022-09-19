@@ -2,7 +2,7 @@ RSpec.describe OpenAI::Client do
   describe "#classifications", :vcr do
     context "with a file" do
       let(:query) { "movie is very good" }
-      let(:cassette) { "#{engine} classifications file #{query}".downcase }
+      let(:cassette) { "#{model} classifications file #{query}".downcase }
       let(:filename) { "train.jsonl" }
       let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
       let!(:file_id) do
@@ -14,15 +14,15 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.classifications(
           parameters: {
-            model: engine,
+            model: model,
             query: query,
             file: file_id
           }
         )
       end
 
-      context "with engine: text-curie-001" do
-        let(:engine) { "text-curie-001" }
+      context "with model: text-curie-001" do
+        let(:model) { "text-curie-001" }
 
         it "classifies the query" do
           VCR.use_cassette(cassette) do
@@ -34,7 +34,7 @@ RSpec.describe OpenAI::Client do
 
     context "with examples" do
       let(:query) { "It is a raining day :(" }
-      let(:cassette) { "#{engine} classifications examples #{query}".downcase }
+      let(:cassette) { "#{model} classifications examples #{query}".downcase }
       let(:examples) do
         [
           ["A happy moment", "Positive"],
@@ -46,15 +46,15 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.classifications(
           parameters: {
-            model: engine,
+            model: model,
             query: query,
             examples: examples
           }
         )
       end
 
-      context "with engine: text-ada-001" do
-        let(:engine) { "text-ada-001" }
+      context "with model: text-ada-001" do
+        let(:model) { "text-ada-001" }
 
         it "classifies the query" do
           VCR.use_cassette(cassette) do
