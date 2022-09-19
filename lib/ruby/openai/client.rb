@@ -31,6 +31,13 @@ module OpenAI
       post(url: "/#{version}/embeddings", parameters: parameters)
     end
 
+    def engines
+      warn "[DEPRECATION WARNING] [ruby-openai] `Client#engines` is deprecated and will
+      be removed from ruby-openai v3.0. Use `Client#models` instead."
+
+      @engines ||= OpenAI::Engines.new(access_token: @access_token)
+    end
+
     def files
       @files ||= OpenAI::Files.new(access_token: @access_token)
     end
@@ -48,7 +55,9 @@ module OpenAI
     end
 
     def search(engine:, version: default_version, parameters: {})
-      deprecate_search
+      warn "[DEPRECATION WARNING] [ruby-openai] `Client#search` is deprecated and will
+      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
+      More information: https://help.openai.com/en/articles/6272952-search-transition-guide"
 
       post(url: "/#{version}/engines/#{engine}/search", parameters: parameters)
     end
@@ -62,17 +71,9 @@ module OpenAI
 
       warn "[DEPRECATION WARNING] [ruby-openai] Passing `engine` directly to `Client##{method}` is
       deprecated and will be removed in ruby-openai 3.0. Pass `model` within `parameters` instead:
-      client.completions(parameters: { #{parameters.map { |k, v| "#{k}: \"#{v}\"" }.join(', ')} })
-      "
+      client.completions(parameters: { #{parameters.map { |k, v| "#{k}: \"#{v}\"" }.join(', ')} })"
 
       parameters
-    end
-
-    def deprecate_search
-      warn "[DEPRECATION WARNING] [ruby-openai] `Client#search` is deprecated and will
-      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
-      More information: https://help.openai.com/en/articles/6272952-search-transition-guide
-      "
     end
 
     def default_version
