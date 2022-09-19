@@ -90,7 +90,7 @@ Hit the OpenAI API for a completion:
             prompt: "Once upon a time",
             max_tokens: 5
         })
-    puts response.parsed_response["choices"].map{ |c| c["text"] }
+    puts response["choices"].map { |c| c["text"] }
     => [", there lived a great"]
 ```
 
