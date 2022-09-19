@@ -31,7 +31,7 @@ RSpec.describe OpenAI::Client do
 
         it "answers the question" do
           VCR.use_cassette(cassette) do
-            expect(response.parsed_response["answers"][0].downcase).to include("puppy a is happy")
+            expect(response["answers"][0].downcase).to include("puppy a is happy")
           end
         end
       end
@@ -58,7 +58,7 @@ RSpec.describe OpenAI::Client do
 
         it "answers the question" do
           VCR.use_cassette(cassette) do
-            expect(response.parsed_response["answers"][0]).to include("Puppy A")
+            expect(response["answers"][0]).to include("Puppy A")
           end
         end
       end
