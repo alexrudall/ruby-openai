@@ -47,6 +47,12 @@ module OpenAI
       post(url: "/#{version}/moderations", parameters: parameters)
     end
 
+    def search(engine:, version: default_version, parameters: {})
+      deprecate_search
+
+      post(url: "/#{version}/engines/#{engine}/search", parameters: parameters)
+    end
+
     private
 
     def deprecate_engine(engine:, method:, parameters:)
@@ -60,6 +66,14 @@ module OpenAI
       "
 
       parameters
+    end
+
+    def deprecate_search
+      warn "[DEPRECATION WARNING] [ruby-openai] `Client#search` is
+      deprecated and will be removed from the OpenAI API on 3 December 2022 and from the
+      ruby-openai gem in v3.0.
+      More information: https://help.openai.com/en/articles/6272952-search-transition-guide
+      "
     end
 
     def default_version
