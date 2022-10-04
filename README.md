@@ -59,6 +59,15 @@ Alternatively you can pass your key directly to a new client:
     client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
+### Models
+
+There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
+
+```ruby
+    client.models.list
+    client.models.retrieve(id: "text-ada-001")
+```
+
 #### Examples
 
 - [GPT-3](https://beta.openai.com/docs/models/gpt-3)
@@ -69,15 +78,6 @@ Alternatively you can pass your key directly to a new client:
 - [Codex (private beta)](https://beta.openai.com/docs/models/codex-series-private-beta)
   - code-davinci-002
   - code-cushman-001
-
-### Models
-
-There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
-
-```ruby
-    client.models.list
-    client.models.retrieve(id: "text-ada-001")
-```
 
 ### Completions
 
