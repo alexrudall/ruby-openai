@@ -8,10 +8,18 @@ module OpenAI
     end
 
     def answers(version: default_version, parameters: {})
+      warn "[DEPRECATION WARNING] [ruby-openai] `Client#answers` is deprecated and will
+      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
+      More information: https://help.openai.com/en/articles/6233728-answers-transition-guide"
+
       post(url: "/#{version}/answers", parameters: parameters)
     end
 
     def classifications(version: default_version, parameters: {})
+      warn "[DEPRECATION WARNING] [ruby-openai] `Client#classifications` is deprecated and will
+      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
+      More information: https://help.openai.com/en/articles/6272941-classifications-transition-guide"
+
       post(url: "/#{version}/classifications", parameters: parameters)
     end
 
