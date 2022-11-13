@@ -1,14 +1,14 @@
 RSpec.describe OpenAI::Client do
   describe "#images" do
     describe "#generate", :vcr do
-      let(:response) {
+      let(:response) do
         OpenAI::Client.new.images.generate(
           parameters: {
             prompt: prompt,
-            size: size,
+            size: size
           }
         )
-      }
+      end
       let(:cassette) { "images generate #{prompt}" }
       let(:prompt) { "A baby sea otter cooking pasta wearing a hat of some sort" }
       let(:size) { "256x256" }
