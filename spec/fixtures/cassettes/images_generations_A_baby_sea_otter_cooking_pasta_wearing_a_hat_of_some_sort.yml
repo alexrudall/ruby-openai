@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/generations
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"A baby sea otter cooking pasta wearing a hat of some sort"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 13 Nov 2022 16:44:52 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '547'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - b04e60e7a11963090d88bfee59840442
+      Openai-Processing-Ms:
+      - '5630'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "created": 1668357892,
+          "data": [
+            {
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-ZtWbbvof7wRI1x4BUEobliIz.png?st=2022-11-13T15%3A44%3A52Z&se=2022-11-13T17%3A44%3A52Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-13T02%3A31%3A35Z&ske=2022-11-14T02%3A31%3A35Z&sks=b&skv=2021-08-06&sig=opDLeqJzmnq1Em8GTa8ERc8fGub%2Bv2AtdsC85wIU0ZA%3D"
+            }
+          ]
+        }
+  recorded_at: Sun, 13 Nov 2022 16:44:52 GMT
+recorded_with: VCR 6.1.0
