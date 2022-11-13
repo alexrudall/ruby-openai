@@ -54,6 +54,10 @@ module OpenAI
       @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token)
     end
 
+    def images
+      @images ||= OpenAI::Images.new(access_token: @access_token)
+    end
+
     def models
       @models ||= OpenAI::Models.new(access_token: @access_token)
     end

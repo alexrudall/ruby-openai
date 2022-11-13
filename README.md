@@ -194,6 +194,18 @@ This fine-tuned model name can then be used in classifications:
     JSON.parse(response.body)["choices"].map { |c| c["text"] }
 ```
 
+### Images
+
+Generate an image using DALL·E!
+
+```ruby
+    response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort" })
+    puts response.dig("data", 0, "url") }
+    => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
+```
+
+![Otter Chef](https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-UrDvFC4tDnuhTieF7TrTJ2gq.png?st=2022-11-13T15%3A55%3A34Z&se=2022-11-13T17%3A55%3A34Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-13T01%3A32%3A30Z&ske=2022-11-14T01%3A32%3A30Z&sks=b&skv=2021-08-06&sig=tLdggckHl20CnnpCleoeiAEQjy4zMjuZJiUdovmkoF0%3D)
+
 ### Moderations
 
 Pass a string to check if it violates OpenAI's Content Policy:
