@@ -200,7 +200,7 @@ Generate an image using DALL·E!
 
 ```ruby
     response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort" })
-    puts response.dig("data", 0, "url") }
+    puts response.dig("data", 0, "url")
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
