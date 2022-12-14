@@ -3,8 +3,9 @@ module OpenAI
     include HTTParty
     base_uri "https://api.openai.com"
 
-    def initialize(access_token: nil)
+    def initialize(access_token: nil, org: nil)
       @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
+      @org = org || ENV.fetch("OPENAI_ORG")
     end
 
     def answers(version: default_version, parameters: {})
@@ -101,7 +102,8 @@ module OpenAI
         url,
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @org
         },
         body: parameters.to_json
       )
