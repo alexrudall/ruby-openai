@@ -43,6 +43,7 @@ If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your s
 
 ```
     OPENAI_ACCESS_TOKEN=access_token_goes_here
+    OPENAI_ORG=org_id_goes_here
 ```
 
 And create a client:
@@ -56,7 +57,7 @@ And create a client:
 Alternatively you can pass your key directly to a new client:
 
 ```ruby
-    client = OpenAI::Client.new(access_token: "access_token_goes_here")
+    client = OpenAI::Client.new(access_token: "access_token_goes_here", org: "org_id_goes_here")
 ```
 
 ### Models
@@ -276,7 +277,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/alexrudall/ruby-openai. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/alexrudall/ruby-openai>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
