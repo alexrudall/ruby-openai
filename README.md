@@ -58,7 +58,10 @@ And create a client:
 Alternatively you can pass your key directly to a new client:
 
 ```ruby
-    client = OpenAI::Client.new(access_token: "access_token_goes_here", organization_id: "organization_id_goes_here")
+    client = OpenAI::Client.new(
+        access_token: "access_token_goes_here",
+        organization_id: "organization_id_goes_here"
+    )
 ```
 
 ### Models
