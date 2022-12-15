@@ -44,7 +44,8 @@ module OpenAI
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#engines` is deprecated and will
       be removed from ruby-openai v3.0. Use `Client#models` instead."
 
-      @engines ||= OpenAI::Engines.new(access_token: @access_token, organization_id: @organization_id)
+      @engines ||= OpenAI::Engines.new(access_token: @access_token,
+                                       organization_id: @organization_id)
     end
 
     def files
@@ -52,7 +53,8 @@ module OpenAI
     end
 
     def finetunes
-      @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token, organization_id: @organization_id)
+      @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token,
+                                           organization_id: @organization_id)
     end
 
     def images
