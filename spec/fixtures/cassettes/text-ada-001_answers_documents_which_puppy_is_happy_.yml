@@ -14,6 +14,8 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION_ID>"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -26,7 +28,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:34:37 GMT
+      - Thu, 15 Dec 2022 08:44:36 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -38,9 +40,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 716e092d498c54229ca90b5d63d4f65a
+      - 235735db53bf28676b7dbbf765fb5ae3
       Openai-Processing-Ms:
-      - '434'
+      - '452'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -52,7 +54,7 @@ http_interactions:
           "answers": [
             "Puppy A"
           ],
-          "completion": "cmpl-5rx9xRsCJ1FOHVNbWV0eepz2H2R3F",
+          "completion": "cmpl-6Ne8yiNSkU7K52lNIKDDyp6WSSYXi",
           "model": "text-ada-001",
           "object": "answer",
           "search_model": "ada",
@@ -67,5 +69,5 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sun, 18 Sep 2022 22:34:37 GMT
+  recorded_at: Thu, 15 Dec 2022 08:44:36 GMT
 recorded_with: VCR 6.1.0

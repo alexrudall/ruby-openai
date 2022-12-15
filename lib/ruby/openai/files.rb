@@ -3,8 +3,9 @@ module OpenAI
     include HTTParty
     base_uri "https://api.openai.com"
 
-    def initialize(access_token: nil)
+    def initialize(access_token: nil, organization_id: nil)
       @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
+      @organization_id = organization_id || ENV.fetch("OPENAI_ORGANIZATION_ID", nil)
     end
 
     def list(version: default_version)
@@ -12,7 +13,8 @@ module OpenAI
         "/#{version}/files",
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
         }
       )
     end
@@ -24,7 +26,8 @@ module OpenAI
         "/#{version}/files",
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
         },
         body: parameters.merge(file: File.open(parameters[:file]))
       )
@@ -35,7 +38,8 @@ module OpenAI
         "/#{version}/files/#{id}",
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
         }
       )
     end
@@ -45,7 +49,8 @@ module OpenAI
         "/#{version}/files/#{id}",
         headers: {
           "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
         }
       )
     end
