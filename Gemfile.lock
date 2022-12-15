@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (2.1.0)
+    ruby-openai (2.2.0)
       dotenv (>= 2.7.6, < 2.9.0)
       httparty (>= 0.18.1, < 0.21.0)
 
