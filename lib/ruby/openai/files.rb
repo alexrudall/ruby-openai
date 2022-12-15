@@ -5,7 +5,7 @@ module OpenAI
 
     def initialize(access_token: nil, organization_id: nil)
       @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
-      @organization_id = organization_id || ENV.fetch("OPENAI_ORGANIZATION_ID")
+      @organization_id = organization_id || ENV.fetch("OPENAI_ORGANIZATION_ID", nil)
     end
 
     def list(version: default_version)
