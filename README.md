@@ -35,8 +35,8 @@ and require with:
 
 ## Usage
 
-Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
-If you belong to multiple organizations, you can get your Organization ID from [https://beta.openai.com/account/org-settings](https://beta.openai.com/account/org-settings)
+- Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
+- If you belong to multiple organizations, you can get your Organization ID from [https://beta.openai.com/account/org-settings](https://beta.openai.com/account/org-settings)
 
 ### With dotenv
 
@@ -56,12 +56,6 @@ And create a client:
 ### Without dotenv
 
 Alternatively you can pass your key directly to a new client:
-
-```ruby
-    client = OpenAI::Client.new(access_token: "access_token_goes_here")
-```
-
-You can also pass an optional Organization ID:
 
 ```ruby
     client = OpenAI::Client.new(access_token: "access_token_goes_here", organization_id: "organization_id_goes_here")
