@@ -20,10 +20,44 @@ module OpenAI
       )
     end
 
+    def edit(version: default_version, parameters: {})
+      parameters = open_files(parameters)
+
+      self.class.post(
+        "/#{version}/images/edits",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
+        },
+        body: parameters
+      )
+    end
+
+    def variations(version: default_version, parameters: {})
+      parameters = open_files(parameters)
+
+      self.class.post(
+        "/#{version}/images/variations",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
+        },
+        body: parameters
+      )
+    end
+
     private
 
     def default_version
       "v1".freeze
+    end
+
+    def open_files(parameters)
+      parameters = parameters.merge(image: File.open(parameters[:image]))
+      parameters = parameters.merge(mask: File.open(parameters[:mask])) if parameters[:mask]
+      parameters
     end
   end
 end

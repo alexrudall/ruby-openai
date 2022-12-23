@@ -199,7 +199,7 @@ This fine-tuned model name can then be used in classifications:
     JSON.parse(response.body)["choices"].map { |c| c["text"] }
 ```
 
-### Images
+### Image Generation
 
 Generate an image using DALL·E!
 
@@ -209,7 +209,32 @@ Generate an image using DALL·E!
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
-![Otter Chef](https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-UrDvFC4tDnuhTieF7TrTJ2gq.png?st=2022-11-13T15%3A55%3A34Z&se=2022-11-13T17%3A55%3A34Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2022-11-13T01%3A32%3A30Z&ske=2022-11-14T01%3A32%3A30Z&sks=b&skv=2021-08-06&sig=tLdggckHl20CnnpCleoeiAEQjy4zMjuZJiUdovmkoF0%3D)
+![Ruby](https://ibb.co/qDRNFpf)
+
+### Image Edit
+
+Fill in the transparent part of an image, or upload a mask with transparent sections to indicate the parts of an image that can be changed according to your prompt...
+
+```ruby
+    response = client.images.edit(parameters: { prompt: "A solid red Ruby on a blue background", image: "image.png", mask: "mask.png" })
+    puts response.dig("data", 0, "url")
+    => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
+```
+
+![Ruby](https://ibb.co/LNZMpGs)
+
+### Image Variations
+
+Create n variations of an image.
+
+```ruby
+    response = client.images.variations(parameters: { image: "image.png", n: 2 })
+    puts response.dig("data", 0, "url")
+    => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
+```
+
+![Ruby](https://ibb.co/0s1tY25)
+![Ruby](https://ibb.co/QkM27tM)
 
 ### Moderations
 
