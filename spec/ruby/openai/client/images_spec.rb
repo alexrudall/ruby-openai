@@ -20,5 +20,30 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#edit", :vcr do
+      let(:response) do
+        OpenAI::Client.new.images.edit(
+          parameters: {
+            image: image,
+            mask: mask,
+            prompt: prompt,
+            size: size
+          }
+        )
+      end
+      let(:cassette) { "images edit #{image} #{prompt}" }
+      let(:prompt) { "A solid red Ruby on a blue background" }
+      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", "image.png") }
+      let(:mask) { File.join(RSPEC_ROOT, "fixtures/files", "mask.png") }
+      let(:size) { "256x256" }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette, preserve_exact_body_bytes: true) do
+          r = JSON.parse(response.body)
+          expect(r.dig("data", 0, "url")).to include("dalle")
+        end
+      end
+    end
   end
 end
