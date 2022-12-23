@@ -5,7 +5,9 @@
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-Use the [OpenAI GPT-3 API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
+Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
+
+Generate text with GPT-3, create images with DALL·E, or write code with Codex...
 
 ## Installation
 
