@@ -7,7 +7,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate and modify text with GPT-3, create and edit images with DALL·E, or write code with Codex.
+Generate text with GPT-3, create images with DALL·E, or write code with Codex...
 
 ## Installation
 
