@@ -209,7 +209,7 @@ Generate an image using DALL·E!
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
-![Ruby](https://ibb.co/qDRNFpf)
+![Ruby](https://i.ibb.co/6y4HJFx/img-d-Tx-Rf-RHj-SO5-Gho-Cbd8o-LJvw3.png)
 
 ### Image Edit
 
@@ -221,7 +221,7 @@ Fill in the transparent part of an image, or upload a mask with transparent sect
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
-![Ruby](https://ibb.co/LNZMpGs)
+![Ruby](https://i.ibb.co/sWVh3BX/dalle-ruby.png)
 
 ### Image Variations
 
@@ -233,8 +233,8 @@ Create n variations of an image.
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
-![Ruby](https://ibb.co/0s1tY25)
-![Ruby](https://ibb.co/QkM27tM)
+![Ruby](https://i.ibb.co/TWJLP2y/img-miu-Wk-Nl0-QNy-Xtj-Lerc3c0l-NW.png)
+![Ruby](https://i.ibb.co/ScBhDGB/img-a9-Be-Rz-Au-Xwd-AV0-ERLUTSTGdi.png)
 
 ### Moderations
 
