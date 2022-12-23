@@ -35,6 +35,20 @@ module OpenAI
       )
     end
 
+    def variations(version: default_version, parameters: {})
+      parameters = parameters.merge(image: File.open(parameters[:image]))
+
+      self.class.post(
+        "/#{version}/images/variations",
+        headers: {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{@access_token}",
+          "OpenAI-Organization" => @organization_id
+        },
+        body: parameters
+      )
+    end
+
     private
 
     def default_version

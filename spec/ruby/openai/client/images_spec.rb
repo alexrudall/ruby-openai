@@ -47,5 +47,28 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#variations", :vcr do
+      let(:response) do
+        OpenAI::Client.new.images.variations(
+          parameters: {
+            image: image,
+            n: 2,
+            size: size
+          }
+        )
+      end
+      let(:cassette) { "images variations #{image_filename}" }
+      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", image_filename) }
+      let(:image_filename) { "image.png" }
+      let(:size) { "256x256" }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette, preserve_exact_body_bytes: true) do
+          r = JSON.parse(response.body)
+          expect(r.dig("data", 0, "url")).to include("dalle")
+        end
+      end
+    end
   end
 end
