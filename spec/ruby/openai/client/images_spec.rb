@@ -32,10 +32,12 @@ RSpec.describe OpenAI::Client do
           }
         )
       end
-      let(:cassette) { "images edit #{image} #{prompt}" }
+      let(:cassette) { "images edit #{image_filename} #{prompt}" }
       let(:prompt) { "A solid red Ruby on a blue background" }
-      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", "image.png") }
-      let(:mask) { File.join(RSPEC_ROOT, "fixtures/files", "mask.png") }
+      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", image_filename) }
+      let(:image_filename) { "image.png" }
+      let(:mask) { File.join(RSPEC_ROOT, "fixtures/files", mask_filename) }
+      let(:mask_filename) { "mask.png" }
       let(:size) { "256x256" }
 
       it "succeeds" do
