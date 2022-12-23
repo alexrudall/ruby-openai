@@ -21,8 +21,7 @@ module OpenAI
     end
 
     def edit(version: default_version, parameters: {})
-      parameters = parameters.merge(image: File.open(parameters[:image]))
-      parameters = parameters.merge(mask: File.open(parameters[:mask])) if parameters[:mask]
+      parameters = open_files(parameters)
 
       self.class.post(
         "/#{version}/images/edits",
@@ -36,7 +35,7 @@ module OpenAI
     end
 
     def variations(version: default_version, parameters: {})
-      parameters = parameters.merge(image: File.open(parameters[:image]))
+      parameters = open_files(parameters)
 
       self.class.post(
         "/#{version}/images/variations",
@@ -53,6 +52,12 @@ module OpenAI
 
     def default_version
       "v1".freeze
+    end
+
+    def open_files(parameters)
+      parameters = parameters.merge(image: File.open(parameters[:image]))
+      parameters = parameters.merge(mask: File.open(parameters[:mask])) if parameters[:mask]
+      parameters
     end
   end
 end
