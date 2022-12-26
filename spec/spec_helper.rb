@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "dotenv/load"
 require "ruby/openai"
 require "vcr"
 
@@ -19,6 +20,12 @@ RSpec.configure do |c|
 
   c.expect_with :rspec do |rspec|
     rspec.syntax = :expect
+  end
+
+  c.before(:all) do
+    Ruby::OpenAI.configure do |config|
+      config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    end
   end
 end
 
