@@ -4,8 +4,8 @@ module OpenAI
     base_uri "https://api.openai.com"
 
     def initialize(access_token: nil, organization_id: nil)
-      @access_token = access_token || Ruby::OpenAI.configuration.access_token
-      @organization_id = organization_id || Ruby::OpenAI.configuration.organization_id
+      Ruby::OpenAI.configuration.access_token = access_token if access_token
+      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
     def answers(version: default_version, parameters: {})
@@ -44,25 +44,23 @@ module OpenAI
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#engines` is deprecated and will
       be removed from ruby-openai v3.0. Use `Client#models` instead."
 
-      @engines ||= OpenAI::Engines.new(access_token: @access_token,
-                                       organization_id: @organization_id)
+      @engines ||= OpenAI::Engines.new
     end
 
     def files
-      @files ||= OpenAI::Files.new(access_token: @access_token, organization_id: @organization_id)
+      @files ||= OpenAI::Files.new
     end
 
     def finetunes
-      @finetunes ||= OpenAI::Finetunes.new(access_token: @access_token,
-                                           organization_id: @organization_id)
+      @finetunes ||= OpenAI::Finetunes.new
     end
 
     def images
-      @images ||= OpenAI::Images.new(access_token: @access_token, organization_id: @organization_id)
+      @images ||= OpenAI::Images.new
     end
 
     def models
-      @models ||= OpenAI::Models.new(access_token: @access_token, organization_id: @organization_id)
+      @models ||= OpenAI::Models.new
     end
 
     def moderations(version: default_version, parameters: {})
@@ -102,11 +100,7 @@ module OpenAI
     def post(url:, parameters:)
       self.class.post(
         url,
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        },
+        headers: Ruby::OpenAI.headers,
         body: parameters.to_json
       )
     end

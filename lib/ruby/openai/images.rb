@@ -4,18 +4,14 @@ module OpenAI
     base_uri "https://api.openai.com"
 
     def initialize(access_token: nil, organization_id: nil)
-      @access_token = access_token || Ruby::OpenAI.configuration.access_token
-      @organization_id = organization_id || Ruby::OpenAI.configuration.organization_id
+      Ruby::OpenAI.configuration.access_token = access_token if access_token
+      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
     def generate(version: default_version, parameters: {})
       self.class.post(
         "/#{version}/images/generations",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        },
+        headers: Ruby::OpenAI.headers,
         body: parameters.to_json
       )
     end
@@ -25,11 +21,7 @@ module OpenAI
 
       self.class.post(
         "/#{version}/images/edits",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        },
+        headers: Ruby::OpenAI.headers,
         body: parameters
       )
     end
@@ -39,11 +31,7 @@ module OpenAI
 
       self.class.post(
         "/#{version}/images/variations",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        },
+        headers: Ruby::OpenAI.headers,
         body: parameters
       )
     end

@@ -15,7 +15,7 @@ module Ruby
       attr_accessor :access_token, :organization_id
 
       def initialize
-        @access_token = nil
+        @access_id = nil
         @organization_id = nil
       end
     end
@@ -30,6 +30,14 @@ module Ruby
 
     def self.configure
       yield(configuration)
+    end
+
+    def self.headers
+      {
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{configuration.access_token}",
+        "OpenAI-Organization" => configuration.organization_id
+      }
     end
   end
 end
