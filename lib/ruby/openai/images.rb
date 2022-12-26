@@ -8,7 +8,7 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def generate(version: default_version, parameters: {})
+    def generate(version: Ruby::OpenAI.api_version, parameters: {})
       self.class.post(
         "/#{version}/images/generations",
         headers: Ruby::OpenAI.headers,
@@ -16,7 +16,7 @@ module OpenAI
       )
     end
 
-    def edit(version: default_version, parameters: {})
+    def edit(version: Ruby::OpenAI.api_version, parameters: {})
       parameters = open_files(parameters)
 
       self.class.post(
@@ -26,7 +26,7 @@ module OpenAI
       )
     end
 
-    def variations(version: default_version, parameters: {})
+    def variations(version: Ruby::OpenAI.api_version, parameters: {})
       parameters = open_files(parameters)
 
       self.class.post(
@@ -37,10 +37,6 @@ module OpenAI
     end
 
     private
-
-    def default_version
-      "v1".freeze
-    end
 
     def open_files(parameters)
       parameters = parameters.merge(image: File.open(parameters[:image]))

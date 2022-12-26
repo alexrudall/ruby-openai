@@ -39,5 +39,9 @@ module Ruby
         "OpenAI-Organization" => configuration.organization_id
       }
     end
+
+    def self.api_version
+      "v1".freeze
+    end
   end
 end

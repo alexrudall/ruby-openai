@@ -8,14 +8,14 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: default_version)
+    def list(version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/fine-tunes",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def create(version: default_version, parameters: {})
+    def create(version: Ruby::OpenAI.api_version, parameters: {})
       self.class.post(
         "/#{version}/fine-tunes",
         headers: Ruby::OpenAI.headers,
@@ -23,31 +23,25 @@ module OpenAI
       )
     end
 
-    def retrieve(id:, version: default_version)
+    def retrieve(id:, version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/fine-tunes/#{id}",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def cancel(id:, version: default_version)
+    def cancel(id:, version: Ruby::OpenAI.api_version)
       self.class.post(
         "/#{version}/fine-tunes/#{id}/cancel",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def events(id:, version: default_version)
+    def events(id:, version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/fine-tunes/#{id}/events",
         headers: Ruby::OpenAI.headers
       )
-    end
-
-    private
-
-    def default_version
-      "v1".freeze
     end
   end
 end

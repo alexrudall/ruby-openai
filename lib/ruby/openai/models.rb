@@ -8,24 +8,18 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: default_version)
+    def list(version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/models",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def retrieve(id:, version: default_version)
+    def retrieve(id:, version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/models/#{id}",
         headers: Ruby::OpenAI.headers
       )
-    end
-
-    private
-
-    def default_version
-      "v1".freeze
     end
   end
 end

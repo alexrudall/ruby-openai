@@ -8,14 +8,14 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: default_version)
+    def list(version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/files",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def upload(version: default_version, parameters: {})
+    def upload(version: Ruby::OpenAI.api_version, parameters: {})
       validate(file: parameters[:file])
 
       self.class.post(
@@ -25,14 +25,14 @@ module OpenAI
       )
     end
 
-    def retrieve(id:, version: default_version)
+    def retrieve(id:, version: Ruby::OpenAI.api_version)
       self.class.get(
         "/#{version}/files/#{id}",
         headers: Ruby::OpenAI.headers
       )
     end
 
-    def delete(id:, version: default_version)
+    def delete(id:, version: Ruby::OpenAI.api_version)
       self.class.delete(
         "/#{version}/files/#{id}",
         headers: Ruby::OpenAI.headers
@@ -40,10 +40,6 @@ module OpenAI
     end
 
     private
-
-    def default_version
-      "v1".freeze
-    end
 
     def validate(file:)
       File.open(file).each_line.with_index do |line, index|
