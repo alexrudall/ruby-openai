@@ -12,9 +12,7 @@ Layout/LineLength:
 
 Metrics/BlockLength:
   Exclude:
-    - "Rakefile"
-    - "**/*.rake"
-    - "spec/**/*.rb"
+    - "spec/**/*"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
