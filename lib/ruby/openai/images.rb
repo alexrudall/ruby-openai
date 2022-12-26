@@ -5,16 +5,16 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def generate(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/images/generations", parameters: parameters.to_json)
+    def generate(parameters: {})
+      OpenAI::Client.post(path: "/images/generations", parameters: parameters.to_json)
     end
 
-    def edit(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/images/edits", parameters: open_files(parameters))
+    def edit(parameters: {})
+      OpenAI::Client.post(path: "/images/edits", parameters: open_files(parameters))
     end
 
-    def variations(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/images/variations", parameters: open_files(parameters))
+    def variations(parameters: {})
+      OpenAI::Client.post(path: "/images/variations", parameters: open_files(parameters))
     end
 
     private

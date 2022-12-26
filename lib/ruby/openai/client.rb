@@ -1,17 +1,21 @@
 module OpenAI
   class Client
-    URL_BASE = "https://api.openai.com".freeze
+    URI_BASE = "https://api.openai.com/".freeze
+
+    def self.uri(path:)
+      URI_BASE + Ruby::OpenAI.configuration.api_version + path
+    end
 
     def self.get(path:)
       HTTParty.get(
-        URL_BASE + path,
+        uri(path: path),
         headers: headers
       )
     end
 
     def self.post(path:, parameters: nil)
       HTTParty.post(
-        URL_BASE + path,
+        uri(path: path),
         headers: headers,
         body: parameters.to_json
       )
@@ -19,7 +23,7 @@ module OpenAI
 
     def self.delete(path:)
       HTTParty.delete(
-        URL_BASE + path,
+        uri(path: path),
         headers: headers
       )
     end
@@ -37,36 +41,36 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def answers(version: Ruby::OpenAI.configuration.api_version, parameters: {})
+    def answers(parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#answers` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6233728-answers-transition-guide"
 
-      OpenAI::Client.post(path: "/#{version}/answers", parameters: parameters)
+      OpenAI::Client.post(path: "/answers", parameters: parameters)
     end
 
-    def classifications(version: Ruby::OpenAI.configuration.api_version, parameters: {})
+    def classifications(parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#classifications` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272941-classifications-transition-guide"
 
-      OpenAI::Client.post(path: "/#{version}/classifications", parameters: parameters)
+      OpenAI::Client.post(path: "/classifications", parameters: parameters)
     end
 
-    def completions(engine: nil, version: Ruby::OpenAI.configuration.api_version, parameters: {})
+    def completions(engine: nil, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "completions", parameters: parameters)
 
-      OpenAI::Client.post(path: "/#{version}/completions", parameters: parameters)
+      OpenAI::Client.post(path: "/completions", parameters: parameters)
     end
 
-    def edits(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/edits", parameters: parameters)
+    def edits(parameters: {})
+      OpenAI::Client.post(path: "/edits", parameters: parameters)
     end
 
-    def embeddings(engine: nil, version: Ruby::OpenAI.configuration.api_version, parameters: {})
+    def embeddings(engine: nil, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "embeddings", parameters: parameters)
 
-      OpenAI::Client.post(path: "/#{version}/embeddings", parameters: parameters)
+      OpenAI::Client.post(path: "/embeddings", parameters: parameters)
     end
 
     def engines
@@ -92,16 +96,16 @@ module OpenAI
       @models ||= OpenAI::Models.new
     end
 
-    def moderations(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/moderations", parameters: parameters)
+    def moderations(parameters: {})
+      OpenAI::Client.post(path: "/moderations", parameters: parameters)
     end
 
-    def search(engine:, version: Ruby::OpenAI.configuration.api_version, parameters: {})
+    def search(engine:, parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#search` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272952-search-transition-guide"
 
-      OpenAI::Client.post(path: "/#{version}/engines/#{engine}/search", parameters: parameters)
+      OpenAI::Client.post(path: "/engines/#{engine}/search", parameters: parameters)
     end
 
     private

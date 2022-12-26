@@ -6,11 +6,11 @@ module OpenAI
     end
 
     def list(version: Ruby::OpenAI.configuration.api_version)
-      OpenAI::Client.get(path: "/#{version}/models")
+      OpenAI::Client.get(path: "/models")
     end
 
-    def retrieve(id:, version: Ruby::OpenAI.configuration.api_version)
-      OpenAI::Client.get(path: "/#{version}/models/#{id}")
+    def retrieve(id:)
+      OpenAI::Client.get(path: "/models/#{id}")
     end
   end
 end
