@@ -5,7 +5,7 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: Ruby::OpenAI.configuration.api_version)
+    def list
       OpenAI::Client.get(path: "/files")
     end
 
