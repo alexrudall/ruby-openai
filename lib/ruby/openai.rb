@@ -1,6 +1,5 @@
 require "httparty"
 require "ruby/openai/client"
-require "ruby/openai/engines"
 require "ruby/openai/files"
 require "ruby/openai/finetunes"
 require "ruby/openai/images"
