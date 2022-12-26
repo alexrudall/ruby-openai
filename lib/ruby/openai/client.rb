@@ -7,43 +7,16 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def answers(parameters: {})
-      warn "[DEPRECATION WARNING] [ruby-openai] `Client#answers` is deprecated and will
-      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
-      More information: https://help.openai.com/en/articles/6233728-answers-transition-guide"
-
-      OpenAI::Client.post(path: "/answers", parameters: parameters)
-    end
-
-    def classifications(parameters: {})
-      warn "[DEPRECATION WARNING] [ruby-openai] `Client#classifications` is deprecated and will
-      be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
-      More information: https://help.openai.com/en/articles/6272941-classifications-transition-guide"
-
-      OpenAI::Client.post(path: "/classifications", parameters: parameters)
-    end
-
-    def completions(engine: nil, parameters: {})
-      parameters = deprecate_engine(engine: engine, method: "completions", parameters: parameters)
-
-      OpenAI::Client.post(path: "/completions", parameters: parameters)
+    def completions(version: Ruby::OpenAI.configuration.api_version, parameters: {})
+      OpenAI::Client.post(path: "/#{version}/completions", parameters: parameters)
     end
 
     def edits(parameters: {})
       OpenAI::Client.post(path: "/edits", parameters: parameters)
     end
 
-    def embeddings(engine: nil, parameters: {})
-      parameters = deprecate_engine(engine: engine, method: "embeddings", parameters: parameters)
-
-      OpenAI::Client.post(path: "/embeddings", parameters: parameters)
-    end
-
-    def engines
-      warn "[DEPRECATION WARNING] [ruby-openai] `Client#engines` is deprecated and will
-      be removed from ruby-openai v3.0. Use `Client#models` instead."
-
-      @engines ||= OpenAI::Engines.new
+    def embeddings(version: Ruby::OpenAI.configuration.api_version, parameters: {})
+      OpenAI::Client.post(path: "/#{version}/embeddings", parameters: parameters)
     end
 
     def files

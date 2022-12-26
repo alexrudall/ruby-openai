@@ -273,32 +273,6 @@ Or use the ID of a file you've uploaded:
     })
 ```
 
-### Answers
-
-Pass documents, a question string, and an example question/response to get an answer to a question:
-
-```ruby
-    response = client.answers(parameters: {
-        documents: ["Puppy A is happy.", "Puppy B is sad."],
-        question: "which puppy is happy?",
-        model: "text-curie-001",
-        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
-        examples: [["What is human life expectancy in the United States?","78 years."]],
-    })
-```
-
-Or use the ID of a file you've uploaded:
-
-```ruby
-    response = client.answers(parameters: {
-        file: "123abc",
-        question: "which puppy is happy?",
-        model: "text-curie-001",
-        examples_context: "In 2017, U.S. life expectancy was 78.6 years.",
-        examples: [["What is human life expectancy in the United States?","78 years."]],
-    })
-```
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
