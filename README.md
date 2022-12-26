@@ -53,7 +53,7 @@ For a quick test you can pass your token directly to a new client:
 
 ### With Config
 
-For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcore secrets into your codebase - instead use something like [dotenv](https://github.com/motdotla/dotenv) to pass the keys safely into your environments.
+For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcode secrets into your codebase - instead use something like [dotenv](https://github.com/motdotla/dotenv) to pass the keys safely into your environments.
 
 ```ruby
     Ruby::OpenAI.configure do |config|
