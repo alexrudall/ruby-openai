@@ -6,24 +6,24 @@ module OpenAI
     end
 
     def list(version: Ruby::OpenAI.api_version)
-      OpenAI::Client.get(url: "/#{version}/files")
+      OpenAI::Client.get(path: "/#{version}/files")
     end
 
     def upload(version: Ruby::OpenAI.api_version, parameters: {})
       validate(file: parameters[:file])
 
       OpenAI::Client.post(
-        url: "/#{version}/files",
+        path: "/#{version}/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
       )
     end
 
     def retrieve(id:, version: Ruby::OpenAI.api_version)
-      OpenAI::Client.get(url: "/#{version}/files/#{id}")
+      OpenAI::Client.get(path: "/#{version}/files/#{id}")
     end
 
     def delete(id:, version: Ruby::OpenAI.api_version)
-      OpenAI::Client.delete(url: "/#{version}/files/#{id}")
+      OpenAI::Client.delete(path: "/#{version}/files/#{id}")
     end
 
     private

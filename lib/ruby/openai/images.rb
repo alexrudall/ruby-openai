@@ -6,15 +6,15 @@ module OpenAI
     end
 
     def generate(version: Ruby::OpenAI.api_version, parameters: {})
-      OpenAI::Client.post(url: "/#{version}/images/generations", parameters: parameters.to_json)
+      OpenAI::Client.post(path: "/#{version}/images/generations", parameters: parameters.to_json)
     end
 
     def edit(version: Ruby::OpenAI.api_version, parameters: {})
-      OpenAI::Client.post(url: "/#{version}/images/edits", parameters: open_files(parameters))
+      OpenAI::Client.post(path: "/#{version}/images/edits", parameters: open_files(parameters))
     end
 
     def variations(version: Ruby::OpenAI.api_version, parameters: {})
-      OpenAI::Client.post(url: "/#{version}/images/variations", parameters: open_files(parameters))
+      OpenAI::Client.post(path: "/#{version}/images/variations", parameters: open_files(parameters))
     end
 
     private

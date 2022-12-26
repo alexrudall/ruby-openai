@@ -6,23 +6,23 @@ module OpenAI
     end
 
     def list(version: Ruby::OpenAI.api_version)
-      OpenAI::Client.get(url: "/#{version}/fine-tunes")
+      OpenAI::Client.get(path: "/#{version}/fine-tunes")
     end
 
     def create(version: Ruby::OpenAI.api_version, parameters: {})
-      OpenAI::Client.post(url: "/#{version}/fine-tunes", parameters: parameters.to_json)
+      OpenAI::Client.post(path: "/#{version}/fine-tunes", parameters: parameters.to_json)
     end
 
     def retrieve(id:, version: Ruby::OpenAI.api_version)
-      OpenAI::Client.get(url: "/#{version}/fine-tunes/#{id}")
+      OpenAI::Client.get(path: "/#{version}/fine-tunes/#{id}")
     end
 
     def cancel(id:, version: Ruby::OpenAI.api_version)
-      OpenAI::Client.post(url: "/#{version}/fine-tunes/#{id}/cancel")
+      OpenAI::Client.post(path: "/#{version}/fine-tunes/#{id}/cancel")
     end
 
     def events(id:, version: Ruby::OpenAI.api_version)
-      OpenAI::Client.get(url: "/#{version}/fine-tunes/#{id}/events")
+      OpenAI::Client.get(path: "/#{version}/fine-tunes/#{id}/events")
     end
   end
 end
