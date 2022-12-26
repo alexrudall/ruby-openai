@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (3.0.0)
+    ruby-openai (3.0.1)
       httparty (>= 0.18.1, < 0.21.0)
 
 GEM
