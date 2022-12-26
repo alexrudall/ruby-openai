@@ -40,30 +40,26 @@ and require with:
 - Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
 - If you belong to multiple organizations, you can get your Organization ID from [https://beta.openai.com/account/org-settings](https://beta.openai.com/account/org-settings)
 
-### With dotenv
+### Quickstart
 
-If you're using [dotenv](https://github.com/motdotla/dotenv), you can add your secret keys to your .env file:
-
-```
-    OPENAI_ACCESS_TOKEN=access_token_goes_here
-    OPENAI_ORGANIZATION_ID=organization_id_goes_here # Optional.
-```
-
-And create a client:
-
-```ruby
-    client = OpenAI::Client.new
-```
-
-### Without dotenv
-
-Alternatively you can pass your key directly to a new client:
+For a quick test you can pass your token directly to a new client:
 
 ```ruby
     client = OpenAI::Client.new(
         access_token: "access_token_goes_here",
-        organization_id: "organization_id_goes_here"
+        organization_id: "organization_id_goes_here" # Optional.
     )
+```
+
+### With Config
+
+For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcore secrets into your codebase - instead use something like [dotenv](https://github.com/motdotla/dotenv) to pass the keys safely into your environments.
+
+```ruby
+    Ruby::OpenAI.configure do |config|
+        config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
+        config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
+    end
 ```
 
 ### Models

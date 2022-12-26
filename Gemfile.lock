@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     ruby-openai (2.3.0)
-      dotenv (>= 2.7.6, < 2.9.0)
       httparty (>= 0.18.1, < 0.21.0)
 
 GEM
@@ -15,7 +14,6 @@ GEM
     crack (0.4.5)
       rexml
     diff-lcs (1.5.0)
-    dotenv (2.8.1)
     hashdiff (1.0.1)
     httparty (0.20.0)
       mime-types (~> 3.0)
