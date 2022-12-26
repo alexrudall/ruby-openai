@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add ability to set access_token via gem configuration.
-- Thanks [@grjones](https://github.com/grjones) and [@aqueflamingo](https://github.com/aquaflamingo) for raising this and [@feministy](https://github.com/feministy) for the [excellent guide](https://github.com/feministy/lizabinante.com/blob/stable/source/2016-01-30-creating-a-configurable-ruby-gem.markdown#configuration-block-the-end-goal) to adding config to a gem.
+- Thanks [@grjones](https://github.com/grjones) and [@aquaflamingo](https://github.com/aquaflamingo) for raising this and [@feministy](https://github.com/feministy) for the [excellent guide](https://github.com/feministy/lizabinante.com/blob/stable/source/2016-01-30-creating-a-configurable-ruby-gem.markdown#configuration-block-the-end-goal) to adding config to a gem.
 
 ### Removed
 
