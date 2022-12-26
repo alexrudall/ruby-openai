@@ -7,16 +7,16 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def completions(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/completions", parameters: parameters)
+    def completions(parameters: {})
+      OpenAI::Client.post(path: "/completions", parameters: parameters)
     end
 
     def edits(parameters: {})
       OpenAI::Client.post(path: "/edits", parameters: parameters)
     end
 
-    def embeddings(version: Ruby::OpenAI.configuration.api_version, parameters: {})
-      OpenAI::Client.post(path: "/#{version}/embeddings", parameters: parameters)
+    def embeddings(parameters: {})
+      OpenAI::Client.post(path: "/embeddings", parameters: parameters)
     end
 
     def files
