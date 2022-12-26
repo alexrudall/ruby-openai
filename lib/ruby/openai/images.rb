@@ -1,39 +1,20 @@
 module OpenAI
   class Images
-    include HTTParty
-    base_uri "https://api.openai.com"
-
     def initialize(access_token: nil, organization_id: nil)
       Ruby::OpenAI.configuration.access_token = access_token if access_token
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
     def generate(version: Ruby::OpenAI.api_version, parameters: {})
-      self.class.post(
-        "/#{version}/images/generations",
-        headers: Ruby::OpenAI.headers,
-        body: parameters.to_json
-      )
+      OpenAI::Client.post(url: "/#{version}/images/generations", parameters: parameters.to_json)
     end
 
     def edit(version: Ruby::OpenAI.api_version, parameters: {})
-      parameters = open_files(parameters)
-
-      self.class.post(
-        "/#{version}/images/edits",
-        headers: Ruby::OpenAI.headers,
-        body: parameters
-      )
+      OpenAI::Client.post(url: "/#{version}/images/edits", parameters: open_files(parameters))
     end
 
     def variations(version: Ruby::OpenAI.api_version, parameters: {})
-      parameters = open_files(parameters)
-
-      self.class.post(
-        "/#{version}/images/variations",
-        headers: Ruby::OpenAI.headers,
-        body: parameters
-      )
+      OpenAI::Client.post(url: "/#{version}/images/variations", parameters: open_files(parameters))
     end
 
     private

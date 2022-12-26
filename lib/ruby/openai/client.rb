@@ -1,7 +1,28 @@
 module OpenAI
   class Client
-    include HTTParty
-    base_uri "https://api.openai.com"
+    BASE_URI = "https://api.openai.com".freeze
+
+    def self.get(url:)
+      HTTParty.get(
+        BASE_URI + url,
+        headers: Ruby::OpenAI.headers
+      )
+    end
+
+    def self.post(url:, parameters: nil)
+      HTTParty.post(
+        BASE_URI + url,
+        headers: Ruby::OpenAI.headers,
+        body: parameters.to_json
+      )
+    end
+
+    def self.delete(url:)
+      HTTParty.delete(
+        BASE_URI + url,
+        headers: Ruby::OpenAI.headers
+      )
+    end
 
     def initialize(access_token: nil, organization_id: nil)
       Ruby::OpenAI.configuration.access_token = access_token if access_token
@@ -13,7 +34,7 @@ module OpenAI
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6233728-answers-transition-guide"
 
-      post(url: "/#{version}/answers", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/answers", parameters: parameters)
     end
 
     def classifications(version: Ruby::OpenAI.api_version, parameters: {})
@@ -21,23 +42,23 @@ module OpenAI
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272941-classifications-transition-guide"
 
-      post(url: "/#{version}/classifications", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/classifications", parameters: parameters)
     end
 
     def completions(engine: nil, version: Ruby::OpenAI.api_version, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "completions", parameters: parameters)
 
-      post(url: "/#{version}/completions", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/completions", parameters: parameters)
     end
 
     def edits(version: Ruby::OpenAI.api_version, parameters: {})
-      post(url: "/#{version}/edits", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/edits", parameters: parameters)
     end
 
     def embeddings(engine: nil, version: Ruby::OpenAI.api_version, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "embeddings", parameters: parameters)
 
-      post(url: "/#{version}/embeddings", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/embeddings", parameters: parameters)
     end
 
     def engines
@@ -64,7 +85,7 @@ module OpenAI
     end
 
     def moderations(version: Ruby::OpenAI.api_version, parameters: {})
-      post(url: "/#{version}/moderations", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/moderations", parameters: parameters)
     end
 
     def search(engine:, version: Ruby::OpenAI.api_version, parameters: {})
@@ -72,7 +93,7 @@ module OpenAI
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272952-search-transition-guide"
 
-      post(url: "/#{version}/engines/#{engine}/search", parameters: parameters)
+      OpenAI::Client.post(url: "/#{version}/engines/#{engine}/search", parameters: parameters)
     end
 
     private
@@ -91,14 +112,6 @@ module OpenAI
 
     def documents_or_file(documents: nil, file: nil)
       documents ? { documents: documents } : { file: file }
-    end
-
-    def post(url:, parameters:)
-      self.class.post(
-        url,
-        headers: Ruby::OpenAI.headers,
-        body: parameters.to_json
-      )
     end
   end
 end
