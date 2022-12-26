@@ -5,23 +5,23 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: Ruby::OpenAI.api_version)
+    def list(version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/fine-tunes")
     end
 
-    def create(version: Ruby::OpenAI.api_version, parameters: {})
+    def create(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       OpenAI::Client.post(path: "/#{version}/fine-tunes", parameters: parameters.to_json)
     end
 
-    def retrieve(id:, version: Ruby::OpenAI.api_version)
+    def retrieve(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/fine-tunes/#{id}")
     end
 
-    def cancel(id:, version: Ruby::OpenAI.api_version)
+    def cancel(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.post(path: "/#{version}/fine-tunes/#{id}/cancel")
     end
 
-    def events(id:, version: Ruby::OpenAI.api_version)
+    def events(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/fine-tunes/#{id}/events")
     end
   end

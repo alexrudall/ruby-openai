@@ -5,11 +5,11 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: Ruby::OpenAI.api_version)
+    def list(version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/files")
     end
 
-    def upload(version: Ruby::OpenAI.api_version, parameters: {})
+    def upload(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       validate(file: parameters[:file])
 
       OpenAI::Client.post(
@@ -18,11 +18,11 @@ module OpenAI
       )
     end
 
-    def retrieve(id:, version: Ruby::OpenAI.api_version)
+    def retrieve(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/files/#{id}")
     end
 
-    def delete(id:, version: Ruby::OpenAI.api_version)
+    def delete(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.delete(path: "/#{version}/files/#{id}")
     end
 

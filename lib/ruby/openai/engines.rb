@@ -5,11 +5,11 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: Ruby::OpenAI.api_version)
+    def list(version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/engines")
     end
 
-    def retrieve(id:, version: Ruby::OpenAI.api_version)
+    def retrieve(id:, version: Ruby::OpenAI.configuration.api_version)
       OpenAI::Client.get(path: "/#{version}/engines/#{id}")
     end
   end

@@ -12,10 +12,13 @@ module Ruby
     class Error < StandardError; end
 
     class Configuration
-      attr_accessor :access_token, :organization_id
+      attr_accessor :access_token, :api_version, :organization_id
+
+      DEFAULT_API_VERSION = "v1".freeze
 
       def initialize
         @access_id = nil
+        @api_version = DEFAULT_API_VERSION
         @organization_id = nil
       end
     end
@@ -30,18 +33,6 @@ module Ruby
 
     def self.configure
       yield(configuration)
-    end
-
-    def self.headers
-      {
-        "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{configuration.access_token}",
-        "OpenAI-Organization" => configuration.organization_id
-      }
-    end
-
-    def self.api_version
-      "v1".freeze
     end
   end
 end

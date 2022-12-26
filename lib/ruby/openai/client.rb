@@ -5,14 +5,14 @@ module OpenAI
     def self.get(path:)
       HTTParty.get(
         URL_BASE + path,
-        headers: Ruby::OpenAI.headers
+        headers: headers
       )
     end
 
     def self.post(path:, parameters: nil)
       HTTParty.post(
         URL_BASE + path,
-        headers: Ruby::OpenAI.headers,
+        headers: headers,
         body: parameters.to_json
       )
     end
@@ -20,8 +20,16 @@ module OpenAI
     def self.delete(path:)
       HTTParty.delete(
         URL_BASE + path,
-        headers: Ruby::OpenAI.headers
+        headers: headers
       )
+    end
+
+    def self.headers
+      {
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
+        "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
+      }
     end
 
     def initialize(access_token: nil, organization_id: nil)
@@ -29,7 +37,7 @@ module OpenAI
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def answers(version: Ruby::OpenAI.api_version, parameters: {})
+    def answers(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#answers` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6233728-answers-transition-guide"
@@ -37,7 +45,7 @@ module OpenAI
       OpenAI::Client.post(path: "/#{version}/answers", parameters: parameters)
     end
 
-    def classifications(version: Ruby::OpenAI.api_version, parameters: {})
+    def classifications(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#classifications` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272941-classifications-transition-guide"
@@ -45,17 +53,17 @@ module OpenAI
       OpenAI::Client.post(path: "/#{version}/classifications", parameters: parameters)
     end
 
-    def completions(engine: nil, version: Ruby::OpenAI.api_version, parameters: {})
+    def completions(engine: nil, version: Ruby::OpenAI.configuration.api_version, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "completions", parameters: parameters)
 
       OpenAI::Client.post(path: "/#{version}/completions", parameters: parameters)
     end
 
-    def edits(version: Ruby::OpenAI.api_version, parameters: {})
+    def edits(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       OpenAI::Client.post(path: "/#{version}/edits", parameters: parameters)
     end
 
-    def embeddings(engine: nil, version: Ruby::OpenAI.api_version, parameters: {})
+    def embeddings(engine: nil, version: Ruby::OpenAI.configuration.api_version, parameters: {})
       parameters = deprecate_engine(engine: engine, method: "embeddings", parameters: parameters)
 
       OpenAI::Client.post(path: "/#{version}/embeddings", parameters: parameters)
@@ -84,11 +92,11 @@ module OpenAI
       @models ||= OpenAI::Models.new
     end
 
-    def moderations(version: Ruby::OpenAI.api_version, parameters: {})
+    def moderations(version: Ruby::OpenAI.configuration.api_version, parameters: {})
       OpenAI::Client.post(path: "/#{version}/moderations", parameters: parameters)
     end
 
-    def search(engine:, version: Ruby::OpenAI.api_version, parameters: {})
+    def search(engine:, version: Ruby::OpenAI.configuration.api_version, parameters: {})
       warn "[DEPRECATION WARNING] [ruby-openai] `Client#search` is deprecated and will
       be removed from the OpenAI API on 3 December 2022 and from ruby-openai v3.0.
       More information: https://help.openai.com/en/articles/6272952-search-transition-guide"
