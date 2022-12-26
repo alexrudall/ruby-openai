@@ -1,17 +1,17 @@
 module OpenAI
   class Client
-    BASE_URI = "https://api.openai.com".freeze
+    URL_BASE = "https://api.openai.com".freeze
 
     def self.get(path:)
       HTTParty.get(
-        BASE_URI + path,
+        URL_BASE + path,
         headers: Ruby::OpenAI.headers
       )
     end
 
     def self.post(path:, parameters: nil)
       HTTParty.post(
-        BASE_URI + path,
+        URL_BASE + path,
         headers: Ruby::OpenAI.headers,
         body: parameters.to_json
       )
@@ -19,7 +19,7 @@ module OpenAI
 
     def self.delete(path:)
       HTTParty.delete(
-        BASE_URI + path,
+        URL_BASE + path,
         headers: Ruby::OpenAI.headers
       )
     end
