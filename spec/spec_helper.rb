@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "dotenv/load"
 require "ruby/openai"
 require "vcr"
 
@@ -6,8 +7,8 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = { record: :new_episodes }
-  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { ENV.fetch("OPENAI_ACCESS_TOKEN") }
-  c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { ENV.fetch("OPENAI_ORGANIZATION_ID", nil) }
+  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { Ruby::OpenAI.configuration.access_token }
+  c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { Ruby::OpenAI.configuration.organization_id }
 end
 
 RSpec.configure do |c|
@@ -19,6 +20,12 @@ RSpec.configure do |c|
 
   c.expect_with :rspec do |rspec|
     rspec.syntax = :expect
+  end
+
+  c.before(:all) do
+    Ruby::OpenAI.configure do |config|
+      config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    end
   end
 end
 

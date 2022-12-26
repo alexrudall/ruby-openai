@@ -1,39 +1,16 @@
 module OpenAI
   class Models
-    include HTTParty
-    base_uri "https://api.openai.com"
-
     def initialize(access_token: nil, organization_id: nil)
-      @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
-      @organization_id = organization_id || ENV.fetch("OPENAI_ORGANIZATION_ID", nil)
+      Ruby::OpenAI.configuration.access_token = access_token if access_token
+      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: default_version)
-      self.class.get(
-        "/#{version}/models",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
+    def list
+      OpenAI::Client.get(path: "/models")
     end
 
-    def retrieve(id:, version: default_version)
-      self.class.get(
-        "/#{version}/models/#{id}",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
-    end
-
-    private
-
-    def default_version
-      "v1".freeze
+    def retrieve(id:)
+      OpenAI::Client.get(path: "/models/#{id}")
     end
   end
 end

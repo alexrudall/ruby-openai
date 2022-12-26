@@ -1,73 +1,28 @@
 module OpenAI
   class Finetunes
-    include HTTParty
-    base_uri "https://api.openai.com"
-
     def initialize(access_token: nil, organization_id: nil)
-      @access_token = access_token || ENV.fetch("OPENAI_ACCESS_TOKEN")
-      @organization_id = organization_id || ENV.fetch("OPENAI_ORGANIZATION_ID", nil)
+      Ruby::OpenAI.configuration.access_token = access_token if access_token
+      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
-    def list(version: default_version)
-      self.class.get(
-        "/#{version}/fine-tunes",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
+    def list
+      OpenAI::Client.get(path: "/fine-tunes")
     end
 
-    def create(version: default_version, parameters: {})
-      self.class.post(
-        "/#{version}/fine-tunes",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        },
-        body: parameters.to_json
-      )
+    def create(parameters: {})
+      OpenAI::Client.post(path: "/fine-tunes", parameters: parameters.to_json)
     end
 
-    def retrieve(id:, version: default_version)
-      self.class.get(
-        "/#{version}/fine-tunes/#{id}",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
+    def retrieve(id:)
+      OpenAI::Client.get(path: "/fine-tunes/#{id}")
     end
 
-    def cancel(id:, version: default_version)
-      self.class.post(
-        "/#{version}/fine-tunes/#{id}/cancel",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
+    def cancel(id:)
+      OpenAI::Client.post(path: "/fine-tunes/#{id}/cancel")
     end
 
-    def events(id:, version: default_version)
-      self.class.get(
-        "/#{version}/fine-tunes/#{id}/events",
-        headers: {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}",
-          "OpenAI-Organization" => @organization_id
-        }
-      )
-    end
-
-    private
-
-    def default_version
-      "v1".freeze
+    def events(id:)
+      OpenAI::Client.get(path: "/fine-tunes/#{id}/events")
     end
   end
 end
