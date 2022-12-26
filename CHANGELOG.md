@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2022-12-26
+
+### Added
+
+- Add ability to set access_token via gem configuration.
+- Thanks [@grjones](https://github.com/grjones) and [@aqueflamingo](https://github.com/aquaflamingo) for raising this and [@feministy](https://github.com/feministy) for the [excellent guide](https://github.com/feministy/lizabinante.com/blob/stable/source/2016-01-30-creating-a-configurable-ruby-gem.markdown#configuration-block-the-end-goal) to adding config to a gem.
+
+### Removed
+
+- [BREAKING] Remove ability to include access_token directly via ENV vars.
+- [BREAKING] Remove deprecated answers, classifications, embeddings, engines and search endpoints.
+- [BREAKING] Remove ability to pass engine to completions and embeddings outside of the parameters hash.
+- [BREAKING] Remove ability to pass API version directly to endpoints.
+
 ## [2.3.0] - 2022-12-23
 
 ### Added
