@@ -2,40 +2,6 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    def self.uri(path:)
-      URI_BASE + Ruby::OpenAI.configuration.api_version + path
-    end
-
-    def self.get(path:)
-      HTTParty.get(
-        uri(path: path),
-        headers: headers
-      )
-    end
-
-    def self.post(path:, parameters: nil)
-      HTTParty.post(
-        uri(path: path),
-        headers: headers,
-        body: parameters.to_json
-      )
-    end
-
-    def self.delete(path:)
-      HTTParty.delete(
-        uri(path: path),
-        headers: headers
-      )
-    end
-
-    def self.headers
-      {
-        "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
-      }
-    end
-
     def initialize(access_token: nil, organization_id: nil)
       Ruby::OpenAI.configuration.access_token = access_token if access_token
       Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
@@ -106,6 +72,40 @@ module OpenAI
       More information: https://help.openai.com/en/articles/6272952-search-transition-guide"
 
       OpenAI::Client.post(path: "/engines/#{engine}/search", parameters: parameters)
+    end
+
+    def self.get(path:)
+      HTTParty.get(
+        uri(path: path),
+        headers: headers
+      )
+    end
+
+    def self.post(path:, parameters: nil)
+      HTTParty.post(
+        uri(path: path),
+        headers: headers,
+        body: parameters.to_json
+      )
+    end
+
+    def self.delete(path:)
+      HTTParty.delete(
+        uri(path: path),
+        headers: headers
+      )
+    end
+
+    private_class_method def self.uri(path:)
+      URI_BASE + Ruby::OpenAI.configuration.api_version + path
+    end
+
+    private_class_method def self.headers
+      {
+        "Content-Type" => "application/json",
+        "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
+        "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
+      }
     end
 
     private
