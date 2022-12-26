@@ -188,7 +188,7 @@ You may need to wait a short time for processing to complete. Once processed, yo
     fine_tuned_model = JSON.parse(response.body)["fine_tuned_model"]
 ```
 
-This fine-tuned model name can then be used in classifications:
+This fine-tuned model name can then be used in completions:
 
 ```ruby
     response = client.completions(
@@ -245,32 +245,6 @@ Pass a string to check if it violates OpenAI's Content Policy:
     response = client.moderations(parameters: { input: "I'm worried about that." })
     puts response.dig("results", 0, "category_scores", "hate")
     => 5.505014632944949e-05
-```
-
-### Classifications
-
-Pass examples and a query to predict the most likely labels:
-
-```ruby
-    response = client.classifications(parameters: {
-        examples: [
-            ["A happy moment", "Positive"],
-            ["I am sad.", "Negative"],
-            ["I am feeling awesome", "Positive"]
-        ],
-        query: "It is a raining day :(",
-        model: "text-ada-001"
-    })
-```
-
-Or use the ID of a file you've uploaded:
-
-```ruby
-    response = client.classifications(parameters: {
-        file: "123abc,
-        query: "It is a raining day :(",
-        model: "text-ada-001"
-    })
 ```
 
 ## Development
