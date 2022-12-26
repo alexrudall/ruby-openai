@@ -45,10 +45,7 @@ and require with:
 For a quick test you can pass your token directly to a new client:
 
 ```ruby
-    client = OpenAI::Client.new(
-        access_token: "access_token_goes_here",
-        organization_id: "organization_id_goes_here" # Optional.
-    )
+    client = OpenAI::Client.new(access_token: "access_token_goes_here")
 ```
 
 ### With Config
@@ -60,6 +57,12 @@ For a more robust setup, you can configure the gem with your API keys, for examp
         config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
         config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
     end
+```
+
+Then you can create a client like this:
+
+```ruby
+    client = OpenAI::Client.new
 ```
 
 ### Models
