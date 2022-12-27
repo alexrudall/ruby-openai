@@ -6,7 +6,7 @@ module OpenAI
     end
 
     def generate(parameters: {})
-      OpenAI::Client.post(path: "/images/generations", parameters: parameters.to_json)
+      OpenAI::Client.post(path: "/images/generations", parameters: parameters)
     end
 
     def edit(parameters: {})

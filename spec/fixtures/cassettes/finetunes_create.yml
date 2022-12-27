@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 21:10:31 GMT
+      - Tue, 27 Dec 2022 09:44:04 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '925'
+      - '901'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 39eedc659198d0b6ace84e510ee0a054
+      - 61f0a1e8d1662544e08820b2db53cdf6
       Openai-Processing-Ms:
-      - '901'
+      - '918'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,43 +46,42 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ft-8L9s8NyryUH1jTVKedLfnjED",
           "object": "fine-tune",
-          "created_at": 1639257031,
-          "events": [
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257031,
-              "level": "info",
-              "message": "Created fine-tune: ft-8L9s8NyryUH1jTVKedLfnjED"
-            }
-          ],
-          "fine_tuned_model": null,
+          "id": "ft-xCOboKc0H2YWWiFl6i5TepzJ",
           "hyperparams": {
-            "batch_size": null,
-            "learning_rate_multiplier": null,
             "n_epochs": 4,
-            "prompt_loss_weight": 0.1,
-            "use_packing": null
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
           },
-          "model": "ada",
           "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
-          "result_files": [],
-          "status": "pending",
+          "model": "ada",
           "training_files": [
             {
-              "id": "file-YPzuQhPbFHWuqQRHdsLDm5qh",
               "object": "file",
+              "id": "file-YPzuQhPbFHWuqQRHdsLDm5qh",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1639253361,
-              "filename": "sentiment.jsonl",
-              "purpose": "fine-tune",
               "status": "processed",
               "status_details": null
             }
           ],
-          "updated_at": 1639257031,
-          "validation_files": []
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1672134244,
+          "updated_at": 1672134244,
+          "status": "pending",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-xCOboKc0H2YWWiFl6i5TepzJ",
+              "created_at": 1672134244
+            }
+          ]
         }
-  recorded_at: Sat, 11 Dec 2021 21:10:31 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Tue, 27 Dec 2022 09:44:04 GMT
+recorded_with: VCR 6.1.0

@@ -10,7 +10,7 @@ module OpenAI
     end
 
     def create(parameters: {})
-      OpenAI::Client.post(path: "/fine-tunes", parameters: parameters.to_json)
+      OpenAI::Client.post(path: "/fine-tunes", parameters: parameters)
     end
 
     def retrieve(id:)
