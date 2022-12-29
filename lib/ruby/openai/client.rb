@@ -50,7 +50,7 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters.to_json
+        body: parameters
       )
     end
 
@@ -67,7 +67,7 @@ module OpenAI
 
     private_class_method def self.headers
       {
-        "Content-Type" => "application/json",
+        # "Content-Type" => "application/json",
         "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
         "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
       }
