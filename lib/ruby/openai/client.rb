@@ -50,7 +50,7 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters
+        body: path == '/files' ? parameters : parameters.to_json
       )
     end
 
