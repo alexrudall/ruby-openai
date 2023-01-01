@@ -255,7 +255,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Release
 
-If you want, first run the specs without VCR so they actually hit the API. This will cost a little money. You'll need to add your `OPENAI_ACCESS_TOKEN=` in `.env`.
+If you want, first run the specs without VCR so they actually hit the API. This will cost about 2 cents. You'll need to add your `OPENAI_ACCESS_TOKEN=` in `.env`.
 
 ```
   NO_VCR=true bundle exec rspec
