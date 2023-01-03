@@ -2,51 +2,60 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    def initialize(access_token: nil, organization_id: nil)
-      Ruby::OpenAI.configuration.access_token = access_token if access_token
-      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
+    NULL_ORGANIZATION_ID = Object.new.freeze
+
+    attr_reader :access_token, :organization_id, :api_version
+
+    def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, api_version: nil)
+      @access_token = access_token || Ruby::OpenAI.configuration.access_token
+      @organization_id = if organization_id == NULL_ORGANIZATION_ID
+                           Ruby::OpenAI.configuration.access_token
+                         else
+                           organization_id
+                         end
+      @api_version = api_version || Ruby::OpenAI.configuration.api_version
     end
 
     def completions(parameters: {})
-      OpenAI::Client.json_post(path: "/completions", parameters: parameters)
+      json_post(path: "/completions", parameters: parameters)
     end
 
     def edits(parameters: {})
-      OpenAI::Client.json_post(path: "/edits", parameters: parameters)
+      json_post(path: "/edits", parameters: parameters)
     end
 
     def embeddings(parameters: {})
-      OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
+      json_post(path: "/embeddings", parameters: parameters)
     end
 
     def files
-      @files ||= OpenAI::Files.new
+      @files ||= OpenAI::Files.new(client: self)
     end
 
     def finetunes
-      @finetunes ||= OpenAI::Finetunes.new
+      @finetunes ||= OpenAI::Finetunes.new(client: self)
     end
 
     def images
-      @images ||= OpenAI::Images.new
+      @images ||= OpenAI::Images.new(client: self)
     end
 
     def models
-      @models ||= OpenAI::Models.new
+      @models ||= OpenAI::Models.new(client: self)
     end
 
     def moderations(parameters: {})
-      OpenAI::Client.json_post(path: "/moderations", parameters: parameters)
+      json_post(path: "/moderations", parameters: parameters)
     end
 
-    def self.get(path:)
+    def get(path:)
       HTTParty.get(
         uri(path: path),
         headers: headers
       )
     end
 
-    def self.json_post(path:, parameters:)
+    def json_post(path:, parameters: nil)
       HTTParty.post(
         uri(path: path),
         headers: headers,
@@ -54,7 +63,7 @@ module OpenAI
       )
     end
 
-    def self.multipart_post(path:, parameters: nil)
+    def multipart_post(path:, parameters: nil)
       HTTParty.post(
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
@@ -62,22 +71,24 @@ module OpenAI
       )
     end
 
-    def self.delete(path:)
+    def delete(path:)
       HTTParty.delete(
         uri(path: path),
         headers: headers
       )
     end
 
-    private_class_method def self.uri(path:)
-      URI_BASE + Ruby::OpenAI.configuration.api_version + path
+    private
+
+    def uri(path:)
+      URI_BASE + api_version + path
     end
 
-    private_class_method def self.headers
+    def headers
       {
         "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
+        "Authorization" => "Bearer #{access_token}",
+        "OpenAI-Organization" => organization_id
       }
     end
   end
