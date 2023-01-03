@@ -1,20 +1,25 @@
 module OpenAI
   class Images
-    def initialize(access_token: nil, organization_id: nil)
-      Ruby::OpenAI.configuration.access_token = access_token if access_token
-      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
+    def initialize(client: nil, access_token: nil,
+                   organization_id: OpenAI::Client::NULL_ORGANIZATION_ID)
+      @client = if client.nil?
+                  OpenAI::Client.new(access_token: access_token,
+                                     organization_id: organization_id)
+                else
+                  client
+                end
     end
 
     def generate(parameters: {})
-      OpenAI::Client.post(path: "/images/generations", parameters: parameters)
+      @client.post(path: "/images/generations", parameters: parameters)
     end
 
     def edit(parameters: {})
-      OpenAI::Client.post(path: "/images/edits", parameters: open_files(parameters))
+      @client.post(path: "/images/edits", parameters: open_files(parameters))
     end
 
     def variations(parameters: {})
-      OpenAI::Client.post(path: "/images/variations", parameters: open_files(parameters))
+      @client.post(path: "/images/variations", parameters: open_files(parameters))
     end
 
     private
