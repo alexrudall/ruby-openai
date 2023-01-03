@@ -1,5 +1,14 @@
+require "httparty"
+require_relative "client_api/files"
+require_relative "client_api/finetunes"
+require_relative "client_api/images"
+require_relative "client_api/models"
+require_relative "client_api/root"
+
 module OpenAI
   class Client
+    extend Forwardable
+
     URI_BASE = "https://api.openai.com/".freeze
 
     NULL_ORGANIZATION_ID = Object.new.freeze
@@ -7,46 +16,37 @@ module OpenAI
     attr_reader :access_token, :organization_id, :api_version
 
     def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, api_version: nil)
-      @access_token = access_token || Ruby::OpenAI.configuration.access_token
+      @access_token = access_token || OpenAI.configuration.access_token
       @organization_id = if organization_id == NULL_ORGANIZATION_ID
-                           Ruby::OpenAI.configuration.access_token
+                           OpenAI.configuration.access_token
                          else
                            organization_id
                          end
-      @api_version = api_version || Ruby::OpenAI.configuration.api_version
-    end
+      @api_version = api_version || OpenAI.configuration.api_version
 
-    def completions(parameters: {})
-      post(path: "/completions", parameters: parameters)
-    end
-
-    def edits(parameters: {})
-      post(path: "/edits", parameters: parameters)
-    end
-
-    def embeddings(parameters: {})
-      post(path: "/embeddings", parameters: parameters)
+      raise OpenAI::MissingAccessTokenError unless @access_token
     end
 
     def files
-      @files ||= OpenAI::Files.new(client: self)
+      @files ||= OpenAI::ClientApi::Files.new(client: self)
     end
 
     def finetunes
-      @finetunes ||= OpenAI::Finetunes.new(client: self)
+      @finetunes ||= OpenAI::ClientApi::Finetunes.new(client: self)
     end
 
     def images
-      @images ||= OpenAI::Images.new(client: self)
+      @images ||= OpenAI::ClientApi::Images.new(client: self)
     end
 
     def models
-      @models ||= OpenAI::Models.new(client: self)
+      @models ||= OpenAI::ClientApi::Models.new(client: self)
     end
 
-    def moderations(parameters: {})
-      post(path: "/moderations", parameters: parameters)
+    def root
+      @root ||= OpenAI::ClientApi::Root.new(client: self)
     end
+    def_delegators :root, :completions, :edits, :embeddings, :moderations
 
     def get(path:)
       HTTParty.get(

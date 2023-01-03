@@ -7,8 +7,8 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = { record: ENV["NO_VCR"].nil? ? :new_episodes : :all }
-  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { Ruby::OpenAI.configuration.access_token }
-  c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { Ruby::OpenAI.configuration.organization_id }
+  c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
+  c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { OpenAI.configuration.organization_id }
 end
 
 RSpec.configure do |c|
@@ -23,7 +23,7 @@ RSpec.configure do |c|
   end
 
   c.before(:all) do
-    Ruby::OpenAI.configure do |config|
+    OpenAI.configure do |config|
       config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
     end
   end
