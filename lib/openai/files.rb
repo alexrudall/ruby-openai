@@ -1,25 +1,28 @@
 module OpenAI
   class Files
-    def initialize(access_token: nil, organization_id: nil)
-      OpenAI.configuration.access_token = access_token if access_token
-      OpenAI.configuration.organization_id = organization_id if organization_id
+    def initialize(client: nil, access_token: nil, organization_id: OpenAI::Client::NULL_ORGANIZATION_ID)
+      @client = if client.nil?
+        OpenAI::Client.new(access_token: access_token, organization_id: organization_id)
+      else
+        client
+      end
     end
 
     def list
-      OpenAI::Client.get(path: "/files")
+      @client.get(path: "/files")
     end
 
     def upload(parameters: {})
       validate(file: parameters[:file])
 
-      OpenAI::Client.multipart_post(
+      @client.multipart_post(
         path: "/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
       )
     end
 
     def retrieve(id:)
-      OpenAI::Client.get(path: "/files/#{id}")
+      @client.get(path: "/files/#{id}")
     end
 
     def content(id:)
@@ -27,7 +30,7 @@ module OpenAI
     end
 
     def delete(id:)
-      OpenAI::Client.delete(path: "/files/#{id}")
+      @client.delete(path: "/files/#{id}")
     end
 
     private
