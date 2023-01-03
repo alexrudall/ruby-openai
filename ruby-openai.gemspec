@@ -1,4 +1,4 @@
-require_relative "lib/ruby/openai/version"
+require_relative "lib/openai/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "ruby-openai"

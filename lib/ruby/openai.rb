@@ -1,14 +1,15 @@
-require_relative "openai/version"
-require_relative "openai/configuration"
-require_relative "openai/error"
-require_relative "openai/client"
+require_relative "../openai"
 
-module OpenAI
-  def self.configuration
-    @configuration ||= OpenAI::Configuration.new
-  end
+module Ruby
+  module OpenAI
+    def self.configuration
+      warn "Ruby::OpenAI.configuration is deprecated, use OpenAI.configuration instead"
+      ::OpenAI::Configuration.configuration
+    end
 
-  def self.configure
-    yield(configuration)
+    def self.configure
+      warn "Ruby::OpenAI.configure is deprecated, use OpenAI.configure instead"
+      ::OpenAI::Configuration.configure
+    end
   end
 end

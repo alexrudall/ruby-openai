@@ -1,3 +1,4 @@
+require "forwardable"
 require "httparty"
 require_relative "client_api/files"
 require_relative "client_api/finetunes"
