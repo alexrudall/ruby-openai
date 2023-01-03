@@ -18,14 +18,18 @@ module OpenAI
 
     def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, api_version: nil)
       @access_token = access_token || OpenAI.configuration.access_token
+      initialize_organization_id(organization_id: organization_id)
+      @api_version = api_version || OpenAI.configuration.api_version
+
+      raise OpenAI::MissingAccessTokenError unless @access_token
+    end
+
+    def initialize_organization_id(organization_id:)
       @organization_id = if organization_id == NULL_ORGANIZATION_ID
                            OpenAI.configuration.access_token
                          else
                            organization_id
                          end
-      @api_version = api_version || OpenAI.configuration.api_version
-
-      raise OpenAI::MissingAccessTokenError unless @access_token
     end
 
     def files
