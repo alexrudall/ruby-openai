@@ -56,11 +56,19 @@ module OpenAI
       )
     end
 
-    def post(path:, parameters: nil)
+    def json_post(path:, parameters: nil)
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters.to_json
+        body: parameters&.to_json
+      )
+    end
+
+    def multipart_post(path:, parameters: nil)
+      HTTParty.post(
+        uri(path: path),
+        headers: headers(content_type: "multipart/form-data"),
+        body: parameters
       )
     end
 
@@ -77,9 +85,9 @@ module OpenAI
       URI_BASE + api_version + path
     end
 
-    def headers
+    def headers(content_type: "application/json")
       {
-        "Content-Type" => "application/json",
+        "Content-Type" => content_type,
         "Authorization" => "Bearer #{access_token}",
         "OpenAI-Organization" => organization_id
       }

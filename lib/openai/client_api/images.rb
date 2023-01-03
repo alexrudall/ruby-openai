@@ -6,15 +6,15 @@ module OpenAI
       end
 
       def generate(parameters: {})
-        @client.post(path: "/images/generations", parameters: parameters)
+        @client.json_post(path: "/images/generations", parameters: parameters)
       end
 
       def edit(parameters: {})
-        @client.post(path: "/images/edits", parameters: open_files(parameters))
+        @client.multipart_post(path: "/images/edits", parameters: open_files(parameters))
       end
 
       def variations(parameters: {})
-        @client.post(path: "/images/variations", parameters: open_files(parameters))
+        @client.multipart_post(path: "/images/variations", parameters: open_files(parameters))
       end
 
       private
