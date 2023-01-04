@@ -1,7 +1,10 @@
 require "bundler/setup"
 require "dotenv/load"
 require "ruby/openai"
+require "securerandom"
 require "vcr"
+
+Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }
 
 VCR.configure do |c|
   c.hook_into :webmock
@@ -22,10 +25,9 @@ RSpec.configure do |c|
     rspec.syntax = :expect
   end
 
-  c.before(:all) do
-    OpenAI.configure do |config|
-      config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    end
+  c.before(:each) do |example|
+    Utils.reset_global_configuration
+    Utils.load_global_configuration if example.metadata[:vcr]
   end
 end
 
