@@ -91,10 +91,23 @@ module OpenAI
 
     def headers(content_type: "application/json")
       {
-        "Content-Type" => content_type,
-        "Authorization" => "Bearer #{access_token}",
-        "OpenAI-Organization" => organization_id
-      }
+        "Content-Type" => content_type
+      }.merge(openai_headers)
+    end
+
+    def openai_headers
+      @openai_headers ||=
+        if organization_id.nil?
+          auth_headers
+        else
+          auth_headers.merge(
+            { "OpenAI-Organization" => organization_id }
+          )
+        end
+    end
+
+    def auth_headers
+      @auth_headers ||= { "Authorization" => "Bearer #{access_token}" }
     end
   end
 end
