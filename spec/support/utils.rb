@@ -1,5 +1,3 @@
-puts "Loading"
-
 module Utils
   def self.reset_global_configuration
     OpenAI.configuration.reset
