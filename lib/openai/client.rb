@@ -26,7 +26,7 @@ module OpenAI
 
     def initialize_organization_id(organization_id:)
       @organization_id = if organization_id == NULL_ORGANIZATION_ID
-                           OpenAI.configuration.access_token
+                           OpenAI.configuration.organization_id
                          else
                            organization_id
                          end
