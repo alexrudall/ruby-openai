@@ -39,9 +39,6 @@ module OpenAI
       @models ||= OpenAI::ClientApi::Models.new(client: self)
     end
 
-    def root
-      @root ||= OpenAI::ClientApi::Root.new(client: self)
-    end
     def_delegators :root, :completions, :edits, :embeddings, :moderations
 
     def get(path:)
@@ -51,7 +48,7 @@ module OpenAI
       )
     end
 
-    def json_post(path:, parameters: nil)
+    def json_post(path:, parameters:)
       HTTParty.post(
         uri(path: path),
         headers: headers,
@@ -75,6 +72,10 @@ module OpenAI
     end
 
     private
+
+    def root
+      @root ||= OpenAI::ClientApi::Root.new(client: self)
+    end
 
     def uri(path:)
       URI_BASE + api_version + path
