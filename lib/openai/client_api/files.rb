@@ -1,3 +1,5 @@
+require_relative "../jsonl_validator"
+
 module OpenAI
   module ClientApi
     class Files
@@ -29,11 +31,7 @@ module OpenAI
       private
 
       def validate(file:)
-        File.open(file).each_line.with_index do |line, index|
-          JSON.parse(line)
-        rescue JSON::ParserError => e
-          raise JSON::ParserError, "#{e.message} - found on line #{index + 1} of #{file}"
-        end
+        JsonlValidator.validate(source: File.open(file))
       end
     end
   end

@@ -1,3 +1,5 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#images" do
     describe "#generate", :vcr do
@@ -34,9 +36,9 @@ RSpec.describe OpenAI::Client do
       end
       let(:cassette) { "images edit #{image_filename} #{prompt}" }
       let(:prompt) { "A solid red Ruby on a blue background" }
-      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", image_filename) }
+      let(:image) { Utils.fixture_filename(filename: image_filename) }
       let(:image_filename) { "image.png" }
-      let(:mask) { File.join(RSPEC_ROOT, "fixtures/files", mask_filename) }
+      let(:mask) { Utils.fixture_filename(filename: mask_filename) }
       let(:mask_filename) { "mask.png" }
       let(:size) { "256x256" }
 
@@ -59,7 +61,7 @@ RSpec.describe OpenAI::Client do
         )
       end
       let(:cassette) { "images variations #{image_filename}" }
-      let(:image) { File.join(RSPEC_ROOT, "fixtures/files", image_filename) }
+      let(:image) { Utils.fixture_filename(filename: image_filename) }
       let(:image_filename) { "image.png" }
       let(:size) { "256x256" }
 

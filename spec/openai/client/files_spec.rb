@@ -1,7 +1,9 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#files", :vcr do
     let(:filename) { "puppy.jsonl" }
-    let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+    let(:file) { Utils.fixture_filename(filename: filename) }
     let(:id) { "file-pDTosJYQGemK2gpx61qoPN17" }
 
     describe "#upload" do

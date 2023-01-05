@@ -1,3 +1,5 @@
+require_relative "../../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#completions: GPT-3 models" do
     context "with a prompt and max_tokens", :vcr do

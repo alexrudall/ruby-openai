@@ -1,5 +1,6 @@
 require "forwardable"
 require "httparty"
+require_relative "headers_factory"
 require_relative "client_api/files"
 require_relative "client_api/finetunes"
 require_relative "client_api/images"
@@ -12,25 +13,15 @@ module OpenAI
 
     URI_BASE = "https://api.openai.com/".freeze
 
-    NULL_ORGANIZATION_ID = Object.new.freeze
-
     attr_reader :access_token, :organization_id, :api_version
 
-    def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, api_version: nil)
-      @access_token = access_token || OpenAI.configuration.access_token
-      initialize_organization_id(organization_id: organization_id)
+    def initialize(access_token: nil, organization_id: HeadersFactory::NULL_ORGANIZATION_ID,
+                   api_version: nil)
+      @headers_factory = HeadersFactory.new(access_token: access_token,
+                                            organization_id: organization_id)
       @api_version = api_version || OpenAI.configuration.api_version
-
-      raise OpenAI::MissingAccessTokenError unless @access_token
     end
-
-    def initialize_organization_id(organization_id:)
-      @organization_id = if organization_id == NULL_ORGANIZATION_ID
-                           OpenAI.configuration.organization_id
-                         else
-                           organization_id
-                         end
-    end
+    def_delegators :@headers_factory, :access_token, :organization_id, :headers
 
     def files
       @files ||= OpenAI::ClientApi::Files.new(client: self)
@@ -87,27 +78,6 @@ module OpenAI
 
     def uri(path:)
       URI_BASE + api_version + path
-    end
-
-    def headers(content_type: "application/json")
-      {
-        "Content-Type" => content_type
-      }.merge(openai_headers)
-    end
-
-    def openai_headers
-      @openai_headers ||=
-        if organization_id.nil?
-          auth_headers
-        else
-          auth_headers.merge(
-            { "OpenAI-Organization" => organization_id }
-          )
-        end
-    end
-
-    def auth_headers
-      @auth_headers ||= { "Authorization" => "Bearer #{access_token}" }
     end
   end
 end

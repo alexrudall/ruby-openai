@@ -1,3 +1,5 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#embeddings", :vcr do
     let(:input) { "The food was delicious and the waiter..." }

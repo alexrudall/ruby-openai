@@ -1,3 +1,5 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#moderations", :vcr do
     let(:input) { "I'm worried about that." }

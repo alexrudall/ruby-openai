@@ -21,7 +21,7 @@ module OpenAI
 
       def open_files(parameters)
         parameters = parameters.merge(image: File.open(parameters[:image]))
-        parameters = parameters.merge(mask: File.open(parameters[:mask])) if parameters[:mask]
+        parameters.merge!(mask: File.open(parameters[:mask])) if parameters[:mask]
         parameters
       end
     end

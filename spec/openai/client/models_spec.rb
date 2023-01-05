@@ -1,3 +1,5 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#models" do
     describe "#list", :vcr do

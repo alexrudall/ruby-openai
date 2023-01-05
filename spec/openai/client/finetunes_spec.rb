@@ -1,7 +1,9 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#finetunes", :vcr do
     let(:filename) { "sentiment.jsonl" }
-    let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+    let(:file) { Utils.fixture_filename(filename: filename) }
     let!(:file_id) do
       response = VCR.use_cassette("files upload finetunes") do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })

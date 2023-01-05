@@ -1,3 +1,5 @@
+require_relative "../../spec_helper"
+
 RSpec.describe OpenAI::Client do
   describe "#edits", :vcr do
     let(:input) { "What day of the wek is it?" }
