@@ -14,6 +14,9 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
 
+Style/RaiseArgs:
+  AllowedCompactTypes: ['MissingRequiredParameterError']
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 

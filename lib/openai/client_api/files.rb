@@ -11,7 +11,10 @@ module OpenAI
         @client.get(path: "/files")
       end
 
-      def upload(parameters: {})
+      def upload(parameters:)
+        raise MissingRequiredParameterError.new(:file) unless parameters[:file]
+        raise MissingRequiredParameterError.new(:purpose) unless parameters[:purpose]
+
         validate(file: parameters[:file])
 
         @client.multipart_post(

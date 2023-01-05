@@ -5,21 +5,27 @@ module OpenAI
         @client = client
       end
 
-      def generate(parameters: {})
+      def generate(parameters:)
+        raise MissingRequiredParameterError.new(:prompt) unless parameters[:prompt]
+
         @client.json_post(path: "/images/generations", parameters: parameters)
       end
 
-      def edit(parameters: {})
+      def edit(parameters:)
+        raise MissingRequiredParameterError.new(:prompt) unless parameters[:prompt]
+
         @client.multipart_post(path: "/images/edits", parameters: open_files(parameters))
       end
 
-      def variations(parameters: {})
+      def variations(parameters:)
         @client.multipart_post(path: "/images/variations", parameters: open_files(parameters))
       end
 
       private
 
       def open_files(parameters)
+        raise MissingRequiredParameterError.new(:image) unless parameters[:image]
+
         parameters = parameters.merge(image: File.open(parameters[:image]))
         parameters.merge!(mask: File.open(parameters[:mask])) if parameters[:mask]
         parameters

@@ -9,7 +9,9 @@ module OpenAI
         @client.get(path: "/fine-tunes")
       end
 
-      def create(parameters: {})
+      def create(parameters:)
+        raise MissingRequiredParameterError.new(:training_file) unless parameters[:training_file]
+
         @client.json_post(path: "/fine-tunes", parameters: parameters)
       end
 

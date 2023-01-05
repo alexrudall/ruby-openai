@@ -1,6 +1,6 @@
 module OpenAI
   class Configuration
-    attr_accessor :access_token, :api_version, :organization_id
+    attr_accessor :access_token, :organization_id, :api_version
 
     DEFAULT_API_VERSION = "v1".freeze
 
