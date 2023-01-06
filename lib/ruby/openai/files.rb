@@ -12,7 +12,7 @@ module OpenAI
     def upload(parameters: {})
       validate(file: parameters[:file])
 
-      OpenAI::Client.post(
+      OpenAI::Client.multipart_post(
         path: "/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
       )
