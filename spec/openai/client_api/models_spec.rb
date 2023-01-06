@@ -23,4 +23,15 @@ RSpec.describe OpenAI::ClientApi::Models do
       expect(client).to have_received(:get).with(path: path_string)
     end
   end
+
+  describe "#delete" do
+    let(:id) { SecureRandom.hex(4) }
+    let(:path_string) { "/models/#{id}" }
+
+    it "calls delete on the client with the expected arguments" do
+      allow(client).to receive(:delete).with(path: path_string).and_return(ret_val)
+      expect(models.delete(id: id)).to eq(ret_val)
+      expect(client).to have_received(:delete).with(path: path_string)
+    end
+  end
 end
