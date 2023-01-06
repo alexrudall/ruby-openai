@@ -1,0 +1,241 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "--------------------------hWFP7Mgre0XP-_UC\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"puppy.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
+        \"puppy A is happy\", \"metadata\": \"emotional state of puppy A\"}\n{\"text\":
+        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------hWFP7Mgre0XP-_UC\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------hWFP7Mgre0XP-_UC--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=------------------------hWFP7Mgre0XP-_UC
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Jan 2023 17:07:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '211'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-v7rioy6cjkgtatbz00ynxiny
+      X-Request-Id:
+      - b8c91916c370df08c088e4a50f495f4f
+      Openai-Processing-Ms:
+      - '641'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "file",
+          "id": "file-HIpAIhBdIuYxea1hjEPDaqUT",
+          "purpose": "answers",
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673024844,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Fri, 06 Jan 2023 17:07:24 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Jan 2023 17:07:25 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '544'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-v7rioy6cjkgtatbz00ynxiny
+      X-Request-Id:
+      - 369018b397ba78e9f79f0f4b30325ad6
+      Openai-Processing-Ms:
+      - '377'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "file",
+              "id": "file-HIpAIhBdIuYxea1hjEPDaqUT",
+              "purpose": "answers",
+              "filename": "puppy.jsonl",
+              "bytes": 140,
+              "created_at": 1673024844,
+              "status": "uploaded",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-wXzjZ6vJ3jEHt76cIT4SbOYf",
+              "purpose": "answers",
+              "filename": "puppy.jsonl",
+              "bytes": 140,
+              "created_at": 1673024638,
+              "status": "processed",
+              "status_details": null
+            }
+          ]
+        }
+  recorded_at: Fri, 06 Jan 2023 17:07:25 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-HIpAIhBdIuYxea1hjEPDaqUT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Jan 2023 17:07:25 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '211'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-v7rioy6cjkgtatbz00ynxiny
+      X-Request-Id:
+      - 5285030278329b2c1a998041902590f9
+      Openai-Processing-Ms:
+      - '21'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "file",
+          "id": "file-HIpAIhBdIuYxea1hjEPDaqUT",
+          "purpose": "answers",
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673024844,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Fri, 06 Jan 2023 17:07:25 GMT
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/files/file-HIpAIhBdIuYxea1hjEPDaqUT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Jan 2023 17:07:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '83'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-v7rioy6cjkgtatbz00ynxiny
+      X-Request-Id:
+      - c9286fb902edbe0071a54142cdde94f1
+      Openai-Processing-Ms:
+      - '464'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "file",
+          "id": "file-HIpAIhBdIuYxea1hjEPDaqUT",
+          "deleted": true
+        }
+  recorded_at: Fri, 06 Jan 2023 17:07:27 GMT
+recorded_with: VCR 6.1.0

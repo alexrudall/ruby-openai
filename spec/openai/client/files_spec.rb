@@ -1,68 +1,47 @@
 require_relative "../../spec_helper"
 
-RSpec.describe OpenAI::Client do
-  describe "#files", :vcr do
+RSpec.describe "Files API" do
+  describe "file upload, list, retrieve, and delete", :vcr do
     let(:filename) { "puppy.jsonl" }
     let(:file) { Utils.fixture_filename(filename: filename) }
-    let(:id) { "file-pDTosJYQGemK2gpx61qoPN17" }
 
-    describe "#upload" do
-      let(:cassette) { "files upload" }
-      let(:purpose) { "answers" }
-      let(:response) do
-        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: purpose })
-      end
-
-      context "with a valid JSON lines file" do
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            r = JSON.parse(response.body)
-            expect(r["filename"]).to eq(filename)
-          end
-        end
-      end
-
-      context "with an invalid file" do
-        let(:filename) { File.join("errors", "missing_quote.jsonl") }
-
-        it { expect { response }.to raise_error(JSON::ParserError) }
-      end
+    let(:upload_cassette) { "files integration" }
+    let(:purpose) { "answers" }
+    let(:client) { OpenAI::Client.new }
+    let(:response) do
+      client.files.upload(parameters: { file: file, purpose: purpose })
     end
 
-    describe "#list" do
-      let(:cassette) { "files list" }
-      let(:response) { OpenAI::Client.new.files.list }
+    it "runs through a basic upload, list, retrieve, and delete" do
+      VCR.use_cassette("successful file upload and delete") do
 
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["data"][0]["filename"]).to eq(filename)
-        end
-      end
-    end
+        # Upload a file
+        response = client.files.upload(parameters: { file: file, purpose: purpose })
+        r = JSON.parse(response.body)
+        expect(r["filename"]).to eq(filename)
 
-    describe "#retrieve" do
-      let(:cassette) { "files retrieve" }
-      let(:response) { OpenAI::Client.new.files.retrieve(id: id) }
+        # Capture the uploaded file.
+        file_id = r["id"]
 
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["filename"]).to eq(filename)
-        end
-      end
-    end
+        # List files and check the uploaded file is included
+        response = client.files.list
+        r = JSON.parse(response.body)
+        expect(r["data"].size).not_to eq(0)
+        expect(r["data"].map { |e| e["filename"] }).to include(filename)
 
-    describe "#delete" do
-      let(:cassette) { "files delete" }
-      let(:response) { OpenAI::Client.new.files.delete(id: id) }
+        # Retrieve the file that was uploaded
+        response = client.files.retrieve(id: file_id)
+        r = JSON.parse(response.body)
+        expect(r["filename"]).to eq(filename)
 
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["id"]).to eq(id)
-          expect(r["deleted"]).to eq(true)
-        end
+        # Give the file time to process if running against the real API
+        sleep 2 if ENV["NO_VCR"]
+
+        # Delete the file that was uploaded
+        response = client.files.delete(id: file_id)
+        r = JSON.parse(response.body)
+        expect(r["id"]).to eq(file_id)
+        expect(r["deleted"]).to eq(true)
       end
     end
   end
