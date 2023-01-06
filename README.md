@@ -237,6 +237,16 @@ Create n variations of an image.
 ![Ruby](https://i.ibb.co/TWJLP2y/img-miu-Wk-Nl0-QNy-Xtj-Lerc3c0l-NW.png)
 ![Ruby](https://i.ibb.co/ScBhDGB/img-a9-Be-Rz-Au-Xwd-AV0-ERLUTSTGdi.png)
 
+### Image Size Parameters
+
+The size of the generated images must be one of `256x256`, `512x512` or `1024x1024`
+
+```ruby
+    response = client.images.variations(parameters: { image: "image.png", size: "256x256" })
+    puts response.dig("data", 0, "url")
+    => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-MmU7kHWkvg..."
+```
+
 ### Moderations
 
 Pass a string to check if it violates OpenAI's Content Policy:
