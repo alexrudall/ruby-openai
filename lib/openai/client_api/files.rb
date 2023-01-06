@@ -31,6 +31,10 @@ module OpenAI
         @client.delete(path: "/files/#{id}")
       end
 
+      def content(id:)
+        @client.get(path: "/files/#{id}/content")
+      end
+
       private
 
       def validate(file:)

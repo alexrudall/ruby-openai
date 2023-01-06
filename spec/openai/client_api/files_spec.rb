@@ -131,6 +131,17 @@ RSpec.describe OpenAI::ClientApi::Files do
     end
   end
 
+  describe "#content" do
+    let(:id) { SecureRandom.hex(4) }
+    let(:path_string) { "/files/#{id}/content" }
+
+    it "calls get on the client with the expected arguments" do
+      allow(client).to receive(:get).with(path: path_string).and_return(ret_val)
+      expect(files.content(id: id)).to eq(ret_val)
+      expect(client).to have_received(:get).with(path: path_string)
+    end
+  end
+
   describe "#delete" do
     let(:id) { SecureRandom.hex(4) }
     let(:path_string) { "/files/#{id}" }
