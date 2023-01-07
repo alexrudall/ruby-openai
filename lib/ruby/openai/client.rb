@@ -8,15 +8,15 @@ module OpenAI
     end
 
     def completions(parameters: {})
-      OpenAI::Client.post(path: "/completions", parameters: parameters)
+      OpenAI::Client.json_post(path: "/completions", parameters: parameters)
     end
 
     def edits(parameters: {})
-      OpenAI::Client.post(path: "/edits", parameters: parameters)
+      OpenAI::Client.json_post(path: "/edits", parameters: parameters)
     end
 
     def embeddings(parameters: {})
-      OpenAI::Client.post(path: "/embeddings", parameters: parameters)
+      OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
     end
 
     def files
@@ -36,7 +36,7 @@ module OpenAI
     end
 
     def moderations(parameters: {})
-      OpenAI::Client.post(path: "/moderations", parameters: parameters)
+      OpenAI::Client.json_post(path: "/moderations", parameters: parameters)
     end
 
     def self.get(path:)
@@ -46,11 +46,19 @@ module OpenAI
       )
     end
 
-    def self.post(path:, parameters: nil)
+    def self.json_post(path:, parameters:)
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters.to_json
+        body: parameters&.to_json
+      )
+    end
+
+    def self.multipart_post(path:, parameters: nil)
+      HTTParty.post(
+        uri(path: path),
+        headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
+        body: parameters
       )
     end
 

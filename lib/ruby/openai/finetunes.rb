@@ -10,7 +10,7 @@ module OpenAI
     end
 
     def create(parameters: {})
-      OpenAI::Client.post(path: "/fine-tunes", parameters: parameters)
+      OpenAI::Client.json_post(path: "/fine-tunes", parameters: parameters)
     end
 
     def retrieve(id:)
@@ -18,7 +18,7 @@ module OpenAI
     end
 
     def cancel(id:)
-      OpenAI::Client.post(path: "/fine-tunes/#{id}/cancel")
+      OpenAI::Client.multipart_post(path: "/fine-tunes/#{id}/cancel")
     end
 
     def events(id:)
