@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------RISwdRJHADZZT3_0\r\nContent-Disposition:
+      string: "--------------------------IJEfVDcCYzLSSEmR\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"puppy.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
         \"puppy A is happy\", \"metadata\": \"emotional state of puppy A\"}\n{\"text\":
-        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------RISwdRJHADZZT3_0\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------RISwdRJHADZZT3_0--\r\n"
+        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------IJEfVDcCYzLSSEmR\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------IJEfVDcCYzLSSEmR--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------RISwdRJHADZZT3_0
+      - multipart/form-data; boundary=------------------------IJEfVDcCYzLSSEmR
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 21:28:19 GMT
+      - Sat, 07 Jan 2023 22:29:59 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -39,9 +39,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - db65864367b81c939f48f72d03a11cb0
+      - 2be15641a462ce43476045c9cc9a1d33
       Openai-Processing-Ms:
-      - '395'
+      - '624'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -51,13 +51,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-X3k777EvAvBs6s1LKugRelk4",
+          "id": "file-beOulr7FhRTrfJAFXKn4OYn1",
           "purpose": "answers",
           "filename": "puppy.jsonl",
           "bytes": 140,
-          "created_at": 1673126899,
+          "created_at": 1673130599,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Sat, 07 Jan 2023 21:28:19 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:59 GMT
 recorded_with: VCR 6.1.0

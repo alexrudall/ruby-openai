@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:47:07 GMT
+      - Sat, 07 Jan 2023 22:29:58 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -36,13 +36,13 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '19'
+      - '107'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - e17867f9f8c1e7cfdf3ad3299ea553ec
+      - 84db8e9c54defee56be17c5c743bff2b
     body:
       encoding: UTF-8
       string: |
@@ -2110,5 +2110,5 @@ http_interactions:
             "total_tokens": 8
           }
         }
-  recorded_at: Sun, 18 Sep 2022 22:47:07 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
 recorded_with: VCR 6.1.0

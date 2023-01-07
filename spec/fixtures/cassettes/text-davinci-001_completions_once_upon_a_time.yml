@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:48:41 GMT
+      - Sat, 07 Jan 2023 22:29:55 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '282'
+      - '275'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '77'
+      - '351'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 963087a8069769ff3e50e4898daeffa1
+      - 8f495e0a8284feaf4a77f189fda6b074
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rxNZ7duuqR0GxBTAWMDdLr4koBtF","object":"text_completion","created":1663541321,"model":"text-davinci-001","choices":[{"text":",
-        there was a kingdom","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-6WBzHVieOoB2BH8NmCipCRfEsTnFl","object":"text_completion","created":1673130595,"model":"text-davinci-001","choices":[{"text":",\n\nThere
+        was","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:48:41 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:55 GMT
 recorded_with: VCR 6.1.0

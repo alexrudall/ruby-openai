@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 21:41:53 GMT
+      - Sat, 07 Jan 2023 22:30:30 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '22735'
+      - '62230'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 032bb29de0047dbb333c32228158507c
+      - 62ed32d15637d05e474b5711d3497460
       Openai-Processing-Ms:
-      - '158'
+      - '398'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -666,9 +666,9 @@ http_interactions:
               "id": "ft-i8kuq1ob953DABj7c9HDxBCh",
               "hyperparams": {
                 "n_epochs": 4,
-                "batch_size": null,
+                "batch_size": 1,
                 "prompt_loss_weight": 0.01,
-                "learning_rate_multiplier": null
+                "learning_rate_multiplier": 0.1
               },
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
               "model": "ada",
@@ -685,20 +685,31 @@ http_interactions:
                 }
               ],
               "validation_files": [],
-              "result_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-Qvnrat8wxwvzJS5t1WobHopr",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 410,
+                  "created_at": 1673127787,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
               "created_at": 1673127676,
-              "updated_at": 1673127676,
-              "status": "pending",
-              "fine_tuned_model": null
+              "updated_at": 1673127788,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-43-06"
             },
             {
               "object": "fine-tune",
               "id": "ft-fs9SPNQIhPkJxTmugiqDepNN",
               "hyperparams": {
                 "n_epochs": 4,
-                "batch_size": null,
+                "batch_size": 1,
                 "prompt_loss_weight": 0.01,
-                "learning_rate_multiplier": null
+                "learning_rate_multiplier": 0.1
               },
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
               "model": "ada",
@@ -715,20 +726,31 @@ http_interactions:
                 }
               ],
               "validation_files": [],
-              "result_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-scWKjBiMUL0VGuqIcoLWceTU",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 410,
+                  "created_at": 1673127827,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
               "created_at": 1673127678,
-              "updated_at": 1673127678,
-              "status": "pending",
-              "fine_tuned_model": null
+              "updated_at": 1673127827,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-43-46"
             },
             {
               "object": "fine-tune",
               "id": "ft-EOboVQBjjTzw9y7hU5z10B2l",
               "hyperparams": {
                 "n_epochs": 4,
-                "batch_size": null,
+                "batch_size": 1,
                 "prompt_loss_weight": 0.01,
-                "learning_rate_multiplier": null
+                "learning_rate_multiplier": 0.1
               },
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
               "model": "ada",
@@ -745,11 +767,22 @@ http_interactions:
                 }
               ],
               "validation_files": [],
-              "result_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-qlB0BlZyMEYL4oYmrQj5NYSp",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673127870,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
               "created_at": 1673127680,
-              "updated_at": 1673127680,
-              "status": "pending",
-              "fine_tuned_model": null
+              "updated_at": 1673127871,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-44-30"
             },
             {
               "object": "fine-tune",
@@ -786,9 +819,9 @@ http_interactions:
               "id": "ft-cHCW2E58bfp23O22r5xIqUgr",
               "hyperparams": {
                 "n_epochs": 4,
-                "batch_size": null,
+                "batch_size": 1,
                 "prompt_loss_weight": 0.01,
-                "learning_rate_multiplier": null
+                "learning_rate_multiplier": 0.1
               },
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
               "model": "ada",
@@ -805,11 +838,22 @@ http_interactions:
                 }
               ],
               "validation_files": [],
-              "result_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-dCftQyImNsYckqalSuj8tVtV",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673127916,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
               "created_at": 1673127684,
-              "updated_at": 1673127684,
-              "status": "pending",
-              "fine_tuned_model": null
+              "updated_at": 1673127917,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-45-11"
             },
             {
               "object": "fine-tune",
@@ -830,18 +874,1351 @@ http_interactions:
                   "filename": "sentiment.jsonl",
                   "bytes": 159,
                   "created_at": 1673127712,
-                  "status": "uploaded",
+                  "status": "processed",
                   "status_details": null
                 }
               ],
               "validation_files": [],
               "result_files": [],
               "created_at": 1673127712,
-              "updated_at": 1673127712,
+              "updated_at": 1673127714,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-PD1Vvp6qnE5ufxPHqBnMEnE9",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-zvoKWTQLlHIhQxbHjVOY1k0a",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127733,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-m0utPFdD4DN1yQC8rxRiFtoN",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 410,
+                  "created_at": 1673127968,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127733,
+              "updated_at": 1673127969,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-46-07"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-koy4AsOCEvsnsBs1yHAQNVJs",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-IHrX3exCD2nFaIqQC2djsoyN",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127735,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-Lp0yUIWl7ulghpouPV34VYpR",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673128013,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127735,
+              "updated_at": 1673128014,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-46-52"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-J4MfCAua2kDWv5wXOvekq3bu",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-jSzClVgY97GQtYuHLlsgaU3W",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127737,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-THRrwZUFNxH1T7MStmVz1xWY",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673128055,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127737,
+              "updated_at": 1673128055,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-47-34"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-0z0A8tgkvBc3sJX30DlmTMEb",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-lwBv8BmPsMPLKIy5MYHAmS2k",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127738,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673127739,
+              "updated_at": 1673127739,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-7nGpHTI2jPvG5BCaN9bXUcxo",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-lAescrlFJEdW05bUjl3wfYjn",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127741,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-t0ZKqB8PFOYN3Ke4GIO4MBdy",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673128097,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127741,
+              "updated_at": 1673128097,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-48-16"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-RusoNpVBXLI2G1NL9H4I4p0W",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-WeMgQ8PW6nN9b4eXXwr5uUHy",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127812,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-rpdAXYOfSQ4CDoRabeC4Frgu",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673128175,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127812,
+              "updated_at": 1673128176,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-49-33"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-0i0tGvxIvOOU7ZchMcsROH4I",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-TFl5jzUT0odzXKtxjna3FbMk",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127813,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-SPPsODr00yRZXYAOQfYrfLLG",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673128229,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127814,
+              "updated_at": 1673128230,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-50-29"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-m8Ghp95zdSMfLWxasketv8nP",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-R5HnI4KRgSytfs0M86KOStoc",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127816,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-r9iJtRa49tD7j4zRpMFYML8G",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673128270,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127816,
+              "updated_at": 1673128271,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-51-08"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-MmLsc9hLVkOBH3RCNcBigYqm",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-vuv3ZkEZ6srqrdub3x1vykEP",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127818,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673127818,
+              "updated_at": 1673127819,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-N6KE4nAaMZECtle3dVoBHSzQ",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-qMoCss3X6rt2EQ34LCt0Z71h",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673127820,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-PCHpP1SXKccgLnVxRgH2TJSY",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 413,
+                  "created_at": 1673128312,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673127820,
+              "updated_at": 1673128312,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-51-51"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-8AjgCGIr91A5Oyjs7pCmgVgy",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-QjRLNZ5qiFstgqOy687lnzNk",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673128215,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-s46noXg1LHoWJX94dyqCCUvA",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673128356,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673128216,
+              "updated_at": 1673128356,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-52-35"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-dDG4MawY08PxNBSHHNtOvQ5I",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-sf60wQPpWlE0PZBlw15D74pp",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673128222,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-8hAMIlbwHHU1kP9jyb9a0xoQ",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 413,
+                  "created_at": 1673128400,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673128224,
+              "updated_at": 1673128401,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-53-19"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-gQwdkExGnJQxSDzu299baTWo",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-4GAl3jkCvmNvCZoemcnDfHRI",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673128227,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-tR7425KHPqbTSsJfflHoe1Bo",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673128529,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673128227,
+              "updated_at": 1673128530,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-55-17"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-m0jbv1Jgfu4YdKVAIp5ekzj2",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-PYGHkqODCyWw1sruyZuSKd2i",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673128230,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673128230,
+              "updated_at": 1673128231,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-Un92XsNZjLQjJ5PYo9ewjmGs",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-YdG42mcIxjAcQsby1i76kPWL",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673128232,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-UpMIA0DH4fEiej76bwRktoXw",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673128708,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673128232,
+              "updated_at": 1673128709,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-21-58-28"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-hjMGVx49QbWFREO9gXT4rrYs",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-7PzhEMMfD8erbm8kpUwaumyf",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129457,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-Yrd1FrgGuW6f8mJ4fozQwDpu",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673129630,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129458,
+              "updated_at": 1673129632,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-13-47"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-N0XhF7bQsDzTQBUbTKVg3OoU",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-5NlCphPzJSHADTffFtQISXkG",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129459,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-Q84ze7Rtxlk1OwTTsrfsRiGp",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673129775,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129460,
+              "updated_at": 1673129776,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-16-14"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-zbQ0ZbzOze4ToBpgFTVxF80a",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-YGWPYokqKxX5gBv9k3MtQpZh",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129462,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673129463,
+              "updated_at": 1673129464,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-i3YWJJPDsavzGCCmTnBtZpmh",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-67VglVFbgp7U3gTF8sRihCLI",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129465,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-QeKavTHLIQRHb95YQzs9lr6A",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 414,
+                  "created_at": 1673129825,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129465,
+              "updated_at": 1673129825,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-17-04"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-f9vUEH8ZAlb1oYOMLo8wfp8p",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-voJsOiR9seD8Ls9iMkFZcbAI",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129488,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-l2rPrQRq2sHHM6wlH4UYcwhV",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673129866,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129488,
+              "updated_at": 1673129866,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-17-45"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-Rb3LmJ0Uxp4SCFtkwrsJZzZv",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-Ptd8YBaHFdU7opV4WayCtEhQ",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129489,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-5xg0y544PGzvkTae2KLjUeAX",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673129908,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129490,
+              "updated_at": 1673129908,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-18-27"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-ypoij1euvky3RzygUa2rQIMc",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-CURTQ6JTiHNqHQFPsVfJ7oqe",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129493,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-ZAbSeCdRl6KP94CRHI9JtkzJ",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 413,
+                  "created_at": 1673129949,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129493,
+              "updated_at": 1673129950,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-19-09"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-tUednYwl024AFuWDmbEqqtSl",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uIOtbKqkjNxI6pAsTyEbkfrp",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129495,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673129495,
+              "updated_at": 1673129496,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-Ks8O3kiA5jU9G9NrS5aGuOXI",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-E2c7I83yUPVfoaQt6gXiWUDv",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129497,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-B26azfu61gm9KhQRQbAL9ttY",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 413,
+                  "created_at": 1673129994,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129498,
+              "updated_at": 1673129994,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-19-53"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-yZQQEsI7SB3OPzqhlBqCMpkW",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uWszCvu7v2ye4PnlP3BvYah5",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129524,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-8tKHsABz33jSmN3CvHfZne0x",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 413,
+                  "created_at": 1673130047,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129525,
+              "updated_at": 1673130048,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-20-46"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-ZZm01c8g9qrYz0TS1M0aHjy0",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uWszCvu7v2ye4PnlP3BvYah5",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129524,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-tjmrsPcuStr8P2mzJlMiccHv",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 412,
+                  "created_at": 1673130120,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129525,
+              "updated_at": 1673130120,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-21-59"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-J6MARd8DrZK5dpsS40zEl5M1",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uWszCvu7v2ye4PnlP3BvYah5",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129524,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-8RtW8hwyckAo46yALhGMAC0Q",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 415,
+                  "created_at": 1673130164,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129527,
+              "updated_at": 1673130164,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-22-43"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-EMEnZEJyOadDKYABBI2xbZ73",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uWszCvu7v2ye4PnlP3BvYah5",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129524,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673129528,
+              "updated_at": 1673129528,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-UsdNSAPKNZRK0QC4QNMwRpsO",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-uWszCvu7v2ye4PnlP3BvYah5",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673129524,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [
+                {
+                  "object": "file",
+                  "id": "file-3nWRuW4vqfq1pDwsdHTGQAMy",
+                  "purpose": "fine-tune-results",
+                  "filename": "compiled_results.csv",
+                  "bytes": 411,
+                  "created_at": 1673130204,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "created_at": 1673129529,
+              "updated_at": 1673130205,
+              "status": "succeeded",
+              "fine_tuned_model": "ada:ft-personal-2023-01-07-22-23-24"
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-XfixoxcuQeIkS0Cj9r4Jm5qz",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": 1,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": 0.1
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-dEZBE21T5MmT4E3NH0bZVg8G",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130541,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130542,
+              "updated_at": 1673130628,
+              "status": "running",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-ewpB7nR5L4izjCrSdINqqJc6",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-dEZBE21T5MmT4E3NH0bZVg8G",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130541,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130543,
+              "updated_at": 1673130544,
+              "status": "pending",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-4rknEEIRhVgOwOJ06dWLE9vQ",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-dEZBE21T5MmT4E3NH0bZVg8G",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130541,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130546,
+              "updated_at": 1673130546,
+              "status": "pending",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-F2bgD1ZcVuOYWqBGInXr4uKo",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-dEZBE21T5MmT4E3NH0bZVg8G",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130541,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130547,
+              "updated_at": 1673130547,
+              "status": "cancelled",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-ChRfCzPajf34aYWrb338yPJC",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-dEZBE21T5MmT4E3NH0bZVg8G",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130541,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130548,
+              "updated_at": 1673130548,
+              "status": "pending",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-nYHLLAzCiGAYR0H879jYeUe5",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-eS1hH0HlIHLEDVuPOhCx73O4",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130613,
+                  "status": "processed",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130618,
+              "updated_at": 1673130625,
+              "status": "pending",
+              "fine_tuned_model": null
+            },
+            {
+              "object": "fine-tune",
+              "id": "ft-cGrG0CpbzOK7Hu1GdBbV5iYR",
+              "hyperparams": {
+                "n_epochs": 4,
+                "batch_size": null,
+                "prompt_loss_weight": 0.01,
+                "learning_rate_multiplier": null
+              },
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "model": "ada",
+              "training_files": [
+                {
+                  "object": "file",
+                  "id": "file-VfFrgSnGsUdjt21dSHigblfc",
+                  "purpose": "fine-tune",
+                  "filename": "sentiment.jsonl",
+                  "bytes": 159,
+                  "created_at": 1673130628,
+                  "status": "uploaded",
+                  "status_details": null
+                }
+              ],
+              "validation_files": [],
+              "result_files": [],
+              "created_at": 1673130628,
+              "updated_at": 1673130629,
               "status": "pending",
               "fine_tuned_model": null
             }
           ]
         }
-  recorded_at: Sat, 07 Jan 2023 21:41:53 GMT
+  recorded_at: Sat, 07 Jan 2023 22:30:30 GMT
 recorded_with: VCR 6.1.0

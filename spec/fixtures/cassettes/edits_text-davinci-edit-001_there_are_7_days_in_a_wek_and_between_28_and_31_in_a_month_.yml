@@ -5,8 +5,8 @@ http_interactions:
     uri: https://api.openai.com/v1/edits
     body:
       encoding: UTF-8
-      string: '{"model":"text-davinci-edit-001","input":"What day of the wek is it?","instruction":"Fix
-        the spelling mistakes"}'
+      string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
+        and between 28 and 31 in a month.","instruction":"Fix the spelling mistakes"}'
     headers:
       Content-Type:
       - application/json
@@ -24,11 +24,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 18:31:02 GMT
+      - Sat, 07 Jan 2023 22:29:58 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '172'
+      - '210'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -40,18 +40,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '816'
+      - '1998'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 0ac04dad4a0bd7f8317d3e7146086662
+      - c9eb59108aa0fbc6f7a4a20aafa328ca
     body:
       encoding: UTF-8
-      string: '{"object":"edit","created":1663525862,"choices":[{"text":"What day
-        of the week is it?\n","index":0}],"usage":{"prompt_tokens":25,"completion_tokens":28,"total_tokens":53}}
+      string: '{"object":"edit","created":1673130596,"choices":[{"text":"They are
+        7 days in a week, and between 28 and 31 days in a month.\n","index":0}],"usage":{"prompt_tokens":34,"completion_tokens":47,"total_tokens":81}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 18:31:02 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+recorded_with: VCR 6.1.0

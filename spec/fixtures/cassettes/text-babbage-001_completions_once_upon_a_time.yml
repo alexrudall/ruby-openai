@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:48:40 GMT
+      - Sat, 07 Jan 2023 22:29:54 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '280'
+      - '276'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '331'
+      - '119'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - 02ac25aca1c8db7e30002e997043ff7e
+      - 1323c55410e5bbcdfa4a302ca56e8f25
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rxNYUDGnooH6rB3LwDuGXyHgxHNt","object":"text_completion","created":1663541320,"model":"text-babbage-001","choices":[{"text":"\n\n
-        sorcerers used","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-6WBzGsfwPmNtAAMpWPjpWGBGnA0Yz","object":"text_completion","created":1673130594,"model":"text-babbage-001","choices":[{"text":"\n\nThere
+        was a","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:48:40 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
 recorded_with: VCR 6.1.0

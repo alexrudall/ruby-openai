@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 17:38:58 GMT
+      - Sat, 07 Jan 2023 22:29:33 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '730'
+      - '729'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 2f0b1171e28a315fbdddc7843fa54848
+      - 30e8dcd4d671fc96b369212126be0a84
       Openai-Processing-Ms:
-      - '132'
+      - '226'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,8 +46,8 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "modr-5rsXqMsFFzPc1cQHpZSXqZirTAZ6i",
-          "model": "text-moderation-003",
+          "id": "modr-6WByvC2HYx3s7jebKxq8RPpZprG5N",
+          "model": "text-moderation-004",
           "results": [
             {
               "categories": {
@@ -60,17 +60,17 @@ http_interactions:
                 "violence/graphic": false
               },
               "category_scores": {
-                "hate": 5.505014632944949e-05,
-                "hate/threatening": 2.4553044113417855e-06,
-                "self-harm": 0.00010162237595068291,
-                "sexual": 3.4607543057063594e-05,
-                "sexual/minors": 1.4058183296583593e-05,
-                "violence": 0.00017292634584009647,
-                "violence/graphic": 5.601859811577015e-06
+                "hate": 1.103790145862149e-05,
+                "hate/threatening": 3.9703219878450824e-11,
+                "self-harm": 1.8363925491371447e-08,
+                "sexual": 1.152822733274661e-06,
+                "sexual/minors": 1.3241326257684705e-08,
+                "violence": 2.709660066102515e-06,
+                "violence/graphic": 1.4127810743502778e-07
               },
               "flagged": false
             }
           ]
         }
-  recorded_at: Sun, 18 Sep 2022 17:38:58 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:29:33 GMT
+recorded_with: VCR 6.1.0
