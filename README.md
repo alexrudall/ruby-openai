@@ -202,10 +202,11 @@ This fine-tuned model name can then be used in completions:
 
 ### Image Generation
 
-Generate an image using DALL·E!
+Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
+if not specified the image will default to `1024x1024`.
 
 ```ruby
-    response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort" })
+    response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort", size: "256x256" })
     puts response.dig("data", 0, "url")
     => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
@@ -236,16 +237,6 @@ Create n variations of an image.
 
 ![Ruby](https://i.ibb.co/TWJLP2y/img-miu-Wk-Nl0-QNy-Xtj-Lerc3c0l-NW.png)
 ![Ruby](https://i.ibb.co/ScBhDGB/img-a9-Be-Rz-Au-Xwd-AV0-ERLUTSTGdi.png)
-
-### Image Size Parameters
-
-The size of the generated images must be one of `256x256`, `512x512` or `1024x1024`
-
-```ruby
-    response = client.images.variations(parameters: { image: "image.png", size: "256x256" })
-    puts response.dig("data", 0, "url")
-    => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-MmU7kHWkvg..."
-```
 
 ### Moderations
 
