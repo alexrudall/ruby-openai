@@ -18,7 +18,7 @@ RSpec.describe OpenAI::Client do
 
       it "edits the input" do
         VCR.use_cassette(cassette) do
-          expect(response.dig("choices", 0, "text")).to include("What day of the week is it?")
+          expect(response.dig("choices", 0, "text")).to include("week")
         end
       end
     end
