@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.3] - 2023-01-07
+
+### Added
+
+- Add ability to run the specs without VCR cassettes using `NO_VCR=true bundle exec rspec`.
+- Add Ruby 3.2 to CircleCI config - thanks [@petergoldstein](https://github.com/petergoldstein)!
+- A bit of detail added to the README on DALLE image sizes - thanks [@ndemianc](https://github.com/ndemianc)!
+
+### Fixed
+
+- Fix finetunes and files uploads endpoints - thanks [@chaadow](https://github.com/chaadow) for your PR on this and [@petergoldstein](https://github.com/petergoldstein) for the PR we ultimately went with.
+
 ## [3.0.2] - 2022-12-27
 
 ### Fixed
