@@ -3,17 +3,17 @@ RSpec.describe OpenAI::Client do
     let(:filename) { "puppy.jsonl" }
     let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
     let(:id) { "file-pDTosJYQGemK2gpx61qoPN17" }
+    let(:upload_cassette) { "files upload" }
+    let(:upload_purpose) { "answers" }
 
     describe "#upload" do
-      let(:cassette) { "files upload" }
-      let(:purpose) { "answers" }
       let(:response) do
-        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: purpose })
+        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
       end
 
       context "with a valid JSON lines file" do
         it "succeeds" do
-          VCR.use_cassette(cassette) do
+          VCR.use_cassette(upload_cassette) do
             r = JSON.parse(response.body)
             expect(r["filename"]).to eq(filename)
           end
@@ -31,10 +31,16 @@ RSpec.describe OpenAI::Client do
       let(:cassette) { "files list" }
       let(:response) { OpenAI::Client.new.files.list }
 
+      before do
+        VCR.use_cassette(upload_cassette) do
+          OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
+        end
+      end
+
       it "succeeds" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r["data"][0]["filename"]).to eq(filename)
+          expect(r["data"].map { |d| d["filename"] }).to include(filename)
         end
       end
     end
