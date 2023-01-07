@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------ovTs1SKXnA_-Jjdo\r\nContent-Disposition:
+      string: "--------------------------Kn67AslU4eZ1yxtU\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"prompt\":\"Overjoyed
         with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------ovTs1SKXnA_-Jjdo\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------ovTs1SKXnA_-Jjdo--\r\n"
+        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------Kn67AslU4eZ1yxtU\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------Kn67AslU4eZ1yxtU--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------ovTs1SKXnA_-Jjdo
+      - multipart/form-data; boundary=------------------------Kn67AslU4eZ1yxtU
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 20:09:21 GMT
+      - Sat, 07 Jan 2023 22:30:38 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -39,9 +39,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - e31b636b4535d290d90e77aa6934cb34
+      - 8e2df1bfa889cff8c729f1912faad126
       Openai-Processing-Ms:
-      - '1338'
+      - '718'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -50,14 +50,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "file-YPzuQhPbFHWuqQRHdsLDm5qh",
           "object": "file",
-          "bytes": 159,
-          "created_at": 1639253361,
-          "filename": "sentiment.jsonl",
+          "id": "file-0SMVNmd0V9oI8HSztn4w7r7A",
           "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1673130638,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Sat, 11 Dec 2021 20:09:21 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:30:38 GMT
+recorded_with: VCR 6.1.0

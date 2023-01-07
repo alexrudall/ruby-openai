@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:48:40 GMT
+      - Sat, 07 Jan 2023 22:29:54 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '276'
+      - '280'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '107'
+      - '168'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - a12d834b1001b38dcabdb357595a1133
+      - 44a337467dd332ca7bc30e9f7619505d
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rxNYJGefLNYHbn02fMpgwF9Oz3oO","object":"text_completion","created":1663541320,"model":"text-curie-001","choices":[{"text":"
-        were two dwarfs,","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-6WBzGflagI6azKWQvdlTvfiJJId3d","object":"text_completion","created":1673130594,"model":"text-curie-001","choices":[{"text":",
+        there was a society","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:48:40 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
 recorded_with: VCR 6.1.0

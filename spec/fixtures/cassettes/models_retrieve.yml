@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 21:46:55 GMT
+      - Sat, 07 Jan 2023 22:31:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 92bed19660e85b5502f0eed782a1b3d1
+      - bd9547caf2af03ebab5387de86d2f783
       Openai-Processing-Ms:
-      - '26'
+      - '29'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -52,9 +52,9 @@ http_interactions:
           "owned_by": "openai",
           "permission": [
             {
-              "id": "modelperm-npoyVTo7XoAfTYTuTbeAo3yg",
+              "id": "modelperm-KN5dRBCEW4az6gwcGXkRkMwK",
               "object": "model_permission",
-              "created": 1661880157,
+              "created": 1669088497,
               "allow_create_engine": false,
               "allow_sampling": true,
               "allow_logprobs": true,
@@ -69,5 +69,5 @@ http_interactions:
           "root": "text-ada-001",
           "parent": null
         }
-  recorded_at: Sun, 18 Sep 2022 21:46:55 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
+recorded_with: VCR 6.1.0

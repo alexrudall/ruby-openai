@@ -24,11 +24,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 21:19:26 GMT
+      - Sat, 07 Jan 2023 22:30:39 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '376'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -40,22 +40,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '574'
+      - '190'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
-      - Accept-Encoding
       X-Request-Id:
-      - 9ea6ab953e2a39ed6fbc08d610d9f3e9
+      - 76e3dbaa91a71b04ba0da3a7f041ad66
     body:
-      encoding: ASCII-8BIT
-      string: '{"id": "cmpl-4E445YpvIZ3EcIZQkIDewWP0Fj6xb", "object": "text_completion",
-        "created": 1639257565, "model": "ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52",
-        "choices": [{"text": "! But this month I say that to win over the family,
-        compete in Mary", "index": 0, "logprobs": null, "finish_reason": "length"}]}
+      encoding: UTF-8
+      string: '{"id":"cmpl-6WBzzeq3IM7Ye9DZ9byAOXU12JNMS","object":"text_completion","created":1673130639,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":".
+        I love early morning mornings and first thing. I have a very active and","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
 
 '
-  recorded_at: Sat, 11 Dec 2021 21:19:26 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:30:39 GMT
+recorded_with: VCR 6.1.0

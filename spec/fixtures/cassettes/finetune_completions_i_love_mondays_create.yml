@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes
+    body:
+      encoding: UTF-8
+      string: '{"training_file":"file-0SMVNmd0V9oI8HSztn4w7r7A","model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: BAD REQUEST
+    headers:
+      Date:
+      - Sat, 07 Jan 2023 22:30:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '330'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 370467862c226db6a84364ccc40e5936
+      Openai-Processing-Ms:
+      - '51'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "message": "Invalid base model: ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52 (we don't support fine-tuning from this model. However, we will support fine-tuning from all new models fine-tuned from this point onwards.)",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sat, 07 Jan 2023 22:30:38 GMT
+recorded_with: VCR 6.1.0

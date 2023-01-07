@@ -1,7 +1,7 @@
 ---
 http_interactions:
 - request:
-    method: delete
+    method: get
     uri: https://api.openai.com/v1/files/file-V3OojPAXd7iz6N1ye7t5qZtv
     body:
       encoding: US-ASCII
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:00 GMT
+      - Sat, 07 Jan 2023 22:28:59 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '83'
+      - '212'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - ac8cad4356fd694ce7e4c4b95ce97f14
+      - 4df2d2158a18058de73095c985dd3122
       Openai-Processing-Ms:
-      - '368'
+      - '23'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -48,11 +48,16 @@ http_interactions:
         {
           "object": "file",
           "id": "file-V3OojPAXd7iz6N1ye7t5qZtv",
-          "deleted": true
+          "purpose": "answers",
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673130536,
+          "status": "processed",
+          "status_details": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:00 GMT
+  recorded_at: Sat, 07 Jan 2023 22:28:59 GMT
 - request:
-    method: delete
+    method: get
     uri: https://api.openai.com/v1/files/file-NDWFn4xYvbnC5TcwD1TyDHOU
     body:
       encoding: US-ASCII
@@ -74,11 +79,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:30:12 GMT
+      - Sat, 07 Jan 2023 22:30:11 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '83'
+      - '212'
       Connection:
       - keep-alive
       Openai-Version:
@@ -86,9 +91,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 9210c0970f9527b21dd1dd6f1ebe5f0d
+      - 4eef0ee95c74b522b43f439c1be316b5
       Openai-Processing-Ms:
-      - '577'
+      - '25'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -99,7 +104,12 @@ http_interactions:
         {
           "object": "file",
           "id": "file-NDWFn4xYvbnC5TcwD1TyDHOU",
-          "deleted": true
+          "purpose": "answers",
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673130605,
+          "status": "processed",
+          "status_details": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:30:12 GMT
+  recorded_at: Sat, 07 Jan 2023 22:30:11 GMT
 recorded_with: VCR 6.1.0

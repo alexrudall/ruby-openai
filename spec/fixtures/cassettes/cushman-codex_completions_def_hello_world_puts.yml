@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 18 Sep 2022 22:48:38 GMT
+      - Sat, 07 Jan 2023 22:29:53 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '275'
+      - '276'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,18 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '81'
+      - '313'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Request-Id:
-      - fcc527d548b9a7631a86a815a93dc452
+      - 9016dd24125f713dcd07eb11f283ecd6
     body:
       encoding: UTF-8
-      string: '{"id":"cmpl-5rxNWAw9yygW2XB1g4cNqqAa2JrKt","object":"text_completion","created":1663541318,"model":"cushman-codex","choices":[{"text":"
-        \"Hello World\"","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
+      string: '{"id":"cmpl-6WBzFAApXtU5EEG7bv5nA0deqvX1O","object":"text_completion","created":1673130593,"model":"cushman-codex","choices":[{"text":"
+        \"hello world!\"","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
 
 '
-  recorded_at: Sun, 18 Sep 2022 22:48:38 GMT
+  recorded_at: Sat, 07 Jan 2023 22:29:53 GMT
 recorded_with: VCR 6.1.0

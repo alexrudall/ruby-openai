@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-pDTosJYQGemK2gpx61qoPN17
+    uri: https://api.openai.com/v1/files/file-nfPlJeXEMUN0H0XQCvF4t6Sj
     body:
       encoding: US-ASCII
       string: ''
@@ -22,14 +22,12 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - nginx/1.17.10
       Date:
-      - Wed, 07 Apr 2021 20:02:05 GMT
+      - Sat, 07 Jan 2023 22:28:55 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '186'
+      - '211'
       Connection:
       - keep-alive
       Openai-Version:
@@ -37,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 35ee1b9b18e5c00180d5e6f524c79d67
+      - bde2ce3cf9bbef71715dfceb12beb187
       Openai-Processing-Ms:
-      - '210'
+      - '23'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -48,13 +46,70 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "file-pDTosJYQGemK2gpx61qoPN17",
           "object": "file",
-          "bytes": 140,
-          "created_at": 1617824991,
-          "filename": "puppy.jsonl",
+          "id": "file-nfPlJeXEMUN0H0XQCvF4t6Sj",
           "purpose": "answers",
-          "status": "processed"
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673130533,
+          "status": "uploaded",
+          "status_details": null
         }
-  recorded_at: Wed, 07 Apr 2021 20:02:05 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 22:28:55 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-wjUWJiBuRDnJuDFMnhINLwEO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 07 Jan 2023 22:30:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '211'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - ea72d53b412a96a51862f89d160f62e7
+      Openai-Processing-Ms:
+      - '26'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "file",
+          "id": "file-wjUWJiBuRDnJuDFMnhINLwEO",
+          "purpose": "answers",
+          "filename": "puppy.jsonl",
+          "bytes": 140,
+          "created_at": 1673130603,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Sat, 07 Jan 2023 22:30:03 GMT
+recorded_with: VCR 6.1.0
