@@ -2,60 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.openai.com/v1/files/file-pDTosJYQGemK2gpx61qoPN17
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - nginx/1.17.10
-      Date:
-      - Wed, 07 Apr 2021 20:04:44 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '83'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - fd88e03d15837143d6a0139356668d19
-      Openai-Processing-Ms:
-      - '630'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "id": "file-pDTosJYQGemK2gpx61qoPN17",
-          "object": "file",
-          "deleted": true
-        }
-  recorded_at: Wed, 07 Apr 2021 20:04:44 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/files/file-jkKbSEM55z56W3i0t7bUXVfB
+    uri: https://api.openai.com/v1/files/file-iyPJVW1BvsKhEXioWKlvOPLK
     body:
       encoding: US-ASCII
       string: ''
@@ -76,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 21:18:17 GMT
+      - Sat, 07 Jan 2023 21:28:30 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -88,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 29c12c0b66d323518a77390074ffc1ac
+      - 33a0178078076f15c3fa260f3e1c19be
       Openai-Processing-Ms:
-      - '361'
+      - '719'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -100,161 +47,8 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-jkKbSEM55z56W3i0t7bUXVfB",
+          "id": "file-iyPJVW1BvsKhEXioWKlvOPLK",
           "deleted": true
         }
-  recorded_at: Sat, 07 Jan 2023 21:18:17 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/files/file-suZarB9DA1GMs7JVyNa0kWKA
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sat, 07 Jan 2023 21:20:32 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '83'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 83e2a75207b3931c233cbeda7fa3443d
-      Openai-Processing-Ms:
-      - '467'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "object": "file",
-          "id": "file-suZarB9DA1GMs7JVyNa0kWKA",
-          "deleted": true
-        }
-  recorded_at: Sat, 07 Jan 2023 21:20:32 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/files/file-Ix8YJgyumZgiDMjzmUgYFIIH
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sat, 07 Jan 2023 21:20:53 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '83'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 51281fe972237c865e3a3f0a2e08fdcd
-      Openai-Processing-Ms:
-      - '2129'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "object": "file",
-          "id": "file-Ix8YJgyumZgiDMjzmUgYFIIH",
-          "deleted": true
-        }
-  recorded_at: Sat, 07 Jan 2023 21:20:53 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/files/file-jHCgnxPcLE6HYw3KBDH5FeW9
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sat, 07 Jan 2023 21:21:47 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '83'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 7db88635e59cf02975fdcee52444e203
-      Openai-Processing-Ms:
-      - '117'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "object": "file",
-          "id": "file-jHCgnxPcLE6HYw3KBDH5FeW9",
-          "deleted": true
-        }
-  recorded_at: Sat, 07 Jan 2023 21:21:47 GMT
+  recorded_at: Sat, 07 Jan 2023 21:28:30 GMT
 recorded_with: VCR 6.1.0
