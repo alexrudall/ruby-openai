@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:33 GMT
+      - Sat, 07 Jan 2023 22:31:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 30e8dcd4d671fc96b369212126be0a84
+      - 3148db7dd11ae69a5d03633e105b92b6
       Openai-Processing-Ms:
-      - '226'
+      - '160'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -46,7 +46,7 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "modr-6WByvC2HYx3s7jebKxq8RPpZprG5N",
+          "id": "modr-6WC0McWdVemsmsg34H2UYLkdj6EfD",
           "model": "text-moderation-004",
           "results": [
             {
@@ -72,5 +72,5 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:33 GMT
+  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
 recorded_with: VCR 6.1.0

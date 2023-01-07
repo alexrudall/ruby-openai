@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:33 GMT
+      - Sat, 07 Jan 2023 22:31:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 78984a346a162fc343da83b62b2c27d4
+      - bd9547caf2af03ebab5387de86d2f783
       Openai-Processing-Ms:
-      - '31'
+      - '29'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -69,5 +69,5 @@ http_interactions:
           "root": "text-ada-001",
           "parent": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:33 GMT
+  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
 recorded_with: VCR 6.1.0

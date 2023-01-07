@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:32 GMT
+      - Sat, 07 Jan 2023 22:31:01 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '73353'
+      - '74093'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 422ee8f85592c7f4429f7beb95cf4cfc
+      - 7641676d3962b600030253e307068b47
       Openai-Processing-Ms:
-      - '75'
+      - '76'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -1993,6 +1993,30 @@ http_interactions:
               "parent": "ada:2020-05-03"
             },
             {
+              "id": "ada:ft-personal-2023-01-07-22-30-59",
+              "object": "model",
+              "created": 1673130659,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-F0Ih9OFxklzG1pwtrgtGkdUs",
+                  "object": "model_permission",
+                  "created": 1673130659,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
               "id": "ada:ft-personal-2023-01-07-22-23-24",
               "object": "model",
               "created": 1673130204,
@@ -2570,5 +2594,5 @@ http_interactions:
             }
           ]
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:32 GMT
+  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
 recorded_with: VCR 6.1.0
