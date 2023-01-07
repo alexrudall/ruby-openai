@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 21:19:26 GMT
+      - Sat, 07 Jan 2023 21:41:55 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,22 +40,16 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '574'
+      - '119'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
-      Vary:
-      - Accept-Encoding
       X-Request-Id:
-      - 9ea6ab953e2a39ed6fbc08d610d9f3e9
+      - 522312a23cc1b339093b5cec1de8fd97
     body:
       encoding: ASCII-8BIT
-      string: '{"id": "cmpl-4E445YpvIZ3EcIZQkIDewWP0Fj6xb", "object": "text_completion",
-        "created": 1639257565, "model": "ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52",
-        "choices": [{"text": "! But this month I say that to win over the family,
-        compete in Mary", "index": 0, "logprobs": null, "finish_reason": "length"}]}
-
-'
-  recorded_at: Sat, 11 Dec 2021 21:19:26 GMT
-recorded_with: VCR 6.0.0
+      string: !binary |-
+        eyJpZCI6ImNtcGwtNldCRXAyT2taa01EZWN2c3dhcnRnUXY4a2s2RG0iLCJvYmplY3QiOiJ0ZXh0X2NvbXBsZXRpb24iLCJjcmVhdGVkIjoxNjczMTI3NzE1LCJtb2RlbCI6ImFkYTpmdC11c2VyLWp4bTY1aWpremMxcXJmaGMwaWo4bW9pYy0yMDIxLTEyLTExLTIwLTExLTUyIiwiY2hvaWNlcyI6W3sidGV4dCI6IizigJ0gaGUgc2FpZC4g4oCcSXQgd29ya3MgYmV0dGVyIGZvciBtZS7igJ0iLCJpbmRleCI6MCwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOiJsZW5ndGgifV0sInVzYWdlIjp7InByb21wdF90b2tlbnMiOjMsImNvbXBsZXRpb25fdG9rZW5zIjoxNiwidG90YWxfdG9rZW5zIjoxOX19Cg==
+  recorded_at: Sat, 07 Jan 2023 21:41:55 GMT
+recorded_with: VCR 6.1.0

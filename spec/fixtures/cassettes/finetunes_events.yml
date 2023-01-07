@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine-tunes/ft-8L9s8NyryUH1jTVKedLfnjED/events
+    uri: https://api.openai.com/v1/fine-tunes/ft-czUE75Us9Ib9sKNAvzQSB010/events
     body:
       encoding: US-ASCII
       string: ''
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 11 Dec 2021 21:11:51 GMT
+      - Sat, 07 Jan 2023 21:41:54 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '1729'
+      - '350'
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - c531106dad4ed0977da900d6c394fab3
+      - e5a8a4bccd3799692b6fcf6236fd41d4
       Openai-Processing-Ms:
-      - '380'
+      - '27'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -50,71 +50,17 @@ http_interactions:
           "data": [
             {
               "object": "fine-tune-event",
-              "created_at": 1639257031,
               "level": "info",
-              "message": "Created fine-tune: ft-8L9s8NyryUH1jTVKedLfnjED"
+              "message": "Created fine-tune: ft-czUE75Us9Ib9sKNAvzQSB010",
+              "created_at": 1673127712
             },
             {
               "object": "fine-tune-event",
-              "created_at": 1639257036,
               "level": "info",
-              "message": "Fine-tune costs $0.00"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257037,
-              "level": "info",
-              "message": "Fine-tune enqueued. Queue number: 0"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257043,
-              "level": "info",
-              "message": "Fine-tune started"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257058,
-              "level": "info",
-              "message": "Completed epoch 1/4"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257059,
-              "level": "info",
-              "message": "Completed epoch 2/4"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257059,
-              "level": "info",
-              "message": "Completed epoch 3/4"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257060,
-              "level": "info",
-              "message": "Completed epoch 4/4"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257088,
-              "level": "info",
-              "message": "Uploaded model: ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-21-11-26"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257090,
-              "level": "info",
-              "message": "Uploaded result file: file-0lauqh5FEYpGD7kaPafOTgjd"
-            },
-            {
-              "object": "fine-tune-event",
-              "created_at": 1639257091,
-              "level": "info",
-              "message": "Fine-tune succeeded"
+              "message": "Fine-tune cancelled",
+              "created_at": 1673127714
             }
           ]
         }
-  recorded_at: Sat, 11 Dec 2021 21:11:51 GMT
-recorded_with: VCR 6.0.0
+  recorded_at: Sat, 07 Jan 2023 21:41:54 GMT
+recorded_with: VCR 6.1.0
