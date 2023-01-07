@@ -10,7 +10,7 @@ RSpec.describe OpenAI::Client do
     end
     let(:model) { "ada" }
     let!(:create_response) do
-      VCR.use_cassette("finetunes cancel create") do
+      VCR.use_cassette("#{cassette} create") do
         OpenAI::Client.new.finetunes.create(
           parameters: {
             training_file: file_id,
@@ -22,7 +22,7 @@ RSpec.describe OpenAI::Client do
     let(:create_id) { create_response.parsed_response["id"] }
 
     describe "#create" do
-      let(:cassette) { "finetunes create" }
+      let(:cassette) { "finetunes" }
 
       it "succeeds" do
         expect(create_response.parsed_response["object"]).to eq("fine-tune")
