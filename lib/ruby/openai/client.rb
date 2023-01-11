@@ -9,7 +9,7 @@ module OpenAI
     def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, api_version: nil)
       @access_token = access_token || Ruby::OpenAI.configuration.access_token
       @organization_id = if organization_id == NULL_ORGANIZATION_ID
-                           Ruby::OpenAI.configuration.access_token
+                           Ruby::OpenAI.configuration.organization_id
                          else
                            organization_id
                          end
