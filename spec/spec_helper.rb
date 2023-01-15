@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "dotenv/load"
 require "openai"
+require "openai/compatibility"
 require "vcr"
 
 Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }
