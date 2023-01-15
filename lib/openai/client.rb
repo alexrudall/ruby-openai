@@ -3,8 +3,8 @@ module OpenAI
     URI_BASE = "https://api.openai.com/".freeze
 
     def initialize(access_token: nil, organization_id: nil)
-      Ruby::OpenAI.configuration.access_token = access_token if access_token
-      Ruby::OpenAI.configuration.organization_id = organization_id if organization_id
+      OpenAI.configuration.access_token = access_token if access_token
+      OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
     def completions(parameters: {})
@@ -70,14 +70,14 @@ module OpenAI
     end
 
     private_class_method def self.uri(path:)
-      URI_BASE + Ruby::OpenAI.configuration.api_version + path
+      URI_BASE + OpenAI.configuration.api_version + path
     end
 
     private_class_method def self.headers
       {
         "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{Ruby::OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => Ruby::OpenAI.configuration.organization_id
+        "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
+        "OpenAI-Organization" => OpenAI.configuration.organization_id
       }
     end
   end
