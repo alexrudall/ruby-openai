@@ -1,0 +1,9 @@
+<div class="flex justify-between items-center">
+  <h1 class="font-bold text-4xl">ChatGPT</h1>
+</div>
+
+<div class="my-2">
+  <h2 class="font-bold text-2xl">Lets talk with GPT</h2>
+  <%=text_field_tag :q, params[:q], placeholder: 'Ask something...', data: {reflex: "keyup->ChatGpt#answer"}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div id="gpt_answer"></div>
+</div>
