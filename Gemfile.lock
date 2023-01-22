@@ -64,7 +64,7 @@ GEM
       hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
-  arm64-darwin-20
+  ruby
 
 DEPENDENCIES
   byebug (~> 11.1.3)
