@@ -3,10 +3,13 @@ require "dotenv/load"
 require "ruby/openai"
 require "vcr"
 
+Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }
+
 VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
-  c.default_cassette_options = { record: ENV["NO_VCR"] == "true" ? :all : :new_episodes }
+  c.default_cassette_options = { record: ENV["NO_VCR"] == "true" ? :all : :new_episodes,
+                                 match_requests_on: [:method, :uri, VCRMultipartMatcher.new] }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { Ruby::OpenAI.configuration.access_token }
   c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { Ruby::OpenAI.configuration.organization_id }
 end
