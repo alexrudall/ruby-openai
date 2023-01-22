@@ -200,6 +200,12 @@ This fine-tuned model name can then be used in completions:
     JSON.parse(response.body)["choices"].map { |c| c["text"] }
 ```
 
+You can delete the fine-tuned model when you are done with it:
+
+```ruby
+    client.finetunes.delete(fine_tuned_model: fine_tuned_model)
+```
+
 ### Image Generation
 
 Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
