@@ -24,5 +24,13 @@ module OpenAI
     def events(id:)
       OpenAI::Client.get(path: "/fine-tunes/#{id}/events")
     end
+
+    def delete(fine_tuned_model:)
+      if fine_tuned_model.start_with?("ft-")
+        raise ArgumentError, "Please give a fine_tuned_model name, not a fine-tune ID"
+      end
+
+      OpenAI::Client.delete(path: "/models/#{fine_tuned_model}")
+    end
   end
 end

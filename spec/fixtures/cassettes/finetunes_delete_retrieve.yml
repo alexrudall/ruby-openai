@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-HfCrkdOgSweG81HD8uTqBMoX
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Jan 2023 15:53:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2706'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 690fa41f0ee27d963a19d40e848cc2a6
+      Openai-Processing-Ms:
+      - '40'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-HfCrkdOgSweG81HD8uTqBMoX",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": 1,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": 0.1
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-0SMVNmd0V9oI8HSztn4w7r7A",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1673130638,
+              "status": "processed",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [
+            {
+              "object": "file",
+              "id": "file-VUcO68ByyeKU3hkkGkJPw8W1",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 448,
+              "created_at": 1674402519,
+              "status": "processed",
+              "status_details": null
+            }
+          ],
+          "created_at": 1674402278,
+          "updated_at": 1674402521,
+          "status": "succeeded",
+          "fine_tuned_model": "ada:ft-personal-2023-01-22-15-48-38",
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-HfCrkdOgSweG81HD8uTqBMoX",
+              "created_at": 1674402278
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune costs $0.00",
+              "created_at": 1674402468
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune enqueued. Queue number: 0",
+              "created_at": 1674402469
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune started",
+              "created_at": 1674402473
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 1/4",
+              "created_at": 1674402488
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 2/4",
+              "created_at": 1674402488
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 3/4",
+              "created_at": 1674402491
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 4/4",
+              "created_at": 1674402492
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded model: ada:ft-personal-2023-01-22-15-48-38",
+              "created_at": 1674402519
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded result file: file-VUcO68ByyeKU3hkkGkJPw8W1",
+              "created_at": 1674402521
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune succeeded",
+              "created_at": 1674402521
+            }
+          ]
+        }
+  recorded_at: Sun, 22 Jan 2023 15:53:37 GMT
+recorded_with: VCR 6.1.0

@@ -78,6 +78,46 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#delete" do
+      let(:cassette) { "finetunes delete" }
+      let(:retrieve_cassette) { "#{cassette} retrieve" }
+      let(:response) { OpenAI::Client.new.finetunes.delete(fine_tuned_model: fine_tuned_model) }
+      let(:fine_tuned_model) do
+        VCR.use_cassette(retrieve_cassette) do
+          OpenAI::Client.new.finetunes.retrieve(id: create_id)["fine_tuned_model"]
+        end
+      end
+
+      before do
+        # We need to check the fine-tune model has been created by OpenAI
+        # before we can delete it.
+        retrieved = VCR.use_cassette(retrieve_cassette) do
+          OpenAI::Client.new.finetunes.retrieve(id: create_id)
+        end
+        until retrieved.parsed_response["status"] == "succeeded"
+          sleep(1)
+          retrieved = VCR.use_cassette(retrieve_cassette, record: :all) do
+            OpenAI::Client.new.finetunes.retrieve(id: create_id)
+          end
+        end
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          r = JSON.parse(response.body)
+          expect(r["deleted"]).to eq(true)
+        end
+      end
+
+      context "when passing a fine-tune ID instead of the model name" do
+        it "raises an error" do
+          expect do
+            OpenAI::Client.new.finetunes.delete(fine_tuned_model: create_id)
+          end.to raise_error(ArgumentError)
+        end
+      end
+    end
+
     describe "#completions" do
       let(:prompt) { "I love Mondays" }
       let(:cassette) { "finetune completions #{prompt}".downcase }
