@@ -27,7 +27,7 @@ class VCRMultipartMatcher
   end
 
   def headers_excluding_content_type(request)
-    request.headers.except("Content-Type")
+    request.headers.reject { |key, _| key == "Content-Type" }
   end
 
   def normalized_multipart_body(request)
