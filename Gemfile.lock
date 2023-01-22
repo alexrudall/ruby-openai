@@ -77,4 +77,4 @@ DEPENDENCIES
   webmock (~> 3.18.1)
 
 BUNDLED WITH
-   2.2.20
+   2.4.3
