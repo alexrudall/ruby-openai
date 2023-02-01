@@ -9,7 +9,7 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Generate text with GPT-3, create images with DALL·E, or write code with Codex...
 
-Want to instantly make your own AIs without writing a line of code? Check out [Peaceterms](https://exciting-artist-2744.ck.page/7d56d5cd11)!
+Want to instantly make your own AIs without writing a line of code? Check out [Peaceterms](https://peaceterms.com)!
 
 ## Installation
 
