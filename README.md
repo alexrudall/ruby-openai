@@ -144,6 +144,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
     client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
     client.files.list
     client.files.retrieve(id: 123)
+    client.files.content(id: 123)
     client.files.delete(id: 123)
 ```
 
