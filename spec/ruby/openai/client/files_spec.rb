@@ -54,6 +54,18 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#content" do
+      let(:cassette) { "files content" }
+      let(:upload_cassette) { "#{cassette} upload" }
+      let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response.body).to include("lakers")
+        end
+      end
+    end
+
     describe "#delete" do
       let(:cassette) { "files delete" }
       let(:upload_cassette) { "#{cassette} upload" }
