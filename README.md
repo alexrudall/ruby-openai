@@ -151,14 +151,7 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 
 ### Fine-tunes
 
-Put your fine-tuning data in a `.jsonl` file like this:
-
-```json
-    {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
-    {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
-```
-
-and pass the path to `client.files.upload` to upload it to OpenAI and get its ID:
+Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
 
 ```ruby
     response = client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
