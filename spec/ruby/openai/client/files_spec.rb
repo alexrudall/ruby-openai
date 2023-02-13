@@ -1,8 +1,8 @@
 RSpec.describe OpenAI::Client do
   describe "#files", :vcr do
-    let(:filename) { "puppy.jsonl" }
+    let(:filename) { "sentiment.jsonl" }
     let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
-    let(:upload_purpose) { "answers" }
+    let(:upload_purpose) { "fine-tune" }
     let(:upload) do
       VCR.use_cassette(upload_cassette) do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })

@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------IJEfVDcCYzLSSEmR\r\nContent-Disposition:
-        form-data; name=\"file\"; filename=\"puppy.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"text\":
-        \"puppy A is happy\", \"metadata\": \"emotional state of puppy A\"}\n{\"text\":
-        \"puppy B is sad\", \"metadata\": \"emotional state of puppy B\"}\n\r\n--------------------------IJEfVDcCYzLSSEmR\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nanswers\r\n--------------------------IJEfVDcCYzLSSEmR--\r\n"
+      string: "--------------------------0raYAdZkrg_PfXCZ\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"prompt\":\"Overjoyed
+        with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
+        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------0raYAdZkrg_PfXCZ\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------0raYAdZkrg_PfXCZ--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------IJEfVDcCYzLSSEmR
+      - multipart/form-data; boundary=------------------------0raYAdZkrg_PfXCZ
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -27,11 +27,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:59 GMT
+      - Mon, 13 Feb 2023 22:37:14 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '211'
+      - '217'
       Connection:
       - keep-alive
       Openai-Version:
@@ -39,9 +39,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 2be15641a462ce43476045c9cc9a1d33
+      - '00866756d702dac1f4c0fc9dfaf97e11'
       Openai-Processing-Ms:
-      - '624'
+      - '785'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -51,13 +51,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-beOulr7FhRTrfJAFXKn4OYn1",
-          "purpose": "answers",
-          "filename": "puppy.jsonl",
-          "bytes": 140,
-          "created_at": 1673130599,
+          "id": "file-8UyEuaAubuK4Ndd6GLKsUkLe",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1676327834,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:59 GMT
+  recorded_at: Mon, 13 Feb 2023 22:37:14 GMT
 recorded_with: VCR 6.1.0

@@ -136,14 +136,14 @@ You can use the embeddings endpoint to get a vector of numbers representing an i
 Put your data in a `.jsonl` file like this:
 
 ```json
-    {"text": "puppy A is happy", "metadata": "emotional state of puppy A"}
-    {"text": "puppy B is sad", "metadata": "emotional state of puppy B"}
+    {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+    {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
 ```
 
 and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
 
 ```ruby
-    client.files.upload(parameters: { file: "path/to/puppy.jsonl", purpose: "search" })
+    client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
     client.files.list
     client.files.retrieve(id: 123)
     client.files.delete(id: 123)

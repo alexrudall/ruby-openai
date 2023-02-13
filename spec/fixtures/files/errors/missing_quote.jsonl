@@ -1,2 +1,2 @@
-{"text": "puppy A is happy", "metadata": "emotional state of puppy A"}
-{"text": "puppy B is sad", "metadata": "emotional state of puppy B}
+{"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+{"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative}
