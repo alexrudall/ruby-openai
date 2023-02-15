@@ -37,10 +37,7 @@ and require with:
 
 ## Upgrading
 
-The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module.
-
-However, a transitional `::Ruby::OpenAI` module has been added with aliases to the new location of the classes and constants. For now this compatibility layer is available when the gem is loaded with `require 'ruby/openai'` or by default with bundler, but are _not_ available when the gem is loaded with `require 'openai'` or `gem 'ruby-openai', require: 'openai'`. This will be removed in future versions.
-
+The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module. To upgrade, change `require 'ruby/openai'` to `require 'openai'` and change all references to `Ruby::OpenAI` to `OpenAI`.
 
 ## Usage
 
