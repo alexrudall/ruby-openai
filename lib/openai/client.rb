@@ -2,9 +2,10 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    def initialize(access_token: nil, organization_id: nil)
+    def initialize(access_token: nil, organization_id: nil, request_timeout: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
+      OpenAI.configuration.request_timeout = request_timeout if request_timeout
     end
 
     def completions(parameters: {})
@@ -42,7 +43,8 @@ module OpenAI
     def self.get(path:)
       HTTParty.get(
         uri(path: path),
-        headers: headers
+        headers: headers,
+        timeout: request_timeout
       )
     end
 
@@ -50,7 +52,8 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters&.to_json
+        body: parameters&.to_json,
+        timeout: request_timeout
       )
     end
 
@@ -58,14 +61,16 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
-        body: parameters
+        body: parameters,
+        timeout: request_timeout
       )
     end
 
     def self.delete(path:)
       HTTParty.delete(
         uri(path: path),
-        headers: headers
+        headers: headers,
+        timeout: request_timeout
       )
     end
 
@@ -79,6 +84,10 @@ module OpenAI
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
         "OpenAI-Organization" => OpenAI.configuration.organization_id
       }
+    end
+
+    private_class_method def self.request_timeout
+      OpenAI.configuration.request_timeout
     end
   end
 end
