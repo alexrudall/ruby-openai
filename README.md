@@ -1,4 +1,4 @@
-# Ruby::OpenAI
+# Ruby OpenAI
 
 [![Gem Version](https://badge.fury.io/rb/ruby-openai.svg)](https://badge.fury.io/rb/ruby-openai)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
@@ -32,8 +32,15 @@ $ gem install ruby-openai
 and require with:
 
 ```ruby
-    require "ruby/openai"
+    require "openai"
 ```
+
+## Upgrading
+
+The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module.
+
+However, a transitional `::Ruby::OpenAI` module has been added with aliases to the new location of the classes and constants. For now this compatibility layer is available when the gem is loaded with `require 'ruby/openai'` or by default with bundler, but are _not_ available when the gem is loaded with `require 'openai'` or `gem 'ruby-openai', require: 'openai'`. This will be removed in future versions.
+
 
 ## Usage
 
@@ -53,7 +60,7 @@ For a quick test you can pass your token directly to a new client:
 For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcode secrets into your codebase - instead use something like [dotenv](https://github.com/motdotla/dotenv) to pass the keys safely into your environments.
 
 ```ruby
-    Ruby::OpenAI.configure do |config|
+    OpenAI.configure do |config|
         config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
         config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
     end
@@ -274,4 +281,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Ruby::OpenAI project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Ruby OpenAI project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
