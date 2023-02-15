@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Replace ::Ruby::OpenAI namespace with ::OpenAI - thanks [@kmcphillips](https://github.com/kmcphillips) for this work!
+- To upgrade, change `require 'ruby/openai'` to `require 'openai'` and change all references to `Ruby::OpenAI` to `OpenAI`.
 
 ## [3.2.0] - 2023-02-13
 
