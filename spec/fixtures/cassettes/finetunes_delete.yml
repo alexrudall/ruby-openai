@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.openai.com/v1/models/ada:ft-personal-2023-01-22-15-48-38
+    uri: https://api.openai.com/v1/models/abc
     body:
       encoding: US-ASCII
       string: ''
@@ -19,36 +19,39 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: NOT FOUND
     headers:
       Date:
-      - Sun, 22 Jan 2023 15:53:42 GMT
+      - Wed, 15 Feb 2023 21:33:01 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '90'
+      - '141'
       Connection:
       - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 7b5a48e70a4c93b871cea4b3fe854108
+      - bf430420b5eec6065aed77150b804b28
       Openai-Processing-Ms:
-      - '49'
-      Access-Control-Allow-Origin:
-      - "*"
+      - '53'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "id": "ada:ft-personal-2023-01-22-15-48-38",
-          "object": "model",
-          "deleted": true
+          "error": {
+            "message": "That model does not exist",
+            "type": "invalid_request_error",
+            "param": "model",
+            "code": null
+          }
         }
-  recorded_at: Sun, 22 Jan 2023 15:53:42 GMT
+  recorded_at: Wed, 15 Feb 2023 21:33:01 GMT
 recorded_with: VCR 6.1.0
