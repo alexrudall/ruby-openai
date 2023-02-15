@@ -9,6 +9,8 @@ Style/Documentation:
 
 Layout/LineLength:
   Max: 100
+  Exclude:
+    - "**/*.gemspec"
 
 Metrics/BlockLength:
   Exclude:
