@@ -80,11 +80,15 @@ RSpec.describe OpenAI::Client do
         retrieved = VCR.use_cassette(retrieve_cassette) do
           OpenAI::Client.new.files.retrieve(id: upload_id)
         end
+        tries = 0
         until retrieved.parsed_response["status"] == "processed"
+          raise "File not processed after 10 tries" if tries > 10
+
           sleep(1)
           retrieved = VCR.use_cassette(retrieve_cassette, record: :all) do
             OpenAI::Client.new.files.retrieve(id: upload_id)
           end
+          tries += 1
         end
       end
 
