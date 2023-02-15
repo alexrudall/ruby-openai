@@ -5,14 +5,14 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------bmPbj_M9Yk1RLpNw\r\nContent-Disposition:
+      string: "--------------------------s9K1NQcWW1KuxdM5\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"prompt\":\"Overjoyed
         with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------bmPbj_M9Yk1RLpNw\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------bmPbj_M9Yk1RLpNw--\r\n"
+        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------s9K1NQcWW1KuxdM5\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------s9K1NQcWW1KuxdM5--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=------------------------bmPbj_M9Yk1RLpNw
+      - multipart/form-data; boundary=------------------------s9K1NQcWW1KuxdM5
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 13 Feb 2023 22:37:18 GMT
+      - Wed, 15 Feb 2023 21:43:58 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -39,9 +39,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 0e4dcaeb6de95edc9f51873de9e081f9
+      - 2c68cf71968b7e31af87dd9a9b728980
       Openai-Processing-Ms:
-      - '524'
+      - '545'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -51,13 +51,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-WTgKUB5YtLXcH9JcmWv3hdR4",
+          "id": "file-Y48W6dd10IXr13b5E0JavrYQ",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1676327838,
+          "created_at": 1676497438,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Mon, 13 Feb 2023 22:37:18 GMT
+  recorded_at: Wed, 15 Feb 2023 21:43:58 GMT
 recorded_with: VCR 6.1.0

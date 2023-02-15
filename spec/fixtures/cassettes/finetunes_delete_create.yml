@@ -19,69 +19,39 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: BAD REQUEST
     headers:
       Date:
-      - Sun, 22 Jan 2023 15:44:38 GMT
+      - Wed, 15 Feb 2023 21:33:00 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '901'
+      - '161'
       Connection:
       - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 14705d3e9acf7d457ca9c40a6fc97791
+      - fd0269dad8eeb591a9d02658aeeba36b
       Openai-Processing-Ms:
-      - '86'
-      Access-Control-Allow-Origin:
-      - "*"
+      - '50'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
       string: |
         {
-          "object": "fine-tune",
-          "id": "ft-HfCrkdOgSweG81HD8uTqBMoX",
-          "hyperparams": {
-            "n_epochs": 4,
-            "batch_size": null,
-            "prompt_loss_weight": 0.01,
-            "learning_rate_multiplier": null
-          },
-          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
-          "model": "ada",
-          "training_files": [
-            {
-              "object": "file",
-              "id": "file-0SMVNmd0V9oI8HSztn4w7r7A",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1673130638,
-              "status": "processed",
-              "status_details": null
-            }
-          ],
-          "validation_files": [],
-          "result_files": [],
-          "created_at": 1674402278,
-          "updated_at": 1674402278,
-          "status": "pending",
-          "fine_tuned_model": null,
-          "events": [
-            {
-              "object": "fine-tune-event",
-              "level": "info",
-              "message": "Created fine-tune: ft-HfCrkdOgSweG81HD8uTqBMoX",
-              "created_at": 1674402278
-            }
-          ]
+          "error": {
+            "message": "No file with ID: file-0SMVNmd0V9oI8HSztn4w7r7A",
+            "type": "invalid_request_error",
+            "param": "file",
+            "code": null
+          }
         }
-  recorded_at: Sun, 22 Jan 2023 15:44:38 GMT
+  recorded_at: Wed, 15 Feb 2023 21:33:00 GMT
 recorded_with: VCR 6.1.0
