@@ -56,4 +56,112 @@ http_interactions:
           "status_details": null
         }
   recorded_at: Mon, 13 Feb 2023 22:37:18 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-3raFlZxuTywXOqqfzhgoTSsd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:31:49 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '218'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 538b197b6b1cf19f35d899077b10f625
+      Openai-Processing-Ms:
+      - '85'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-3raFlZxuTywXOqqfzhgoTSsd",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1676758020,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Sat, 18 Feb 2023 22:31:49 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-AiIrUKIJnvLNtQOoZGJrepfe
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:28 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '217'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 62b616e6b29febc436c3424f1b6cdec9
+      Openai-Processing-Ms:
+      - '114'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-AiIrUKIJnvLNtQOoZGJrepfe",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1676759728,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:28 GMT
 recorded_with: VCR 6.1.0

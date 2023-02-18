@@ -153,4 +153,102 @@ http_interactions:
           "deleted": true
         }
   recorded_at: Wed, 15 Feb 2023 21:44:33 GMT
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/files/file-ZQaytNYPleRDBwcfG3dzd1aT
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:32:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '83'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - eed455338244d94f10bde57d2087d914
+      Openai-Processing-Ms:
+      - '446'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-ZQaytNYPleRDBwcfG3dzd1aT",
+          "deleted": true
+        }
+  recorded_at: Sat, 18 Feb 2023 22:32:05 GMT
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/files/file-ihQqUYIUNchlpBPfC1QBjKrY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '83'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - eafc4411dc5df9fda98e5e6c65b41c30
+      Openai-Processing-Ms:
+      - '290'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-ihQqUYIUNchlpBPfC1QBjKrY",
+          "deleted": true
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:37 GMT
 recorded_with: VCR 6.1.0

@@ -53,4 +53,55 @@ http_interactions:
 
 '
   recorded_at: Sat, 07 Jan 2023 22:29:53 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"cushman-codex","prompt":"def hello_world\nputs","max_tokens":5}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '273'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - cushman-codex
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '558'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 132165e9bab53dc3678e3d75e94d8b6a
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-6lQ5X8EGyjuJl4nIfqd44V8ge9RUB","object":"text_completion","created":1676759719,"model":"cushman-codex","choices":[{"text":"
+        \"Hello Shafi","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
+
+'
+  recorded_at: Sat, 18 Feb 2023 22:35:19 GMT
 recorded_with: VCR 6.1.0

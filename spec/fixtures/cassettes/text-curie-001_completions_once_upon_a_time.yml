@@ -53,4 +53,55 @@ http_interactions:
 
 '
   recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"text-curie-001","prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:21 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '286'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - text-curie-001
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '320'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - dd1a538eaa642d2206e3bf7c50caeb41
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-6lQ5YBVRRnuD7iRP1NOtqoi9lBRdL","object":"text_completion","created":1676759720,"model":"text-curie-001","choices":[{"text":"
+        a great Empire was founded","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+
+'
+  recorded_at: Sat, 18 Feb 2023 22:35:21 GMT
 recorded_with: VCR 6.1.0

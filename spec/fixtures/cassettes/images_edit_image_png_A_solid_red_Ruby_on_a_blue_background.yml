@@ -102,4 +102,65 @@ http_interactions:
         bkgvd3E1NHJPWGNKZGVZdm44ME1JZG02ckljSFBrNzFBJTNEIgogICAgfQog
         IF0KfQo=
   recorded_at: Sat, 07 Jan 2023 22:30:53 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/edits
+    body:
+      encoding: UTF-8
+      base64_string: |
+        aW1hZ2U9JTIzJTNDRmlsZSUzQTB4MDAwMDAwMDEyMTBiZDJjOCUzRSZtYXNr
+        PSUyMyUzQ0ZpbGUlM0EweDAwMDAwMDAxMjEwYmQyMDAlM0UmcHJvbXB0PUEl
+        MjBzb2xpZCUyMHJlZCUyMFJ1YnklMjBvbiUyMGElMjBibHVlJTIwYmFja2dy
+        b3VuZCZzaXplPTI1NngyNTY=
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:36:00 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '547'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 766791393e0de7f719b85f8e698f2d4d
+      Openai-Processing-Ms:
+      - '8354'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        ewogICJjcmVhdGVkIjogMTY3Njc1OTc2MCwKICAiZGF0YSI6IFsKICAgIHsK
+        ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
+        Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
+        SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
+        ejZDcEQxSXFlUGludjdiN3BFclFhbmM4LnBuZz9zdD0yMDIzLTAyLTE4VDIx
+        JTNBMzYlM0EwMFomc2U9MjAyMy0wMi0xOFQyMyUzQTM2JTNBMDBaJnNwPXIm
+        c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
+        JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
+        a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
+        PTIwMjMtMDItMThUMTklM0EzMyUzQTU3WiZza2U9MjAyMy0wMi0xOVQxOSUz
+        QTMzJTNBNTdaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz1sYXFuNm9od2J2
+        NUp5eHo3b3Y3c0ttZnJWNklXZTIzNGl3VmowJTJCMEhjSTQlM0QiCiAgICB9
+        CiAgXQp9Cg==
+  recorded_at: Sat, 18 Feb 2023 22:36:00 GMT
 recorded_with: VCR 6.1.0

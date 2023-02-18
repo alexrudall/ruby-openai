@@ -1,4 +1,4 @@
-require "httparty"
+require "typhoeus"
 
 require_relative "openai/client"
 require_relative "openai/files"

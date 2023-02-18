@@ -8,14 +8,14 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
       end
     end
-    let(:upload_id) { upload.parsed_response["id"] }
+    let(:upload_id) { JSON.parse(upload.body)["id"] }
 
     describe "#upload" do
       let(:upload_cassette) { "files upload" }
 
       context "with a valid JSON lines file" do
         it "succeeds" do
-          expect(upload.parsed_response["filename"]).to eq(filename)
+          expect(JSON.parse(upload.body)["filename"]).to eq(filename)
         end
       end
 
@@ -81,7 +81,7 @@ RSpec.describe OpenAI::Client do
           OpenAI::Client.new.files.retrieve(id: upload_id)
         end
         tries = 0
-        until retrieved.parsed_response["status"] == "processed"
+        until JSON.parse(retrieved.body)["status"] == "processed"
           raise "File not processed after 10 tries" if tries > 10
 
           sleep(1)

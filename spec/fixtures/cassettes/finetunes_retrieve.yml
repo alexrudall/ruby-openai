@@ -168,4 +168,321 @@ http_interactions:
           ]
         }
   recorded_at: Sat, 07 Jan 2023 22:30:32 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-vvQz91HiKFtZRIrlMVpjrP2W
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:32:30 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2706'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 0b2e94e1e0d6f185f3ab3b95fdfca553
+      Openai-Processing-Ms:
+      - '51'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-vvQz91HiKFtZRIrlMVpjrP2W",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": 1,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": 0.1
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-8AaZx1xIVO61jtoPVRbLVjfk",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676758023,
+              "status": "processed",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [
+            {
+              "object": "file",
+              "id": "file-Fy9gpNriNE0eQkUaS153RPr4",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 448,
+              "created_at": 1676758670,
+              "status": "processed",
+              "status_details": null
+            }
+          ],
+          "created_at": 1676758025,
+          "updated_at": 1676758671,
+          "status": "succeeded",
+          "fine_tuned_model": "ada:ft-personal-2023-02-18-22-17-49",
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-vvQz91HiKFtZRIrlMVpjrP2W",
+              "created_at": 1676758025
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune costs $0.00",
+              "created_at": 1676758637
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune enqueued. Queue number: 0",
+              "created_at": 1676758638
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune started",
+              "created_at": 1676758639
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 1/4",
+              "created_at": 1676758652
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 2/4",
+              "created_at": 1676758652
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 3/4",
+              "created_at": 1676758653
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 4/4",
+              "created_at": 1676758653
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded model: ada:ft-personal-2023-02-18-22-17-49",
+              "created_at": 1676758670
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded result file: file-Fy9gpNriNE0eQkUaS153RPr4",
+              "created_at": 1676758670
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune succeeded",
+              "created_at": 1676758670
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:32:30 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-ve32JHc7IxmgDjHVGZWpghhB
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:34:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '900'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 18ee92d92a5623282b28e94efa0b14c0
+      Openai-Processing-Ms:
+      - '37'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-ve32JHc7IxmgDjHVGZWpghhB",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-o4v50WOkJMVn9GlpMXw3dLmI",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759655,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1676759655,
+          "updated_at": 1676759655,
+          "status": "pending",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-ve32JHc7IxmgDjHVGZWpghhB",
+              "created_at": 1676759655
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:34:15 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-PHowdhGFd7TPqnrrSc0KH3Eh
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '900'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 70529ad44c916048f2cc8007959c24a0
+      Openai-Processing-Ms:
+      - '32'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-PHowdhGFd7TPqnrrSc0KH3Eh",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-tqLT5MkUakMwSw5aDZ4KtyYh",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759741,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1676759741,
+          "updated_at": 1676759741,
+          "status": "pending",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-PHowdhGFd7TPqnrrSc0KH3Eh",
+              "created_at": 1676759741
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:41 GMT
 recorded_with: VCR 6.1.0

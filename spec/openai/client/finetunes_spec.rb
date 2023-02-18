@@ -19,13 +19,13 @@ RSpec.describe OpenAI::Client do
         )
       end
     end
-    let(:create_id) { create_response.parsed_response["id"] }
+    let(:create_id) { JSON.parse(create_response.body)["id"] }
 
     describe "#create" do
       let(:cassette) { "finetunes" }
 
       it "succeeds" do
-        expect(create_response.parsed_response["object"]).to eq("fine-tune")
+        expect(JSON.parse(create_response.body)["object"]).to eq("fine-tune")
       end
     end
 

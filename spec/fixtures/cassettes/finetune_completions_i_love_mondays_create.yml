@@ -54,4 +54,56 @@ http_interactions:
           }
         }
   recorded_at: Sat, 07 Jan 2023 22:30:38 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes
+    body:
+      encoding: UTF-8
+      string: '{"training_file":"file-3gZl75F40uyEJwlFtU7EM0wF","model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 400
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '330'
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - c7a97a604060b0d71c07956a92fab3e6
+      Openai-Processing-Ms:
+      - '57'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "message": "Invalid base model: ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52 (we don't support fine-tuning from this model. However, we will support fine-tuning from all new models fine-tuned from this point onwards.)",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:47 GMT
 recorded_with: VCR 6.1.0

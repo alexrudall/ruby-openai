@@ -114,4 +114,229 @@ http_interactions:
           ]
         }
   recorded_at: Sat, 07 Jan 2023 22:30:37 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-YEFKAkXYTothkMFhw4ia8xCS/events
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:32:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1708'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 7bea331008ec9a74577b33c8f2a8d204
+      Openai-Processing-Ms:
+      - '33'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-YEFKAkXYTothkMFhw4ia8xCS",
+              "created_at": 1676758026
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune costs $0.00",
+              "created_at": 1676759044
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune enqueued. Queue number: 0",
+              "created_at": 1676759045
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune started",
+              "created_at": 1676759047
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 1/4",
+              "created_at": 1676759060
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 2/4",
+              "created_at": 1676759060
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 3/4",
+              "created_at": 1676759060
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Completed epoch 4/4",
+              "created_at": 1676759061
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded model: ada:ft-personal-2023-02-18-22-24-37",
+              "created_at": 1676759077
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Uploaded result file: file-SRWU1nzY0qtetzuzMHliDzN3",
+              "created_at": 1676759078
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune succeeded",
+              "created_at": 1676759078
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:32:31 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-kE56u5F5QTyOrSbDd4xvk8xA/events
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:34:19 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '208'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - e4fee9405b6f208f19e774efb3118f9d
+      Openai-Processing-Ms:
+      - '36'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-kE56u5F5QTyOrSbDd4xvk8xA",
+              "created_at": 1676759659
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:34:19 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-gJcHPbL9i2pj1kT4quHIU3Vq/events
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '208'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 2d5b774af801db1d28380740725a357f
+      Openai-Processing-Ms:
+      - '30'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-gJcHPbL9i2pj1kT4quHIU3Vq",
+              "created_at": 1676759743
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:44 GMT
 recorded_with: VCR 6.1.0

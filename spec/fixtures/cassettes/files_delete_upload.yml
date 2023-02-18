@@ -60,4 +60,58 @@ http_interactions:
           "status_details": null
         }
   recorded_at: Wed, 15 Feb 2023 21:43:58 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: file=%23%3CFile%3A0x000000013849f460%3E&purpose=fine-tune
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:30 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '217'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - f10a00ce1aa7d9a869903d65b7ee83e0
+      Openai-Processing-Ms:
+      - '542'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-ihQqUYIUNchlpBPfC1QBjKrY",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1676759730,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:30 GMT
 recorded_with: VCR 6.1.0

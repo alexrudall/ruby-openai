@@ -40,14 +40,14 @@ module OpenAI
     end
 
     def self.get(path:)
-      HTTParty.get(
+      Typhoeus.get(
         uri(path: path),
         headers: headers
       )
     end
 
     def self.json_post(path:, parameters:)
-      HTTParty.post(
+      Typhoeus.post(
         uri(path: path),
         headers: headers,
         body: parameters&.to_json
@@ -55,7 +55,7 @@ module OpenAI
     end
 
     def self.multipart_post(path:, parameters: nil)
-      HTTParty.post(
+      Typhoeus.post(
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
         body: parameters
@@ -63,7 +63,7 @@ module OpenAI
     end
 
     def self.delete(path:)
-      HTTParty.delete(
+      Typhoeus.delete(
         uri(path: path),
         headers: headers
       )

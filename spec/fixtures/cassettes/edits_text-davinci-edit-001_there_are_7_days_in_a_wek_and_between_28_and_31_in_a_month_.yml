@@ -54,4 +54,57 @@ http_interactions:
 
 '
   recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/edits
+    body:
+      encoding: UTF-8
+      string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
+        and between 28 and 31 in a month.","instruction":"Fix the misspelled word
+        ''week''"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '206'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - text-davinci-edit:001
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '2537'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 41055c59c6af3e3c81ac3550682c2733
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"edit","created":1676759722,"choices":[{"text":"There are
+        7 days in a week, and between 28 and 31 in a month.\n","index":0}],"usage":{"prompt_tokens":38,"completion_tokens":46,"total_tokens":84}}
+
+'
+  recorded_at: Sat, 18 Feb 2023 22:35:24 GMT
 recorded_with: VCR 6.1.0

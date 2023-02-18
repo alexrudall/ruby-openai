@@ -53,4 +53,55 @@ http_interactions:
 
 '
   recorded_at: Sat, 07 Jan 2023 22:29:52 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"davinci-codex","prompt":"def hello_world\nputs","max_tokens":5}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:18 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '275'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - davinci-codex
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '311'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - e3c77009906fa7e26b0c7a45ab2c6a1c
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-6lQ5WyXBFXsyxVDVUE6tn4nm1v0sW","object":"text_completion","created":1676759718,"model":"davinci-codex","choices":[{"text":"
+        \"Hello World\"","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":6,"completion_tokens":5,"total_tokens":11}}
+
+'
+  recorded_at: Sat, 18 Feb 2023 22:35:18 GMT
 recorded_with: VCR 6.1.0

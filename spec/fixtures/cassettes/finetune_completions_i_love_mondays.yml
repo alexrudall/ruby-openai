@@ -54,4 +54,56 @@ http_interactions:
 
 '
   recorded_at: Sat, 07 Jan 2023 22:30:39 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","prompt":"I
+        love Mondays"}'
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '347'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '231'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Request-Id:
+      - 2fcb99b6f0254ffb2fc1ec7193ca4182
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-6lQ5zDhJBfsGaSxDf23MVXKmC5NB9","object":"text_completion","created":1676759747,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":".
+        I love it. I love it. I love it. I love it","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
+
+'
+  recorded_at: Sat, 18 Feb 2023 22:35:47 GMT
 recorded_with: VCR 6.1.0

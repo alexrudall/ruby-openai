@@ -180,4 +180,232 @@ http_interactions:
           ]
         }
   recorded_at: Sat, 07 Jan 2023 22:30:35 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes/ft-89RAeboUYmFxr8yzORYdSWb7/cancel
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 400
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:32:31 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '199'
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 87c66507be53bb6966c8e95a8691d2ea
+      Openai-Processing-Ms:
+      - '37'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "message": "Cannot cancel a job ft-89RAeboUYmFxr8yzORYdSWb7 that already has status \"succeeded\".",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sat, 18 Feb 2023 22:32:31 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes/ft-rQ3vCX8jZblsbrn2OGJ7LIkw/cancel
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:34:17 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1044'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 5830242a162e21973175d6a58a826650
+      Openai-Processing-Ms:
+      - '60'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-rQ3vCX8jZblsbrn2OGJ7LIkw",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-SWPjsrepIlarLsVHdI7jtwjW",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759656,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1676759656,
+          "updated_at": 1676759657,
+          "status": "cancelled",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-rQ3vCX8jZblsbrn2OGJ7LIkw",
+              "created_at": 1676759656
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune cancelled",
+              "created_at": 1676759657
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:34:17 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes/ft-b4i4BdqrzLORWXWPDE5UvgMI/cancel
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sat, 18 Feb 2023 22:35:42 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1044'
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 349140e2ecb692112ad63a3d65d712a0
+      Openai-Processing-Ms:
+      - '64'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-b4i4BdqrzLORWXWPDE5UvgMI",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-yGBXyGUQzgYNF5mwHVcvXFue",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759742,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1676759742,
+          "updated_at": 1676759742,
+          "status": "cancelled",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-b4i4BdqrzLORWXWPDE5UvgMI",
+              "created_at": 1676759742
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune cancelled",
+              "created_at": 1676759742
+            }
+          ]
+        }
+  recorded_at: Sat, 18 Feb 2023 22:35:42 GMT
 recorded_with: VCR 6.1.0
