@@ -5,18 +5,39 @@ module OpenAI
     def initialize(access_token: nil, organization_id: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
+
+      @hydra = Typhoeus::Hydra.hydra
     end
 
     def completions(parameters: {})
       OpenAI::Client.json_post(path: "/completions", parameters: parameters)
     end
 
+    def queue_completions(parameters: {}, &block)
+      request = OpenAI::Client.queue_json_post(path: "/completions", parameters: parameters, &block)
+      @hydra.queue(request)
+    end
+
     def edits(parameters: {})
       OpenAI::Client.json_post(path: "/edits", parameters: parameters)
     end
 
+    def queue_edits(parameters: {}, &block)
+      request = OpenAI::Client.queue_json_post(path: "/edits", parameters: parameters, &block)
+      @hydra.queue(request)
+    end
+
     def embeddings(parameters: {})
       OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
+    end
+
+    def queue_embeddings(parameters: {}, &block)
+      request = OpenAI::Client.queue_json_post(path: "/embeddings", parameters: parameters, &block)
+      @hydra.queue(request)
+    end
+
+    def run_queued_requests
+      @hydra.run
     end
 
     def files
@@ -46,12 +67,30 @@ module OpenAI
       )
     end
 
+    def self.queue_get(path:, &block)
+      request = Typhoeus::Request.new(path)
+      request.on_complete(&block)
+      request
+    end
+
     def self.json_post(path:, parameters:)
       Typhoeus.post(
         uri(path: path),
         headers: headers,
         body: parameters&.to_json
       )
+    end
+
+    def self.queue_json_post(path:, parameters:, &block)
+      request = Typhoeus::Request.new(
+        uri(path: path),
+        method: :post,
+        headers: headers,
+        body: parameters&.to_json
+      )
+
+      request.on_complete(&block)
+      request
     end
 
     def self.multipart_post(path:, parameters: nil)
@@ -62,11 +101,34 @@ module OpenAI
       )
     end
 
+    def self.queue_multipart_post(path:, parameters: nil, &block)
+      request = Typhoeus.request(
+        uri(path: path),
+        method: :post,
+        headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
+        body: parameters
+      )
+
+      request.on_complete(&block)
+      request
+    end
+
     def self.delete(path:)
       Typhoeus.delete(
         uri(path: path),
         headers: headers
       )
+    end
+
+    def self.queue_delete(path:, &block)
+      request = Typhoeus.request(
+        uri(path: path),
+        method: :delete,
+        headers: headers
+      )
+
+      request.on_complete(&block)
+      request
     end
 
     private_class_method def self.uri(path:)
