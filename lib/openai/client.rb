@@ -1,6 +1,9 @@
 module OpenAI
   class Client
+    extend Limiter::Mixin
     URI_BASE = "https://api.openai.com/".freeze
+
+    self.rate_queue = Limiter::RateQueue.new(100, interval: 1)
 
     def initialize(access_token: nil, organization_id: nil, max_concurrency: 200)
       OpenAI.configuration.access_token = access_token if access_token
@@ -90,7 +93,11 @@ module OpenAI
         body: parameters&.to_json
       )
 
-      request.on_complete(&block)
+      request.on_complete do |response|
+        rate_queue.shift
+        block.call(response)
+      end
+
       request
     end
 
