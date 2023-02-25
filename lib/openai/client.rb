@@ -2,12 +2,13 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    def initialize(access_token: nil, organization_id: nil, max_concurrency: 200, rate_limit: 3000)
+    def initialize(access_token: nil, organization_id: nil, max_concurrency: 200, rate_limit: 2500)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
 
       # OpenAI has a 3000 request/min hard rate limit if your account is over 48 hours old,
-      # so we're defaulting to that, but allowing smaller if you want
+      # We default to 500 below that because it seems as if their timing is 100% accurate,
+      # but it's settable to anything
       @rate_queue = Limiter::RateQueue.new(rate_limit, interval: 60, balanced: true)
 
       # The default is 200 connections, so that's the default we're keeping here
