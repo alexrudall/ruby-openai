@@ -1,6 +1,5 @@
 module OpenAI
   class Client
-    extend Limiter::Mixin
     URI_BASE = "https://api.openai.com/".freeze
 
     self.rate_queue = Limiter::RateQueue.new(100, interval: 1)
