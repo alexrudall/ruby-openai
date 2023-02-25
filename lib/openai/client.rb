@@ -7,7 +7,7 @@ module OpenAI
       OpenAI.configuration.organization_id = organization_id if organization_id
 
       # OpenAI has a 3000 request/min hard rate limit if your account is over 48 hours old,
-      # We default to 500 below that because it seems as if their timing is 100% accurate,
+      # We default to 500 below that because it seems as if their timing is not 100% accurate,
       # but it's settable to anything
       @rate_queue = Limiter::RateQueue.new(rate_limit, interval: 60, balanced: true)
 
@@ -107,7 +107,7 @@ module OpenAI
       )
     end
 
-    def self.queue_json_post(path:, parameters:, rate_queue:, &block)
+    def self.queue_json_post(path:, rate_queue:, parameters:, &block)
       request = Typhoeus::Request.new(
         uri(path: path),
         method: :post,
@@ -131,7 +131,7 @@ module OpenAI
       )
     end
 
-    def self.queue_multipart_post(path:, parameters: nil, rate_queue:, &block)
+    def self.queue_multipart_post(path:, rate_queue:, parameters: nil, &block)
       request = Typhoeus.request(
         uri(path: path),
         method: :post,
