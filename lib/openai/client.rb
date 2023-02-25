@@ -2,11 +2,12 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    def initialize(access_token: nil, organization_id: nil)
+    def initialize(access_token: nil, organization_id: nil, max_concurrency: 200)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
 
-      @hydra = Typhoeus::Hydra.hydra
+      # The default is 200 connections, so that's the default we're keeping here
+      @hydra = Typhoeus::Hydra.hydra.new(max_concurrency: max_concurrency)
     end
 
     def completions(parameters: {})

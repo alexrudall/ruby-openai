@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (3.3.0)
+    ruby-openai (3.3.1)
       typhoeus (>= 1.4.0)
 
 GEM
