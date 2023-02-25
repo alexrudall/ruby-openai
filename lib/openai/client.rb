@@ -8,7 +8,7 @@ module OpenAI
 
       # OpenAI has a 3000 request/min hard rate limit if your account is over 48 hours old,
       # so we're defaulting to that, but allowing smaller if you want
-      @rate_queue = Limiter::RateQueue.new(rate_limit, interval: 60)
+      @rate_queue = Limiter::RateQueue.new(rate_limit, interval: 60, balanced: true)
 
       # The default is 200 connections, so that's the default we're keeping here
       @hydra = Typhoeus::Hydra.new(max_concurrency: max_concurrency)
