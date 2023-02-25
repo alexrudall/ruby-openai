@@ -2,11 +2,13 @@ module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
 
-    self.rate_queue = Limiter::RateQueue.new(100, interval: 1)
-
-    def initialize(access_token: nil, organization_id: nil, max_concurrency: 200)
+    def initialize(access_token: nil, organization_id: nil, max_concurrency: 200, rate_limit: 3000)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
+
+      # OpenAI has a 3000 request/min hard rate limit if your account is over 48 hours old,
+      # so we're defaulting to that, but allowing smaller if you want
+      @rate_queue = Limiter::RateQueue.new(rate_limit, interval: 60)
 
       # The default is 200 connections, so that's the default we're keeping here
       @hydra = Typhoeus::Hydra.new(max_concurrency: max_concurrency)
@@ -17,7 +19,12 @@ module OpenAI
     end
 
     def queue_completions(parameters: {}, &block)
-      request = OpenAI::Client.queue_json_post(path: "/completions", parameters: parameters, &block)
+      request = OpenAI::Client.queue_json_post(
+        path: "/completions",
+        parameters: parameters,
+        rate_queue: @rate_queue,
+        &block
+      )
       @hydra.queue(request)
     end
 
@@ -26,7 +33,12 @@ module OpenAI
     end
 
     def queue_edits(parameters: {}, &block)
-      request = OpenAI::Client.queue_json_post(path: "/edits", parameters: parameters, &block)
+      request = OpenAI::Client.queue_json_post(
+        path: "/edits",
+        parameters: parameters,
+        rate_queue: @rate_queue,
+        &block
+      )
       @hydra.queue(request)
     end
 
@@ -35,7 +47,12 @@ module OpenAI
     end
 
     def queue_embeddings(parameters: {}, &block)
-      request = OpenAI::Client.queue_json_post(path: "/embeddings", parameters: parameters, &block)
+      request = OpenAI::Client.queue_json_post(
+        path: "/embeddings",
+        parameters: parameters,
+        rate_queue: @rate_queue,
+        &block
+      )
       @hydra.queue(request)
     end
 
@@ -70,9 +87,14 @@ module OpenAI
       )
     end
 
-    def self.queue_get(path:, &block)
+    def self.queue_get(path:, rate_queue:, &block)
       request = Typhoeus::Request.new(path)
-      request.on_complete(&block)
+
+      request.on_complete do |response|
+        rate_queue.shift
+        block.call(response)
+      end
+
       request
     end
 
@@ -84,7 +106,7 @@ module OpenAI
       )
     end
 
-    def self.queue_json_post(path:, parameters:, &block)
+    def self.queue_json_post(path:, parameters:, rate_queue:, &block)
       request = Typhoeus::Request.new(
         uri(path: path),
         method: :post,
@@ -108,7 +130,7 @@ module OpenAI
       )
     end
 
-    def self.queue_multipart_post(path:, parameters: nil, &block)
+    def self.queue_multipart_post(path:, parameters: nil, rate_queue:, &block)
       request = Typhoeus.request(
         uri(path: path),
         method: :post,
@@ -116,7 +138,11 @@ module OpenAI
         body: parameters
       )
 
-      request.on_complete(&block)
+      request.on_complete do |response|
+        rate_queue.shift
+        block.call(response)
+      end
+
       request
     end
 
@@ -127,14 +153,18 @@ module OpenAI
       )
     end
 
-    def self.queue_delete(path:, &block)
+    def self.queue_delete(path:, rate_queue:, &block)
       request = Typhoeus.request(
         uri(path: path),
         method: :delete,
         headers: headers
       )
 
-      request.on_complete(&block)
+      request.on_complete do |response|
+        rate_queue.shift
+        block.call(response)
+      end
+
       request
     end
 

@@ -1,4 +1,5 @@
 require "typhoeus"
+require "ruby-limiter"
 
 require_relative "openai/client"
 require_relative "openai/files"
