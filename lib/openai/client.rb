@@ -7,7 +7,7 @@ module OpenAI
       OpenAI.configuration.organization_id = organization_id if organization_id
 
       # The default is 200 connections, so that's the default we're keeping here
-      @hydra = Typhoeus::Hydra.hydra.new(max_concurrency: max_concurrency)
+      @hydra = Typhoeus::Hydra.new(max_concurrency: max_concurrency)
     end
 
     def completions(parameters: {})
