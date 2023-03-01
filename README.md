@@ -7,7 +7,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate text with GPT-3, create images with DALL·E, or write code with Codex...
+Generate text with ChatGPT, create images with DALL·E, or write code with Codex...
 
 ## Installation
 
@@ -89,9 +89,24 @@ There are different models that can be used to generate text. For a full list an
   - code-davinci-002
   - code-cushman-001
 
+### ChatGPT
+
+ChatGPT is a model that can be used to generate text in a conversational style. You can use it to generate a response to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
+
+```ruby
+    response = client.chat(
+        parameters: {
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: "Hello!"}],
+        })
+    puts response.dig("choices", 0, "message", "content")
+    => "Hello! How may I assist you today?"
+
+```
+
 ### Completions
 
-Hit the OpenAI API for a completion:
+Hit the OpenAI API for a completion using other GPT-3 models:
 
 ```ruby
     response = client.completions(
