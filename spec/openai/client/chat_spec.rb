@@ -7,7 +7,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.chat(
           parameters: {
             model: model,
-            messages: messages,
+            messages: messages
           }
         )
       end
