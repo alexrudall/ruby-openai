@@ -7,6 +7,10 @@ module OpenAI
       OpenAI.configuration.organization_id = organization_id if organization_id
     end
 
+    def chat(parameters: {})
+      OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
+    end
+
     def completions(parameters: {})
       OpenAI::Client.json_post(path: "/completions", parameters: parameters)
     end
