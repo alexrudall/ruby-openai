@@ -271,7 +271,6 @@ Pass a string to check if it violates OpenAI's Content Policy:
 
 Whisper is a speech to text model that can be used to generate text based on an audio file [messages](https://platform.openai.com/docs/guides/chat/introduction):
 
-
 #### Translate
 
 The translations API takes as input the audio file in any of the supported languages and transcribes the audio into English.
