@@ -36,7 +36,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.translate(
           parameters: {
             model: model,
-            file: File.open(audio, 'r:iso-8859-1')
+            file: File.open(audio, "r:iso-8859-1")
           }
         )
       end
@@ -47,7 +47,6 @@ RSpec.describe OpenAI::Client do
         let(:model) { "whisper-1" }
 
         it "succeeds" do
-
           VCR.use_cassette(cassette) do
             expect(content.empty?).to eq(false)
           end
