@@ -43,6 +43,14 @@ module OpenAI
       OpenAI::Client.json_post(path: "/moderations", parameters: parameters)
     end
 
+    def transcribe(parameters: {})
+      OpenAI::Client.multipart_post(path: "/audio/transcriptions", parameters: parameters)
+    end
+
+    def translate(parameters: {})
+      OpenAI::Client.multipart_post(path: "/audio/translations", parameters: parameters)
+    end
+
     def self.get(path:)
       HTTParty.get(
         uri(path: path),

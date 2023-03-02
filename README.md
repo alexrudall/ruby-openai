@@ -267,6 +267,38 @@ Pass a string to check if it violates OpenAI's Content Policy:
     => 5.505014632944949e-05
 ```
 
+### Whisper
+
+Whisper is a speech to text model that can be used to generate text based on an audio file [messages](https://platform.openai.com/docs/guides/chat/introduction):
+
+#### Translate
+
+The translations API takes as input the audio file in any of the supported languages and transcribes the audio into English.
+
+```ruby
+    response = client.translate(
+        parameters: {
+            model: "whisper-1",
+            file: File.open('path_to_file'),
+        })
+    puts response.parsed_body['text']
+    => "Translation of the text"
+```
+
+#### Transcribe
+
+The transcriptions API takes as input the audio file you want to transcribe and returns the text in the desired output file format.
+
+```ruby
+    response = client.transcribe(
+        parameters: {
+            model: "whisper-1",
+            file: File.open('path_to_file'),
+        })
+    puts response.parsed_body['text']
+    => "Transcription of the text"
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can run `bin/console` for an interactive prompt that will allow you to experiment.
