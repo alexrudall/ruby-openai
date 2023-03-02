@@ -274,7 +274,7 @@ Whispr is a speech to text model that can be used to generate text in a conversa
 
 #### Translate
 
-The translations API takes as input the audio file in any of the supported languages and transcribes, if necessary, the audio into english
+The translations API takes as input the audio file in any of the supported languages and transcribes the audio into English.
 
 
 ```ruby
