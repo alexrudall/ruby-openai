@@ -269,7 +269,7 @@ Pass a string to check if it violates OpenAI's Content Policy:
 
 ### Whisper
 
-Whispr is a speech to text model that can be used to generate text in a conversational style. You can use it to generate a text based on a audio file [messages](https://platform.openai.com/docs/guides/chat/introduction):
+Whisper is a speech to text model that can be used to generate text based on an audio file [messages](https://platform.openai.com/docs/guides/chat/introduction):
 
 
 #### Translate
