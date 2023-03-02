@@ -267,6 +267,20 @@ Pass a string to check if it violates OpenAI's Content Policy:
     => 5.505014632944949e-05
 ```
 
+### Whisper
+
+Whispr is a speech to text model that can be used to generate text in a conversational style. You can use it to generate a text based on a audio file [messages](https://platform.openai.com/docs/guides/chat/introduction):
+
+```ruby
+    response = client.transcribe(
+        parameters: {
+            model: "whisper-1",
+            file: File.open('path_to_my_file'),
+        })
+    puts response.parsed_body['text']
+    => "Transcription of the text"
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can run `bin/console` for an interactive prompt that will allow you to experiment.
