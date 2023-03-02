@@ -7,7 +7,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate text with ChatGPT, create images with DALL·E, or write code with Codex...
+Generate text with ChatGPT, transcribe or translate audio with Whisper, create images with DALL·E, or write code with Codex...
 
 ## Installation
 
