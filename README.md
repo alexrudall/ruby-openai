@@ -269,7 +269,7 @@ Pass a string to check if it violates OpenAI's Content Policy:
 
 ### Whisper
 
-Whisper is a speech to text model that can be used to generate text based on an audio files:
+Whisper is a speech to text model that can be used to generate text based on audio files:
 
 #### Translate
 
