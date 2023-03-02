@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Client#transcribe endpoint - Whisper transcribtion over the wire!
+- Add Client#transcribe endpoint - Whisper transcription over the wire!
 - Add Client#translate endpoint - Whisper translation over the wire!
 ## [3.4.0] - 2023-03-01
 
