@@ -13,14 +13,16 @@ module OpenAI
 
   class Configuration
     attr_writer :access_token
-    attr_accessor :api_version, :organization_id
+    attr_accessor :api_version, :organization_id, :uri_base
 
     DEFAULT_API_VERSION = "v1".freeze
+    DEFAULT_URI_BASE = "https://api.openai.com/".freeze
 
     def initialize
       @access_token = nil
       @api_version = DEFAULT_API_VERSION
       @organization_id = nil
+      @uri_base = DEFAULT_URI_BASE
     end
 
     def access_token
