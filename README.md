@@ -281,7 +281,7 @@ The translations API takes as input the audio file in any of the supported langu
             model: "whisper-1",
             file: File.open('path_to_file'),
         })
-    puts response.parsed_body['text']
+    puts response.parsed_response['text']
     => "Translation of the text"
 ```
 
@@ -295,7 +295,7 @@ The transcriptions API takes as input the audio file you want to transcribe and 
             model: "whisper-1",
             file: File.open('path_to_file'),
         })
-    puts response.parsed_body['text']
+    puts response.parsed_response['text']
     => "Transcription of the text"
 ```
 
