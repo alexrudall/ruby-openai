@@ -9,9 +9,7 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Generate text with ChatGPT, transcribe or translate audio with Whisper, create images with DALL·E, or write code with Codex...
 
-I made a discord channel for our community to share tips - [Ruby AI Builders](https://discord.gg/k4Uc224xVD)
-
-## Installation
+Check out [Ruby AI Builders](https://discord.gg/k4Uc224xVD) on Discord!
 
 ### Bundler
 
