@@ -1,5 +1,7 @@
 module OpenAI
   class Client
+    include Files
+    include Finetunes
     include Models
 
     URI_BASE = "https://api.openai.com/".freeze
@@ -26,14 +28,6 @@ module OpenAI
 
     def embeddings(parameters: {})
       OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
-    end
-
-    def files
-      @files ||= OpenAI::Files
-    end
-
-    def finetunes
-      @finetunes ||= OpenAI::Finetunes
     end
 
     def images

@@ -5,12 +5,12 @@ RSpec.describe OpenAI::Client do
     let(:upload_purpose) { "fine-tune" }
     let(:upload) do
       VCR.use_cassette(upload_cassette) do
-        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
+        OpenAI::Client.new.upload_file(parameters: { file: file, purpose: upload_purpose })
       end
     end
     let(:upload_id) { upload.parsed_response["id"] }
 
-    describe "#upload" do
+    describe "#upload_file" do
       let(:upload_cassette) { "files upload" }
 
       context "with a valid JSON lines file" do
@@ -26,10 +26,10 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#list" do
+    describe "#files" do
       let(:cassette) { "files list" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.list }
+      let(:response) { OpenAI::Client.new.files }
 
       before { upload }
 
@@ -41,10 +41,10 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#retrieve" do
+    describe "#file" do
       let(:cassette) { "files retrieve" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.retrieve(id: upload_id) }
+      let(:response) { OpenAI::Client.new.file(id: upload_id) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -54,10 +54,10 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#content" do
+    describe "#file_content" do
       let(:cassette) { "files content" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
+      let(:response) { OpenAI::Client.new.file_content(id: upload_id) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -66,19 +66,19 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#delete" do
+    describe "#delete_file" do
       let(:cassette) { "files delete" }
       let(:upload_cassette) { "#{cassette} upload" }
       let(:retrieve_cassette) { "#{cassette} retrieve" }
       let(:response) do
-        OpenAI::Client.new.files.delete(id: upload_id)
+        OpenAI::Client.new.delete_file(id: upload_id)
       end
 
       before do
         # We need to check the file has been processed by OpenAI
         # before we can delete it.
         retrieved = VCR.use_cassette(retrieve_cassette) do
-          OpenAI::Client.new.files.retrieve(id: upload_id)
+          OpenAI::Client.new.file(id: upload_id)
         end
         tries = 0
         until retrieved.parsed_response["status"] == "processed"
@@ -86,7 +86,7 @@ RSpec.describe OpenAI::Client do
 
           sleep(1)
           retrieved = VCR.use_cassette(retrieve_cassette, record: :all) do
-            OpenAI::Client.new.files.retrieve(id: upload_id)
+            OpenAI::Client.new.file(id: upload_id)
           end
           tries += 1
         end

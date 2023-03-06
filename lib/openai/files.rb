@@ -1,10 +1,10 @@
 module OpenAI
   module Files
-    def self.list
+    def files
       OpenAI::Client.get(path: "/files")
     end
 
-    def self.upload(parameters: {})
+    def upload_file(parameters: {})
       validate(file: parameters[:file])
 
       OpenAI::Client.multipart_post(
@@ -13,21 +13,21 @@ module OpenAI
       )
     end
 
-    def self.retrieve(id:)
+    def file(id:)
       OpenAI::Client.get(path: "/files/#{id}")
     end
 
-    def self.content(id:)
+    def file_content(id:)
       OpenAI::Client.get(path: "/files/#{id}/content")
     end
 
-    def self.delete(id:)
+    def delete_file(id:)
       OpenAI::Client.delete(path: "/files/#{id}")
     end
 
     private
 
-    def self.validate(file:)
+    def validate(file:)
       File.open(file).each_line.with_index do |line, index|
         JSON.parse(line)
       rescue JSON::ParserError => e
