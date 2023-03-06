@@ -1,12 +1,8 @@
 require "httparty"
 
 require_relative "openai/configuration"
-require_relative "openai/files"
-require_relative "openai/finetunes"
-require_relative "openai/images"
-require_relative "openai/models"
-require_relative "openai/version"
 require_relative "openai/client"
+require_relative "openai/version"
 
 module OpenAI
   extend Configuration

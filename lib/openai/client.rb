@@ -1,8 +1,15 @@
 module OpenAI
   class Client
+    Dir[File.expand_path("../client/*.rb", __FILE__)].each { |f| require f }
+
+    include Audio
+    include Edits
     include Files
     include Finetunes
+    include Images
     include Models
+    include Moderations
+    include Completions
 
     URI_BASE = "https://api.openai.com/".freeze
     attr_accessor(*Configuration::VALID_OPTIONS_KEYS)
@@ -12,38 +19,6 @@ module OpenAI
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
-    end
-
-    def chat(parameters: {})
-      OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
-    end
-
-    def completions(parameters: {})
-      OpenAI::Client.json_post(path: "/completions", parameters: parameters)
-    end
-
-    def edits(parameters: {})
-      OpenAI::Client.json_post(path: "/edits", parameters: parameters)
-    end
-
-    def embeddings(parameters: {})
-      OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
-    end
-
-    def images
-      @images ||= OpenAI::Images
-    end
-
-    def moderations(parameters: {})
-      OpenAI::Client.json_post(path: "/moderations", parameters: parameters)
-    end
-
-    def transcribe(parameters: {})
-      OpenAI::Client.multipart_post(path: "/audio/transcriptions", parameters: parameters)
-    end
-
-    def translate(parameters: {})
-      OpenAI::Client.multipart_post(path: "/audio/translations", parameters: parameters)
     end
 
     def self.get(path:)

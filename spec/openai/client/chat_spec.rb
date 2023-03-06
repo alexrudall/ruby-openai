@@ -1,10 +1,10 @@
 RSpec.describe OpenAI::Client do
-  describe "#chat" do
+  describe "#chat_completions" do
     context "with messages", :vcr do
       let(:messages) { [{ role: "user", content: "Hello!" }] }
 
       let(:response) do
-        OpenAI::Client.new.chat(
+        OpenAI::Client.new.chat_completions(
           parameters: {
             model: model,
             messages: messages
