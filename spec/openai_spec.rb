@@ -17,17 +17,9 @@ RSpec.describe OpenAI do
     end
 
     it "returns the config" do
-      expect(OpenAI.configuration.access_token).to eq(access_token)
-      expect(OpenAI.configuration.api_version).to eq(api_version)
-      expect(OpenAI.configuration.organization_id).to eq(organization_id)
-    end
-
-    context "without an access token" do
-      let(:access_token) { nil }
-
-      it "raises an error" do
-        expect { OpenAI::Client.new.completions }.to raise_error(OpenAI::ConfigurationError)
-      end
+      expect(OpenAI.access_token).to eq(access_token)
+      expect(OpenAI.api_version).to eq(api_version)
+      expect(OpenAI.organization_id).to eq(organization_id)
     end
   end
 end

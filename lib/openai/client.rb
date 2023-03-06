@@ -1,10 +1,13 @@
 module OpenAI
   class Client
     URI_BASE = "https://api.openai.com/".freeze
+    attr_accessor(*Configuration::VALID_OPTIONS_KEYS)
 
-    def initialize(access_token: nil, organization_id: nil)
-      OpenAI.configuration.access_token = access_token if access_token
-      OpenAI.configuration.organization_id = organization_id if organization_id
+    def initialize(options={})
+      options = OpenAI.options.merge(options)
+      Configuration::VALID_OPTIONS_KEYS.each do |key|
+        send("#{key}=", options[key])
+      end
     end
 
     def chat(parameters: {})
@@ -24,19 +27,19 @@ module OpenAI
     end
 
     def files
-      @files ||= OpenAI::Files.new
+      @files ||= OpenAI::Files
     end
 
     def finetunes
-      @finetunes ||= OpenAI::Finetunes.new
+      @finetunes ||= OpenAI::Finetunes
     end
 
     def images
-      @images ||= OpenAI::Images.new
+      @images ||= OpenAI::Images
     end
 
     def models
-      @models ||= OpenAI::Models.new
+      @models ||= OpenAI::Models
     end
 
     def moderations(parameters: {})
@@ -82,14 +85,14 @@ module OpenAI
     end
 
     private_class_method def self.uri(path:)
-      URI_BASE + OpenAI.configuration.api_version + path
+      URI_BASE + OpenAI.api_version + path
     end
 
     private_class_method def self.headers
       {
         "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => OpenAI.configuration.organization_id
+        "Authorization" => "Bearer #{OpenAI.access_token}",
+        "OpenAI-Organization" => OpenAI.organization_id
       }
     end
   end

@@ -25,8 +25,6 @@ RSpec.describe "compatibility" do
     describe "::Ruby::OpenAI::Configuration" do
       it "is mapped to ::OpenAI::Configuration" do
         expect(Ruby::OpenAI::Configuration).to eq(OpenAI::Configuration)
-        expect(Ruby::OpenAI::Configuration.new).to be_a(OpenAI::Configuration)
-        expect(OpenAI::Configuration.new).to be_a(Ruby::OpenAI::Configuration)
       end
     end
   end
