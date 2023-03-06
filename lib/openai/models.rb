@@ -1,10 +1,10 @@
 module OpenAI
   module Models
-    def self.list
+    def models
       OpenAI::Client.get(path: "/models")
     end
 
-    def self.retrieve(id:)
+    def model(id:)
       OpenAI::Client.get(path: "/models/#{id}")
     end
   end

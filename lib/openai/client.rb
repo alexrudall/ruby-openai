@@ -1,5 +1,7 @@
 module OpenAI
   class Client
+    include Models
+
     URI_BASE = "https://api.openai.com/".freeze
     attr_accessor(*Configuration::VALID_OPTIONS_KEYS)
 
@@ -36,10 +38,6 @@ module OpenAI
 
     def images
       @images ||= OpenAI::Images
-    end
-
-    def models
-      @models ||= OpenAI::Models
     end
 
     def moderations(parameters: {})
