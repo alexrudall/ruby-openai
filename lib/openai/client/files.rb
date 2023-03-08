@@ -1,28 +1,28 @@
 module OpenAI
   module Files
     def files
-      OpenAI::Client.get(path: "/files")
+      get(path: "/files")
     end
 
     def upload_file(parameters: {})
       validate(file: parameters[:file])
 
-      OpenAI::Client.multipart_post(
+      multipart_post(
         path: "/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
       )
     end
 
     def file(id:)
-      OpenAI::Client.get(path: "/files/#{id}")
+      get(path: "/files/#{id}")
     end
 
     def file_content(id:)
-      OpenAI::Client.get(path: "/files/#{id}/content")
+      get(path: "/files/#{id}/content")
     end
 
     def delete_file(id:)
-      OpenAI::Client.delete(path: "/files/#{id}")
+      delete(path: "/files/#{id}")
     end
 
     private

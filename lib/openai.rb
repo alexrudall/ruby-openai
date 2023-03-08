@@ -1,6 +1,8 @@
 require "httparty"
 
 require_relative "openai/configuration"
+require_relative "openai/request"
+require_relative "openai/api"
 require_relative "openai/client"
 require_relative "openai/version"
 
