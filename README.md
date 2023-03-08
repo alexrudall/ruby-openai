@@ -252,6 +252,53 @@ Pass a string to check if it violates OpenAI's Content Policy:
     => 5.505014632944949e-05
 ```
 
+### Batching Requests
+After your OpenAI account has been approved and available for 48 hours OpenAI allows 3000 requests/min. Using the way documented above this is incredibly difficult to reach, however, if you are process 100's of thousands of pieces of data, going one by one will take a very very long time.
+
+To lower the time it takes we can take advantage of Typhoeus's [`Hydra`](https://github.com/typhoeus/typhoeus#making-parallel-requests) class to parallelize our requests.
+
+In testing this sped up 30k requests from 5 hours to about 10 minutes, so if you're working with a lot of requests this is probably the way you want to go. This method does however require some reworking of your programs flow, but this being Ruby it's quite easy.
+
+For every function to request data there is a `queue_` variation (i.e. `queue_embeddings`) that acts the same as its companion with the exception that it expects a block which runs after the call is completed.
+
+```ruby
+client.queue_embeddings(parameters: { model: "text-embedding-ada-002", input: "It was a dark and stormy evening..." }) do |result|
+    puts result.body
+end
+```
+
+You can queue every request you want to make, and then run the following to kick it off:
+```ruby
+client.run_queued_requests
+```
+
+At this point the requests will run at a rate of 2500/minute. Though the limit is 3000 OpenAI's rate limiting doesn't seem to be perfect so backing off a bit helps make sure you don't run into rate limit errors. If you want to change the speed you can adjust it when you instantiate the client like so:
+
+```ruby
+client = OpenAI::Client.new(access_token: "xxxxx", rate_limit: 200)
+```
+
+You can also adjust the maximum amount of request sent at anyone time similarly:
+
+```ruby
+client = OpenAI::Client.new(access_token: "xxxxx", max_concurrency: 10)
+```
+
+#### Tips
+
+Instead of queuing all request at once, to save memory you may want to batch them for execution. This is especially useful for saving memory since you won't have 30k request sitting around in RAM.
+
+```ruby
+items.each_slice(500) do |claim|
+    client.queue_embeddings(parameters: { model: "text-embedding-ada-002", input: "It was a dark and stormy evening..." }) do |result|
+        puts result.body
+    end
+    client.run_queued_requests
+end
+```
+
+If you're running this in a CLI environment it may also be useful to add a progress bar using [`ruby-progressbar`](https://github.com/jfelchner/ruby-progressbar) to the program so you can keep track of how far along the process is.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can run `bin/console` for an interactive prompt that will allow you to experiment.
