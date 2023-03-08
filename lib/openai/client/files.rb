@@ -1,28 +1,28 @@
 module OpenAI
   module Files
     def files
-      get(path: "/files")
+      get("/files")
     end
 
     def upload_file(parameters: {})
       validate(file: parameters[:file])
 
       multipart_post(
-        path: "/files",
+        "/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
       )
     end
 
     def file(id:)
-      get(path: "/files/#{id}")
+      get("/files/#{id}")
     end
 
     def file_content(id:)
-      get(path: "/files/#{id}/content")
+      get("/files/#{id}/content")
     end
 
     def delete_file(id:)
-      delete(path: "/files/#{id}")
+      delete("/files/#{id}")
     end
 
     private

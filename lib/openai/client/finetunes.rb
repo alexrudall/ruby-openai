@@ -1,23 +1,23 @@
 module OpenAI
   module Finetunes
     def finetunes
-      get(path: "/fine-tunes")
+      get("/fine-tunes")
     end
 
     def create_finetunes(parameters: {})
-      json_post(path: "/fine-tunes", parameters: parameters)
+      json_post("/fine-tunes", parameters: parameters)
     end
 
     def finetune(id:)
-      get(path: "/fine-tunes/#{id}")
+      get("/fine-tunes/#{id}")
     end
 
     def cancel_finetune(id:)
-      multipart_post(path: "/fine-tunes/#{id}/cancel")
+      multipart_post("/fine-tunes/#{id}/cancel")
     end
 
     def events(id:)
-      get(path: "/fine-tunes/#{id}/events")
+      get("/fine-tunes/#{id}/events")
     end
 
     def delete_finetune(fine_tuned_model:)
@@ -25,7 +25,7 @@ module OpenAI
         raise ArgumentError, "Please give a fine_tuned_model name, not a fine-tune ID"
       end
 
-      delete(path: "/models/#{fine_tuned_model}")
+      delete("/models/#{fine_tuned_model}")
     end
   end
 end

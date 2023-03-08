@@ -1,11 +1,11 @@
 module OpenAI
   module Models
     def models
-      get(path: "/models")
+      get("/models")
     end
 
     def model(id:)
-      get(path: "/models/#{id}")
+      get("/models/#{id}")
     end
   end
 end

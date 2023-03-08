@@ -1,15 +1,15 @@
 module OpenAI
   module Images
     def generate_images(parameters: {})
-      json_post(path: "/images/generations", parameters: parameters)
+      json_post("/images/generations", parameters: parameters)
     end
 
     def edit_image(parameters: {})
-      multipart_post(path: "/images/edits", parameters: open_files(parameters))
+      multipart_post("/images/edits", parameters: open_files(parameters))
     end
 
     def image_variations(parameters: {})
-      multipart_post(path: "/images/variations", parameters: open_files(parameters))
+      multipart_post("/images/variations", parameters: open_files(parameters))
     end
 
     private
