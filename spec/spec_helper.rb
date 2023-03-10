@@ -26,9 +26,14 @@ RSpec.configure do |c|
     rspec.syntax = :expect
   end
 
-  c.before(:all) do
-    OpenAI.configure do |config|
-      config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+  OpenAI.configure do |config|
+    # to re-generate the recordings you need to have these in your ENV
+    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN") do
+      if ENV["CI"] # rubocop:disable Style/GuardClause
+        "secret-needed-to-record-new-tests"
+      else
+        raise KeyError, "OPENAI_ACCESS_TOKEN must be in the ENV when not running in CI"
+      end
     end
   end
 end
