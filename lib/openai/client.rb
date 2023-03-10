@@ -52,7 +52,7 @@ module OpenAI
     end
 
     def self.get(path:)
-      HTTParty.get(
+      Response.new HTTParty.get(
         uri(path: path),
         headers: headers,
         timeout: request_timeout
@@ -60,7 +60,7 @@ module OpenAI
     end
 
     def self.json_post(path:, parameters:)
-      HTTParty.post(
+      Response.new HTTParty.post(
         uri(path: path),
         headers: headers,
         body: parameters&.to_json,
@@ -69,7 +69,7 @@ module OpenAI
     end
 
     def self.multipart_post(path:, parameters: nil)
-      HTTParty.post(
+      Response.new HTTParty.post(
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
         body: parameters,
@@ -78,7 +78,7 @@ module OpenAI
     end
 
     def self.delete(path:)
-      HTTParty.delete(
+      Response.new HTTParty.delete(
         uri(path: path),
         headers: headers,
         timeout: request_timeout
@@ -99,6 +99,76 @@ module OpenAI
 
     private_class_method def self.request_timeout
       OpenAI.configuration.request_timeout
+    end
+
+    # @note Expects wrapped_response to be a HTTParty::Response
+    class Response < BasicObject
+      const_set(:SuccessfulStatuses, (200..299).freeze)
+
+      def initialize(wrapped_response)
+        @wrapped_response = wrapped_response
+      end
+
+      def success?
+        return false unless code
+        SuccessfulStatuses.include?(code)
+      end
+
+      def to_hash
+        {
+          status: code, body: body,
+          response_headers: headers,
+          # url: url
+        }
+      end
+
+      def code
+        @wrapped_response.code
+      end
+
+      def body
+        @wrapped_response.body
+      end
+
+      def headers
+        @wrapped_response.headers
+      end
+
+      def request
+        @wrapped_response.request
+      end
+
+      def response
+        @wrapped_response
+      end
+
+      def wrapped_response
+        @wrapped_response.response
+      end
+
+      KERNEL_METHOD_METHOD = ::Kernel.instance_method(:method)
+
+      # delegate constant lookup to Object
+      def self.const_missing(name)
+        ::Object.const_get(name)
+      end
+
+      # @!visibility private
+      def send(*args)
+        __send__(*args)
+      end
+
+      def method(method_name)
+        KERNEL_METHOD_METHOD.bind(self).call(method_name)
+      end
+
+      def method_missing(name, *args, &block)
+        @wrapped_response.send(name, *args, &block)
+      end
+
+      def respond_to_missing?(name, include_private = false)
+        @wrapped_response.respond_to?(name, include_private)
+      end
     end
   end
 end
