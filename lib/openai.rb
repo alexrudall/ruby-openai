@@ -13,14 +13,16 @@ module OpenAI
 
   class Configuration
     attr_writer :access_token
-    attr_accessor :api_version, :organization_id
+    attr_accessor :api_version, :organization_id, :request_timeout
 
     DEFAULT_API_VERSION = "v1".freeze
+    DEFAULT_REQUEST_TIMEOUT = 60
 
     def initialize
       @access_token = nil
       @api_version = DEFAULT_API_VERSION
       @organization_id = nil
+      @request_timeout = DEFAULT_REQUEST_TIMEOUT
     end
 
     def access_token

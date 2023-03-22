@@ -69,6 +69,24 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
+#### Setting request timeout
+
+The default timeout for any OpenAI request is 60 seconds. You can change that passing the `request_timeout` when initializing the client:
+
+```ruby
+    client = OpenAI::Client.new(access_token: "access_token_goes_here", request_timeout: 25)
+```
+
+or when configuring the gem:
+
+```ruby
+    OpenAI.configure do |config|
+        config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
+        config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
+        config.request_timeout = 25 # Optional
+    end
+```
+
 ### Models
 
 There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
