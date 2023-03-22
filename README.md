@@ -71,7 +71,7 @@ client = OpenAI::Client.new
 
 #### Setting request timeout
 
-The default timeout for any OpenAI request is 60 seconds. You can change that passing the `request_timeout` when initializing the client:
+The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client:
 
 ```ruby
     client = OpenAI::Client.new(access_token: "access_token_goes_here", request_timeout: 25)
