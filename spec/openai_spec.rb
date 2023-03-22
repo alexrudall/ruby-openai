@@ -8,6 +8,7 @@ RSpec.describe OpenAI do
     let(:api_version) { "v2" }
     let(:organization_id) { "def456" }
     let(:request_timeout) { 25 }
+    let(:default_timeout) { 120 }
 
     before do
       OpenAI.configure do |config|
@@ -21,7 +22,7 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.access_token).to eq(access_token)
       expect(OpenAI.configuration.api_version).to eq(api_version)
       expect(OpenAI.configuration.organization_id).to eq(organization_id)
-      expect(OpenAI.configuration.request_timeout).to eq(60)
+      expect(OpenAI.configuration.request_timeout).to eq(default_timeout)
     end
 
     context "without an access token" do
