@@ -8,7 +8,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.transcribe(
           parameters: {
             model: model,
-            file: File.open(audio, "r:iso-8859-1")
+            file: File.open(audio, "rb")
           }
         )
       end
@@ -36,7 +36,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.translate(
           parameters: {
             model: model,
-            file: File.open(audio, "r:iso-8859-1")
+            file: File.open(audio, "rb")
           }
         )
       end
