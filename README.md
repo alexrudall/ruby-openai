@@ -7,7 +7,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate text with ChatGPT, transcribe or translate audio with Whisper, create images with DALL·E, or write code with Codex...
+Generate text with ChatGPT, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 Check out [Ruby AI Builders](https://discord.gg/k4Uc224xVD) on Discord!
 
@@ -98,14 +98,18 @@ client.models.retrieve(id: "text-ada-001")
 
 #### Examples
 
-- [GPT-3](https://beta.openai.com/docs/models/gpt-3)
+- [GPT-4 (limited beta)](https://platform.openai.com/docs/models/gpt-4)
+  - gpt-4
+  - gpt-4-0314
+  - gpt-4-32k
+- [GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5)
+  - gpt-3.5-turbo
+  - gpt-3.5-turbo-0301
+  - text-davinci-003
+- [GPT-3](https://platform.openai.com/docs/models/gpt-3)
   - text-ada-001
   - text-babbage-001
   - text-curie-001
-  - text-davinci-001
-- [Codex (private beta)](https://beta.openai.com/docs/models/codex-series-private-beta)
-  - code-davinci-002
-  - code-cushman-001
 
 ### ChatGPT
 
