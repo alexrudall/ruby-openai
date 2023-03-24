@@ -23,11 +23,11 @@ http_interactions:
       message: NOT FOUND
     headers:
       Date:
-      - Wed, 15 Feb 2023 21:33:01 GMT
+      - Wed, 22 Mar 2023 21:18:06 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '141'
+      - '159'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -37,9 +37,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - bf430420b5eec6065aed77150b804b28
+      - b53e072fdbea3f242a94a9c2f87f27ec
       Openai-Processing-Ms:
-      - '53'
+      - '50'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
@@ -47,11 +47,11 @@ http_interactions:
       string: |
         {
           "error": {
-            "message": "That model does not exist",
+            "message": "The model 'abc' does not exist",
             "type": "invalid_request_error",
             "param": "model",
-            "code": null
+            "code": "model_not_found"
           }
         }
-  recorded_at: Wed, 15 Feb 2023 21:33:01 GMT
+  recorded_at: Wed, 22 Mar 2023 21:18:06 GMT
 recorded_with: VCR 6.1.0

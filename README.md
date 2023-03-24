@@ -69,6 +69,24 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
+#### Setting request timeout
+
+The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client:
+
+```ruby
+    client = OpenAI::Client.new(access_token: "access_token_goes_here", request_timeout: 25)
+```
+
+or when configuring the gem:
+
+```ruby
+    OpenAI.configure do |config|
+        config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
+        config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
+        config.request_timeout = 25 # Optional
+    end
+```
+
 ### Models
 
 There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
@@ -279,7 +297,7 @@ The translations API takes as input the audio file in any of the supported langu
 response = client.translate(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file'),
+        file: File.open('path_to_file', 'rb'),
     })
 puts response.parsed_response['text']
 # => "Translation of the text"
@@ -293,7 +311,7 @@ The transcriptions API takes as input the audio file you want to transcribe and 
 response = client.transcribe(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file'),
+        file: File.open('path_to_file', 'rb'),
     })
 puts response.parsed_response['text']
 # => "Transcription of the text"

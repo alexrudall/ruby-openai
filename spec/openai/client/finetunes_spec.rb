@@ -88,7 +88,7 @@ RSpec.describe OpenAI::Client do
       it "returns an error" do
         VCR.use_cassette(cassette) do
           r = JSON.parse(response.body)
-          expect(r.dig("error", "message")).to eq("That model does not exist")
+          expect(r.dig("error", "message")).to include("does not exist")
         end
       end
 
