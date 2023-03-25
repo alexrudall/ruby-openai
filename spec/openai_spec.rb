@@ -3,10 +3,15 @@ RSpec.describe OpenAI do
     expect(OpenAI::VERSION).not_to be nil
   end
 
+  it "has default uri base" do
+    expect(OpenAI::Configuration.uri_base).not_to be nil
+  end
+
   describe "#configure" do
     let(:access_token) { "abc123" }
     let(:api_version) { "v2" }
     let(:organization_id) { "def456" }
+    let(:uri_base) { "ghi789" }
     let(:request_timeout) { 25 }
     let(:default_timeout) { 120 }
 
@@ -15,6 +20,7 @@ RSpec.describe OpenAI do
         config.access_token = access_token
         config.api_version = api_version
         config.organization_id = organization_id
+        config.uri_base = uri_base
       end
     end
 
@@ -22,6 +28,7 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.access_token).to eq(access_token)
       expect(OpenAI.configuration.api_version).to eq(api_version)
       expect(OpenAI.configuration.organization_id).to eq(organization_id)
+      expect(OpenAI.configuration.uri_base).to eq(uri_base)
       expect(OpenAI.configuration.request_timeout).to eq(default_timeout)
     end
 

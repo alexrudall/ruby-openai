@@ -1,10 +1,9 @@
 module OpenAI
   class Client
-    URI_BASE = "https://api.openai.com/".freeze
-
-    def initialize(access_token: nil, organization_id: nil, request_timeout: nil)
+    def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
+      OpenAI.configuration.uri_base = uri_base if uri_base
       OpenAI.configuration.request_timeout = request_timeout if request_timeout
     end
 
@@ -87,7 +86,7 @@ module OpenAI
     end
 
     private_class_method def self.uri(path:)
-      URI_BASE + OpenAI.configuration.api_version + path
+      OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
     end
 
     private_class_method def self.headers
