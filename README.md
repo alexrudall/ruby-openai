@@ -69,21 +69,26 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
-#### Setting request timeout
+#### Custom timeout or base URI
 
-The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client:
+The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
 
 ```ruby
-    client = OpenAI::Client.new(access_token: "access_token_goes_here", request_timeout: 25)
+    client = OpenAI::Client.new(
+        access_token: "access_token_goes_here",
+        uri_base: "https://oai.hconeai.com",
+        request_timeout: 240
+    )
 ```
 
 or when configuring the gem:
 
 ```ruby
     OpenAI.configure do |config|
-        config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
-        config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
-        config.request_timeout = 25 # Optional
+        config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+        config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
+        config.uri_base = "https://oai.hconeai.com" # Optional
+        config.request_timeout = 240 # Optional
     end
 ```
 
