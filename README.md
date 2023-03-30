@@ -76,7 +76,7 @@ The default timeout for any OpenAI request is 120 seconds. You can change that p
 ```ruby
 client = OpenAI::Client.new(
     access_token: "access_token_goes_here",
-    uri_base: "https://oai.hconeai.com",
+    uri_base: "https://oai.hconeai.com/",
     request_timeout: 240
 )
 ```
@@ -87,7 +87,7 @@ or when configuring the gem:
 OpenAI.configure do |config|
     config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
     config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
-    config.uri_base = "https://oai.hconeai.com" # Optional
+    config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
 end
 ```
