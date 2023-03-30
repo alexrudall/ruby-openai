@@ -74,22 +74,22 @@ client = OpenAI::Client.new
 The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
 
 ```ruby
-    client = OpenAI::Client.new(
-        access_token: "access_token_goes_here",
-        uri_base: "https://oai.hconeai.com",
-        request_timeout: 240
-    )
+client = OpenAI::Client.new(
+    access_token: "access_token_goes_here",
+    uri_base: "https://oai.hconeai.com",
+    request_timeout: 240
+)
 ```
 
 or when configuring the gem:
 
 ```ruby
-    OpenAI.configure do |config|
-        config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-        config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
-        config.uri_base = "https://oai.hconeai.com" # Optional
-        config.request_timeout = 240 # Optional
-    end
+OpenAI.configure do |config|
+    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
+    config.uri_base = "https://oai.hconeai.com" # Optional
+    config.request_timeout = 240 # Optional
+end
 ```
 
 ### Models
@@ -337,7 +337,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 First run the specs without VCR so they actually hit the API. This will cost about 2 cents. You'll need to add your `OPENAI_ACCESS_TOKEN=` in `.env`.
 
 ```
-  NO_VCR=true bundle exec rspec
+NO_VCR=true bundle exec rspec
 ```
 
 Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bundle install` to update Gemfile.lock, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
