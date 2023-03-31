@@ -332,12 +332,16 @@ After checking out the repo, run `bin/setup` to install dependencies. You can ru
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
+### Warning
+
+If you have an `OPENAI_ACCESS_TOKEN` in your `ENV`, running the specs will use this to run the specs against the actual API, which will be slow and cost you money - 2 cents or more! Remove it from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
+
 ## Release
 
-First run the specs without VCR so they actually hit the API. This will cost about 2 cents. You'll need to add your `OPENAI_ACCESS_TOKEN=` in `.env`.
+First run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN in your environment or pass it in like this:
 
 ```
-NO_VCR=true bundle exec rspec
+OPENAI_ACCESS_TOKEN=123abc bundle exec rspec
 ```
 
 Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bundle install` to update Gemfile.lock, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
