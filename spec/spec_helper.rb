@@ -9,7 +9,7 @@ Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }
 VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
-  c.default_cassette_options = { record: ENV["OPENAI_ACCESS_TOKEN"] ? :all : :new_episodes,
+  c.default_cassette_options = { record: ENV.fetch("OPENAI_ACCESS_TOKEN", nil) ? :all : :new_episodes,
                                  match_requests_on: [:method, :uri, VCRMultipartMatcher.new] }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
   c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { OpenAI.configuration.organization_id }
@@ -24,6 +24,24 @@ RSpec.configure do |c|
 
   c.expect_with :rspec do |rspec|
     rspec.syntax = :expect
+  end
+
+  if ENV.fetch("OPENAI_ACCESS_TOKEN", nil)
+    warning = "WARNING!
+    Specs are hitting the OpenAI API using your OPENAI_ACCESS_TOKEN!
+    This costs at least 2 cents per run and is very slow!
+    If you don't want this, unset OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.
+    ".freeze
+    colour_code = 31 # red
+    colour_warning = "\e[#{colour_code}m\n#{warning}\e[0m".freeze
+
+    c.before(:suite) do
+      warn(colour_warning)
+    end
+
+    c.after(:suite) do
+      warn(colour_warning)
+    end
   end
 
   c.before(:all) do
