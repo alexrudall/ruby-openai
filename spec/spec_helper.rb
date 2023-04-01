@@ -32,7 +32,7 @@ RSpec.configure do |c|
     warning = "WARNING! Specs are hitting the OpenAI API using your OPENAI_ACCESS_TOKEN! This
 costs at least 2 cents per run and is very slow! If you don't want this, unset
 OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.".freeze
-    warning = RSpec::Core::Formatters::ConsoleCodes.wrap(warning, :red)
+    warning = RSpec::Core::Formatters::ConsoleCodes.wrap(warning, :bold_red)
 
     c.before(:suite) { RSpec.configuration.reporter.message(warning) }
     c.after(:suite) { RSpec.configuration.reporter.message(warning) }
