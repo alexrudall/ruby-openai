@@ -52,34 +52,32 @@ module OpenAI
     end
 
     def self.get(path:)
-      api.get(uri(path: path)) do |req|
-        req.body = parameters
+      conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
       end
     end
 
     def self.json_post(path:, parameters:)
-      api.post(uri(path: path)) do |req|
+      conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.body = parameters.to_json
         req.headers = headers
       end
     end
 
     def self.multipart_post(path:, parameters: nil)
-      api.post(uri(path: path)) do |req|
+      conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.body = parameters
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
       end
     end
 
     def self.delete(path:)
-      api.delete(uri(path: path)) do |req|
-        req.body = parameters
+      conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
       end
     end
 
-    private_class_method def self.api()
+    private_class_method def self.conn
       Faraday.new(params: nil) do |f|
         f.adapter :typhoeus
       end
