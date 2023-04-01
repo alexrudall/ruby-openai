@@ -29,21 +29,13 @@ RSpec.configure do |c|
   end
 
   if ENV.fetch("OPENAI_ACCESS_TOKEN", nil)
-    warning = "WARNING!
-    Specs are hitting the OpenAI API using your OPENAI_ACCESS_TOKEN!
-    This costs at least 2 cents per run and is very slow!
-    If you don't want this, unset OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.
-    ".freeze
-    colour_code = 31 # red
-    colour_warning = "\e[#{colour_code}m\n#{warning}\e[0m".freeze
+    warning = "WARNING! Specs are hitting the OpenAI API using your OPENAI_ACCESS_TOKEN! This
+costs at least 2 cents per run and is very slow! If you don't want this, unset
+OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.".freeze
+    warning = RSpec::Core::Formatters::ConsoleCodes.wrap(warning, :red)
 
-    c.before(:suite) do
-      warn(colour_warning)
-    end
-
-    c.after(:suite) do
-      warn(colour_warning)
-    end
+    c.before(:suite) { RSpec.configuration.reporter.message(warning) }
+    c.after(:suite) { RSpec.configuration.reporter.message(warning) }
   end
 
   c.before(:all) do
