@@ -10,7 +10,7 @@ RSpec.describe OpenAI::Client do
             model: model,
             messages: messages,
             stream: stream,
-            on_data: on_data,
+            on_data: on_data
           }
         )
       end
