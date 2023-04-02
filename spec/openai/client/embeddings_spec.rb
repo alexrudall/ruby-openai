@@ -16,7 +16,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["data"][0]["object"]).to eq("embedding")
+          expect(JSON.parse(response.body).dig("data", 0, "object")).to eq("embedding")
         end
       end
     end

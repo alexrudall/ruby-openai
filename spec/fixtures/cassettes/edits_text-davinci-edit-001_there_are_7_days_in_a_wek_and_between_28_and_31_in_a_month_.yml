@@ -6,31 +6,28 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
-        and between 28 and 31 in a month.","instruction":"Fix the spelling mistakes"}'
+        and between 28 and 31 in a month.","instruction":"Fix the misspelled word
+        ''week''"}'
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:58 GMT
+      - Sun, 02 Apr 2023 03:04:41 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '210'
-      Connection:
-      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -40,18 +37,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1998'
+      - '1022'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '20'
+      X-Ratelimit-Remaining-Requests:
+      - '19'
+      X-Ratelimit-Reset-Requests:
+      - 3s
       X-Request-Id:
-      - c9eb59108aa0fbc6f7a4a20aafa328ca
+      - 7f0668f5d8ca3fa5c0a21dedf2a963f4
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d884a874dd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"object":"edit","created":1673130596,"choices":[{"text":"They are
-        7 days in a week, and between 28 and 31 days in a month.\n","index":0}],"usage":{"prompt_tokens":34,"completion_tokens":47,"total_tokens":81}}
+      encoding: ASCII-8BIT
+      string: '{"object":"edit","created":1680404680,"choices":[{"text":"There are
+        7 days in a week, and between 28 and 31 in a month.\n","index":0}],"usage":{"prompt_tokens":38,"completion_tokens":46,"total_tokens":84}}
 
 '
-  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+  recorded_at: Sun, 02 Apr 2023 03:04:41 GMT
 recorded_with: VCR 6.1.0

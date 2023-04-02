@@ -18,7 +18,7 @@ RSpec.describe OpenAI::Client do
 
       it "edits the input" do
         VCR.use_cassette(cassette) do
-          expect(response.dig("choices", 0, "text").downcase).to include("week")
+          expect(JSON.parse(response.body).dig("choices", 0, "text").downcase).to include("week")
         end
       end
     end

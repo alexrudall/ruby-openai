@@ -2,48 +2,54 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/models/text-ada-001
+    uri: https://api.openai.com/v1/models/text-ada-001?timeout=0
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:31:02 GMT
+      - Sun, 02 Apr 2023 03:05:36 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '559'
-      Connection:
-      - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - bd9547caf2af03ebab5387de86d2f783
+      - 88d2f8eaf1094b7c1f6c1b9b3ed99832
       Openai-Processing-Ms:
-      - '29'
+      - '24'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d9e2395edd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "id": "text-ada-001",
@@ -69,5 +75,5 @@ http_interactions:
           "root": "text-ada-001",
           "parent": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
+  recorded_at: Sun, 02 Apr 2023 03:05:35 GMT
 recorded_with: VCR 6.1.0

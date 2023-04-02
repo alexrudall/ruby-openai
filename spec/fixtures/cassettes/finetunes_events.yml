@@ -2,48 +2,54 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine-tunes/ft-ChRfCzPajf34aYWrb338yPJC/events
+    uri: https://api.openai.com/v1/fine-tunes/ft-JjjT7zeo8Dbyue59fXWJoT06/events?timeout=0
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:08 GMT
+      - Sun, 02 Apr 2023 03:05:06 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '208'
-      Connection:
-      - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 72b7108f7b87ebbed8174d714fe3d48a
+      - 4b2df473276281325fce90d0df97ffbf
       Openai-Processing-Ms:
-      - '21'
+      - '33'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d9279d0bdd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "list",
@@ -51,67 +57,10 @@ http_interactions:
             {
               "object": "fine-tune-event",
               "level": "info",
-              "message": "Created fine-tune: ft-ChRfCzPajf34aYWrb338yPJC",
-              "created_at": 1673130548
+              "message": "Created fine-tune: ft-JjjT7zeo8Dbyue59fXWJoT06",
+              "created_at": 1680404706
             }
           ]
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:08 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/fine-tunes/ft-0WOXKibTIqg0haR6DfUQq0AC/events
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Sat, 07 Jan 2023 22:30:37 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '208'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - bd11a525bb21f18edc91212355438dcc
-      Openai-Processing-Ms:
-      - '26'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "object": "list",
-          "data": [
-            {
-              "object": "fine-tune-event",
-              "level": "info",
-              "message": "Created fine-tune: ft-0WOXKibTIqg0haR6DfUQq0AC",
-              "created_at": 1673130636
-            }
-          ]
-        }
-  recorded_at: Sat, 07 Jan 2023 22:30:37 GMT
+  recorded_at: Sun, 02 Apr 2023 03:05:06 GMT
 recorded_with: VCR 6.1.0

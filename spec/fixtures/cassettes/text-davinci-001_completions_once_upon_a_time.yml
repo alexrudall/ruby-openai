@@ -7,29 +7,25 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"text-davinci-001","prompt":"Once upon a time","max_tokens":5}'
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:55 GMT
+      - Sun, 02 Apr 2023 03:04:40 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '275'
-      Connection:
-      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -39,18 +35,40 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '351'
+      - '75'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Limit-Tokens:
+      - '250000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Remaining-Tokens:
+      - '249995'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
+      X-Ratelimit-Reset-Tokens:
+      - 1ms
       X-Request-Id:
-      - 8f495e0a8284feaf4a77f189fda6b074
+      - da193d97b007d94ecf5c9bb4f1d965c0
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d8819efcdd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"id":"cmpl-6WBzHVieOoB2BH8NmCipCRfEsTnFl","object":"text_completion","created":1673130595,"model":"text-davinci-001","choices":[{"text":",\n\nThere
-        was","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-70iJEVHUiKiVbKt7bnNqHcLFGs4Jw","object":"text_completion","created":1680404680,"model":"text-davinci-001","choices":[{"text":"
+        there was a goddess\n","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
 '
-  recorded_at: Sat, 07 Jan 2023 22:29:55 GMT
+  recorded_at: Sun, 02 Apr 2023 03:04:39 GMT
 recorded_with: VCR 6.1.0

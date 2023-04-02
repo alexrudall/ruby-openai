@@ -7,29 +7,25 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}]}'
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Wed, 01 Mar 2023 18:24:32 GMT
+      - Sun, 02 Apr 2023 03:04:37 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '323'
-      Connection:
-      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -39,18 +35,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '695'
+      - '723'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3500'
+      X-Ratelimit-Remaining-Requests:
+      - '3499'
+      X-Ratelimit-Reset-Requests:
+      - 17ms
       X-Request-Id:
-      - 9b807281714e7ad6de696906c9f88789
+      - 98542610908a24469af70e7b309943dc
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d86a4a0edd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"id":"chatcmpl-6pLPsLkKBjLy6MdjvfaXOsMWippRR","object":"chat.completion","created":1677695072,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":9,"completion_tokens":11,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"\n\nHello!
-        How may I assist you today?"},"finish_reason":"stop","index":0}]}
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-70iJAaEHlCgydLRQeMqL3etmIKcSD","object":"chat.completion","created":1680404676,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":9,"total_tokens":19},"choices":[{"message":{"role":"assistant","content":"Hello,
+        how can I assist you today?"},"finish_reason":"stop","index":0}]}
 
-        '
-  recorded_at: Wed, 01 Mar 2023 18:24:32 GMT
+'
+  recorded_at: Sun, 02 Apr 2023 03:04:36 GMT
 recorded_with: VCR 6.1.0

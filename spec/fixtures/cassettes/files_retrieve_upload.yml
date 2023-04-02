@@ -5,59 +5,61 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "--------------------------XlquRi_m2AMS2RCF\r\nContent-Disposition:
-        form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Type: application/octet-stream\r\n\r\n{\"prompt\":\"Overjoyed
-        with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n--------------------------XlquRi_m2AMS2RCF\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n--------------------------XlquRi_m2AMS2RCF--\r\n"
+      string: file=%23%3CFile%3A0x00007fca943cb0e8%3E&purpose=fine-tune
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
-      - multipart/form-data; boundary=------------------------XlquRi_m2AMS2RCF
+      - multipart/form-data
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Mon, 13 Feb 2023 22:37:17 GMT
+      - Sun, 02 Apr 2023 03:04:46 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '217'
-      Connection:
-      - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 9e56c78eb3d1ef449d6d4539e3bf2827
+      - 1d198d28f85e222d7f13d000a8f17332
       Openai-Processing-Ms:
-      - '729'
+      - '702'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d8a3f878dd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "file",
-          "id": "file-lVZYJsFRIOZ0z6wuChAUF5Ww",
+          "id": "file-gnZu4FgQPmnLeyshstTzvz63",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1676327837,
+          "created_at": 1680404686,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Mon, 13 Feb 2023 22:37:17 GMT
+  recorded_at: Sun, 02 Apr 2023 03:04:45 GMT
 recorded_with: VCR 6.1.0

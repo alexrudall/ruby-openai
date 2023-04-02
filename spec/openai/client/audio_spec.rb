@@ -12,7 +12,7 @@ RSpec.describe OpenAI::Client do
           }
         )
       end
-      let(:content) { response.parsed_response["text"] }
+      let(:content) { JSON.parse(response.body)["text"] }
       let(:cassette) { "#{model} transcribe".downcase }
 
       context "with model: whisper-1" do
@@ -40,7 +40,7 @@ RSpec.describe OpenAI::Client do
           }
         )
       end
-      let(:content) { response.parsed_response["text"] }
+      let(:content) { JSON.parse(response.body)["text"] }
       let(:cassette) { "#{model} translate".downcase }
 
       context "with model: whisper-1" do

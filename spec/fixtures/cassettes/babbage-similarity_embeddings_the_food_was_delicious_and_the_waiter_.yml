@@ -8,43 +8,55 @@ http_interactions:
       string: '{"model":"babbage-similarity","input":"The food was delicious and the
         waiter..."}'
     headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
+      Openai-Organization:
+      - ''
+      Expect:
+      - ''
   response:
     status:
       code: 200
-      message: OK
+      message: ''
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:58 GMT
+      - Sun, 02 Apr 2023 03:04:41 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '44410'
-      Connection:
-      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '107'
+      - '15'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
       X-Request-Id:
-      - 84db8e9c54defee56be17c5c743bff2b
+      - 22f15f008bdbd57224996e3d1eec7f74
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7b15d88d88a3dd70-LHR
+      Content-Encoding:
+      - gzip
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "list",
@@ -2110,5 +2122,5 @@ http_interactions:
             "total_tokens": 8
           }
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+  recorded_at: Sun, 02 Apr 2023 03:04:41 GMT
 recorded_with: VCR 6.1.0
