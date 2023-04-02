@@ -23,7 +23,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 02 Apr 2023 12:42:41 GMT
+      - Sun, 02 Apr 2023 12:54:04 GMT
       Content-Type:
       - text/event-stream
       Access-Control-Allow-Origin:
@@ -35,7 +35,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '419'
+      - '145'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -47,17 +47,17 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 45fe378e710a65f02b0f94f82c2d5581
+      - 92e98da6a51fc1966e2f6dc6870d0970
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b192735fd757789-LHR
+      - 7b1937e75ce475bf-LHR
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: ''
-  recorded_at: Sun, 02 Apr 2023 12:42:41 GMT
+  recorded_at: Sun, 02 Apr 2023 12:54:05 GMT
 recorded_with: VCR 6.1.0
