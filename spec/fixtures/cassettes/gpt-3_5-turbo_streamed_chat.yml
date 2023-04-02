@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}],"stream":true}'
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
@@ -23,9 +23,9 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 02 Apr 2023 12:42:43 GMT
+      - Sun, 02 Apr 2023 12:42:41 GMT
       Content-Type:
-      - application/json
+      - text/event-stream
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -35,7 +35,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '766'
+      - '419'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -47,22 +47,17 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 9fb5fcb60d9ffdfcd2e1bf2958389ef6
+      - 45fe378e710a65f02b0f94f82c2d5581
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b19273d9fc67789-LHR
-      Content-Encoding:
-      - gzip
+      - 7b192735fd757789-LHR
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-70rKciQB8iOtWFs1m5qEPZgm3VgTP","object":"chat.completion","created":1680439362,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
-        there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
-
-        '
-  recorded_at: Sun, 02 Apr 2023 12:42:42 GMT
+      string: ''
+  recorded_at: Sun, 02 Apr 2023 12:42:41 GMT
 recorded_with: VCR 6.1.0

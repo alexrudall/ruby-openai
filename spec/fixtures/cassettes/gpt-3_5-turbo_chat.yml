@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}]}'
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
     headers:
       User-Agent:
       - Typhoeus - https://github.com/typhoeus/typhoeus
@@ -23,7 +23,7 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:04:37 GMT
+      - Sun, 02 Apr 2023 12:42:40 GMT
       Content-Type:
       - application/json
       Access-Control-Allow-Origin:
@@ -35,7 +35,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '723'
+      - '666'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -47,22 +47,22 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 98542610908a24469af70e7b309943dc
+      - d54ee02a12585e1558869df1b292c3b2
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d86a4a0edd70-LHR
+      - 7b19272f1c467789-LHR
       Content-Encoding:
       - gzip
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-70iJAaEHlCgydLRQeMqL3etmIKcSD","object":"chat.completion","created":1680404676,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":9,"total_tokens":19},"choices":[{"message":{"role":"assistant","content":"Hello,
-        how can I assist you today?"},"finish_reason":"stop","index":0}]}
+      string: '{"id":"chatcmpl-70rKZdBOlPtczrjGFLh6jBtk6Z3ca","object":"chat.completion","created":1680439359,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
+        there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
 
-'
-  recorded_at: Sun, 02 Apr 2023 03:04:36 GMT
+        '
+  recorded_at: Sun, 02 Apr 2023 12:42:40 GMT
 recorded_with: VCR 6.1.0
