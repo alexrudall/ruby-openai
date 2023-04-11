@@ -9,7 +9,9 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Generate text with ChatGPT, transcribe and translate audio with Whisper, or create images with DALL·E...
 
-Check out [Ruby AI Builders](https://discord.gg/k4Uc224xVD) on Discord!
+Check out our new project [promptheart.com](https://promptheart.com) - find the best prompts for ChatGPT! [BETA]
+
+[Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD)
 
 ### Bundler
 
