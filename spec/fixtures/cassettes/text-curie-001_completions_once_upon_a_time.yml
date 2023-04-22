@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:48:21 GMT
+      - Sat, 22 Apr 2023 09:22:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '61'
+      - '82'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 575cb53b74f1424a18e66664b6266808
+      - feb393942e388b0608ba216b58dd296a
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9b73bdfe3f9b-SIN
+      - 7bbccd36bbb30193-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-783CnGId70j80bSPZrRlrNUEFpfjZ","object":"text_completion","created":1682153301,"model":"text-curie-001","choices":[{"text":"
-        there was a princess who","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-783jflsyGgiVDLMHDb6YHXHx6fVGo","object":"text_completion","created":1682155339,"model":"text-curie-001","choices":[{"text":"\n\nOnce
+        upon a","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Sat, 22 Apr 2023 08:48:21 GMT
+  recorded_at: Sat, 22 Apr 2023 09:22:19 GMT
 recorded_with: VCR 6.1.0

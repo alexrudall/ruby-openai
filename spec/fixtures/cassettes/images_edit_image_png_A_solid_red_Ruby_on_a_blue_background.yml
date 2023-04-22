@@ -6,8 +6,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTQ2NDE4ZjM3Zjg4MGIz
-        NDcyZTZiMmRkZGMwZTEyNTkwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTAzMWRjZjM3MGQ5YWJl
+        ZmJlOGEyMGFiMGUyMDY3NTFlDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
         LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
         bnRlbnQtTGVuZ3RoOiAyNDkNCkNvbnRlbnQtVHlwZTogaW1hZ2UvcG5nDQpD
         b250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KiVBORw0KGgoA
@@ -17,7 +17,7 @@ http_interactions:
         EkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJ
         ISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv
         2YpOAAAAAElFTkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBv
-        c3QtNDY0MThmMzdmODgwYjM0NzJlNmIyZGRkYzBlMTI1OTANCkNvbnRlbnQt
+        c3QtMDMxZGNmMzcwZDlhYmVmYmU4YTIwYWIwZTIwNjc1MWUNCkNvbnRlbnQt
         RGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ibWFzayI7IGZpbGVuYW1l
         PSJtYXNrLnBuZyINCkNvbnRlbnQtTGVuZ3RoOiAxMDkxDQpDb250ZW50LVR5
         cGU6IGltYWdlL3BuZw0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmlu
@@ -46,17 +46,17 @@ http_interactions:
         UpvYkv47d2wx8uJhY4qPcYZv5tYgvVCJHqklhpTpP0MQcXy+eSd8k1ELmS6Q
         C/XgW5m39xlxi6Trz43ueW83k+w4W0FKQH23G6AWJEAtSIBakAC1IAH+ABDJ
         UOtTPUybAAAAAElFTkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
-        dFBvc3QtNDY0MThmMzdmODgwYjM0NzJlNmIyZGRkYzBlMTI1OTANCkNvbnRl
+        dFBvc3QtMDMxZGNmMzcwZDlhYmVmYmU4YTIwYWIwZTIwNjc1MWUNCkNvbnRl
         bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0icHJvbXB0Ig0KDQpB
         IHNvbGlkIHJlZCBSdWJ5IG9uIGEgYmx1ZSBiYWNrZ3JvdW5kDQotLS0tLS0t
-        LS0tLS0tUnVieU11bHRpcGFydFBvc3QtNDY0MThmMzdmODgwYjM0NzJlNmIy
-        ZGRkYzBlMTI1OTANCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsg
+        LS0tLS0tUnVieU11bHRpcGFydFBvc3QtMDMxZGNmMzcwZDlhYmVmYmU4YTIw
+        YWIwZTIwNjc1MWUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsg
         bmFtZT0ic2l6ZSINCg0KMjU2eDI1Ng0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0
-        aXBhcnRQb3N0LTQ2NDE4ZjM3Zjg4MGIzNDcyZTZiMmRkZGMwZTEyNTkwLS0N
+        aXBhcnRQb3N0LTAzMWRjZjM3MGQ5YWJlZmJlOGEyMGFiMGUyMDY3NTFlLS0N
         Cg==
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-46418f37f880b3472e6b2dddc0e12590
+      - multipart/form-data; boundary=-----------RubyMultipartPost-031dcf370d9abefbe8a20ab0e206751e
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -73,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:49:10 GMT
+      - Sat, 22 Apr 2023 09:23:10 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -85,9 +85,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - b99153747cf1b2ee1287c6eafde50d61
+      - 9b5f4e60fafeb6b78cf8c44d0c6a7527
       Openai-Processing-Ms:
-      - '8644'
+      - '8719'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -97,24 +97,24 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9c72e8fa3e23-SIN
+      - 7bbcce3c8e026baa-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        ewogICJjcmVhdGVkIjogMTY4MjE1MzM1MCwKICAiZGF0YSI6IFsKICAgIHsK
+        ewogICJjcmVhdGVkIjogMTY4MjE1NTM5MCwKICAiZGF0YSI6IFsKICAgIHsK
         ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
         Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
         SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
-        UXdsclVGSHViSGFGcVlkcGlVY1k2d2oyLnBuZz9zdD0yMDIzLTA0LTIyVDA3
-        JTNBNDklM0ExMFomc2U9MjAyMy0wNC0yMlQwOSUzQTQ5JTNBMTBaJnNwPXIm
+        UURxdXZaQklpS2NZRVpPZU16MGxGMWZHLnBuZz9zdD0yMDIzLTA0LTIyVDA4
+        JTNBMjMlM0ExMFomc2U9MjAyMy0wNC0yMlQxMCUzQTIzJTNBMTBaJnNwPXIm
         c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
         JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
         a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
-        PTIwMjMtMDQtMjJUMDglM0E0NSUzQTUzWiZza2U9MjAyMy0wNC0yM1QwOCUz
-        QTQ1JTNBNTNaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz03QzBBYXJZRE95
-        ZlpxOWE0STg2bXR6TVBGUE4zaS8vYTNud1dFa2x4eFprJTNEIgogICAgfQog
-        IF0KfQo=
-  recorded_at: Sat, 22 Apr 2023 08:49:10 GMT
+        PTIwMjMtMDQtMjJUMDclM0EwMyUzQTA4WiZza2U9MjAyMy0wNC0yM1QwNyUz
+        QTAzJTNBMDhaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz14MzJQdFpMekR5
+        WnpOcFhic3VwY1JBcm5wS2xMVkQvb2JtJTJCa0dXWVI5S1klM0QiCiAgICB9
+        CiAgXQp9Cg==
+  recorded_at: Sat, 22 Apr 2023 09:23:09 GMT
 recorded_with: VCR 6.1.0

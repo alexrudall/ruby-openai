@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-KPTQoQq8ce7NHy7DQ3cru5AS/content?timeout=0
+    uri: https://api.openai.com/v1/files/file-lL6avMTDlwgDthctz9RbNLEi/content?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:48:32 GMT
+      - Sat, 22 Apr 2023 09:22:29 GMT
       Content-Type:
       - application/octet-stream
       Transfer-Encoding:
@@ -37,9 +37,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - e597e3725bdac9cd250cba8d85129c3b
+      - 1c14ae1d1a32a7f025cbdcdae501ba9d
       Openai-Processing-Ms:
-      - '32'
+      - '25'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -49,7 +49,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9bba1fed3f7d-SIN
+      - 7bbccd74b877a036-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -57,5 +57,5 @@ http_interactions:
       string: |
         {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
         {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
-  recorded_at: Sat, 22 Apr 2023 08:48:32 GMT
+  recorded_at: Sat, 22 Apr 2023 09:22:29 GMT
 recorded_with: VCR 6.1.0

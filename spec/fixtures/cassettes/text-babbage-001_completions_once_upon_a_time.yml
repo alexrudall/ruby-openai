@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:48:20 GMT
+      - Sat, 22 Apr 2023 09:22:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - e007d12c2e9ebbc02e4f63307201c4b9
+      - 940433165fd6b8a04f91e36a1d9fbadd
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9b70be2c3de7-SIN
+      - 7bbccd33bacb4a17-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-783CmT8fOIyDu5fyoXxTz8Eq5EuMn","object":"text_completion","created":1682153300,"model":"text-babbage-001","choices":[{"text":",
-        there was a great","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-783jeUmedQOSzpw015zQRvyg7urgk","object":"text_completion","created":1682155338,"model":"text-babbage-001","choices":[{"text":"
+        there was a kingdom where","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Sat, 22 Apr 2023 08:48:20 GMT
+  recorded_at: Sat, 22 Apr 2023 09:22:18 GMT
 recorded_with: VCR 6.1.0

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.openai.com/v1/files/file-7cxonhArnTx59xArUmLILmLB?timeout=0
+    uri: https://api.openai.com/v1/files/file-XqcQIQyZjP6tAXfMLEJa0Re2?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:48:36 GMT
+      - Sat, 22 Apr 2023 09:22:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - ef7babefaa580f714772df314874df9b
+      - 11a5949ec9ab87574a35fd7a7ffb756c
       Openai-Processing-Ms:
-      - '104'
+      - '397'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9bd3afc33fa7-SIN
+      - 7bbccd8caeb83e53-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -55,8 +55,8 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-7cxonhArnTx59xArUmLILmLB",
+          "id": "file-XqcQIQyZjP6tAXfMLEJa0Re2",
           "deleted": true
         }
-  recorded_at: Sat, 22 Apr 2023 08:48:36 GMT
+  recorded_at: Sat, 22 Apr 2023 09:22:33 GMT
 recorded_with: VCR 6.1.0

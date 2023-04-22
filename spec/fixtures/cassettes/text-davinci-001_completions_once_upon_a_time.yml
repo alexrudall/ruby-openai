@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 08:48:21 GMT
+      - Sat, 22 Apr 2023 09:22:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '78'
+      - '71'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - a83f9c3af44892d94696a88db30ffa3a
+      - df93d95845b27169a751551eaa0c6446
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbc9b76b89ba06f-SIN
+      - 7bbccd39ec464900-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-783CncsoKndylK62yBiCwIM9JnsE7","object":"text_completion","created":1682153301,"model":"text-davinci-001","choices":[{"text":",
-        a new writer published","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-783jfJgYQ9vILXCCNN7Z2oxC7Eg38","object":"text_completion","created":1682155339,"model":"text-davinci-001","choices":[{"text":"
+        there was a little boy","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Sat, 22 Apr 2023 08:48:21 GMT
+  recorded_at: Sat, 22 Apr 2023 09:22:19 GMT
 recorded_with: VCR 6.1.0
