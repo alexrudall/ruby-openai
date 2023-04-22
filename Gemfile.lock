@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     ruby-openai (3.7.0)
-      faraday (= 2.7.4)
-      faraday-multipart (= 1.0.4)
-      mime-types (= 3.4.1)
+      faraday (>= 2)
+      faraday-multipart (>= 1)
+      mime-types (>= 3)
 
 GEM
   remote: https://rubygems.org/
