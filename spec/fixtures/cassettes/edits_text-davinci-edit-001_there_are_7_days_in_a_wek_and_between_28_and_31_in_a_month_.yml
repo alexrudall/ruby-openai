@@ -9,25 +9,29 @@ http_interactions:
         and between 28 and 31 in a month.","instruction":"Fix the misspelled word
         ''week''"}'
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:04:41 GMT
+      - Sat, 22 Apr 2023 08:48:23 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -37,7 +41,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1022'
+      - '1248'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -49,22 +53,20 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 3s
       X-Request-Id:
-      - 7f0668f5d8ca3fa5c0a21dedf2a963f4
+      - 0fa8ca01c0e9b0cb925af73a5cf0ede8
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d884a874dd70-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9b7a487a6bc7-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"edit","created":1680404680,"choices":[{"text":"There are
+      string: '{"object":"edit","created":1682153302,"choices":[{"text":"There are
         7 days in a week, and between 28 and 31 in a month.\n","index":0}],"usage":{"prompt_tokens":38,"completion_tokens":46,"total_tokens":84}}
 
-'
-  recorded_at: Sun, 02 Apr 2023 03:04:41 GMT
+        '
+  recorded_at: Sat, 22 Apr 2023 08:48:23 GMT
 recorded_with: VCR 6.1.0

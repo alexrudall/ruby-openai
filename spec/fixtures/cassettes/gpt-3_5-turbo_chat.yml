@@ -7,25 +7,29 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 12:54:04 GMT
+      - Sat, 22 Apr 2023 08:48:16 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -35,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '979'
+      - '1116'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -47,22 +51,20 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 386cb5e71d35bfd472e69fe4778c1598
+      - 838a4b060c42654116a0b6240e12e53b
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b1937deeb9275bf-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9b4bf9573f50-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-70rVbz4kb1WIYNWRgS1ob7zsg0gpS","object":"chat.completion","created":1680440043,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
-        there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
+      string: '{"id":"chatcmpl-783CgTFj4KUVfyKUAUAlMlu6lMoMn","object":"chat.completion","created":1682153294,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
+        there! How may I assist you today?"},"finish_reason":"stop","index":0}]}
 
         '
-  recorded_at: Sun, 02 Apr 2023 12:54:04 GMT
+  recorded_at: Sat, 22 Apr 2023 08:48:15 GMT
 recorded_with: VCR 6.1.0

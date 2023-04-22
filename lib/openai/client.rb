@@ -70,8 +70,8 @@ module OpenAI
 
     def self.multipart_post(path:, parameters: nil)
       conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
-        req.body = parameters
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
+        req.body = multipart_parameters(parameters)
       end
     end
 
@@ -82,8 +82,8 @@ module OpenAI
     end
 
     private_class_method def self.conn
-      Faraday.new(params: nil) do |f|
-        f.adapter :typhoeus
+      Faraday.new do |f|
+        f.request :multipart
       end
     end
 
@@ -101,6 +101,22 @@ module OpenAI
 
     private_class_method def self.request_timeout
       OpenAI.configuration.request_timeout
+    end
+
+    private_class_method def self.mime_type(file_path)
+      return "application/jsonl" if file_path.end_with?(".jsonl")
+
+      MIME::Types.type_for(file_path).first.content_type
+    end
+
+    private_class_method def self.multipart_parameters(parameters)
+      return unless parameters
+
+      parameters.to_h do |key, value|
+        next [key, value] unless value.is_a?(File)
+
+        [key, Faraday::UploadIO.new(value, mime_type(value.path), value.path)]
+      end
     end
   end
 end

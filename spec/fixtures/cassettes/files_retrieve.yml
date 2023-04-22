@@ -2,38 +2,42 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-gnZu4FgQPmnLeyshstTzvz63?timeout=0
+    uri: https://api.openai.com/v1/files/file-idEVdyQFgAlQTtRFdNtIMZ5B?timeout=0
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:04:46 GMT
+      - Sat, 22 Apr 2023 08:48:30 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - e61909933ed02d466a39e8fcfabdb685
+      - 8864d298d3258e925efa637d4c6f2f53
       Openai-Processing-Ms:
-      - '12'
+      - '25'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -43,9 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d8aa9d5edd70-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9bab8f074c71-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -53,13 +55,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-gnZu4FgQPmnLeyshstTzvz63",
+          "id": "file-idEVdyQFgAlQTtRFdNtIMZ5B",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1680404686,
+          "created_at": 1682153309,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Sun, 02 Apr 2023 03:04:46 GMT
+  recorded_at: Sat, 22 Apr 2023 08:48:30 GMT
 recorded_with: VCR 6.1.0

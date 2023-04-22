@@ -7,25 +7,29 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"text-davinci-001","prompt":"Once upon a time","max_tokens":5}'
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:04:40 GMT
+      - Sat, 22 Apr 2023 08:48:21 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -35,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '75'
+      - '78'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -53,22 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - da193d97b007d94ecf5c9bb4f1d965c0
+      - a83f9c3af44892d94696a88db30ffa3a
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d8819efcdd70-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9b76b89ba06f-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-70iJEVHUiKiVbKt7bnNqHcLFGs4Jw","object":"text_completion","created":1680404680,"model":"text-davinci-001","choices":[{"text":"
-        there was a goddess\n","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-783CncsoKndylK62yBiCwIM9JnsE7","object":"text_completion","created":1682153301,"model":"text-davinci-001","choices":[{"text":",
+        a new writer published","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
-  recorded_at: Sun, 02 Apr 2023 03:04:39 GMT
+        '
+  recorded_at: Sat, 22 Apr 2023 08:48:21 GMT
 recorded_with: VCR 6.1.0

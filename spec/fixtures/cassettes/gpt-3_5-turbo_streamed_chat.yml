@@ -7,25 +7,29 @@ http_interactions:
       encoding: UTF-8
       string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"Hello!"}],"stream":true}'
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 12:54:04 GMT
+      - Sat, 22 Apr 2023 08:48:17 GMT
       Content-Type:
       - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
@@ -35,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '145'
+      - '516'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -47,17 +51,42 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 92e98da6a51fc1966e2f6dc6870d0970
+      - a8f222bc6c27b281661d1f33b0b4fad7
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b1937e75ce475bf-LHR
+      - 7bbc9b5779bb4a41-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: ASCII-8BIT
-      string: ''
-  recorded_at: Sun, 02 Apr 2023 12:54:05 GMT
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"role":"assistant"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":"Hello"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" there"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":"!"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" How"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" may"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" I"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" assist"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":" you"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{"content":"?"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-783CigtRSQ0oduMtgM6LTIeRyfbtd","object":"chat.completion.chunk","created":1682153296,"model":"gpt-3.5-turbo-0301","choices":[{"delta":{},"index":0,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Sat, 22 Apr 2023 08:48:17 GMT
 recorded_with: VCR 6.1.0
+...

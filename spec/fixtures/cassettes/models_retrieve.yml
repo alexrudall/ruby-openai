@@ -7,33 +7,35 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:05:36 GMT
+      - Sat, 22 Apr 2023 08:49:20 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Openai-Version:
       - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 88d2f8eaf1094b7c1f6c1b9b3ed99832
+      - 159c33a8ab98f0540d58d6889fdd8c1d
       Openai-Processing-Ms:
-      - '24'
+      - '25'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -43,9 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d9e2395edd70-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9ce61c974679-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -75,5 +75,5 @@ http_interactions:
           "root": "text-ada-001",
           "parent": null
         }
-  recorded_at: Sun, 02 Apr 2023 03:05:35 GMT
+  recorded_at: Sat, 22 Apr 2023 08:49:20 GMT
 recorded_with: VCR 6.1.0

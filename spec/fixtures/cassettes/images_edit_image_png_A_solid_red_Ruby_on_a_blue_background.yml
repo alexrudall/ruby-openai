@@ -4,40 +4,90 @@ http_interactions:
     method: post
     uri: https://api.openai.com/v1/images/edits
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       base64_string: |
-        aW1hZ2U9JTIzJTNDRmlsZSUzQTB4MDAwMDdmY2E5NDViM2M0OCUzRSZtYXNr
-        PSUyMyUzQ0ZpbGUlM0EweDAwMDA3ZmNhOTQ1YjM4NjAlM0UmcHJvbXB0PUEl
-        MjBzb2xpZCUyMHJlZCUyMFJ1YnklMjBvbiUyMGElMjBibHVlJTIwYmFja2dy
-        b3VuZCZzaXplPTI1NngyNTY=
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LTQ2NDE4ZjM3Zjg4MGIz
+        NDcyZTZiMmRkZGMwZTEyNTkwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
+        LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
+        bnRlbnQtTGVuZ3RoOiAyNDkNCkNvbnRlbnQtVHlwZTogaW1hZ2UvcG5nDQpD
+        b250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KiVBORw0KGgoA
+        AAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAAAsTAAALEwEAmpwY
+        AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgB7dBBDcAg
+        AAAxNnGYRCz8SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQ
+        EkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJ
+        ISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv
+        2YpOAAAAAElFTkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBv
+        c3QtNDY0MThmMzdmODgwYjM0NzJlNmIyZGRkYzBlMTI1OTANCkNvbnRlbnQt
+        RGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ibWFzayI7IGZpbGVuYW1l
+        PSJtYXNrLnBuZyINCkNvbnRlbnQtTGVuZ3RoOiAxMDkxDQpDb250ZW50LVR5
+        cGU6IGltYWdlL3BuZw0KQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmlu
+        YXJ5DQoNColQTkcNChoKAAAADUlIRFIAAABEAAAARAgGAAAAOBOTsgAAAAlw
+        SFlzAAALEwAACxMBAJqcGAAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEF
+        AAAD2ElEQVR4Ae2cTVITQRTH/29CLHXFEfAEhhMYFgR25AimCqxyBZ4gcAJh
+        ZUmoit4ANwq4IJ4AOIE5AhsRDZn2vRAsnarp6e75nprfJlVMU9X58/p99Ruo
+        M1AKNX/xUPMftSABakEC1IIEqAUJUAsSYAHZck2EYyhcKcLYa+DyMf/suEfX
+        Dwu6Q7X4Y4KlBmGR84EWr3tB/uxzCRlAGeQh8mUP2BRHJ1s0giOrh6rleXgJ
+        HxtpipOaIGwJI1LYiyNCGJ0j1SVgm3feRsKkIcglW8ObNIQIsj5Qbd79MEmL
+        SVKQa/6r7Z1u0T4yhr/DLn/0kQCJRBkSB7mA5TzEEM62aNe7wzM+omPEJL4g
+        CsdPGlg+6dEYOXLymsa/mliW/SAGsY4MW8bB6SbtoGCsHql9tpZtOOBsIUUV
+        Q/jK+2JHewAH3ARhsyyqGA+IKC7Hx1oQcaBPm+ihBPzmfdo6WntBGlj5N9Uu
+        MiPeJ02xgvts2QhbQfbyjia2SPSR/Mh0vbEgclQk3qOEzPOjS5O15oKocviN
+        MKScMFwXjRRqWdQmaSL756MzilpnJAgvcorpRcPEl0QKIr7jyybFSoeLwtzK
+        tRHHxEI+oVporT1SkIaPD6gQXoQf0Qoix+XzKzIKV2Uh6tjoLcTHFapJqBvQ
+        C0LRYaqMkCZJ0x8Zw+yubMgVSNgzrSCeQimKOFu8iaOFPGrG71EWkdvHjk61
+        LGW+LSPN96rvdgPUggTQCiIXz6ggbc330gpyC1RSkOYk/OpTn4dM0UIFkVGL
+        sGdaQXyVzUxG1sjcSdizqNT9OSqIDOGEPdMKwpecXVQR39VC2KnKDAYqhEwi
+        gRydquAj+SmdXJGxLO3jaJxu0YsK+djQPTcRpDLHRmbTEDF+ZZS6q4TGlfLG
+        ZGbEVJB22a1kNqBn4A+Nizt2rm9RYjjJHJqss6l2W2vvVaGHZMLoDFQfhqOb
+        VuW/8tBfH6ollIj1d7P97pqut+2HLPpTnJelLSD79Bs4t/kd+wYRF3w/J2bn
+        MW9uZJ+WU85OHTMujrprA1VoJ9uR/ZF9LebcQuQQtlNUUTr3+3IKALFn3Ukm
+        mZvoFaFDLz5jfkycq/TYTWY5PjdTXOQdfSSasBgXccQQkum6s6P17/B9Fu9z
+        YO1QbfsLMzGWEJPk35eRNyMUelm9LzPPoBPr/ab3RhVfkMm8+VkK41jzuqRv
+        UpvYkv47d2wx8uJhY4qPcYZv5tYgvVCJHqklhpTpP0MQcXy+eSd8k1ELmS6Q
+        C/XgW5m39xlxi6Trz43ueW83k+w4W0FKQH23G6AWJEAtSIBakAC1IAH+ABDJ
+        UOtTPUybAAAAAElFTkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
+        dFBvc3QtNDY0MThmMzdmODgwYjM0NzJlNmIyZGRkYzBlMTI1OTANCkNvbnRl
+        bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0icHJvbXB0Ig0KDQpB
+        IHNvbGlkIHJlZCBSdWJ5IG9uIGEgYmx1ZSBiYWNrZ3JvdW5kDQotLS0tLS0t
+        LS0tLS0tUnVieU11bHRpcGFydFBvc3QtNDY0MThmMzdmODgwYjM0NzJlNmIy
+        ZGRkYzBlMTI1OTANCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsg
+        bmFtZT0ic2l6ZSINCg0KMjU2eDI1Ng0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0
+        aXBhcnRQb3N0LTQ2NDE4ZjM3Zjg4MGIzNDcyZTZiMmRkZGMwZTEyNTkwLS0N
+        Cg==
     headers:
-      User-Agent:
-      - Typhoeus - https://github.com/typhoeus/typhoeus
       Content-Type:
-      - multipart/form-data
+      - multipart/form-data; boundary=-----------RubyMultipartPost-46418f37f880b3472e6b2dddc0e12590
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - ''
-      Expect:
-      - ''
+      Content-Length:
+      - '2116'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Date:
-      - Sun, 02 Apr 2023 03:05:27 GMT
+      - Sat, 22 Apr 2023 08:49:10 GMT
       Content-Type:
       - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - fa39757030cb50e28c87e33189a72877
+      - b99153747cf1b2ee1287c6eafde50d61
       Openai-Processing-Ms:
-      - '9716'
+      - '8644'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,26 +97,24 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7b15d96d4c51dd70-LHR
-      Content-Encoding:
-      - gzip
+      - 7bbc9c72e8fa3e23-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        ewogICJjcmVhdGVkIjogMTY4MDQwNDcyNywKICAiZGF0YSI6IFsKICAgIHsK
+        ewogICJjcmVhdGVkIjogMTY4MjE1MzM1MCwKICAiZGF0YSI6IFsKICAgIHsK
         ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
         Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
         SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
-        SHdvU2swOXc0S3p2OE54TUtRMHF3ZEdJLnBuZz9zdD0yMDIzLTA0LTAyVDAy
-        JTNBMDUlM0EyN1omc2U9MjAyMy0wNC0wMlQwNCUzQTA1JTNBMjdaJnNwPXIm
+        UXdsclVGSHViSGFGcVlkcGlVY1k2d2oyLnBuZz9zdD0yMDIzLTA0LTIyVDA3
+        JTNBNDklM0ExMFomc2U9MjAyMy0wNC0yMlQwOSUzQTQ5JTNBMTBaJnNwPXIm
         c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
         JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
         a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
-        PTIwMjMtMDQtMDFUMTclM0EyMyUzQTU3WiZza2U9MjAyMy0wNC0wMlQxNyUz
-        QTIzJTNBNTdaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz0wNTl6YXJ2UUh5
-        a1FDMjZNSE55OC9lSDg3SzlDb0hvdE5VdSUyQkthbVQ3L3MlM0QiCiAgICB9
-        CiAgXQp9Cg==
-  recorded_at: Sun, 02 Apr 2023 03:05:26 GMT
+        PTIwMjMtMDQtMjJUMDglM0E0NSUzQTUzWiZza2U9MjAyMy0wNC0yM1QwOCUz
+        QTQ1JTNBNTNaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz03QzBBYXJZRE95
+        ZlpxOWE0STg2bXR6TVBGUE4zaS8vYTNud1dFa2x4eFprJTNEIgogICAgfQog
+        IF0KfQo=
+  recorded_at: Sat, 22 Apr 2023 08:49:10 GMT
 recorded_with: VCR 6.1.0
