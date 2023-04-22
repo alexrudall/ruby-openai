@@ -112,10 +112,10 @@ module OpenAI
     private_class_method def self.multipart_parameters(parameters)
       return unless parameters
 
-      parameters.to_h do |key, value|
-        next [key, value] unless value.is_a?(File)
+      parameters.transform_values do |value|
+        next value unless value.is_a?(File)
 
-        [key, Faraday::UploadIO.new(value, mime_type(value.path), value.path)]
+        Faraday::UploadIO.new(value, mime_type(value.path), value.path)
       end
     end
   end
