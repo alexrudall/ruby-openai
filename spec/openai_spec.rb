@@ -23,7 +23,7 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.api_version).to eq(api_version)
       expect(OpenAI.configuration.organization_id).to eq(organization_id)
       expect(OpenAI.configuration.uri_base).to eq("https://api.openai.com/")
-      expect(OpenAI.configuration.request_timeout).to eq(0)
+      expect(OpenAI.configuration.request_timeout).to eq(120)
     end
 
     context "without an access token" do
