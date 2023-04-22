@@ -96,7 +96,7 @@ end
 
 ### Models
 
-There are different models that can be used to generate text. For a full list and to retrieve information about a single models:
+There are different models that can be used to generate text. For a full list and to retrieve information about a single model:
 
 ```ruby
 client.models.list
