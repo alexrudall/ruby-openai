@@ -8,7 +8,7 @@ RSpec.describe OpenAI::Client do
           parameters: {
             model: model,
             messages: messages,
-            stream: stream,
+            stream: stream
           }
         )
       end
