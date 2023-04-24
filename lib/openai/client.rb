@@ -60,16 +60,8 @@ module OpenAI
     def self.json_post(path:, parameters:)
       to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         if parameters[:stream].is_a?(Proc)
-          user_proc = parameters[:stream].clone
-          to_json_proc = Proc.new do |chunk, bytesize|
-            # Clean up response string of chunks and turn it into JSON.
-            chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", ",{\"data\":[\"DONE\"]}").gsub("\n\ndata:", ",").gsub("data: ", ""))
-
-            # Pass the JSONified chunk(s) to the user's Proc.
-            user_proc.call(chunk, bytesize)
-          end
-          req.options.on_data = to_json_proc
-          parameters[:stream] = true
+          req.options.on_data = to_json_stream(user_proc: parameters[:stream])
+          parameters[:stream] = true # Necessary to tell OpenAI to stream.
         end
 
         req.headers = headers
@@ -98,6 +90,16 @@ module OpenAI
 
       # Convert a multiline string of JSON objects to a JSON array.
       JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
+    end
+
+    private_class_method def self.to_json_stream(user_proc:)
+      Proc.new do |chunk, bytesize|
+        # Clean up response string of chunks and turn it into JSON.
+        chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", ",{\"data\":[\"DONE\"]}").gsub("\n\ndata:", ",").gsub("data: ", ""))
+
+        # Pass the JSONified chunk(s) to the user's Proc.
+        user_proc.call(chunk, bytesize)
+      end
     end
 
     private_class_method def self.conn

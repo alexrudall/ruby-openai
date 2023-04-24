@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":null}'
+      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:39:01 GMT
+      - Mon, 24 Apr 2023 09:45:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1417'
+      - '1439'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -51,20 +51,20 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Request-Id:
-      - 1333c77c0dc9987878938d73d1f93c96
+      - 83a043e7d6ad291bb58fa6a6eaff2913
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd6064aa834ac5-CGK
+      - 7bcd69340b234abc-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-78mwuLFV8N4IaQuGgJR6R2CMIFL3L","object":"chat.completion","created":1682329140,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
+      string: '{"id":"chatcmpl-78n2iVTgF6IZT63dIXJX2HNG2sHKz","object":"chat.completion","created":1682329500,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
         there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
 
         '
-  recorded_at: Mon, 24 Apr 2023 09:39:00 GMT
+  recorded_at: Mon, 24 Apr 2023 09:45:01 GMT
 recorded_with: VCR 6.1.0
