@@ -2,15 +2,13 @@ RSpec.describe OpenAI::Client do
   describe "#chat" do
     context "with messages", :vcr do
       let(:messages) { [{ role: "user", content: "Hello!" }] }
-      let(:stream) { false }
-      let(:on_data) { nil }
+      let(:stream) { nil }
       let(:response) do
         OpenAI::Client.new.chat(
           parameters: {
             model: model,
             messages: messages,
             stream: stream,
-            on_data: on_data
           }
         )
       end
@@ -27,9 +25,8 @@ RSpec.describe OpenAI::Client do
         end
 
         describe "streaming" do
-          let(:stream) { true }
           let(:chunks) { [] }
-          let(:on_data) do
+          let(:stream) do
             proc do |chunk, _bytesize|
               chunks << chunk
             end

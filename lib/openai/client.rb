@@ -52,36 +52,34 @@ module OpenAI
     end
 
     def self.get(path:)
-      json_parse(conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      to_json(conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
       end)
     end
 
     def self.json_post(path:, parameters:)
-      json_parse(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
-        if parameters[:stream] && parameters[:on_data].is_a?(Proc)
-          req.options.on_data = parameters[:on_data]
-        end
-        parameters.delete(:on_data)
+        req.options.on_data = parameters[:stream] if parameters[:stream].is_a?(Proc)
+        parameters.delete(:stream)
         req.body = parameters.to_json
       end)
     end
 
     def self.multipart_post(path:, parameters: nil)
-      json_parse(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end)
     end
 
     def self.delete(path:)
-      json_parse(conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      to_json(conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
       end)
     end
 
-    def self.json_parse(response)
+    def self.to_json(response)
       return unless response
 
       JSON.parse(response.body)
