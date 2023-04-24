@@ -97,7 +97,10 @@ module OpenAI
         # Clean up response string of chunks and turn it into JSON.
         chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", ""))
 
-        # Pass the JSONified chunk(s) to the user's Proc.
+        # For consistency, always return an array.
+        chunk = [chunk] unless chunk.is_a?(Array)
+
+        # Pass the JSONified chunks to the user's Proc.
         user_proc.call(chunk, bytesize)
       end
     end
