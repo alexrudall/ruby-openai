@@ -14,7 +14,7 @@ RSpec.describe OpenAI::Client do
           }
         )
       end
-      let(:content) { JSON.parse(response.body).dig("choices", 0, "message", "content") }
+      let(:content) { response.dig("choices", 0, "message", "content") }
       let(:cassette) { "#{model} #{'streamed' if stream} chat".downcase }
 
       context "with model: gpt-3.5-turbo" do

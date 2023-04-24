@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 09:22:25 GMT
+      - Mon, 24 Apr 2023 03:21:06 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5174296006f31a4d85d6caa119a2e9c2
+      - 7d5cc15aa1f71b0a9dd84ed614dfb786
       Openai-Processing-Ms:
-      - '291'
+      - '502'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbccd5c8b9b4118-SIN
+      - 7bcb36d0ec253f53-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -56,16 +56,6 @@ http_interactions:
         {
           "object": "list",
           "data": [
-            {
-              "object": "file",
-              "id": "file-p3c8CF9CAS8iX8U8Gck3zsA2",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1679694078,
-              "status": "processed",
-              "status_details": null
-            },
             {
               "object": "file",
               "id": "file-QHscd9tMCZ8Q45ELz6tcy1cs",
@@ -88,21 +78,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-KGPGsTNChKNuk1hz9fkBgNeI",
+              "id": "file-p3c8CF9CAS8iX8U8Gck3zsA2",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1679694221,
+              "bytes": 411,
+              "created_at": 1679694078,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-NQZixNXhpv2GEsuZIVLBaAIf",
+              "id": "file-KGPGsTNChKNuk1hz9fkBgNeI",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 449,
-              "created_at": 1679703937,
+              "bytes": 413,
+              "created_at": 1679694221,
               "status": "processed",
               "status_details": null
             },
@@ -178,11 +168,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-DH1R4LOgvdFRRu5WAFCIXPfa",
+              "id": "file-NQZixNXhpv2GEsuZIVLBaAIf",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 450,
-              "created_at": 1679704160,
+              "bytes": 449,
+              "created_at": 1679703937,
               "status": "processed",
               "status_details": null
             },
@@ -198,11 +188,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-gWp2hxavbmnZ5DrtGER9xlhc",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1677695722,
+              "id": "file-DH1R4LOgvdFRRu5WAFCIXPfa",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 450,
+              "created_at": 1679704160,
               "status": "processed",
               "status_details": null
             },
@@ -213,6 +203,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 453,
               "created_at": 1679704267,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-gWp2hxavbmnZ5DrtGER9xlhc",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1677695722,
               "status": "processed",
               "status_details": null
             },
@@ -238,16 +238,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-fnjc7dS3QZfysrc8UgAs6vJD",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1677695736,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-q2DRatbQDpM3CDp2wNrBwfRG",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -268,11 +258,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-L923jJTER7uUSrlRh2Ih8sQ3",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 453,
-              "created_at": 1677702571,
+              "id": "file-fnjc7dS3QZfysrc8UgAs6vJD",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1677695736,
               "status": "processed",
               "status_details": null
             },
@@ -338,11 +328,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-dfr9d7H1IRH4g2WTktjMo9qb",
+              "id": "file-L923jJTER7uUSrlRh2Ih8sQ3",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1677709401,
+              "bytes": 453,
+              "created_at": 1677702571,
               "status": "processed",
               "status_details": null
             },
@@ -378,11 +368,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-MbSv8bWC0eF5ubEfiw1zRj1j",
+              "id": "file-dfr9d7H1IRH4g2WTktjMo9qb",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 409,
-              "created_at": 1676339176,
+              "bytes": 415,
+              "created_at": 1677709401,
               "status": "processed",
               "status_details": null
             },
@@ -393,6 +383,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 412,
               "created_at": 1677713423,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-MbSv8bWC0eF5ubEfiw1zRj1j",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 409,
+              "created_at": 1676339176,
               "status": "processed",
               "status_details": null
             },
@@ -438,21 +438,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-GhGK5vsgIEjD0Ea0b4ZDgyMf",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1680179825,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-oYr3D06oSvO7DgRsNvmsjS3p",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 449,
               "created_at": 1680179495,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-GhGK5vsgIEjD0Ea0b4ZDgyMf",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 413,
+              "created_at": 1680179825,
               "status": "processed",
               "status_details": null
             },
@@ -478,16 +478,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-imSPFqLmdewuU6K2wZ51CTjF",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1680182029,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-AqbNaIlqCcrg0Mnfv5lWvFti",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -498,11 +488,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-KbgktobaFFlE659DKLXmRheb",
+              "id": "file-imSPFqLmdewuU6K2wZ51CTjF",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1680404910,
+              "bytes": 412,
+              "created_at": 1680182029,
               "status": "processed",
               "status_details": null
             },
@@ -538,11 +528,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-Nd9o5QI8DP9ibxwyU2wzZ5Ut",
+              "id": "file-KbgktobaFFlE659DKLXmRheb",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1680405049,
+              "bytes": 413,
+              "created_at": 1680404910,
               "status": "processed",
               "status_details": null
             },
@@ -558,11 +548,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-RT7UAud13KYm82DvXXmUEZYb",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676486859,
+              "id": "file-Nd9o5QI8DP9ibxwyU2wzZ5Ut",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 411,
+              "created_at": 1680405049,
               "status": "processed",
               "status_details": null
             },
@@ -578,11 +568,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-qoCS7Pjq6W8QrfhCKpbRoKBL",
+              "id": "file-RT7UAud13KYm82DvXXmUEZYb",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676486828,
+              "created_at": 1676486859,
               "status": "processed",
               "status_details": null
             },
@@ -638,11 +628,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-ePpTRYYHzTJPBPo5k4TyLBHe",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 407,
-              "created_at": 1676344368,
+              "id": "file-qoCS7Pjq6W8QrfhCKpbRoKBL",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676486828,
               "status": "processed",
               "status_details": null
             },
@@ -688,11 +678,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-8XwlbehpSCW7rsSa3V3oG568",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676496329,
+              "id": "file-ePpTRYYHzTJPBPo5k4TyLBHe",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 407,
+              "created_at": 1676344368,
               "status": "processed",
               "status_details": null
             },
@@ -713,6 +703,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 412,
               "created_at": 1676342791,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-8XwlbehpSCW7rsSa3V3oG568",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676496329,
               "status": "processed",
               "status_details": null
             },
@@ -748,16 +748,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-I5TSr07q8TzDMnFfbtlMp4X4",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676496600,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-VJ2MkLZkwzJ1XFyJcAc4qWUo",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -773,6 +763,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676496546,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-I5TSr07q8TzDMnFfbtlMp4X4",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676496600,
               "status": "processed",
               "status_details": null
             },
@@ -808,16 +808,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-jGs1KW7zIyr3KddbdidItzR4",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676496615,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-7S24U9ECHm7lrWpJZZm5jSal",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -828,21 +818,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-L3xZCifXobMJ2Trl0ePrMuBR",
+              "id": "file-jGs1KW7zIyr3KddbdidItzR4",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676496619,
+              "created_at": 1676496615,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-0vxW8uch7xtPxdfhyOmfFbeD",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1676500215,
+              "id": "file-L3xZCifXobMJ2Trl0ePrMuBR",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676496619,
               "status": "processed",
               "status_details": null
             },
@@ -908,11 +898,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-wY9J61zLFBeolMg2JdvK4thz",
+              "id": "file-0vxW8uch7xtPxdfhyOmfFbeD",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1676343799,
+              "bytes": 412,
+              "created_at": 1676500215,
               "status": "processed",
               "status_details": null
             },
@@ -948,6 +938,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-wY9J61zLFBeolMg2JdvK4thz",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 411,
+              "created_at": 1676343799,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-PlKP5HYXGp0xJj0XjvsveEv4",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -978,21 +978,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-ReMbV8ZfVaBT13l5hvXjKBJ1",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1676345626,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-yMU5txN4Lm5FcF8Hv2XGzOzR",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 411,
               "created_at": 1676556577,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-ReMbV8ZfVaBT13l5hvXjKBJ1",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 413,
+              "created_at": 1676345626,
               "status": "processed",
               "status_details": null
             },
@@ -1018,16 +1018,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-3XPvnHB1yAtKQMfd5OOuSPiC",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 452,
-              "created_at": 1676597748,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-K2Y2tT13uiL2c4jj5ot434Vs",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -1048,21 +1038,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-VppVfPYk4aRxoFJ44j7zEMc0",
+              "id": "file-3XPvnHB1yAtKQMfd5OOuSPiC",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 452,
-              "created_at": 1676598193,
+              "created_at": 1676597748,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-dcvXgglxCJp6kV41I1ANhn86",
+              "id": "file-VppVfPYk4aRxoFJ44j7zEMc0",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1676599475,
+              "bytes": 452,
+              "created_at": 1676598193,
               "status": "processed",
               "status_details": null
             },
@@ -1088,21 +1078,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-D5XRzyvZMwJCwBDo8B8FpYy9",
+              "id": "file-dcvXgglxCJp6kV41I1ANhn86",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 451,
-              "created_at": 1676599868,
+              "bytes": 413,
+              "created_at": 1676599475,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-kDBMb7K92Y87bEV23qsjRsY6",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676758017,
+              "id": "file-D5XRzyvZMwJCwBDo8B8FpYy9",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 451,
+              "created_at": 1676599868,
               "status": "processed",
               "status_details": null
             },
@@ -1123,6 +1113,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676759656,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-kDBMb7K92Y87bEV23qsjRsY6",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676758017,
               "status": "processed",
               "status_details": null
             },
@@ -1198,16 +1198,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-SRWU1nzY0qtetzuzMHliDzN3",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1676759078,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-iDEgBPdCQhv88ZwalmTLLdqI",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -1228,21 +1218,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-h38HgjW2DQyBQC6Zbmd3JGUy",
+              "id": "file-SRWU1nzY0qtetzuzMHliDzN3",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1676759282,
+              "bytes": 411,
+              "created_at": 1676759078,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-o4v50WOkJMVn9GlpMXw3dLmI",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676759655,
+              "id": "file-h38HgjW2DQyBQC6Zbmd3JGUy",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1676759282,
               "status": "processed",
               "status_details": null
             },
@@ -1273,6 +1263,26 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676759652,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-o4v50WOkJMVn9GlpMXw3dLmI",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759655,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-8h7beuWVvkgBoqDYpLLtA3gM",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676759660,
               "status": "processed",
               "status_details": null
             },
@@ -1428,16 +1438,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-8h7beuWVvkgBoqDYpLLtA3gM",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676759660,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-0OYpkZHJHlPDcgPjzqnRNUaI",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -1478,16 +1478,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-SsNl7iai0AmbXwYroET13ql1",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1676761670,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-65Ea4ifpkPm9MNiz0yWf2DR6",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -1503,6 +1493,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 411,
               "created_at": 1676761469,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-SsNl7iai0AmbXwYroET13ql1",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 415,
+              "created_at": 1676761670,
               "status": "processed",
               "status_details": null
             },
@@ -1528,16 +1528,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-hiTMtymRqjCRBQc7bnv3iqy1",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676327916,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-X1jF6VMptOUMTEod67AWAb6y",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -1558,11 +1548,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-g9tZoMVQZGAQjzxiEfzNSEe5",
+              "id": "file-hiTMtymRqjCRBQc7bnv3iqy1",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676327393,
+              "created_at": 1676327916,
               "status": "processed",
               "status_details": null
             },
@@ -1573,6 +1563,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676328216,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-g9tZoMVQZGAQjzxiEfzNSEe5",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676327393,
               "status": "processed",
               "status_details": null
             },
@@ -1628,16 +1628,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-8UyEuaAubuK4Ndd6GLKsUkLe",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676327834,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-J51Xu0DS0LZHlplwcveqv5fK",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -1648,11 +1638,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-VjJT3ETH0TiY1dJViueh2n8c",
+              "id": "file-8UyEuaAubuK4Ndd6GLKsUkLe",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676327835,
+              "created_at": 1676327834,
               "status": "processed",
               "status_details": null
             },
@@ -1663,6 +1653,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676327837,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-VjJT3ETH0TiY1dJViueh2n8c",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676327835,
               "status": "processed",
               "status_details": null
             },
@@ -1683,16 +1683,6 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676328266,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-Uvj1KIcUCMB1IdlhCY4JzKRF",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676327921,
               "status": "processed",
               "status_details": null
             },
@@ -1728,6 +1718,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-Uvj1KIcUCMB1IdlhCY4JzKRF",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676327921,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-iBxf7wX4UhnPir3Bjo5te7sn",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -1758,16 +1758,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-ZGTG7CnCaAHM7aouUS6oGbaU",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676328247,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-GlyAiX00yyNih2IC0F2RQg7p",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -1788,11 +1778,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-aucQvyNRZZ1Y9iEZDSu0gkhG",
+              "id": "file-ZGTG7CnCaAHM7aouUS6oGbaU",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676328218,
+              "created_at": 1676328247,
               "status": "processed",
               "status_details": null
             },
@@ -1803,6 +1793,26 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676328260,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-aucQvyNRZZ1Y9iEZDSu0gkhG",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676328218,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-rg1mGGXQ1m4r5CWvhnGQecLE",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1676328221,
               "status": "processed",
               "status_details": null
             },
@@ -1828,11 +1838,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-rg1mGGXQ1m4r5CWvhnGQecLE",
+              "id": "file-WMi3gBfSRqIcMBSc0VUeOA8G",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1676328221,
+              "created_at": 1676328249,
               "status": "processed",
               "status_details": null
             },
@@ -1848,31 +1858,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-WMi3gBfSRqIcMBSc0VUeOA8G",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1676328249,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-RCgs19IEagIWYJV8VSC9wHXV",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1676328268,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-7sSaGXs9FqspFCEimHLN0p9M",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 444,
-              "created_at": 1676331415,
               "status": "processed",
               "status_details": null
             },
@@ -1918,6 +1908,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-7sSaGXs9FqspFCEimHLN0p9M",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 444,
+              "created_at": 1676331415,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-ymhe6UYFhmjFfD2gQdwGeHrH",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -1928,21 +1928,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-cQhDkKAdefKW5POcOACbOwZG",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1682152491,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-BBDYqZqlBwPTbfoPg2t7SIVE",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 411,
               "created_at": 1676332893,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-cQhDkKAdefKW5POcOACbOwZG",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 414,
+              "created_at": 1682152491,
               "status": "processed",
               "status_details": null
             },
@@ -1968,16 +1968,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-F4jQyPnZPkHw5g193DIQytTY",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1682152564,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-7xLpX8OFfgHzs1wBa7x8CRom",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -1988,11 +1978,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-H2ENdpGAZp1F8zsCVRfCCevJ",
+              "id": "file-F4jQyPnZPkHw5g193DIQytTY",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 415,
-              "created_at": 1682152638,
+              "created_at": 1682152564,
               "status": "processed",
               "status_details": null
             },
@@ -2003,6 +1993,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 410,
               "created_at": 1682152604,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-H2ENdpGAZp1F8zsCVRfCCevJ",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 415,
+              "created_at": 1682152638,
               "status": "processed",
               "status_details": null
             },
@@ -2038,16 +2038,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-TH0pcJG8wgj7rZe3UbgjAzXE",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1682153601,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-ZTpEVVWhTYwsHtpYG5tIwsc7",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -2058,21 +2048,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-733yqEsEfNboTXVMYzTBJP1y",
+              "id": "file-TH0pcJG8wgj7rZe3UbgjAzXE",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1682153635,
+              "bytes": 414,
+              "created_at": 1682153601,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-Xu4MwIsc6pleGfAKK7uPMnkF",
+              "id": "file-733yqEsEfNboTXVMYzTBJP1y",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1682153781,
+              "bytes": 411,
+              "created_at": 1682153635,
               "status": "processed",
               "status_details": null
             },
@@ -2098,11 +2088,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-wCeAAm0qqg26GgCXZ3FNr2Fo",
+              "id": "file-Xu4MwIsc6pleGfAKK7uPMnkF",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1682153856,
+              "bytes": 415,
+              "created_at": 1682153781,
               "status": "processed",
               "status_details": null
             },
@@ -2118,21 +2108,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-9KqsGfjWxUDQhQPO2X0A6aqY",
+              "id": "file-wCeAAm0qqg26GgCXZ3FNr2Fo",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1682153892,
+              "bytes": 414,
+              "created_at": 1682153856,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-bfaGJZXLuDKipV9KCbniRO6w",
+              "id": "file-9KqsGfjWxUDQhQPO2X0A6aqY",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1682154013,
+              "bytes": 413,
+              "created_at": 1682153892,
               "status": "processed",
               "status_details": null
             },
@@ -2148,11 +2138,181 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-jVA2pF9NGRghzSzuvRpRhazN",
+              "id": "file-bfaGJZXLuDKipV9KCbniRO6w",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 415,
+              "created_at": 1682154013,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-dujvjLNjvUBEkwe8FmJaIKKH",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 447,
+              "created_at": 1682155892,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-ytZPluiNexXBjxU285LUECCh",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1682155857,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-gJmwfXIlaWU1qeBdRmdkqwx9",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 452,
+              "created_at": 1682155932,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-dJNKo5XjVzVxPY4bzudhJ780",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 453,
+              "created_at": 1682155968,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-3YACe2ovfvuXvI2wuamQNPuE",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 452,
+              "created_at": 1682156004,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-tpuDJhbDSthmRREa7uMkTXUX",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 450,
+              "created_at": 1682156040,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-l4i7645MytRPbtEd7FIQOtyv",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 449,
+              "created_at": 1682156078,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-X5nWshaJzJMzTujxBLDbkgIH",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 451,
+              "created_at": 1682156116,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-GcfJ9gkzFY2iWB2RatlDrcir",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 448,
+              "created_at": 1682156151,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-rCvqYDOrO1iKvzcnkBAzEugU",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1682157643,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-YiSs84T6IkbSWDkRf2adSKZI",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 411,
+              "created_at": 1682157677,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-va8YjpjWZs9SbiOwkAT0mLhW",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 413,
+              "created_at": 1682157711,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-k1qa85VAkKn57CycQmSgSsA3",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 410,
+              "created_at": 1682157751,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-LMpRpWexWqXW4QGzIQBsgzo0",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 414,
+              "created_at": 1682157786,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-gMPQDiYIYZ6W4qrSXVQLQiKD",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1682157819,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-zgYoj15joezwCSfD6vENtZpQ",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682155343,
+              "created_at": 1682306464,
+              "status": "uploaded",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-miLyPpij4iPjflsTm3amWMCK",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306463,
               "status": "uploaded",
               "status_details": null
             },
@@ -2178,21 +2338,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-NeMG0iGiYNbWhLNTXOKMDI21",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679519781,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-lLzO2UwEfS99IWjddW26ZrOu",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1679519779,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-NeMG0iGiYNbWhLNTXOKMDI21",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679519781,
               "status": "processed",
               "status_details": null
             },
@@ -2258,16 +2418,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-0xN2camjLsSFOejxAbQ6vnRX",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1679521434,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-WjsnJaeuVdNcoGGpVk1PZL1K",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -2298,11 +2448,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-JSSaCPFBBt8uxNpbhzdmcSaL",
+              "id": "file-0xN2camjLsSFOejxAbQ6vnRX",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 454,
-              "created_at": 1679526651,
+              "bytes": 411,
+              "created_at": 1679521434,
               "status": "processed",
               "status_details": null
             },
@@ -2338,11 +2488,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-8pFJ3aXREjBrQiMD4WIYVWP1",
+              "id": "file-JSSaCPFBBt8uxNpbhzdmcSaL",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 449,
-              "created_at": 1679528764,
+              "bytes": 454,
+              "created_at": 1679526651,
               "status": "processed",
               "status_details": null
             },
@@ -2358,21 +2508,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-n6gujWIyz3OF0Yo6DUQ7YyVG",
+              "id": "file-8pFJ3aXREjBrQiMD4WIYVWP1",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 452,
-              "created_at": 1679693806,
+              "bytes": 449,
+              "created_at": 1679528764,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-PMGZp5wvtIDGhnyj00aqsx4s",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679693594,
+              "id": "file-n6gujWIyz3OF0Yo6DUQ7YyVG",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 452,
+              "created_at": 1679693806,
               "status": "processed",
               "status_details": null
             },
@@ -2393,6 +2543,36 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1679693596,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-PMGZp5wvtIDGhnyj00aqsx4s",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679693594,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-d3ZI5pdTfyQIWVaIMzzuO2K7",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679693598,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-hlqGEpEGqodN7Rut9Cbur3kN",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679693600,
               "status": "processed",
               "status_details": null
             },
@@ -2478,36 +2658,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-d3ZI5pdTfyQIWVaIMzzuO2K7",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679693598,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-hlqGEpEGqodN7Rut9Cbur3kN",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679693600,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-JBb2WQBkInUSeuu4Q5fWX1Dn",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679700273,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-8SX4yfaXXqovqGATd0TpcHBF",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -2543,6 +2693,46 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1679700274,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-JBb2WQBkInUSeuu4Q5fWX1Dn",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679700273,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-CxvJ4yufJ8B5ahSR39lcTgN3",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679700280,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-EO6rJhZED4TYK4c1LmwfkNuG",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679700282,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-uLPSc5BhNpVmjNbE0rZRYyyK",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1679700285,
               "status": "processed",
               "status_details": null
             },
@@ -2613,36 +2803,6 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 415,
               "created_at": 1679700518,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-CxvJ4yufJ8B5ahSR39lcTgN3",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679700280,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-EO6rJhZED4TYK4c1LmwfkNuG",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679700282,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-uLPSc5BhNpVmjNbE0rZRYyyK",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1679700285,
               "status": "processed",
               "status_details": null
             },
@@ -2758,16 +2918,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-XwxIn7We87LqFYqMYRQK8SkL",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680256788,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-e9HTuwGIs8fpHrjWIbi4MoS2",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -2788,11 +2938,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-XLBlVAIqDmAu9DXYXY937yd5",
+              "id": "file-XwxIn7We87LqFYqMYRQK8SkL",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680256090,
+              "created_at": 1680256788,
               "status": "processed",
               "status_details": null
             },
@@ -2818,11 +2968,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-iVgLtPYkkNm1AHLLxiOMVSZX",
+              "id": "file-XLBlVAIqDmAu9DXYXY937yd5",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680256084,
+              "created_at": 1680256090,
               "status": "processed",
               "status_details": null
             },
@@ -2833,6 +2983,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680256102,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-iVgLtPYkkNm1AHLLxiOMVSZX",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680256084,
               "status": "processed",
               "status_details": null
             },
@@ -2918,6 +3078,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-x57j6xbzJ4mbncWdXJxOvrnZ",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680256089,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-oc9ds07vud6uHHK1CE2P0Pg8",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -2928,11 +3098,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-x57j6xbzJ4mbncWdXJxOvrnZ",
+              "id": "file-ilx2sa4Qs4EC6SuhMs3PdAKm",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680256089,
+              "created_at": 1680256092,
               "status": "processed",
               "status_details": null
             },
@@ -3388,11 +3558,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-ilx2sa4Qs4EC6SuhMs3PdAKm",
+              "id": "file-qdWL5TOi3coxUrU2XbNPiKrT",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680256092,
+              "created_at": 1680256666,
               "status": "processed",
               "status_details": null
             },
@@ -3403,16 +3573,6 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680256754,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-qdWL5TOi3coxUrU2XbNPiKrT",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680256666,
               "status": "processed",
               "status_details": null
             },
@@ -3528,16 +3688,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-3RfsvbsHHabeqUrYZVjTyiY7",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680256930,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-yOaZaVdQXrGQzNc0wuwD5Xsi",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -3563,6 +3713,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680256951,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-3RfsvbsHHabeqUrYZVjTyiY7",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680256930,
               "status": "processed",
               "status_details": null
             },
@@ -3638,21 +3798,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-RnMkLPtmL6N4hpxc9VOs1RCv",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 416,
-              "created_at": 1680257208,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-29hsAAasDjIOK3VTVgGL745I",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 412,
               "created_at": 1680257050,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-RnMkLPtmL6N4hpxc9VOs1RCv",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 416,
+              "created_at": 1680257208,
               "status": "processed",
               "status_details": null
             },
@@ -3818,16 +3978,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-E4uQjtFYEn8fhrX2S1ZcAFtq",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 407,
-              "created_at": 1680258651,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-98bNbvzNuHlOoZ255O93Yq4A",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -3838,11 +3988,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-guU200dLMJwbZ1WUdVlNhETc",
+              "id": "file-E4uQjtFYEn8fhrX2S1ZcAFtq",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 413,
-              "created_at": 1680260049,
+              "bytes": 407,
+              "created_at": 1680258651,
               "status": "processed",
               "status_details": null
             },
@@ -3858,21 +4008,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-ZuNypiDzfkQKM1gz25OZhUaX",
+              "id": "file-guU200dLMJwbZ1WUdVlNhETc",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 410,
-              "created_at": 1680260967,
+              "bytes": 413,
+              "created_at": 1680260049,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-jEsJJbi2sw2OMpgo8zEi5nYg",
+              "id": "file-ZuNypiDzfkQKM1gz25OZhUaX",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 411,
-              "created_at": 1680261572,
+              "bytes": 410,
+              "created_at": 1680260967,
               "status": "processed",
               "status_details": null
             },
@@ -3908,11 +4058,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-TFUv56AtaTI0mYbktX0NE4z3",
+              "id": "file-jEsJJbi2sw2OMpgo8zEi5nYg",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 410,
-              "created_at": 1680261979,
+              "bytes": 411,
+              "created_at": 1680261572,
               "status": "processed",
               "status_details": null
             },
@@ -3923,6 +4073,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 449,
               "created_at": 1680261770,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-TFUv56AtaTI0mYbktX0NE4z3",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 410,
+              "created_at": 1680261979,
               "status": "processed",
               "status_details": null
             },
@@ -3978,16 +4138,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-DB4IoQspSeVUNAGcNI74hHav",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 451,
-              "created_at": 1680264386,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-ijkTOqyB7e2a2kTLlDXoEzhb",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -4008,6 +4158,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-DB4IoQspSeVUNAGcNI74hHav",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 451,
+              "created_at": 1680264386,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-K8R3y6sfZxfcUA8ilQCTrtUS",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -4018,21 +4178,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-RVbegkJgUkvfsWOD0fkIAVDD",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 447,
-              "created_at": 1680264809,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-wIqzVBIerBdF38NBgJpBGTgq",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 453,
               "created_at": 1680264636,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-RVbegkJgUkvfsWOD0fkIAVDD",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 447,
+              "created_at": 1680264809,
               "status": "processed",
               "status_details": null
             },
@@ -4058,16 +4218,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-MpXrLgPmjzSkrMrqlejJjfLa",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1680266133,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-TAdvlcUEldcI94ENKxOWRJmr",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -4088,11 +4238,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-4wqPq37GTZes77hP9iKGqnlB",
+              "id": "file-MpXrLgPmjzSkrMrqlejJjfLa",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1680266489,
+              "bytes": 414,
+              "created_at": 1680266133,
               "status": "processed",
               "status_details": null
             },
@@ -4108,11 +4258,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-Dm8AGpbrykNVvUs2bDVp9RSJ",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680170946,
+              "id": "file-4wqPq37GTZes77hP9iKGqnlB",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1680266489,
               "status": "processed",
               "status_details": null
             },
@@ -4128,11 +4278,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-50fYnPiPtnhBh05uENWw00dz",
+              "id": "file-Dm8AGpbrykNVvUs2bDVp9RSJ",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680170918,
+              "created_at": 1680170946,
               "status": "processed",
               "status_details": null
             },
@@ -4143,6 +4293,26 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680170916,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-50fYnPiPtnhBh05uENWw00dz",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680170918,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-DT00eYZKjaecVMA7Crp7kHgV",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680170923,
               "status": "processed",
               "status_details": null
             },
@@ -4678,16 +4848,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-DT00eYZKjaecVMA7Crp7kHgV",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680170923,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-mgPNoCdVE0zDsz1CQEq7k5hC",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -4703,16 +4863,6 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 452,
               "created_at": 1680178029,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-KbfHJQL7bkk7JTUqLWYThMIR",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 417,
-              "created_at": 1680358048,
               "status": "processed",
               "status_details": null
             },
@@ -4738,6 +4888,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-KbfHJQL7bkk7JTUqLWYThMIR",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 417,
+              "created_at": 1680358048,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-fUe3EhAqEraAckhNDYhynEKs",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -4758,21 +4918,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-Sgfsc3g6hbc3ay54mQ6rMYnR",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680358117,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-OgLBhxjHvKx5rda5Rsmq5Dqe",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680358112,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-Sgfsc3g6hbc3ay54mQ6rMYnR",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680358117,
               "status": "processed",
               "status_details": null
             },
@@ -4808,21 +4968,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-TTz9fH1FTf53uO138V62n55W",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1680179014,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-9JC2EmqsFVmK3zFgVL0IkSfN",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680358123,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-TTz9fH1FTf53uO138V62n55W",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1680179014,
               "status": "processed",
               "status_details": null
             },
@@ -4898,16 +5058,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-Bxl62uwvzk2NAE1ghDU3kRuj",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680358135,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-h0swZLraeG4rKlMORBITP6Ex",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -4928,21 +5078,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-VoY75m1MzYh5eId94ZEAq88T",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 415,
-              "created_at": 1680181903,
+              "id": "file-Bxl62uwvzk2NAE1ghDU3kRuj",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680358135,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-Zws8Q43LK2geWCdna0gaU4QL",
+              "id": "file-VoY75m1MzYh5eId94ZEAq88T",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 412,
-              "created_at": 1680182240,
+              "bytes": 415,
+              "created_at": 1680181903,
               "status": "processed",
               "status_details": null
             },
@@ -4978,6 +5128,16 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-Zws8Q43LK2geWCdna0gaU4QL",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1680182240,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-WM5jbfSmgK2xpKjW9WNUnAsr",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
@@ -4988,21 +5148,21 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-MSCK8QSlc33HjmilUAnBFcgO",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680358278,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-fWIVZc8blmsaLz5hBAocNsFB",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680358271,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-MSCK8QSlc33HjmilUAnBFcgO",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680358278,
               "status": "processed",
               "status_details": null
             },
@@ -5033,16 +5193,6 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680358281,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-jWqUO0VuiIWubWO50aTVDUeT",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680353696,
               "status": "processed",
               "status_details": null
             },
@@ -5093,6 +5243,16 @@ http_interactions:
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1680353698,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-jWqUO0VuiIWubWO50aTVDUeT",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680353696,
               "status": "processed",
               "status_details": null
             },
@@ -5268,16 +5428,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-t55qbB8egfKg2dcIw7iTFvYI",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1680358911,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-YJwD51ew4dE21HYdTOA3gQqx",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -5293,6 +5443,16 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 450,
               "created_at": 1680354531,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-t55qbB8egfKg2dcIw7iTFvYI",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 414,
+              "created_at": 1680358911,
               "status": "processed",
               "status_details": null
             },
@@ -5328,16 +5488,6 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-GBRjoyKG243ilVOEZhfzrE6Q",
-              "purpose": "fine-tune-results",
-              "filename": "compiled_results.csv",
-              "bytes": 414,
-              "created_at": 1680360319,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
               "id": "file-9NyLfjHFQ6br4JAjVKXEMfY1",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
@@ -5358,11 +5508,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-k4qgRQqSpbCXH9pQd4XRnXFm",
+              "id": "file-GBRjoyKG243ilVOEZhfzrE6Q",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
               "bytes": 414,
-              "created_at": 1680360421,
+              "created_at": 1680360319,
               "status": "processed",
               "status_details": null
             },
@@ -5388,11 +5538,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-nzqG6H1Jx1KIsx2KGKZbzX5U",
+              "id": "file-k4qgRQqSpbCXH9pQd4XRnXFm",
               "purpose": "fine-tune-results",
               "filename": "compiled_results.csv",
-              "bytes": 416,
-              "created_at": 1680360489,
+              "bytes": 414,
+              "created_at": 1680360421,
               "status": "processed",
               "status_details": null
             },
@@ -5428,11 +5578,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-kQuLkNOlmhnASfP89N1R9adQ",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680404694,
+              "id": "file-nzqG6H1Jx1KIsx2KGKZbzX5U",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 416,
+              "created_at": 1680360489,
               "status": "processed",
               "status_details": null
             },
@@ -5538,31 +5688,11 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-b5PkXb70YthgLpY7kIs7vD80",
+              "id": "file-kQuLkNOlmhnASfP89N1R9adQ",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1680404703,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-NcW3agz7W237QdEy1VexQAfc",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680404709,
-              "status": "processed",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-SKN6fZNTM6Aib9E26y3lKSPW",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1680404711,
+              "created_at": 1680404694,
               "status": "processed",
               "status_details": null
             },
@@ -5598,11 +5728,41 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-J7Ocx7HXa4iQfLSinnHnidDx",
+              "id": "file-b5PkXb70YthgLpY7kIs7vD80",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682152311,
+              "created_at": 1680404703,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-NcW3agz7W237QdEy1VexQAfc",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680404709,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-SKN6fZNTM6Aib9E26y3lKSPW",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1680404711,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-qm1Cxtyk2zSFrqB3dGN3yh7M",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155354,
               "status": "processed",
               "status_details": null
             },
@@ -5613,6 +5773,56 @@ http_interactions:
               "filename": "compiled_results.csv",
               "bytes": 412,
               "created_at": 1682152416,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-J7Ocx7HXa4iQfLSinnHnidDx",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682152311,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-xnqNxC9QH50tpSvWDGhaRIVU",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682152320,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-Cj0LfmlFO9xQpx4eKKZimjLY",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682152361,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-NiZOHx2leP0YP51vFwQYNH9x",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682152362,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-hNoljF2xQ35fFZLvkvMg185E",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682152367,
               "status": "processed",
               "status_details": null
             },
@@ -6098,55 +6308,255 @@ http_interactions:
             },
             {
               "object": "file",
+              "id": "file-28IVt8YUFKvQO5go9mUWjymw",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155372,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
               "id": "file-H0ECeAYu1iyaLIa7rSNJ4xjz",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
               "created_at": 1682155345,
-              "status": "uploaded",
-              "status_details": null
-            },
-            {
-              "object": "file",
-              "id": "file-xnqNxC9QH50tpSvWDGhaRIVU",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1682152320,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-Cj0LfmlFO9xQpx4eKKZimjLY",
+              "id": "file-jVA2pF9NGRghzSzuvRpRhazN",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682152361,
+              "created_at": 1682155343,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-NiZOHx2leP0YP51vFwQYNH9x",
+              "id": "file-3AMrwjXBaElJ1JUiGiD4nRTp",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682152362,
+              "created_at": 1682155347,
               "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-hNoljF2xQ35fFZLvkvMg185E",
+              "id": "file-lL6avMTDlwgDthctz9RbNLEi",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682152367,
+              "created_at": 1682155348,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-IMXxfHtd0koR3lqfTK1K5cKS",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155356,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-sVI5fnduxgLKQTIOjy6GrSfo",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155363,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-Zu5MMIDc0gtIwPSZMSGO6i06",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155365,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-9Qy8kya38knZCw8Dqlw9tHAl",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155369,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-s9FA1KLYAX6PmFcRix2L8DTT",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155367,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-4euaageAhuW1vKJKRPiJEKgT",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682155374,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-u9tLtLVYkbJmtdktt7uybfHT",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157586,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-fDYhK5oqA28bqyNRtTsrX5HF",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157585,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-GLmIwEWSQFXnegZMKV7cXPKP",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157588,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-9g0nfZ3bvuMgVwkEF308jxED",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157589,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-agwPtPToCV5Ba4eXckNXH89Q",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157601,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-k9XmqmUhA1r5wZCA6WdbuiHT",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157600,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-oxqX5BXiQcg3eLULGbWrwSCM",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157608,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-AY4YMchNNBs4H98NPC8qKiUd",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157610,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-uPjLg1W8Bn1JZvUw0zeeRvqL",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157612,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-nRSg1ZDdL0mz4AUDuLDjj09y",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157617,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-VlKXgIuZAUc53wd7IPZHFspt",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157614,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-v0K2VeYpubiPO4XQglARAGe0",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682157618,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-jYckI2y3fLvVO6A05CH7eTDO",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682158207,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-t4frqqm9y89z67b9IRm4GPLb",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682301587,
               "status": "processed",
               "status_details": null
             }
           ]
         }
-  recorded_at: Sat, 22 Apr 2023 09:22:26 GMT
+  recorded_at: Mon, 24 Apr 2023 03:21:06 GMT
 recorded_with: VCR 6.1.0

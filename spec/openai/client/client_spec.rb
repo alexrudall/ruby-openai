@@ -25,6 +25,16 @@ RSpec.describe OpenAI::Client do
     end
   end
 
+  describe ".json_parse" do
+    context "with a jsonl string" do
+      let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
+      let(:response) { Struct.new(:body).new(body: body) }
+      let(:parsed) { OpenAI::Client.json_parse(response) }
+
+      it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
+    end
+  end
+
   describe ".multipart_post" do
     it "passes timeout as param to httparty" do
       expect_any_instance_of(Faraday::Connection).to receive(:post).with(

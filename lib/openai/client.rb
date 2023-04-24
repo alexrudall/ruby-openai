@@ -52,33 +52,42 @@ module OpenAI
     end
 
     def self.get(path:)
-      conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      json_parse(conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
-      end
+      end)
     end
 
     def self.json_post(path:, parameters:)
-      conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      json_parse(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
         if parameters[:stream] && parameters[:on_data].is_a?(Proc)
           req.options.on_data = parameters[:on_data]
         end
         parameters.delete(:on_data)
         req.body = parameters.to_json
-      end
+      end)
     end
 
     def self.multipart_post(path:, parameters: nil)
-      conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      json_parse(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end
+      end)
     end
 
     def self.delete(path:)
-      conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      json_parse(conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
-      end
+      end)
+    end
+
+    def self.json_parse(response)
+      return unless response
+
+      JSON.parse(response.body)
+    rescue JSON::ParserError
+      # Convert a multiline file of JSON objects to a JSON array.
+      JSON.parse(response.body.gsub("}\n{", "},{").prepend("[").concat("]"))
     end
 
     private_class_method def self.conn

@@ -6,8 +6,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["data"][0]["object"]).to eq("model")
+          expect(response.dig("data", 0, "object")).to eq("model")
         end
       end
     end
@@ -18,8 +17,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["object"]).to eq("model")
+          expect(response["object"]).to eq("model")
         end
       end
     end

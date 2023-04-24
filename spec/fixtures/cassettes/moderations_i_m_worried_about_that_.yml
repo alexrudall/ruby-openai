@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 09:23:20 GMT
+      - Mon, 24 Apr 2023 03:22:07 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - fa7069dbd740d6b2c6db4082461ef13a
+      - 44a8775f4c77514678cd39b1e76e5a92
       Openai-Processing-Ms:
-      - '186'
+      - '417'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,11 +45,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbcceb09cdb46d3-SIN
+      - 7bcb384effca40f4-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"modr-783kdFYSJYAJpJilttHNVrc3T4FUW","model":"text-moderation-004","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"violence":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false},"category_scores":{"sexual":1.1327892934787087e-06,"hate":1.0827437108673621e-05,"violence":2.620368604766554e-06,"self-harm":1.8105307475480004e-08,"sexual/minors":1.2895275958157981e-08,"hate/threatening":3.903202761001978e-11,"violence/graphic":1.3937886933490518e-07}}]}'
-  recorded_at: Sat, 22 Apr 2023 09:23:19 GMT
+      string: '{"id":"modr-78h4Bjsz4NIxCWBDOACPLZF91Ab39","model":"text-moderation-004","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"violence":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false},"category_scores":{"sexual":1.152822733274661e-06,"hate":1.103790145862149e-05,"violence":2.709660066102515e-06,"self-harm":1.8363925491371447e-08,"sexual/minors":1.3241326257684705e-08,"hate/threatening":3.9703219878450824e-11,"violence/graphic":1.4127810743502778e-07}}]}'
+  recorded_at: Mon, 24 Apr 2023 03:22:07 GMT
 recorded_with: VCR 6.1.0

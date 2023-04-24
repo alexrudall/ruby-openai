@@ -8,14 +8,14 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
       end
     end
-    let(:upload_id) { JSON.parse(upload.body)["id"] }
+    let(:upload_id) { upload["id"] }
 
     describe "#upload" do
       let(:upload_cassette) { "files upload" }
 
       context "with a valid JSON lines file" do
         it "succeeds" do
-          expect(JSON.parse(upload.body)["filename"]).to eq(filename)
+          expect(upload["filename"]).to eq(filename)
         end
       end
 
@@ -35,8 +35,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["data"].map { |d| d["filename"] }).to include(filename)
+          expect(response["data"].map { |d| d["filename"] }).to include(filename)
         end
       end
     end
@@ -48,8 +47,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["filename"]).to eq(filename)
+          expect(response["filename"]).to eq(filename)
         end
       end
     end
@@ -61,7 +59,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response.body).to include("lakers")
+          expect(response.dig(1, "prompt")).to include("lakers")
         end
       end
     end
@@ -81,7 +79,7 @@ RSpec.describe OpenAI::Client do
           OpenAI::Client.new.files.retrieve(id: upload_id)
         end
         tries = 0
-        until JSON.parse(retrieved.body)["status"] == "processed"
+        until retrieved["status"] == "processed"
           raise "File not processed after 10 tries" if tries > 10
 
           sleep(1)
@@ -94,9 +92,8 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["id"]).to eq(upload_id)
-          expect(r["deleted"]).to eq(true)
+          expect(response["id"]).to eq(upload_id)
+          expect(response["deleted"]).to eq(true)
         end
       end
     end

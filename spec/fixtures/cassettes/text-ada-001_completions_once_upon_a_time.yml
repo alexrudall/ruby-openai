@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 09:22:18 GMT
+      - Mon, 24 Apr 2023 03:20:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '46'
+      - '53'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - fd31543af8733b5014648e888c081d04
+      - 71da799a57ab354caa4a1e257e0bf16f
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbccd30cff7495b-SIN
+      - 7bcb369b1f14883a-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-783jeL8pf1qjOklARCbijPzugL7RX","object":"text_completion","created":1682155338,"model":"text-ada-001","choices":[{"text":",
-        there was a dragon","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-78h33w6pxxrHtC2htoPUPPWoFODlI","object":"text_completion","created":1682306457,"model":"text-ada-001","choices":[{"text":"\n\nThere
+        was a","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Sat, 22 Apr 2023 09:22:18 GMT
+  recorded_at: Mon, 24 Apr 2023 03:20:57 GMT
 recorded_with: VCR 6.1.0

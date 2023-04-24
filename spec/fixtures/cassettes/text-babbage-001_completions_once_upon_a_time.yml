@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 22 Apr 2023 09:22:19 GMT
+      - Mon, 24 Apr 2023 03:20:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '45'
+      - '40'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 940433165fd6b8a04f91e36a1d9fbadd
+      - 7d4a8f8eecd24301bd68d784ed9b95dc
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bbccd33bacb4a17-SIN
+      - 7bcb369ede3c40fd-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-783jeUmedQOSzpw015zQRvyg7urgk","object":"text_completion","created":1682155338,"model":"text-babbage-001","choices":[{"text":"
-        there was a kingdom where","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-78h33nnUWYZjBjxCdD3n5BSsMHLhe","object":"text_completion","created":1682306457,"model":"text-babbage-001","choices":[{"text":"
+        there was a land where","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Sat, 22 Apr 2023 09:22:18 GMT
+  recorded_at: Mon, 24 Apr 2023 03:20:57 GMT
 recorded_with: VCR 6.1.0
