@@ -28,7 +28,7 @@ RSpec.describe OpenAI::Client do
   describe ".json_parse" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:response) { Struct.new(:body).new(body: body) }
+      let(:response) { Faraday::Response.new(body: body) }
       let(:parsed) { OpenAI::Client.json_parse(response) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
