@@ -95,7 +95,7 @@ module OpenAI
     private_class_method def self.to_json_stream(user_proc:)
       Proc.new do |chunk, bytesize|
         # Clean up response string of chunks and turn it into JSON.
-        chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", ",{\"data\":[\"DONE\"]}").gsub("\n\ndata:", ",").gsub("data: ", ""))
+        chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", ""))
 
         # Pass the JSONified chunk(s) to the user's Proc.
         user_proc.call(chunk, bytesize)
