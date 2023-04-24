@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 03:22:04 GMT
+      - Mon, 24 Apr 2023 09:11:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       X-Request-Id:
-      - b127f1485e46884766e1270efa16c491
+      - 46b03e1e4cb0592fc4fafb7b0acf990e
       Openai-Processing-Ms:
-      - '107'
+      - '108'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcb38429d42408f-SIN
+      - 7bcd3882cbef4ad3-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -8189,8 +8189,152 @@ http_interactions:
               ],
               "root": "ada:2020-05-03",
               "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-22-21",
+              "object": "model",
+              "created": 1682306541,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-ngiximLrg27t7NpLrpkFTtN9",
+                  "object": "model_permission",
+                  "created": 1682306541,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-22-55",
+              "object": "model",
+              "created": 1682306575,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-MgyQ3Novrtd6unKM6llIpDNI",
+                  "object": "model_permission",
+                  "created": 1682306575,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-23-29",
+              "object": "model",
+              "created": 1682306609,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-X89aEemZfRNEgjLqkZVZqHgD",
+                  "object": "model_permission",
+                  "created": 1682306609,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-24-05",
+              "object": "model",
+              "created": 1682306645,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-YY915V1YZtgrgIHHXIFRJTHa",
+                  "object": "model_permission",
+                  "created": 1682306645,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-24-43",
+              "object": "model",
+              "created": 1682306683,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-kFJMbR3jM8n4zp9agqE8UPN5",
+                  "object": "model_permission",
+                  "created": 1682306683,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
+            },
+            {
+              "id": "ada:ft-personal-2023-04-24-03-25-29",
+              "object": "model",
+              "created": 1682306729,
+              "owned_by": "user-jxm65ijkzc1qrfhc0ij8moic",
+              "permission": [
+                {
+                  "id": "snapperm-cuAhD4rUjwikCVlYkXBaDbdg",
+                  "object": "model_permission",
+                  "created": 1682306729,
+                  "allow_create_engine": true,
+                  "allow_sampling": true,
+                  "allow_logprobs": true,
+                  "allow_search_indices": false,
+                  "allow_view": true,
+                  "allow_fine_tuning": true,
+                  "organization": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+                  "group": null,
+                  "is_blocking": false
+                }
+              ],
+              "root": "ada:2020-05-03",
+              "parent": "ada:2020-05-03"
             }
           ]
         }
-  recorded_at: Mon, 24 Apr 2023 03:22:05 GMT
+  recorded_at: Mon, 24 Apr 2023 09:11:46 GMT
 recorded_with: VCR 6.1.0

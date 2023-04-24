@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 03:21:06 GMT
+      - Mon, 24 Apr 2023 09:10:49 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 7d5cc15aa1f71b0a9dd84ed614dfb786
+      - 9ff6287248ea9dcd968cbcf402aefcdf
       Openai-Processing-Ms:
-      - '502'
+      - '540'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcb36d0ec253f53-SIN
+      - 7bcd371b7e074ab5-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -2298,21 +2298,61 @@ http_interactions:
             },
             {
               "object": "file",
-              "id": "file-zgYoj15joezwCSfD6vENtZpQ",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1682306464,
-              "status": "uploaded",
+              "id": "file-VbRyAWwF7XEAFhyCGApnjWCA",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 415,
+              "created_at": 1682306542,
+              "status": "processed",
               "status_details": null
             },
             {
               "object": "file",
-              "id": "file-miLyPpij4iPjflsTm3amWMCK",
+              "id": "file-MZh4NiT1GzIszrSRTDmWuDL1",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 413,
+              "created_at": 1682306576,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-bawhvdGNoJbzkSLg2GDBphjw",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 415,
+              "created_at": 1682306610,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-G0kK1RffH0koufP6sz1naDrM",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 414,
+              "created_at": 1682306683,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-iLBjGH6P4blD83C15QIKAOXt",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 414,
+              "created_at": 1682306730,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-n1pK0HYzgHv2unU9HytICihh",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682306463,
+              "created_at": 1682327448,
               "status": "uploaded",
               "status_details": null
             },
@@ -6555,8 +6595,148 @@ http_interactions:
               "created_at": 1682301587,
               "status": "processed",
               "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-XiKJ15IDmW9knr75dz9Nmgfo",
+              "purpose": "fine-tune-results",
+              "filename": "compiled_results.csv",
+              "bytes": 412,
+              "created_at": 1682306645,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-zgYoj15joezwCSfD6vENtZpQ",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306464,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-miLyPpij4iPjflsTm3amWMCK",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306463,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-HptNgXnv5LgiOThtpIFPW4o8",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306467,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-Cq2OUqN1YJauiPzJtpbS65Vc",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306469,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-PyZ6ny6mORnpPTt3UaTSxbdo",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306478,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-TVnTClQSzc8Ais7CPztKCJmj",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306480,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-zh9NeYoK4MIhCSPBDRQWjoIh",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306488,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-XGD5UihReR0BfoKxRO1c9W2B",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306490,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-czVYc94O59bImPcaUCHSLDVN",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306493,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-HytA4WyROxdSJgwpcW0SnSa7",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306496,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-hoWckrZf4cq6gvAQzhXbg5Y3",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306500,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-bFgnc8d2wVouffengT0xSlU3",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682306498,
+              "status": "processed",
+              "status_details": null
+            },
+            {
+              "object": "file",
+              "id": "file-h2q99jyosAdbhxwIqcwKZglt",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1682327447,
+              "status": "processed",
+              "status_details": null
             }
           ]
         }
-  recorded_at: Mon, 24 Apr 2023 03:21:06 GMT
+  recorded_at: Mon, 24 Apr 2023 09:10:49 GMT
 recorded_with: VCR 6.1.0

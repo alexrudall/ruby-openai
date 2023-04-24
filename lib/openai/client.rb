@@ -59,9 +59,12 @@ module OpenAI
 
     def self.json_post(path:, parameters:)
       to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+        if parameters[:stream].is_a?(Proc)
+          req.options.on_data = parameters[:stream]
+          parameters[:stream] = true
+        end
+
         req.headers = headers
-        req.options.on_data = parameters[:stream] if parameters[:stream].is_a?(Proc)
-        parameters.delete(:stream)
         req.body = parameters.to_json
       end)
     end
