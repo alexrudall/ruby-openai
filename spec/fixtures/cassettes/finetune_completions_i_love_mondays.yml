@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:11:24 GMT
+      - Mon, 24 Apr 2023 09:39:44 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,7 +40,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '742'
+      - '423'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -58,20 +58,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 3ms
       X-Request-Id:
-      - a6304968457c9dba5996797cde1bf25a
+      - f7e0c65c3713e1b4dc9a92e9378d236b
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd37f2d9964ac5-CGK
+      - 7bcd61750ec7be83-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-78mWBcuFj38YLPMV57DFmrbjQEoPx","object":"text_completion","created":1682327483,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":",
-        though I''m sure you''re trying to kill me! Tell Miss Patty I","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
+      string: '{"id":"cmpl-78mxbzCU8A4OKnwQIwbTjK4HxwIHY","object":"text_completion","created":1682329183,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":".
+        Not too long ago I had lunch in a very grouchy man. I","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
 
         '
-  recorded_at: Mon, 24 Apr 2023 09:11:23 GMT
+  recorded_at: Mon, 24 Apr 2023 09:39:43 GMT
 recorded_with: VCR 6.1.0

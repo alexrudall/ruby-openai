@@ -54,41 +54,50 @@ module OpenAI
     def self.get(path:)
       to_json(conn.get(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
-      end)
+      end&.body)
     end
 
     def self.json_post(path:, parameters:)
       to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         if parameters[:stream].is_a?(Proc)
-          req.options.on_data = parameters[:stream]
+          user_proc = parameters[:stream].clone
+          to_json_proc = Proc.new do |chunk, bytesize|
+            # Clean up response string of chunks and turn it into JSON.
+            chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", ",{\"data\":[\"DONE\"]}").gsub("\n\ndata:", ",").gsub("data: ", ""))
+
+            # Pass the JSONified chunk(s) to the user's Proc.
+            user_proc.call(chunk, bytesize)
+          end
+          req.options.on_data = to_json_proc
           parameters[:stream] = true
         end
 
         req.headers = headers
         req.body = parameters.to_json
-      end)
+      end&.body)
     end
 
     def self.multipart_post(path:, parameters: nil)
       to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end)
+      end&.body)
     end
 
     def self.delete(path:)
       to_json(conn.delete(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers
-      end)
+      end&.body)
     end
 
-    def self.to_json(response)
-      return unless response
+    def self.to_json(string)
+      return unless string
 
-      JSON.parse(response.body)
+      JSON.parse(string)
     rescue JSON::ParserError
-      # Convert a multiline file of JSON objects to a JSON array.
-      JSON.parse(response.body.gsub("}\n{", "},{").prepend("[").concat("]"))
+
+      # Convert a multiline string of JSON objects to a JSON array.
+      JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
     end
 
     private_class_method def self.conn

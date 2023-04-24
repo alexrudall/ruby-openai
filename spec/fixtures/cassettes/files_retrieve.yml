@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-OD3VqpgiyAnhZGjF9kf8lgrV?timeout=120
+    uri: https://api.openai.com/v1/files/file-Oijjhu7u200wH5UepyuRtB5E?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:10:51 GMT
+      - Mon, 24 Apr 2023 09:39:12 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 881c617ba293e2d150580095fa9f852d
+      - 8d325dd86b571feed0a391ee57f491a6
       Openai-Processing-Ms:
-      - '24'
+      - '25'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd372cc89cbe6a-CGK
+      - 7bcd60b178b94add-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -55,13 +55,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-OD3VqpgiyAnhZGjF9kf8lgrV",
+          "id": "file-Oijjhu7u200wH5UepyuRtB5E",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1682327451,
-          "status": "uploaded",
+          "created_at": 1682329151,
+          "status": "processed",
           "status_details": null
         }
-  recorded_at: Mon, 24 Apr 2023 09:10:51 GMT
+  recorded_at: Mon, 24 Apr 2023 09:39:11 GMT
 recorded_with: VCR 6.1.0

@@ -35,7 +35,7 @@ RSpec.describe OpenAI::Client do
           it "succeeds" do
             VCR.use_cassette(cassette) do
               response
-              expect(chunks.last.include?("data: [DONE]")).to eq(true)
+              expect(chunks.last.last["data"]).to eq(["DONE"])
             end
           end
         end

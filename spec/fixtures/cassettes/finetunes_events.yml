@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine-tunes/ft-OcOItmh24qpAOI8w3bWHhBIG/events?timeout=120
+    uri: https://api.openai.com/v1/fine-tunes/ft-JYKBAvGolmmBoaZVeVB7mwZY/events?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:11:17 GMT
+      - Mon, 24 Apr 2023 09:39:36 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       X-Request-Id:
-      - cede4388821681a401f8683e6ff7d4a6
+      - d6a38e78fb7dfc091820750a76ed3e46
       Openai-Processing-Ms:
-      - '32'
+      - '30'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd37cb89fc4ac9-CGK
+      - 7bcd614838bbbe6f-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -57,10 +57,10 @@ http_interactions:
             {
               "object": "fine-tune-event",
               "level": "info",
-              "message": "Created fine-tune: ft-OcOItmh24qpAOI8w3bWHhBIG",
-              "created_at": 1682327476
+              "message": "Created fine-tune: ft-JYKBAvGolmmBoaZVeVB7mwZY",
+              "created_at": 1682329176
             }
           ]
         }
-  recorded_at: Mon, 24 Apr 2023 09:11:16 GMT
+  recorded_at: Mon, 24 Apr 2023 09:39:36 GMT
 recorded_with: VCR 6.1.0
