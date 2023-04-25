@@ -35,7 +35,7 @@ RSpec.describe OpenAI::Client do
           it "succeeds" do
             VCR.use_cassette(cassette) do
               response
-              expect(chunks.dig(0, 0, "choices", 0, "index")).to eq(0)
+              expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
             end
           end
         end

@@ -95,14 +95,19 @@ module OpenAI
 
     private_class_method def self.to_json_stream(user_proc:)
       proc do |chunk, bytesize|
-        # Clean up response string of chunks.
-        chunk = chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", "")
-
-        # Turn it into JSON.
-        chunk = to_json(chunk)
-
-        # Pass an array of JSONified chunk(s) to the user's Proc.
-        user_proc.call([chunk].flatten, bytesize)
+        # The regex below is to match the following pattern:
+        # data: {JSON}
+        # data: {JSON}
+        # data: {JSON}
+        # ...
+        # data: [DONE]
+        
+        # Only call the user_proc if the chunk contains a JSON object.
+        chunk.scan(/data: (\{.*\})/i).flatten.each do |data|
+          user_proc.call(JSON.parse(data), bytesize)
+        rescue JSON::ParserError
+          # If the JSON object is invalid, then just ignore it.
+        end
       end
     end
 
