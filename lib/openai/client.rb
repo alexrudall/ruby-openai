@@ -103,7 +103,6 @@ module OpenAI
         # data: [DONE]
 
         # Only call the user_proc if the chunk contains a JSON object.
-        # throw chunk.scan(/(?:data|error): (\{.*\})/i).flatten
         chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data))
         rescue JSON::ParserError
