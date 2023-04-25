@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:12:19 GMT
+      - Tue, 25 Apr 2023 11:52:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,7 +36,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '14'
+      - '13'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -48,13 +48,13 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 20ms
       X-Request-Id:
-      - 1016261b3f82297e3f7e3662115cd72a
+      - c484aebf19d58357ce32f747e203f181
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd626792a56ab5c-SIN
+      - 7bd660f77aea9f9b-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -2124,5 +2124,5 @@ http_interactions:
             "total_tokens": 8
           }
         }
-  recorded_at: Tue, 25 Apr 2023 11:12:19 GMT
+  recorded_at: Tue, 25 Apr 2023 11:52:15 GMT
 recorded_with: VCR 6.1.0

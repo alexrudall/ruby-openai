@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:12:50 GMT
+      - Tue, 25 Apr 2023 11:52:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,7 +40,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '381'
+      - '686'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -52,24 +52,24 @@ http_interactions:
       X-Ratelimit-Remaining-Requests:
       - '2999'
       X-Ratelimit-Remaining-Tokens:
-      - '249983'
+      - '249984'
       X-Ratelimit-Reset-Requests:
       - 20ms
       X-Ratelimit-Reset-Tokens:
       - 3ms
       X-Request-Id:
-      - c970ab7b34775594804e9f6df826c3da
+      - 43ea24d05b78889b04e687ed905bebc9
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd62734cb433f83-SIN
+      - 7bd661cdc9713f7c-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6ImNtcGwtNzlBdEZ6eVU5TTR4Nm5xODlMc0xVdFhmQ3pIRDAiLCJvYmplY3QiOiJ0ZXh0X2NvbXBsZXRpb24iLCJjcmVhdGVkIjoxNjgyNDIxMTY5LCJtb2RlbCI6ImFkYTpmdC11c2VyLWp4bTY1aWpremMxcXJmaGMwaWo4bW9pYy0yMDIxLTEyLTExLTIwLTExLTUyIiwiY2hvaWNlcyI6W3sidGV4dCI6Ii4gU2VyaW91c2x5LCBJIGxvdmUgdGhlbSBhbGwuIFRoZXnigJlyZSBlbmpveWFibGUsIEkgZ2V0IiwiaW5kZXgiOjAsImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoibGVuZ3RoIn1dLCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjozLCJjb21wbGV0aW9uX3Rva2VucyI6MTYsInRvdGFsX3Rva2VucyI6MTl9fQo=
-  recorded_at: Tue, 25 Apr 2023 11:12:49 GMT
+        eyJpZCI6ImNtcGwtNzlCVnhleDVtV0ZPdWhnVzltZTJNRkFNeWluenkiLCJvYmplY3QiOiJ0ZXh0X2NvbXBsZXRpb24iLCJjcmVhdGVkIjoxNjgyNDIzNTY5LCJtb2RlbCI6ImFkYTpmdC11c2VyLWp4bTY1aWpremMxcXJmaGMwaWo4bW9pYy0yMDIxLTEyLTExLTIwLTExLTUyIiwiY2hvaWNlcyI6W3sidGV4dCI6IuKAlG9uZSBvZiBteSBtb3N0IGZhdm9yaXRlIG5pZ2h0cyBvZiB0aGUgd2VlayzigJ0gc2F5cyBSb2J5biIsImluZGV4IjowLCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6Imxlbmd0aCJ9XSwidXNhZ2UiOnsicHJvbXB0X3Rva2VucyI6MywiY29tcGxldGlvbl90b2tlbnMiOjE2LCJ0b3RhbF90b2tlbnMiOjE5fX0K
+  recorded_at: Tue, 25 Apr 2023 11:52:50 GMT
 recorded_with: VCR 6.1.0

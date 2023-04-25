@@ -70,7 +70,9 @@ module OpenAI
     end
 
     def self.multipart_post(path:, parameters: nil)
-      to_json(multipart_conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      m_conn = Faraday.new { |f| f.request :multipart }
+
+      to_json(m_conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body)
@@ -93,23 +95,19 @@ module OpenAI
 
     private_class_method def self.to_json_stream(user_proc:)
       proc do |chunk, bytesize|
-        # Clean up response string of chunks and turn it into JSON.
-        chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", ""))
+        # Clean up response string of chunks.
+        chunk = chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", "")
 
-        # For consistency, always return an array.
-        chunk = [chunk] unless chunk.is_a?(Array)
+        # Turn it into JSON.
+        chunk = to_json(chunk)
 
-        # Pass the JSONified chunks to the user's Proc.
-        user_proc.call(chunk, bytesize)
+        # Pass an array of JSONified chunk(s) to the user's Proc.
+        user_proc.call([chunk].flatten, bytesize)
       end
     end
 
     private_class_method def self.conn
       Faraday.new
-    end
-
-    private_class_method def self.multipart_conn
-      Faraday.new { |f| f.request :multipart }
     end
 
     private_class_method def self.uri(path:)

@@ -116,4 +116,120 @@ http_interactions:
         {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
         {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
   recorded_at: Tue, 25 Apr 2023 11:12:26 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-dmNQUNfqHve81fBjz4PGOxW6/content?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:51:48 GMT
+      Content-Type:
+      - application/octet-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename="sentiment.jsonl"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 35fd4b89f6c231121b0c5d6e59ec55e3
+      Openai-Processing-Ms:
+      - '14'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd6604b8c8f9f89-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+        {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
+  recorded_at: Tue, 25 Apr 2023 11:51:47 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-tjs9mZOWeGHYa8NinjOeNIRo/content?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:52:22 GMT
+      Content-Type:
+      - application/octet-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename="sentiment.jsonl"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 9bfa3e304f3c9cda3e1d400d9ade0aa5
+      Openai-Processing-Ms:
+      - '18'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd661208ece3ff3-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+        {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
+  recorded_at: Tue, 25 Apr 2023 11:52:22 GMT
 recorded_with: VCR 6.1.0

@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:12:17 GMT
+      - Tue, 25 Apr 2023 11:52:12 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '89'
+      - '92'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - e965d83a3a6c15b9598c2f235c64fbf4
+      - af4747eb9d21237d8b36d78030fe3755
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd6266a2c686bff-SIN
+      - 7bd660e64c563fc5-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79Asjhu7dN0zGIJgOKxU4H0xBCcaq","object":"text_completion","created":1682421137,"model":"text-davinci-001","choices":[{"text":"
-        there was a little boy","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79BVM6rLwyZzd36s1HZFcfvqN0uTW","object":"text_completion","created":1682423532,"model":"text-davinci-001","choices":[{"text":"
+        there were two brothers.","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:12:16 GMT
+  recorded_at: Tue, 25 Apr 2023 11:52:12 GMT
 recorded_with: VCR 6.1.0
