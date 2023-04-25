@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Switch HTTP library from HTTParty to Faraday to allow streaming and future feature and performance improvements.
-- [BREAKING] All endpoints now always return JSON, rather than sometimes a HTTParty object and sometimes text.
+- [BREAKING] Endpoints now return JSON rather than HTTParty objects. You will need to update your code to handle this change, changing `JSON.parse(response.body)["key"]` and `response.parsed_response["key"]` to just `response["key"]`.
 
 ## [3.7.0] - 2023-03-25
 
