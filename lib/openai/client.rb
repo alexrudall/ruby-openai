@@ -70,7 +70,7 @@ module OpenAI
     end
 
     def self.multipart_post(path:, parameters: nil)
-      to_json(conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
+      to_json(multipart_conn.post(uri(path: path), timeout: OpenAI.configuration.request_timeout) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body)
@@ -87,13 +87,12 @@ module OpenAI
 
       JSON.parse(string)
     rescue JSON::ParserError
-
       # Convert a multiline string of JSON objects to a JSON array.
       JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
     end
 
     private_class_method def self.to_json_stream(user_proc:)
-      Proc.new do |chunk, bytesize|
+      proc do |chunk, bytesize|
         # Clean up response string of chunks and turn it into JSON.
         chunk = to_json(chunk.gsub("\n\ndata: [DONE]\n\n", "").gsub("\n\ndata:", ",").gsub("data: ", ""))
 
@@ -106,9 +105,11 @@ module OpenAI
     end
 
     private_class_method def self.conn
-      Faraday.new do |f|
-        f.request :multipart
-      end
+      Faraday.new
+    end
+
+    private_class_method def self.multipart_conn
+      Faraday.new { |f| f.request :multipart }
     end
 
     private_class_method def self.uri(path:)
@@ -123,21 +124,14 @@ module OpenAI
       }
     end
 
-    private_class_method def self.request_timeout
-      OpenAI.configuration.request_timeout
-    end
-
     private_class_method def self.multipart_parameters(parameters)
-      return unless parameters
-
-      parameters.transform_values do |value|
+      parameters&.transform_values do |value|
         next value unless value.is_a?(File)
 
-        # Doesn't seem like OpenAI need this, so not worth
-        # the library to figure this out as yet.
-        mime_type = ""
-
-        Faraday::UploadIO.new(value, mime_type, value.path)
+        # Doesn't seem like OpenAI need mime_type yet, so not worth
+        # the library to figure this out. Hence the empty string
+        # as the second argument.
+        Faraday::UploadIO.new(value, "", value.path)
       end
     end
   end
