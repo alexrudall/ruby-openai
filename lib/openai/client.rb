@@ -93,20 +93,20 @@ module OpenAI
       JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
     end
 
+    # Given a proc, returns a proc that can be used to iterate over a JSON stream of chunks.
+    # For each chunk, the proc is called giving it the JSON object. The JSON object could be a
+    # data object or an error object as described in the OpenAI API documentation.
+    # 
+    # If the JSON object for a given data or error message is invalid, it is ignored.
+    #
+    # @param user_proc [Proc] The proc to call for each JSON object in the chunk.
+    # @return [Proc] A proc that can be used to iterate over the JSON stream.
     private_class_method def self.to_json_stream(user_proc:)
       proc do |chunk, _|
-        # The regex below matches the following pattern:
-        # data: {JSON}
-        # error: {JSON}
-        # data: {JSON}
-        # ...
-        # data: [DONE]
-
-        # Only call the user_proc if the chunk contains a JSON object.
         chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data))
         rescue JSON::ParserError
-          # If the JSON object is invalid, then just ignore it.
+          # Ignore invalid JSON.
         end
       end
     end
