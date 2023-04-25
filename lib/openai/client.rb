@@ -101,7 +101,7 @@ module OpenAI
         # data: {JSON}
         # ...
         # data: [DONE]
-        
+
         # Only call the user_proc if the chunk contains a JSON object.
         chunk.scan(/data: (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data), bytesize)

@@ -69,19 +69,39 @@ RSpec.describe OpenAI::Client do
       end
 
       context "when called with a string containing that looks like a JSON object but is invalid" do
-        let(:chunk) {
+        let(:chunk) do
           <<-CHUNK
             data: { "foo": "bar" }
             data: { BAD ]:-> JSON }
           CHUNK
-        }
+        end
 
         it "does not raise an error" do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
 
-          expect { 
-            stream.call(chunk) 
-          }.to_not raise_error(JSON::ParserError)
+          expect do
+            stream.call(chunk)
+          end.to_not raise_error(JSON::ParserError)
+        end
+      end
+
+      context "when called with a string containing an error" do
+        let(:chunk) do
+          <<-CHUNK
+            data: { "foo": "bar" }
+            error: { "message": "A bad thing has happened!" }
+          CHUNK
+        end
+
+        it "does not raise an error" do
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
+          expect(user_proc).to_not receive(:call).with(
+            JSON.parse('{ "message": "A bad thing has happened!" }'), nil
+          )
+
+          expect do
+            stream.call(chunk)
+          end.to_not raise_error(JSON::ParserError)
         end
       end
     end
