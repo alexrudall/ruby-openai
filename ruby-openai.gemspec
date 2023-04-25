@@ -27,5 +27,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "faraday", ">= 1"
   spec.add_dependency "faraday-multipart", ">= 1"
-  spec.add_dependency "mime-types", ">= 3"
 end

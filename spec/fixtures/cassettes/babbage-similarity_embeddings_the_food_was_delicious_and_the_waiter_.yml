@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:39:05 GMT
+      - Tue, 25 Apr 2023 11:02:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -48,13 +48,13 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 20ms
       X-Request-Id:
-      - 160e952177c5d080916a51f0ab37b452
+      - cdd8bbdfb6f348654259fc65a7604a2b
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd6088481dbeac-CGK
+      - 7bd618959e7a4484-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -2124,5 +2124,5 @@ http_interactions:
             "total_tokens": 8
           }
         }
-  recorded_at: Mon, 24 Apr 2023 09:39:05 GMT
+  recorded_at: Tue, 25 Apr 2023 11:02:50 GMT
 recorded_with: VCR 6.1.0

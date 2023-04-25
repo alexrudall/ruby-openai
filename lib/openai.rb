@@ -1,6 +1,5 @@
 require "faraday"
 require "faraday/multipart"
-require "mime/types"
 
 require_relative "openai/client"
 require_relative "openai/files"

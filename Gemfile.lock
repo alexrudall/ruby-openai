@@ -4,7 +4,6 @@ PATH
     ruby-openai (3.7.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
-      mime-types (>= 3)
 
 GEM
   remote: https://rubygems.org/
@@ -25,9 +24,6 @@ GEM
     faraday-net_http (3.0.2)
     hashdiff (1.0.1)
     json (2.6.3)
-    mime-types (3.4.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.0218.1)
     multipart-post (2.3.0)
     parallel (1.22.1)
     parser (3.2.2.0)

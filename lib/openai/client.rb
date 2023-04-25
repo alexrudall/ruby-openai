@@ -127,19 +127,17 @@ module OpenAI
       OpenAI.configuration.request_timeout
     end
 
-    private_class_method def self.mime_type(file_path)
-      return "application/jsonl" if file_path.end_with?(".jsonl")
-
-      MIME::Types.type_for(file_path).first.content_type
-    end
-
     private_class_method def self.multipart_parameters(parameters)
       return unless parameters
 
       parameters.transform_values do |value|
         next value unless value.is_a?(File)
 
-        Faraday::UploadIO.new(value, mime_type(value.path), value.path)
+        # Doesn't seem like OpenAI need this, so not worth
+        # the library to figure this out as yet.
+        mime_type = ""
+
+        Faraday::UploadIO.new(value, mime_type, value.path)
       end
     end
   end

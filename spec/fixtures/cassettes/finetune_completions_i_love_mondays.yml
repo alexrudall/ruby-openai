@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 24 Apr 2023 09:39:44 GMT
+      - Tue, 25 Apr 2023 11:03:26 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,7 +40,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '423'
+      - '382'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -58,20 +58,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 3ms
       X-Request-Id:
-      - f7e0c65c3713e1b4dc9a92e9378d236b
+      - 55d67977d459b7e4a04f1a1d56ed6e81
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bcd61750ec7be83-CGK
+      - 7bd619723d0b9fec-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-78mxbzCU8A4OKnwQIwbTjK4HxwIHY","object":"text_completion","created":1682329183,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":".
-        Not too long ago I had lunch in a very grouchy man. I","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
+      string: '{"id":"cmpl-79Ak9aMc6jZdw6Vw8qPY7pAqQURHh","object":"text_completion","created":1682420605,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":",\"
+        he said. \"I''ll treasure them.\"\n\nTobin smiled.","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
 
         '
-  recorded_at: Mon, 24 Apr 2023 09:39:43 GMT
+  recorded_at: Tue, 25 Apr 2023 11:03:25 GMT
 recorded_with: VCR 6.1.0
