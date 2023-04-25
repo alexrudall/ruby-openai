@@ -97,13 +97,14 @@ module OpenAI
       proc do |chunk, _|
         # The regex below matches the following pattern:
         # data: {JSON}
-        # data: {JSON}
+        # error: {JSON}
         # data: {JSON}
         # ...
         # data: [DONE]
 
         # Only call the user_proc if the chunk contains a JSON object.
-        chunk.scan(/data: (\{.*\})/i).flatten.each do |data|
+        # throw chunk.scan(/(?:data|error): (\{.*\})/i).flatten
+        chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data))
         rescue JSON::ParserError
           # If the JSON object is invalid, then just ignore it.

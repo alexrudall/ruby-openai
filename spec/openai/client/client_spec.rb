@@ -89,14 +89,14 @@ RSpec.describe OpenAI::Client do
         let(:chunk) do
           <<-CHUNK
             data: { "foo": "bar" }
-            error: { message: "A bad thing has happened!" }
+            error: { "message": "A bad thing has happened!" }
           CHUNK
         end
 
         it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
-          expect(user_proc).to_not receive(:call).with(
-            JSON.parse('{"message": "A bad thing has happened!"}')
+          expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
+          expect(user_proc).to receive(:call).with(
+            JSON.parse('{ "message": "A bad thing has happened!" }')
           )
 
           expect do
