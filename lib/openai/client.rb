@@ -96,7 +96,7 @@ module OpenAI
     # Given a proc, returns a proc that can be used to iterate over a JSON stream of chunks.
     # For each chunk, the proc is called giving it the JSON object. The JSON object could be a
     # data object or an error object as described in the OpenAI API documentation.
-    # 
+    #
     # If the JSON object for a given data or error message is invalid, it is ignored.
     #
     # @param user_proc [Proc] The proc to call for each JSON object in the chunk.
