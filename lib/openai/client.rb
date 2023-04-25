@@ -95,7 +95,7 @@ module OpenAI
 
     private_class_method def self.to_json_stream(user_proc:)
       proc do |chunk, bytesize|
-        # The regex below is to match the following pattern:
+        # The regex below matches the following pattern:
         # data: {JSON}
         # data: {JSON}
         # data: {JSON}
@@ -104,7 +104,7 @@ module OpenAI
 
         # Only call the user_proc if the chunk contains a JSON object.
         chunk.scan(/data: (\{.*\})/i).flatten.each do |data|
-          user_proc.call(JSON.parse(data), bytesize)
+          user_proc.call(JSON.parse(data))
         rescue JSON::ParserError
           # If the JSON object is invalid, then just ignore it.
         end

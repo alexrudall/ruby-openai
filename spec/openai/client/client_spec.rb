@@ -27,7 +27,7 @@ RSpec.describe OpenAI::Client do
 
   describe ".to_json_stream" do
     context "with a proc" do
-      let(:user_proc) { proc { |x| "Called: #{x}" } }
+      let(:user_proc) { proc { |x| x } }
       let(:stream)    { OpenAI::Client.send(:to_json_stream, user_proc: user_proc) }
 
       it "returns a proc" do
@@ -36,15 +36,15 @@ RSpec.describe OpenAI::Client do
 
       context "when called with a string containing a single JSON object" do
         it "calls the user proc with the data parsed as JSON" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
           stream.call('data: { "foo": "bar" }')
         end
       end
 
       context "when called with string containing more than one JSON object" do
         it "calls the user proc for each data parsed as JSON" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
-          expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'), nil)
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
+          expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'))
 
           stream.call(<<-JSON)
             data: { "foo": "bar" }
@@ -77,7 +77,7 @@ RSpec.describe OpenAI::Client do
         end
 
         it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
 
           expect do
             stream.call(chunk)
@@ -89,15 +89,13 @@ RSpec.describe OpenAI::Client do
         let(:chunk) do
           <<-CHUNK
             data: { "foo": "bar" }
-            error: { "message": "A bad thing has happened!" }
+            error: { message: "A bad thing has happened!" }
           CHUNK
         end
 
         it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'), nil)
-          expect(user_proc).to_not receive(:call).with(
-            JSON.parse('{ "message": "A bad thing has happened!" }'), nil
-          )
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
+          expect(user_proc).to_not receive(:call).with(JSON.parse('{"message": "A bad thing has happened!"}'))
 
           expect do
             stream.call(chunk)
