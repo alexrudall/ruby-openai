@@ -46,14 +46,14 @@ RSpec.describe OpenAI::Client do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
           expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'))
 
-          stream.call(<<-JSON)
+          stream.call(<<-CHUNK)
             data: { "foo": "bar" }
 
             data: { "baz": "qud" }
 
             data: [DONE]
 
-          JSON
+          CHUNK
         end
       end
 
