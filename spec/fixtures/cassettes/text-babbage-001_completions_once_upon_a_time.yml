@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:02:41 GMT
+      - Tue, 25 Apr 2023 11:12:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '55'
+      - '50'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - d0e648dd43c0ec67cb405b5e08b21b3e
+      - 818646150617c0b2c7ab0d7810a01ba7
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd6185e6f823fb9-SIN
+      - 7bd626640e5fab49-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79AjRclk3xxJ2HkXbjgMRzJjgNRZl","object":"text_completion","created":1682420561,"model":"text-babbage-001","choices":[{"text":"
-        there was a kingdom ruled","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79AsiYGc3Hqohp3POUeIVz4vUFKlO","object":"text_completion","created":1682421136,"model":"text-babbage-001","choices":[{"text":"
+        there was a princess who","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:02:41 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:15 GMT
 recorded_with: VCR 6.1.0

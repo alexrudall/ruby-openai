@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/fine-tunes
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-yvDMl6IZs29N1tzEmKqqOt7H","model":"ada"}'
+      string: '{"training_file":"file-z5S8VQyAUuB2m3kZVc1hzDUZ","model":"ada"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:03:09 GMT
+      - Tue, 25 Apr 2023 11:12:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       X-Request-Id:
-      - 94d8e31443e3a03854c5b42fec7eddde
+      - 7f2344249cbb9b55064f83da5cdff375
       Openai-Processing-Ms:
-      - '82'
+      - '88'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd619091bb04d96-SIN
+      - 7bd626d19f2f3e00-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -53,7 +53,7 @@ http_interactions:
       string: |
         {
           "object": "fine-tune",
-          "id": "ft-0N5s4LyZRMEi6wKwnSxWlx3y",
+          "id": "ft-EGMjPvRHOdI4taPKgmxv2OWK",
           "hyperparams": {
             "n_epochs": 4,
             "batch_size": null,
@@ -65,29 +65,29 @@ http_interactions:
           "training_files": [
             {
               "object": "file",
-              "id": "file-yvDMl6IZs29N1tzEmKqqOt7H",
+              "id": "file-z5S8VQyAUuB2m3kZVc1hzDUZ",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1682420588,
-              "status": "uploaded",
+              "created_at": 1682421153,
+              "status": "processed",
               "status_details": null
             }
           ],
           "validation_files": [],
           "result_files": [],
-          "created_at": 1682420589,
-          "updated_at": 1682420589,
+          "created_at": 1682421153,
+          "updated_at": 1682421153,
           "status": "pending",
           "fine_tuned_model": null,
           "events": [
             {
               "object": "fine-tune-event",
               "level": "info",
-              "message": "Created fine-tune: ft-0N5s4LyZRMEi6wKwnSxWlx3y",
-              "created_at": 1682420589
+              "message": "Created fine-tune: ft-EGMjPvRHOdI4taPKgmxv2OWK",
+              "created_at": 1682421153
             }
           ]
         }
-  recorded_at: Tue, 25 Apr 2023 11:03:08 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:33 GMT
 recorded_with: VCR 6.1.0

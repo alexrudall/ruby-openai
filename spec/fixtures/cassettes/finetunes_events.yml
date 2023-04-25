@@ -63,4 +63,67 @@ http_interactions:
           ]
         }
   recorded_at: Tue, 25 Apr 2023 11:03:19 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine-tunes/ft-H1kxOKQSfAdxGl0YmJM8pWph/events?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:12:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 0e1289b76063d6eb228c340f40322058
+      Openai-Processing-Ms:
+      - '29'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd62712097a3db1-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "list",
+          "data": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-H1kxOKQSfAdxGl0YmJM8pWph",
+              "created_at": 1682421163
+            }
+          ]
+        }
+  recorded_at: Tue, 25 Apr 2023 11:12:43 GMT
 recorded_with: VCR 6.1.0

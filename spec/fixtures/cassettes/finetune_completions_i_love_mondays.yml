@@ -24,7 +24,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:03:26 GMT
+      - Tue, 25 Apr 2023 11:12:50 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -40,7 +40,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '382'
+      - '381'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -58,20 +58,18 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 3ms
       X-Request-Id:
-      - 55d67977d459b7e4a04f1a1d56ed6e81
+      - c970ab7b34775594804e9f6df826c3da
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd619723d0b9fec-SIN
+      - 7bd62734cb433f83-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79Ak9aMc6jZdw6Vw8qPY7pAqQURHh","object":"text_completion","created":1682420605,"model":"ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52","choices":[{"text":",\"
-        he said. \"I''ll treasure them.\"\n\nTobin smiled.","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":3,"completion_tokens":16,"total_tokens":19}}
-
-        '
-  recorded_at: Tue, 25 Apr 2023 11:03:25 GMT
+      string: !binary |-
+        eyJpZCI6ImNtcGwtNzlBdEZ6eVU5TTR4Nm5xODlMc0xVdFhmQ3pIRDAiLCJvYmplY3QiOiJ0ZXh0X2NvbXBsZXRpb24iLCJjcmVhdGVkIjoxNjgyNDIxMTY5LCJtb2RlbCI6ImFkYTpmdC11c2VyLWp4bTY1aWpremMxcXJmaGMwaWo4bW9pYy0yMDIxLTEyLTExLTIwLTExLTUyIiwiY2hvaWNlcyI6W3sidGV4dCI6Ii4gU2VyaW91c2x5LCBJIGxvdmUgdGhlbSBhbGwuIFRoZXnigJlyZSBlbmpveWFibGUsIEkgZ2V0IiwiaW5kZXgiOjAsImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjoibGVuZ3RoIn1dLCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjozLCJjb21wbGV0aW9uX3Rva2VucyI6MTYsInRvdGFsX3Rva2VucyI6MTl9fQo=
+  recorded_at: Tue, 25 Apr 2023 11:12:49 GMT
 recorded_with: VCR 6.1.0

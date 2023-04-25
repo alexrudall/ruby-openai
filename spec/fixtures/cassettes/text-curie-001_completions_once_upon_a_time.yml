@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:02:42 GMT
+      - Tue, 25 Apr 2023 11:12:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '61'
+      - '55'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 799ced7e77e86827285e81b3be94ad46
+      - fd8ef8b4fbaf4e3ae2c64a1e41d7d0a0
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd618639fb53f4f-SIN
+      - 7bd626670a6d4cd1-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79AjSFhmUkLojJBj00IhYTuub259T","object":"text_completion","created":1682420562,"model":"text-curie-001","choices":[{"text":"\n\nThere
-        was a","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79AsiKMeYKyjO0Twz7dBNqbH7Z9gx","object":"text_completion","created":1682421136,"model":"text-curie-001","choices":[{"text":"
+        in a land far,","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:02:42 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:16 GMT
 recorded_with: VCR 6.1.0

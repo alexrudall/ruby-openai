@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:02:50 GMT
+      - Tue, 25 Apr 2023 11:12:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -41,7 +41,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '6475'
+      - '1338'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -53,20 +53,20 @@ http_interactions:
       X-Ratelimit-Reset-Requests:
       - 3s
       X-Request-Id:
-      - ae102ae14b030ed6c446553aabc70e29
+      - 2f7bd551b6ddc9768ae848a591f64fc3
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd6186a3aa53d86-SIN
+      - 7bd6266dcb904c29-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"edit","created":1682420563,"choices":[{"text":"There are
+      string: '{"object":"edit","created":1682421137,"choices":[{"text":"There are
         7 days in a week, and between 28 and 31 in a month.\n","index":0}],"usage":{"prompt_tokens":38,"completion_tokens":46,"total_tokens":84}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:02:49 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:18 GMT
 recorded_with: VCR 6.1.0

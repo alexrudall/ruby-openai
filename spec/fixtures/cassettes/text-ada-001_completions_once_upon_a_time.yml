@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:02:41 GMT
+      - Tue, 25 Apr 2023 11:12:15 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 7c9fed3bc81550bf24e643d1d6ee4083
+      - f772fcc72783225a5bcc7fe5cfce2c60
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd6185a9890406e-SIN
+      - 7bd62660ed8044a8-SIN
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79AjRv1D6eTatJqtvhueMxSCQVLo4","object":"text_completion","created":1682420561,"model":"text-ada-001","choices":[{"text":"
-        there was a princess who","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79AshC2o4MVlCI8IbpfF2Lry7nbnH","object":"text_completion","created":1682421135,"model":"text-ada-001","choices":[{"text":"\n\nA
+        baby''s","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:02:40 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:15 GMT
 recorded_with: VCR 6.1.0
