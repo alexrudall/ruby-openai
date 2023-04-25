@@ -53,8 +53,8 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 
 ```ruby
 OpenAI.configure do |config|
-    config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
-    config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
+    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
 end
 ```
 
@@ -201,9 +201,9 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 ```ruby
 client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
 client.files.list
-client.files.retrieve(id: 123)
-client.files.content(id: 123)
-client.files.delete(id: 123)
+client.files.retrieve(id: "file-123")
+client.files.content(id: "file-123")
+client.files.delete(id: "file-123")
 ```
 
 ### Fine-tunes
@@ -221,9 +221,9 @@ You can then use this file ID to create a fine-tune model:
 response = client.finetunes.create(
     parameters: {
     training_file: file_id,
-    model: "text-ada-001"
+    model: "ada"
 })
-fine_tune_id = JSON.parse(response.body)["id"]
+fine_tune_id = response["id"]
 ```
 
 That will give you the fine-tune ID. If you made a mistake you can cancel the fine-tune model before it is processed:
@@ -237,7 +237,7 @@ You may need to wait a short time for processing to complete. Once processed, yo
 ```ruby
 client.finetunes.list
 response = client.finetunes.retrieve(id: fine_tune_id)
-fine_tuned_model = JSON.parse(response.body)["fine_tuned_model"]
+fine_tuned_model = response["fine_tuned_model"]
 ```
 
 This fine-tuned model name can then be used in completions:
@@ -249,7 +249,7 @@ response = client.completions(
         prompt: "I love Mondays!"
     }
 )
-JSON.parse(response.body)["choices"].map { |c| c["text"] }
+response.dig("choices", 0, "text")
 ```
 
 You can delete the fine-tuned model when you are done with it:
@@ -318,9 +318,9 @@ The translations API takes as input the audio file in any of the supported langu
 response = client.translate(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file', 'rb'),
+        file: File.open("path_to_file", "rb"),
     })
-puts response.parsed_response['text']
+puts response["text"]
 # => "Translation of the text"
 ```
 
@@ -332,9 +332,9 @@ The transcriptions API takes as input the audio file you want to transcribe and 
 response = client.transcribe(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file', 'rb'),
+        file: File.open("path_to_file", "rb"),
     })
-puts response.parsed_response['text']
+puts response["text"]
 # => "Transcription of the text"
 ```
 
