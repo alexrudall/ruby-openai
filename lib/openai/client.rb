@@ -94,7 +94,7 @@ module OpenAI
     end
 
     private_class_method def self.to_json_stream(user_proc:)
-      proc do |chunk, bytesize|
+      proc do |chunk, _|
         # The regex below matches the following pattern:
         # data: {JSON}
         # data: {JSON}
