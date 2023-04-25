@@ -6,7 +6,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate text with ChatGPT, transcribe and translate audio with Whisper, or create images with DALL·E...
+Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD)
 
@@ -33,10 +33,6 @@ and require with:
 ```ruby
 require "openai"
 ```
-
-## Upgrading
-
-The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module. To upgrade, change `require 'ruby/openai'` to `require 'openai'` and change all references to `Ruby::OpenAI` to `OpenAI`.
 
 ## Usage
 
@@ -128,6 +124,23 @@ response = client.chat(
     })
 puts response.dig("choices", 0, "message", "content")
 # => "Hello! How may I assist you today?"
+```
+
+### Streaming ChatGPT
+
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time an Array of one or more chunks is received, the Proc will be called with the chunks. `ruby-openai` outputs the chunks as an Array of one or more Hashes.
+
+```ruby
+client.chat(
+    parameters: {
+        model: "gpt-3.5-turbo", # Required.
+        messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
+        temperature: 0.7,
+        stream: proc do |chunks, _bytesize|
+            chunks.each { |c| print c.dig("choices", 0, "delta", "content") }
+        end
+    })
+# => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
 ### Completions
