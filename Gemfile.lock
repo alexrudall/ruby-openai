@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     ruby-openai (3.7.0)
-      faraday (>= 2)
+      faraday (>= 1)
       faraday-multipart (>= 1)
       mime-types (>= 3)
 

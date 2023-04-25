@@ -25,9 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday", ">= 2"
+  spec.add_dependency "faraday", ">= 1"
   spec.add_dependency "faraday-multipart", ">= 1"
   spec.add_dependency "mime-types", ">= 3"
-
-  spec.post_install_message = "Note if upgrading: The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module. To upgrade, change `require 'ruby/openai'` to `require 'openai'` and change all references to `Ruby::OpenAI` to `OpenAI`."
 end
