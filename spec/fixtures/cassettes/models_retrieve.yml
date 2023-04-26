@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/models/text-ada-001
+    uri: https://api.openai.com/v1/models/text-ada-001?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,27 +23,33 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:31:02 GMT
+      - Tue, 25 Apr 2023 11:53:16 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '559'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
       - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - bd9547caf2af03ebab5387de86d2f783
+      - 0117d6261807c902e35fa30fb2872f92
       Openai-Processing-Ms:
-      - '29'
+      - '30'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd662768e5449f6-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "id": "text-ada-001",
@@ -69,5 +75,81 @@ http_interactions:
           "root": "text-ada-001",
           "parent": null
         }
-  recorded_at: Sat, 07 Jan 2023 22:31:02 GMT
+  recorded_at: Tue, 25 Apr 2023 11:53:16 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/models/text-ada-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Apr 2023 10:09:53 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - ac5584d0812e469a45cfa51d9c1452b6
+      Openai-Processing-Ms:
+      - '28'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde08613dae3556-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "text-ada-001",
+          "object": "model",
+          "created": 1649364042,
+          "owned_by": "openai",
+          "permission": [
+            {
+              "id": "modelperm-KN5dRBCEW4az6gwcGXkRkMwK",
+              "object": "model_permission",
+              "created": 1669088497,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ],
+          "root": "text-ada-001",
+          "parent": null
+        }
+  recorded_at: Wed, 26 Apr 2023 10:09:53 GMT
 recorded_with: VCR 6.1.0

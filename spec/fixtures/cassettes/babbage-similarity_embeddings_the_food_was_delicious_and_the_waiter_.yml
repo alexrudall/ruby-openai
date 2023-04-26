@@ -24,11 +24,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:58 GMT
+      - Wed, 26 Apr 2023 10:08:46 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '44410'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -36,15 +36,29 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '107'
+      - '15'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
       X-Request-Id:
-      - 84db8e9c54defee56be17c5c743bff2b
+      - a5b46187d79d7595f303c45ba4491b07
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde06c03c8e3574-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "list",
@@ -2110,5 +2124,5 @@ http_interactions:
             "total_tokens": 8
           }
         }
-  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+  recorded_at: Wed, 26 Apr 2023 10:08:46 GMT
 recorded_with: VCR 6.1.0

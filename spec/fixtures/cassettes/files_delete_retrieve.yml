@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-WTgKUB5YtLXcH9JcmWv3hdR4
+    uri: https://api.openai.com/v1/files/file-pdPNk4FxFYjwFArUPEIr7sJt?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 13 Feb 2023 22:37:25 GMT
+      - Tue, 25 Apr 2023 11:03:05 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '218'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,86 +35,38 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 56f1e1bdb55bf8f73f6f9b08fc04de30
-      Openai-Processing-Ms:
-      - '20'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "object": "file",
-          "id": "file-WTgKUB5YtLXcH9JcmWv3hdR4",
-          "purpose": "fine-tune",
-          "filename": "sentiment.jsonl",
-          "bytes": 159,
-          "created_at": 1676327838,
-          "status": "processed",
-          "status_details": null
-        }
-  recorded_at: Mon, 13 Feb 2023 22:37:25 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/files/file-Uk0uO1gKIw5Z2aZQYlnGfXxc
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 15 Feb 2023 21:43:52 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '218'
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 16d84886c65099962c90153d4066b16e
+      - f46de6709102a7ec9f0f6785e51e6d19
       Openai-Processing-Ms:
       - '10'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd618efaeb23f4e-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "file",
-          "id": "file-Uk0uO1gKIw5Z2aZQYlnGfXxc",
+          "id": "file-pdPNk4FxFYjwFArUPEIr7sJt",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1676497426,
+          "created_at": 1682420578,
           "status": "processed",
           "status_details": null
         }
-  recorded_at: Wed, 15 Feb 2023 21:43:52 GMT
+  recorded_at: Tue, 25 Apr 2023 11:03:04 GMT
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-Y48W6dd10IXr13b5E0JavrYQ
+    uri: https://api.openai.com/v1/files/file-fpIhfLF5IrRg1IqGyPuuHzGK?timeout=120
     body:
       encoding: US-ASCII
       string: ''
@@ -135,11 +87,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 15 Feb 2023 21:44:32 GMT
+      - Tue, 25 Apr 2023 11:12:29 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '218'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
@@ -147,25 +99,225 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 586ce2d5279f7e2f1bd0d440105ffa2e
+      - 23aaa4d3647e9bcc3407669927cb78e8
       Openai-Processing-Ms:
-      - '16'
+      - '10'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd626b84b6c8801-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "file",
-          "id": "file-Y48W6dd10IXr13b5E0JavrYQ",
+          "id": "file-fpIhfLF5IrRg1IqGyPuuHzGK",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1676497438,
+          "created_at": 1682421147,
           "status": "processed",
           "status_details": null
         }
-  recorded_at: Wed, 15 Feb 2023 21:44:32 GMT
+  recorded_at: Tue, 25 Apr 2023 11:12:29 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-LycSXUrE3NuDHjBUiRh0GH6w?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:51:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 3883f5e86f1904d026cd57912185d7a5
+      Openai-Processing-Ms:
+      - '10'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd660605ba6401d-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-LycSXUrE3NuDHjBUiRh0GH6w",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1682423509,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Tue, 25 Apr 2023 11:51:51 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-M5mNi3D5WbkVAMF1TCviVOoG?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:52:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 35217e90259dfe5a7da78b6568de9073
+      Openai-Processing-Ms:
+      - '9'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd6614eeae287bd-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-M5mNi3D5WbkVAMF1TCviVOoG",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1682423543,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Tue, 25 Apr 2023 11:52:29 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-sMRxQA3uRi1WfMdfLtjsmGXW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Apr 2023 10:09:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - ef31f54578016ee7733ab87d7fb41e9e
+      Openai-Processing-Ms:
+      - '10'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde07219b68be6f-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-sMRxQA3uRi1WfMdfLtjsmGXW",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1682503735,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Wed, 26 Apr 2023 10:09:02 GMT
 recorded_with: VCR 6.1.0

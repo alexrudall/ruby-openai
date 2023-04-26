@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:54 GMT
+      - Wed, 26 Apr 2023 10:08:41 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '280'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,38 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '168'
+      - '61'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Limit-Tokens:
+      - '250000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Remaining-Tokens:
+      - '249995'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
+      X-Ratelimit-Reset-Tokens:
+      - 1ms
       X-Request-Id:
-      - 44a337467dd332ca7bc30e9f7619505d
+      - 1eddfb22661618de5b055fcbed130141
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde06a2f9254ac7-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"id":"cmpl-6WBzGflagI6azKWQvdlTvfiJJId3d","object":"text_completion","created":1673130594,"model":"text-curie-001","choices":[{"text":",
-        there was a society","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-79WMj2AYsvlArnZwTZd0hLiFaA2os","object":"text_completion","created":1682503721,"model":"text-curie-001","choices":[{"text":",\n\nthere
+        was","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
-  recorded_at: Sat, 07 Jan 2023 22:29:54 GMT
+        '
+  recorded_at: Wed, 26 Apr 2023 10:08:41 GMT
 recorded_with: VCR 6.1.0

@@ -2,6 +2,66 @@
 http_interactions:
 - request:
     method: delete
+    uri: https://api.openai.com/v1/models/abc?timeout=120
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 25 Apr 2023 11:52:46 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 00c7e94b011f09f8085ec1fa9674072f
+      Openai-Processing-Ms:
+      - '52'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bd661ba094a4631-SIN
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "message": "The model 'abc' does not exist",
+            "type": "invalid_request_error",
+            "param": "model",
+            "code": "model_not_found"
+          }
+        }
+  recorded_at: Tue, 25 Apr 2023 11:52:46 GMT
+- request:
+    method: delete
     uri: https://api.openai.com/v1/models/abc
     body:
       encoding: US-ASCII
@@ -20,30 +80,36 @@ http_interactions:
   response:
     status:
       code: 404
-      message: NOT FOUND
+      message: Not Found
     headers:
       Date:
-      - Wed, 22 Mar 2023 21:18:06 GMT
+      - Wed, 26 Apr 2023 10:09:23 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '159'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
       - "*"
       Openai-Version:
       - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - b53e072fdbea3f242a94a9c2f87f27ec
+      - e6032a1dd587985e04ad029043c85f35
       Openai-Processing-Ms:
-      - '50'
+      - '32'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde07a9ef7035b0-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "error": {
@@ -53,5 +119,5 @@ http_interactions:
             "code": "model_not_found"
           }
         }
-  recorded_at: Wed, 22 Mar 2023 21:18:06 GMT
+  recorded_at: Wed, 26 Apr 2023 10:09:23 GMT
 recorded_with: VCR 6.1.0

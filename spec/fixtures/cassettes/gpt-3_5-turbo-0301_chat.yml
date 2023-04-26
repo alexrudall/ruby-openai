@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}]}'
+      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
     headers:
       Content-Type:
       - application/json
@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 01 Mar 2023 18:25:10 GMT
+      - Wed, 26 Apr 2023 10:08:38 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '326'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,32 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '857'
+      - '1640'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3500'
+      X-Ratelimit-Remaining-Requests:
+      - '3499'
+      X-Ratelimit-Reset-Requests:
+      - 17ms
       X-Request-Id:
-      - 41cd909c910d9324851b8cc075c63a60
+      - c3915cf99edea105841339320d49727e
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde0685eb1c4aca-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"id":"chatcmpl-6pLQUkP7JYPR7lDqs6UZHmcA0QV0F","object":"chat.completion","created":1677695110,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":9,"completion_tokens":12,"total_tokens":21},"choices":[{"message":{"role":"assistant","content":"\n\nHi
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-79WMf2QWBvyn8c5YSZ9F5WfEnpqCB","object":"chat.completion","created":1682503717,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
         there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
 
         '
-  recorded_at: Wed, 01 Mar 2023 18:25:10 GMT
+  recorded_at: Wed, 26 Apr 2023 10:08:38 GMT
 recorded_with: VCR 6.1.0

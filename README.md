@@ -6,7 +6,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Generate text with ChatGPT, transcribe and translate audio with Whisper, or create images with DALL·E...
+Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD)
 
@@ -34,10 +34,6 @@ and require with:
 require "openai"
 ```
 
-## Upgrading
-
-The `::Ruby::OpenAI` module has been removed and all classes have been moved under the top level `::OpenAI` module. To upgrade, change `require 'ruby/openai'` to `require 'openai'` and change all references to `Ruby::OpenAI` to `OpenAI`.
-
 ## Usage
 
 - Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
@@ -57,8 +53,8 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 
 ```ruby
 OpenAI.configure do |config|
-    config.access_token = ENV.fetch('OPENAI_ACCESS_TOKEN')
-    config.organization_id = ENV.fetch('OPENAI_ORGANIZATION_ID') # Optional.
+    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
 end
 ```
 
@@ -70,7 +66,7 @@ client = OpenAI::Client.new
 
 #### Custom timeout or base URI
 
-The default timeout for any OpenAI request is 120 seconds. You can change that passing the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
+The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
 
 ```ruby
 client = OpenAI::Client.new(
@@ -128,6 +124,23 @@ response = client.chat(
     })
 puts response.dig("choices", 0, "message", "content")
 # => "Hello! How may I assist you today?"
+```
+
+### Streaming ChatGPT
+
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the Proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
+
+```ruby
+client.chat(
+    parameters: {
+        model: "gpt-3.5-turbo", # Required.
+        messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
+        temperature: 0.7,
+        stream: proc do |chunk, _bytesize|
+            print chunk.dig("choices", 0, "delta", "content")
+        end
+    })
+# => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
 ### Completions
@@ -188,9 +201,9 @@ and pass the path to `client.files.upload` to upload it to OpenAI, and then inte
 ```ruby
 client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
 client.files.list
-client.files.retrieve(id: 123)
-client.files.content(id: 123)
-client.files.delete(id: 123)
+client.files.retrieve(id: "file-123")
+client.files.content(id: "file-123")
+client.files.delete(id: "file-123")
 ```
 
 ### Fine-tunes
@@ -208,9 +221,9 @@ You can then use this file ID to create a fine-tune model:
 response = client.finetunes.create(
     parameters: {
     training_file: file_id,
-    model: "text-ada-001"
+    model: "ada"
 })
-fine_tune_id = JSON.parse(response.body)["id"]
+fine_tune_id = response["id"]
 ```
 
 That will give you the fine-tune ID. If you made a mistake you can cancel the fine-tune model before it is processed:
@@ -224,7 +237,7 @@ You may need to wait a short time for processing to complete. Once processed, yo
 ```ruby
 client.finetunes.list
 response = client.finetunes.retrieve(id: fine_tune_id)
-fine_tuned_model = JSON.parse(response.body)["fine_tuned_model"]
+fine_tuned_model = response["fine_tuned_model"]
 ```
 
 This fine-tuned model name can then be used in completions:
@@ -236,7 +249,7 @@ response = client.completions(
         prompt: "I love Mondays!"
     }
 )
-JSON.parse(response.body)["choices"].map { |c| c["text"] }
+response.dig("choices", 0, "text")
 ```
 
 You can delete the fine-tuned model when you are done with it:
@@ -305,9 +318,9 @@ The translations API takes as input the audio file in any of the supported langu
 response = client.translate(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file', 'rb'),
+        file: File.open("path_to_file", "rb"),
     })
-puts response.parsed_response['text']
+puts response["text"]
 # => "Translation of the text"
 ```
 
@@ -319,9 +332,9 @@ The transcriptions API takes as input the audio file you want to transcribe and 
 response = client.transcribe(
     parameters: {
         model: "whisper-1",
-        file: File.open('path_to_file', 'rb'),
+        file: File.open("path_to_file", "rb"),
     })
-puts response.parsed_response['text']
+puts response["text"]
 # => "Transcription of the text"
 ```
 

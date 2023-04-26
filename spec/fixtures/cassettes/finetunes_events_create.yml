@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/fine-tunes
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-CnBPXQyPz849Dtxm9VloEcZf","model":"ada"}'
+      string: '{"training_file":"file-QpxoSyg9H8qnqeLIhDPTDPzd","model":"ada"}'
     headers:
       Content-Type:
       - application/json
@@ -23,31 +23,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:30:36 GMT
+      - Wed, 26 Apr 2023 10:09:21 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '900'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
       - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 3684c48e19917aa55735e296a342746a
+      - 22e5539432ed6649cdae397452b2a46c
       Openai-Processing-Ms:
-      - '280'
+      - '111'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde0799195f3574-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |
         {
           "object": "fine-tune",
-          "id": "ft-0WOXKibTIqg0haR6DfUQq0AC",
+          "id": "ft-rXcXqgQoEaBiOoWBuofPyIPs",
           "hyperparams": {
             "n_epochs": 4,
             "batch_size": null,
@@ -59,29 +65,29 @@ http_interactions:
           "training_files": [
             {
               "object": "file",
-              "id": "file-CnBPXQyPz849Dtxm9VloEcZf",
+              "id": "file-QpxoSyg9H8qnqeLIhDPTDPzd",
               "purpose": "fine-tune",
               "filename": "sentiment.jsonl",
               "bytes": 159,
-              "created_at": 1673130636,
-              "status": "uploaded",
+              "created_at": 1682503760,
+              "status": "processed",
               "status_details": null
             }
           ],
           "validation_files": [],
           "result_files": [],
-          "created_at": 1673130636,
-          "updated_at": 1673130636,
+          "created_at": 1682503760,
+          "updated_at": 1682503760,
           "status": "pending",
           "fine_tuned_model": null,
           "events": [
             {
               "object": "fine-tune-event",
               "level": "info",
-              "message": "Created fine-tune: ft-0WOXKibTIqg0haR6DfUQq0AC",
-              "created_at": 1673130636
+              "message": "Created fine-tune: ft-rXcXqgQoEaBiOoWBuofPyIPs",
+              "created_at": 1682503760
             }
           ]
         }
-  recorded_at: Sat, 07 Jan 2023 22:30:36 GMT
+  recorded_at: Wed, 26 Apr 2023 10:09:21 GMT
 recorded_with: VCR 6.1.0

@@ -23,11 +23,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:55 GMT
+      - Wed, 26 Apr 2023 10:08:42 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '275'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -39,18 +39,38 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '351'
+      - '84'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Limit-Tokens:
+      - '250000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Remaining-Tokens:
+      - '249995'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
+      X-Ratelimit-Reset-Tokens:
+      - 1ms
       X-Request-Id:
-      - 8f495e0a8284feaf4a77f189fda6b074
+      - 7bc7a5c7cfeb48e949909e6a98205d84
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde06a60ec5be71-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"id":"cmpl-6WBzHVieOoB2BH8NmCipCRfEsTnFl","object":"text_completion","created":1673130595,"model":"text-davinci-001","choices":[{"text":",\n\nThere
-        was","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-79WMku8FzbJLu9tJPU2V1sziEppGQ","object":"text_completion","created":1682503722,"model":"text-davinci-001","choices":[{"text":",
+        in the great state","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
-'
-  recorded_at: Sat, 07 Jan 2023 22:29:55 GMT
+        '
+  recorded_at: Wed, 26 Apr 2023 10:08:42 GMT
 recorded_with: VCR 6.1.0

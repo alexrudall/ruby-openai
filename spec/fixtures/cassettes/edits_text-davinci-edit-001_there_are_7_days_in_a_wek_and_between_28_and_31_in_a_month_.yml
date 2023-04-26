@@ -6,7 +6,8 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
-        and between 28 and 31 in a month.","instruction":"Fix the spelling mistakes"}'
+        and between 28 and 31 in a month.","instruction":"Fix the misspelled word
+        ''week''"}'
     headers:
       Content-Type:
       - application/json
@@ -24,11 +25,11 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 07 Jan 2023 22:29:58 GMT
+      - Wed, 26 Apr 2023 10:08:45 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '210'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -40,18 +41,32 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1998'
+      - '2911'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '20'
+      X-Ratelimit-Remaining-Requests:
+      - '19'
+      X-Ratelimit-Reset-Requests:
+      - 3s
       X-Request-Id:
-      - c9eb59108aa0fbc6f7a4a20aafa328ca
+      - 90198104d9c76fa8807f61c5605b8ec6
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde06a95c514ab5-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: '{"object":"edit","created":1673130596,"choices":[{"text":"They are
-        7 days in a week, and between 28 and 31 days in a month.\n","index":0}],"usage":{"prompt_tokens":34,"completion_tokens":47,"total_tokens":81}}
+      encoding: ASCII-8BIT
+      string: '{"object":"edit","created":1682503722,"choices":[{"text":"There are
+        7 days in a week, and between 28 and 31 in a month.\n","index":0}],"usage":{"prompt_tokens":38,"completion_tokens":46,"total_tokens":84}}
 
-'
-  recorded_at: Sat, 07 Jan 2023 22:29:58 GMT
+        '
+  recorded_at: Wed, 26 Apr 2023 10:08:45 GMT
 recorded_with: VCR 6.1.0

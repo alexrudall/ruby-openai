@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2023-04-25
+
+### Added
+
+- Add the ability to stream Chat responses from the API! Thanks to everyone who requested this and made suggestions.
+- Added instructions for streaming to the README.
+
+### Changed
+
+- Switch HTTP library from HTTParty to Faraday to allow streaming and future feature and performance improvements.
+- [BREAKING] Endpoints now return JSON rather than HTTParty objects. You will need to update your code to handle this change, changing `JSON.parse(response.body)["key"]` and `response.parsed_response["key"]` to just `response["key"]`.
+
 ## [3.7.0] - 2023-03-25
 
 ### Added

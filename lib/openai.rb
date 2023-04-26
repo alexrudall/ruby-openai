@@ -1,5 +1,7 @@
-require "httparty"
+require "faraday"
+require "faraday/multipart"
 
+require_relative "openai/http"
 require_relative "openai/client"
 require_relative "openai/files"
 require_relative "openai/finetunes"

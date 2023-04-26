@@ -1,5 +1,7 @@
 module OpenAI
   class Client
+    extend OpenAI::HTTP
+
     def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
@@ -49,56 +51,6 @@ module OpenAI
 
     def translate(parameters: {})
       OpenAI::Client.multipart_post(path: "/audio/translations", parameters: parameters)
-    end
-
-    def self.get(path:)
-      HTTParty.get(
-        uri(path: path),
-        headers: headers,
-        timeout: request_timeout
-      )
-    end
-
-    def self.json_post(path:, parameters:)
-      HTTParty.post(
-        uri(path: path),
-        headers: headers,
-        body: parameters&.to_json,
-        timeout: request_timeout
-      )
-    end
-
-    def self.multipart_post(path:, parameters: nil)
-      HTTParty.post(
-        uri(path: path),
-        headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
-        body: parameters,
-        timeout: request_timeout
-      )
-    end
-
-    def self.delete(path:)
-      HTTParty.delete(
-        uri(path: path),
-        headers: headers,
-        timeout: request_timeout
-      )
-    end
-
-    private_class_method def self.uri(path:)
-      OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
-    end
-
-    private_class_method def self.headers
-      {
-        "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => OpenAI.configuration.organization_id
-      }
-    end
-
-    private_class_method def self.request_timeout
-      OpenAI.configuration.request_timeout
     end
   end
 end

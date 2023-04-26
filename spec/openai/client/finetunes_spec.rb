@@ -6,7 +6,7 @@ RSpec.describe OpenAI::Client do
       response = VCR.use_cassette("finetunes files upload ") do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })
       end
-      JSON.parse(response.body)["id"]
+      response["id"]
     end
     let(:model) { "ada" }
     let!(:create_response) do
@@ -19,13 +19,13 @@ RSpec.describe OpenAI::Client do
         )
       end
     end
-    let(:create_id) { create_response.parsed_response["id"] }
+    let(:create_id) { create_response["id"] }
 
     describe "#create" do
       let(:cassette) { "finetunes" }
 
       it "succeeds" do
-        expect(create_response.parsed_response["object"]).to eq("fine-tune")
+        expect(create_response["object"]).to eq("fine-tune")
       end
     end
 
@@ -35,8 +35,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["data"][0]["object"]).to eq("fine-tune")
+          expect(response.dig("data", 0, "object")).to eq("fine-tune")
         end
       end
     end
@@ -47,8 +46,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["object"]).to eq("fine-tune")
+          expect(response["object"]).to eq("fine-tune")
         end
       end
     end
@@ -59,9 +57,8 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["id"]).to eq(create_id)
-          expect(r["status"]).to eq("cancelled")
+          expect(response["id"]).to eq(create_id)
+          expect(response["status"]).to eq("cancelled")
         end
       end
     end
@@ -72,8 +69,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r["data"][0]["object"]).to eq("fine-tune-event")
+          expect(response["data"][0]["object"]).to eq("fine-tune-event")
         end
       end
     end
@@ -87,8 +83,7 @@ RSpec.describe OpenAI::Client do
       # against the live API. Instead, we just check that the API returns an error.
       it "returns an error" do
         VCR.use_cassette(cassette) do
-          r = JSON.parse(response.body)
-          expect(r.dig("error", "message")).to include("does not exist")
+          expect(response.dig("error", "message")).to include("does not exist")
         end
       end
 
@@ -116,7 +111,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(JSON.parse(response.body)["model"]).to eq(model)
+          expect(response["model"]).to eq(model)
         end
       end
     end

@@ -12,6 +12,9 @@ Layout/LineLength:
   Exclude:
     - "**/*.gemspec"
 
+Metrics/AbcSize:
+  Max: 20
+
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
