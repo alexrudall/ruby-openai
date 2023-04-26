@@ -28,7 +28,7 @@ RSpec.describe OpenAI::Client do
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
-      let(:stream)    { OpenAI::Client.send(:to_json_stream, user_proc: user_proc) }
+      let(:stream) { OpenAI::Client.to_json_stream(user_proc: user_proc) }
 
       it "returns a proc" do
         expect(stream).to be_a(Proc)

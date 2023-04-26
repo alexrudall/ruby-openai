@@ -101,7 +101,7 @@ module OpenAI
     #
     # @param user_proc [Proc] The proc to call for each JSON object in the chunk.
     # @return [Proc] A proc that can be used to iterate over the JSON stream.
-    private_class_method def self.to_json_stream(user_proc:)
+    def self.to_json_stream(user_proc:)
       proc do |chunk, _|
         chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
           user_proc.call(JSON.parse(data))
