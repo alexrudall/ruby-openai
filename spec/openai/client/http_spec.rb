@@ -1,8 +1,4 @@
-RSpec.describe OpenAI::Client do
-  it "can be initialized" do
-    expect { OpenAI::Client.new }.not_to raise_error
-  end
-
+RSpec.describe OpenAI::HTTP do
   describe "with an aggressive timeout" do
     let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }
     let(:timeout) { 0 }
