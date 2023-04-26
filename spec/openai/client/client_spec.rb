@@ -5,7 +5,7 @@ RSpec.describe OpenAI::Client do
 
   describe "with an aggressive timeout" do
     let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }
-    let(:timeout) { 0.1 }
+    let(:timeout) { 0 }
 
     # We disable VCR and WebMock for timeout specs, otherwise VCR will return instant
     # responses when using the recorded responses and the specs will fail incorrectly.
