@@ -49,7 +49,7 @@ module OpenAI
     # If the JSON object for a given data or error message is invalid, it is ignored.
     #
     # @param user_proc [Proc] The inner proc to call for each JSON object in the chunk.
-    # @return [Proc] An outer proc that can be used to iterate over the raw stream, converting it to JSON.
+    # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
     def to_json_stream(user_proc:)
       proc do |chunk, _|
         chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
