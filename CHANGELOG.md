@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add the ability to stream Chat responses from the API! Thanks to everyone who requested this and made suggestions.
+- Added instructions for streaming to the README.
 
 ### Changed
 
