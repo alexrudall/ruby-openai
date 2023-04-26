@@ -94,8 +94,8 @@ module OpenAI
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
-    # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could be a
-    # data object or an error object as described in the OpenAI API documentation.
+    # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could
+    # be a data object or an error object as described in the OpenAI API documentation.
     #
     # If the JSON object for a given data or error message is invalid, it is ignored.
     #
