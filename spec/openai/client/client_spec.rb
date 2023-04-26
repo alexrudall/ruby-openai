@@ -1,27 +1,100 @@
 RSpec.describe OpenAI::Client do
-  let(:default_timeout) { OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT }
-
   it "can be initialized" do
     expect { OpenAI::Client.new }.not_to raise_error
   end
 
-  describe ".get" do
-    it "passes timeout as param" do
-      expect_any_instance_of(Faraday::Connection).to receive(:get).with(
-        any_args,
-        hash_including(timeout: default_timeout)
-      )
-      OpenAI::Client.get(path: "/abc")
-    end
-  end
+  describe "with an aggressive timeout" do
+    let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }
+    let(:timeout) { 0.1 }
 
-  describe ".json_post" do
-    it "passes timeout as param" do
-      expect_any_instance_of(Faraday::Connection).to receive(:post).with(
-        any_args,
-        hash_including(timeout: default_timeout)
-      )
-      OpenAI::Client.json_post(path: "/abc", parameters: { foo: :bar })
+    # We disable VCR and WebMock for timeout specs, otherwise VCR will return instant
+    # responses when using the recorded responses and the specs will fail incorrectly.
+    before do
+      VCR.turn_off!
+      WebMock.allow_net_connect!
+      OpenAI.configuration.request_timeout = timeout
+    end
+
+    after do
+      VCR.turn_on!
+      WebMock.disable_net_connect!
+      OpenAI.configuration.request_timeout = OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT
+    end
+
+    describe ".get" do
+      let(:response) { OpenAI::Client.new.models.list }
+
+      it "times out" do
+        expect { response }.to raise_error do |error|
+          expect(timeout_errors).to include(error.class)
+        end
+      end
+    end
+
+    describe ".json_post" do
+      let(:response) do
+        OpenAI::Client.new.chat(
+          parameters: {
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: "Hello!" }],
+            stream: stream
+          }
+        )
+      end
+
+      context "not streaming" do
+        let(:stream) { false }
+
+        it "times out" do
+          expect { response }.to raise_error do |error|
+            expect(timeout_errors).to include(error.class)
+          end
+        end
+      end
+
+      context "streaming" do
+        let(:chunks) { [] }
+        let(:stream) do
+          proc do |chunk, _bytesize|
+            chunks << chunk
+          end
+        end
+
+        it "times out" do
+          expect { response }.to raise_error do |error|
+            expect(timeout_errors).to include(error.class)
+          end
+        end
+      end
+    end
+
+    describe ".multipart_post" do
+      let(:filename) { "sentiment.jsonl" }
+      let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+      let(:upload_purpose) { "fine-tune" }
+      let(:response) do
+        OpenAI::Client.new.files.upload(
+          parameters: { file: file, purpose: upload_purpose }
+        )
+      end
+
+      it "times out" do
+        expect { response }.to raise_error do |error|
+          expect(timeout_errors).to include(error.class)
+        end
+      end
+    end
+
+    describe ".delete" do
+      let(:response) do
+        OpenAI::Client.new.finetunes.delete(fine_tuned_model: "1a")
+      end
+
+      it "times out" do
+        expect { response }.to raise_error do |error|
+          expect(timeout_errors).to include(error.class)
+        end
+      end
     end
   end
 
@@ -81,7 +154,7 @@ RSpec.describe OpenAI::Client do
 
           expect do
             stream.call(chunk)
-          end.to_not raise_error(JSON::ParserError)
+          end.not_to raise_error
         end
       end
 
@@ -101,7 +174,7 @@ RSpec.describe OpenAI::Client do
 
           expect do
             stream.call(chunk)
-          end.to_not raise_error(JSON::ParserError)
+          end.not_to raise_error
         end
       end
     end
@@ -113,26 +186,6 @@ RSpec.describe OpenAI::Client do
       let(:parsed) { OpenAI::Client.to_json(body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
-    end
-  end
-
-  describe ".multipart_post" do
-    it "passes timeout as param to httparty" do
-      expect_any_instance_of(Faraday::Connection).to receive(:post).with(
-        any_args,
-        hash_including(timeout: default_timeout)
-      )
-      OpenAI::Client.multipart_post(path: "/abc")
-    end
-  end
-
-  describe ".delete" do
-    it "passes timeout as param to httparty" do
-      expect_any_instance_of(Faraday::Connection).to receive(:delete).with(
-        any_args,
-        hash_including(timeout: default_timeout)
-      )
-      OpenAI::Client.delete(path: "/abc")
     end
   end
 end

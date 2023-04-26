@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:52:55 GMT
+      - Wed, 26 Apr 2023 10:09:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 98975166c83be470f78d91ec9633fc3e
+      - 63251892b40a95f1d57d4a209738a127
       Openai-Processing-Ms:
-      - '4595'
+      - '4483'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -47,19 +47,19 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd661d4ef9b2f16-SIN
+      - 7bde07c92ad435af-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "created": 1682423575,
+          "created": 1682503773,
           "data": [
             {
-              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-tED3rZ3DekeV7klecAgTRn8E.png?st=2023-04-25T10%3A52%3A55Z&se=2023-04-25T12%3A52%3A55Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-04-25T11%3A51%3A52Z&ske=2023-04-26T11%3A51%3A52Z&sks=b&skv=2021-08-06&sig=s1WiK8qgUK4W834bf%2BiZPK5dQgB7Nv6hvy3jxJfzMbA%3D"
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-nRmgBqhuO8NY94h8krez7Zjj.png?st=2023-04-26T09%3A09%3A33Z&se=2023-04-26T11%3A09%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-04-26T09%3A27%3A42Z&ske=2023-04-27T09%3A27%3A42Z&sks=b&skv=2021-08-06&sig=iGE0BJxv4wolWJe2uVWVTieWKLrAK/pWSINJvH1FVFM%3D"
             }
           ]
         }
-  recorded_at: Tue, 25 Apr 2023 11:52:56 GMT
+  recorded_at: Wed, 26 Apr 2023 10:09:33 GMT
 recorded_with: VCR 6.1.0

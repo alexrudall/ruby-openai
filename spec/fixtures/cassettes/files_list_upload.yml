@@ -5,15 +5,15 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-4e8252e07193be502334df9169fc5ac6\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-718108d6b069a1079d9d8f9c51bb0c2f\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Length:
         159\r\nContent-Type: \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"prompt\":\"Overjoyed
         with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-4e8252e07193be502334df9169fc5ac6\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-4e8252e07193be502334df9169fc5ac6--\r\n"
+        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-718108d6b069a1079d9d8f9c51bb0c2f\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-718108d6b069a1079d9d8f9c51bb0c2f--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-4e8252e07193be502334df9169fc5ac6
+      - multipart/form-data; boundary=-----------RubyMultipartPost-718108d6b069a1079d9d8f9c51bb0c2f
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -30,7 +30,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:52:17 GMT
+      - Wed, 26 Apr 2023 10:08:49 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -42,9 +42,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 229d0fe4dc80a7b0d137e8f5bbc4a90f
+      - a21b8886938b9733ac8216bf74e66688
       Openai-Processing-Ms:
-      - '647'
+      - '655'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -54,7 +54,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd661023ded8801-SIN
+      - 7bde06cded7e4ab2-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
@@ -62,13 +62,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-1dyaIGyMnfq7n5Xh3DdEXkSC",
+          "id": "file-x5hTvvCDpHGBQLFoKCWzsOAd",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1682423537,
+          "created_at": 1682503729,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Tue, 25 Apr 2023 11:52:17 GMT
+  recorded_at: Wed, 26 Apr 2023 10:08:49 GMT
 recorded_with: VCR 6.1.0

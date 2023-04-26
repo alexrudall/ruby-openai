@@ -177,4 +177,63 @@ http_interactions:
           "deleted": true
         }
   recorded_at: Tue, 25 Apr 2023 11:52:29 GMT
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/files/file-sMRxQA3uRi1WfMdfLtjsmGXW
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Apr 2023 10:09:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - fd55d154faca0aaa44f170f53bfb94dd
+      Openai-Processing-Ms:
+      - '98'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde0725996a35c1-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-sMRxQA3uRi1WfMdfLtjsmGXW",
+          "deleted": true
+        }
+  recorded_at: Wed, 26 Apr 2023 10:09:02 GMT
 recorded_with: VCR 6.1.0

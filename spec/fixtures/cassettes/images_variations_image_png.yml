@@ -6,8 +6,8 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWM0MjNjNWFhMTQwNjgy
-        MzViYWFiNzkwM2Q1MTI0ODRlDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWM2MmJlMTE2NTVjNzEy
+        YWNhOGEwNGNkMmRiNWUxMWViDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
         LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
         bnRlbnQtTGVuZ3RoOiAyNDkNCkNvbnRlbnQtVHlwZTogDQpDb250ZW50LVRy
         YW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KiVBORw0KGgoAAAANSUhEUgAA
@@ -16,16 +16,16 @@ http_interactions:
         SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEk
         hISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJC
         QkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv2YpOAAAAAElF
-        TkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtYzQyM2M1
-        YWExNDA2ODIzNWJhYWI3OTAzZDUxMjQ4NGUNCkNvbnRlbnQtRGlzcG9zaXRp
+        TkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtYzYyYmUx
+        MTY1NWM3MTJhY2E4YTA0Y2QyZGI1ZTExZWINCkNvbnRlbnQtRGlzcG9zaXRp
         b246IGZvcm0tZGF0YTsgbmFtZT0ibiINCg0KMg0KLS0tLS0tLS0tLS0tLVJ1
-        YnlNdWx0aXBhcnRQb3N0LWM0MjNjNWFhMTQwNjgyMzViYWFiNzkwM2Q1MTI0
-        ODRlDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InNp
+        YnlNdWx0aXBhcnRQb3N0LWM2MmJlMTE2NTVjNzEyYWNhOGEwNGNkMmRiNWUx
+        MWViDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9InNp
         emUiDQoNCjI1NngyNTYNCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9z
-        dC1jNDIzYzVhYTE0MDY4MjM1YmFhYjc5MDNkNTEyNDg0ZS0tDQo=
+        dC1jNjJiZTExNjU1YzcxMmFjYThhMDRjZDJkYjVlMTFlYi0tDQo=
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-c423c5aa14068235baab7903d512484e
+      - multipart/form-data; boundary=-----------RubyMultipartPost-c62be11655c712aca8a04cd2db5e11eb
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -42,7 +42,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:53:14 GMT
+      - Wed, 26 Apr 2023 10:09:51 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -54,9 +54,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - c10a4d53b075eba5c05f50375b5f7f97
+      - 5c94a4da36c9fcbc99d6dc4e498644ec
       Openai-Processing-Ms:
-      - '8184'
+      - '7092'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -66,35 +66,35 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd66236782da3d6-SIN
+      - 7bde0827ff784ad0-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        ewogICJjcmVhdGVkIjogMTY4MjQyMzU5NCwKICAiZGF0YSI6IFsKICAgIHsK
+        ewogICJjcmVhdGVkIjogMTY4MjUwMzc5MCwKICAiZGF0YSI6IFsKICAgIHsK
         ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
         Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
         SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
-        aU1PSHVrZEZjVXJEMnhhOXRYVTlhWk9kLnBuZz9zdD0yMDIzLTA0LTI1VDEw
-        JTNBNTMlM0ExM1omc2U9MjAyMy0wNC0yNVQxMiUzQTUzJTNBMTNaJnNwPXIm
+        N3BHNDJXV2JLMWFQQmJwQWxLS1BGVXdhLnBuZz9zdD0yMDIzLTA0LTI2VDA5
+        JTNBMDklM0E1MFomc2U9MjAyMy0wNC0yNlQxMSUzQTA5JTNBNTBaJnNwPXIm
         c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
         JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
         a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
-        PTIwMjMtMDQtMjVUMTElM0E1MyUzQTEzWiZza2U9MjAyMy0wNC0yNlQxMSUz
-        QTUzJTNBMTNaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz0yZXluQ1ElMkI1
-        UmQlMkJlZHJpQ3pQSUhMU1d6RUc1MEdFb2kyN29XYjZuSEYxayUzRCIKICAg
-        IH0sCiAgICB7CiAgICAgICJ1cmwiOiAiaHR0cHM6Ly9vYWlkYWxsZWFwaXBy
-        b2RzY3VzLmJsb2IuY29yZS53aW5kb3dzLm5ldC9wcml2YXRlL29yZy1SZjQz
-        N0l4S2hoUVBNaUlRMEVzOE93ckgvdXNlci1qeE02NWlqa1pjMXFSZkhDMElK
-        OG1PSWMvaW1nLURDbjFqZFZVZTlGRDk5R2JBNDl2cVY3TS5wbmc/c3Q9MjAy
-        My0wNC0yNVQxMCUzQTUzJTNBMTRaJnNlPTIwMjMtMDQtMjVUMTIlM0E1MyUz
-        QTE0WiZzcD1yJnN2PTIwMjEtMDgtMDYmc3I9YiZyc2NkPWlubGluZSZyc2N0
-        PWltYWdlL3BuZyZza29pZD02YWFhZGVkZS00ZmIzLTQ2OTgtYThmNi02ODRk
-        Nzc4NmIwNjcmc2t0aWQ9YTQ4Y2NhNTYtZTZkYS00ODRlLWE4MTQtOWM4NDk2
-        NTJiY2IzJnNrdD0yMDIzLTA0LTI1VDExJTNBNTMlM0ExM1omc2tlPTIwMjMt
-        MDQtMjZUMTElM0E1MyUzQTEzWiZza3M9YiZza3Y9MjAyMS0wOC0wNiZzaWc9
-        RW9FUyUyQkt1L1E5MFRJV2dtM0Q5alM1TEIyNnphbmtuczBrM3lNcFVHcExj
-        JTNEIgogICAgfQogIF0KfQo=
-  recorded_at: Tue, 25 Apr 2023 11:53:14 GMT
+        PTIwMjMtMDQtMjZUMTAlM0EwNCUzQTAzWiZza2U9MjAyMy0wNC0yN1QxMCUz
+        QTA0JTNBMDNaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz1tZW1TVnJsYldW
+        WkNzU2xPOFJHNDlvSXZuTXZ5SFF3NTMlMkJYNWFVWXRJTzAlM0QiCiAgICB9
+        LAogICAgewogICAgICAidXJsIjogImh0dHBzOi8vb2FpZGFsbGVhcGlwcm9k
+        c2N1cy5ibG9iLmNvcmUud2luZG93cy5uZXQvcHJpdmF0ZS9vcmctUmY0MzdJ
+        eEtoaFFQTWlJUTBFczhPd3JIL3VzZXItanhNNjVpamtaYzFxUmZIQzBJSjht
+        T0ljL2ltZy12dVk0VTlQNkgxSHQ3Z3EyZDNuVzBFVEIucG5nP3N0PTIwMjMt
+        MDQtMjZUMDklM0EwOSUzQTUwWiZzZT0yMDIzLTA0LTI2VDExJTNBMDklM0E1
+        MFomc3A9ciZzdj0yMDIxLTA4LTA2JnNyPWImcnNjZD1pbmxpbmUmcnNjdD1p
+        bWFnZS9wbmcmc2tvaWQ9NmFhYWRlZGUtNGZiMy00Njk4LWE4ZjYtNjg0ZDc3
+        ODZiMDY3JnNrdGlkPWE0OGNjYTU2LWU2ZGEtNDg0ZS1hODE0LTljODQ5NjUy
+        YmNiMyZza3Q9MjAyMy0wNC0yNlQxMCUzQTA0JTNBMDNaJnNrZT0yMDIzLTA0
+        LTI3VDEwJTNBMDQlM0EwM1omc2tzPWImc2t2PTIwMjEtMDgtMDYmc2lnPXhv
+        SDVUbXVjc1o0RGtWWVBhWFV6eGd1UHNPd1ZtZnd3RFFwZ1huQThISWclM0Qi
+        CiAgICB9CiAgXQp9Cg==
+  recorded_at: Wed, 26 Apr 2023 10:09:51 GMT
 recorded_with: VCR 6.1.0

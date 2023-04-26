@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:52:12 GMT
+      - Wed, 26 Apr 2023 10:08:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '68'
+      - '61'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 169b970ca8e99b40be0d13c1151f55f5
+      - 1eddfb22661618de5b055fcbed130141
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd660e12ea83fab-SIN
+      - 7bde06a2f9254ac7-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79BVLhoA62VTG8tch9QM122AMM1VD","object":"text_completion","created":1682423531,"model":"text-curie-001","choices":[{"text":",
-        golden parachutes were","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79WMj2AYsvlArnZwTZd0hLiFaA2os","object":"text_completion","created":1682503721,"model":"text-curie-001","choices":[{"text":",\n\nthere
+        was","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:52:12 GMT
+  recorded_at: Wed, 26 Apr 2023 10:08:41 GMT
 recorded_with: VCR 6.1.0

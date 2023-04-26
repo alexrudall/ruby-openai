@@ -256,4 +256,68 @@ http_interactions:
           "status_details": null
         }
   recorded_at: Tue, 25 Apr 2023 11:52:20 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-egzGPJW0zI7Bul1goGRsQPEm
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 26 Apr 2023 10:08:52 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - '0484a03b8aa8a35f24faa831cb9cfcf3'
+      Openai-Processing-Ms:
+      - '13'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7bde06e6aa624ac8-CGK
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-egzGPJW0zI7Bul1goGRsQPEm",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1682503731,
+          "status": "uploaded",
+          "status_details": null
+        }
+  recorded_at: Wed, 26 Apr 2023 10:08:52 GMT
 recorded_with: VCR 6.1.0

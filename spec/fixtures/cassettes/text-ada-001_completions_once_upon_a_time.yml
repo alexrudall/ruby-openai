@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 25 Apr 2023 11:52:11 GMT
+      - Wed, 26 Apr 2023 10:08:40 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '53'
+      - '49'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,20 +57,20 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 1ms
       X-Request-Id:
-      - 39ae31f328175c8b1a774ed85af31b16
+      - 135bbd759ebe90046d0799aa4943662e
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bd660db08f6ab53-SIN
+      - 7bde069b6fa94ad9-CGK
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"cmpl-79BVK3sBifoE9aumZIvuEFJ8yKgM4","object":"text_completion","created":1682423530,"model":"text-ada-001","choices":[{"text":",
-        there were two main","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+      string: '{"id":"cmpl-79WMih4onRw8f93heCq4vEahWK5OR","object":"text_completion","created":1682503720,"model":"text-ada-001","choices":[{"text":"
+        there was a flower darling","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
 
         '
-  recorded_at: Tue, 25 Apr 2023 11:52:10 GMT
+  recorded_at: Wed, 26 Apr 2023 10:08:40 GMT
 recorded_with: VCR 6.1.0
