@@ -128,7 +128,7 @@ puts response.dig("choices", 0, "message", "content")
 
 ### Streaming ChatGPT
 
-You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time an Array of one or more chunks is received, the Proc will be called with the chunks. `ruby-openai` outputs the chunks as an Array of one or more Hashes.
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the Proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
 
 ```ruby
 client.chat(
@@ -136,8 +136,8 @@ client.chat(
         model: "gpt-3.5-turbo", # Required.
         messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
         temperature: 0.7,
-        stream: proc do |chunks, _bytesize|
-            chunks.each { |c| print c.dig("choices", 0, "delta", "content") }
+        stream: proc do |chunk, _bytesize|
+            print chunk.dig("choices", 0, "delta", "content")
         end
     })
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
