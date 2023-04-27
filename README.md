@@ -9,7 +9,8 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD)
-[How to stream ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
+
+[Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
 ### Bundler
 
@@ -128,6 +129,8 @@ puts response.dig("choices", 0, "message", "content")
 ```
 
 ### Streaming ChatGPT
+
+[Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
 You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the Proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
 
