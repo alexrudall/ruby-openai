@@ -9,6 +9,7 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD)
+[How to stream ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
 ### Bundler
 
