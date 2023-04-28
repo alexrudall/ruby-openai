@@ -53,7 +53,11 @@ RSpec.describe OpenAI::Client do
 
       context "with model: gpt-4" do
         let(:model) { "gpt-4" }
-        let(:messages) { [{ role: "user", content: "What is the maximum weight allowed in the closed drawer or in combination of inside and on top of the open drawer?" }] }
+        let(:messages) do
+          [{ role: "user",
+             content: "What is the maximum weight allowed in the closed drawer or in combination" \
+                      "of inside and on top of the open drawer?" }]
+        end
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
