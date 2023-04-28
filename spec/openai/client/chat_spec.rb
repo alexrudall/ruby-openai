@@ -50,6 +50,33 @@ RSpec.describe OpenAI::Client do
           end
         end
       end
+
+      context "with model: gpt-4" do
+        let(:model) { "gpt-4" }
+        let(:messages) { [{ role: "user", content: "What is the maximum weight allowed in the closed drawer or in combination of inside and on top of the open drawer?" }] }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(content.split.empty?).to eq(false)
+          end
+        end
+
+        describe "streaming" do
+          let(:chunks) { [] }
+          let(:stream) do
+            proc do |chunk, _bytesize|
+              chunks << chunk
+            end
+          end
+
+          it "succeeds" do
+            VCR.use_cassette(cassette) do
+              response
+              expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
+            end
+          end
+        end
+      end
     end
   end
 end
