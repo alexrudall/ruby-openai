@@ -2,10 +2,12 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/chat/completions
+    uri: https://oai.hconeai.com/v1/chat/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
+      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"What
+        is the maximum weight allowed in the closed drawer or in combinationof inside
+        and on top of the open drawer?"}],"stream":false}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +25,89 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 26 Apr 2023 10:08:38 GMT
+      - Sat, 29 Apr 2023 12:48:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 7bf7a8956a14295c-ORD
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Helicone-Id:
+      - 17e80f4c-587f-420b-9bd8-3b009f61439e
+      Helicone-Status:
+      - success
+      Openai-Model:
+      - gpt-3.5-turbo-0301
+      Openai-Organization:
+      - union-media-llc
+      Openai-Processing-Ms:
+      - '3972'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '3500'
+      X-Ratelimit-Limit-Tokens:
+      - '90000'
+      X-Ratelimit-Remaining-Requests:
+      - '3499'
+      X-Ratelimit-Remaining-Tokens:
+      - '89953'
+      X-Ratelimit-Reset-Requests:
+      - 17ms
+      X-Ratelimit-Reset-Tokens:
+      - 30ms
+      X-Request-Id:
+      - b601cf0c265372bf33c883693fc809ec
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-7AeHr09Qv0W7pjmtihSvdkqZWOeKJ","object":"chat.completion","created":1682772499,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":31,"completion_tokens":59,"total_tokens":90},"choices":[{"message":{"role":"assistant","content":"As
+        an AI language model, I do not have enough information to provide a specific
+        answer. The maximum weight allowed in a drawer may vary depending on the material
+        of the drawer, its dimensions, and its intended use. It is recommended to
+        check the product specifications or contact the manufacturer for more information."},"finish_reason":"stop","index":0}]}
+
+        '
+  recorded_at: Sat, 29 Apr 2023 12:48:22 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"What
+        is the maximum weight allowed in the closed drawer or in combinationof inside
+        and on top of the open drawer?"}],"stream":false}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 29 Apr 2023 12:49:04 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,34 +121,42 @@ http_interactions:
       Openai-Model:
       - gpt-3.5-turbo-0301
       Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
+      - union-media-llc
       Openai-Processing-Ms:
-      - '1640'
+      - '2657'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Ratelimit-Limit-Requests:
       - '3500'
+      X-Ratelimit-Limit-Tokens:
+      - '90000'
       X-Ratelimit-Remaining-Requests:
       - '3499'
+      X-Ratelimit-Remaining-Tokens:
+      - '89953'
       X-Ratelimit-Reset-Requests:
       - 17ms
+      X-Ratelimit-Reset-Tokens:
+      - 30ms
       X-Request-Id:
-      - c3915cf99edea105841339320d49727e
+      - c440063fd9b69af36287895620b7243a
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bde0685eb1c4aca-CGK
+      - 7bf7a9a5384fe213-ORD
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-79WMf2QWBvyn8c5YSZ9F5WfEnpqCB","object":"chat.completion","created":1682503717,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":10,"completion_tokens":10,"total_tokens":20},"choices":[{"message":{"role":"assistant","content":"Hello
-        there! How can I assist you today?"},"finish_reason":"stop","index":0}]}
+      string: '{"id":"chatcmpl-7AeIYTeLZ3KTf0YJu3Mjr3cJbUrqi","object":"chat.completion","created":1682772542,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":31,"completion_tokens":33,"total_tokens":64},"choices":[{"message":{"role":"assistant","content":"As
+        an AI language model, I don''t have information about the specific drawer
+        you are referring to. Please provide more details or context so I can assist
+        you better."},"finish_reason":"stop","index":0}]}
 
         '
-  recorded_at: Wed, 26 Apr 2023 10:08:38 GMT
+  recorded_at: Sat, 29 Apr 2023 12:49:04 GMT
 recorded_with: VCR 6.1.0

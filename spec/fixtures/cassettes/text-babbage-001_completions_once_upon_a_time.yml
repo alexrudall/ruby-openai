@@ -73,4 +73,81 @@ http_interactions:
 
         '
   recorded_at: Wed, 26 Apr 2023 10:08:41 GMT
+- request:
+    method: post
+    uri: https://oai.hconeai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"text-babbage-001","prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 29 Apr 2023 12:42:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 7bf79fea49562943-ORD
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Helicone-Id:
+      - a6c3b990-dfc7-40b4-91fb-8774f6f73e9c
+      Helicone-Status:
+      - success
+      Openai-Model:
+      - text-babbage-001
+      Openai-Organization:
+      - union-media-llc
+      Openai-Processing-Ms:
+      - '220'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '3000'
+      X-Ratelimit-Limit-Tokens:
+      - '250000'
+      X-Ratelimit-Remaining-Requests:
+      - '2999'
+      X-Ratelimit-Remaining-Tokens:
+      - '249995'
+      X-Ratelimit-Reset-Requests:
+      - 20ms
+      X-Ratelimit-Reset-Tokens:
+      - 1ms
+      X-Request-Id:
+      - 7b7a0882bcf6560dbd09ef30badb05e2
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"cmpl-7AeC71sgHZ2wItY7NQttaPM6mSrWg","object":"text_completion","created":1682772143,"model":"text-babbage-001","choices":[{"text":"
+        there was a planet known","index":0,"logprobs":null,"finish_reason":"length"}],"usage":{"prompt_tokens":4,"completion_tokens":5,"total_tokens":9}}
+
+        '
+  recorded_at: Sat, 29 Apr 2023 12:42:23 GMT
 recorded_with: VCR 6.1.0

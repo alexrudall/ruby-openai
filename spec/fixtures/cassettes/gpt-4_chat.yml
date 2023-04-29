@@ -2,11 +2,11 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/chat/completions
+    uri: https://oai.hconeai.com/v1/chat/completions
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4","messages":[{"role":"user","content":"What is the
-        maximum weight allowed in the closed drawer or in combination of inside and
+        maximum weight allowed in the closed drawer or in combinationof inside and
         on top of the open drawer?"}],"stream":false}'
     headers:
       Content-Type:
@@ -25,7 +25,89 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 28 Apr 2023 12:44:55 GMT
+      - Sat, 29 Apr 2023 12:48:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 7bf7a8e0d99110c0-ORD
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Helicone-Id:
+      - 38976ffa-31e1-4b74-a3e0-7ea2987fc684
+      Helicone-Status:
+      - success
+      Openai-Model:
+      - gpt-4-0314
+      Openai-Organization:
+      - union-media-llc
+      Openai-Processing-Ms:
+      - '8457'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '199'
+      X-Ratelimit-Remaining-Tokens:
+      - '39954'
+      X-Ratelimit-Reset-Requests:
+      - 300ms
+      X-Ratelimit-Reset-Tokens:
+      - 69ms
+      X-Request-Id:
+      - cf72ed6e7939db478619f6ccdac1ab38
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"chatcmpl-7AeI3AkWUhhKrBHJCOqXCPkUypmYh","object":"chat.completion","created":1682772511,"model":"gpt-4-0314","usage":{"prompt_tokens":30,"completion_tokens":45,"total_tokens":75},"choices":[{"message":{"role":"assistant","content":"I
+        cannot answer this question without more information about the specific drawer,
+        its construction, and its manufacturer''s recommendations. Please provide
+        more details or consult the product manual or manufacturer''s guidelines for
+        the maximum weight capacity of your specific drawer."},"finish_reason":"stop","index":0}]}
+
+        '
+  recorded_at: Sat, 29 Apr 2023 12:48:39 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","messages":[{"role":"user","content":"What is the
+        maximum weight allowed in the closed drawer or in combinationof inside and
+        on top of the open drawer?"}],"stream":false}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 29 Apr 2023 12:49:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -41,7 +123,7 @@ http_interactions:
       Openai-Organization:
       - union-media-llc
       Openai-Processing-Ms:
-      - '12755'
+      - '7314'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -59,26 +141,24 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 69ms
       X-Request-Id:
-      - 741c1a81eda5d52d5bde30250bad2ae2
+      - 29cb80a22674cc3473224d54c6cf48e2
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7bef65f00cb78710-ORD
+      - 7bf7a9fed8e610db-ORD
       Alt-Svc:
       - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"chatcmpl-7AHkpZlwwjIDms2xKw1Bkah1OFHZb","object":"chat.completion","created":1682685883,"model":"gpt-4-0314","usage":{"prompt_tokens":30,"completion_tokens":91,"total_tokens":121},"choices":[{"message":{"role":"assistant","content":"I
-        cannot answer this question without knowing the specific drawer or its construction
-        and materials. However, it is essential to refer to the manufacturer''s specifications
-        or guidelines for weight limits on a particular drawer. Typically, drawers
-        can hold around 75-100 pounds of weight inside, but the capacity can vary
-        depending on the quality and construction of the drawer. It''s usually not
-        recommended to place heavy items on top of an open drawer as it may cause
-        damage or instability."},"finish_reason":"stop","index":0}]}
+      string: '{"id":"chatcmpl-7AeImVfEoDx1MHzKCWA7uvmFY4YZ7","object":"chat.completion","created":1682772556,"model":"gpt-4-0314","usage":{"prompt_tokens":30,"completion_tokens":66,"total_tokens":96},"choices":[{"message":{"role":"assistant","content":"I
+        cannot answer this question without more information about the specific drawer,
+        its construction, and materials used. The maximum weight capacity depends
+        on various factors such as the type, quality, and material used for the drawer
+        and its supporting structure. To find this information, please refer to the
+        manufacturer''s guidelines or product specifications for your specific drawer."},"finish_reason":"stop","index":0}]}
 
         '
-  recorded_at: Fri, 28 Apr 2023 12:44:55 GMT
+  recorded_at: Sat, 29 Apr 2023 12:49:23 GMT
 recorded_with: VCR 6.1.0
