@@ -1,5 +1,5 @@
 RSpec.describe OpenAI::Client do
-  shared_examples "completions" do |model|
+  shared_examples "chat" do |model|
     describe "#chat" do
       context "with messages", :vcr do
         let(:messages) { [{ role: "user", content: "Hello!" }] }
@@ -95,9 +95,9 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    include_examples "completions", "gpt-3.5-turbo"
-    include_examples "completions", "gpt-3.5-turbo-0301"
-    include_examples "completions", "gpt-4"
+    include_examples "chat", "gpt-3.5-turbo"
+    include_examples "chat", "gpt-3.5-turbo-0301"
+    include_examples "chat", "gpt-4"
   end
 
   context "with the default uri_base", :vcr do
@@ -109,8 +109,8 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    include_examples "completions", "gpt-3.5-turbo"
-    include_examples "completions", "gpt-3.5-turbo-0301"
-    include_examples "completions", "gpt-4"
+    include_examples "chat", "gpt-3.5-turbo"
+    include_examples "chat", "gpt-3.5-turbo-0301"
+    include_examples "chat", "gpt-4"
   end
 end
