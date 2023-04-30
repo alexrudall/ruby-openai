@@ -362,6 +362,10 @@ OPENAI_ACCESS_TOKEN=123abc bundle exec rspec
 
 Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bundle install` to update Gemfile.lock, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+## Testing GPT-4
+
+Since GPT-4 isn't widely available yet, and this project aims to be as includsive as possible, specs that test GPT-4 models require an additinoal enviroment variable to be set. To test GPT-4 models simply set `GPT4=true` in your environment or on the command line like this: `GPT4=true bundle exec rspec`.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at <https://github.com/alexrudall/ruby-openai>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
