@@ -12,6 +12,8 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
 
 [Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
+Follow me on [Twitter](https://twitter.com/alexrudall) for more Ruby / AI content
+
 ### Bundler
 
 Add this line to your application's Gemfile:
