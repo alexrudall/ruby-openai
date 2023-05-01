@@ -40,8 +40,8 @@ require "openai"
 
 ## Usage
 
-- Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
-- If you belong to multiple organizations, you can get your Organization ID from [https://beta.openai.com/account/org-settings](https://beta.openai.com/account/org-settings)
+- Get your API key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+- If you belong to multiple organizations, you can get your Organization ID from [https://platform.openai.com/account/org-settings](https://platform.openai.com/account/org-settings)
 
 ### Quickstart
 
