@@ -9,20 +9,23 @@ module OpenAI
       OpenAI.configuration.request_timeout = request_timeout if request_timeout
     end
 
-    def chat(parameters: {})
-      OpenAI::Client.json_post(path: "/chat/completions", parameters: parameters)
+    def chat(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/chat/completions",
+                               parameters: parameters)
     end
 
-    def completions(parameters: {})
-      OpenAI::Client.json_post(path: "/completions", parameters: parameters)
+    def completions(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/completions",
+                               parameters: parameters)
     end
 
     def edits(parameters: {})
       OpenAI::Client.json_post(path: "/edits", parameters: parameters)
     end
 
-    def embeddings(parameters: {})
-      OpenAI::Client.json_post(path: "/embeddings", parameters: parameters)
+    def embeddings(deployment_id: nil, parameters: {})
+      OpenAI::Client.json_post(deployment_id: deployment_id, path: "/embeddings",
+                               parameters: parameters)
     end
 
     def files
