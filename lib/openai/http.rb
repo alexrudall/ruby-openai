@@ -6,8 +6,8 @@ module OpenAI
       end&.body)
     end
 
-    def json_post(path:, parameters:)
-      to_json(conn.post(uri(path: path)) do |req|
+    def json_post(path:, parameters:, deployment_id:nil)
+      to_json(conn.post(uri(deployment_id: deployment_id, path: path)) do |req|
         if parameters[:stream].is_a?(Proc)
           req.options.on_data = to_json_stream(user_proc: parameters[:stream])
           parameters[:stream] = true # Necessary to tell OpenAI to stream.
@@ -67,15 +67,29 @@ module OpenAI
       end
     end
 
-    def uri(path:)
-      OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+    def uri(path:, deployment_id: nil)
+      if OpenAI.configuration.api_type == :azure
+        uri = "#{OpenAI.configuration.uri_base}openai"
+        uri += "/deployments/#{deployment_id}" if deployment_id
+        uri + path + "?api-version=#{OpenAI.configuration.api_version}"
+      else
+        OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+      end
     end
 
     def headers
+      return azure_headers if OpenAI.configuration.api_type == :azure
       {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
         "OpenAI-Organization" => OpenAI.configuration.organization_id
+      }
+    end
+
+    def azure_headers
+      {
+        "Content-Type" => "application/json",
+        "api-key" => OpenAI.configuration.access_token
       }
     end
 
