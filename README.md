@@ -88,6 +88,9 @@ OpenAI.configure do |config|
     config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
     config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
+    config.extra_headers = {
+        "X-Proxy-Refresh": "true"
+    } # Optional
 end
 ```
 
