@@ -2,11 +2,13 @@ module OpenAI
   class Client
     extend OpenAI::HTTP
 
-    def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil)
+    def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil,
+                   extra_headers: {})
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
       OpenAI.configuration.uri_base = uri_base if uri_base
       OpenAI.configuration.request_timeout = request_timeout if request_timeout
+      OpenAI.configuration.extra_headers = extra_headers
     end
 
     def chat(parameters: {})
