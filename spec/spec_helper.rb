@@ -10,8 +10,8 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = {
-    record: if !ENV.fetch("OPENAI_ACCESS_TOKEN", nil).nil? &
-               !ENV.fetch("AZURE_ACCESS_TOKEN", nil).nil?
+    record: if ENV.fetch("OPENAI_ACCESS_TOKEN", nil).nil? &
+               ENV.fetch("AZURE_ACCESS_TOKEN", nil).nil?
               :all
             else
               :new_episodes
