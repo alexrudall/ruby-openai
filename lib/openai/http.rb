@@ -68,14 +68,27 @@ module OpenAI
     end
 
     def uri(path:)
-      OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+      if OpenAI.configuration.api_type == :azure
+        OpenAI.configuration.uri_base + path + "?api-version=#{OpenAI.configuration.api_version}"
+      else
+        OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+      end
     end
 
     def headers
+      return azure_headers if OpenAI.configuration.api_type == :azure
+
       {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
         "OpenAI-Organization" => OpenAI.configuration.organization_id
+      }
+    end
+
+    def azure_headers
+      {
+        "Content-Type" => "application/json",
+        "api-key" => OpenAI.configuration.access_token
       }
     end
 
