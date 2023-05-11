@@ -10,8 +10,12 @@ VCR.configure do |c|
   c.hook_into :webmock
   c.cassette_library_dir = "spec/fixtures/cassettes"
   c.default_cassette_options = {
-    record: (ENV.fetch("OPENAI_ACCESS_TOKEN", nil) != nil) &
-    (ENV.fetch("AZURE_ACCESS_TOKEN", nil) != nil)  ? :all : :new_episodes,
+    record: if !ENV.fetch("OPENAI_ACCESS_TOKEN", nil).nil? &
+               !ENV.fetch("AZURE_ACCESS_TOKEN", nil).nil?
+              :all
+            else
+              :new_episodes
+            end,
     match_requests_on: [:method, :uri, VCRMultipartMatcher.new]
   }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
