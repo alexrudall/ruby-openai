@@ -1,9 +1,15 @@
 RSpec.describe OpenAI::Client do
-  context "with 2 clients with different access tokens" do
-    let!(:client1) { OpenAI::Client.new(access_token: "client1") }
-    let!(:client2) { OpenAI::Client.new(access_token: "client2") }
+  context "with clients with different access tokens" do
+    before do
+      OpenAI.configure do |config|
+        config.access_token = "default"
+      end
+    end
 
-    it { expect(client1.access_token).to eq("client1") }
-    it { expect(client2.access_token).to eq("client2") }
+    it "does not confuse the clients" do
+      expect(OpenAI::Client.new.access_token).to eq("default")
+      expect(OpenAI::Client.new(access_token: "client1").access_token).to eq("client1")
+      expect(OpenAI::Client.new(access_token: "client2").access_token).to eq("client2")
+    end
   end
 end
