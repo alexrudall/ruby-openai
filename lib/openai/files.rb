@@ -26,7 +26,7 @@ module OpenAI
     end
 
     def content(id:)
-      OpenAI::Client.get(path: "/files/#{id}/content")
+      @client.get(path: "/files/#{id}/content")
     end
 
     def delete(id:)

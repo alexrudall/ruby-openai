@@ -97,7 +97,7 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
-      let(:stream) { OpenAI::Client.send(:to_json_stream, user_proc: user_proc) }
+      let(:stream) { OpenAI::Client.new.send(:to_json_stream, user_proc: user_proc) }
 
       it "returns a proc" do
         expect(stream).to be_a(Proc)
@@ -179,7 +179,7 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.send(:to_json, body) }
+      let(:parsed) { OpenAI::Client.new.send(:to_json, body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
     end

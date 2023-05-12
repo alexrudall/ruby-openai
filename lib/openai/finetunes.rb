@@ -33,7 +33,7 @@ module OpenAI
         raise ArgumentError, "Please give a fine_tuned_model name, not a fine-tune ID"
       end
 
-      OpenAI::Client.delete(path: "/models/#{fine_tuned_model}")
+      @client.delete(path: "/models/#{fine_tuned_model}")
     end
   end
 end
