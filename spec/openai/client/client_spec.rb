@@ -7,9 +7,13 @@ RSpec.describe OpenAI::Client do
     end
 
     it "does not confuse the clients" do
-      expect(OpenAI::Client.new.access_token).to eq("default")
-      expect(OpenAI::Client.new(access_token: "client1").access_token).to eq("client1")
-      expect(OpenAI::Client.new(access_token: "client2").access_token).to eq("client2")
+      default = OpenAI::Client.new
+      client1 = OpenAI::Client.new(access_token: "client1")
+      client2 = OpenAI::Client.new(access_token: "client2")
+
+      expect(default.access_token).to eq("default")
+      expect(client1.access_token).to eq("client1")
+      expect(client2.access_token).to eq("client2")
     end
   end
 end
