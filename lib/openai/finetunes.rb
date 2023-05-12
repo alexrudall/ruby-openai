@@ -1,11 +1,12 @@
 module OpenAI
   class Finetunes
-    def initialize(client: nil, access_token: nil, organization_id: OpenAI::Client::NULL_ORGANIZATION_ID)
+    def initialize(client: nil, access_token: nil,
+                   organization_id: OpenAI::Client::NULL_ORGANIZATION_ID)
       @client = if client.nil?
-        OpenAI::Client.new(access_token: access_token, organization_id: organization_id)
-      else
-        client
-      end
+                  OpenAI::Client.new(access_token: access_token, organization_id: organization_id)
+                else
+                  client
+                end
     end
 
     def list
