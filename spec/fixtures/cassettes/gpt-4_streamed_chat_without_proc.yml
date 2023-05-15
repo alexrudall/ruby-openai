@@ -1,0 +1,196 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://oai.hconeai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","messages":[{"role":"user","content":"Hello!"}],"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 15 May 2023 13:19:26 GMT
+      Content-Type:
+      - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cf-Ray:
+      - 7c7bac293b7c876c-ORD
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Helicone-Id:
+      - d1a2e53d-3ba8-4794-b983-6c88f84e07ad
+      Helicone-Status:
+      - success
+      Openai-Model:
+      - gpt-4-0314
+      Openai-Organization:
+      - union-media-llc
+      Openai-Processing-Ms:
+      - '582'
+      Openai-Version:
+      - '2020-10-01'
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '199'
+      X-Ratelimit-Remaining-Tokens:
+      - '39981'
+      X-Ratelimit-Reset-Requests:
+      - 300ms
+      X-Ratelimit-Reset-Tokens:
+      - 28ms
+      X-Request-Id:
+      - 3034e6726ca0f5a6b23461af269a03f1
+      Vary:
+      - Accept-Encoding
+      Server:
+      - cloudflare
+    body:
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"role":"assistant"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":"Hello"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":"!"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" How"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" can"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" I"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" help"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" you"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":" today"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{"content":"?"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSOjuUcUFm1IGYuZwa17G0OA85OA","object":"chat.completion.chunk","created":1684156765,"model":"gpt-4-0314","choices":[{"delta":{},"index":0,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Mon, 15 May 2023 13:19:27 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","messages":[{"role":"user","content":"Hello!"}],"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 15 May 2023 13:21:50 GMT
+      Content-Type:
+      - text/event-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-4-0314
+      Openai-Organization:
+      - union-media-llc
+      Openai-Processing-Ms:
+      - '237'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '200'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '199'
+      X-Ratelimit-Remaining-Tokens:
+      - '39981'
+      X-Ratelimit-Reset-Requests:
+      - 300ms
+      X-Ratelimit-Reset-Tokens:
+      - 28ms
+      X-Request-Id:
+      - bf6bc806f94d8d815abbde92d8fd22ed
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7c7bafaf1c5b8131-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"role":"assistant"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":"Hello"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":"!"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" How"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" can"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" I"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" help"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" you"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":" today"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{"content":"?"},"index":0,"finish_reason":null}]}
+
+        data: {"id":"chatcmpl-7GSR4FRuHvB9EhL2EuKlD7PUyEHAZ","object":"chat.completion.chunk","created":1684156910,"model":"gpt-4-0314","choices":[{"delta":{},"index":0,"finish_reason":"stop"}]}
+
+        data: [DONE]
+
+  recorded_at: Mon, 15 May 2023 13:21:52 GMT
+recorded_with: VCR 6.1.0
+...
