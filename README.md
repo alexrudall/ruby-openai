@@ -12,6 +12,8 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
 
 [Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
+Follow me on [Twitter](https://twitter.com/alexrudall) for more Ruby / AI content
+
 ### Bundler
 
 Add this line to your application's Gemfile:
@@ -38,8 +40,8 @@ require "openai"
 
 ## Usage
 
-- Get your API key from [https://beta.openai.com/account/api-keys](https://beta.openai.com/account/api-keys)
-- If you belong to multiple organizations, you can get your Organization ID from [https://beta.openai.com/account/org-settings](https://beta.openai.com/account/org-settings)
+- Get your API key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
+- If you belong to multiple organizations, you can get your Organization ID from [https://platform.openai.com/account/org-settings](https://platform.openai.com/account/org-settings)
 
 ### Quickstart
 
@@ -132,7 +134,7 @@ puts response.dig("choices", 0, "message", "content")
 
 [Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
-You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the Proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
 
 ```ruby
 client.chat(
