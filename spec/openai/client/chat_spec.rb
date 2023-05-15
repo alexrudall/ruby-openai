@@ -38,6 +38,40 @@ RSpec.describe OpenAI::Client do
               expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
             end
           end
+
+          context "with an object with a call method" do
+            let(:cassette) { "#{model} streamed chat without proc".downcase }
+            let(:stream) do
+              Class.new do
+                attr_reader :chunks
+
+                def initialize
+                  @chunks = []
+                end
+
+                def call(chunk)
+                  @chunks << chunk
+                end
+              end.new
+            end
+
+            it "succeeds" do
+              VCR.use_cassette(cassette) do
+                response
+                expect(stream.chunks.dig(0, "choices", 0, "index")).to eq(0)
+              end
+            end
+          end
+
+          context "with an object without a call method" do
+            let(:stream) { Object.new }
+
+            it "raises an error" do
+              VCR.use_cassette(cassette) do
+                expect { response }.to raise_error(ArgumentError)
+              end
+            end
+          end
         end
       end
 
