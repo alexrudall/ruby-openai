@@ -64,17 +64,17 @@ module OpenAI
 
     def conn(multipart: false)
       Faraday.new do |f|
-        f.options[:timeout] = OpenAI.configuration.request_timeout
+        f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
       end
     end
 
     def uri(path:)
       if OpenAI.configuration.api_type == :azure
-        base = File.join(OpenAI.configuration.uri_base, path)
+        base = File.join(@uri_base, path)
         "#{base}?api-version=#{OpenAI.configuration.api_version}"
       else
-        File.join(OpenAI.configuration.uri_base, OpenAI.configuration.api_version, path)
+        File.join(@uri_base, OpenAI.configuration.api_version, path)
       end
     end
 
