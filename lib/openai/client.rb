@@ -8,8 +8,8 @@ module OpenAI
                    request_timeout: nil, extra_headers: {})
       @access_token = access_token || OpenAI.configuration.access_token
       @organization_id = organization_id || OpenAI.configuration.organization_id
-      @uri_base = uri_base || OpenAI.configuration.uri_base
       @request_timeout = request_timeout || OpenAI.configuration.request_timeout
+      @uri_base = uri_base || OpenAI.configuration.uri_base
       @extra_headers = extra_headers
     end
 

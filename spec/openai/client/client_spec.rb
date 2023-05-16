@@ -2,7 +2,8 @@ RSpec.describe OpenAI::Client do
   context "with clients with different access tokens" do
     before do
       OpenAI.configure do |config|
-        config.access_token = "c0_access_token"
+        config.access_token = "access_token0"
+        config.organization_id = "organization_id0"
       end
     end
 
@@ -18,15 +19,15 @@ RSpec.describe OpenAI::Client do
     let!(:c2) do
       OpenAI::Client.new(
         access_token: "access_token2",
-        organization_id: "organization_id2",
+        organization_id: nil,
         request_timeout: 1,
         uri_base: "https://example.com/"
       )
     end
 
     it "does not confuse the clients" do
-      expect(c0.access_token).to eq("c0_access_token")
-      expect(c0.organization_id).to eq(nil)
+      expect(c0.access_token).to eq("access_token0")
+      expect(c0.organization_id).to eq("organization_id0")
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
 
@@ -36,7 +37,7 @@ RSpec.describe OpenAI::Client do
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
 
       expect(c2.access_token).to eq("access_token2")
-      expect(c2.organization_id).to eq("organization_id2")
+      expect(c2.organization_id).to eq("organization_id0") # Fall back to default.
       expect(c2.request_timeout).to eq(1)
       expect(c2.uri_base).to eq("https://example.com/")
     end
