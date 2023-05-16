@@ -89,9 +89,9 @@ module OpenAI
     def openai_headers
       {
         "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => OpenAI.configuration.organization_id
-      }
+        "Authorization" => "Bearer #{@access_token}",
+        "OpenAI-Organization" => @organization_id
+      }.merge(@extra_headers)
     end
 
     def azure_headers

@@ -7,6 +7,8 @@ RSpec.describe OpenAI::Client do
     end
 
     after do
+      # Necessary otherwise the dummy organization_id bleeds into other specs
+      # that actually hit the API and causes them to fail.
       OpenAI.configure do |config|
         config.organization_id = nil
       end
@@ -35,16 +37,22 @@ RSpec.describe OpenAI::Client do
       expect(c0.organization_id).to eq("organization_id0")
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
+      expect(c0.send(:headers).values).to include("Bearer #{c0.access_token}")
+      expect(c0.send(:headers).values).to include(c0.organization_id)
 
       expect(c1.access_token).to eq("access_token1")
       expect(c1.organization_id).to eq("organization_id1")
       expect(c1.request_timeout).to eq(60)
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
+      expect(c1.send(:headers).values).to include("Bearer #{c1.access_token}")
+      expect(c1.send(:headers).values).to include(c1.organization_id)
 
       expect(c2.access_token).to eq("access_token2")
       expect(c2.organization_id).to eq("organization_id0") # Fall back to default.
       expect(c2.request_timeout).to eq(1)
       expect(c2.uri_base).to eq("https://example.com/")
+      expect(c2.send(:headers).values).to include("Bearer #{c2.access_token}")
+      expect(c2.send(:headers).values).to include(c2.organization_id)
     end
 
     context "hitting other classes" do
