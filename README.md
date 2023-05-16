@@ -68,7 +68,7 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
-You can still override the config defaults when making new clients; any options not included will fall back to any global config set with OpenAI.configure. e.g. in this example the organization_id, request_timeout, etc. will fallback to any set globally using OpenAI.configure:
+You can still override the config defaults when making new clients; any options not included will fall back to any global config set with OpenAI.configure. e.g. in this example the organization_id, request_timeout, etc. will fallback to any set globally using OpenAI.configure, with only the access_token overridden:
 
 ```ruby
 client = OpenAI::Client.new(access_token: "access_token_goes_here")
