@@ -5,6 +5,8 @@ RSpec.describe OpenAI::HTTP do
 
     # We disable VCR and WebMock for timeout specs, otherwise VCR will return instant
     # responses when using the recorded responses and the specs will fail incorrectly.
+    # The timeout is set to 0, so these specs will never actually hit the API and
+    # therefore are still fast and deterministic.
     before do
       VCR.turn_off!
       WebMock.allow_net_connect!
