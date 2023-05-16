@@ -2,8 +2,13 @@ RSpec.describe OpenAI::Client do
   context "with clients with different access tokens" do
     before do
       OpenAI.configure do |config|
-        config.access_token = "access_token0"
         config.organization_id = "organization_id0"
+      end
+    end
+
+    after do
+      OpenAI.configure do |config|
+        config.organization_id = nil
       end
     end
 
@@ -26,7 +31,7 @@ RSpec.describe OpenAI::Client do
     end
 
     it "does not confuse the clients" do
-      expect(c0.access_token).to eq("access_token0")
+      expect(c0.access_token).to eq(ENV.fetch("OPENAI_ACCESS_TOKEN", "dummy-token"))
       expect(c0.organization_id).to eq("organization_id0")
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
