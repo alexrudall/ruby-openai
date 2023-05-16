@@ -2,18 +2,12 @@ module OpenAI
   class Client
     include OpenAI::HTTP
 
-    NULL_ORGANIZATION_ID = Object.new.freeze
-
     attr_reader :access_token, :organization_id, :uri_base, :request_timeout, :extra_headers
 
-    def initialize(access_token: nil, organization_id: NULL_ORGANIZATION_ID, uri_base: nil,
+    def initialize(access_token: nil, organization_id: nil, uri_base: nil,
                    request_timeout: nil, extra_headers: {})
       @access_token = access_token || OpenAI.configuration.access_token
-      @organization_id = if organization_id == NULL_ORGANIZATION_ID
-                           OpenAI.configuration.organization_id
-                         else
-                           organization_id
-                         end
+      @organization_id = organization_id || OpenAI.configuration.organization_id
       @uri_base = uri_base || OpenAI.configuration.uri_base
       @request_timeout = request_timeout || OpenAI.configuration.request_timeout
       @extra_headers = extra_headers
