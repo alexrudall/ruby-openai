@@ -12,7 +12,7 @@ module OpenAI
           req.options.on_data = to_json_stream(user_proc: parameters[:stream])
           parameters[:stream] = true # Necessary to tell OpenAI to stream.
         elsif parameters[:stream]
-          raise ArgumentError, "stream must be callable"
+          raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
         end
 
         req.headers = headers
