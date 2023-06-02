@@ -189,7 +189,13 @@ client.chat(
         messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
-            print chunk.dig("choices", 0, "delta", "content")
+            if chunk["result_type"] == "data"
+                print chunk.dig("choices", 0, "delta", "content")
+            elsif chunk["result_type"] == "error"
+                STDERR.puts "Error: #{chunk.inspect}"
+            else
+                STDERR.puts "Unknown chunk type: #{chunk.inspect}"
+            end
         end
     })
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."

@@ -107,17 +107,17 @@ RSpec.describe OpenAI::HTTP do
 
       context "when called with a string containing a single JSON object" do
         it "calls the user proc with the data parsed as JSON" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
+          expect(user_proc).to receive(:call).with({ "foo" => "bar", "result_type" => "data" })
           stream.call('data: { "foo": "bar" }')
         end
       end
 
       context "when called with string containing more than one JSON object" do
         it "calls the user proc for each data parsed as JSON" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
-          expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'))
+          expect(user_proc).to receive(:call).with({ "foo" => "bar", "result_type" => "data" })
+          expect(user_proc).to receive(:call).with({ "baz" => "qud", "result_type" => "data" })
 
-          stream.call(<<-CHUNK)
+          stream.call(<<~CHUNK)
             data: { "foo": "bar" }
 
             data: { "baz": "qud" }
@@ -141,14 +141,14 @@ RSpec.describe OpenAI::HTTP do
 
       context "when called with a string containing that looks like a JSON object but is invalid" do
         let(:chunk) do
-          <<-CHUNK
+          <<~CHUNK
             data: { "foo": "bar" }
             data: { BAD ]:-> JSON }
           CHUNK
         end
 
         it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
+          expect(user_proc).to receive(:call).with({ "foo" => "bar", "result_type" => "data" })
 
           expect do
             stream.call(chunk)
@@ -158,21 +158,79 @@ RSpec.describe OpenAI::HTTP do
 
       context "when called with a string containing an error" do
         let(:chunk) do
-          <<-CHUNK
+          <<~CHUNK
             data: { "foo": "bar" }
             error: { "message": "A bad thing has happened!" }
           CHUNK
         end
 
         it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
+          expect(user_proc).to receive(:call).with({ "foo" => "bar", "result_type" => "data" })
           expect(user_proc).to receive(:call).with(
-            JSON.parse('{ "message": "A bad thing has happened!" }')
+            { "message" => "A bad thing has happened!", "result_type" => "error" }
           )
 
           expect do
             stream.call(chunk)
           end.not_to raise_error
+        end
+      end
+
+      context "when called with a string that is a JSON object (with no 'data:' or 'error:' prefix)" do
+        context "when the JSON has a top level 'error' key" do
+          let(:chunk) do
+            <<~CHUNK
+              {
+                "error": {
+                  "type": "invalid_request_error",
+                  "code": "invalid_api_key"
+                }
+              }
+            CHUNK
+          end
+
+          it "does not raise an error" do
+            expect(user_proc).to receive(:call).with(
+              {
+                "error" => {
+                  "type" => "invalid_request_error",
+                  "code" => "invalid_api_key"
+                },
+                "result_type" => "error"
+              }
+            )
+
+            expect do
+              stream.call(chunk)
+            end.not_to raise_error
+          end
+        end
+
+        context "when the JSON does not have a top level 'error' key" do
+          let(:chunk) do
+            <<~CHUNK
+              {
+                "warning": {
+                  "message": "foobar"
+                }
+              }
+            CHUNK
+          end
+
+          it "does not raise an error" do
+            expect(user_proc).to receive(:call).with(
+              {
+                "result_type" => "unknown",
+                "warning" => {
+                  "message" => "foobar"
+                }
+              }
+            )
+
+            expect do
+              stream.call(chunk)
+            end.not_to raise_error
+          end
         end
       end
     end
