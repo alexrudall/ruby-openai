@@ -185,12 +185,15 @@ puts response.dig("choices", 0, "text")
 You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
 
 ```ruby
-client.embeddings(
+response = client.embeddings(
     parameters: {
         model: "babbage-similarity",
         input: "The food was delicious and the waiter..."
     }
 )
+
+puts response.dig("data", 0, "embedding")
+# => Vector representation of your embedding
 ```
 
 ### Files
