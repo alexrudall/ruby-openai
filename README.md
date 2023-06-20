@@ -98,13 +98,13 @@ To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognit
 ```ruby
     OpenAI.configure do |config|
         config.access_token = ENV.fetch("AZURE_OPENAI_API_KEY")
-        config.uri_base = "#{ENV.fetch("AZURE_OPENAI_URI")}/openai/deployments/gpt-35-turbo"
+        config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
         config.api_type = :azure
         config.api_version = "2023-03-15-preview"
     end
 ```
 
-where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/`
+where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
 
 ### Models
 
