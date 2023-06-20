@@ -191,9 +191,21 @@ RSpec.describe OpenAI::HTTP do
 
     it { expect(uri).to eq("https://api.openai.com/v1/chat") }
 
+    context "uri_base without trailing slash" do
+      before do
+        OpenAI.configuration.uri_base = "https://api.openai.com"
+      end
+
+      after do
+        OpenAI.configuration.uri_base = "https://api.openai.com/"
+      end
+
+      it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+    end
+
     describe "with Azure" do
       before do
-        OpenAI.configuration.uri_base = "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo"
+        OpenAI.configuration.uri_base = uri_base
         OpenAI.configuration.api_type = :azure
       end
 
@@ -205,7 +217,15 @@ RSpec.describe OpenAI::HTTP do
       let(:path) { "/chat" }
       let(:uri) { OpenAI::Client.send(:uri, path: path) }
 
-      it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat?api-version=v1") }
+      context "with a trailing slash" do
+        let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/" }
+        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat?api-version=v1") }
+      end
+
+      context "without a trailing slash" do
+        let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo" }
+        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat?api-version=v1") }
+      end
     end
   end
 

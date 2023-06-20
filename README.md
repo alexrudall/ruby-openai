@@ -91,6 +91,21 @@ OpenAI.configure do |config|
 end
 ```
 
+### Azure
+
+To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
+
+```ruby
+    OpenAI.configure do |config|
+        config.access_token = ENV.fetch("AZURE_OPENAI_API_KEY")
+        config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
+        config.api_type = :azure
+        config.api_version = "2023-03-15-preview"
+    end
+```
+
+where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
+
 ### Models
 
 There are different models that can be used to generate text. For a full list and to retrieve information about a single model:

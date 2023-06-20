@@ -71,9 +71,10 @@ module OpenAI
 
     def uri(path:)
       if OpenAI.configuration.api_type == :azure
-        OpenAI.configuration.uri_base + path + "?api-version=#{OpenAI.configuration.api_version}"
+        base = File.join(OpenAI.configuration.uri_base, path)
+        "#{base}?api-version=#{OpenAI.configuration.api_version}"
       else
-        OpenAI.configuration.uri_base + OpenAI.configuration.api_version + path
+        File.join(OpenAI.configuration.uri_base, OpenAI.configuration.api_version, path)
       end
     end
 

@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0] - 2023-06-20
+
+### Added
+
+- Add Azure OpenAI Service support. Thanks to [@rmachielse](https://github.com/rmachielse) and [@steffansluis](https://github.com/steffansluis) for the PR and to everyone who requested this feature!
+
 ## [4.1.0] - 2023-05-15
 
 ### Added
