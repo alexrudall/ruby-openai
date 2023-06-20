@@ -91,7 +91,7 @@ OpenAI.configure do |config|
 end
 ```
 
-### Azure
+#### Azure
 
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
 
