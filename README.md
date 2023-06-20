@@ -91,7 +91,7 @@ OpenAI.configure do |config|
 end
 ```
 
-### Azure
+#### Azure
 
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
 
@@ -164,9 +164,9 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-### Function Calling
+### Functions
 
-Developers can describe functions and have the model intelligently choose to output a JSON object containing arguments to call those functions.
+You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location:
 
 ```ruby
 def get_current_weather(location:, unit: "fahrenheit")
@@ -221,6 +221,7 @@ if message["role"] == "assistant" && message["function_call"]
     get_current_weather(**args)
   end
 end
+# => "The weather is nice 🌞"
 ```
 
 ### Completions
