@@ -366,7 +366,7 @@ Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bund
 
 ## Testing GPT-4
 
-Since GPT-4 isn't widely available yet, and this project aims to be as includsive as possible, specs that test GPT-4 models require an additinoal enviroment variable to be set. To test GPT-4 models simply set `GPT4=true` in your environment or on the command line like this: `GPT4=true bundle exec rspec`.
+Since GPT-4 isn't widely available as of July 2023, and this project aims to be as inclusive as possible, specs that test GPT-4 models will not run unless an environment variable is set. To test GPT-4 models, set `GPT4=true` in your environment or on the command line like this: `GPT4=true bundle exec rspec`.
 
 ## Contributing
 
