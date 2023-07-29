@@ -9,6 +9,7 @@ RSpec.describe OpenAI do
     let(:organization_id) { "def456" }
     let(:custom_uri_base) { "ghi789" }
     let(:custom_request_timeout) { 25 }
+    let(:custom_headers) { { "My-Custom-Header" => "Some Value" } }
 
     before do
       OpenAI.configure do |config|
@@ -24,6 +25,7 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.organization_id).to eq(organization_id)
       expect(OpenAI.configuration.uri_base).to eq("https://api.openai.com/")
       expect(OpenAI.configuration.request_timeout).to eq(120)
+      expect(OpenAI.configuration.custom_headers).to eq({})
     end
 
     context "without an access token" do
@@ -34,11 +36,12 @@ RSpec.describe OpenAI do
       end
     end
 
-    context "with custom timeout and uri base" do
+    context "with custom timeout, uri base, and custom headers" do
       before do
         OpenAI.configure do |config|
           config.uri_base = custom_uri_base
           config.request_timeout = custom_request_timeout
+          config.custom_headers = custom_headers
         end
       end
 
@@ -48,6 +51,7 @@ RSpec.describe OpenAI do
         expect(OpenAI.configuration.organization_id).to eq(organization_id)
         expect(OpenAI.configuration.uri_base).to eq(custom_uri_base)
         expect(OpenAI.configuration.request_timeout).to eq(custom_request_timeout)
+        expect(OpenAI.configuration.custom_headers).to eq(custom_headers)
       end
     end
   end

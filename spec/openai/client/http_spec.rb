@@ -257,5 +257,25 @@ RSpec.describe OpenAI::HTTP do
                                 "api-key" => OpenAI.configuration.access_token })
       }
     end
+
+    describe "with custom headers" do
+      before do
+        OpenAI.configuration.custom_headers = {
+          "Helicone-Auth" => "Bearer foobar123"
+        }
+      end
+
+      after do
+        OpenAI.configuration.custom_headers = {}
+      end
+
+      let(:headers) { OpenAI::Client.send(:headers) }
+
+      it {
+        expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
+                                "Content-Type" => "application/json", "OpenAI-Organization" => nil,
+                                "Helicone-Auth" => "Bearer foobar123" })
+      }
+    end
   end
 end

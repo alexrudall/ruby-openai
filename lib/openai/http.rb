@@ -79,13 +79,13 @@ module OpenAI
     end
 
     def headers
-      return azure_headers if OpenAI.configuration.api_type == :azure
+      return azure_headers.merge(OpenAI.configuration.custom_headers) if OpenAI.configuration.api_type == :azure
 
       {
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
         "OpenAI-Organization" => OpenAI.configuration.organization_id
-      }
+      }.merge(OpenAI.configuration.custom_headers)
     end
 
     def azure_headers
