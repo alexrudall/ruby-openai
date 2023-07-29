@@ -2,7 +2,8 @@ module OpenAI
   class Client
     extend OpenAI::HTTP
 
-    def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil, custom_headers: nil)
+    def initialize(access_token: nil, organization_id: nil, uri_base: nil, request_timeout: nil,
+                   custom_headers: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id
       OpenAI.configuration.uri_base = uri_base if uri_base
