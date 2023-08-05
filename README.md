@@ -262,7 +262,7 @@ You can use the embeddings endpoint to get a vector of numbers representing an i
 ```ruby
 response = client.embeddings(
     parameters: {
-        model: "babbage-similarity",
+        model: "ext-embedding-ada-002",
         input: "The food was delicious and the waiter..."
     }
 )
