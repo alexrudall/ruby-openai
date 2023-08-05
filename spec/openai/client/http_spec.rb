@@ -189,7 +189,7 @@ RSpec.describe OpenAI::HTTP do
 
   describe ".uri" do
     let(:path) { "/chat" }
-    let(:uri) { OpenAI::Client.send(:uri, path: path) }
+    let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
 
     it { expect(uri).to eq("https://api.openai.com/v1/chat") }
 
@@ -217,7 +217,7 @@ RSpec.describe OpenAI::HTTP do
       end
 
       let(:path) { "/chat" }
-      let(:uri) { OpenAI::Client.send(:uri, path: path) }
+      let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
 
       context "with a trailing slash" do
         let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/" }
@@ -236,7 +236,7 @@ RSpec.describe OpenAI::HTTP do
       OpenAI.configuration.api_type = :nil
     end
 
-    let(:headers) { OpenAI::Client.send(:headers) }
+    let(:headers) { OpenAI::Client.new.send(:headers) }
 
     it {
       expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
@@ -252,7 +252,7 @@ RSpec.describe OpenAI::HTTP do
         OpenAI.configuration.api_type = nil
       end
 
-      let(:headers) { OpenAI::Client.send(:headers) }
+      let(:headers) { OpenAI::Client.new.send(:headers) }
 
       it {
         expect(headers).to eq({ "Content-Type" => "application/json",
