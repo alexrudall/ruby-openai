@@ -1,4 +1,4 @@
-require 'tempfile'
+require "tempfile"
 
 module OpenAI
   module HTTP
