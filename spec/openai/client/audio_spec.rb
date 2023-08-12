@@ -28,7 +28,7 @@ RSpec.describe OpenAI::Client do
         context "with tempfile" do
           let(:file) do
             file = Tempfile.new
-            file.write(File.read(audio, "rb"))
+            file.write(File.read(audio))
             file
           end
 
