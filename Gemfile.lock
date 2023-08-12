@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (4.2.0)
+    ruby-openai (4.3.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
 
