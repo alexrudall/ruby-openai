@@ -70,13 +70,17 @@ client = OpenAI::Client.new
 
 #### Custom timeout or base URI
 
-The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
+The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code), and add arbitrary other headers e.g. for [openai-caching-proxy-worker](https://github.com/6/openai-caching-proxy-worker):
 
 ```ruby
 client = OpenAI::Client.new(
     access_token: "access_token_goes_here",
     uri_base: "https://oai.hconeai.com/",
-    request_timeout: 240
+    request_timeout: 240,
+    extra_headers: {
+      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+      "X-Proxy-Refresh": "true" # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
+    }
 )
 ```
 
@@ -89,7 +93,8 @@ OpenAI.configure do |config|
     config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
     config.extra_headers = {
-        "X-Proxy-Refresh": "true"
+      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+      "X-Proxy-Refresh": "true" # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
     } # Optional
 end
 ```
