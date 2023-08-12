@@ -167,6 +167,8 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
+Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. If you need to work out how many tokens are being used while streaming, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+
 ### Functions
 
 You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location:
