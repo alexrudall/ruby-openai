@@ -1,5 +1,6 @@
 class VCRMultipartMatcher
   MULTIPART_HEADER_MATCHER = %r{^multipart/form-data; boundary=(.+)$}.freeze
+  BOUNDARY_SUBSTITUTION = "----MultipartBoundaryAbcD3fGhiXyz00001".freeze
 
   def call(request1, request2)
     return false unless same_content_type?(request1, request2)
@@ -34,9 +35,8 @@ class VCRMultipartMatcher
 
     return request.headers unless multipart_request?(content_type)
 
-    # If the content length and the uri match, assume a match. Otherwise
-    # gets complicated with Tempfiles.
-    request.headers.slice("Content-Length").merge("uri" => request.uri)
+    boundary = MULTIPART_HEADER_MATCHER.match(content_type)[1]
+    request.body.gsub(boundary, BOUNDARY_SUBSTITUTION)
   end
 
   def multipart_request?(content_type)
