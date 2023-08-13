@@ -1,9 +1,10 @@
+require "tempfile"
+
 RSpec.describe OpenAI::Client do
   describe "#transcribe" do
     context "with audio", :vcr do
       let(:filename) { "audio_sample.mp3" }
       let(:audio) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
-      let(:file) { File.open(audio, "rb") }
 
       let(:response) do
         OpenAI::Client.new.transcribe(
@@ -14,22 +15,30 @@ RSpec.describe OpenAI::Client do
         )
       end
       let(:content) { response["text"] }
-      let(:cassette) { "#{model} transcribe".downcase }
+      let(:cassette) { "#{model} transcribe #{file.class}".downcase }
 
       context "with model: whisper-1" do
         let(:model) { "whisper-1" }
 
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            expect(content.empty?).to eq(false)
+        context "with file" do
+          let(:file) { File.open(audio, "rb") }
+
+          it "succeeds" do
+            VCR.use_cassette(cassette) do
+              expect(content.empty?).to eq(false)
+            end
           end
         end
 
         context "with tempfile" do
           let(:file) do
-            file = Tempfile.new
-            file.write(File.read(audio))
-            file
+            temp = Tempfile.new([filename, ".mp3"])
+            temp.write(File.read(audio))
+            temp.rewind
+
+            # File.rename(temp.path, "fixtures/files")
+
+            temp
           end
 
           it "succeeds" do

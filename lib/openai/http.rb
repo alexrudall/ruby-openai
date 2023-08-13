@@ -1,5 +1,3 @@
-require "tempfile"
-
 module OpenAI
   module HTTP
     def get(path:)
@@ -99,9 +97,9 @@ module OpenAI
 
     def multipart_parameters(parameters)
       parameters&.transform_values do |value|
-        next value unless value.is_a?(File) || value.is_a?(Tempfile)
+        next value unless value.respond_to?(:close) # File or IO object.
 
-        # Doesn't seem like OpenAI need mime_type yet, so not worth
+        # Doesn't seem like OpenAI needs mime_type yet, so not worth
         # the library to figure this out. Hence the empty string
         # as the second argument.
         Faraday::UploadIO.new(value, "", value.path)
