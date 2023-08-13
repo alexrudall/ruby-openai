@@ -35,9 +35,6 @@ RSpec.describe OpenAI::Client do
             temp = Tempfile.new([filename, ".mp3"])
             temp.write(File.read(audio))
             temp.rewind
-
-            # File.rename(temp.path, "fixtures/files")
-
             temp
           end
 
