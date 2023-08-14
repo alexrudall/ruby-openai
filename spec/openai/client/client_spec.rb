@@ -3,6 +3,7 @@ RSpec.describe OpenAI::Client do
     before do
       OpenAI.configure do |config|
         config.organization_id = "organization_id0"
+        config.extra_headers = { "test" => "X-Default" }
       end
     end
 
@@ -44,6 +45,7 @@ RSpec.describe OpenAI::Client do
       expect(c0.send(:headers).values).to include(c0.organization_id)
       expect(c0.send(:conn).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.send(:uri, path: "")).to include(OpenAI::Configuration::DEFAULT_URI_BASE)
+      expect(c0.send(:headers).values).to include("X-Default")
       expect(c0.send(:headers).values).not_to include("X-Test")
 
       expect(c1.azure?).to eq(true)
@@ -54,6 +56,7 @@ RSpec.describe OpenAI::Client do
       expect(c1.send(:headers).values).to include(c1.access_token)
       expect(c1.send(:conn).options.timeout).to eq(60)
       expect(c1.send(:uri, path: "")).to include("https://oai.hconeai.com/")
+      expect(c1.send(:headers).values).not_to include("X-Default")
       expect(c1.send(:headers).values).to include("X-Test")
 
       expect(c2.azure?).to eq(false)
@@ -65,6 +68,7 @@ RSpec.describe OpenAI::Client do
       expect(c2.send(:headers).values).to include(c2.organization_id)
       expect(c2.send(:conn).options.timeout).to eq(1)
       expect(c2.send(:uri, path: "")).to include("https://example.com/")
+      expect(c2.send(:headers).values).to include("X-Default")
       expect(c2.send(:headers).values).not_to include("X-Test")
     end
 
