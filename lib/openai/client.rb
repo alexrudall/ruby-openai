@@ -57,8 +57,8 @@ module OpenAI
       json_post(path: "/moderations", parameters: parameters)
     end
 
-    def audios
-      @audios ||= OpenAI::Audios.new
+    def audio
+      @audio ||= OpenAI::Audio.new
     end
 
     def azure?

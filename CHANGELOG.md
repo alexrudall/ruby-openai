@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- [BREAKING] Move audios related method to Audios model from Client model. You will need to update your code to handle this change, changing `client.translate` to `client.audios.translate` and `client.transcribe` to `client.audios.transcribe`
+- [BREAKING] Move audio related method to Audio model from Client model. You will need to update your code to handle this change, changing `client.translate` to `client.audio.translate` and `client.transcribe` to `client.audio.transcribe`.
 
 ## [4.3.2] - 2023-08-14
 

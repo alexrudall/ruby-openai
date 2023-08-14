@@ -1,5 +1,5 @@
 module OpenAI
-  class Audios
+  class Audio
     def initialize(access_token: nil, organization_id: nil)
       OpenAI.configuration.access_token = access_token if access_token
       OpenAI.configuration.organization_id = organization_id if organization_id

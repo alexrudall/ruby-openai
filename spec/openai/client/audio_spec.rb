@@ -1,12 +1,12 @@
 RSpec.describe OpenAI::Client do
-  describe "#audios" do
+  describe "#audio" do
     describe "#transcribe" do
       context "with audio", :vcr do
         let(:filename) { "audio_sample.mp3" }
         let(:audio) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
 
         let(:response) do
-          OpenAI::Client.new.audios.transcribe(
+          OpenAI::Client.new.audio.transcribe(
             parameters: {
               model: model,
               file: File.open(audio, "rb")
@@ -14,7 +14,7 @@ RSpec.describe OpenAI::Client do
           )
         end
         let(:content) { response["text"] }
-        let(:cassette) { "audios #{model} transcribe".downcase }
+        let(:cassette) { "audio #{model} transcribe".downcase }
 
         context "with model: whisper-1" do
           let(:model) { "whisper-1" }
@@ -34,7 +34,7 @@ RSpec.describe OpenAI::Client do
         let(:audio) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
 
         let(:response) do
-          OpenAI::Client.new.audios.translate(
+          OpenAI::Client.new.audio.translate(
             parameters: {
               model: model,
               file: File.open(audio, "rb")
@@ -42,7 +42,7 @@ RSpec.describe OpenAI::Client do
           )
         end
         let(:content) { response["text"] }
-        let(:cassette) { "audios #{model} translate".downcase }
+        let(:cassette) { "audio #{model} translate".downcase }
 
         context "with model: whisper-1" do
           let(:model) { "whisper-1" }
