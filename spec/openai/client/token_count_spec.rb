@@ -31,8 +31,12 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    context "with tiktoken" do
-      require 'tiktoken_ruby'
+    context "with tiktoken", if: RUBY_VERSION >= "2.7" do
+      begin
+        require 'tiktoken_ruby'
+      rescue LoadError => e
+        raise e if RUBY_VERSION >= "2.7"
+      end
 
       it "recognizes tiktoken" do
         expect(client.class.tiktoken_defined?).to eq(true)
