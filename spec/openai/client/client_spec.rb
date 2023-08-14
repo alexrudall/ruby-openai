@@ -12,6 +12,7 @@ RSpec.describe OpenAI::Client do
       # that actually hit the API and causes them to fail.
       OpenAI.configure do |config|
         config.organization_id = nil
+        config.extra_headers = nil
       end
     end
 
