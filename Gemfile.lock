@@ -31,6 +31,7 @@ GEM
     public_suffix (5.0.1)
     rainbow (3.1.1)
     rake (13.0.6)
+    rb_sys (0.9.81)
     regexp_parser (2.8.0)
     rexml (3.2.5)
     rspec (3.12.0)
@@ -60,6 +61,8 @@ GEM
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    tiktoken_ruby (0.0.5)
+      rb_sys (~> 0.9.68)
     unicode-display_width (2.4.2)
     vcr (6.1.0)
     webmock (3.18.1)
@@ -77,6 +80,7 @@ DEPENDENCIES
   rspec (~> 3.12)
   rubocop (~> 1.50.2)
   ruby-openai!
+  tiktoken_ruby
   vcr (~> 6.1.0)
   webmock (~> 3.18.1)
 
