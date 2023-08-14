@@ -66,7 +66,7 @@ module OpenAI
     end
 
     def azure?
-      @api_type == :azure
+      @api_type&.to_sym == :azure
     end
   end
 end

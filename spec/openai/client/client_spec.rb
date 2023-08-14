@@ -17,10 +17,12 @@ RSpec.describe OpenAI::Client do
     let!(:c0) { OpenAI::Client.new }
     let!(:c1) do
       OpenAI::Client.new(
+        api_type: "azure",
         access_token: "access_token1",
         organization_id: "organization_id1",
         request_timeout: 60,
-        uri_base: "https://oai.hconeai.com/"
+        uri_base: "https://oai.hconeai.com/",
+        extra_headers: { "test" => "X-Test" }
       )
     end
     let!(:c2) do
@@ -33,6 +35,7 @@ RSpec.describe OpenAI::Client do
     end
 
     it "does not confuse the clients" do
+      expect(c0.azure?).to eq(false)
       expect(c0.access_token).to eq(ENV.fetch("OPENAI_ACCESS_TOKEN", "dummy-token"))
       expect(c0.organization_id).to eq("organization_id0")
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
@@ -41,16 +44,19 @@ RSpec.describe OpenAI::Client do
       expect(c0.send(:headers).values).to include(c0.organization_id)
       expect(c0.send(:conn).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.send(:uri, path: "")).to include(OpenAI::Configuration::DEFAULT_URI_BASE)
+      expect(c0.send(:headers).values).not_to include("X-Test")
 
+      expect(c1.azure?).to eq(true)
       expect(c1.access_token).to eq("access_token1")
       expect(c1.organization_id).to eq("organization_id1")
       expect(c1.request_timeout).to eq(60)
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
-      expect(c1.send(:headers).values).to include("Bearer #{c1.access_token}")
-      expect(c1.send(:headers).values).to include(c1.organization_id)
+      expect(c1.send(:headers).values).to include(c1.access_token)
       expect(c1.send(:conn).options.timeout).to eq(60)
       expect(c1.send(:uri, path: "")).to include("https://oai.hconeai.com/")
+      expect(c1.send(:headers).values).to include("X-Test")
 
+      expect(c2.azure?).to eq(false)
       expect(c2.access_token).to eq("access_token2")
       expect(c2.organization_id).to eq("organization_id0") # Fall back to default.
       expect(c2.request_timeout).to eq(1)
@@ -59,6 +65,7 @@ RSpec.describe OpenAI::Client do
       expect(c2.send(:headers).values).to include(c2.organization_id)
       expect(c2.send(:conn).options.timeout).to eq(1)
       expect(c2.send(:uri, path: "")).to include("https://example.com/")
+      expect(c2.send(:headers).values).not_to include("X-Test")
     end
 
     context "hitting other classes" do
