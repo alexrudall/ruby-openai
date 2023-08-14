@@ -69,4 +69,87 @@ http_interactions:
 
         '
   recorded_at: Wed, 26 Apr 2023 10:08:45 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/edits
+    body:
+      encoding: UTF-8
+      string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
+        and between 28 and 31 in a month.","instruction":"Fix the misspelled word
+        ''week''"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Test:
+      - X-Default
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Aug 2023 15:02:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - text-davinci-edit:001
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '801'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '20'
+      X-Ratelimit-Remaining-Requests:
+      - '19'
+      X-Ratelimit-Reset-Requests:
+      - 3s
+      X-Request-Id:
+      - 0b1285f5e6c432c7ad0252f1c063b8bc
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f6a140cabe8221f-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "edit",
+          "created": 1692025341,
+          "choices": [
+            {
+              "text": "There are 7 days in a week, and between 28 and 31 in a month.\n",
+              "index": 0
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 38,
+            "completion_tokens": 46,
+            "total_tokens": 84
+          }
+        }
+  recorded_at: Mon, 14 Aug 2023 15:02:21 GMT
 recorded_with: VCR 6.1.0

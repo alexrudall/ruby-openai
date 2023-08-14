@@ -64,40 +64,40 @@ module OpenAI
 
     def conn(multipart: false)
       Faraday.new do |f|
-        f.options[:timeout] = OpenAI.configuration.request_timeout
+        f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
       end
     end
 
     def uri(path:)
-      if OpenAI.configuration.api_type == :azure
-        base = File.join(OpenAI.configuration.uri_base, path)
-        "#{base}?api-version=#{OpenAI.configuration.api_version}"
+      if azure?
+        base = File.join(@uri_base, path)
+        "#{base}?api-version=#{@api_version}"
       else
-        File.join(OpenAI.configuration.uri_base, OpenAI.configuration.api_version, path)
+        File.join(@uri_base, @api_version, path)
       end
     end
 
     def headers
-      if OpenAI.configuration.api_type == :azure
+      if azure?
         azure_headers
       else
         openai_headers
-      end.merge(OpenAI.configuration.extra_headers || {})
+      end.merge(@extra_headers || {})
     end
 
     def openai_headers
       {
         "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-        "OpenAI-Organization" => OpenAI.configuration.organization_id
+        "Authorization" => "Bearer #{@access_token}",
+        "OpenAI-Organization" => @organization_id
       }
     end
 
     def azure_headers
       {
         "Content-Type" => "application/json",
-        "api-key" => OpenAI.configuration.access_token
+        "api-key" => @access_token
       }
     end
 

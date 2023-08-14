@@ -5,6 +5,8 @@ RSpec.describe OpenAI::HTTP do
 
     # We disable VCR and WebMock for timeout specs, otherwise VCR will return instant
     # responses when using the recorded responses and the specs will fail incorrectly.
+    # The timeout is set to 0, so these specs will never actually hit the API and
+    # therefore are still fast and deterministic.
     before do
       VCR.turn_off!
       WebMock.allow_net_connect!
@@ -97,7 +99,7 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
-      let(:stream) { OpenAI::Client.send(:to_json_stream, user_proc: user_proc) }
+      let(:stream) { OpenAI::Client.new.send(:to_json_stream, user_proc: user_proc) }
 
       it "returns a proc" do
         expect(stream).to be_a(Proc)
@@ -179,7 +181,7 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.send(:to_json, body) }
+      let(:parsed) { OpenAI::Client.new.send(:to_json, body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
     end
@@ -187,7 +189,7 @@ RSpec.describe OpenAI::HTTP do
 
   describe ".uri" do
     let(:path) { "/chat" }
-    let(:uri) { OpenAI::Client.send(:uri, path: path) }
+    let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
 
     it { expect(uri).to eq("https://api.openai.com/v1/chat") }
 
@@ -215,7 +217,7 @@ RSpec.describe OpenAI::HTTP do
       end
 
       let(:path) { "/chat" }
-      let(:uri) { OpenAI::Client.send(:uri, path: path) }
+      let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
 
       context "with a trailing slash" do
         let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/" }
@@ -234,7 +236,7 @@ RSpec.describe OpenAI::HTTP do
       OpenAI.configuration.api_type = :nil
     end
 
-    let(:headers) { OpenAI::Client.send(:headers) }
+    let(:headers) { OpenAI::Client.new.send(:headers) }
 
     it {
       expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
@@ -250,7 +252,7 @@ RSpec.describe OpenAI::HTTP do
         OpenAI.configuration.api_type = nil
       end
 
-      let(:headers) { OpenAI::Client.send(:headers) }
+      let(:headers) { OpenAI::Client.new.send(:headers) }
 
       it {
         expect(headers).to eq({ "Content-Type" => "application/json",
