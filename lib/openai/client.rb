@@ -37,6 +37,10 @@ module OpenAI
       json_post(path: "/embeddings", parameters: parameters)
     end
 
+    def audio
+      @audio ||= OpenAI::Audio.new(client: self)
+    end
+
     def files
       @files ||= OpenAI::Files.new(client: self)
     end
@@ -55,10 +59,6 @@ module OpenAI
 
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
-    end
-
-    def audio
-      @audio ||= OpenAI::Audio.new
     end
 
     def azure?
