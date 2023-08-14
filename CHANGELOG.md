@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Don't overwrite config extra-headers when making a client without different ones. Thanks to [@swistaczek](https://github.com/swistaczek) for raising this!
+- Include extra-headers for Azure requests.
+
+## [4.3.1] - 2023-08-13
+
+### Fixed
+
 - Tempfiles can now be sent to the API as well as Files, eg for Whisper. Thanks to [@codergeek121](https://github.com/codergeek121) for the fix!
 
 ## [4.3.0] - 2023-08-12
