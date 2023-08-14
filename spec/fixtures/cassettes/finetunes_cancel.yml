@@ -392,4 +392,104 @@ http_interactions:
           ]
         }
   recorded_at: Wed, 26 Apr 2023 10:09:19 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes/ft-TKJf7H7yvUIAwEwiCf5KCeDu/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - multipart/form-data
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Test:
+      - X-Default
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Aug 2023 15:02:45 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 25561e0f9a66ef0a7619b6bb938ea7c6
+      Openai-Processing-Ms:
+      - '58'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f6a14a43c2c3862-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-TKJf7H7yvUIAwEwiCf5KCeDu",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-HCPhgX7Fv1bEDsg1vkzCCzuw",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1692025364,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1692025364,
+          "updated_at": 1692025365,
+          "status": "cancelled",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-TKJf7H7yvUIAwEwiCf5KCeDu",
+              "created_at": 1692025364
+            },
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Fine-tune cancelled",
+              "created_at": 1692025365
+            }
+          ]
+        }
+  recorded_at: Mon, 14 Aug 2023 15:02:45 GMT
 recorded_with: VCR 6.1.0

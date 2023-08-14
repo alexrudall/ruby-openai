@@ -152,4 +152,82 @@ http_interactions:
           "parent": null
         }
   recorded_at: Wed, 26 Apr 2023 10:09:53 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/models/text-ada-001
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Test:
+      - X-Default
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Aug 2023 15:03:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - d08605a5ba51d7939fa167ee643ef1e9
+      Openai-Processing-Ms:
+      - '27'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f6a1575983b54ac-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "text-ada-001",
+          "object": "model",
+          "created": 1649364042,
+          "owned_by": "openai",
+          "permission": [
+            {
+              "id": "modelperm-jRuB7xBCdj159SqaDmpPgeWO",
+              "object": "model_permission",
+              "created": 1690915029,
+              "allow_create_engine": false,
+              "allow_sampling": true,
+              "allow_logprobs": true,
+              "allow_search_indices": false,
+              "allow_view": true,
+              "allow_fine_tuning": false,
+              "organization": "*",
+              "group": null,
+              "is_blocking": false
+            }
+          ],
+          "root": "text-ada-001",
+          "parent": null
+        }
+  recorded_at: Mon, 14 Aug 2023 15:03:18 GMT
 recorded_with: VCR 6.1.0
