@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Don't overwrite config extra-headers when making a client without different ones. Thanks to [@swistaczek](https://github.com/swistaczek) for raising this!
+- Include extra-headers for Azure requests.
 
 ## [4.3.1] - 2023-08-13
 
