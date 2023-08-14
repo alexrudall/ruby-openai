@@ -7,6 +7,7 @@ require_relative "openai/files"
 require_relative "openai/finetunes"
 require_relative "openai/images"
 require_relative "openai/models"
+require_relative "openai/audio"
 require_relative "openai/version"
 
 module OpenAI

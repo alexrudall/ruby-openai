@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.0] - 2023-08-14
+
+### Added
+
+- Support multi-tenant use of the gem! Each client now holds its own config, so you can create unlimited clients in the same project, for example to Azure and OpenAI, or for different headers, access keys, etc.
+- [BREAKING-ish] This change should only break your usage of ruby-openai if you are directly calling class methods like `OpenAI::Client.get` for some reason, as they are now instance methods. Normal usage of the gem should be unaffected, just you can make new clients and they'll keep their own config if you want, overriding the global config.
+- Huge thanks to [@petergoldstein](https://github.com/petergoldstein) for his original work on this, [@cthulhu](https://github.com/cthulhu) for testing and many others for reviews and suggestions.
+
+### Changed
+
+- [BREAKING] Move audio related method to Audio model from Client model. You will need to update your code to handle this change, changing `client.translate` to `client.audio.translate` and `client.transcribe` to `client.audio.transcribe`.
+
 ## [4.3.2] - 2023-08-14
 
 ### Fixed
