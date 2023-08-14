@@ -70,20 +70,20 @@ module OpenAI
     end
 
     def uri(path:)
-      if OpenAI.configuration.api_type == :azure
+      if azure?
         base = File.join(@uri_base, path)
-        "#{base}?api-version=#{OpenAI.configuration.api_version}"
+        "#{base}?api-version=#{@api_version}"
       else
-        File.join(@uri_base, OpenAI.configuration.api_version, path)
+        File.join(@uri_base, @api_version, path)
       end
     end
 
     def headers
-      if OpenAI.configuration.api_type == :azure
+      if azure?
         azure_headers
       else
         openai_headers
-      end.merge(OpenAI.configuration.extra_headers || {})
+      end.merge(@extra_headers || {})
     end
 
     def openai_headers
@@ -91,13 +91,13 @@ module OpenAI
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{@access_token}",
         "OpenAI-Organization" => @organization_id
-      }.merge(@extra_headers)
+      }
     end
 
     def azure_headers
       {
         "Content-Type" => "application/json",
-        "api-key" => OpenAI.configuration.access_token
+        "api-key" => @access_token
       }
     end
 

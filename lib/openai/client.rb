@@ -2,15 +2,23 @@ module OpenAI
   class Client
     include OpenAI::HTTP
 
-    attr_reader :access_token, :organization_id, :uri_base, :request_timeout, :extra_headers
+    CONFIG_KEYS = %i[
+      api_type
+      api_version
+      access_token
+      organization_id
+      uri_base
+      request_timeout
+      extra_headers
+    ].freeze
+    attr_reader *CONFIG_KEYS
 
-    def initialize(access_token: nil, organization_id: nil, uri_base: nil,
-                   request_timeout: nil, extra_headers: {})
-      @access_token = access_token || OpenAI.configuration.access_token
-      @organization_id = organization_id || OpenAI.configuration.organization_id
-      @request_timeout = request_timeout || OpenAI.configuration.request_timeout
-      @uri_base = uri_base || OpenAI.configuration.uri_base
-      @extra_headers = extra_headers
+    def initialize(config = {})
+      CONFIG_KEYS.each do |key|
+        # Set instance variables like api_type & access_token. Fall back to global config
+        # if not present.
+        instance_variable_set("@#{key}", config[key] || OpenAI.configuration.send(key))
+      end
     end
 
     def chat(parameters: {})
@@ -55,6 +63,10 @@ module OpenAI
 
     def translate(parameters: {})
       multipart_post(path: "/audio/translations", parameters: parameters)
+    end
+
+    def azure?
+      @api_type == :azure
     end
   end
 end
