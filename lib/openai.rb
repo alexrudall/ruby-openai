@@ -29,6 +29,7 @@ module OpenAI
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
+      @extra_headers = nil
     end
 
     def access_token
