@@ -24,13 +24,17 @@ gem "ruby-openai"
 
 And then execute:
 
+```bash
 $ bundle install
+```
 
 ### Gem install
 
 Or install with:
 
+```bash
 $ gem install ruby-openai
+```
 
 and require with:
 
