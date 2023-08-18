@@ -52,4 +52,14 @@ module OpenAI
   def self.configure
     yield(configuration)
   end
+
+  def self.rough_token_count(content = "")
+    raise ArgumentError, "rough_token_count requires a string" unless content.is_a? String
+    return 0 if content.empty?
+
+    count_by_chars = content.size / 4.0
+    count_by_words = content.split.size * 4.0 / 3
+    estimate = ((count_by_chars + count_by_words) / 2.0).round
+    [1, estimate].max
+  end
 end
