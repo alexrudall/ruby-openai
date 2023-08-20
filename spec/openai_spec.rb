@@ -55,4 +55,25 @@ RSpec.describe OpenAI do
       end
     end
   end
+
+  describe "#rough_token_count" do
+    context "on a non-String" do
+      it "raises an error" do
+        expect { OpenAI.rough_token_count([]) }.to raise_error(ArgumentError)
+      end
+    end
+
+    context "on the empty string" do
+      it "returns 0" do
+        expect(OpenAI.rough_token_count("")).to eq(0)
+      end
+    end
+
+    context "on a string" do
+      let(:content) { "Red is my favorite color. Egg is not a necessary ingredient." }
+      it "estimates tokens" do
+        expect(OpenAI.rough_token_count(content)).to eq(15)
+      end
+    end
+  end
 end

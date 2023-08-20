@@ -52,4 +52,16 @@ module OpenAI
   def self.configure
     yield(configuration)
   end
+
+  # Estimate the number of tokens in a string, using the rules of thumb from OpenAI:
+  # https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
+  def self.rough_token_count(content = "")
+    raise ArgumentError, "rough_token_count requires a string" unless content.is_a? String
+    return 0 if content.empty?
+
+    count_by_chars = content.size / 4.0
+    count_by_words = content.split.size * 4.0 / 3
+    estimate = ((count_by_chars + count_by_words) / 2.0).round
+    [1, estimate].max
+  end
 end

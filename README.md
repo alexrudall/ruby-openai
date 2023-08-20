@@ -127,6 +127,18 @@ To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognit
 
 where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
 
+### Counting Tokens
+
+OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
+
+To estimate the token-count of your text:
+
+```ruby
+OpenAI.rough_token_count("Your text")
+```
+
+If you need a more accurate count, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+
 ### Models
 
 There are different models that can be used to generate text. For a full list and to retrieve information about a single model:
@@ -185,7 +197,7 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. If you need to work out how many tokens are being used while streaming, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
 
 ### Functions
 
