@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine_tuning/jobs
+    body:
+      encoding: UTF-8
+      string: '{"training_file":"file-qbDWWqwOglBnn3ghKQbSFBmT","model":"gpt-3.5-turbo-0613"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 429
+      message: Too Many Requests
+    headers:
+      Date:
+      - Wed, 23 Aug 2023 19:00:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '296'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 6a1c18691e5a5caf931a834303902f20
+      Openai-Processing-Ms:
+      - '95'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7fb599e188502323-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "This fine-tune request has been rate-limited. Your organization has reached the maximum of 1 active requests (1 running, 0 pending) for the model 'gpt-3.5-turbo-0613'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "rate_limit_exceeded"
+          }
+        }
+  recorded_at: Wed, 23 Aug 2023 19:00:54 GMT
+recorded_with: VCR 6.1.0
