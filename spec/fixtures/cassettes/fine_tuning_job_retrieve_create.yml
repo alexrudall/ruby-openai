@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine_tuning/jobs
+    body:
+      encoding: UTF-8
+      string: '{"training_file":"file-r9WVzIFT8wHHb641f0XG4KoH","model":"gpt-3.5-turbo-0613"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Aug 2023 19:29:49 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - a22b445a8e238f115bae57f3be281eda
+      Openai-Processing-Ms:
+      - '1334'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7fb5c435fd33e27b-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"fine_tuning.job","id":"ftjob-nxYJVSVfpdINmPvkW7vmoicU","model":"gpt-3.5-turbo-0613","created_at":1692818989,"finished_at":null,"fine_tuned_model":null,"organization_id":"org-Z3Zzs6Ygd95oLun6E1qZgn41","result_files":[],"status":"created","validation_file":null,"training_file":"file-r9WVzIFT8wHHb641f0XG4KoH","hyperparameters":{"n_epochs":10},"trained_tokens":null}'
+  recorded_at: Wed, 23 Aug 2023 19:29:49 GMT
+recorded_with: VCR 6.1.0

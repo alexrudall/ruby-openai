@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine_tuning/jobs/ftjob-wPZzezX9fGA1rRKDmXfwnT5X/events
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 23 Aug 2023 19:20:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - ca86d4eeceb15826d3d513f0a2598944
+      Openai-Processing-Ms:
+      - '67'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7fb5b5eb396c6362-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"object":"list","data":[{"object":"fine_tuning.job.event","id":"ftevent-eTszxNuJA3uBdu766doMpRLG","created_at":1692818402,"level":"info","message":"Created
+        fine-tune: ftjob-wPZzezX9fGA1rRKDmXfwnT5X","data":null,"type":"message"}],"has_more":false}'
+  recorded_at: Wed, 23 Aug 2023 19:20:03 GMT
+recorded_with: VCR 6.1.0
