@@ -10,7 +10,7 @@ RSpec.describe OpenAI::Client do
     end
     let(:retrieve_cassette) { "#{cassette} retrieve for fine tunings" }
     let!(:file_id) do
-      retrieved = VCR.use_cassette(retrieve_cassette) do
+      VCR.use_cassette(retrieve_cassette) do
         OpenAI::Client.new.files.retrieve(id: upload_id)
       end
 
