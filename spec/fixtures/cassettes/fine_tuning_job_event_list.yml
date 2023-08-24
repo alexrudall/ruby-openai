@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-VxrrR4q4MZMrTjecSM1XJ0Q8
+    uri: https://api.openai.com/v1/fine_tuning/jobs/ftjob-eMf3JR7aNVDQ4r580LBKXtmt/events
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 24 Aug 2023 17:42:11 GMT
+      - Thu, 24 Aug 2023 18:18:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,11 +37,9 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_USER_ID>"
       X-Request-Id:
-      - c5f7f4e38d4e95a5d496fb45868277a4
+      - 94485765a9e94d571ac4ec11c5ef7ba4
       Openai-Processing-Ms:
-      - '16'
-      Access-Control-Allow-Origin:
-      - "*"
+      - '71'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -49,21 +47,12 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd63f20a28114d-ORD
+      - 7fbd99b41eab1040-ORD
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "file",
-          "id": "file-VxrrR4q4MZMrTjecSM1XJ0Q8",
-          "purpose": "fine-tune",
-          "filename": "sarcastic.jsonl",
-          "bytes": 2676,
-          "created_at": 1692898931,
-          "status": "uploaded",
-          "status_details": null
-        }
-  recorded_at: Thu, 24 Aug 2023 17:42:11 GMT
+      string: '{"object":"list","data":[{"object":"fine_tuning.job.event","id":"ftevent-xVgRR4pfuYaQodNYcEbsmnHm","created_at":1692901133,"level":"info","message":"Created
+        fine-tune: ftjob-eMf3JR7aNVDQ4r580LBKXtmt","data":null,"type":"message"}],"has_more":false}'
+  recorded_at: Thu, 24 Aug 2023 18:18:53 GMT
 recorded_with: VCR 6.1.0

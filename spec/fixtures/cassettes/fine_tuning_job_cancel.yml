@@ -1,18 +1,20 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://api.openai.com/v1/files/file-VxrrR4q4MZMrTjecSM1XJ0Q8
+    method: post
+    uri: https://api.openai.com/v1/fine_tuning/jobs/ftjob-IecqYijdvM723EA1Xa8NYcBb/cancel
     body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: ''
     headers:
       Content-Type:
-      - application/json
+      - multipart/form-data
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Openai-Organization:
       - "<OPENAI_ORGANIZATION_ID>"
+      Content-Length:
+      - '0'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +27,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 24 Aug 2023 17:42:11 GMT
+      - Thu, 24 Aug 2023 18:09:21 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,11 +39,9 @@ http_interactions:
       Openai-Organization:
       - "<OPENAI_USER_ID>"
       X-Request-Id:
-      - c5f7f4e38d4e95a5d496fb45868277a4
+      - 828d83bee733525f859bab51b52a3ed4
       Openai-Processing-Ms:
-      - '16'
-      Access-Control-Allow-Origin:
-      - "*"
+      - '73'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -49,21 +49,11 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd63f20a28114d-ORD
+      - 7fbd8bbdee421197-ORD
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "file",
-          "id": "file-VxrrR4q4MZMrTjecSM1XJ0Q8",
-          "purpose": "fine-tune",
-          "filename": "sarcastic.jsonl",
-          "bytes": 2676,
-          "created_at": 1692898931,
-          "status": "uploaded",
-          "status_details": null
-        }
-  recorded_at: Thu, 24 Aug 2023 17:42:11 GMT
+      string: '{"object":"fine_tuning.job","id":"ftjob-IecqYijdvM723EA1Xa8NYcBb","model":"gpt-3.5-turbo-0613","created_at":1692900561,"finished_at":null,"fine_tuned_model":null,"organization_id":"<OPENAI_ORGANIZATION_ID>","result_files":[],"status":"cancelled","validation_file":null,"training_file":"file-U9oFcJxi3BwJ8PzsJFZuQEmY","hyperparameters":{"n_epochs":10},"trained_tokens":null}'
+  recorded_at: Thu, 24 Aug 2023 18:09:21 GMT
 recorded_with: VCR 6.1.0
