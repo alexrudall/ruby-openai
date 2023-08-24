@@ -1,11 +1,11 @@
 module OpenAI
-  class FineTuningJob
+  class FineTuningJobs
     def initialize(client:)
       @client = client
     end
 
-    def list(id:)
-      @client.get(path: "/fine_tuning/jobs/#{id}/events")
+    def list
+      @client.get(path: "/fine_tuning/jobs")
     end
 
     def create(parameters: {})
@@ -17,7 +17,11 @@ module OpenAI
     end
 
     def cancel(id:)
-      @client.post(path: "/fine_tuning/jobs/#{id}/cancel")
+      @client.multipart_post(path: "/fine_tuning/jobs/#{id}/cancel")
+    end
+
+    def list_events(id:)
+      @client.get(path: "/fine_tuning/jobs/#{id}/events")
     end
   end
 end

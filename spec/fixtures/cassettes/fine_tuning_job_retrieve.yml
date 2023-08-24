@@ -48,6 +48,6 @@ http_interactions:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"fine_tuning.job","id":"ftjob-nxYJVSVfpdINmPvkW7vmoicU","model":"gpt-3.5-turbo-0613","created_at":1692818989,"finished_at":null,"fine_tuned_model":null,"organization_id":"org-Z3Zzs6Ygd95oLun6E1qZgn41","result_files":[],"status":"created","validation_file":null,"training_file":"file-r9WVzIFT8wHHb641f0XG4KoH","hyperparameters":{"n_epochs":10},"trained_tokens":null}'
+      string: '{"object":"fine_tuning.job","id":"ftjob-nxYJVSVfpdINmPvkW7vmoicU","model":"gpt-3.5-turbo-0613","created_at":1692818989,"finished_at":null,"fine_tuned_model":null,"organization_id":"<OPENAI_ORGANIZATION_ID>","result_files":[],"status":"created","validation_file":null,"training_file":"file-r9WVzIFT8wHHb641f0XG4KoH","hyperparameters":{"n_epochs":10},"trained_tokens":null}'
   recorded_at: Wed, 23 Aug 2023 19:29:50 GMT
 recorded_with: VCR 6.1.0

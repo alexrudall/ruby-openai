@@ -1,27 +1,17 @@
 RSpec.describe OpenAI::Client do
-  describe "#fine tuning job", :vcr do
+  describe "#fine tuning jobs", :vcr do
     let(:filename) { "sarcastic.jsonl" }
     let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
     let!(:upload_id) do
-      response = VCR.use_cassette("finetunes files upload") do
+      response = VCR.use_cassette("fine tune job files upload") do
         OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })
       end
       response["id"]
     end
     let(:retrieve_cassette) { "#{cassette} retrieve for fine tunings" }
-    let(:file_id) do
+    let!(:file_id) do
       retrieved = VCR.use_cassette(retrieve_cassette) do
         OpenAI::Client.new.files.retrieve(id: upload_id)
-      end
-      tries = 0
-      until retrieved["status"] == "processed"
-        raise "File not processed after 10 tries" if tries > 10
-
-        sleep(1)
-        retrieved = VCR.use_cassette(retrieve_cassette, record: :all) do
-          OpenAI::Client.new.files.retrieve(id: upload_id)
-        end
-        tries += 1
       end
 
       upload_id
@@ -29,7 +19,7 @@ RSpec.describe OpenAI::Client do
     let(:model) { "gpt-3.5-turbo-0613" }
     let!(:create_response) do
       VCR.use_cassette("#{cassette} create") do
-        OpenAI::Client.new.fine_tuning_job.create(
+        OpenAI::Client.new.fine_tuning_jobs.create(
           parameters: {
             training_file: file_id,
             model: model
@@ -39,6 +29,17 @@ RSpec.describe OpenAI::Client do
     end
     let(:create_id) { create_response["id"] }
 
+    describe "#list" do
+      let(:cassette) { "fine tuning job list" }
+      let(:response) { OpenAI::Client.new.fine_tuning_jobs.list }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response.dig("data", 0, "object")).to eq("fine_tuning.job")
+        end
+      end
+    end
+
     describe "#create" do
       let(:cassette) { "fine_tuning_job" }
 
@@ -47,20 +48,9 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#list" do
-      let(:cassette) { "fine tuning job list" }
-      let(:response) { OpenAI::Client.new.fine_tuning_job.list(id: create_response["id"]) }
-
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          expect(response.dig("data", 0, "object")).to eq("fine_tuning.job.event")
-        end
-      end
-    end
-
     describe "#retrieve" do
       let(:cassette) { "fine tuning job retrieve" }
-      let(:response) { OpenAI::Client.new.fine_tuning_job.retrieve(id: create_response["id"]) }
+      let(:response) { OpenAI::Client.new.fine_tuning_jobs.retrieve(id: create_response["id"]) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -71,12 +61,23 @@ RSpec.describe OpenAI::Client do
 
     describe "#cancel" do
       let(:cassette) { "fine tuning job cancel" }
-      let(:response) { OpenAI::Client.new.fine_tuning_job.cancel(id: create_response["id"]) }
+      let(:response) { OpenAI::Client.new.fine_tuning_jobs.cancel(id: create_response["id"]) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["id"]).to eq(create_id)
           expect(response["status"]).to eq("cancelled")
+        end
+      end
+    end
+
+    describe "#list_events" do
+      let(:cassette) { "fine tuning job event list" }
+      let(:response) { OpenAI::Client.new.fine_tuning_jobs.list_events(id: create_response["id"]) }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response.dig("data", 0, "object")).to eq("fine_tuning.job.event")
         end
       end
     end

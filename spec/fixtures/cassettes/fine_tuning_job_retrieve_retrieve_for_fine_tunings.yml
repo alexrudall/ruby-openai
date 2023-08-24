@@ -62,4 +62,130 @@ http_interactions:
           "status_details": null
         }
   recorded_at: Wed, 23 Aug 2023 19:29:48 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-T1R98pJNFQKXIcbSzHRBnpyR
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Organization:
+      - "<OPENAI_ORGANIZATION_ID>"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 24 Aug 2023 17:58:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - "<OPENAI_USER_ID>"
+      X-Request-Id:
+      - 573599789ffe0f872dd3c850a7b305cb
+      Openai-Processing-Ms:
+      - '11'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7fbd7c55bf00224c-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-T1R98pJNFQKXIcbSzHRBnpyR",
+          "purpose": "fine-tune",
+          "filename": "sarcastic.jsonl",
+          "bytes": 2676,
+          "created_at": 1692899809,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Thu, 24 Aug 2023 17:58:50 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 24 Aug 2023 18:01:11 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 6113c8978acc269d8f12bded43461ea2
+      Openai-Processing-Ms:
+      - '6'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7fbd7fc58bbfe249-ORD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "error": {
+            "message": "Invalid URL (GET /v1/files/)",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Thu, 24 Aug 2023 18:01:11 GMT
 recorded_with: VCR 6.1.0
