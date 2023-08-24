@@ -374,9 +374,10 @@ You can then use this file ID to create a fine-tune model:
 ```ruby
 response = client.finetunes.create(
     parameters: {
-    training_file: file_id,
-    model: "ada"
-})
+        training_file: file_id,
+        model: "ada"
+    }
+)
 fine_tune_id = response["id"]
 ```
 
