@@ -15,7 +15,7 @@ VCR.configure do |c|
   }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
   c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { OpenAI.configuration.organization_id }
-  if user_id = ENV["OPENAI_USER_ID"]
+  if (user_id = ENV.fetch("OPENAI_USER_ID", nil))
     c.filter_sensitive_data("<OPENAI_USER_ID>") { user_id }
   end
 end
@@ -44,7 +44,7 @@ OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.".freeze
   c.before(:all) do
     OpenAI.configure do |config|
       config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN", "dummy-token")
-      if organization_id = ENV["OPENAI_ORGANIZATION_ID"]
+      if (organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID", nil))
         config.organization_id = organization_id
       end
     end
