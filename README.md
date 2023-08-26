@@ -24,13 +24,17 @@ gem "ruby-openai"
 
 And then execute:
 
+```bash
 $ bundle install
+```
 
 ### Gem install
 
 Or install with:
 
+```bash
 $ gem install ruby-openai
+```
 
 and require with:
 
@@ -68,15 +72,27 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
+You can still override the config defaults when making new clients; any options not included will fall back to any global config set with OpenAI.configure. e.g. in this example the organization_id, request_timeout, etc. will fallback to any set globally using OpenAI.configure, with only the access_token overridden:
+
+```ruby
+client = OpenAI::Client.new(access_token: "access_token_goes_here")
+```
+
 #### Custom timeout or base URI
 
-The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code):
+The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code), and add arbitrary other headers e.g. for [openai-caching-proxy-worker](https://github.com/6/openai-caching-proxy-worker):
 
 ```ruby
 client = OpenAI::Client.new(
     access_token: "access_token_goes_here",
     uri_base: "https://oai.hconeai.com/",
-    request_timeout: 240
+    request_timeout: 240,
+    extra_headers: {
+      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+      "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
+      "Helicone-Auth": "Bearer HELICONE_API_KEY", # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
+      "helicone-stream-force-format" => "true", # Use this with Helicone otherwise streaming drops chunks # https://github.com/alexrudall/ruby-openai/issues/251
+    }
 )
 ```
 
@@ -88,8 +104,40 @@ OpenAI.configure do |config|
     config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
     config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
+    config.extra_headers = {
+      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+      "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
+      "Helicone-Auth": "Bearer HELICONE_API_KEY" # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
+    } # Optional
 end
 ```
+
+#### Azure
+
+To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
+
+```ruby
+    OpenAI.configure do |config|
+        config.access_token = ENV.fetch("AZURE_OPENAI_API_KEY")
+        config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
+        config.api_type = :azure
+        config.api_version = "2023-03-15-preview"
+    end
+```
+
+where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
+
+### Counting Tokens
+
+OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
+
+To estimate the token-count of your text:
+
+```ruby
+OpenAI.rough_token_count("Your text")
+```
+
+If you need a more accurate count, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
 
 ### Models
 
@@ -149,6 +197,68 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
+Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+
+### Functions
+
+You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location:
+
+```ruby
+def get_current_weather(location:, unit: "fahrenheit")
+  # use a weather api to fetch weather
+end
+
+response =
+  client.chat(
+    parameters: {
+      model: "gpt-3.5-turbo-0613",
+      messages: [
+        {
+          "role": "user",
+          "content": "What is the weather like in San Francisco?",
+        },
+      ],
+      functions: [
+        {
+          name: "get_current_weather",
+          description: "Get the current weather in a given location",
+          parameters: {
+            type: :object,
+            properties: {
+              location: {
+                type: :string,
+                description: "The city and state, e.g. San Francisco, CA",
+              },
+              unit: {
+                type: "string",
+                enum: %w[celsius fahrenheit],
+              },
+            },
+            required: ["location"],
+          },
+        },
+      ],
+    },
+  )
+
+message = response.dig("choices", 0, "message")
+
+if message["role"] == "assistant" && message["function_call"]
+  function_name = message.dig("function_call", "name")
+  args =
+    JSON.parse(
+      message.dig("function_call", "arguments"),
+      { symbolize_names: true },
+    )
+
+  case function_name
+  when "get_current_weather"
+    get_current_weather(**args)
+  end
+end
+# => "The weather is nice 🌞"
+```
+
 ### Completions
 
 Hit the OpenAI API for a completion using other GPT-3 models:
@@ -185,12 +295,15 @@ puts response.dig("choices", 0, "text")
 You can use the embeddings endpoint to get a vector of numbers representing an input. You can then compare these vectors for different inputs to efficiently check how similar the inputs are.
 
 ```ruby
-client.embeddings(
+response = client.embeddings(
     parameters: {
-        model: "babbage-similarity",
+        model: "text-embedding-ada-002",
         input: "The food was delicious and the waiter..."
     }
 )
+
+puts response.dig("data", 0, "embedding")
+# => Vector representation of your embedding
 ```
 
 ### Files
@@ -321,7 +434,7 @@ Whisper is a speech to text model that can be used to generate text based on aud
 The translations API takes as input the audio file in any of the supported languages and transcribes the audio into English.
 
 ```ruby
-response = client.translate(
+response = client.audio.translate(
     parameters: {
         model: "whisper-1",
         file: File.open("path_to_file", "rb"),
@@ -335,7 +448,7 @@ puts response["text"]
 The transcriptions API takes as input the audio file you want to transcribe and returns the text in the desired output file format.
 
 ```ruby
-response = client.transcribe(
+response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
         file: File.open("path_to_file", "rb"),

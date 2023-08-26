@@ -5,6 +5,8 @@ RSpec.describe OpenAI::HTTP do
 
     # We disable VCR and WebMock for timeout specs, otherwise VCR will return instant
     # responses when using the recorded responses and the specs will fail incorrectly.
+    # The timeout is set to 0, so these specs will never actually hit the API and
+    # therefore are still fast and deterministic.
     before do
       VCR.turn_off!
       WebMock.allow_net_connect!
@@ -97,7 +99,7 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
-      let(:stream) { OpenAI::Client.send(:to_json_stream, user_proc: user_proc) }
+      let(:stream) { OpenAI::Client.new.send(:to_json_stream, user_proc: user_proc) }
 
       it "returns a proc" do
         expect(stream).to be_a(Proc)
@@ -179,9 +181,83 @@ RSpec.describe OpenAI::HTTP do
   describe ".to_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.send(:to_json, body) }
+      let(:parsed) { OpenAI::Client.new.send(:to_json, body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
+    end
+  end
+
+  describe ".uri" do
+    let(:path) { "/chat" }
+    let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
+
+    it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+
+    context "uri_base without trailing slash" do
+      before do
+        OpenAI.configuration.uri_base = "https://api.openai.com"
+      end
+
+      after do
+        OpenAI.configuration.uri_base = "https://api.openai.com/"
+      end
+
+      it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+    end
+
+    describe "with Azure" do
+      before do
+        OpenAI.configuration.uri_base = uri_base
+        OpenAI.configuration.api_type = :azure
+      end
+
+      after do
+        OpenAI.configuration.uri_base = "https://api.openai.com/"
+        OpenAI.configuration.api_type = nil
+      end
+
+      let(:path) { "/chat" }
+      let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
+
+      context "with a trailing slash" do
+        let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/" }
+        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat?api-version=v1") }
+      end
+
+      context "without a trailing slash" do
+        let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo" }
+        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat?api-version=v1") }
+      end
+    end
+  end
+
+  describe ".headers" do
+    before do
+      OpenAI.configuration.api_type = :nil
+    end
+
+    let(:headers) { OpenAI::Client.new.send(:headers) }
+
+    it {
+      expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
+                              "Content-Type" => "application/json", "OpenAI-Organization" => nil })
+    }
+
+    describe "with Azure" do
+      before do
+        OpenAI.configuration.api_type = :azure
+      end
+
+      after do
+        OpenAI.configuration.api_type = nil
+      end
+
+      let(:headers) { OpenAI::Client.new.send(:headers) }
+
+      it {
+        expect(headers).to eq({ "Content-Type" => "application/json",
+                                "api-key" => OpenAI.configuration.access_token })
+      }
     end
   end
 end

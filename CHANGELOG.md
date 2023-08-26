@@ -5,6 +5,49 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.0] - 2023-08-20
+
+### Added
+
+- Added rough_token_count to estimate tokens in a string according to OpenAI's "rules of thumb". Thank you to [@jamiemccarthy](https://github.com/jamiemccarthy) for the idea and implementation!
+
+## [5.0.0] - 2023-08-14
+
+### Added
+
+- Support multi-tenant use of the gem! Each client now holds its own config, so you can create unlimited clients in the same project, for example to Azure and OpenAI, or for different headers, access keys, etc.
+- [BREAKING-ish] This change should only break your usage of ruby-openai if you are directly calling class methods like `OpenAI::Client.get` for some reason, as they are now instance methods. Normal usage of the gem should be unaffected, just you can make new clients and they'll keep their own config if you want, overriding the global config.
+- Huge thanks to [@petergoldstein](https://github.com/petergoldstein) for his original work on this, [@cthulhu](https://github.com/cthulhu) for testing and many others for reviews and suggestions.
+
+### Changed
+
+- [BREAKING] Move audio related method to Audio model from Client model. You will need to update your code to handle this change, changing `client.translate` to `client.audio.translate` and `client.transcribe` to `client.audio.transcribe`.
+
+## [4.3.2] - 2023-08-14
+
+### Fixed
+
+- Don't overwrite config extra-headers when making a client without different ones. Thanks to [@swistaczek](https://github.com/swistaczek) for raising this!
+- Include extra-headers for Azure requests.
+
+## [4.3.1] - 2023-08-13
+
+### Fixed
+
+- Tempfiles can now be sent to the API as well as Files, eg for Whisper. Thanks to [@codergeek121](https://github.com/codergeek121) for the fix!
+
+## [4.3.0] - 2023-08-12
+
+### Added
+
+- Add extra-headers to config to allow setting openai-caching-proxy-worker TTL, Helicone Auth and anything else ya need. Ty to [@deltaguita](https://github.com/deltaguita) and [@marckohlbrugge](https://github.com/marckohlbrugge) for the PR!
+
+## [4.2.0] - 2023-06-20
+
+### Added
+
+- Add Azure OpenAI Service support. Thanks to [@rmachielse](https://github.com/rmachielse) and [@steffansluis](https://github.com/steffansluis) for the PR and to everyone who requested this feature!
+
 ## [4.1.0] - 2023-05-15
 
 ### Added
