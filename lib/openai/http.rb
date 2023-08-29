@@ -49,12 +49,9 @@ module OpenAI
 
       proc do |chunk, _bytes, env|
         if env && env.status != 200
-          raise_error = Faraday::Response::RaiseError.new
-          raise_error.on_complete(env.merge(body: JSON.parse(chunk)))
-        end
-
-        parser.feed(chunk) do |_type, data|
-          user_proc.call(JSON.parse(data)) unless data == "[DONE]"
+          parser.feed(chunk) do |_type, data|
+            emit_json(json: data, user_proc: user_proc) unless data == "[DONE]"
+          end
         end
       end
     end
