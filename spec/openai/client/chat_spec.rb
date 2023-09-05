@@ -73,6 +73,25 @@ RSpec.describe OpenAI::Client do
             end
           end
         end
+
+        describe "raw responses" do
+          let(:response) do
+            OpenAI::Client.new.chat(
+              parameters: {
+                model: model,
+                messages: messages,
+                stream: stream,
+                raw: true
+              }
+            )
+          end
+          
+          it "succeeds and provides access to status", :focus do
+            VCR.use_cassette(cassette) do
+              expect(response[:status]).to eq(200)
+            end
+          end
+        end
       end
 
       context "with model: gpt-3.5-turbo-0301" do
