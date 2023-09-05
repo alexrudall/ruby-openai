@@ -85,7 +85,7 @@ RSpec.describe OpenAI::Client do
               }
             )
           end
-          
+
           it "succeeds and provides access to status", :focus do
             VCR.use_cassette(cassette) do
               expect(response[:status]).to eq(200)

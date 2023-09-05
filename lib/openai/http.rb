@@ -17,7 +17,8 @@ module OpenAI
         end
 
         req.headers = headers
-        req.body = parameters.except(:raw).to_json
+        new_params = parameters.reject { |key, _| key == :raw }
+        req.body = new_params.to_json
       end
 
       return nil unless response
