@@ -1,9 +1,13 @@
 module OpenAI
   module HTTP
+    class Error < ::Faraday::Error; end
+
     def get(path:)
       to_json(conn.get(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
+    rescue ::Faraday::Error => e
+      handle_response_error(e)
     end
 
     def json_post(path:, parameters:)
@@ -18,6 +22,8 @@ module OpenAI
         req.headers = headers
         req.body = parameters.to_json
       end&.body)
+    rescue ::Faraday::Error => e
+      handle_response_error(e)
     end
 
     def multipart_post(path:, parameters: nil)
@@ -25,12 +31,16 @@ module OpenAI
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body)
+    rescue ::Faraday::Error => e
+      handle_response_error(e)
     end
 
     def delete(path:)
       to_json(conn.delete(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
+    rescue ::Faraday::Error => e
+      handle_response_error(e)
     end
 
     private
@@ -66,6 +76,11 @@ module OpenAI
       Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
+        # This raises Faraday::Error on status code 4xx or 5xx.
+        # These will get captured when making requests so we can propogate the
+        # error response information properly to end-users
+        # https://lostisland.github.io/faraday/#/middleware/included/raising-errors?id=raising-errors
+        f.response :raise_error if @raise_error
       end
     end
 
@@ -110,6 +125,13 @@ module OpenAI
         # as the second argument.
         Faraday::UploadIO.new(value, "", value.path)
       end
+    end
+
+    def handle_response_error(response_error)
+      # preserve the Timeout/Connection errors if not configured to raise from this library
+      raise unless @raise_error
+
+      raise Error.new(response_error.message, response_error.response)
     end
   end
 end

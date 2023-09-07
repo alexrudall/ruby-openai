@@ -10,6 +10,7 @@ module OpenAI
       uri_base
       request_timeout
       extra_headers
+      raise_error
     ].freeze
     attr_reader *CONFIG_KEYS
 

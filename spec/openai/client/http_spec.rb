@@ -27,6 +27,18 @@ RSpec.describe OpenAI::HTTP do
           expect(timeout_errors).to include(error.class)
         end
       end
+
+      context "when raise_error is configured to true" do
+        let(:timeout_errors) { [described_class::Error] }
+        before { OpenAI.configuration.raise_error = true }
+        after { OpenAI.configuration.raise_error = false }
+
+        it "times out with OpenAI::HTTP::Error" do
+          expect { response }.to raise_error do |error|
+            expect(timeout_errors).to include(error.class)
+          end
+        end
+      end
     end
 
     describe ".json_post" do
@@ -48,6 +60,18 @@ RSpec.describe OpenAI::HTTP do
             expect(timeout_errors).to include(error.class)
           end
         end
+
+        context "when raise_error is configured to true" do
+          let(:timeout_errors) { [described_class::Error] }
+          before { OpenAI.configuration.raise_error = true }
+          after { OpenAI.configuration.raise_error = false }
+
+          it "times out with OpenAI::HTTP::Error" do
+            expect { response }.to raise_error do |error|
+              expect(timeout_errors).to include(error.class)
+            end
+          end
+        end
       end
 
       context "streaming" do
@@ -61,6 +85,18 @@ RSpec.describe OpenAI::HTTP do
         it "times out" do
           expect { response }.to raise_error do |error|
             expect(timeout_errors).to include(error.class)
+          end
+        end
+
+        context "when raise_error is configured to true" do
+          let(:timeout_errors) { [described_class::Error] }
+          before { OpenAI.configuration.raise_error = true }
+          after { OpenAI.configuration.raise_error = false }
+
+          it "times out with OpenAI::HTTP::Error" do
+            expect { response }.to raise_error do |error|
+              expect(timeout_errors).to include(error.class)
+            end
           end
         end
       end
@@ -81,6 +117,18 @@ RSpec.describe OpenAI::HTTP do
           expect(timeout_errors).to include(error.class)
         end
       end
+
+      context "when raise_error is configured to true" do
+        let(:timeout_errors) { [described_class::Error] }
+        before { OpenAI.configuration.raise_error = true }
+        after { OpenAI.configuration.raise_error = false }
+
+        it "times out with OpenAI::HTTP::Error" do
+          expect { response }.to raise_error do |error|
+            expect(timeout_errors).to include(error.class)
+          end
+        end
+      end
     end
 
     describe ".delete" do
@@ -91,6 +139,18 @@ RSpec.describe OpenAI::HTTP do
       it "times out" do
         expect { response }.to raise_error do |error|
           expect(timeout_errors).to include(error.class)
+        end
+      end
+
+      context "when raise_error is configured to true" do
+        let(:timeout_errors) { [described_class::Error] }
+        before { OpenAI.configuration.raise_error = true }
+        after { OpenAI.configuration.raise_error = false }
+
+        it "times out with OpenAI::HTTP::Error" do
+          expect { response }.to raise_error do |error|
+            expect(timeout_errors).to include(error.class)
+          end
         end
       end
     end

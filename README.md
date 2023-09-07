@@ -110,6 +110,59 @@ OpenAI.configure do |config|
 end
 ```
 
+#### Handling Errors from the OpenAI API
+
+The default, requests using this library will only return the `body` of the response (if one exists).  You can change this behavior and have 4xx and 5xx HTTP status codes raise an `OpenAI::HTTP::Error` by using the following client configuration:
+
+```ruby
+client = OpenAI::Client.new(
+    access_token: "access_token_goes_here",
+    raise_error: true
+)
+```
+
+or when configuring the gem:
+
+```ruby
+OpenAI.configure do |config|
+    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    config.raise_error = true
+end
+```
+
+With this configuration set, calls to any of the client methods (`chat`,
+`completions`, `embeddings`, etc.) will all raise an error
+(`OpenAI::HTTP::Error`) if the response's HTTP status code is 4xx or 5xx. This
+special error gives you access to some key information about the response on the instance of the error raised:
+
+```ruby
+client = OpenAI::Client.new(
+    access_token: "access_token_goes_here",
+    raise_error: true
+)
+begin
+  response = client.chat(
+      parameters: {
+          model: "gpt-42", # providing an invalid model
+          messages: [{ role: "user", content: "Doh!"}]
+      })
+rescue OpenAI::HTTP::Error => e
+  puts e.response[:status]
+  puts e.response[:headers]
+  puts e.response[:body]
+end
+# => 404
+#    {"date"=>"Wed, 06 Sep 2023 21:26:07 GMT", "content-type"=>"application/json; charset=utf-8", "transfer-encoding"=>"chunked", "connection"=>"keep-alive", "vary"=>"Origin", "x-request-id"=>"b834b1406029a174ac0ff2cc90cb6a87", "strict-transport-security"=>"max-age=15724800; includeSubDomains", "cf-cache-status"=>"DYNAMIC", "server"=>"cloudflare", "cf-ray"=>"8029c9d88ddf424d-EWR", "content-encoding"=>"gzip", "alt-svc"=>"h3=\":443\"; ma=86400"}
+#    {
+#        "error": {
+#            "message": "The model `gpt-42` does not exist",
+#            "type": "invalid_request_error",
+#            "param": null,
+#            "code": "model_not_found"
+#        }
+#    }
+```
+
 #### Azure
 
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:

@@ -24,7 +24,8 @@ RSpec.describe OpenAI::Client do
         organization_id: "organization_id1",
         request_timeout: 60,
         uri_base: "https://oai.hconeai.com/",
-        extra_headers: { "test" => "X-Test" }
+        extra_headers: { "test" => "X-Test" },
+        raise_error: true
       )
     end
     let!(:c2) do
@@ -32,7 +33,8 @@ RSpec.describe OpenAI::Client do
         access_token: "access_token2",
         organization_id: nil,
         request_timeout: 1,
-        uri_base: "https://example.com/"
+        uri_base: "https://example.com/",
+        raise_error: false
       )
     end
 
@@ -42,6 +44,7 @@ RSpec.describe OpenAI::Client do
       expect(c0.organization_id).to eq("organization_id0")
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
+      expect(c0.raise_error).to eq(false)
       expect(c0.send(:headers).values).to include("Bearer #{c0.access_token}")
       expect(c0.send(:headers).values).to include(c0.organization_id)
       expect(c0.send(:conn).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
@@ -54,6 +57,7 @@ RSpec.describe OpenAI::Client do
       expect(c1.organization_id).to eq("organization_id1")
       expect(c1.request_timeout).to eq(60)
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
+      expect(c1.raise_error).to eq(true)
       expect(c1.send(:headers).values).to include(c1.access_token)
       expect(c1.send(:conn).options.timeout).to eq(60)
       expect(c1.send(:uri, path: "")).to include("https://oai.hconeai.com/")
@@ -65,6 +69,7 @@ RSpec.describe OpenAI::Client do
       expect(c2.organization_id).to eq("organization_id0") # Fall back to default.
       expect(c2.request_timeout).to eq(1)
       expect(c2.uri_base).to eq("https://example.com/")
+      expect(c2.raise_error).to eq(false)
       expect(c2.send(:headers).values).to include("Bearer #{c2.access_token}")
       expect(c2.send(:headers).values).to include(c2.organization_id)
       expect(c2.send(:conn).options.timeout).to eq(1)
