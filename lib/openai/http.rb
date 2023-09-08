@@ -1,7 +1,7 @@
+require_relative "http/error"
+
 module OpenAI
   module HTTP
-    class Error < ::Faraday::Error; end
-
     def get(path:)
       to_json(conn.get(uri(path: path)) do |req|
         req.headers = headers
