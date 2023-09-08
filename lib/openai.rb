@@ -1,6 +1,7 @@
 require "faraday"
 require "faraday/multipart"
 
+require_relative "openai/error"
 require_relative "openai/http"
 require_relative "openai/client"
 require_relative "openai/files"
@@ -11,7 +12,6 @@ require_relative "openai/audio"
 require_relative "openai/version"
 
 module OpenAI
-  class Error < StandardError; end
   class ConfigurationError < Error; end
 
   class Configuration
