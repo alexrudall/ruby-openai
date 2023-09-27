@@ -1,3 +1,5 @@
+require "event_stream_parser"
+
 module OpenAI
   module HTTP
     def get(path:)
@@ -44,21 +46,20 @@ module OpenAI
       JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
     end
 
-    # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
-    # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could
-    # be a data object or an error object as described in the OpenAI API documentation.
+    # Given a proc, returns an outer proc that can be used to iterate over a
+    # stream of completion JSON object chunks.
+    # For each chunk, the inner user_proc is called giving it the parsed object.
+    # If the chunk is not valid JSON, the user_proc is called with nil and an
+    # error.
     #
-    # If the JSON object for a given data or error message is invalid, it is ignored.
-    #
-    # @param user_proc [Proc] The inner proc to call for each JSON object in the chunk.
-    # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
+    # @param user_proc [Proc] The inner proc to call for each completion object.
+    # @return [Proc] An outer proc that iterates over a raw stream, parsing it.
     def to_json_stream(user_proc:)
-      proc do |chunk, _|
-        chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
-          user_proc.call(JSON.parse(data))
-        rescue JSON::ParserError
-          # Ignore invalid JSON.
-        end
+      parser = EventStreamParser::Parser.new
+      parser.stream do |_type, data|
+        user_proc.call(JSON.parse(data)) unless data == "[DONE]"
+      rescue StandardError => e
+        user_proc.call(nil, e)
       end
     end
 
