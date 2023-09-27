@@ -108,7 +108,11 @@ RSpec.describe OpenAI::HTTP do
       context "when called with a string containing a single JSON object" do
         it "calls the user proc with the data parsed as JSON" do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
-          stream.call('data: { "foo": "bar" }')
+          stream.call(<<~CHUNK)
+            data: { "foo": "bar" }
+
+            #
+          CHUNK
         end
       end
 
@@ -117,13 +121,14 @@ RSpec.describe OpenAI::HTTP do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
           expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'))
 
-          stream.call(<<-CHUNK)
+          stream.call(<<~CHUNK)
             data: { "foo": "bar" }
 
             data: { "baz": "qud" }
 
             data: [DONE]
 
+            #
           CHUNK
         end
       end
@@ -134,36 +139,28 @@ RSpec.describe OpenAI::HTTP do
         it "does not call the user proc" do
           bad_examples.each do |chunk|
             expect(user_proc).to_not receive(:call)
-            stream.call(chunk)
+            stream.call("#{chunk}\n\n")
           end
         end
       end
 
       context "when called with a string containing that looks like a JSON object but is invalid" do
-        let(:chunk) do
-          <<-CHUNK
-            data: { "foo": "bar" }
-            data: { BAD ]:-> JSON }
-          CHUNK
-        end
-
         it "does not raise an error" do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
 
           expect do
-            stream.call(chunk)
+            stream.call(<<~CHUNK)
+              data: { "foo": "bar" }
+
+              data: { BAD ]:-> JSON }
+
+              #
+            CHUNK
           end.not_to raise_error
         end
       end
 
       context "when called with a string containing an error" do
-        let(:chunk) do
-          <<-CHUNK
-            data: { "foo": "bar" }
-            error: { "message": "A bad thing has happened!" }
-          CHUNK
-        end
-
         it "does not raise an error" do
           expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
           expect(user_proc).to receive(:call).with(
@@ -171,7 +168,23 @@ RSpec.describe OpenAI::HTTP do
           )
 
           expect do
-            stream.call(chunk)
+            stream.call(<<~CHUNK)
+              data: { "foo": "bar" }
+
+              error: { "message": "A bad thing has happened!" }
+
+              #
+            CHUNK
+          end.not_to raise_error
+        end
+      end
+
+      context "when called with JSON split across chunks" do
+        it "calls the user proc with the data parsed as JSON" do
+          expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
+          expect do
+            stream.call("data: { \"foo\":")
+            stream.call(" \"bar\" }\n\n")
           end.not_to raise_error
         end
       end
