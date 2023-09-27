@@ -180,7 +180,7 @@ puts response.dig("choices", 0, "message", "content")
 
 [Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
-You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of completion chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash.
 
 ```ruby
 client.chat(
@@ -188,14 +188,14 @@ client.chat(
         model: "gpt-3.5-turbo", # Required.
         messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
         temperature: 0.7,
-        stream: proc do |chunk, _bytesize|
-            print chunk.dig("choices", 0, "delta", "content")
+        stream: proc do |chunk, error|
+            print chunk.dig("choices", 0, "delta", "content") unless error
         end
     })
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
 
 ### Functions
 
