@@ -1,5 +1,9 @@
+require_relative "sse"
+
 module OpenAI
   module HTTP
+    include OpenAI::SSE
+
     def get(path:)
       to_json(conn.get(uri(path: path)) do |req|
         req.headers = headers
@@ -53,37 +57,13 @@ module OpenAI
     # @param user_proc [Proc] The inner proc to call for each JSON object in the chunk.
     # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
     def to_json_stream(user_proc:)
-      @buffer = ""
-
-      proc do |chunk, _|
-        chunk = @buffer + chunk
-        @buffer = ""
-
-        blocks = chunk.split("\n\n", -1)
-
-        while blocks.length.positive?
-          block = blocks.shift
-
-          if blocks.empty?
-            @buffer = block unless block.empty?
-            break
-          end
-
-          matches = /([^:]+):\s*(.+)/.match(block)
-
-          next unless matches
-
-          field_name, field_value = matches.captures
-
-          next unless %w[data error].include?(field_name)
-
-          begin
-            user_proc.call(JSON.parse(field_value))
-          rescue JSON::ParserError
-            # Ignore invalid JSON.
-          end
-        end
+      completion_json_proc = proc do |completion_json|
+        user_proc.call(JSON.parse(completion_json))
+      rescue JSON::ParserError
+        # Ignore invalid JSON.
       end
+
+      to_completion_json_stream(completion_json_proc: completion_json_proc)
     end
 
     def conn(multipart: false)
