@@ -1,9 +1,7 @@
-require_relative "sse"
+require "openai/sse"
 
 module OpenAI
   module HTTP
-    include OpenAI::SSE
-
     def get(path:)
       to_json(conn.get(uri(path: path)) do |req|
         req.headers = headers
@@ -11,14 +9,15 @@ module OpenAI
     end
 
     def json_post(path:, parameters:)
-      to_json(conn.post(uri(path: path)) do |req|
-        if parameters[:stream].respond_to?(:call)
-          req.options.on_data = to_json_stream(user_proc: parameters[:stream])
-          parameters[:stream] = true # Necessary to tell OpenAI to stream.
-        elsif parameters[:stream]
+      if (stream = parameters[:stream])
+        unless stream.respond_to?(:call)
           raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
         end
 
+        return streaming_json_post(path: path, parameters: parameters, &stream.method(:call))
+      end
+
+      to_json(conn.post(uri(path: path)) do |req|
         req.headers = headers
         req.body = parameters.to_json
       end&.body)
@@ -39,6 +38,18 @@ module OpenAI
 
     private
 
+    def streaming_json_post(path:, parameters:, &on_json_message)
+      parameters[:stream] = true # Necessary to tell OpenAI to stream.
+      sse = SSE.new(&on_json_message)
+      resp = conn.post(uri(path: path)) do |req|
+        req.options.on_data = proc { |data| sse.feed(data) }
+        req.headers = headers
+        req.body = parameters.to_json
+      end
+      sse.finalize!
+      to_json(resp.body)
+    end
+
     def to_json(string)
       return unless string
 
@@ -46,24 +57,6 @@ module OpenAI
     rescue JSON::ParserError
       # Convert a multiline string of JSON objects to a JSON array.
       JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
-    end
-
-    # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
-    # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could
-    # be a data object or an error object as described in the OpenAI API documentation.
-    #
-    # If the JSON object for a given data or error message is invalid, it is ignored.
-    #
-    # @param user_proc [Proc] The inner proc to call for each JSON object in the chunk.
-    # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
-    def to_json_stream(user_proc:)
-      completion_json_proc = proc do |completion_json|
-        user_proc.call(JSON.parse(completion_json))
-      rescue JSON::ParserError
-        # Ignore invalid JSON.
-      end
-
-      to_completion_json_stream(completion_json_proc: completion_json_proc)
     end
 
     def conn(multipart: false)

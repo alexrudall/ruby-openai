@@ -1,16 +1,18 @@
 require "faraday"
 require "faraday/multipart"
 
-require_relative "openai/http"
-require_relative "openai/client"
-require_relative "openai/files"
-require_relative "openai/finetunes"
-require_relative "openai/images"
-require_relative "openai/models"
-require_relative "openai/audio"
-require_relative "openai/version"
+require "openai/version"
 
 module OpenAI
+  autoload(:Audio,     "openai/audio")
+  autoload(:Client,    "openai/client")
+  autoload(:Files,     "openai/files")
+  autoload(:Finetunes, "openai/finetunes")
+  autoload(:HTTP,      "openai/http")
+  autoload(:Images,    "openai/images")
+  autoload(:Models,    "openai/models")
+  autoload(:SSE,       "openai/sse")
+
   class Error < StandardError; end
   class ConfigurationError < Error; end
 

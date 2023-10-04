@@ -1,45 +1,60 @@
+require "openai"
+
 module OpenAI
-  module SSE
-    def to_completion_json_stream(completion_json_proc:)
-      @buffer = ""
+  # OpenAI uses a simple SSE implementation with no 'event:' lines,
+  # and they emit a message "[DONE]\n\n" at the end of their response.
+  # All of their data messages are JSON, and so we parse those here too.
+  class SSE
+    class Error < OpenAI::Error; end
+    class AbortedStreamError < Error; end
+    class InvalidStreamError < Error; end
 
-      proc do |chunk, _|
-        chunk = @buffer + chunk
-        @buffer = ""
+    def initialize(&on_json_message)
+      @buffer = String.new
+      @done = false
+      @on_json_message = on_json_message
+    end
 
-        blocks = chunk.split("\n\n", -1)
+    def feed(data)
+      @buffer << data
+      while (message = @buffer.slice!(/.*?\n\n/m))
+        # "data: a\ndata: b\n\n" -> ["data: a\n", "data: b\n"]
+        lines = message.chomp.lines
+        raise(InvalidStreamError, "Unexpected multiline SSE message: #{message}") if lines.size > 1
 
-        @buffer = process_blocks(blocks, completion_json_proc)
+        feed_line(lines[0])
       end
+    end
+
+    def finalize!
+      unless @done
+        raise(AbortedStreamError, "Stream didn't send [DONE] message before finalization.")
+      end
+      return if @buffer.empty?
+
+      raise(
+        AbortedStreamError,
+        "Stream still had unprocessed messages at finalization: #{@buffer.inspect}"
+      )
     end
 
     private
 
-    def process_blocks(blocks, completion_json_proc)
-      buffer = ""
+    def feed_line(line)
+      raise(InvalidStreamError, "Unexpected SSE message: message after [DONE].") if @done
 
-      while blocks.length.positive?
-        block = blocks.shift
-
-        if blocks.empty?
-          buffer = block unless block.empty?
-          break
-        end
-
-        process_block(block, completion_json_proc)
+      unless (md = line.match(/\Adata: (?<data>.+)\z/m))
+        # OpenAI never sends 'event: ' lines so we don't handle them.
+        raise(InvalidStreamError, "Unexpected SSE message format: #{line.inspect}")
       end
 
-      buffer
-    end
+      message = md[:data]
 
-    def process_block(block, completion_json_proc)
-      matches = /([^:]+):\s*(.+)/.match(block)
-      return unless matches
-
-      field_name, field_value = matches.captures
-      return unless %w[data error].include?(field_name)
-
-      completion_json_proc.call(field_value)
+      if message == "[DONE]\n"
+        @done = true
+      else
+        @on_json_message.call(JSON.parse(message))
+      end
     end
   end
 end
