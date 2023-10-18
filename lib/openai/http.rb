@@ -67,6 +67,7 @@ module OpenAI
       Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
+        f.response :raise_error
       end
     end
 
