@@ -58,8 +58,6 @@ module OpenAI
       parser = EventStreamParser::Parser.new
       parser.stream do |_type, data|
         user_proc.call(JSON.parse(data)) unless data == "[DONE]"
-      rescue StandardError => e
-        user_proc.call(nil, e)
       end
     end
 

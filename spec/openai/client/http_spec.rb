@@ -134,9 +134,10 @@ RSpec.describe OpenAI::HTTP do
       end
 
       context "when called with a string that is not valid JSON" do
-        it "populates the error argument" do
-          expect(user_proc).to receive(:call).with(nil, an_instance_of(JSON::ParserError))
-          stream.call("data: foo\n\n")
+        it "raises a JSON::ParserError" do
+          expect { stream.call("data: foo\n\n") }.to raise_error do |error|
+            expect(error).to be_a(JSON::ParserError)
+          end
         end
       end
 
