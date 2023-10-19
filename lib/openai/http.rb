@@ -54,10 +54,16 @@ module OpenAI
     # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
     def to_json_stream(user_proc:)
       proc do |chunk, _|
-        chunk.scan(/(?:data|error): (\{.*\})/i).flatten.each do |data|
-          user_proc.call(JSON.parse(data))
-        rescue JSON::ParserError
-          # Ignore invalid JSON.
+        @buffer ||= ""
+        @buffer += chunk
+        while (match = @buffer.match(/(?:data|error): (\{.*\})/i))
+          data = match[1]
+          @buffer = @buffer[match.end(0)..-1]  # Remove the processed data from the buffer
+          begin
+            user_proc.call(JSON.parse(data))
+          rescue JSON::ParserError => e
+            # Ignore invalid JSON.
+          end
         end
       end
     end
