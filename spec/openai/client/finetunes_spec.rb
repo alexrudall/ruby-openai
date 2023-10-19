@@ -81,9 +81,9 @@ RSpec.describe OpenAI::Client do
 
       # It takes too long to fine-tune a model so we can delete it when running the test suite
       # against the live API. Instead, we just check that the API returns an error.
-      it "returns an error" do
+      it "raises an error" do
         VCR.use_cassette(cassette) do
-          expect(response.dig("error", "message")).to include("does not exist")
+          expect { response }.to raise_error(Faraday::ResourceNotFound)
         end
       end
 
