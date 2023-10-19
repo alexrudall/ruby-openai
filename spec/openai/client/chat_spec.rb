@@ -78,24 +78,22 @@ RSpec.describe OpenAI::Client do
 
             it "raises an HTTP error" do
               VCR.use_cassette(cassette) do
-                begin
-                  response
-                rescue Faraday::BadRequestError => error
-                  expect(error.response).to include(status: 400)
-                  expect(error.response[:body]).to eq({
-                    "error" => {
-                      "message" => "Test error",
-                      "type" => "test_error",
-                      "param" => nil,
-                      "code" => "test",
-                    }
-                  })
-                else
-                  fail "Expected to raise Faraday::BadRequestError"
-                end
+                response
+              rescue Faraday::BadRequestError => e
+                expect(e.response).to include(status: 400)
+                expect(e.response[:body]).to eq({
+                                                  "error" => {
+                                                    "message" => "Test error",
+                                                    "type" => "test_error",
+                                                    "param" => nil,
+                                                    "code" => "test"
+                                                  }
+                                                })
+              else
+                raise "Expected to raise Faraday::BadRequestError"
               end
             end
-        end
+          end
         end
       end
 
