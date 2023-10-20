@@ -195,7 +195,7 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby). Also, each call to the stream proc corresponds to a single token, so you can count the number of calls to the proc to get the completion token count.
 
 ### Functions
 
