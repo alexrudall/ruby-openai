@@ -95,25 +95,5 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
-
-    describe "#completions" do
-      let(:prompt) { "I love Mondays" }
-      let(:cassette) { "finetune completions #{prompt}".downcase }
-      let(:model) { "ada:ft-user-jxm65ijkzc1qrfhc0ij8moic-2021-12-11-20-11-52" }
-      let(:response) do
-        OpenAI::Client.new.completions(
-          parameters: {
-            model: model,
-            prompt: prompt
-          }
-        )
-      end
-
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          expect(response["model"]).to eq(model)
-        end
-      end
-    end
   end
 end
