@@ -153,6 +153,26 @@ RSpec.describe OpenAI::HTTP do
         end
       end
 
+      context "wehn called with string containing Obie's invalid JSON" do
+        let(:chunk) do
+          <<~CHUNK
+            data: { "foo": "bar" }
+
+            data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":123,"model":"gpt-4","choices":[{"index":0,"delta":{"role":"assistant","content":null,"fu
+
+            #
+          CHUNK
+        end
+
+        it "does not raise an error" do
+          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
+
+          expect do
+            stream.call(chunk)
+          end.not_to raise_error
+        end
+      end
+
       context "when OpenAI returns an HTTP error" do
         let(:chunk) { "{\"error\":{\"message\":\"A bad thing has happened!\"}}" }
         let(:env) { Faraday::Env.new(status: 500) }
