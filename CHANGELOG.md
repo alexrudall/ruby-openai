@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.2.0] - 2023-10-30
+
+### Fix
+
+- Added more spec-compliant SSE parsing: see here https://html.spec.whatwg.org/multipage/server-sent-events.html#event-stream-interpretation
+- Fixes issue where OpenAI or an intermediary returns only partial JSON per chunk of streamed data
+- Huge thanks to [@atesgoral](https://github.com/atesgoral) for this important fix!
+
 ## [5.1.0] - 2023-08-20
 
 ### Added
