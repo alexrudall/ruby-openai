@@ -123,7 +123,19 @@ To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognit
     end
 ```
 
-where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
+where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com`
+
+Then add the `deployment_id` to the api calls. e.g:
+
+``` ruby
+client.embeddings(
+  deployment_id: 'gpt-35-turbo',
+  parameters: {
+    model: 'text-embedding-ada-002',
+    input:
+  }
+)
+```
 
 ### Counting Tokens
 

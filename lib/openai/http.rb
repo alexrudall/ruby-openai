@@ -8,7 +8,9 @@ module OpenAI
       end&.body)
     end
 
-    def json_post(path:, parameters:)
+    def json_post(path:, parameters:, deployment_id: nil)
+      path = "/openai/deployments/#{deployment_id}/#{path}" if deployment_id
+
       to_json(conn.post(uri(path: path)) do |req|
         if parameters[:stream].respond_to?(:call)
           req.options.on_data = to_json_stream(user_proc: parameters[:stream])
