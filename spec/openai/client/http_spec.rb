@@ -155,7 +155,13 @@ RSpec.describe OpenAI::HTTP do
 
       context "when OpenAI returns an HTTP error" do
         let(:chunk) { "{\"error\":{\"message\":\"A bad thing has happened!\"}}" }
-        let(:env) { Faraday::Env.new(status: 500) }
+        let(:env) do
+          Faraday::Env.new(
+            status: 500,
+            url: URI::HTTPS.build(host: "api.openai.com"),
+            request: Faraday::RequestOptions.new
+          )
+        end
 
         it "does not raise an error and calls the user proc with the error parsed as JSON" do
           expect(user_proc).to receive(:call).with(
