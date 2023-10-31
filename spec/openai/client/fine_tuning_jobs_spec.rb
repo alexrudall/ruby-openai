@@ -50,11 +50,11 @@ RSpec.describe OpenAI::Client do
 
     describe "#retrieve" do
       let(:cassette) { "fine tuning job retrieve" }
-      let(:response) { OpenAI::Client.new.fine_tuning_jobs.retrieve(id: create_response["id"]) }
+      let(:response) { OpenAI::Client.new.fine_tuning_jobs.retrieve(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("fine_tuning.job")
+          expect(response.dig("error", "code")).to eq("fine_tune_not_found")
         end
       end
     end

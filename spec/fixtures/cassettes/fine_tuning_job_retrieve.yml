@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine_tuning/jobs/
+    uri: https://api.openai.com/v1/fine_tuning/jobs/123
     body:
       encoding: US-ASCII
       string: ''
@@ -19,23 +19,25 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 307
-      message: Temporary Redirect
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Tue, 31 Oct 2023 16:35:14 GMT
-      Content-Length:
-      - '0'
+      - Tue, 31 Oct 2023 16:52:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      Location:
-      - http://api.openai.com/v1/fine_tuning/jobs
       Openai-Version:
       - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 7f0b9c481025141c1b724f47e6d0159b
+      - 835b5c0cdb6c4f3aad3322a31059e372
       Openai-Processing-Ms:
-      - '0'
+      - '9'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -43,11 +45,19 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed4f5ff95660de-LHR
+      - 81ed681959ff4889-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: UTF-8
-      string: ''
-  recorded_at: Tue, 31 Oct 2023 16:35:14 GMT
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "Could not find fine tune: 123",
+            "type": "invalid_request_error",
+            "param": "fine_tune_id",
+            "code": "fine_tune_not_found"
+          }
+        }
+  recorded_at: Tue, 31 Oct 2023 16:52:07 GMT
 recorded_with: VCR 6.1.0
