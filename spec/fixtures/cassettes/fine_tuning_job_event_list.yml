@@ -60,4 +60,64 @@ http_interactions:
           }
         }
   recorded_at: Tue, 31 Oct 2023 16:35:17 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/fine_tuning/jobs/123/events
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Tue, 31 Oct 2023 16:59:58 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - dc9801e8cb76e44750c77a86296652a4
+      Openai-Processing-Ms:
+      - '66'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81ed73985c54385b-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "Could not find fine tune: 123",
+            "type": "invalid_request_error",
+            "param": "fine_tune_id",
+            "code": "fine_tune_not_found"
+          }
+        }
+  recorded_at: Tue, 31 Oct 2023 16:59:58 GMT
 recorded_with: VCR 6.1.0
