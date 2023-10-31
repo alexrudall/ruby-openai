@@ -93,10 +93,6 @@ RSpec.describe OpenAI::Client do
         expect(c1).to receive(:get).with(path: "/files").once
         expect(c2).to receive(:get).with(path: "/files").once
 
-        expect(c0).to receive(:get).with(path: "/fine-tunes").once
-        expect(c1).to receive(:get).with(path: "/fine-tunes").once
-        expect(c2).to receive(:get).with(path: "/fine-tunes").once
-
         expect(c0).to receive(:json_post).with(path: "/images/generations", parameters: {}).once
         expect(c1).to receive(:json_post).with(path: "/images/generations", parameters: {}).once
         expect(c2).to receive(:json_post).with(path: "/images/generations", parameters: {}).once
