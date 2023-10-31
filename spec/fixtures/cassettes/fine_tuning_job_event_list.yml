@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine_tuning/jobs/ftjob-eMf3JR7aNVDQ4r580LBKXtmt/events
+    uri: https://api.openai.com/v1/fine_tuning/jobs//events
     body:
       encoding: US-ASCII
       string: ''
@@ -11,8 +11,6 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - "<OPENAI_ORGANIZATION_ID>"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,11 +19,11 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Thu, 24 Aug 2023 18:18:53 GMT
+      - Tue, 31 Oct 2023 16:35:17 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,11 +33,11 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - "<OPENAI_USER_ID>"
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 94485765a9e94d571ac4ec11c5ef7ba4
+      - e141bca3119617fa06a7408eac568f52
       Openai-Processing-Ms:
-      - '71'
+      - '68'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -47,12 +45,19 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd99b41eab1040-ORD
+      - 81ed4f6e99ea531e-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"object":"list","data":[{"object":"fine_tuning.job.event","id":"ftevent-xVgRR4pfuYaQodNYcEbsmnHm","created_at":1692901133,"level":"info","message":"Created
-        fine-tune: ftjob-eMf3JR7aNVDQ4r580LBKXtmt","data":null,"type":"message"}],"has_more":false}'
-  recorded_at: Thu, 24 Aug 2023 18:18:53 GMT
+      string: |-
+        {
+          "error": {
+            "message": "Could not find fine tune: events",
+            "type": "invalid_request_error",
+            "param": "fine_tune_id",
+            "code": "fine_tune_not_found"
+          }
+        }
+  recorded_at: Tue, 31 Oct 2023 16:35:17 GMT
 recorded_with: VCR 6.1.0

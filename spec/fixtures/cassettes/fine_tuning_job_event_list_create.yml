@@ -5,14 +5,12 @@ http_interactions:
     uri: https://api.openai.com/v1/fine_tuning/jobs
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-xAtpSa4NW5dE2H9rijZ0lenL","model":"gpt-3.5-turbo-0613"}'
+      string: '{"training_file":"file-t7tOOW2R3hxf7jiWyPJLm9Sw","model":"gpt-3.5-turbo-0613"}'
     headers:
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - "<OPENAI_ORGANIZATION_ID>"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,25 +19,25 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 429
+      message: Too Many Requests
     headers:
       Date:
-      - Thu, 24 Aug 2023 18:18:53 GMT
+      - Tue, 31 Oct 2023 16:35:16 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '296'
       Connection:
       - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - "<OPENAI_USER_ID>"
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - abbfa025e7f0ff1886516853f10df837
+      - c331ff7634262b94773ec098b3998a6d
       Openai-Processing-Ms:
-      - '5763'
+      - '78'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -47,11 +45,19 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd998efcba635c-ORD
+      - 81ed4f6cbf2a408a-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: ASCII-8BIT
-      string: '{"object":"fine_tuning.job","id":"ftjob-eMf3JR7aNVDQ4r580LBKXtmt","model":"gpt-3.5-turbo-0613","created_at":1692901133,"finished_at":null,"fine_tuned_model":null,"organization_id":"<OPENAI_ORGANIZATION_ID>","result_files":[],"status":"created","validation_file":null,"training_file":"file-xAtpSa4NW5dE2H9rijZ0lenL","hyperparameters":{"n_epochs":10},"trained_tokens":null}'
-  recorded_at: Thu, 24 Aug 2023 18:18:53 GMT
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "This fine-tune request has been rate-limited. Your organization has reached the maximum of 3 active requests (2 running, 1 pending) for the model 'gpt-3.5-turbo-0613'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "rate_limit_exceeded"
+          }
+        }
+  recorded_at: Tue, 31 Oct 2023 16:35:16 GMT
 recorded_with: VCR 6.1.0

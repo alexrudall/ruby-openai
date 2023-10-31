@@ -17,7 +17,8 @@ module OpenAI
     end
 
     def cancel(id:)
-      @client.multipart_post(path: "/fine_tuning/jobs/#{id}/cancel")
+      puts "CANCEL PATH IS /fine_tuning/jobs/#{id}/cancel"
+      @client.json_post(path: "/fine_tuning/jobs/#{id}/cancel", parameters: {})
     end
 
     def list_events(id:)

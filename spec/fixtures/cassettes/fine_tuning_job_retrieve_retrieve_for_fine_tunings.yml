@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-r9WVzIFT8wHHb641f0XG4KoH
+    uri: https://api.openai.com/v1/files/file-0bR2Zpn7x5nbhSRef8Bdz8Ct
     body:
       encoding: US-ASCII
       string: ''
@@ -23,71 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 23 Aug 2023 19:29:48 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - 76df52422cd7657edb661459121517f5
-      Openai-Processing-Ms:
-      - '12'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7fb5c434dbb5024e-ORD
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "file",
-          "id": "file-r9WVzIFT8wHHb641f0XG4KoH",
-          "purpose": "fine-tune",
-          "filename": "sarcastic.jsonl",
-          "bytes": 2676,
-          "created_at": 1692818982,
-          "status": "processed",
-          "status_details": null
-        }
-  recorded_at: Wed, 23 Aug 2023 19:29:48 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/files/file-T1R98pJNFQKXIcbSzHRBnpyR
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - "<OPENAI_ORGANIZATION_ID>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 24 Aug 2023 17:58:50 GMT
+      - Tue, 31 Oct 2023 16:35:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -97,11 +33,11 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - "<OPENAI_USER_ID>"
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 573599789ffe0f872dd3c850a7b305cb
+      - 9d94ffff25686b397a210e5c091082de
       Openai-Processing-Ms:
-      - '11'
+      - '79'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -111,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd7c55bf00224c-ORD
+      - 81ed4f592fed6559-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -119,73 +55,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-T1R98pJNFQKXIcbSzHRBnpyR",
+          "id": "file-0bR2Zpn7x5nbhSRef8Bdz8Ct",
           "purpose": "fine-tune",
           "filename": "sarcastic.jsonl",
           "bytes": 2676,
-          "created_at": 1692899809,
+          "created_at": 1698770113,
           "status": "processed",
           "status_details": null
         }
-  recorded_at: Thu, 24 Aug 2023 17:58:50 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/files/
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 404
-      message: Not Found
-    headers:
-      Date:
-      - Thu, 24 Aug 2023 18:01:11 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - 6113c8978acc269d8f12bded43461ea2
-      Openai-Processing-Ms:
-      - '6'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7fbd7fc58bbfe249-ORD
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "error": {
-            "message": "Invalid URL (GET /v1/files/)",
-            "type": "invalid_request_error",
-            "param": null,
-            "code": null
-          }
-        }
-  recorded_at: Thu, 24 Aug 2023 18:01:11 GMT
+  recorded_at: Tue, 31 Oct 2023 16:35:13 GMT
 recorded_with: VCR 6.1.0

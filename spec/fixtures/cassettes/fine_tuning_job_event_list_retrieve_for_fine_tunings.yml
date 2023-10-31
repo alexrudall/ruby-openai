@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/files/file-RK6Rpg9N6QqbTFNNR4QlwFuv
+    uri: https://api.openai.com/v1/files/file-t7tOOW2R3hxf7jiWyPJLm9Sw
     body:
       encoding: US-ASCII
       string: ''
@@ -11,8 +11,6 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - "<OPENAI_ORGANIZATION_ID>"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 24 Aug 2023 18:16:01 GMT
+      - Tue, 31 Oct 2023 16:35:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,11 +33,11 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - "<OPENAI_USER_ID>"
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - ff7ecddaa07986461e9c29a46a2d5d12
+      - '069fd789c0b0525542a5589542913611'
       Openai-Processing-Ms:
-      - '13'
+      - '9'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -49,7 +47,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 7fbd95803b87e25d-ORD
+      - 81ed4f6b4ef9887d-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -57,79 +55,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-RK6Rpg9N6QqbTFNNR4QlwFuv",
+          "id": "file-t7tOOW2R3hxf7jiWyPJLm9Sw",
           "purpose": "fine-tune",
           "filename": "sarcastic.jsonl",
           "bytes": 2676,
-          "created_at": 1692900961,
-          "status": "uploaded",
+          "created_at": 1698770116,
+          "status": "processed",
           "status_details": null
         }
-  recorded_at: Thu, 24 Aug 2023 18:16:01 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/files/file-xAtpSa4NW5dE2H9rijZ0lenL
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Organization:
-      - "<OPENAI_ORGANIZATION_ID>"
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 24 Aug 2023 18:16:16 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - "<OPENAI_USER_ID>"
-      X-Request-Id:
-      - 86eb96ad103b35974feae288a62f4f6d
-      Openai-Processing-Ms:
-      - '12'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7fbd95de49982d7c-ORD
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "file",
-          "id": "file-xAtpSa4NW5dE2H9rijZ0lenL",
-          "purpose": "fine-tune",
-          "filename": "sarcastic.jsonl",
-          "bytes": 2676,
-          "created_at": 1692900976,
-          "status": "uploaded",
-          "status_details": null
-        }
-  recorded_at: Thu, 24 Aug 2023 18:16:16 GMT
+  recorded_at: Tue, 31 Oct 2023 16:35:16 GMT
 recorded_with: VCR 6.1.0

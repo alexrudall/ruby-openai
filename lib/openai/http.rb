@@ -9,6 +9,7 @@ module OpenAI
     end
 
     def json_post(path:, parameters:)
+      puts "JSON_POST PATH IS #{path}"
       to_json(conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
       end&.body)
@@ -69,6 +70,7 @@ module OpenAI
         base = File.join(@uri_base, path)
         "#{base}?api-version=#{@api_version}"
       else
+        puts "PATH IS #{path}"
         File.join(@uri_base, @api_version, path)
       end
     end
