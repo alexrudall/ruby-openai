@@ -11,58 +11,6 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 26 Apr 2023 10:09:53 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 8814fb6e9ec950d941a073d3422642a5
-      Openai-Processing-Ms:
-      - '450'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7bde08643e5e4acb-CGK
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: '{"id":"modr-79WNt1m1P7W0g50Pxl2DjHkqMZlUd","model":"text-moderation-004","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"violence":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false},"category_scores":{"sexual":1.1327892934787087e-06,"hate":1.0827437108673621e-05,"violence":2.620368604766554e-06,"self-harm":1.8105307475480004e-08,"sexual/minors":1.2895275958157981e-08,"hate/threatening":3.903202761001978e-11,"violence/graphic":1.3937886933490518e-07}}]}'
-  recorded_at: Wed, 26 Apr 2023 10:09:53 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/moderations
-    body:
-      encoding: UTF-8
-      string: '{"input":"I''m worried about that."}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
       Test:
       - X-Default
       Accept-Encoding:
@@ -106,4 +54,56 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"id":"modr-7nTOBOkEydGPJWMHwfEjezuoy0635","model":"text-moderation-005","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"harassment":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false,"self-harm/intent":false,"self-harm/instructions":false,"harassment/threatening":false,"violence":false},"category_scores":{"sexual":3.8446674e-06,"hate":1.6230814e-07,"harassment":1.4317567e-07,"self-harm":2.9722213e-07,"sexual/minors":2.1897237e-07,"hate/threatening":5.3975375e-09,"violence/graphic":3.0706494e-07,"self-harm/intent":2.1346543e-07,"self-harm/instructions":1.5678755e-09,"harassment/threatening":2.6646983e-08,"violence":2.8857137e-06}}]}'
   recorded_at: Mon, 14 Aug 2023 15:03:19 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/moderations
+    body:
+      encoding: UTF-8
+      string: '{"input":"I''m worried about that."}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 Oct 2023 17:48:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - b588c46547172a59cde5f4b78f8bf780
+      Openai-Processing-Ms:
+      - '258'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81edba644838769e-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"modr-8Fn8cCAWjLIkgeAPfnW98dWxSaFei","model":"text-moderation-006","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"harassment":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false,"self-harm/intent":false,"self-harm/instructions":false,"harassment/threatening":false,"violence":false},"category_scores":{"sexual":3.142887362628244e-05,"hate":3.481573685348849e-06,"harassment":3.5785260479315184e-06,"self-harm":1.2955736110598082e-06,"sexual/minors":1.0942262633761857e-06,"hate/threatening":3.9819525454731775e-09,"violence/graphic":3.325664579278964e-07,"self-harm/intent":2.0095701813716005e-07,"self-harm/instructions":3.762874012380735e-09,"harassment/threatening":8.402972184740065e-08,"violence":2.143035271728877e-05}}]}'
+  recorded_at: Tue, 31 Oct 2023 17:48:18 GMT
 recorded_with: VCR 6.1.0

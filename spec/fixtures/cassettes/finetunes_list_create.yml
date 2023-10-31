@@ -5,96 +5,6 @@ http_interactions:
     uri: https://api.openai.com/v1/fine-tunes
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-U0rLmTkqO9xErVUSxYq7Tx8E","model":"ada"}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 26 Apr 2023 10:09:06 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - 52884eaeea7d3fa5061da73d522ead14
-      Openai-Processing-Ms:
-      - '97'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7bde074078acbe8f-CGK
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "fine-tune",
-          "id": "ft-sYz9zVRHECecscRaQzgqDZCX",
-          "hyperparams": {
-            "n_epochs": 4,
-            "batch_size": null,
-            "prompt_loss_weight": 0.01,
-            "learning_rate_multiplier": null
-          },
-          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
-          "model": "ada",
-          "training_files": [
-            {
-              "object": "file",
-              "id": "file-U0rLmTkqO9xErVUSxYq7Tx8E",
-              "purpose": "fine-tune",
-              "filename": "sentiment.jsonl",
-              "bytes": 159,
-              "created_at": 1682503746,
-              "status": "uploaded",
-              "status_details": null
-            }
-          ],
-          "validation_files": [],
-          "result_files": [],
-          "created_at": 1682503746,
-          "updated_at": 1682503746,
-          "status": "pending",
-          "fine_tuned_model": null,
-          "events": [
-            {
-              "object": "fine-tune-event",
-              "level": "info",
-              "message": "Created fine-tune: ft-sYz9zVRHECecscRaQzgqDZCX",
-              "created_at": 1682503746
-            }
-          ]
-        }
-  recorded_at: Wed, 26 Apr 2023 10:09:06 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/fine-tunes
-    body:
-      encoding: UTF-8
       string: '{"training_file":"file-NvYp8wa5VDghimFt8SY37AeJ","model":"ada"}'
     headers:
       Content-Type:
@@ -182,4 +92,94 @@ http_interactions:
           ]
         }
   recorded_at: Mon, 14 Aug 2023 15:02:37 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/fine-tunes
+    body:
+      encoding: UTF-8
+      string: '{"training_file":"file-m07UPmtwjNyXk89u7vsDRgt2","model":"ada"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 Oct 2023 17:47:35 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      X-Request-Id:
+      - 06f28f1c4b3126c10263824c947c1ac0
+      Openai-Processing-Ms:
+      - '114'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81edb95b6d82638f-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "fine-tune",
+          "id": "ft-9RUTqaC5LBVUm0t7ZGYqKTrW",
+          "hyperparams": {
+            "n_epochs": 4,
+            "batch_size": null,
+            "prompt_loss_weight": 0.01,
+            "learning_rate_multiplier": null
+          },
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "model": "ada",
+          "training_files": [
+            {
+              "object": "file",
+              "id": "file-m07UPmtwjNyXk89u7vsDRgt2",
+              "purpose": "fine-tune",
+              "filename": "sentiment.jsonl",
+              "bytes": 159,
+              "created_at": 1698774455,
+              "status": "uploaded",
+              "status_details": null
+            }
+          ],
+          "validation_files": [],
+          "result_files": [],
+          "created_at": 1698774455,
+          "updated_at": 1698774455,
+          "status": "pending",
+          "fine_tuned_model": null,
+          "events": [
+            {
+              "object": "fine-tune-event",
+              "level": "info",
+              "message": "Created fine-tune: ft-9RUTqaC5LBVUm0t7ZGYqKTrW",
+              "created_at": 1698774455
+            }
+          ]
+        }
+  recorded_at: Tue, 31 Oct 2023 17:47:35 GMT
 recorded_with: VCR 6.1.0

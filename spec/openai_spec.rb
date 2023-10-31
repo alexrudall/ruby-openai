@@ -33,7 +33,7 @@ RSpec.describe OpenAI do
       let(:access_token) { nil }
 
       it "raises an error" do
-        expect { OpenAI::Client.new.completions }.to raise_error(OpenAI::ConfigurationError)
+        expect { OpenAI::Client.new.chat }.to raise_error(OpenAI::ConfigurationError)
       end
     end
 

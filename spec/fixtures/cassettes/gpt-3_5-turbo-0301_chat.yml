@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 14 Aug 2023 15:02:16 GMT
+      - Tue, 31 Oct 2023 17:47:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1610'
+      - '1420'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,38 +57,38 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 12ms
       X-Request-Id:
-      - a4c59a6c22e2b86ac7af1986bed7b1f8
+      - e6ce76bf7ab9aafc8236d3d2860be1bd
       Cf-Cache-Status:
       - DYNAMIC
       Server:
       - cloudflare
       Cf-Ray:
-      - 7f6a13e6b9b7dc8f-LHR
+      - 81edb8eb2dd44182-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-7nTN9m2CoKl7h9GaKbyANrd3XMC5R",
+          "id": "chatcmpl-8Fn7dtjF2aWqNW7kJzQsUHvW38XgV",
           "object": "chat.completion",
-          "created": 1692025335,
+          "created": 1698774437,
           "model": "gpt-3.5-turbo-0301",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "Hi there! How can I assist you today?"
+                "content": "Hello! How can I assist you today?"
               },
               "finish_reason": "stop"
             }
           ],
           "usage": {
             "prompt_tokens": 10,
-            "completion_tokens": 10,
-            "total_tokens": 20
+            "completion_tokens": 9,
+            "total_tokens": 19
           }
         }
-  recorded_at: Mon, 14 Aug 2023 15:02:16 GMT
+  recorded_at: Tue, 31 Oct 2023 17:47:19 GMT
 recorded_with: VCR 6.1.0
