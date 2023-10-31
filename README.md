@@ -308,7 +308,7 @@ client.files.content(id: "file-123")
 client.files.delete(id: "file-123")
 ```
 
-### Fine Tuning Jobs
+### Finetunes
 
 Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
 
@@ -320,7 +320,7 @@ file_id = JSON.parse(response.body)["id"]
 You can then use this file ID to create a fine tuning job:
 
 ```ruby
-response = client.fine_tuning_jobs.create(
+response = client.finetunes.create(
     parameters: {
     training_file: file_id,
     model: "gpt-3.5-turbo-0613"
@@ -331,13 +331,13 @@ fine_tune_id = response["id"]
 That will give you the fine-tune ID. If you made a mistake you can cancel the fine-tune model before it is processed:
 
 ```ruby
-client.fine_tuning_jobs.cancel(id: fine_tune_id)
+client.finetunes.cancel(id: fine_tune_id)
 ```
 
 You may need to wait a short time for processing to complete. Once processed, you can use list or retrieve to get the name of the fine-tuned model:
 
 ```ruby
-client.fine_tuning_jobs.list
+client.finetunes.list
 response = client.fine_tuning_job.retrieve(id: fine_tune_id)
 fine_tuned_model = response["fine_tuned_model"]
 ```
@@ -357,7 +357,7 @@ response.dig("choices", 0, "text")
 You can also capture the events for a job:
 
 ```
-client.fine_tuning_jobs.list_events(id: fine_tune_id)
+client.finetunes.list_events(id: fine_tune_id)
 ```
 
 ### Image Generation

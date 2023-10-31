@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.openai.com/v1/fine_tuning/jobs
+    method: get
+    uri: https://api.openai.com/v1/fine_tuning/jobs/123/events
     body:
-      encoding: UTF-8
-      string: '{"training_file":"file-t7tOOW2R3hxf7jiWyPJLm9Sw","model":"gpt-3.5-turbo-0613"}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Content-Type:
       - application/json
@@ -19,15 +19,15 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 429
-      message: Too Many Requests
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Tue, 31 Oct 2023 16:35:16 GMT
+      - Tue, 31 Oct 2023 17:17:20 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '296'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - c331ff7634262b94773ec098b3998a6d
+      - 507dd822aa111608fae64f3466f87b0a
       Openai-Processing-Ms:
-      - '78'
+      - '7'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,19 +45,19 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed4f6cbf2a408a-LHR
+      - 81ed8d07df2e7771-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |-
         {
           "error": {
-            "message": "This fine-tune request has been rate-limited. Your organization has reached the maximum of 3 active requests (2 running, 1 pending) for the model 'gpt-3.5-turbo-0613'.",
+            "message": "Could not find fine tune: 123",
             "type": "invalid_request_error",
-            "param": null,
-            "code": "rate_limit_exceeded"
+            "param": "fine_tune_id",
+            "code": "fine_tune_not_found"
           }
         }
-  recorded_at: Tue, 31 Oct 2023 16:35:16 GMT
+  recorded_at: Tue, 31 Oct 2023 17:17:20 GMT
 recorded_with: VCR 6.1.0

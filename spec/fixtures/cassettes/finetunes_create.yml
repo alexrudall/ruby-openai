@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/fine_tuning/jobs
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-EEd0bCZUwCvxnn0zGYsbVwxm","model":"gpt-3.5-turbo-0613"}'
+      string: '{"training_file":"file-IAehetfMX5CbAEdHPGgex3Ax","model":"gpt-3.5-turbo-0613"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 16:58:52 GMT
+      - Tue, 31 Oct 2023 17:25:20 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 8e71c4a48f54f556b8b92879c0b82d0a
+      - 3da2c5cb7f93aef682b9ed0129311203
       Openai-Processing-Ms:
-      - '829'
+      - '809'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed71f738c863d3-LHR
+      - 81ed98bdeb9a6404-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -53,21 +53,21 @@ http_interactions:
       string: |-
         {
           "object": "fine_tuning.job",
-          "id": "ftjob-FV4w3ePvcYath3qtXqjZDVqI",
+          "id": "ftjob-g1jw9SllUiEuNOpTMesO416H",
           "model": "gpt-3.5-turbo-0613",
-          "created_at": 1698771532,
+          "created_at": 1698773120,
           "finished_at": null,
           "fine_tuned_model": null,
           "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
           "result_files": [],
           "status": "validating_files",
           "validation_file": null,
-          "training_file": "file-EEd0bCZUwCvxnn0zGYsbVwxm",
+          "training_file": "file-IAehetfMX5CbAEdHPGgex3Ax",
           "hyperparameters": {
             "n_epochs": "auto"
           },
           "trained_tokens": null,
           "error": null
         }
-  recorded_at: Tue, 31 Oct 2023 16:58:52 GMT
+  recorded_at: Tue, 31 Oct 2023 17:25:20 GMT
 recorded_with: VCR 6.1.0

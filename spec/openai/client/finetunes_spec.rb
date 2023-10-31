@@ -1,10 +1,10 @@
 RSpec.describe OpenAI::Client do
-  describe "#fine tuning jobs", :vcr do
+  describe "#finetuness", :vcr do
     let(:model) { "gpt-3.5-turbo-0613" }
 
     describe "#list" do
-      let(:cassette) { "fine tuning job list" }
-      let(:response) { OpenAI::Client.new.fine_tuning_jobs.list }
+      let(:cassette) { "finetunes list" }
+      let(:response) { OpenAI::Client.new.finetunes.list }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -16,14 +16,14 @@ RSpec.describe OpenAI::Client do
     describe "#create" do
       let(:filename) { "sarcastic.jsonl" }
       let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
-      let(:cassette) { "fine tuning job" }
+      let(:cassette) { "finetunes" }
       let(:upload_id) do
-        response = VCR.use_cassette("fine tune job files upload") do
+        response = VCR.use_cassette("finetunes files upload") do
           OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })
         end
         response["id"]
       end
-      let(:retrieve_cassette) { "#{cassette} retrieve for fine tunings" }
+      let(:retrieve_cassette) { "#{cassette} retrieve for finetunes" }
       let(:file_id) do
         VCR.use_cassette(retrieve_cassette) do
           OpenAI::Client.new.files.retrieve(id: upload_id)
@@ -33,7 +33,7 @@ RSpec.describe OpenAI::Client do
       end
       let(:response) do
         VCR.use_cassette("#{cassette} create") do
-          OpenAI::Client.new.fine_tuning_jobs.create(
+          OpenAI::Client.new.finetunes.create(
             parameters: {
               training_file: file_id,
               model: model
@@ -48,8 +48,8 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#retrieve" do
-      let(:cassette) { "fine tuning job retrieve" }
-      let(:response) { OpenAI::Client.new.fine_tuning_jobs.retrieve(id: 123) }
+      let(:cassette) { "finetunes retrieve" }
+      let(:response) { OpenAI::Client.new.finetunes.retrieve(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -59,8 +59,8 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#cancel" do
-      let(:cassette) { "fine tuning job cancel" }
-      let(:response) { OpenAI::Client.new.fine_tuning_jobs.cancel(id: 123) }
+      let(:cassette) { "finetunes cancel" }
+      let(:response) { OpenAI::Client.new.finetunes.cancel(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -70,8 +70,8 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#list_events" do
-      let(:cassette) { "fine tuning job event list" }
-      let(:response) { OpenAI::Client.new.fine_tuning_jobs.list_events(id: 123) }
+      let(:cassette) { "finetunes event list" }
+      let(:response) { OpenAI::Client.new.finetunes.list_events(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do

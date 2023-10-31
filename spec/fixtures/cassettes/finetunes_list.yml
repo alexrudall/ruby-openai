@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 16:35:10 GMT
+      - Tue, 31 Oct 2023 17:17:17 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 30e14be15358be12726424d08d1df998
+      - 55f76f8768be8401297b7c3b3a5503c1
       Openai-Processing-Ms:
-      - '68'
+      - '23'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,7 +45,7 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed4f42cc5edd0f-LHR
+      - 81ed8cf51e308861-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -56,20 +56,116 @@ http_interactions:
           "data": [
             {
               "object": "fine_tuning.job",
-              "id": "ftjob-9DhlekEpJk9tBhwnPdrI8Z0T",
+              "id": "ftjob-im4tsdWgV5Zf8Ae9k0fxZ2TN",
               "model": "gpt-3.5-turbo-0613",
-              "created_at": 1698769896,
+              "created_at": 1698772344,
               "finished_at": null,
               "fine_tuned_model": null,
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
               "result_files": [],
               "status": "queued",
               "validation_file": null,
-              "training_file": "file-Yom1YX9cNUQi9MEQ57uWHuGe",
+              "training_file": "file-XZ4DxbOaD0HXP5zuQtmZhNTU",
               "hyperparameters": {
                 "n_epochs": 10
               },
               "trained_tokens": null,
+              "error": null
+            },
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-FV4w3ePvcYath3qtXqjZDVqI",
+              "model": "gpt-3.5-turbo-0613",
+              "created_at": 1698771532,
+              "finished_at": null,
+              "fine_tuned_model": null,
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [],
+              "status": "queued",
+              "validation_file": null,
+              "training_file": "file-EEd0bCZUwCvxnn0zGYsbVwxm",
+              "hyperparameters": {
+                "n_epochs": 10
+              },
+              "trained_tokens": null,
+              "error": null
+            },
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-xY1a0ANEXm35yixEjP1EQ4I6",
+              "model": "gpt-3.5-turbo-0613",
+              "created_at": 1698771146,
+              "finished_at": null,
+              "fine_tuned_model": null,
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [],
+              "status": "queued",
+              "validation_file": null,
+              "training_file": "file-RzZyfubJs4aAJ6TBNnRCBLf0",
+              "hyperparameters": {
+                "n_epochs": 10
+              },
+              "trained_tokens": null,
+              "error": null
+            },
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-UuhZHCJ0oxuXTrZ5Zk1aGW2E",
+              "model": "gpt-3.5-turbo-0613",
+              "created_at": 1698770298,
+              "finished_at": 1698771705,
+              "fine_tuned_model": "ft:gpt-3.5-turbo-0613:personal::8FmPbGHL",
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [
+                "file-HmSSq5CCe14sCuI5Akp9yJRv"
+              ],
+              "status": "succeeded",
+              "validation_file": null,
+              "training_file": "file-wnZ4zcsuyXS99xvlYse2sjSr",
+              "hyperparameters": {
+                "n_epochs": 10
+              },
+              "trained_tokens": 5070,
+              "error": null
+            },
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-db8w76D2rT9xS1ptWi5SJogE",
+              "model": "gpt-3.5-turbo-0613",
+              "created_at": 1698770257,
+              "finished_at": 1698771405,
+              "fine_tuned_model": "ft:gpt-3.5-turbo-0613:personal::8FmKkWKf",
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [
+                "file-6U3cdangHP9shAKNEU66nDp7"
+              ],
+              "status": "succeeded",
+              "validation_file": null,
+              "training_file": "file-YGiBnk1miBnZ9hrDPIZfkhBo",
+              "hyperparameters": {
+                "n_epochs": 10
+              },
+              "trained_tokens": 5070,
+              "error": null
+            },
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-9DhlekEpJk9tBhwnPdrI8Z0T",
+              "model": "gpt-3.5-turbo-0613",
+              "created_at": 1698769896,
+              "finished_at": 1698770677,
+              "fine_tuned_model": "ft:gpt-3.5-turbo-0613:personal::8Fm90H7h",
+              "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+              "result_files": [
+                "file-Y6nLCSLTAJUJOX3XoRsmEzrW"
+              ],
+              "status": "succeeded",
+              "validation_file": null,
+              "training_file": "file-Yom1YX9cNUQi9MEQ57uWHuGe",
+              "hyperparameters": {
+                "n_epochs": 10
+              },
+              "trained_tokens": 5070,
               "error": null
             },
             {
@@ -95,17 +191,19 @@ http_interactions:
               "id": "ftjob-6FW5IpxBRUgC7qUXBjSvLhFX",
               "model": "gpt-3.5-turbo-0613",
               "created_at": 1698769675,
-              "finished_at": null,
-              "fine_tuned_model": null,
+              "finished_at": 1698770265,
+              "fine_tuned_model": "ft:gpt-3.5-turbo-0613:personal::8Fm2Nmz8",
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
-              "result_files": [],
-              "status": "running",
+              "result_files": [
+                "file-KrPll44ksgqPZIGFjbB1B0eb"
+              ],
+              "status": "succeeded",
               "validation_file": null,
               "training_file": "file-Tyo5PriAUQHCAnnMZtJ6Aclx",
               "hyperparameters": {
                 "n_epochs": 10
               },
-              "trained_tokens": null,
+              "trained_tokens": 5070,
               "error": null
             },
             {
@@ -113,17 +211,19 @@ http_interactions:
               "id": "ftjob-uLVZWDhkBExsYyCtX8Z0cnSe",
               "model": "gpt-3.5-turbo-0613",
               "created_at": 1698769643,
-              "finished_at": null,
-              "fine_tuned_model": null,
+              "finished_at": 1698770200,
+              "fine_tuned_model": "ft:gpt-3.5-turbo-0613:personal::8Fm1Iuik",
               "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
-              "result_files": [],
-              "status": "running",
+              "result_files": [
+                "file-vswdBHmr9H53XznMhpAzMelf"
+              ],
+              "status": "succeeded",
               "validation_file": null,
               "training_file": "file-09JgzbKO5tGYjYjeMMxhy9gb",
               "hyperparameters": {
                 "n_epochs": 10
               },
-              "trained_tokens": null,
+              "trained_tokens": 5070,
               "error": null
             },
             {
@@ -209,5 +309,5 @@ http_interactions:
           ],
           "has_more": false
         }
-  recorded_at: Tue, 31 Oct 2023 16:35:10 GMT
+  recorded_at: Tue, 31 Oct 2023 17:17:17 GMT
 recorded_with: VCR 6.1.0

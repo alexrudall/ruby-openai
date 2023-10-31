@@ -1,5 +1,5 @@
 module OpenAI
-  class FineTuningJobs
+  class Finetunes
     def initialize(client:)
       @client = client
     end
