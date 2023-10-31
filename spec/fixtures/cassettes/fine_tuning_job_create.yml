@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/fine_tuning/jobs
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-q1MehN4ZW0sAfSQquUcCxh8A","model":"gpt-3.5-turbo-0613"}'
+      string: '{"training_file":"file-EEd0bCZUwCvxnn0zGYsbVwxm","model":"gpt-3.5-turbo-0613"}'
     headers:
       Content-Type:
       - application/json
@@ -19,15 +19,15 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 429
-      message: Too Many Requests
+      code: 200
+      message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 16:35:11 GMT
+      - Tue, 31 Oct 2023 16:58:52 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '296'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Openai-Version:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 30e07d3929a5ba1861484e85c6b51915
+      - 8e71c4a48f54f556b8b92879c0b82d0a
       Openai-Processing-Ms:
-      - '221'
+      - '829'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,19 +45,29 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed4f4cbbac637d-LHR
+      - 81ed71f738c863d3-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |-
         {
-          "error": {
-            "message": "This fine-tune request has been rate-limited. Your organization has reached the maximum of 3 active requests (2 running, 1 pending) for the model 'gpt-3.5-turbo-0613'.",
-            "type": "invalid_request_error",
-            "param": null,
-            "code": "rate_limit_exceeded"
-          }
+          "object": "fine_tuning.job",
+          "id": "ftjob-FV4w3ePvcYath3qtXqjZDVqI",
+          "model": "gpt-3.5-turbo-0613",
+          "created_at": 1698771532,
+          "finished_at": null,
+          "fine_tuned_model": null,
+          "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
+          "result_files": [],
+          "status": "validating_files",
+          "validation_file": null,
+          "training_file": "file-EEd0bCZUwCvxnn0zGYsbVwxm",
+          "hyperparameters": {
+            "n_epochs": "auto"
+          },
+          "trained_tokens": null,
+          "error": null
         }
-  recorded_at: Tue, 31 Oct 2023 16:35:11 GMT
+  recorded_at: Tue, 31 Oct 2023 16:58:52 GMT
 recorded_with: VCR 6.1.0
