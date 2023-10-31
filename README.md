@@ -149,7 +149,7 @@ client.models.retrieve(id: "text-ada-001")
 #### Examples
 
 - [GPT-4 (limited beta)](https://platform.openai.com/docs/models/gpt-4)
-  - gpt-4
+  - gpt-4 (uses current version)
   - gpt-4-0314
   - gpt-4-32k
 - [GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5)
