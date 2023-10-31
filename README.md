@@ -329,7 +329,7 @@ Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
 
 ```ruby
 response = client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
-file_id = JSON.parse(response.body)["id"]
+file_id = response["id"]
 ```
 
 You can then use this file ID to create a fine-tune model:
