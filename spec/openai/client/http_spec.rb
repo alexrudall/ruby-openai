@@ -93,7 +93,7 @@ RSpec.describe OpenAI::HTTP do
 
     describe ".delete" do
       let(:response) do
-        OpenAI::Client.new.finetunes.delete(fine_tuned_model: "1a")
+        OpenAI::Client.new.files.delete(id: "1a")
       end
 
       it "times out" do

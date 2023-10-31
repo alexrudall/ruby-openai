@@ -79,10 +79,6 @@ RSpec.describe OpenAI::Client do
         c1.files.list
         c2.files.list
 
-        c0.finetunes.list
-        c1.finetunes.list
-        c2.finetunes.list
-
         c0.images.generate
         c1.images.generate
         c2.images.generate

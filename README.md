@@ -360,58 +360,6 @@ You can also capture the events for a job:
 client.fine_tuning_jobs.list_events(id: fine_tune_id)
 ```
 
-### Fine-tunes
-
-Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
-
-```ruby
-response = client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
-file_id = response["id"]
-```
-
-You can then use this file ID to create a fine-tune model:
-
-```ruby
-response = client.finetunes.create(
-    parameters: {
-        training_file: file_id,
-        model: "ada"
-    }
-)
-fine_tune_id = response["id"]
-```
-
-That will give you the fine-tune ID. If you made a mistake you can cancel the fine-tune model before it is processed:
-
-```ruby
-client.finetunes.cancel(id: fine_tune_id)
-```
-
-You may need to wait a short time for processing to complete. Once processed, you can use list or retrieve to get the name of the fine-tuned model:
-
-```ruby
-client.finetunes.list
-response = client.finetunes.retrieve(id: fine_tune_id)
-fine_tuned_model = response["fine_tuned_model"]
-```
-
-This fine-tuned model name can then be used in chats:
-
-```ruby
-response = client.chat(
-    parameters: {
-        model: fine_tuned_model,
-        messages: [{ role: "user", content: "I love Mondays!"}]
-    })
-puts response.dig("choices", 0, "message", "content")
-```
-
-You can delete the fine-tuned model when you are done with it:
-
-```ruby
-client.finetunes.delete(fine_tuned_model: fine_tuned_model)
-```
-
 ### Image Generation
 
 Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
