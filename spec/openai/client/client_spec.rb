@@ -79,6 +79,10 @@ RSpec.describe OpenAI::Client do
         c1.files.list
         c2.files.list
 
+        c0.finetunes.list
+        c1.finetunes.list
+        c2.finetunes.list
+
         c0.images.generate
         c1.images.generate
         c2.images.generate
@@ -92,6 +96,10 @@ RSpec.describe OpenAI::Client do
         expect(c0).to receive(:get).with(path: "/files").once
         expect(c1).to receive(:get).with(path: "/files").once
         expect(c2).to receive(:get).with(path: "/files").once
+
+        expect(c0).to receive(:get).with(path: "/fine_tuning/jobs").once
+        expect(c1).to receive(:get).with(path: "/fine_tuning/jobs").once
+        expect(c2).to receive(:get).with(path: "/fine_tuning/jobs").once
 
         expect(c0).to receive(:json_post).with(path: "/images/generations", parameters: {}).once
         expect(c1).to receive(:json_post).with(path: "/images/generations", parameters: {}).once
