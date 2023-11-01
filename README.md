@@ -338,7 +338,7 @@ You may need to wait a short time for processing to complete. Once processed, yo
 
 ```ruby
 client.finetunes.list
-response = client.fine_tuning_job.retrieve(id: fine_tune_id)
+response = client.finetunes.retrieve(id: fine_tune_id)
 fine_tuned_model = response["fine_tuned_model"]
 ```
 
