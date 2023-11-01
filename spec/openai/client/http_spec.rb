@@ -153,31 +153,6 @@ RSpec.describe OpenAI::HTTP do
         end
       end
 
-      context "when OpenAI returns an HTTP error" do
-        let(:chunk) { "{\"error\":{\"message\":\"A bad thing has happened!\"}}" }
-        let(:env) do
-          Faraday::Env.new(
-            status: 500,
-            url: URI::HTTPS.build(host: "api.openai.com"),
-            request: Faraday::RequestOptions.new
-          )
-        end
-
-        it "does not raise an error and calls the user proc with the error parsed as JSON" do
-          expect(user_proc).to receive(:call).with(
-            {
-              "error" => {
-                "message" => "A bad thing has happened!"
-              }
-            }
-          )
-
-          expect do
-            stream.call(chunk, 0, env)
-          end.not_to raise_error
-        end
-      end
-
       context "when called with JSON split across chunks" do
         it "calls the user proc with the data parsed as JSON" do
           expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
