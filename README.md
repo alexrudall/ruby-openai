@@ -455,6 +455,18 @@ puts response["text"]
 # => "Transcription of the text"
 ```
 
+#### Errors
+
+HTTP errors can be caught like this:
+
+```
+  begin
+    OpenAI::Client.new.models.retrieve(id: "text-ada-001")
+  rescue Faraday::Error => e
+    raise "Got a Faraday error: #{e}"
+  end
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can run `bin/console` for an interactive prompt that will allow you to experiment.
