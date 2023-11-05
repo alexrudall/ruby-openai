@@ -96,6 +96,22 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
+  describe ".get" do
+    context "with an error response" do
+      let(:cassette) { "http get with error response".downcase }
+
+      it "raises an HTTP error" do
+        VCR.use_cassette(cassette) do
+          OpenAI::Client.new.models.retrieve(id: "text-ada-001")
+        rescue Faraday::Error => e
+          expect(e.response).to include(status: 400)
+        else
+          raise "Expected to raise Faraday::BadRequestError"
+        end
+      end
+    end
+  end
+
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
