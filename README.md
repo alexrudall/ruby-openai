@@ -161,9 +161,9 @@ client.models.retrieve(id: "text-ada-001")
   - text-babbage-001
   - text-curie-001
 
-### ChatGPT
+### Chat
 
-ChatGPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
+GPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
 
 ```ruby
 response = client.chat(
@@ -176,11 +176,11 @@ puts response.dig("choices", 0, "message", "content")
 # => "Hello! How may I assist you today?"
 ```
 
-### Streaming ChatGPT
+### Streaming Chat
 
-[Quick guide to streaming ChatGPT with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
+[Quick guide to streaming Chat with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
-You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of text chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will pass that to your proc as a Hash.
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of completion chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. If OpenAI returns an error, `ruby-openai` will raise a Faraday error.
 
 ```ruby
 client.chat(
@@ -195,7 +195,7 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: the API docs state that token usage is included in the streamed chat chunk objects, but this doesn't currently appear to be the case. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
+Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby). We think that each call to the stream proc corresponds to a single token, so you can also try counting the number of calls to the proc to get the completion token count.
 
 ### Functions
 
@@ -453,6 +453,18 @@ response = client.audio.transcribe(
     })
 puts response["text"]
 # => "Transcription of the text"
+```
+
+#### Errors
+
+HTTP errors can be caught like this:
+
+```
+  begin
+    OpenAI::Client.new.models.retrieve(id: "text-ada-001")
+  rescue Faraday::Error => e
+    raise "Got a Faraday error: #{e}"
+  end
 ```
 
 ## Development

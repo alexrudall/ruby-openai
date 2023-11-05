@@ -96,6 +96,22 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
+  describe ".get" do
+    context "with an error response" do
+      let(:cassette) { "http get with error response".downcase }
+
+      it "raises an HTTP error" do
+        VCR.use_cassette(cassette) do
+          OpenAI::Client.new.models.retrieve(id: "text-ada-001")
+        rescue Faraday::Error => e
+          expect(e.response).to include(status: 400)
+        else
+          raise "Expected to raise Faraday::BadRequestError"
+        end
+      end
+    end
+  end
+
   describe ".to_json_stream" do
     context "with a proc" do
       let(:user_proc) { proc { |x| x } }
@@ -144,51 +160,12 @@ RSpec.describe OpenAI::HTTP do
           CHUNK
         end
 
-        it "does not raise an error" do
+        it "raise an error" do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
 
           expect do
             stream.call(chunk)
-          end.not_to raise_error
-        end
-      end
-
-      context "wehn called with string containing Obie's invalid JSON" do
-        let(:chunk) do
-          <<~CHUNK
-            data: { "foo": "bar" }
-
-            data: {"id":"chatcmpl-123","object":"chat.completion.chunk","created":123,"model":"gpt-4","choices":[{"index":0,"delta":{"role":"assistant","content":null,"fu
-
-            #
-          CHUNK
-        end
-
-        it "does not raise an error" do
-          expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
-
-          expect do
-            stream.call(chunk)
-          end.not_to raise_error
-        end
-      end
-
-      context "when OpenAI returns an HTTP error" do
-        let(:chunk) { "{\"error\":{\"message\":\"A bad thing has happened!\"}}" }
-        let(:env) { Faraday::Env.new(status: 500) }
-
-        it "does not raise an error and calls the user proc with the error parsed as JSON" do
-          expect(user_proc).to receive(:call).with(
-            {
-              "error" => {
-                "message" => "A bad thing has happened!"
-              }
-            }
-          )
-
-          expect do
-            stream.call(chunk, 0, env)
-          end.not_to raise_error
+          end.to raise_error(JSON::ParserError)
         end
       end
 
