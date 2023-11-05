@@ -10,15 +10,7 @@ module OpenAI
 
     def json_post(path:, parameters:)
       to_json(conn.post(uri(path: path)) do |req|
-        if parameters[:stream].respond_to?(:call)
-          req.options.on_data = to_json_stream(user_proc: parameters[:stream])
-          parameters[:stream] = true # Necessary to tell OpenAI to stream.
-        elsif parameters[:stream]
-          raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
-        end
-
-        req.headers = headers
-        req.body = parameters.to_json
+        configure_json_post_request(req, parameters)
       end&.body)
     end
 
@@ -122,6 +114,20 @@ module OpenAI
         # as the second argument.
         Faraday::UploadIO.new(value, "", value.path)
       end
+    end
+
+    def configure_json_post_request(req, parameters)
+      req_parameters = parameters.dup
+
+      if parameters[:stream].respond_to?(:call)
+        req.options.on_data = to_json_stream(user_proc: parameters[:stream])
+        req_parameters[:stream] = true # Necessary to tell OpenAI to stream.
+      elsif parameters[:stream]
+        raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
+      end
+
+      req.headers = headers
+      req.body = req_parameters.to_json
     end
   end
 end
