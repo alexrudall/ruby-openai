@@ -3,9 +3,9 @@ require "event_stream_parser"
 module OpenAI
   module HTTP
     def get(path:)
-      conn.get(uri(path: path)) do |req|
+      parse_jsonl(conn.get(uri(path: path)) do |req|
         req.headers = headers
-      end&.body
+      end&.body)
     end
 
     def json_post(path:, parameters:)
@@ -28,6 +28,16 @@ module OpenAI
     end
 
     private
+
+    def parse_jsonl(response)
+      return unless response
+      return response unless response.is_a?(String)
+
+      # Convert a multiline string of JSON objects to a JSON array.
+      response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+
+      JSON.parse(response)
+    end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
     # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could

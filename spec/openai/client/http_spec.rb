@@ -109,7 +109,7 @@ RSpec.describe OpenAI::HTTP do
       let(:cassette) { "http get with error response".downcase }
 
       it "raises an HTTP error" do
-        VCR.use_cassette(cassette) do
+        VCR.use_cassette(cassette, record: :none) do
           OpenAI::Client.new.models.retrieve(id: "text-ada-001")
         rescue Faraday::Error => e
           expect(e.response).to include(status: 400)
@@ -186,6 +186,15 @@ RSpec.describe OpenAI::HTTP do
           end.not_to raise_error
         end
       end
+    end
+  end
+
+  describe ".parse_jsonl" do
+    context "with a jsonl string" do
+      let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
+      let(:parsed) { OpenAI::Client.new.send(:parse_jsonl, body) }
+
+      it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
     end
   end
 
