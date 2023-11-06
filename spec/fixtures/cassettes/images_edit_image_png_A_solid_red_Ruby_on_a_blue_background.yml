@@ -6,122 +6,6 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       base64_string: |
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWZiMzY1N2E2MmQ5Yjg2
-        NGZkOGU2YmYyNjk3NDJlNmM1DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
-        LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
-        bnRlbnQtTGVuZ3RoOiAyNDkNCkNvbnRlbnQtVHlwZTogDQpDb250ZW50LVRy
-        YW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KiVBORw0KGgoAAAANSUhEUgAA
-        AEQAAABECAYAAAA4E5OyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IA
-        rs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgB7dBBDcAgAAAxNnGYRCz8
-        SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEk
-        hISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJC
-        QkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv2YpOAAAAAElF
-        TkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtZmIzNjU3
-        YTYyZDliODY0ZmQ4ZTZiZjI2OTc0MmU2YzUNCkNvbnRlbnQtRGlzcG9zaXRp
-        b246IGZvcm0tZGF0YTsgbmFtZT0ibWFzayI7IGZpbGVuYW1lPSJtYXNrLnBu
-        ZyINCkNvbnRlbnQtTGVuZ3RoOiAxMDkxDQpDb250ZW50LVR5cGU6IA0KQ29u
-        dGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQoNColQTkcNChoKAAAA
-        DUlIRFIAAABEAAAARAgGAAAAOBOTsgAAAAlwSFlzAAALEwAACxMBAJqcGAAA
-        AAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAD2ElEQVR4Ae2cTVITQRTH
-        /29CLHXFEfAEhhMYFgR25AimCqxyBZ4gcAJhZUmoit4ANwq4IJ4AOIE5AhsR
-        DZn2vRAsnarp6e75nprfJlVMU9X58/p99RuoM1AKNX/xUPMftSABakEC1IIE
-        qAUJUAsSYAHZck2EYyhcKcLYa+DyMf/suEfXDwu6Q7X4Y4KlBmGR84EWr3tB
-        /uxzCRlAGeQh8mUP2BRHJ1s0giOrh6rleXgJHxtpipOaIGwJI1LYiyNCGJ0j
-        1SVgm3feRsKkIcglW8ObNIQIsj5Qbd79MEmLSVKQa/6r7Z1u0T4yhr/DLn/0
-        kQCJRBkSB7mA5TzEEM62aNe7wzM+omPEJL4gCsdPGlg+6dEYOXLymsa/mliW
-        /SAGsY4MW8bB6SbtoGCsHql9tpZtOOBsIUUVQ/jK+2JHewAH3ARhsyyqGA+I
-        KC7Hx1oQcaBPm+ihBPzmfdo6WntBGlj5N9UuMiPeJ02xgvts2QhbQfbyjia2
-        SPSR/Mh0vbEgclQk3qOEzPOjS5O15oKocviNMKScMFwXjRRqWdQmaSL756Mz
-        ilpnJAgvcorpRcPEl0QKIr7jyybFSoeLwtzKtRHHxEI+oVporT1SkIaPD6gQ
-        XoQf0Qoix+XzKzIKV2Uh6tjoLcTHFapJqBvQC0LRYaqMkCZJ0x8Zw+yubMgV
-        SNgzrSCeQimKOFu8iaOFPGrG71EWkdvHjk61LGW+LSPN96rvdgPUggTQCiIX
-        z6ggbc330gpyC1RSkOYk/OpTn4dM0UIFkVGLsGdaQXyVzUxG1sjcSdizqNT9
-        OSqIDOGEPdMKwpecXVQR39VC2KnKDAYqhEwigRydquAj+SmdXJGxLO3jaJxu
-        0YsK+djQPTcRpDLHRmbTEDF+ZZS6q4TGlfLGZGbEVJB22a1kNqBn4A+Nizt2
-        rm9RYjjJHJqss6l2W2vvVaGHZMLoDFQfhqObVuW/8tBfH6ollIj1d7P97pqu
-        t+2HLPpTnJelLSD79Bs4t/kd+wYRF3w/J2bnMW9uZJ+WU85OHTMujrprA1Vo
-        J9uR/ZF9LebcQuQQtlNUUTr3+3IKALFn3UkmmZvoFaFDLz5jfkycq/TYTWY5
-        PjdTXOQdfSSasBgXccQQkum6s6P17/B9Fu9zYO1QbfsLMzGWEJPk35eRNyMU
-        elm9LzPPoBPr/ab3RhVfkMm8+VkK41jzuqRvUpvYkv47d2wx8uJhY4qPcYZv
-        5tYgvVCJHqklhpTpP0MQcXy+eSd8k1ELmS6QC/XgW5m39xlxi6Trz43ueW83
-        k+w4W0FKQH23G6AWJEAtSIBakAC1IAH+ABDJUOtTPUybAAAAAElFTkSuQmCC
-        DQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtZmIzNjU3YTYyZDli
-        ODY0ZmQ4ZTZiZjI2OTc0MmU2YzUNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZv
-        cm0tZGF0YTsgbmFtZT0icHJvbXB0Ig0KDQpBIHNvbGlkIHJlZCBSdWJ5IG9u
-        IGEgYmx1ZSBiYWNrZ3JvdW5kDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
-        dFBvc3QtZmIzNjU3YTYyZDliODY0ZmQ4ZTZiZjI2OTc0MmU2YzUNCkNvbnRl
-        bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2l6ZSINCg0KMjU2
-        eDI1Ng0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWZiMzY1N2E2
-        MmQ5Yjg2NGZkOGU2YmYyNjk3NDJlNmM1LS0NCg==
-    headers:
-      Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-fb3657a62d9b864fd8e6bf269742e6c5
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Content-Length:
-      - '2098'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 26 Apr 2023 10:09:43 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 51fcd7e4843dae06420dc4321db17a6c
-      Openai-Processing-Ms:
-      - '9507'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7bde07e8bb494ad7-CGK
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      base64_string: |
-        ewogICJjcmVhdGVkIjogMTY4MjUwMzc4MiwKICAiZGF0YSI6IFsKICAgIHsK
-        ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
-        Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
-        SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
-        NkxFS1J6QklLTzBVV0FIUU5yUzJGMWxELnBuZz9zdD0yMDIzLTA0LTI2VDA5
-        JTNBMDklM0E0Mlomc2U9MjAyMy0wNC0yNlQxMSUzQTA5JTNBNDJaJnNwPXIm
-        c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
-        JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
-        a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
-        PTIwMjMtMDQtMjZUMTAlM0EwOSUzQTQyWiZza2U9MjAyMy0wNC0yN1QxMCUz
-        QTA5JTNBNDJaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz1QN21KNEFYcE9m
-        VnRvT1FLbkFmRi83c0hITGIvRU1aN3ZpNkI2dUVnb3NZJTNEIgogICAgfQog
-        IF0KfQo=
-  recorded_at: Wed, 26 Apr 2023 10:09:43 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/images/edits
-    body:
-      encoding: ASCII-8BIT
-      base64_string: |
         LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWFhMWM0NWUwYmY1NTM0
         MDNhYzg2ZTkxYjhjYzg0ZmEzDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
         LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
@@ -234,4 +118,120 @@ http_interactions:
         NkFUTmdxeDdqMGxCSGsvRGFXdGY1Rzgybmdla2piV3Fkb0klM0QiCiAgICB9
         CiAgXQp9Cg==
   recorded_at: Mon, 14 Aug 2023 15:03:10 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/edits
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LThkNmExNGQ4NDZlN2Zi
+        ODM2YzZhNjY5MDU0OTkwOGFkDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3Jt
+        LWRhdGE7IG5hbWU9ImltYWdlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNv
+        bnRlbnQtTGVuZ3RoOiAyNDkNCkNvbnRlbnQtVHlwZTogDQpDb250ZW50LVRy
+        YW5zZmVyLUVuY29kaW5nOiBiaW5hcnkNCg0KiVBORw0KGgoAAAANSUhEUgAA
+        AEQAAABECAYAAAA4E5OyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IA
+        rs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgB7dBBDcAgAAAxNnGYRCz8
+        SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEk
+        hISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJC
+        QkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv2YpOAAAAAElF
+        TkSuQmCCDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtOGQ2YTE0
+        ZDg0NmU3ZmI4MzZjNmE2NjkwNTQ5OTA4YWQNCkNvbnRlbnQtRGlzcG9zaXRp
+        b246IGZvcm0tZGF0YTsgbmFtZT0ibWFzayI7IGZpbGVuYW1lPSJtYXNrLnBu
+        ZyINCkNvbnRlbnQtTGVuZ3RoOiAxMDkxDQpDb250ZW50LVR5cGU6IA0KQ29u
+        dGVudC1UcmFuc2Zlci1FbmNvZGluZzogYmluYXJ5DQoNColQTkcNChoKAAAA
+        DUlIRFIAAABEAAAARAgGAAAAOBOTsgAAAAlwSFlzAAALEwAACxMBAJqcGAAA
+        AAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAD2ElEQVR4Ae2cTVITQRTH
+        /29CLHXFEfAEhhMYFgR25AimCqxyBZ4gcAJhZUmoit4ANwq4IJ4AOIE5AhsR
+        DZn2vRAsnarp6e75nprfJlVMU9X58/p99RuoM1AKNX/xUPMftSABakEC1IIE
+        qAUJUAsSYAHZck2EYyhcKcLYa+DyMf/suEfXDwu6Q7X4Y4KlBmGR84EWr3tB
+        /uxzCRlAGeQh8mUP2BRHJ1s0giOrh6rleXgJHxtpipOaIGwJI1LYiyNCGJ0j
+        1SVgm3feRsKkIcglW8ObNIQIsj5Qbd79MEmLSVKQa/6r7Z1u0T4yhr/DLn/0
+        kQCJRBkSB7mA5TzEEM62aNe7wzM+omPEJL4gCsdPGlg+6dEYOXLymsa/mliW
+        /SAGsY4MW8bB6SbtoGCsHql9tpZtOOBsIUUVQ/jK+2JHewAH3ARhsyyqGA+I
+        KC7Hx1oQcaBPm+ihBPzmfdo6WntBGlj5N9UuMiPeJ02xgvts2QhbQfbyjia2
+        SPSR/Mh0vbEgclQk3qOEzPOjS5O15oKocviNMKScMFwXjRRqWdQmaSL756Mz
+        ilpnJAgvcorpRcPEl0QKIr7jyybFSoeLwtzKtRHHxEI+oVporT1SkIaPD6gQ
+        XoQf0Qoix+XzKzIKV2Uh6tjoLcTHFapJqBvQC0LRYaqMkCZJ0x8Zw+yubMgV
+        SNgzrSCeQimKOFu8iaOFPGrG71EWkdvHjk61LGW+LSPN96rvdgPUggTQCiIX
+        z6ggbc330gpyC1RSkOYk/OpTn4dM0UIFkVGLsGdaQXyVzUxG1sjcSdizqNT9
+        OSqIDOGEPdMKwpecXVQR39VC2KnKDAYqhEwigRydquAj+SmdXJGxLO3jaJxu
+        0YsK+djQPTcRpDLHRmbTEDF+ZZS6q4TGlfLGZGbEVJB22a1kNqBn4A+Nizt2
+        rm9RYjjJHJqss6l2W2vvVaGHZMLoDFQfhqObVuW/8tBfH6ollIj1d7P97pqu
+        t+2HLPpTnJelLSD79Bs4t/kd+wYRF3w/J2bnMW9uZJ+WU85OHTMujrprA1Vo
+        J9uR/ZF9LebcQuQQtlNUUTr3+3IKALFn3UkmmZvoFaFDLz5jfkycq/TYTWY5
+        PjdTXOQdfSSasBgXccQQkum6s6P17/B9Fu9zYO1QbfsLMzGWEJPk35eRNyMU
+        elm9LzPPoBPr/ab3RhVfkMm8+VkK41jzuqRvUpvYkv47d2wx8uJhY4qPcYZv
+        5tYgvVCJHqklhpTpP0MQcXy+eSd8k1ELmS6QC/XgW5m39xlxi6Trz43ueW83
+        k+w4W0FKQH23G6AWJEAtSIBakAC1IAH+ABDJUOtTPUybAAAAAElFTkSuQmCC
+        DQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFydFBvc3QtOGQ2YTE0ZDg0NmU3
+        ZmI4MzZjNmE2NjkwNTQ5OTA4YWQNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZv
+        cm0tZGF0YTsgbmFtZT0icHJvbXB0Ig0KDQpBIHNvbGlkIHJlZCBSdWJ5IG9u
+        IGEgYmx1ZSBiYWNrZ3JvdW5kDQotLS0tLS0tLS0tLS0tUnVieU11bHRpcGFy
+        dFBvc3QtOGQ2YTE0ZDg0NmU3ZmI4MzZjNmE2NjkwNTQ5OTA4YWQNCkNvbnRl
+        bnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0ic2l6ZSINCg0KMjU2
+        eDI1Ng0KLS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LThkNmExNGQ4
+        NDZlN2ZiODM2YzZhNjY5MDU0OTkwOGFkLS0NCg==
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-8d6a14d846e7fb836c6a6690549908ad
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '2098'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 Oct 2023 17:48:09 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 8a6e3f86bc21228f361b3e0ff4eaad5f
+      Openai-Processing-Ms:
+      - '8923'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81edb9f53956654d-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        ewogICJjcmVhdGVkIjogMTY5ODc3NDQ4OSwKICAiZGF0YSI6IFsKICAgIHsK
+        ICAgICAgInVybCI6ICJodHRwczovL29haWRhbGxlYXBpcHJvZHNjdXMuYmxv
+        Yi5jb3JlLndpbmRvd3MubmV0L3ByaXZhdGUvb3JnLVJmNDM3SXhLaGhRUE1p
+        SVEwRXM4T3dySC91c2VyLWp4TTY1aWprWmMxcVJmSEMwSUo4bU9JYy9pbWct
+        ZnZrNWV0V1ZiVEMxOHRNYmtsdXdxckNOLnBuZz9zdD0yMDIzLTEwLTMxVDE2
+        JTNBNDglM0EwOVomc2U9MjAyMy0xMC0zMVQxOCUzQTQ4JTNBMDlaJnNwPXIm
+        c3Y9MjAyMS0wOC0wNiZzcj1iJnJzY2Q9aW5saW5lJnJzY3Q9aW1hZ2UvcG5n
+        JnNrb2lkPTZhYWFkZWRlLTRmYjMtNDY5OC1hOGY2LTY4NGQ3Nzg2YjA2NyZz
+        a3RpZD1hNDhjY2E1Ni1lNmRhLTQ4NGUtYTgxNC05Yzg0OTY1MmJjYjMmc2t0
+        PTIwMjMtMTAtMzFUMDAlM0EzNCUzQTQ5WiZza2U9MjAyMy0xMS0wMVQwMCUz
+        QTM0JTNBNDlaJnNrcz1iJnNrdj0yMDIxLTA4LTA2JnNpZz1pRmV4SGtHUnZt
+        bkpQSElsZEVNMFI0czBtdXFLMkJDOTdRWGFJZVp4UEZjJTNEIgogICAgfQog
+        IF0KfQo=
+  recorded_at: Tue, 31 Oct 2023 17:48:09 GMT
 recorded_with: VCR 6.1.0

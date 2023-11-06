@@ -11,68 +11,6 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 26 Apr 2023 10:09:33 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 63251892b40a95f1d57d4a209738a127
-      Openai-Processing-Ms:
-      - '4483'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7bde07c92ad435af-CGK
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "created": 1682503773,
-          "data": [
-            {
-              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-nRmgBqhuO8NY94h8krez7Zjj.png?st=2023-04-26T09%3A09%3A33Z&se=2023-04-26T11%3A09%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-04-26T09%3A27%3A42Z&ske=2023-04-27T09%3A27%3A42Z&sks=b&skv=2021-08-06&sig=iGE0BJxv4wolWJe2uVWVTieWKLrAK/pWSINJvH1FVFM%3D"
-            }
-          ]
-        }
-  recorded_at: Wed, 26 Apr 2023 10:09:33 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/images/generations
-    body:
-      encoding: UTF-8
-      string: '{"prompt":"A baby sea otter cooking pasta wearing a hat of some sort","size":"256x256"}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
       Test:
       - X-Default
       Accept-Encoding:
@@ -126,4 +64,66 @@ http_interactions:
           ]
         }
   recorded_at: Mon, 14 Aug 2023 15:03:00 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/generations
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"A baby sea otter cooking pasta wearing a hat of some sort","size":"256x256"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 31 Oct 2023 17:47:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - e86d1f728959e09d8a892bde16ee86dc
+      Openai-Processing-Ms:
+      - '6394'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 81edb9ca18a2220d-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "created": 1698774479,
+          "data": [
+            {
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-ieney7nDTmunRNjFutJw0Wf0.png?st=2023-10-31T16%3A47%3A59Z&se=2023-10-31T18%3A47%3A59Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-31T00%3A41%3A26Z&ske=2023-11-01T00%3A41%3A26Z&sks=b&skv=2021-08-06&sig=H6o4sfa/1VnBBHt7G0EOicarYbQKgzlUEuLmU/ShOyk%3D"
+            }
+          ]
+        }
+  recorded_at: Tue, 31 Oct 2023 17:47:59 GMT
 recorded_with: VCR 6.1.0
