@@ -31,13 +31,15 @@ RSpec.describe OpenAI::HTTP do
 
     describe ".json_post" do
       let(:response) do
-        OpenAI::Client.new.chat(
-          parameters: {
-            model: "gpt-3.5-turbo",
-            messages: [{ role: "user", content: "Hello!" }],
-            stream: stream
-          }
-        )
+        OpenAI::Client.new.chat(parameters: parameters)
+      end
+
+      let(:parameters) do
+        {
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: "Hello!" }],
+          stream: stream
+        }
       end
 
       context "not streaming" do
@@ -62,6 +64,12 @@ RSpec.describe OpenAI::HTTP do
           expect { response }.to raise_error do |error|
             expect(timeout_errors).to include(error.class)
           end
+        end
+
+        it "doesn't change the parameters stream proc" do
+          expect { response }.to raise_error(Faraday::ConnectionFailed)
+
+          expect(parameters[:stream]).to eq(stream)
         end
       end
     end
