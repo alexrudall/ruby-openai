@@ -17,7 +17,7 @@ module OpenAI
           raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
         end
 
-        req.headers = headers
+        req.headers = headers(extra_headers: parameters[:extra_headers])
         req.body = parameters.to_json
       end&.body)
     end
@@ -95,7 +95,7 @@ module OpenAI
         azure_headers
       else
         openai_headers
-      end.merge(@extra_headers || {})
+      end.merge(@extra_headers || {}).merge(extra_headers || {})
     end
 
     def openai_headers

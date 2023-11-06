@@ -286,4 +286,27 @@ RSpec.describe OpenAI::HTTP do
       }
     end
   end
+
+  describe 'extra_headers' do
+    describe '#chat' do
+      let(:client) { OpenAI::Client.new }
+      let(:extra_headers) { { 'Helicone-Property-Conversation': 'conversation-123' } }
+      let(:chat_params) do
+        {
+          parameters: {
+            model: 'gpt-3.5-turbo',
+            messages: [],
+            temperature: 0.1,
+            extra_headers: extra_headers
+          }
+        }
+      end
+
+      it 'includes extra headers in the chat request' do
+        expect(client).to receive(:chat).with(chat_params)
+
+        client.chat(chat_params)
+      end
+    end
+  end
 end
