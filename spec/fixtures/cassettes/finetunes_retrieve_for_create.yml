@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/fine_tuning/jobs/123
+    uri: https://api.openai.com/v1/files/file-IAehetfMX5CbAEdHPGgex3Ax
     body:
       encoding: US-ASCII
       string: ''
@@ -19,11 +19,11 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 17:17:19 GMT
+      - Tue, 31 Oct 2023 17:25:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,11 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 7b06c2040329c42d4bf7a6b47be6248f
+      - 0afd94bcac57fde6ee25965368c1f2fe
       Openai-Processing-Ms:
-      - '23'
+      - '77'
+      Access-Control-Allow-Origin:
+      - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
@@ -45,19 +47,21 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed8d05192d769e-LHR
+      - 81ed98bc186023e1-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
+      string: |
         {
-          "error": {
-            "message": "Could not find fine tune: 123",
-            "type": "invalid_request_error",
-            "param": "fine_tune_id",
-            "code": "fine_tune_not_found"
-          }
+          "object": "file",
+          "id": "file-IAehetfMX5CbAEdHPGgex3Ax",
+          "purpose": "fine-tune",
+          "filename": "sarcastic.jsonl",
+          "bytes": 2676,
+          "created_at": 1698773119,
+          "status": "processed",
+          "status_details": null
         }
-  recorded_at: Tue, 31 Oct 2023 17:17:19 GMT
+  recorded_at: Tue, 31 Oct 2023 17:25:19 GMT
 recorded_with: VCR 6.1.0

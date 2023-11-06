@@ -77,7 +77,7 @@ RSpec.describe OpenAI::Client do
             let(:cassette) { "#{model} streamed chat with error response".downcase }
 
             it "raises an HTTP error" do
-              VCR.use_cassette(cassette) do
+              VCR.use_cassette(cassette, record: :none) do
                 response
               rescue Faraday::BadRequestError => e
                 expect(e.response).to include(status: 400)

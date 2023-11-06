@@ -1,33 +1,6 @@
 RSpec.describe OpenAI::Client do
   describe "#finetunes", :vcr do
-    let(:filename) { "sentiment.jsonl" }
-    let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
-    let!(:file_id) do
-      response = VCR.use_cassette("finetunes files upload ") do
-        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })
-      end
-      response["id"]
-    end
-    let(:model) { "ada" }
-    let!(:create_response) do
-      VCR.use_cassette("#{cassette} create") do
-        OpenAI::Client.new.finetunes.create(
-          parameters: {
-            training_file: file_id,
-            model: model
-          }
-        )
-      end
-    end
-    let(:create_id) { create_response["id"] }
-
-    describe "#create" do
-      let(:cassette) { "finetunes" }
-
-      it "succeeds" do
-        expect(create_response["object"]).to eq("fine-tune")
-      end
-    end
+    let(:model) { "gpt-3.5-turbo-0613" }
 
     describe "#list" do
       let(:cassette) { "finetunes list" }
@@ -35,63 +8,89 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response.dig("data", 0, "object")).to eq("fine-tune")
+          expect(response.dig("data", 0, "object")).to eq("fine_tuning.job")
         end
+      end
+    end
+
+    describe "#create" do
+      let(:filename) { "sarcastic.jsonl" }
+      let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+      let(:cassette) { "finetunes" }
+      let(:upload_id) do
+        response = VCR.use_cassette("finetunes files upload") do
+          OpenAI::Client.new.files.upload(parameters: { file: file, purpose: "fine-tune" })
+        end
+        response["id"]
+      end
+      let(:retrieve_cassette) { "#{cassette} retrieve for create" }
+      let(:file_id) do
+        VCR.use_cassette(retrieve_cassette) do
+          OpenAI::Client.new.files.retrieve(id: upload_id)
+        end
+
+        upload_id
+      end
+      let(:response) do
+        VCR.use_cassette("#{cassette} create") do
+          OpenAI::Client.new.finetunes.create(
+            parameters: {
+              training_file: file_id,
+              model: model
+            }
+          )
+        end
+      end
+
+      it "succeeds" do
+        expect(response["object"]).to eq("fine_tuning.job")
       end
     end
 
     describe "#retrieve" do
       let(:cassette) { "finetunes retrieve" }
-      let(:response) { OpenAI::Client.new.finetunes.retrieve(id: create_id) }
+      let(:response) { OpenAI::Client.new.finetunes.retrieve(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("fine-tune")
+          response
+        rescue Faraday::ResourceNotFound => e
+          expect(e.response).to include(status: 404)
+          expect(e.response.dig(:body, "error", "code")).to eq("fine_tune_not_found")
+        else
+          raise "Expected to raise Faraday::ResourceNotFound"
         end
       end
     end
 
     describe "#cancel" do
       let(:cassette) { "finetunes cancel" }
-      let(:response) { OpenAI::Client.new.finetunes.cancel(id: create_id) }
+      let(:response) { OpenAI::Client.new.finetunes.cancel(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["id"]).to eq(create_id)
-          expect(response["status"]).to eq("cancelled")
+          response
+        rescue Faraday::ResourceNotFound => e
+          expect(e.response).to include(status: 404)
+          expect(e.response.dig(:body, "error", "code")).to eq("fine_tune_not_found")
+        else
+          raise "Expected to raise Faraday::ResourceNotFound"
         end
       end
     end
 
-    describe "#events" do
-      let(:cassette) { "finetunes events" }
-      let(:response) { OpenAI::Client.new.finetunes.events(id: create_id) }
+    describe "#list_events" do
+      let(:cassette) { "finetunes event list" }
+      let(:response) { OpenAI::Client.new.finetunes.list_events(id: 123) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["data"][0]["object"]).to eq("fine-tune-event")
-        end
-      end
-    end
-
-    describe "#delete" do
-      let(:cassette) { "finetunes delete" }
-      let(:retrieve_cassette) { "#{cassette} retrieve" }
-      let(:response) { OpenAI::Client.new.finetunes.delete(fine_tuned_model: "abc") }
-
-      # It takes too long to fine-tune a model so we can delete it when running the test suite
-      # against the live API. Instead, we just check that the API returns an error.
-      it "raises an error" do
-        VCR.use_cassette(cassette) do
-          expect { response }.to raise_error(Faraday::ResourceNotFound)
-        end
-      end
-
-      context "when passing a fine-tune ID instead of the model name" do
-        it "raises an error" do
-          expect do
-            OpenAI::Client.new.finetunes.delete(fine_tuned_model: "ft-abc")
-          end.to raise_error(ArgumentError)
+          response
+        rescue Faraday::ResourceNotFound => e
+          expect(e.response).to include(status: 404)
+          expect(e.response.dig(:body, "error", "code")).to eq("fine_tune_not_found")
+        else
+          raise "Expected to raise Faraday::ResourceNotFound"
         end
       end
     end

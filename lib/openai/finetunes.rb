@@ -5,31 +5,23 @@ module OpenAI
     end
 
     def list
-      @client.get(path: "/fine-tunes")
+      @client.get(path: "/fine_tuning/jobs")
     end
 
     def create(parameters: {})
-      @client.json_post(path: "/fine-tunes", parameters: parameters)
+      @client.json_post(path: "/fine_tuning/jobs", parameters: parameters)
     end
 
     def retrieve(id:)
-      @client.get(path: "/fine-tunes/#{id}")
+      @client.get(path: "/fine_tuning/jobs/#{id}")
     end
 
     def cancel(id:)
-      @client.multipart_post(path: "/fine-tunes/#{id}/cancel")
+      @client.json_post(path: "/fine_tuning/jobs/#{id}/cancel", parameters: {})
     end
 
-    def events(id:)
-      @client.get(path: "/fine-tunes/#{id}/events")
-    end
-
-    def delete(fine_tuned_model:)
-      if fine_tuned_model.start_with?("ft-")
-        raise ArgumentError, "Please give a fine_tuned_model name, not a fine-tune ID"
-      end
-
-      @client.delete(path: "/models/#{fine_tuned_model}")
+    def list_events(id:)
+      @client.get(path: "/fine_tuning/jobs/#{id}/events")
     end
   end
 end

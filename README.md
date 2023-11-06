@@ -308,22 +308,22 @@ client.files.content(id: "file-123")
 client.files.delete(id: "file-123")
 ```
 
-### Fine-tunes
+### Finetunes
 
 Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
 
 ```ruby
-response = client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
-file_id = response["id"]
+response = client.files.upload(parameters: { file: "path/to/sarcasm.jsonl", purpose: "fine-tune" })
+file_id = JSON.parse(response.body)["id"]
 ```
 
-You can then use this file ID to create a fine-tune model:
+You can then use this file ID to create a fine tuning job:
 
 ```ruby
 response = client.finetunes.create(
     parameters: {
     training_file: file_id,
-    model: "ada"
+    model: "gpt-3.5-turbo-0613"
 })
 fine_tune_id = response["id"]
 ```
@@ -342,21 +342,22 @@ response = client.finetunes.retrieve(id: fine_tune_id)
 fine_tuned_model = response["fine_tuned_model"]
 ```
 
-This fine-tuned model name can then be used in chats:
+This fine-tuned model name can then be used in completions:
 
 ```ruby
-response = client.chat(
+response = client.completions(
     parameters: {
         model: fine_tuned_model,
-        messages: [{ role: "user", content: "I love Mondays!"}]
-    })
-puts response.dig("choices", 0, "message", "content")
+        prompt: "I love Mondays!"
+    }
+)
+response.dig("choices", 0, "text")
 ```
 
-You can delete the fine-tuned model when you are done with it:
+You can also capture the events for a job:
 
-```ruby
-client.finetunes.delete(fine_tuned_model: fine_tuned_model)
+```
+client.finetunes.list_events(id: fine_tune_id)
 ```
 
 ### Image Generation

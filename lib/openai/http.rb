@@ -3,39 +3,40 @@ require "event_stream_parser"
 module OpenAI
   module HTTP
     def get(path:)
-      to_json(conn.get(uri(path: path)) do |req|
+      parse_jsonl(conn.get(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
     end
 
     def json_post(path:, parameters:)
-      to_json(conn.post(uri(path: path)) do |req|
+      conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
-      end&.body)
+      end&.body
     end
 
     def multipart_post(path:, parameters: nil)
-      to_json(conn(multipart: true).post(uri(path: path)) do |req|
+      conn(multipart: true).post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end&.body)
+      end&.body
     end
 
     def delete(path:)
-      to_json(conn.delete(uri(path: path)) do |req|
+      conn.delete(uri(path: path)) do |req|
         req.headers = headers
-      end&.body)
+      end&.body
     end
 
     private
 
-    def to_json(string)
-      return unless string
+    def parse_jsonl(response)
+      return unless response
+      return response unless response.is_a?(String)
 
-      JSON.parse(string)
-    rescue JSON::ParserError
       # Convert a multiline string of JSON objects to a JSON array.
-      JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
+      response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+
+      JSON.parse(response)
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
@@ -64,6 +65,7 @@ module OpenAI
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
         f.response :raise_error
+        f.response :json
       end
     end
 
