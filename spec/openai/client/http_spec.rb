@@ -189,15 +189,6 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
-  describe ".to_json" do
-    context "with a jsonl string" do
-      let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.new.send(:to_json, body) }
-
-      it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
-    end
-  end
-
   describe ".uri" do
     let(:path) { "/chat" }
     let(:uri) { OpenAI::Client.new.send(:uri, path: path) }

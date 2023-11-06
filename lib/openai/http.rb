@@ -3,40 +3,31 @@ require "event_stream_parser"
 module OpenAI
   module HTTP
     def get(path:)
-      to_json(conn.get(uri(path: path)) do |req|
+      conn.get(uri(path: path)) do |req|
         req.headers = headers
-      end&.body)
+      end&.body
     end
 
     def json_post(path:, parameters:)
-      to_json(conn.post(uri(path: path)) do |req|
+      conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
-      end&.body)
+      end&.body
     end
 
     def multipart_post(path:, parameters: nil)
-      to_json(conn(multipart: true).post(uri(path: path)) do |req|
+      conn(multipart: true).post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end&.body)
+      end&.body
     end
 
     def delete(path:)
-      to_json(conn.delete(uri(path: path)) do |req|
+      conn.delete(uri(path: path)) do |req|
         req.headers = headers
-      end&.body)
+      end&.body
     end
 
     private
-
-    def to_json(string)
-      return unless string
-
-      JSON.parse(string)
-    rescue JSON::ParserError
-      # Convert a multiline string of JSON objects to a JSON array.
-      JSON.parse(string.gsub("}\n{", "},{").prepend("[").concat("]"))
-    end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
     # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could
@@ -64,6 +55,7 @@ module OpenAI
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
         f.response :raise_error
+        f.response :json
       end
     end
 
