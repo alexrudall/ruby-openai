@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0] - 2023-11-06
+
+### Added
+
+- [BREAKING] HTTP errors will now be raised by ruby-openai as Faraday:Errors, including when streaming! Implemented by [@atesgoral](https://github.com/atesgoral)
+- [BREAKING] Switch from legacy Finetunes to the new Fine-tune-jobs endpoints. Implemented by [@lancecarlson](https://github.com/lancecarlson)
+- [BREAKING] Remove deprecated Completions endpoints - use Chat instead.
+
+### Fix
+
+- [BREAKING] Fix issue where :stream parameters where replaced by a boolean in the client application. Thanks to [@martinjaimem](https://github.com/martinjaimem), [@vickymadrid03](https://github.com/vickymadrid03) and [@nicastelo](https://github.com/nicastelo) for spotting and fixing this issue.
+
 ## [5.2.0] - 2023-10-30
 
 ### Fix
