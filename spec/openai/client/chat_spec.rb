@@ -73,10 +73,10 @@ RSpec.describe OpenAI::Client do
             end
           end
 
-          context "with an error response" do
-            let(:cassette) { "#{model} streamed chat with error response".downcase }
+          context "with an error response with a JSON body" do
+            let(:cassette) { "#{model} streamed chat with json error response".downcase }
 
-            it "raises an HTTP error" do
+            it "raises an HTTP error with the parsed body" do
               VCR.use_cassette(cassette, record: :none) do
                 response
               rescue Faraday::BadRequestError => e
@@ -91,6 +91,21 @@ RSpec.describe OpenAI::Client do
                                                 })
               else
                 raise "Expected to raise Faraday::BadRequestError"
+              end
+            end
+          end
+
+          context "with an error response without a JSON body" do
+            let(:cassette) { "#{model} streamed chat with error response".downcase }
+
+            it "raises an HTTP error" do
+              VCR.use_cassette(cassette, record: :none) do
+                response
+              rescue Faraday::ServerError => e
+                expect(e.response).to include(status: 500)
+                expect(e.response[:body]).to eq("")
+              else
+                raise "Expected to raise Faraday::ServerError"
               end
             end
           end

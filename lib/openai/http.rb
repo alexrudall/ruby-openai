@@ -51,7 +51,7 @@ module OpenAI
       proc do |chunk, _bytes, env|
         if env && env.status != 200
           raise_error = Faraday::Response::RaiseError.new
-          raise_error.on_complete(env.merge(body: JSON.parse(chunk)))
+          raise_error.on_complete(env.merge(body: try_parse_json(chunk)))
         end
 
         parser.feed(chunk) do |_type, data|
@@ -124,6 +124,12 @@ module OpenAI
 
       req.headers = headers
       req.body = req_parameters.to_json
+    end
+
+    def try_parse_json(maybe_json)
+      JSON.parse(maybe_json)
+    rescue JSON::ParserError
+      maybe_json
     end
   end
 end
