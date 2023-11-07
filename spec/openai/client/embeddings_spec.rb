@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#embeddings", :vcr do
     let(:input) { "The food was delicious and the waiter..." }

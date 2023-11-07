@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   context "with clients with different access tokens" do
     before do

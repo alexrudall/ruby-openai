@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe "compatibility" do
   context "for moved constants" do
     describe "::Ruby::OpenAI::VERSION" do

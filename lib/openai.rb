@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "faraday"
 require "faraday/multipart"
 
@@ -19,8 +21,8 @@ module OpenAI
     attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
                   :extra_headers
 
-    DEFAULT_API_VERSION = "v1".freeze
-    DEFAULT_URI_BASE = "https://api.openai.com/".freeze
+    DEFAULT_API_VERSION = "v1"
+    DEFAULT_URI_BASE = "https://api.openai.com/"
     DEFAULT_REQUEST_TIMEOUT = 120
 
     def initialize

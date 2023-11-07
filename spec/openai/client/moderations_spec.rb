@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#moderations", :vcr do
     let(:input) { "I'm worried about that." }

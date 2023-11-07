@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#images" do
     describe "#generate", :vcr do

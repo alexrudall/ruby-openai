@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "event_stream_parser"
 
 module OpenAI

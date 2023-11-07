@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#audio" do
     describe "#transcribe" do

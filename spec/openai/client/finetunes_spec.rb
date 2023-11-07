@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#finetunes", :vcr do
     let(:model) { "gpt-3.5-turbo-0613" }

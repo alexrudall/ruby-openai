@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenAI
   class Finetunes
     def initialize(client:)

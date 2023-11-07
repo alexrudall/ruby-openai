@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenAI
   class Audio
     def initialize(client:)

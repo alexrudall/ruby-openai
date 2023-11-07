@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#edits", :vcr do
     let(:input) { "There are 7 days in a wek, and between 28 and 31 in a month." }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OpenAI
   class Client
     include OpenAI::HTTP

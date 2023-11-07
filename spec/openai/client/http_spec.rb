@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::HTTP do
   describe "with an aggressive timeout" do
     let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }

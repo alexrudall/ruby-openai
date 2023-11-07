@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe OpenAI::Client do
   describe "#files", :vcr do
     let(:filename) { "sentiment.jsonl" }

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class VCRMultipartMatcher
   MULTIPART_HEADER_MATCHER = %r{^multipart/form-data; boundary=(.+)$}.freeze
-  BOUNDARY_SUBSTITUTION = "----MultipartBoundaryAbcD3fGhiXyz00001".freeze
+  BOUNDARY_SUBSTITUTION = "----MultipartBoundaryAbcD3fGhiXyz00001"
 
   def call(request1, request2)
     return false unless same_content_type?(request1, request2)
