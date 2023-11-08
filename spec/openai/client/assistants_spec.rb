@@ -32,7 +32,7 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "assistant"
-          expect(response["id"]).to eq "asst_euYzVdG6KgykipVXq8zhKHwy"
+          expect(response["id"]).to eq "asst_SGTQseRVgIIasVsVHPDtQNis"
         end
       end
     end
