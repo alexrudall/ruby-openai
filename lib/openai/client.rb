@@ -65,6 +65,10 @@ module OpenAI
       @messages ||= OpenAI::Messages.new(client: self)
     end
 
+    def runs
+      @runs ||= OpenAI::Runs.new(client: self)
+    end
+
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
     end

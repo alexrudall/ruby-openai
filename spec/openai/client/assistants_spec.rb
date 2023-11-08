@@ -1,5 +1,3 @@
-require "pry"
-
 RSpec.describe OpenAI::Client do
   describe "#assistants" do
     describe "#list", :vcr do

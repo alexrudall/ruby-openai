@@ -1,5 +1,3 @@
-require "pry"
-
 RSpec.describe OpenAI::Client do
   describe "#threads" do
     describe "#retrieve" do

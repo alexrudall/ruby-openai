@@ -1,5 +1,3 @@
-require "pry"
-
 RSpec.describe OpenAI::Client do
   describe "#messages" do
     describe "#retrieve" do

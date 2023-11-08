@@ -10,6 +10,7 @@ require_relative "openai/models"
 require_relative "openai/assistants"
 require_relative "openai/threads"
 require_relative "openai/messages"
+require_relative "openai/runs"
 require_relative "openai/audio"
 require_relative "openai/version"
 
