@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gemspec
 
 gem "byebug", "~> 11.1.3"
+gem "pry-byebug", "~> 3.10.1"
 gem "dotenv", "~> 2.8.1"
 gem "rake", "~> 13.1"
 gem "rspec", "~> 3.12"

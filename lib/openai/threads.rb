@@ -1,23 +1,23 @@
 module OpenAI
-  class Assistants
+  class Threads
     def initialize(client:)
       @client = client.beta(assistants: "v1")
     end
 
     def list
-      @client.get(path: "/assistants")
+      @client.get(path: "/threads")
     end
 
     def retrieve(id:)
-      @client.get(path: "/assistants/#{id}")
+      @client.get(path: "/threads/#{id}")
     end
 
     def create(parameters: {})
-      @client.json_post(path: "/assistants", parameters: parameters)
+      @client.json_post(path: "/threads", parameters: parameters)
     end
 
     def delete(id:)
-      @client.delete(path: "/assistants/#{id}")
+      @client.delete(path: "/threads/#{id}")
     end
   end
 end

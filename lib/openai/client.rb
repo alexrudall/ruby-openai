@@ -57,6 +57,14 @@ module OpenAI
       @assistants ||= OpenAI::Assistants.new(client: self)
     end
 
+    def threads
+      @threads ||= OpenAI::Threads.new(client: self)
+    end
+
+    def messages
+      @messages ||= OpenAI::Messages.new(client: self)
+    end
+
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
     end
