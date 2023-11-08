@@ -53,12 +53,22 @@ module OpenAI
       @models ||= OpenAI::Models.new(client: self)
     end
 
+    def assistants
+      @assistants ||= OpenAI::Assistants.new(client: self)
+    end
+
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
     end
 
     def azure?
       @api_type&.to_sym == :azure
+    end
+
+    def beta(apis)
+      dup.tap do |client|
+        client.send(:add_headers, "OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
+      end
     end
   end
 end

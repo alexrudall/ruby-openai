@@ -83,7 +83,7 @@ module OpenAI
         azure_headers
       else
         openai_headers
-      end.merge(@extra_headers || {})
+      end.merge(extra_headers)
     end
 
     def openai_headers
@@ -99,6 +99,14 @@ module OpenAI
         "Content-Type" => "application/json",
         "api-key" => @access_token
       }
+    end
+
+    def extra_headers
+      @extra_headers ||= {}
+    end
+
+    def add_headers(headers)
+      @extra_headers = extra_headers.merge(headers.transform_keys(&:to_s))
     end
 
     def multipart_parameters(parameters)

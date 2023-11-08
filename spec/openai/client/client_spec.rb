@@ -1,3 +1,5 @@
+require "byebug"
+
 RSpec.describe OpenAI::Client do
   context "with clients with different access tokens" do
     before do
@@ -12,7 +14,7 @@ RSpec.describe OpenAI::Client do
       # that actually hit the API and causes them to fail.
       OpenAI.configure do |config|
         config.organization_id = nil
-        config.extra_headers = nil
+        config.extra_headers = {}
       end
     end
 
@@ -109,6 +111,14 @@ RSpec.describe OpenAI::Client do
         expect(c1).to receive(:get).with(path: "/models").once
         expect(c2).to receive(:get).with(path: "/models").once
       end
+    end
+  end
+
+  context "when using beta APIs" do
+    let(:client) { OpenAI::Client.new.beta(assistants: "v1") }
+
+    it "sends the appropriate header value" do
+      expect(client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v1"
     end
   end
 end
