@@ -79,7 +79,7 @@ module OpenAI
 
     def beta(apis)
       dup.tap do |client|
-        client.send(:add_headers, "OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
+        client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
       end
     end
   end
