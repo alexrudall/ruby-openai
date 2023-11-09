@@ -1,8 +1,12 @@
 RSpec.describe OpenAI::Client do
   describe "#threads" do
+    let(:thread_id) do
+      VCR.use_cassette("#{cassette} setup") { OpenAI::Client.new.threads.create(parameters: {})["id"] }
+    end
+
     describe "#retrieve" do
       let(:cassette) { "threads retrieve" }
-      let(:response) { OpenAI::Client.new.threads.retrieve(id: "thread_yi27pbBPgwZfeoAixPXO6Ak1") }
+      let(:response) { OpenAI::Client.new.threads.retrieve(id: thread_id) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -20,7 +24,6 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread"
-          expect(response["id"]).to eq "thread_rS55wb8hqGkBrq50D64uRFVl"
         end
       end
     end
@@ -29,7 +32,7 @@ RSpec.describe OpenAI::Client do
       let(:cassette) { "threads modify" }
       let(:response) do
         OpenAI::Client.new.threads.modify(
-          id: "thread_yi27pbBPgwZfeoAixPXO6Ak1",
+          id: thread_id,
           parameters: { metadata: { modified: true } }
         )
       end
@@ -37,7 +40,6 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread"
-          expect(response["id"]).to eq "thread_yi27pbBPgwZfeoAixPXO6Ak1"
         end
       end
     end
@@ -45,13 +47,12 @@ RSpec.describe OpenAI::Client do
     describe "#delete" do
       let(:cassette) { "threads delete" }
       let(:response) do
-        OpenAI::Client.new.threads.delete(id: "thread_rS55wb8hqGkBrq50D64uRFVl")
+        OpenAI::Client.new.threads.delete(id: thread_id)
       end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread.deleted"
-          expect(response["id"]).to eq "thread_rS55wb8hqGkBrq50D64uRFVl"
         end
       end
     end

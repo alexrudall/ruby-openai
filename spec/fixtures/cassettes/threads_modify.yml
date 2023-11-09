@@ -132,4 +132,136 @@ http_interactions:
           }
         }
   recorded_at: Thu, 09 Nov 2023 14:03:55 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/asst_nATF7EHaan17WaaIivKJQpb3
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 21:00:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 38ca2c4dad0fed740d82dc596f8115ae
+      Openai-Processing-Ms:
+      - '494'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=nXTW8dUrCeIdiiUhHTzfxXGA2HFWYwkEOl0qJiBtMLQ-1699563618-0-ARm/uM4kWVcuyKU/BLV2+cNQV9s6ylPRgOaSTHmDqlxcngABWBz7L6356oIOI2ISbHTr+4OQ8g2NbNP33Wk/hmg=;
+        path=/; expires=Thu, 09-Nov-23 21:30:18 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8238fbffffd24065-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No thread found with id 'asst_nATF7EHaan17WaaIivKJQpb3'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Thu, 09 Nov 2023 21:00:18 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_0BA6MdywcI6fGpI0prqwrXkf
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 21:01:33 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 12a8eb6db87b88fa5f8fa5590696dbd7
+      Openai-Processing-Ms:
+      - '83'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=M2yN6MIsfScBydrS0uZdeq05u1H2mGmKqjiJ0NoWfrA-1699563693-0-Ac/7jMEvdYl4iSwtbMs65aSh7JnzlWl5xqVcLT3bOnfCbAbPysFvm6TwHle/rseEmYN/tsyaElsqrIUVUKsrkVg=;
+        path=/; expires=Thu, 09-Nov-23 21:31:33 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8238fddd199ddcc7-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "thread_0BA6MdywcI6fGpI0prqwrXkf",
+          "object": "thread",
+          "created_at": 1699563693,
+          "metadata": {
+            "modified": "True"
+          }
+        }
+  recorded_at: Thu, 09 Nov 2023 21:01:33 GMT
 recorded_with: VCR 6.1.0
