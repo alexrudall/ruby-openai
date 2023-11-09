@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_gOFC5endN7iUfAhpekz50O5G/runs/run_tWHF8ZDAEHDxetXOFIEiUvJr/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 14:32:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - bd545a3899924770d7ce1c96056546cf
+      Openai-Processing-Ms:
+      - '110'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=_sCZ6V6EO_irkJtk8gFaA73AgINuU5GuziBNvUGSCNc-1699540371-0-AXDt8EU9/ECplErYCzDoWbVLJ4M+N8iPYGa3/6c/3Yfm0kAY9zPGIJzTQxfOQNA3eZA/fuEJfE6Z1qEzENsnNL4=;
+        path=/; expires=Thu, 09-Nov-23 15:02:51 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8236c47abfaf54cd-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_tWHF8ZDAEHDxetXOFIEiUvJr",
+          "object": "thread.run",
+          "created_at": 1699540363,
+          "assistant_id": "asst_POVNBB4RsWPwCuq0RSyQWBpr",
+          "thread_id": "thread_gOFC5endN7iUfAhpekz50O5G",
+          "status": "cancelling",
+          "started_at": 1699540363,
+          "expires_at": 1699540963,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "last_error": null,
+          "model": "gpt-3.5-turbo",
+          "instructions": "You are a sales team manager for an enterprise SaaS company building an insurance placement product trying to sell their cyber insurance placement platform while still pinning down product market fit.",
+          "tools": [],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Thu, 09 Nov 2023 14:32:51 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_UCMWkz0d98AqtTSrFZjfh89x/runs/run_1bs2QXbSoM9kfQ4UxRbOjfpP/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 14:32:52 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '154'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - e8620d1d651a1c68bc155608962fa985
+      Openai-Processing-Ms:
+      - '79'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=mT1WodZC_KraqkpZXK5cdsW4BTSqx8lDcPhSurjd150-1699540372-0-AWjZVtOQIfGANpxQ/zLdvDPvH6wlqhwQzZESZzZQKlLZmYosAF5VYFVrwY9vMLCp2yIDcLrXel0rMUvjaSQb5Ao=;
+        path=/; expires=Thu, 09-Nov-23 15:02:52 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8236c47cceb74382-EWR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Cannot cancel run with status 'completed'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Thu, 09 Nov 2023 14:32:52 GMT
+recorded_with: VCR 6.1.0

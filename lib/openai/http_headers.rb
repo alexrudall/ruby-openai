@@ -1,5 +1,11 @@
 module OpenAI
   module HTTPHeaders
+    def add_headers(headers)
+      @extra_headers = extra_headers.merge(headers.transform_keys(&:to_s))
+    end
+
+    private
+
     def headers
       if azure?
         azure_headers
@@ -25,10 +31,6 @@ module OpenAI
 
     def extra_headers
       @extra_headers ||= {}
-    end
-
-    def add_headers(headers)
-      @extra_headers = extra_headers.merge(headers.transform_keys(&:to_s))
     end
   end
 end

@@ -20,6 +20,10 @@ module OpenAI
       @client.json_post(path: "/threads/#{thread_id}/runs/#{id}", parameters: parameters)
     end
 
+    def cancel(id:, thread_id:)
+      @client.post(path: "/threads/#{thread_id}/runs/#{id}/cancel")
+    end
+
     def submit_tool_outputs(thread_id:, run_id:, parameters: {})
       @client.json_post(path: "/threads/#{thread_id}/runs/#{run_id}/submit_tool_outputs",
                         parameters: parameters)
