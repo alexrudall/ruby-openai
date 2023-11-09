@@ -460,9 +460,7 @@ puts response["text"]
 # => "Transcription of the text"
 ```
 
-#### Vision
-
-#### Errors
+### Errors
 
 HTTP errors can be caught like this:
 
