@@ -16,6 +16,10 @@ module OpenAI
       @client.json_post(path: "/assistants", parameters: parameters)
     end
 
+    def modify(id:, parameters: {})
+      @client.json_post(path: "/assistants/#{id}", parameters: parameters)
+    end
+
     def delete(id:)
       @client.delete(path: "/assistants/#{id}")
     end

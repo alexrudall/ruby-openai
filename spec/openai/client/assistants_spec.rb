@@ -37,6 +37,23 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#modify" do
+      let(:cassette) { "assistants modify" }
+      let(:response) do
+        OpenAI::Client.new.assistants.modify(
+          id: "asst_SGTQseRVgIIasVsVHPDtQNis",
+          parameters: { model: "gpt-3.5-turbo", name: "Test Assistant for OpenAI-Ruby" }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "assistant"
+          expect(response["id"]).to eq "asst_SGTQseRVgIIasVsVHPDtQNis"
+        end
+      end
+    end
+
     describe "#delete" do
       let(:cassette) { "assistants delete" }
       let(:response) do
