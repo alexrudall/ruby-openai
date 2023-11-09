@@ -174,7 +174,7 @@ puts response.dig("choices", 0, "message", "content")
 # => "Hello! How may I assist you today?"
 ```
 
-### Streaming Chat
+#### Streaming Chat
 
 [Quick guide to streaming Chat with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
@@ -194,6 +194,28 @@ client.chat(
 ```
 
 Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby). We think that each call to the stream proc corresponds to a single token, so you can also try counting the number of calls to the proc to get the completion token count.
+
+#### Vision
+
+You can use the GPT-4 Vision model to generate a description of an image:
+
+```ruby
+messages = [
+  { "type": "text", "text": "What’s in this image?"},
+  { "type": "image_url",
+    "image_url": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg",
+    },
+  }
+]
+response = client.chat(
+    parameters: {
+        model: "gpt-4-vision-preview", # Required.
+        messages: [{ role: "user", content: messages}], # Required.
+    })
+puts response.dig("choices", 0, "message", "content")
+# => "The image depicts a serene natural landscape featuring a long wooden boardwalk extending straight ahead"
+```
 
 ### Functions
 
@@ -437,6 +459,8 @@ response = client.audio.transcribe(
 puts response["text"]
 # => "Transcription of the text"
 ```
+
+#### Vision
 
 #### Errors
 
