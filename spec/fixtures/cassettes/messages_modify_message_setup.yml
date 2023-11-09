@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages
+    uri: https://api.openai.com/v1/threads/thread_AqJEqIzV4aqpT5n4IR8etMXG/messages
     body:
       encoding: UTF-8
       string: '{"role":"user","content":"Can you help me write an API library to interact
@@ -26,82 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:02:01 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - relay-platform
-      X-Request-Id:
-      - '06669549fec252c104959bb4e8537b3d'
-      Openai-Processing-Ms:
-      - '123'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 822a9324dc455413-YYZ
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "id": "msg_SfZO3m6lv7beHQBS5DazS6dn",
-          "object": "thread.message",
-          "created_at": 1699412521,
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          "role": "user",
-          "content": [
-            {
-              "type": "text",
-              "text": {
-                "value": "Can you help me write an API library to interact with the OpenAI API please?",
-                "annotations": []
-              }
-            }
-          ],
-          "file_ids": [],
-          "assistant_id": null,
-          "run_id": null,
-          "metadata": {}
-        }
-  recorded_at: Wed, 08 Nov 2023 03:02:01 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/threads/thread_l7Qy2CHLGYfm80OrmBMI3BWJ/messages
-    body:
-      encoding: UTF-8
-      string: '{"role":"user","content":"Can you help me write an API library to interact
-        with the OpenAI API please?"}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 09 Nov 2023 21:04:12 GMT
+      - Thu, 09 Nov 2023 21:04:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -113,31 +38,31 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 3a60bfeb0a0c1f6239b5b80fd93ed272
+      - 607701eb713ca299c7a658a9c5c79741
       Openai-Processing-Ms:
-      - '104'
+      - '94'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=bKn.o8YbzANPSW0nOc.B.IZORk2X58E24m5QzefKsiQ-1699563852-0-ATpIx80rd9+11BUQ1O2hwCW75leEsuvSBHyXBPRkYJ20Gryaew7H6g3eBRJsXxNFXxGXM9KuepN1+mZm6NB8y8w=;
-        path=/; expires=Thu, 09-Nov-23 21:34:12 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=PGDRMPtFYa4aeGn0nQg.U5gaLVguckthGyipQYp7F4w-1699563853-0-AT8sBgyG9aYxrAknfpyqfEvr6N6aq+U2sNF9ZPya+7d1PCpmWq4WS2u4eAiafgyyPtH0Wpz+87FQNrSpa4vkJVI=;
+        path=/; expires=Thu, 09-Nov-23 21:34:13 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 823901bd38ee221d-MAN
+      - 823901c04dd06556-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_e00Q9Q2jyvbTHsrFbNgjXQlZ",
+          "id": "msg_gJ53CrZOyd6JvUmvIOVA5M3n",
           "object": "thread.message",
           "created_at": 1699563852,
-          "thread_id": "thread_l7Qy2CHLGYfm80OrmBMI3BWJ",
+          "thread_id": "thread_AqJEqIzV4aqpT5n4IR8etMXG",
           "role": "user",
           "content": [
             {
@@ -153,10 +78,10 @@ http_interactions:
           "run_id": null,
           "metadata": {}
         }
-  recorded_at: Thu, 09 Nov 2023 21:04:12 GMT
+  recorded_at: Thu, 09 Nov 2023 21:04:13 GMT
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_LcxTIDcEQthrLT75hGjNaHHv/messages
+    uri: https://api.openai.com/v1/threads/thread_HKcZPOtJxkJIRq4BlEdk9lYL/messages
     body:
       encoding: UTF-8
       string: '{"role":"user","content":"Can you help me write an API library to interact
@@ -192,31 +117,31 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5c07bbb6d3001d07ca59df7b37b23bf1
+      - c76d2041ecb32d7e21e4965769890bc0
       Openai-Processing-Ms:
-      - '102'
+      - '93'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=lRUbOLQaUYixLP5rDq0I6uHEKPBGVmszQ.GkkYJpA.E-1699563915-0-ATWQVVC9FW2RdPRB7mOKSBqMA616btQaNsKTKyIVvtHvDnKjtyOh0gcdk7Hy5cOw8gY7NfToC74LHpJBCrA+HqQ=;
+      - __cf_bm=k86EI.q.jVlSaPclxyDrpmpYAb_Tz9J_xvYh8zU0Uik-1699563915-0-AaIC9TZ+kTTlOxRaoXUDo6fOEcxgeBQivCrSE2jxIxxYaRNm5IuLyYQLfcyaDZoghFiM1RhgTJfecbI+WxGWuJg=;
         path=/; expires=Thu, 09-Nov-23 21:35:15 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 823903459cb93628-MAN
+      - 82390348fcb3d170-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_LG99rrbbLNuTvgKqdHb63ilw",
+          "id": "msg_oqxkVOooPk1zkoWMbDGSoVjU",
           "object": "thread.message",
           "created_at": 1699563915,
-          "thread_id": "thread_LcxTIDcEQthrLT75hGjNaHHv",
+          "thread_id": "thread_HKcZPOtJxkJIRq4BlEdk9lYL",
           "role": "user",
           "content": [
             {

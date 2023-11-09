@@ -74,4 +74,82 @@ http_interactions:
           "metadata": {}
         }
   recorded_at: Wed, 08 Nov 2023 03:01:21 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_sRtoenIF39E84qCWvRzvu9DZ/messages/msg_jWuxvJ2sCYUDoxFoWRAGIULG
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 21:05:14 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - af95b42e3421b518da7a245039643958
+      Openai-Processing-Ms:
+      - '89'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=fqdDJ1BZ.buFMO23BObUZsK.O01fzwN6gsYGTvELKm8-1699563914-0-AU+vB8ZU6C+X64zW5xQGaYy7D6uzj0oIOAMZ0t80wL4RC7PE+8DQNO/vqjzx0e5B8NfSmqiCR44ycCW6/oKHfso=;
+        path=/; expires=Thu, 09-Nov-23 21:35:14 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82390341d9e3887a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "msg_jWuxvJ2sCYUDoxFoWRAGIULG",
+          "object": "thread.message",
+          "created_at": 1699563914,
+          "thread_id": "thread_sRtoenIF39E84qCWvRzvu9DZ",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": {
+                "value": "Can you help me write an API library to interact with the OpenAI API please?",
+                "annotations": []
+              }
+            }
+          ],
+          "file_ids": [],
+          "assistant_id": null,
+          "run_id": null,
+          "metadata": {}
+        }
+  recorded_at: Thu, 09 Nov 2023 21:05:14 GMT
 recorded_with: VCR 6.1.0

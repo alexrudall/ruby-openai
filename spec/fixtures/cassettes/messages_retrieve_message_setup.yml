@@ -2,82 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages
-    body:
-      encoding: UTF-8
-      string: '{"role":"user","content":"Can you help me write an API library to interact
-        with the OpenAI API please?"}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 08 Nov 2023 03:02:01 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - relay-platform
-      X-Request-Id:
-      - '06669549fec252c104959bb4e8537b3d'
-      Openai-Processing-Ms:
-      - '123'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 822a9324dc455413-YYZ
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "id": "msg_SfZO3m6lv7beHQBS5DazS6dn",
-          "object": "thread.message",
-          "created_at": 1699412521,
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          "role": "user",
-          "content": [
-            {
-              "type": "text",
-              "text": {
-                "value": "Can you help me write an API library to interact with the OpenAI API please?",
-                "annotations": []
-              }
-            }
-          ],
-          "file_ids": [],
-          "assistant_id": null,
-          "run_id": null,
-          "metadata": {}
-        }
-  recorded_at: Wed, 08 Nov 2023 03:02:01 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/threads/thread_l7Qy2CHLGYfm80OrmBMI3BWJ/messages
+    uri: https://api.openai.com/v1/threads/thread_chX0leDFXAw9v8Tnfzt19ge6/messages
     body:
       encoding: UTF-8
       string: '{"role":"user","content":"Can you help me write an API library to interact
@@ -113,31 +38,31 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 3a60bfeb0a0c1f6239b5b80fd93ed272
+      - 0da42037ade1a3e288f7694b6df282b7
       Openai-Processing-Ms:
-      - '104'
+      - '95'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=bKn.o8YbzANPSW0nOc.B.IZORk2X58E24m5QzefKsiQ-1699563852-0-ATpIx80rd9+11BUQ1O2hwCW75leEsuvSBHyXBPRkYJ20Gryaew7H6g3eBRJsXxNFXxGXM9KuepN1+mZm6NB8y8w=;
+      - __cf_bm=r.pMot2msGg2lu0zvmH6cb40OufqExvFWjK_h4PDtx8-1699563852-0-Ae8jpJ9vmXO6ulEUTvMUpRlnUFsdfyCIpRMtKaAD/tXhOS+uPBtEs+xuT/LSKpV7S0cEfbPhLY3V8tmyNNyfkm8=;
         path=/; expires=Thu, 09-Nov-23 21:34:12 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 823901bd38ee221d-MAN
+      - 823901ba1a367714-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_e00Q9Q2jyvbTHsrFbNgjXQlZ",
+          "id": "msg_LwyCpeH3v5i9VyVLGHdkU13y",
           "object": "thread.message",
           "created_at": 1699563852,
-          "thread_id": "thread_l7Qy2CHLGYfm80OrmBMI3BWJ",
+          "thread_id": "thread_chX0leDFXAw9v8Tnfzt19ge6",
           "role": "user",
           "content": [
             {
@@ -156,7 +81,7 @@ http_interactions:
   recorded_at: Thu, 09 Nov 2023 21:04:12 GMT
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_LcxTIDcEQthrLT75hGjNaHHv/messages
+    uri: https://api.openai.com/v1/threads/thread_sRtoenIF39E84qCWvRzvu9DZ/messages
     body:
       encoding: UTF-8
       string: '{"role":"user","content":"Can you help me write an API library to interact
@@ -180,7 +105,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 09 Nov 2023 21:05:15 GMT
+      - Thu, 09 Nov 2023 21:05:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -192,31 +117,31 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5c07bbb6d3001d07ca59df7b37b23bf1
+      - 283e7f071a5d25686a1b50275409912b
       Openai-Processing-Ms:
-      - '102'
+      - '91'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=lRUbOLQaUYixLP5rDq0I6uHEKPBGVmszQ.GkkYJpA.E-1699563915-0-ATWQVVC9FW2RdPRB7mOKSBqMA616btQaNsKTKyIVvtHvDnKjtyOh0gcdk7Hy5cOw8gY7NfToC74LHpJBCrA+HqQ=;
-        path=/; expires=Thu, 09-Nov-23 21:35:15 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=w9yjFQH0l46Mu9i.XOw4K.5Zya7Yk1xrlC4_KRCE4q8-1699563914-0-ASYdbj/L6k4zVmW2MWDixje33Jg0o0oYvxILQF4lWpAUmuQTcDiO2zTSCr8MY/WMuYrwQpK8l/ToZVRRC+J8NPQ=;
+        path=/; expires=Thu, 09-Nov-23 21:35:14 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 823903459cb93628-MAN
+      - 8239033f79080759-MAN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_LG99rrbbLNuTvgKqdHb63ilw",
+          "id": "msg_jWuxvJ2sCYUDoxFoWRAGIULG",
           "object": "thread.message",
-          "created_at": 1699563915,
-          "thread_id": "thread_LcxTIDcEQthrLT75hGjNaHHv",
+          "created_at": 1699563914,
+          "thread_id": "thread_sRtoenIF39E84qCWvRzvu9DZ",
           "role": "user",
           "content": [
             {
@@ -232,5 +157,5 @@ http_interactions:
           "run_id": null,
           "metadata": {}
         }
-  recorded_at: Thu, 09 Nov 2023 21:05:15 GMT
+  recorded_at: Thu, 09 Nov 2023 21:05:14 GMT
 recorded_with: VCR 6.1.0
