@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_7OCeXpg2TO4D1566u1fgb71P
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 14:07:14 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - 0c5e869d537c3b6efd745e651bc22923
+      Openai-Processing-Ms:
+      - '103'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=z5hCUV3GBkAXBVHpl7HRtXkNRtIQDjhmbhwXra0tNBQ-1699538834-0-AaFbvlXP0fPRt9LBTUu3csYvh12QL5Kx5CM/30rh4LrZvGS3mHqNbaT64kq2iWQvSmFsla8DHC3ZbCPY8wZnOTA=;
+        path=/; expires=Thu, 09-Nov-23 14:37:14 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82369ef51f1b5497-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_7OCeXpg2TO4D1566u1fgb71P",
+          "object": "thread.run",
+          "created_at": 1699413154,
+          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
+          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "status": "completed",
+          "started_at": 1699413154,
+          "expires_at": null,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": 1699413158,
+          "last_error": null,
+          "model": "gpt-3.5-turbo-1106",
+          "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
+          "tools": [
+            {
+              "type": "code_interpreter"
+            }
+          ],
+          "file_ids": [],
+          "metadata": {
+            "modified": "True"
+          }
+        }
+  recorded_at: Thu, 09 Nov 2023 14:07:14 GMT
+recorded_with: VCR 6.1.0

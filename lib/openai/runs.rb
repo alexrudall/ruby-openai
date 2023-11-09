@@ -16,6 +16,10 @@ module OpenAI
       @client.json_post(path: "/threads/#{thread_id}/runs", parameters: parameters)
     end
 
+    def modify(id:, thread_id:, parameters: {})
+      @client.json_post(path: "/threads/#{thread_id}/runs/#{id}", parameters: parameters)
+    end
+
     def submit_tool_outputs(thread_id:, run_id:, parameters: {})
       @client.json_post(path: "/threads/#{thread_id}/runs/#{run_id}/submit_tool_outputs",
                         parameters: parameters)

@@ -46,6 +46,26 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#modify" do
+      let(:cassette) { "runs modify" }
+      let(:response) do
+        OpenAI::Client.new.runs.modify(
+          id: "run_7OCeXpg2TO4D1566u1fgb71P",
+          thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          parameters: {
+            metadata: { modified: true }
+          }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "thread.run"
+          expect(response["id"]).to eq "run_7OCeXpg2TO4D1566u1fgb71P"
+        end
+      end
+    end
+
     describe "#submit_tool_outputs" do
       let(:cassette) { "runs submit_tool_outputs" }
       let(:response) do
