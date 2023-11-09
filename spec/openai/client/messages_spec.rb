@@ -33,5 +33,25 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#modify" do
+      let(:cassette) { "messages modify" }
+      let(:response) do
+        OpenAI::Client.new.messages.modify(
+          id: "msg_SfZO3m6lv7beHQBS5DazS6dn",
+          thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          parameters: {
+            metadata: { modified: true }
+          }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "thread.message"
+          expect(response["id"]).to eq "msg_SfZO3m6lv7beHQBS5DazS6dn"
+        end
+      end
+    end
   end
 end
