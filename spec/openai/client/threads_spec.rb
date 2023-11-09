@@ -25,6 +25,23 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#modify" do
+      let(:cassette) { "threads modify" }
+      let(:response) do
+        OpenAI::Client.new.threads.modify(
+          id: "thread_yi27pbBPgwZfeoAixPXO6Ak1",
+          parameters: { metadata: { modified: true } }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "thread"
+          expect(response["id"]).to eq "thread_yi27pbBPgwZfeoAixPXO6Ak1"
+        end
+      end
+    end
+
     describe "#delete" do
       let(:cassette) { "threads delete" }
       let(:response) do
