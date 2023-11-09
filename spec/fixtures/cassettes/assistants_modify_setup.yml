@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 09 Nov 2023 20:56:57 GMT
+      - Thu, 09 Nov 2023 20:56:58 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,30 +37,30 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 35d73652c3fe3c220b2c35ceac0bc3e3
+      - 131155729ddc3001f604e3565f2b10fd
       Openai-Processing-Ms:
-      - '273'
+      - '59'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=QRNPpz340eNfAho9VfqcHXjkkIQVy6pIOQStCmZ2axU-1699563417-0-AU1laxz5cKnIdwJcobmrRkDn2BZQoL9RY75o3nbZ0welAD5dqDnsMWkghAq++vqDyJPSSULDZn/ouq0MWm3++8M=;
-        path=/; expires=Thu, 09-Nov-23 21:26:57 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=zDLL1MAiJY0YPApjqoDbxIK7OMFq9httP1hCDd2aFAk-1699563418-0-AV61AoqgVkHHkmrCWbcYa5kvTe08qZNnnvSNp0e5VZv2+W0Pm6GOeO80W74CCTPpxLY+DvDBgE4D9bMy/PEl4N8=;
+        path=/; expires=Thu, 09-Nov-23 21:26:58 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 8238f71f09e676cf-LHR
+      - 8238f7223936dcbf-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_B65ilywu97G4zlfFWAzwMJ9D",
+          "id": "asst_ah5N0zzlpa7fzUldCUubzyNY",
           "object": "assistant",
-          "created_at": 1699563417,
+          "created_at": 1699563418,
           "name": "OpenAI-Ruby test assistant",
           "description": null,
           "model": "gpt-4",
@@ -69,5 +69,5 @@ http_interactions:
           "file_ids": [],
           "metadata": {}
         }
-  recorded_at: Thu, 09 Nov 2023 20:56:57 GMT
+  recorded_at: Thu, 09 Nov 2023 20:56:58 GMT
 recorded_with: VCR 6.1.0
