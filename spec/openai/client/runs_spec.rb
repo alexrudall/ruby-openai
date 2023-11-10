@@ -1,5 +1,3 @@
-require "byebug"
-
 RSpec.describe OpenAI::Client do
   describe "#runs" do
     describe "#list" do

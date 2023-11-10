@@ -1,5 +1,3 @@
-require "byebug"
-
 RSpec.describe OpenAI::Client do
   context "with clients with different access tokens" do
     before do
