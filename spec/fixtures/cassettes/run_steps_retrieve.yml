@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_kINaLRxQg4uZItMP0ExgGwAl/steps/step_BM4yN3TSI1mm2dbAwHUD0ATS
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 10 Nov 2023 03:12:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - c98d26e1e592cc5ed61bdc178256cb8b
+      Openai-Processing-Ms:
+      - '134'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Z8upcI8apeWDnihcDWKkTByN2a0A8rkiqgqiLSmP3bU-1699585946-0-AWqxZabRgRqQdQ1wpen84Q4/Zpuol1aP+qOmFuKwZv8Pua7C4WB7p99PsYITOMjv4VTmvf2QzVsoI3cgUbTl/pg=;
+        path=/; expires=Fri, 10-Nov-23 03:42:26 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 823b1d21c9f1a229-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "step_BM4yN3TSI1mm2dbAwHUD0ATS",
+          "object": "thread.run.step",
+          "created_at": 1699412073,
+          "run_id": "run_kINaLRxQg4uZItMP0ExgGwAl",
+          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
+          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "type": "message_creation",
+          "status": "completed",
+          "cancelled_at": null,
+          "completed_at": 1699412111,
+          "expires_at": null,
+          "failed_at": null,
+          "last_error": null,
+          "step_details": {
+            "type": "message_creation",
+            "message_creation": {
+              "message_id": "msg_BQftVtMEnkvjJexPfj2jbm3m"
+            }
+          }
+        }
+  recorded_at: Fri, 10 Nov 2023 03:12:26 GMT
+recorded_with: VCR 6.1.0
