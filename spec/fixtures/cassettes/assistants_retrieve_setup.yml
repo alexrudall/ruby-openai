@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 09 Nov 2023 20:56:57 GMT
+      - Tue, 14 Nov 2023 21:48:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,30 +37,32 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 3644696d63dd4ed0b597da6660473769
+      - e828ba8ff0662bb5e3ca757697d5a395
       Openai-Processing-Ms:
-      - '56'
+      - '72'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=.KjCwJcZotQT8ngfhdl8wSunMrLhRD6jVBHq_BJ7.bY-1699563417-0-AYXBFEVintncq24AoeYkc7oUNRNmZV+tVyL3Mo/kgLd5CjOf2otEdkq43Zv83Kzz9ahhJL05GMbEdxsKXpToAzQ=;
-        path=/; expires=Thu, 09-Nov-23 21:26:57 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=iczu64n3kELNZYFBFO.1iBQEHXYhE06HajN5zuC0OSo-1699998503-0-AXLJhIeOM4uSJrIpsv/VSMAv9uqKfMHeNY/HjV15xbRls3v5gHCIF1xzpfymcmIJwj7w3zQTVJiuKs4a1rBPQh4=;
+        path=/; expires=Tue, 14-Nov-23 22:18:23 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
+      - _cfuvid=sJb9Ly6NvU.OL6pbeLQHsP.7A65kDIjNPD4SGK7HMlk-1699998503701-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 8238f71bccf42236-MAN
+      - 82627556df6871db-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_utJlj12eHckH9rQGuA8mlbOO",
+          "id": "asst_ARpisliBZDKcGaLhQzS3sqtF",
           "object": "assistant",
-          "created_at": 1699563417,
+          "created_at": 1699998503,
           "name": "OpenAI-Ruby test assistant",
           "description": null,
           "model": "gpt-4",
@@ -69,5 +71,5 @@ http_interactions:
           "file_ids": [],
           "metadata": {}
         }
-  recorded_at: Thu, 09 Nov 2023 20:56:57 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:23 GMT
 recorded_with: VCR 6.1.0

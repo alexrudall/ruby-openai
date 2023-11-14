@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages/msg_jzdSGmyXvRQUPbyA80obyQnn
+    uri: https://api.openai.com/v1/threads/thread_ivF8IrGOeHFq0PQNY6jzJecK/messages/msg_joVddaqRQSpNX5RIjDWSBek2
     body:
       encoding: US-ASCII
       string: ''
@@ -25,81 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:01:21 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - relay-platform
-      X-Request-Id:
-      - 260c0c005ab5dc1bc61682273d3adda1
-      Openai-Processing-Ms:
-      - '122'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 822a922ab8a639c3-YYZ
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "id": "msg_jzdSGmyXvRQUPbyA80obyQnn",
-          "object": "thread.message",
-          "created_at": 1699412071,
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          "role": "user",
-          "content": [
-            {
-              "type": "text",
-              "text": {
-                "value": "Can you help me write an API library to interact with the OpenAI API please?",
-                "annotations": []
-              }
-            }
-          ],
-          "file_ids": [],
-          "assistant_id": null,
-          "run_id": null,
-          "metadata": {}
-        }
-  recorded_at: Wed, 08 Nov 2023 03:01:21 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/threads/thread_sRtoenIF39E84qCWvRzvu9DZ/messages/msg_jWuxvJ2sCYUDoxFoWRAGIULG
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 09 Nov 2023 21:05:14 GMT
+      - Tue, 14 Nov 2023 21:49:22 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -111,31 +37,33 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - af95b42e3421b518da7a245039643958
+      - 8f99c885800c5968e66119e9f3abc72c
       Openai-Processing-Ms:
-      - '89'
+      - '82'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=fqdDJ1BZ.buFMO23BObUZsK.O01fzwN6gsYGTvELKm8-1699563914-0-AU+vB8ZU6C+X64zW5xQGaYy7D6uzj0oIOAMZ0t80wL4RC7PE+8DQNO/vqjzx0e5B8NfSmqiCR44ycCW6/oKHfso=;
-        path=/; expires=Thu, 09-Nov-23 21:35:14 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=PdJWQJJ7z1o3MLG3_hpQjP7flRwV2c9qZAHU_egQFMk-1699998562-0-AcvTQRdLgadVE7zz27L21EVHiPzsjt11vNI2n0G5rzrijQgP3LstwBbGnycxMOe+FounFoJp6dSi3GNCU+m/MUY=;
+        path=/; expires=Tue, 14-Nov-23 22:19:22 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
+      - _cfuvid=hl1TdTyyrRKTJ5RRo4e5jxl2xaJcRY2AyMoTIijRhuw-1699998562771-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 82390341d9e3887a-LHR
+      - 826276c7fe3176c6-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_jWuxvJ2sCYUDoxFoWRAGIULG",
+          "id": "msg_joVddaqRQSpNX5RIjDWSBek2",
           "object": "thread.message",
-          "created_at": 1699563914,
-          "thread_id": "thread_sRtoenIF39E84qCWvRzvu9DZ",
+          "created_at": 1699998562,
+          "thread_id": "thread_ivF8IrGOeHFq0PQNY6jzJecK",
           "role": "user",
           "content": [
             {
@@ -151,5 +79,5 @@ http_interactions:
           "run_id": null,
           "metadata": {}
         }
-  recorded_at: Thu, 09 Nov 2023 21:05:14 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:22 GMT
 recorded_with: VCR 6.1.0

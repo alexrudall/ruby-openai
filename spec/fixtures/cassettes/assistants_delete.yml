@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_euYzVdG6KgykipVXq8zhKHwy
+    uri: https://api.openai.com/v1/assistants/asst_xifTEBkBBQPHISSrAJCMylTW
     body:
       encoding: US-ASCII
       string: ''
@@ -25,132 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 02:44:30 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - relay-platform
-      X-Request-Id:
-      - 5c7da963998c1cad21835a9e6d81997e
-      Openai-Processing-Ms:
-      - '112'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 822a7977eb9236c5-YYZ
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |-
-        {
-          "id": "asst_euYzVdG6KgykipVXq8zhKHwy",
-          "object": "assistant.deleted",
-          "deleted": true
-        }
-  recorded_at: Wed, 08 Nov 2023 02:44:30 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/assistants/asst_cn9G12btcO5A2oukVBPfLhCB
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Thu, 09 Nov 2023 20:56:43 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '240'
-      Connection:
-      - keep-alive
-      Www-Authenticate:
-      - Basic realm="OpenAI API"
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - b2114d46de1b4fb383f5a94c39c687c9
-      Openai-Processing-Ms:
-      - '10'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=OKWAi0Jmp7v2XlLHrorZw9IkqEoWgbzWDA5_K2CQEjE-1699563403-0-AXpMWEoqQDMomlk6ThCuFpAWXlS3gWA32b2tuH4Lqoqpckkk7AZ1VEQP0DyrpCl6qn87NRdqTqDVeQkhw+NXbHI=;
-        path=/; expires=Thu, 09-Nov-23 21:26:43 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 8238f6c9eaa36521-LHR
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "error": {
-            "message": "Incorrect API key provided: <OPENAI_ACCESS_TOKEN>. You can find your API key at https://platform.openai.com/account/api-keys.",
-            "type": "invalid_request_error",
-            "param": null,
-            "code": "invalid_api_key"
-          }
-        }
-  recorded_at: Thu, 09 Nov 2023 20:56:43 GMT
-- request:
-    method: delete
-    uri: https://api.openai.com/v1/assistants/asst_HBYyBJadXD7hzBdgHYbRaNMn
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 09 Nov 2023 20:56:59 GMT
+      - Tue, 14 Nov 2023 21:48:25 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -162,30 +37,32 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 75df75ada45cae1b5a0497158c32ae68
+      - 792e3236832df01a20a47f1fffc83bac
       Openai-Processing-Ms:
-      - '86'
+      - '96'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=Vee5wNHMKxwN4kKy5_RfiKcu8fH9r4pbX28OeOb163A-1699563419-0-AeRdjZa/HS9My18AE/UvxnIwEIZNfW1NVGQdJoiSbm9gKV3e3868qAHS2Ge07MhQOzjLlYGh2LSbtWg6DeSU3nk=;
-        path=/; expires=Thu, 09-Nov-23 21:26:59 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=4vC0D_UlotkJZYYgxAgBbpmHQo_OmzniaUL75aRlaxg-1699998505-0-AZzGyStW0ye8rwbnEoIlRbPj9ha5Xr0+UJUiO8B1qBW3nfnJRS6AReh/ilYvZreq88xbZ7RiLBXTP4t27eaeQz4=;
+        path=/; expires=Tue, 14-Nov-23 22:18:25 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
+      - _cfuvid=T28SswsFv3UplQIxnoB..LEs7oyv7_NEWjqSTqMCxd4-1699998505547-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 8238f7278f40650f-LHR
+      - 826275620f48dd6f-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_HBYyBJadXD7hzBdgHYbRaNMn",
+          "id": "asst_xifTEBkBBQPHISSrAJCMylTW",
           "object": "assistant.deleted",
           "deleted": true
         }
-  recorded_at: Thu, 09 Nov 2023 20:56:59 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:25 GMT
 recorded_with: VCR 6.1.0

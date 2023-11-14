@@ -5,88 +5,15 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-21d900b86ed4be92dbe2cc8d66060b95\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-fa07165695179ac71d25d2e3c3783a98\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Length:
         159\r\nContent-Type: \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"prompt\":\"Overjoyed
         with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-21d900b86ed4be92dbe2cc8d66060b95\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-21d900b86ed4be92dbe2cc8d66060b95--\r\n"
+        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-fa07165695179ac71d25d2e3c3783a98\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-fa07165695179ac71d25d2e3c3783a98--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-21d900b86ed4be92dbe2cc8d66060b95
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Test:
-      - X-Default
-      Content-Length:
-      - '566'
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 14 Aug 2023 15:02:30 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - 98f13eb764d9452005a5eb55f04a4fa9
-      Openai-Processing-Ms:
-      - '598'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7f6a1445aced0abb-MAN
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "file",
-          "id": "file-XzjRvj7SRege7A4UFM3aWQnw",
-          "purpose": "fine-tune",
-          "filename": "sentiment.jsonl",
-          "bytes": 159,
-          "created_at": 1692025350,
-          "status": "uploaded",
-          "status_details": null
-        }
-  recorded_at: Mon, 14 Aug 2023 15:02:30 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/files
-    body:
-      encoding: UTF-8
-      string: "-------------RubyMultipartPost-4db8ad0aaa332be02ff2e1b815303470\r\nContent-Disposition:
-        form-data; name=\"file\"; filename=\"sentiment.jsonl\"\r\nContent-Length:
-        159\r\nContent-Type: \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"prompt\":\"Overjoyed
-        with my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers
-        disappoint for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-4db8ad0aaa332be02ff2e1b815303470\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-4db8ad0aaa332be02ff2e1b815303470--\r\n"
-    headers:
-      Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-4db8ad0aaa332be02ff2e1b815303470
+      - multipart/form-data; boundary=-----------RubyMultipartPost-fa07165695179ac71d25d2e3c3783a98
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -103,7 +30,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 17:47:29 GMT
+      - Tue, 14 Nov 2023 21:48:51 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -115,19 +42,25 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 69e0c502d7aad93bcbaf86cd79a68b37
+      - ee14c796f4509398efcfe41df8ff14c2
       Openai-Processing-Ms:
-      - '533'
+      - '513'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=XjRMkiOOm1GYzM3JIxiV7DWthXzjWRJWipvhM5W3nb0-1699998531-0-AQk3Y9qO+mKcbo5X9sNtCLlDs6Uj061t4NKzzYBo8ftQoDZDksdwm7jLgC4VCbeM+c29VdIxtR1tgko3/M2yk1M=;
+        path=/; expires=Tue, 14-Nov-23 22:18:51 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=PqBvBQCBGTL4SPQJcxkEhpdpicxI2ifbbF4ptMp.1AU-1699998531067-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 81edb92dfc71221b-MAN
+      - 826275ff1ba988a4-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -135,13 +68,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-utDuicfEkgvhy0k68llaAz7A",
+          "id": "file-0jvap1eP3CIIUYbypdaX5y5w",
           "purpose": "fine-tune",
           "filename": "sentiment.jsonl",
           "bytes": 159,
-          "created_at": 1698774448,
+          "created_at": 1699998530,
           "status": "uploaded",
           "status_details": null
         }
-  recorded_at: Tue, 31 Oct 2023 17:47:29 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:51 GMT
 recorded_with: VCR 6.1.0

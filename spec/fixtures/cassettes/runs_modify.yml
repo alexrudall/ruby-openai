@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_7OCeXpg2TO4D1566u1fgb71P
+    uri: https://api.openai.com/v1/threads/thread_ReW48cUDDH3YnHLlclTUSQYM/runs/run_Iefoyxdnur5MAfQUqlc2ZHoe
     body:
       encoding: UTF-8
       string: '{"metadata":{"modified":true}}'
@@ -21,66 +21,51 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: Bad Request
     headers:
       Date:
-      - Thu, 09 Nov 2023 14:07:14 GMT
+      - Tue, 14 Nov 2023 21:49:30 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '156'
       Connection:
       - keep-alive
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 0c5e869d537c3b6efd745e651bc22923
+      - e040e9fe1de5639ca2d944edcec3e659
       Openai-Processing-Ms:
-      - '103'
+      - '74'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=z5hCUV3GBkAXBVHpl7HRtXkNRtIQDjhmbhwXra0tNBQ-1699538834-0-AaFbvlXP0fPRt9LBTUu3csYvh12QL5Kx5CM/30rh4LrZvGS3mHqNbaT64kq2iWQvSmFsla8DHC3ZbCPY8wZnOTA=;
-        path=/; expires=Thu, 09-Nov-23 14:37:14 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=tvE2UpaNgqMkSrgVQ8MQlPlqewEQjt2FTWG9OxgU.I4-1699998570-0-AbLCNRTmTmjkamp8tjSINSe8QnGJntDw990OZB/XxqS6u5orcUN9Tqy8/xJjwIUcSEijNFPlWx7qw4V1PDSvnUo=;
+        path=/; expires=Tue, 14-Nov-23 22:19:30 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
+      - _cfuvid=dyhafXXYgH2iw4WDEyUiEkCVNPKh1Bb1S7oH2wH622c-1699998570737-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 82369ef51f1b5497-YYZ
+      - 826276f9caa323be-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: |-
         {
-          "id": "run_7OCeXpg2TO4D1566u1fgb71P",
-          "object": "thread.run",
-          "created_at": 1699413154,
-          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          "status": "completed",
-          "started_at": 1699413154,
-          "expires_at": null,
-          "cancelled_at": null,
-          "failed_at": null,
-          "completed_at": 1699413158,
-          "last_error": null,
-          "model": "gpt-3.5-turbo-1106",
-          "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
-          "tools": [
-            {
-              "type": "code_interpreter"
-            }
-          ],
-          "file_ids": [],
-          "metadata": {
-            "modified": "True"
+          "error": {
+            "message": "Cannot update run with status 'in_progress'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
           }
         }
-  recorded_at: Thu, 09 Nov 2023 14:07:14 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:30 GMT
 recorded_with: VCR 6.1.0
