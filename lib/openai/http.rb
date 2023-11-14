@@ -1,9 +1,19 @@
 require "event_stream_parser"
 
+require_relative "http_headers"
+
 module OpenAI
   module HTTP
+    include HTTPHeaders
+
     def get(path:)
       parse_jsonl(conn.get(uri(path: path)) do |req|
+        req.headers = headers
+      end&.body)
+    end
+
+    def post(path:)
+      parse_jsonl(conn.post(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
     end
@@ -76,29 +86,6 @@ module OpenAI
       else
         File.join(@uri_base, @api_version, path)
       end
-    end
-
-    def headers
-      if azure?
-        azure_headers
-      else
-        openai_headers
-      end.merge(@extra_headers || {})
-    end
-
-    def openai_headers
-      {
-        "Content-Type" => "application/json",
-        "Authorization" => "Bearer #{@access_token}",
-        "OpenAI-Organization" => @organization_id
-      }
-    end
-
-    def azure_headers
-      {
-        "Content-Type" => "application/json",
-        "api-key" => @access_token
-      }
     end
 
     def multipart_parameters(parameters)

@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 08 Nov 2023 03:02:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - '06669549fec252c104959bb4e8537b3d'
+      Openai-Processing-Ms:
+      - '123'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 822a9324dc455413-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "msg_SfZO3m6lv7beHQBS5DazS6dn",
+          "object": "thread.message",
+          "created_at": 1699412521,
+          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": {
+                "value": "Can you help me write an API library to interact with the OpenAI API please?",
+                "annotations": []
+              }
+            }
+          ],
+          "file_ids": [],
+          "assistant_id": null,
+          "run_id": null,
+          "metadata": {}
+        }
+  recorded_at: Wed, 08 Nov 2023 03:02:01 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants/asst_SGTQseRVgIIasVsVHPDtQNis
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","name":"Test Assistant for OpenAI-Ruby"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 09 Nov 2023 14:00:37 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - 9af9c2aebaca9c0bd4b83897b980199f
+      Openai-Processing-Ms:
+      - '129'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=tyuh0n.SJMaTPV_REMUpS0SXTOdd7BV95CT8yLZbaig-1699538437-0-Ae89Od42ORrp7zr6WfLVMBL87DycUfgCTlMFyOaWD8COhJ372wxjT7tsc/QO0OdI5QG8H1txs6F6Q4NbkVmdftg=;
+        path=/; expires=Thu, 09-Nov-23 14:30:37 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8236954019c7a202-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "asst_SGTQseRVgIIasVsVHPDtQNis",
+          "object": "assistant",
+          "created_at": 1699411375,
+          "name": "Test Assistant for OpenAI-Ruby",
+          "description": null,
+          "model": "gpt-3.5-turbo",
+          "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
+          "tools": [
+            {
+              "type": "code_interpreter"
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "eval",
+                "description": "Run some Ruby code",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "The code to run"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                }
+              }
+            }
+          ],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Thu, 09 Nov 2023 14:00:37 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_7OCeXpg2TO4D1566u1fgb71P/submit_tool_outputs
+    body:
+      encoding: UTF-8
+      string: '{"tool_outputs":[{"tool_call_id":"call_MbELIQcB72cq35Yzo2MRw5qs","output":"{\"success\":
+        true}"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Wed, 08 Nov 2023 03:17:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '168'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - 50fa75df111bf3362c026ac861859d0f
+      Openai-Processing-Ms:
+      - '94'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 822aaa0e5bec43c3-EWR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Runs in status \"completed\" do not accept tool outputs.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Wed, 08 Nov 2023 03:17:40 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_4JBrrlTjuQOngTNayZ5dbsmZ/submit_tool_outputs
+    body:
+      encoding: UTF-8
+      string: '{"tool_outputs":[{"tool_call_id":"call_Vfq8wpokTGewt0ubGCkeuwo1","output":"{\"success\":
+        true, \"output\": \"Hello, World\"}"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 08 Nov 2023 03:20:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - relay-platform
+      X-Request-Id:
+      - c9a4337ac04c8825a8a32c2b9e213c9f
+      Openai-Processing-Ms:
+      - '185'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 822aad961a5b5443-YYZ
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_4JBrrlTjuQOngTNayZ5dbsmZ",
+          "object": "thread.run",
+          "created_at": 1699413542,
+          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
+          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "status": "queued",
+          "started_at": 1699413542,
+          "expires_at": 1699414142,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "last_error": null,
+          "model": "gpt-3.5-turbo-1106",
+          "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
+          "tools": [
+            {
+              "type": "code_interpreter"
+            },
+            {
+              "type": "function",
+              "function": {
+                "name": "eval",
+                "description": "Run some Ruby code",
+                "parameters": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "The code to run"
+                    }
+                  },
+                  "required": [
+                    "code"
+                  ]
+                }
+              }
+            }
+          ],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Wed, 08 Nov 2023 03:20:04 GMT
+recorded_with: VCR 6.1.0
