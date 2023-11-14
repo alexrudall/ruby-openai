@@ -2,8 +2,12 @@ RSpec.describe OpenAI::Client do
   describe "#assistants" do
     let(:assistant_id) do
       VCR.use_cassette("#{cassette} setup") do
-        OpenAI::Client.new.assistants.create(parameters: { model: "gpt-4",
-          name: "OpenAI-Ruby test assistant" })["id"]
+        OpenAI::Client.new.assistants.create(
+          parameters: {
+            model: "gpt-4",
+            name: "OpenAI-Ruby test assistant"
+          }
+        )["id"]
       end
     end
 

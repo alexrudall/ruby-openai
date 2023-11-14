@@ -1,12 +1,18 @@
 RSpec.describe OpenAI::Client do
   describe "#runs" do
     let(:thread_id) do
-      VCR.use_cassette("#{cassette} thread setup") { OpenAI::Client.new.threads.create(parameters: {})["id"] }
+      VCR.use_cassette("#{cassette} thread setup") do
+        OpenAI::Client.new.threads.create(parameters: {})["id"]
+      end
     end
     let(:assistant_id) do
       VCR.use_cassette("#{cassette} assistant setup") do
-        OpenAI::Client.new.assistants.create(parameters: { model: "gpt-4",
-          name: "OpenAI-Ruby test assistant" })["id"]
+        OpenAI::Client.new.assistants.create(
+          parameters: {
+            model: "gpt-4",
+            name: "OpenAI-Ruby test assistant"
+          }
+        )["id"]
       end
     end
     let(:run_id) do

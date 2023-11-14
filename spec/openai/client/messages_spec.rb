@@ -1,7 +1,9 @@
 RSpec.describe OpenAI::Client do
   describe "#messages" do
     let(:thread_id) do
-      VCR.use_cassette("#{cassette} thread setup") { OpenAI::Client.new.threads.create(parameters: {})["id"] }
+      VCR.use_cassette("#{cassette} thread setup") do
+        OpenAI::Client.new.threads.create(parameters: {})["id"]
+      end
     end
     let(:message_id) do
       VCR.use_cassette("#{cassette} message setup") do
