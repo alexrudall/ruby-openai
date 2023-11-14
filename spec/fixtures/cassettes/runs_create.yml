@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs
+    uri: https://api.openai.com/v1/threads/thread_anpNURKjlkdrCnzVhzOBDPkb/runs
     body:
       encoding: UTF-8
-      string: '{"assistant_id":"asst_SGTQseRVgIIasVsVHPDtQNis"}'
+      string: '{"assistant_id":"asst_kUkdYKmMKc1d14XO6pLYiNC0"}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:12:34 GMT
+      - Tue, 14 Nov 2023 21:49:29 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,46 +35,48 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 0d2256f0e09b420ef90aca11c1546fb9
+      - c162ae7a6eda7357718833ac15742ab6
       Openai-Processing-Ms:
-      - '256'
+      - '222'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=FUbX_kxbWhkPhC5o.N6VrOA95QbGqXFlt9DdcPZyBC4-1699998569-0-ARZb9UkUnjP6VnQv9FNTqY19EXg7Y6TM/B6rsEI79M+ENi0ydh/lldoMX+g9+pMo98QwaN6X0DPPWDEqUc4Lees=;
+        path=/; expires=Tue, 14-Nov-23 22:19:29 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=CUORD9cF0hOhcOI2cwvbvByTqioCFm5ko_Ep_cjgJzM-1699998569482-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822aa29619ef4345-EWR
+      - 826276f1093088a1-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "run_7OCeXpg2TO4D1566u1fgb71P",
+          "id": "run_orrfuQVCrbGCdWkHr3uGusO3",
           "object": "thread.run",
-          "created_at": 1699413154,
-          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "created_at": 1699998569,
+          "assistant_id": "asst_kUkdYKmMKc1d14XO6pLYiNC0",
+          "thread_id": "thread_anpNURKjlkdrCnzVhzOBDPkb",
           "status": "queued",
           "started_at": null,
-          "expires_at": 1699413754,
+          "expires_at": 1699999169,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
           "last_error": null,
-          "model": "gpt-3.5-turbo-1106",
-          "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
-          "tools": [
-            {
-              "type": "code_interpreter"
-            }
-          ],
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
           "file_ids": [],
           "metadata": {}
         }
-  recorded_at: Wed, 08 Nov 2023 03:12:34 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:29 GMT
 recorded_with: VCR 6.1.0

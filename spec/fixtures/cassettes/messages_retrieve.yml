@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages/msg_jzdSGmyXvRQUPbyA80obyQnn
+    uri: https://api.openai.com/v1/threads/thread_ivF8IrGOeHFq0PQNY6jzJecK/messages/msg_joVddaqRQSpNX5RIjDWSBek2
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:01:21 GMT
+      - Tue, 14 Nov 2023 21:49:22 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,29 +35,35 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 260c0c005ab5dc1bc61682273d3adda1
+      - 8f99c885800c5968e66119e9f3abc72c
       Openai-Processing-Ms:
-      - '122'
+      - '82'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=PdJWQJJ7z1o3MLG3_hpQjP7flRwV2c9qZAHU_egQFMk-1699998562-0-AcvTQRdLgadVE7zz27L21EVHiPzsjt11vNI2n0G5rzrijQgP3LstwBbGnycxMOe+FounFoJp6dSi3GNCU+m/MUY=;
+        path=/; expires=Tue, 14-Nov-23 22:19:22 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=hl1TdTyyrRKTJ5RRo4e5jxl2xaJcRY2AyMoTIijRhuw-1699998562771-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822a922ab8a639c3-YYZ
+      - 826276c7fe3176c6-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_jzdSGmyXvRQUPbyA80obyQnn",
+          "id": "msg_joVddaqRQSpNX5RIjDWSBek2",
           "object": "thread.message",
-          "created_at": 1699412071,
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "created_at": 1699998562,
+          "thread_id": "thread_ivF8IrGOeHFq0PQNY6jzJecK",
           "role": "user",
           "content": [
             {
@@ -73,5 +79,5 @@ http_interactions:
           "run_id": null,
           "metadata": {}
         }
-  recorded_at: Wed, 08 Nov 2023 03:01:21 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:22 GMT
 recorded_with: VCR 6.1.0

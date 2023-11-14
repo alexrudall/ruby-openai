@@ -2,84 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants?timeout=120
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-      OpenAI-Beta:
-      - assistants=v1
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 25 Apr 2023 11:53:15 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - 762e828e965a2afac166221fe8225cac
-      Openai-Processing-Ms:
-      - '113'
-      Access-Control-Allow-Origin:
-      - "*"
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 7bd6626c5ec03fa7-SIN
-      Alt-Svc:
-      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-          "object": "list",
-          "data": [
-              {
-                  "id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-                  "object": "assistant",
-                  "created_at": 1699383668,
-                  "name": "Math Tutor",
-                  "description": null,
-                  "model": "gpt-4-1106-preview",
-                  "instructions": "You are a personal math tutor. Write and run code to answer math questions.",
-                  "tools": [
-                      {
-                          "type": "code_interpreter"
-                      }
-                  ],
-                  "file_ids": [],
-                  "metadata": {}
-              }
-          ],
-          "first_id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-          "last_id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-          "has_more": false
-        }
-  recorded_at: Tue, 25 Apr 2023 11:53:15 GMT
-- request:
-    method: get
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: US-ASCII
@@ -103,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 14 Aug 2023 15:03:18 GMT
+      - Tue, 14 Nov 2023 21:48:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -112,47 +34,278 @@ http_interactions:
       - keep-alive
       Openai-Version:
       - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5cefb43abc6242bd2645ee5c42cf3008
+      - 5ed0b0bb5d73af321936634689058c1f
       Openai-Processing-Ms:
-      - '114'
-      Access-Control-Allow-Origin:
-      - "*"
+      - '81'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=z_bSgp30mGZg7LOzRA8pPjVNdg06R.I5LW_RMHk9W8c-1699998503-0-AWWaihg+2MH80fGGtlTOHiSIU2kqGvgbzbUDJujSHu+uAzWU8+ThwrBMhszJlSoDfwLGdsh/Ew0zgN8C3LTdxRM=;
+        path=/; expires=Tue, 14-Nov-23 22:18:23 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=epJXvQ0Ky9FlLae9Cq6KXtIwlYNu87l2PkOotk8TSOQ-1699998503340-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 7f6a156feeb1b2f1-MAN
+      - 8262755448fc24ec-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |
+      string: |-
         {
           "object": "list",
           "data": [
-              {
-                  "id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-                  "object": "assistant",
-                  "created_at": 1699383668,
-                  "name": "Math Tutor",
-                  "description": null,
-                  "model": "gpt-4-1106-preview",
-                  "instructions": "You are a personal math tutor. Write and run code to answer math questions.",
-                  "tools": [
-                      {
-                          "type": "code_interpreter"
-                      }
-                  ],
-                  "file_ids": [],
-                  "metadata": {}
-              }
+            {
+              "id": "asst_CU6YfyRh4zaz7SiWMEDWdubK",
+              "object": "assistant",
+              "created_at": 1699998502,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_JbYmnHc3DnqSk2CQPLA0C4cv",
+              "object": "assistant",
+              "created_at": 1699998464,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_jbLwHzxYuU7XdnXExZfQtTEv",
+              "object": "assistant",
+              "created_at": 1699998463,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_oS3f9GwbWKdVVZ1s2fFIApO6",
+              "object": "assistant",
+              "created_at": 1699998462,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_p5pbnNWMkZ0o30cMWSbih3yG",
+              "object": "assistant",
+              "created_at": 1699998461,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_hw8xws16ngzj9f9xET4CCaG9",
+              "object": "assistant",
+              "created_at": 1699998459,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_gziPTWWFbTYxdjuaRVbgU855",
+              "object": "assistant",
+              "created_at": 1699998458,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_yyDVjsFcuEBSUMyDi2Jl2dxE",
+              "object": "assistant",
+              "created_at": 1699998422,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_hueO9Mxsf6bQMOAwZHiDc5lf",
+              "object": "assistant",
+              "created_at": 1699998421,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_x0guxWuuIQenpD3qO77qDy7c",
+              "object": "assistant",
+              "created_at": 1699998419,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_lhJsfIMxzkO6yKynHfaClUpN",
+              "object": "assistant",
+              "created_at": 1699998418,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_nvXsZ32KokkUfwXoCWqLpUam",
+              "object": "assistant",
+              "created_at": 1699998417,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_WECVyGZvQYk4SPGhj8DJJSCn",
+              "object": "assistant",
+              "created_at": 1699998416,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_TPJyCzIDgHHnSv89KRayHAvJ",
+              "object": "assistant",
+              "created_at": 1699998414,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_orKjb5rxDSXUxHYQf1wKiArR",
+              "object": "assistant",
+              "created_at": 1699998410,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_RcWMBTPdqnV9tQEUSljzmIPn",
+              "object": "assistant",
+              "created_at": 1699998360,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_yG1mFjHKzzcsrz0uNF65vuzS",
+              "object": "assistant",
+              "created_at": 1699998245,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_qcnnHBl4Dh4sbqJf4hrUqSQd",
+              "object": "assistant",
+              "created_at": 1699997470,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_2snmTBxD8K3ZgQ4NXS3RrZWJ",
+              "object": "assistant",
+              "created_at": 1699997469,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            },
+            {
+              "id": "asst_GENvuSTeXfbjtgrcIuD8NVNU",
+              "object": "assistant",
+              "created_at": 1699997467,
+              "name": "OpenAI-Ruby test assistant",
+              "description": null,
+              "model": "gpt-4",
+              "instructions": null,
+              "tools": [],
+              "file_ids": [],
+              "metadata": {}
+            }
           ],
-          "first_id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-          "last_id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
-          "has_more": false
+          "first_id": "asst_CU6YfyRh4zaz7SiWMEDWdubK",
+          "last_id": "asst_GENvuSTeXfbjtgrcIuD8NVNU",
+          "has_more": true
         }
-  recorded_at: Mon, 14 Aug 2023 15:03:18 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:23 GMT
+recorded_with: VCR 6.1.0

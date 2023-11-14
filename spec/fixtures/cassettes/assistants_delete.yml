@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: delete
-    uri: https://api.openai.com/v1/assistants/asst_euYzVdG6KgykipVXq8zhKHwy
+    uri: https://api.openai.com/v1/assistants/asst_xifTEBkBBQPHISSrAJCMylTW
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 02:44:30 GMT
+      - Tue, 14 Nov 2023 21:48:25 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,28 +35,34 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 5c7da963998c1cad21835a9e6d81997e
+      - 792e3236832df01a20a47f1fffc83bac
       Openai-Processing-Ms:
-      - '112'
+      - '96'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=4vC0D_UlotkJZYYgxAgBbpmHQo_OmzniaUL75aRlaxg-1699998505-0-AZzGyStW0ye8rwbnEoIlRbPj9ha5Xr0+UJUiO8B1qBW3nfnJRS6AReh/ilYvZreq88xbZ7RiLBXTP4t27eaeQz4=;
+        path=/; expires=Tue, 14-Nov-23 22:18:25 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=T28SswsFv3UplQIxnoB..LEs7oyv7_NEWjqSTqMCxd4-1699998505547-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822a7977eb9236c5-YYZ
+      - 826275620f48dd6f-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_euYzVdG6KgykipVXq8zhKHwy",
+          "id": "asst_xifTEBkBBQPHISSrAJCMylTW",
           "object": "assistant.deleted",
           "deleted": true
         }
-  recorded_at: Wed, 08 Nov 2023 02:44:30 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:25 GMT
 recorded_with: VCR 6.1.0

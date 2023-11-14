@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_81oRXfTYfWbikQAnfM4NayFO/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_4xUb13UOceg9b7L9C5pviAf9"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Nov 2023 21:49:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - d2d3cd86ced4ac272cadc6bf2ca63e0d
+      Openai-Processing-Ms:
+      - '210'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=J_bE4KpLmatFqEtmGfYP17hhz8jJQzd7r0nQL0JYXbM-1699998566-0-Aag8sOHZEFmImfWWDvn6oXxQpVFk6dLsEtLWohTnJFPEiq1v0B37ms3XDNyOU3yL4mAPQm0Dx1+q9FiLpSqJJQs=;
+        path=/; expires=Tue, 14-Nov-23 22:19:26 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=uL.jDWA_nhlfR7Lijlzhhzt_FFb_nTjuolCjWwi6XI4-1699998566924-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 826276e11b216527-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_1S9ZxYPpPsPn6DbsfU0rMRVq",
+          "object": "thread.run",
+          "created_at": 1699998566,
+          "assistant_id": "asst_4xUb13UOceg9b7L9C5pviAf9",
+          "thread_id": "thread_81oRXfTYfWbikQAnfM4NayFO",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1699999166,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "last_error": null,
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Tue, 14 Nov 2023 21:49:26 GMT
+recorded_with: VCR 6.1.0

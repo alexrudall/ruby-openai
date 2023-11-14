@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/messages
+    uri: https://api.openai.com/v1/threads/thread_hIQsehJB94eTRvrhwKb6FZdK/messages
     body:
       encoding: UTF-8
       string: '{"role":"user","content":"Can you help me write an API library to interact
@@ -26,7 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:02:01 GMT
+      - Tue, 14 Nov 2023 21:49:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -36,29 +36,35 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - '06669549fec252c104959bb4e8537b3d'
+      - b80b885798dc7b22be58360a302cfb12
       Openai-Processing-Ms:
-      - '123'
+      - '93'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=K1bzQ.JvpW1LjeAewPxSVbwUPGvzZSDWhvAdhi1d3Ug-1699998563-0-AW3lNtu+1822/eQRd5x3KpVbzFL81O1rIO/P+pwm0IeAl/u2Tqt/Dedqe8lX4nKxMoWzYqW3ROxhwlJ2GFqT34Q=;
+        path=/; expires=Tue, 14-Nov-23 22:19:23 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=LyFH7mp.eyJAPT3vl5NUdN7rUoJ2kt9HbgXrQo8koGI-1699998563342-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822a9324dc455413-YYZ
+      - 826276cb692cdc93-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "msg_SfZO3m6lv7beHQBS5DazS6dn",
+          "id": "msg_Jmqr30m4cHplkMoltCilFOxj",
           "object": "thread.message",
-          "created_at": 1699412521,
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          "created_at": 1699998563,
+          "thread_id": "thread_hIQsehJB94eTRvrhwKb6FZdK",
           "role": "user",
           "content": [
             {
@@ -74,5 +80,5 @@ http_interactions:
           "run_id": null,
           "metadata": {}
         }
-  recorded_at: Wed, 08 Nov 2023 03:02:01 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:23 GMT
 recorded_with: VCR 6.1.0

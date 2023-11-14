@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs
+    uri: https://api.openai.com/v1/threads/thread_81oRXfTYfWbikQAnfM4NayFO/runs
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 03:14:41 GMT
+      - Tue, 14 Nov 2023 21:49:27 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,19 +35,25 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 8be95251f9508a5ff6d3f4b1cb00bdb9
+      - 1da2bae31dbecfcd0787aa66fcc4b0b7
       Openai-Processing-Ms:
-      - '210'
+      - '78'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=AwV63pDo1YM4.zmrz8BmkdJsqVy3Wnpe0_bg8lYST0I-1699998567-0-Acsw74BgpmLBIcLNkarFCQNBXced/qlPJjh7zhYZEIla1giCZKtwKeuXlzvVuh9YL1zDDONWCKciun8xuhWupbQ=;
+        path=/; expires=Tue, 14-Nov-23 22:19:27 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=qwyTLLPCgbMvELwptOcr9cqytXkuR7OEagzX5MYWlgc-1699998567237-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822aa5adc8e8440c-EWR
+      - 826276e3e95d071a-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -57,105 +63,17 @@ http_interactions:
           "object": "list",
           "data": [
             {
-              "id": "run_7OCeXpg2TO4D1566u1fgb71P",
+              "id": "run_1S9ZxYPpPsPn6DbsfU0rMRVq",
               "object": "thread.run",
-              "created_at": 1699413154,
-              "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-              "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-              "status": "completed",
-              "started_at": 1699413154,
-              "expires_at": null,
+              "created_at": 1699998566,
+              "assistant_id": "asst_4xUb13UOceg9b7L9C5pviAf9",
+              "thread_id": "thread_81oRXfTYfWbikQAnfM4NayFO",
+              "status": "in_progress",
+              "started_at": 1699998566,
+              "expires_at": 1699999166,
               "cancelled_at": null,
               "failed_at": null,
-              "completed_at": 1699413158,
-              "last_error": null,
-              "model": "gpt-3.5-turbo-1106",
-              "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
-              "tools": [
-                {
-                  "type": "code_interpreter"
-                }
-              ],
-              "file_ids": [],
-              "metadata": {}
-            },
-            {
-              "id": "run_y9zrgUEni4lDxpcWq6g6yXsO",
-              "object": "thread.run",
-              "created_at": 1699412317,
-              "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-              "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-              "status": "expired",
-              "started_at": 1699412317,
-              "expires_at": null,
-              "cancelled_at": null,
-              "failed_at": null,
-              "completed_at": 1699412346,
-              "last_error": null,
-              "model": "gpt-4",
-              "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
-              "tools": [
-                {
-                  "type": "code_interpreter"
-                }
-              ],
-              "file_ids": [],
-              "metadata": {}
-            },
-            {
-              "id": "run_Q1GOgSOHEg9qUUnZPVyo4BCC",
-              "object": "thread.run",
-              "created_at": 1699412241,
-              "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-              "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-              "status": "completed",
-              "started_at": 1699412242,
-              "expires_at": null,
-              "cancelled_at": null,
-              "failed_at": null,
-              "completed_at": 1699412280,
-              "last_error": null,
-              "model": "gpt-4",
-              "instructions": "You are a specialized Ruby coding assistant. Any code you provide must be in Ruby.",
-              "tools": [
-                {
-                  "type": "code_interpreter"
-                }
-              ],
-              "file_ids": [],
-              "metadata": {}
-            },
-            {
-              "id": "run_SjzKDQmmIn7ogpGzOI4v5df7",
-              "object": "thread.run",
-              "created_at": 1699412128,
-              "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-              "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-              "status": "completed",
-              "started_at": 1699412129,
-              "expires_at": null,
-              "cancelled_at": null,
-              "failed_at": null,
-              "completed_at": 1699412167,
-              "last_error": null,
-              "model": "gpt-4",
-              "instructions": null,
-              "tools": [],
-              "file_ids": [],
-              "metadata": {}
-            },
-            {
-              "id": "run_kINaLRxQg4uZItMP0ExgGwAl",
-              "object": "thread.run",
-              "created_at": 1699412071,
-              "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-              "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-              "status": "completed",
-              "started_at": 1699412072,
-              "expires_at": null,
-              "cancelled_at": null,
-              "failed_at": null,
-              "completed_at": 1699412111,
+              "completed_at": null,
               "last_error": null,
               "model": "gpt-4",
               "instructions": null,
@@ -164,9 +82,9 @@ http_interactions:
               "metadata": {}
             }
           ],
-          "first_id": "run_7OCeXpg2TO4D1566u1fgb71P",
-          "last_id": "run_kINaLRxQg4uZItMP0ExgGwAl",
+          "first_id": "run_1S9ZxYPpPsPn6DbsfU0rMRVq",
+          "last_id": "run_1S9ZxYPpPsPn6DbsfU0rMRVq",
           "has_more": false
         }
-  recorded_at: Wed, 08 Nov 2023 03:14:41 GMT
+  recorded_at: Tue, 14 Nov 2023 21:49:27 GMT
 recorded_with: VCR 6.1.0

@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 31 Oct 2023 17:47:14 GMT
+      - Tue, 14 Nov 2023 21:48:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1062'
+      - '1662'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -57,22 +57,28 @@ http_interactions:
       X-Ratelimit-Reset-Tokens:
       - 12ms
       X-Request-Id:
-      - 3db7488e92829971b33ec762fdebead7
+      - e3520117a6c185aa497b476a931903cf
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=qQOyENJW_eMpzuqZJ57HPTI7sZrdLVjmgF_crkqlLPw-1699998510-0-AfIHAG3xZQaskSUQ1I/rQ7IqkXtEoFrmAySx9Ph4jKw5OW9bH6vzkHWZcIqWJQ51RdW9AhwehFKiTGYKf/wTvEA=;
+        path=/; expires=Tue, 14-Nov-23 22:18:30 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=GPagzY9uDe90wGR6AjsRioJ5kPjvnNdqdquXvCVbk.M-1699998510459-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 81edb8cdeda3771d-LHR
+      - 826275763b3f6383-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-8Fn7ZDNErZdV2NfMKEwySe7daxrgR",
+          "id": "chatcmpl-8KvYiZvO6tf1mfgE7oMEpjzcf1XCu",
           "object": "chat.completion",
-          "created": 1698774433,
+          "created": 1699998508,
           "model": "gpt-3.5-turbo-0613",
           "choices": [
             {
@@ -90,5 +96,5 @@ http_interactions:
             "total_tokens": 18
           }
         }
-  recorded_at: Tue, 31 Oct 2023 17:47:14 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:30 GMT
 recorded_with: VCR 6.1.0

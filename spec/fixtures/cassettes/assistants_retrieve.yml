@@ -2,69 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/assistants/text-ada-001
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v1
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Wed, 08 Nov 2023 02:07:27 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '240'
-      Connection:
-      - keep-alive
-      Www-Authenticate:
-      - Basic realm="OpenAI API"
-      Openai-Version:
-      - '2020-10-01'
-      X-Request-Id:
-      - 2ccd5830b8fc3ac90086c2340b9b14f2
-      Openai-Processing-Ms:
-      - '14'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 822a43356b79398d-YYZ
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: UTF-8
-      string: |-
-        {
-          "error": {
-            "message": "Incorrect API key provided: <OPENAI_ACCESS_TOKEN>. You can find your API key at https://platform.openai.com/account/api-keys.",
-            "type": "invalid_request_error",
-            "param": null,
-            "code": "invalid_api_key"
-          }
-        }
-  recorded_at: Wed, 08 Nov 2023 02:07:27 GMT
-- request:
-    method: get
-    uri: https://api.openai.com/v1/assistants/asst_KfrvKUIYCRCzmwuGe9uuHBHJ
+    uri: https://api.openai.com/v1/assistants/asst_ARpisliBZDKcGaLhQzS3sqtF
     body:
       encoding: US-ASCII
       string: ''
@@ -87,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 02:19:38 GMT
+      - Tue, 14 Nov 2023 21:48:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -97,39 +35,41 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 0cbefd9dc1730273f9e68427d298a0bc
+      - 31c772ddd80389f096007ebbc6e79611
       Openai-Processing-Ms:
-      - '76'
+      - '73'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ML0lrI9eMvhugwRPpUcEQThRPH6SBlFLqeCrh_M1k7E-1699998503-0-AdQin3TNnc0ajird3P5vO2jVZNJT8i6n2LuKcez3WfStOTb0/qgn4QKu2mVXF8UsIYf9OALBPfFX8QZFoRzlRk8=;
+        path=/; expires=Tue, 14-Nov-23 22:18:23 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=2sTjH9HmCEbLn6szfFzvit77P0ezfDHT4jUw73wl3mk-1699998503952-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822a5509bc3d223a-ORD
+      - 826275586f6e6340-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_KfrvKUIYCRCzmwuGe9uuHBHJ",
+          "id": "asst_ARpisliBZDKcGaLhQzS3sqtF",
           "object": "assistant",
-          "created_at": 1699383668,
-          "name": "Math Tutor",
+          "created_at": 1699998503,
+          "name": "OpenAI-Ruby test assistant",
           "description": null,
-          "model": "gpt-4-1106-preview",
-          "instructions": "You are a personal math tutor. Write and run code to answer math questions.",
-          "tools": [
-            {
-              "type": "code_interpreter"
-            }
-          ],
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
           "file_ids": [],
           "metadata": {}
         }
-  recorded_at: Wed, 08 Nov 2023 02:19:37 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:23 GMT
 recorded_with: VCR 6.1.0

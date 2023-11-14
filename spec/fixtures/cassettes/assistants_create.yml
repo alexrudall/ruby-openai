@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 08 Nov 2023 02:42:55 GMT
+      - Tue, 14 Nov 2023 21:48:24 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,28 +35,34 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 384b01e1cea165c229899931de8667ae
+      - 5d9aa16a3fb34d723334acbfd79213a1
       Openai-Processing-Ms:
-      - '114'
+      - '71'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=PKl3BRmJJzzKkyEVadj6yXAgkpKgnx5M_YBBm5akx_4-1699998504-0-ATP2NS/bR8a8ox4dJ/hbd9v0J9iy8qLAkx816fogRSooXkOU2rxb75K2kf/mKC8GNwIIQLY4YVKt/u66wwrwmxk=;
+        path=/; expires=Tue, 14-Nov-23 22:18:24 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XZjt2_p8meJi.6Of2Nb14CB_7xwbCfVvR_M.ZYTxKZE-1699998504307-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 822a77258f0d39dd-YYZ
+      - 8262755aae1463d6-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_SGTQseRVgIIasVsVHPDtQNis",
+          "id": "asst_xYJpbQfUynDfN9EHZHCERtMi",
           "object": "assistant",
-          "created_at": 1699411375,
+          "created_at": 1699998504,
           "name": "OpenAI-Ruby test assistant",
           "description": null,
           "model": "gpt-4",
@@ -65,5 +71,5 @@ http_interactions:
           "file_ids": [],
           "metadata": {}
         }
-  recorded_at: Wed, 08 Nov 2023 02:42:54 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:24 GMT
 recorded_with: VCR 6.1.0

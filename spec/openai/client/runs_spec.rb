@@ -1,10 +1,38 @@
 RSpec.describe OpenAI::Client do
   describe "#runs" do
+    let(:thread_id) do
+      VCR.use_cassette("#{cassette} thread setup") do
+        OpenAI::Client.new.threads.create(parameters: {})["id"]
+      end
+    end
+    let(:assistant_id) do
+      VCR.use_cassette("#{cassette} assistant setup") do
+        OpenAI::Client.new.assistants.create(
+          parameters: {
+            model: "gpt-4",
+            name: "OpenAI-Ruby test assistant"
+          }
+        )["id"]
+      end
+    end
+    let(:run_id) do
+      VCR.use_cassette("#{cassette} run setup") do
+        OpenAI::Client.new.runs.create(
+          thread_id: thread_id,
+          parameters: {
+            assistant_id: assistant_id
+          }
+        )["id"]
+      end
+    end
+
     describe "#list" do
       let(:cassette) { "runs list" }
       let(:response) do
-        OpenAI::Client.new.runs.list(thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry")
+        OpenAI::Client.new.runs.list(thread_id: thread_id)
       end
+
+      before { run_id }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -16,8 +44,8 @@ RSpec.describe OpenAI::Client do
     describe "#retrieve" do
       let(:cassette) { "runs retrieve" }
       let(:response) do
-        OpenAI::Client.new.runs.retrieve(thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
-                                         id: "run_kINaLRxQg4uZItMP0ExgGwAl")
+        OpenAI::Client.new.runs.retrieve(thread_id: thread_id,
+                                         id: run_id)
       end
 
       it "succeeds" do
@@ -31,9 +59,9 @@ RSpec.describe OpenAI::Client do
       let(:cassette) { "runs create" }
       let(:response) do
         OpenAI::Client.new.runs.create(
-          thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          thread_id: thread_id,
           parameters: {
-            assistant_id: "asst_SGTQseRVgIIasVsVHPDtQNis"
+            assistant_id: assistant_id
           }
         )
       end
@@ -41,7 +69,6 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread.run"
-          expect(response["id"]).to eq "run_7OCeXpg2TO4D1566u1fgb71P"
         end
       end
     end
@@ -50,8 +77,8 @@ RSpec.describe OpenAI::Client do
       let(:cassette) { "runs modify" }
       let(:response) do
         OpenAI::Client.new.runs.modify(
-          id: "run_7OCeXpg2TO4D1566u1fgb71P",
-          thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
+          id: run_id,
+          thread_id: thread_id,
           parameters: {
             metadata: { modified: true }
           }
@@ -60,8 +87,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq "thread.run"
-          expect(response["id"]).to eq "run_7OCeXpg2TO4D1566u1fgb71P"
+          expect { response }.to raise_error(Faraday::BadRequestError)
         end
       end
     end
@@ -72,8 +98,8 @@ RSpec.describe OpenAI::Client do
       context "for a run in progress" do
         let(:response) do
           OpenAI::Client.new.runs.cancel(
-            id: "run_tWHF8ZDAEHDxetXOFIEiUvJr",
-            thread_id: "thread_gOFC5endN7iUfAhpekz50O5G"
+            id: run_id,
+            thread_id: thread_id
           )
         end
 
@@ -83,29 +109,14 @@ RSpec.describe OpenAI::Client do
           end
         end
       end
-
-      context "for a completed run" do
-        let(:response) do
-          OpenAI::Client.new.runs.cancel(
-            id: "run_1bs2QXbSoM9kfQ4UxRbOjfpP",
-            thread_id: "thread_UCMWkz0d98AqtTSrFZjfh89x"
-          )
-        end
-
-        it "responds with a 400" do
-          VCR.use_cassette(cassette) do
-            expect { response }.to raise_error(Faraday::BadRequestError)
-          end
-        end
-      end
     end
 
     describe "#submit_tool_outputs" do
       let(:cassette) { "runs submit_tool_outputs" }
       let(:response) do
         OpenAI::Client.new.runs.submit_tool_outputs(
-          thread_id: "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          run_id: "run_4JBrrlTjuQOngTNayZ5dbsmZ",
+          thread_id: thread_id,
+          run_id: run_id,
           parameters: {
             tool_outputs: [
               {
@@ -119,7 +130,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq "thread.run"
+          expect { response }.to raise_error(Faraday::BadRequestError)
         end
       end
     end

@@ -23,7 +23,7 @@ http_interactions:
       message: Not Found
     headers:
       Date:
-      - Tue, 31 Oct 2023 17:17:20 GMT
+      - Tue, 14 Nov 2023 21:48:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,17 +35,23 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 507dd822aa111608fae64f3466f87b0a
+      - acee5390e7c6598ae20d10f8efef679f
       Openai-Processing-Ms:
-      - '7'
+      - '63'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=XOoyLpJN2wpWJwzIuvVuZRZi_2SYhhTDxw8f8WroxHo-1699998537-0-AR/AYW0F4YK/ut236CIsq7hgUR7/NCRabpknFQxasdcjx7u/pfBfziVrjRpsgW9Gy8F3yGeYA3rMAWZiO5eRc9E=;
+        path=/; expires=Tue, 14-Nov-23 22:18:57 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=TNlk3rpEeFUa6Zhlw3UyjbWrh0DoHm9wQsmSKWxw7wA-1699998537888-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 81ed8d07df2e7771-LHR
+      - 8262762c893f6401-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -59,5 +65,5 @@ http_interactions:
             "code": "fine_tune_not_found"
           }
         }
-  recorded_at: Tue, 31 Oct 2023 17:17:20 GMT
+  recorded_at: Tue, 14 Nov 2023 21:48:57 GMT
 recorded_with: VCR 6.1.0
