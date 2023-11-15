@@ -460,6 +460,22 @@ puts response["text"]
 # => "Transcription of the text"
 ```
 
+#### Speech
+
+The speech API takes as input the text and a voice and returns the content of an audio file you can listen to.
+
+```ruby
+response = client.audio.speech(
+  parameters: {
+    model: "tts-1",
+    input: "This is a speech test!",
+    voice: "alloy"
+  }
+)
+File.binwrite('demo.mp3', response)
+# => mp3 file that plays: "This is a speech test!"
+```
+
 ### Errors
 
 HTTP errors can be caught like this:
