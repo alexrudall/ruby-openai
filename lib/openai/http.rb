@@ -78,8 +78,8 @@ module OpenAI
         f.response :json
       end
 
-      if @faraday_config
-        @faraday_config.call(connection)
+      if @faraday_middleware
+        @faraday_middleware.call(connection)
       end
 
       connection

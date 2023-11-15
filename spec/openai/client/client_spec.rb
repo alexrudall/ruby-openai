@@ -129,7 +129,7 @@ RSpec.describe OpenAI::Client do
 
     it "sets the logger" do
       connection = Faraday.new
-      client.faraday_config.call(connection)
+      client.faraday_middleware.call(connection)
       expect(connection.builder.handlers).to include Faraday::Response::Logger
     end
   end
