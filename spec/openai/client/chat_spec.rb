@@ -4,14 +4,20 @@ RSpec.describe OpenAI::Client do
       let(:messages) { [{ role: "user", content: "Hello!" }] }
       let(:stream) { false }
       let(:response) do
-        OpenAI::Client.new.chat(
+        client = OpenAI::Client.new do |client|
+          client.response :logger, ::Logger.new(STDOUT), bodies: true
+        end
+
+        client.chat(
           parameters: {
             model: model,
             messages: messages,
+            functions: functions,
             stream: stream
           }
         )
       end
+      let(:functions) { [] }
       let(:content) { response.dig("choices", 0, "message", "content") }
       let(:cassette) { "#{model} #{'streamed' if stream} chat".downcase }
 
@@ -21,6 +27,47 @@ RSpec.describe OpenAI::Client do
         it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(content.split.empty?).to eq(false)
+          end
+        end
+
+        context "with an invalid function call" do
+          let(:cassette) { "#{model} function call chat".downcase }
+          let(:messages) do
+            [
+              {
+                "role"=>"function",
+                # "name" => "function",
+                "content"=>"function"
+              }
+            ]
+          end
+          let(:functions) do
+            [
+              {
+                "name"=>"function",
+                "description"=>"function",
+                "parameters"=>
+                  {
+                    "type"=>"object",
+                    "properties"=>{
+                      "user"=>{
+                        "type"=>"string",
+                        "description"=>"the full name of the user"
+                      }
+                    },
+                  }
+              },
+            ]
+          end
+
+          it "raises an error containing the reason" do
+            VCR.use_cassette(cassette) do
+              begin
+                response
+              rescue Faraday::Error => e
+                expect(e.response.dig(:body, "error", "message")).to eq("Missing parameter 'name': messages with role 'function' must have a 'name'.")
+              end
+            end
           end
         end
 
