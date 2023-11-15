@@ -11,8 +11,7 @@ module OpenAI
       request_timeout
       extra_headers
     ].freeze
-    attr_reader *CONFIG_KEYS
-    attr_reader :faraday_middleware
+    attr_reader *CONFIG_KEYS, :faraday_middleware
 
     def initialize(config = {}, &faraday_middleware)
       CONFIG_KEYS.each do |key|

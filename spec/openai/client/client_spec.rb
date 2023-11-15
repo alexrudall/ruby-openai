@@ -123,7 +123,7 @@ RSpec.describe OpenAI::Client do
   context "with a block" do
     let(:client) do
       OpenAI::Client.new do |client|
-        client.response :logger, ::Logger.new(STDOUT), bodies: true
+        client.response :logger, Logger.new($stdout), bodies: true
       end
     end
 

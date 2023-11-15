@@ -78,9 +78,7 @@ module OpenAI
         f.response :json
       end
 
-      if @faraday_middleware
-        @faraday_middleware.call(connection)
-      end
+      @faraday_middleware&.call(connection)
 
       connection
     end

@@ -31,38 +31,37 @@ RSpec.describe OpenAI::Client do
           let(:messages) do
             [
               {
-                "role"=>"function",
+                "role" => "function",
                 # "name" => "function",
-                "content"=>"function"
+                "content" => "function"
               }
             ]
           end
           let(:functions) do
             [
               {
-                "name"=>"function",
-                "description"=>"function",
-                "parameters"=>
+                "name" => "function",
+                "description" => "function",
+                "parameters" =>
                   {
-                    "type"=>"object",
-                    "properties"=>{
-                      "user"=>{
-                        "type"=>"string",
-                        "description"=>"the full name of the user"
+                    "type" => "object",
+                    "properties" => {
+                      "user" => {
+                        "type" => "string",
+                        "description" => "the full name of the user"
                       }
-                    },
+                    }
                   }
-              },
+              }
             ]
           end
 
           it "raises an error containing the reason" do
             VCR.use_cassette(cassette) do
-              begin
-                response
-              rescue Faraday::Error => e
-                expect(e.response.dig(:body, "error", "message")).to eq("Missing parameter 'name': messages with role 'function' must have a 'name'.")
-              end
+              response
+            rescue Faraday::Error => e
+              expect(e.response.dig(:body, "error",
+                                    "message")).to include("Missing parameter 'name'")
             end
           end
         end

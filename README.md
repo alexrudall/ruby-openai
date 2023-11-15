@@ -114,7 +114,7 @@ You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middlew
 
 ```ruby
   client = OpenAI::Client.new do |f|
-    f.response :logger, ::Logger.new(STDOUT), bodies: true
+    f.response :logger, Logger.new($stdout), bodies: true
   end
 ```
 
