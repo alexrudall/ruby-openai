@@ -4,11 +4,7 @@ RSpec.describe OpenAI::Client do
       let(:messages) { [{ role: "user", content: "Hello!" }] }
       let(:stream) { false }
       let(:response) do
-        client = OpenAI::Client.new do |client|
-          client.response :logger, ::Logger.new(STDOUT), bodies: true
-        end
-
-        client.chat(
+        OpenAI::Client.new.chat(
           parameters: {
             model: model,
             messages: messages,

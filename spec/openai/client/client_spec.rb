@@ -119,4 +119,18 @@ RSpec.describe OpenAI::Client do
       expect(client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v1"
     end
   end
+
+  context "with a block" do
+    let(:client) do
+      OpenAI::Client.new do |client|
+        client.response :logger, ::Logger.new(STDOUT), bodies: true
+      end
+    end
+
+    it "sets the logger" do
+      connection = Faraday.new
+      client.faraday_config.call(connection)
+      expect(connection.builder.handlers).to include Faraday::Response::Logger
+    end
+  end
 end

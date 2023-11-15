@@ -12,13 +12,15 @@ module OpenAI
       extra_headers
     ].freeze
     attr_reader *CONFIG_KEYS
+    attr_reader :faraday_config
 
-    def initialize(config = {})
+    def initialize(config = {}, &faraday_config)
       CONFIG_KEYS.each do |key|
         # Set instance variables like api_type & access_token. Fall back to global config
         # if not present.
         instance_variable_set("@#{key}", config[key] || OpenAI.configuration.send(key))
       end
+      @faraday_config = faraday_config
     end
 
     def chat(parameters: {})

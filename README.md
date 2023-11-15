@@ -108,6 +108,16 @@ OpenAI.configure do |config|
 end
 ```
 
+#### Verbose Logging
+
+You can pass Faraday connection options to the client in a block, eg. to enable verbose logging:
+
+```ruby
+  client = OpenAI::Client.new do |client|
+    client.response :logger, ::Logger.new(STDOUT), bodies: true
+  end
+```
+
 #### Azure
 
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
