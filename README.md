@@ -110,11 +110,11 @@ end
 
 #### Verbose Logging
 
-You can pass Faraday connection options to the client in a block, eg. to enable verbose logging:
+You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging:
 
 ```ruby
-  client = OpenAI::Client.new do |client|
-    client.response :logger, ::Logger.new(STDOUT), bodies: true
+  client = OpenAI::Client.new do |f|
+    f.response :logger, ::Logger.new(STDOUT), bodies: true
   end
 ```
 
