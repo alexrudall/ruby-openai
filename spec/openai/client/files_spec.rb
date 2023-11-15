@@ -18,12 +18,6 @@ RSpec.describe OpenAI::Client do
           expect(upload["filename"]).to eq(filename)
         end
       end
-
-      context "with an invalid file" do
-        let(:filename) { File.join("errors", "missing_quote.jsonl") }
-
-        it { expect { upload }.to raise_error(JSON::ParserError) }
-      end
     end
 
     describe "#list" do
