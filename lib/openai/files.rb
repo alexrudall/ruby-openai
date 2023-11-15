@@ -9,8 +9,6 @@ module OpenAI
     end
 
     def upload(parameters: {})
-      validate(file: parameters[:file])
-
       @client.multipart_post(
         path: "/files",
         parameters: parameters.merge(file: File.open(parameters[:file]))
@@ -27,16 +25,6 @@ module OpenAI
 
     def delete(id:)
       @client.delete(path: "/files/#{id}")
-    end
-
-    private
-
-    def validate(file:)
-      File.open(file).each_line.with_index do |line, index|
-        JSON.parse(line)
-      rescue JSON::ParserError => e
-        raise JSON::ParserError, "#{e.message} - found on line #{index + 1} of #{file}"
-      end
     end
   end
 end
