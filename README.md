@@ -245,7 +245,7 @@ You can stream it as well!
   response = client.chat(
     parameters: {
       model: "gpt-3.5-turbo-1106",
-      messages: [{ role: "user", content: "Can I have JSON Please?"}],
+      messages: [{ role: "user", content: "Can I have some JSON please?"}],
         response_format: { type: "json_object" },
         stream: proc do |chunk, _bytesize|
           print chunk.dig("choices", 0, "delta", "content")
