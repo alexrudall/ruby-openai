@@ -217,6 +217,20 @@ puts response.dig("choices", 0, "message", "content")
 # => "The image depicts a serene natural landscape featuring a long wooden boardwalk extending straight ahead"
 ```
 
+#### JSON Mode
+
+You can set the response_format to ask for responses in JSON:
+
+```ruby
+  response = client.chat(
+    parameters: {
+        model: "gpt-3.5-turbo",
+        response_format: { type: "json_object" },
+        messages: [{ role: "user", content: "Hello!"}],
+        temperature: 0.7,
+    })
+```
+
 ### Functions
 
 You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location:
