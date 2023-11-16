@@ -219,16 +219,24 @@ puts response.dig("choices", 0, "message", "content")
 
 #### JSON Mode
 
-You can set the response_format to ask for responses in JSON:
+You can set the response_format to ask for responses in JSON (at least for `gpt-3.5-turbo-1106`):
 
 ```ruby
   response = client.chat(
     parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-3.5-turbo-1106",
         response_format: { type: "json_object" },
-        messages: [{ role: "user", content: "Hello!"}],
+        messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
         temperature: 0.7,
     })
+    puts response.dig("choices", 0, "message", "content")
+    {
+      "name": "John",
+      "age": 30,
+      "city": "New York",
+      "hobbies": ["reading", "traveling", "hiking"],
+      "isStudent": false
+    }
 ```
 
 ### Functions
