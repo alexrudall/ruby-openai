@@ -239,6 +239,35 @@ You can set the response_format to ask for responses in JSON (at least for `gpt-
     }
 ```
 
+You can stream it as well!
+
+```ruby
+  response = client.chat(
+    parameters: {
+      model: "gpt-3.5-turbo-1106",
+      messages: [{ role: "user", content: "Can I have some JSON please?"}],
+        response_format: { type: "json_object" },
+        stream: proc do |chunk, _bytesize|
+          print chunk.dig("choices", 0, "delta", "content")
+        end
+  })
+  {
+    "message": "Sure, please let me know what specific JSON data you are looking for.",
+    "JSON_data": {
+      "example_1": {
+        "key_1": "value_1",
+        "key_2": "value_2",
+        "key_3": "value_3"
+      },
+      "example_2": {
+        "key_4": "value_4",
+        "key_5": "value_5",
+        "key_6": "value_6"
+      }
+    }
+  }
+```
+
 ### Functions
 
 You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location:
