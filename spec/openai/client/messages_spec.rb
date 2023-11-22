@@ -30,6 +30,19 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#list" do
+      let(:cassette) { "messages list" }
+      let(:response) do
+        OpenAI::Client.new.messages.list(thread_id: thread_id)
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("list")
+        end
+      end
+    end
+
     describe "#create" do
       let(:cassette) { "messages create" }
       let(:response) do
