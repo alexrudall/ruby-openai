@@ -111,6 +111,23 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#create_thread_and_run" do
+      let(:cassette) { "runs create thread and run" }
+      let(:response) do
+        OpenAI::Client.new.runs.create_thread_and_run(
+          parameters: {
+            assistant_id: assistant_id
+          }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "thread.run"
+        end
+      end
+    end
+
     describe "#submit_tool_outputs" do
       let(:cassette) { "runs submit_tool_outputs" }
       let(:response) do
