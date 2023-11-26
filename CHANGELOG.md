@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add ability to pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging - thanks to [@atesgoral](
+- Add ability to pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging - shout out to [@obie](https://github.com/obie) for pushing for this.
 - Add better error logging to the client by default.
-- Bump Event Source to v1, thank you [@atesgoral](https://github.com/atesgoral) @ Shopify for this!
+- Bump Event Source to v1, thank you [@atesgoral](https://github.com/atesgoral) @ Shopify!
 
 ## [6.2.0] - 2023-11-15
 

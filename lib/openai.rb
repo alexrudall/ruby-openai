@@ -19,6 +19,21 @@ module OpenAI
   class Error < StandardError; end
   class ConfigurationError < Error; end
 
+  class MiddlewareErrors < Faraday::Middleware
+    def call(env)
+      begin
+        @app.call(env)
+      rescue Faraday::Error => e
+        raise e unless e.response.is_a?(Hash)
+
+        logger = Logger.new(STDOUT)
+        logger.error(e.response[:body])
+
+        raise e
+      end
+    end
+  end
+
   class Configuration
     attr_writer :access_token
     attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,

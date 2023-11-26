@@ -74,6 +74,7 @@ module OpenAI
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
+        f.use MiddlewareErrors
         f.response :raise_error
         f.response :json
       end
