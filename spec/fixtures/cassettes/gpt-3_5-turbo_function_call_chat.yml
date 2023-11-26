@@ -24,87 +24,6 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Wed, 15 Nov 2023 20:19:09 GMT
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '203'
-      Connection:
-      - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      Openai-Processing-Ms:
-      - '7'
-      Openai-Version:
-      - '2020-10-01'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      X-Ratelimit-Limit-Requests:
-      - '3500'
-      X-Ratelimit-Limit-Tokens:
-      - '90000'
-      X-Ratelimit-Remaining-Requests:
-      - '3499'
-      X-Ratelimit-Remaining-Tokens:
-      - '89980'
-      X-Ratelimit-Reset-Requests:
-      - 17ms
-      X-Ratelimit-Reset-Tokens:
-      - 12ms
-      X-Request-Id:
-      - fff8500511f92af801389c10ad05191e
-      Cf-Cache-Status:
-      - DYNAMIC
-      Set-Cookie:
-      - __cf_bm=O4rAlTWDniPVp3kcpgj4f7fP79xiWLNCQoAMoSG5pZI-1700079549-0-AV+FZEbxwthZ9Icys3JgIg0eDc2QTlN9EAQC8c9LdSp0EAS1Sa3GPz86miQNlrphFK9XtLaxP4GxSLC9PZ/ewlg=;
-        path=/; expires=Wed, 15-Nov-23 20:49:09 GMT; domain=.api.openai.com; HttpOnly;
-        Secure; SameSite=None
-      - _cfuvid=7yZmgufX5bXWjGFkNKw8OFFxUs.juyHjh5S.A3NNJog-1700079549948-0-604800000;
-        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 826a3001aa670ac3-MAN
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: UTF-8
-      string: |
-        {
-          "error": {
-            "message": "Missing parameter 'name': messages with role 'function' must have a 'name'.",
-            "type": "invalid_request_error",
-            "param": "messages.[0].name",
-            "code": null
-          }
-        }
-  recorded_at: Wed, 15 Nov 2023 20:19:09 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/chat/completions
-    body:
-      encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"function","content":"function"}],"functions":[{"name":"function","description":"function","parameters":{"type":"object","properties":{"user":{"type":"string","description":"the
-        full name of the user"}}}}],"stream":false}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 400
-      message: Bad Request
-    headers:
-      Date:
       - Wed, 15 Nov 2023 20:25:14 GMT
       Content-Type:
       - application/json
@@ -162,4 +81,91 @@ http_interactions:
           }
         }
   recorded_at: Wed, 15 Nov 2023 20:25:14 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"function","content":"function"}],"stream":false,"functions":[{"name":"function","description":"function","parameters":{"type":"object","properties":{"user":{"type":"string","description":"the
+        full name of the user"}}}}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 11:45:46 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '203'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '7'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3500'
+      X-Ratelimit-Limit-Tokens:
+      - '90000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '90000'
+      X-Ratelimit-Remaining-Requests:
+      - '3499'
+      X-Ratelimit-Remaining-Tokens:
+      - '89980'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
+      - '89980'
+      X-Ratelimit-Reset-Requests:
+      - 17ms
+      X-Ratelimit-Reset-Tokens:
+      - 12ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 12ms
+      X-Request-Id:
+      - 918f7bf767b8126da2bb8cf5aace7bdc
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Re6St3HN.tm6u8vxnVJ9sN4SKOW2_7ECkYM8m__KGok-1700999146-0-AcT7djUiFezG8x2F+aGJ9W/uCyaj1O3kfAem1XrFUMxe+xn0RubWqWPAQgspMaa5853nBkZbuqWEde+BjIXcLLQ=;
+        path=/; expires=Sun, 26-Nov-23 12:15:46 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=3mjQ_b2n4nnQA47KIzgL4PS6tzdsYBDlSER9hOogr7E-1700999146898-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1e31b0d6a065e-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "error": {
+            "message": "Missing parameter 'name': messages with role 'function' must have a 'name'.",
+            "type": "invalid_request_error",
+            "param": "messages.[0].name",
+            "code": null
+          }
+        }
+  recorded_at: Sun, 26 Nov 2023 11:45:46 GMT
 recorded_with: VCR 6.1.0
