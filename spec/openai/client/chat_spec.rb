@@ -32,7 +32,14 @@ RSpec.describe OpenAI::Client do
               }
             ]
           end
-          let(:parameters) { { model: model, messages: messages, stream: stream, functions: functions } }
+          let(:parameters) do
+            {
+              model: model,
+              messages: messages,
+              stream: stream,
+              functions: functions
+            }
+          end
           let(:functions) do
             [
               {

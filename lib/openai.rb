@@ -21,16 +21,14 @@ module OpenAI
 
   class MiddlewareErrors < Faraday::Middleware
     def call(env)
-      begin
-        @app.call(env)
-      rescue Faraday::Error => e
-        raise e unless e.response.is_a?(Hash)
+      @app.call(env)
+    rescue Faraday::Error => e
+      raise e unless e.response.is_a?(Hash)
 
-        logger = Logger.new(STDOUT)
-        logger.error(e.response[:body])
+      logger = Logger.new($stdout)
+      logger.error(e.response[:body])
 
-        raise e
-      end
+      raise e
     end
   end
 

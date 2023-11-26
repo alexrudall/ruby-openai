@@ -37,7 +37,7 @@ RSpec.describe OpenAI::Client do
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response.dig("object")).to eq("list")
+          expect(response["object"]).to eq("list")
         end
       end
     end
@@ -54,11 +54,9 @@ RSpec.describe OpenAI::Client do
 
       it "returns the correct error" do
         VCR.use_cassette(cassette) do
-          begin
-            response
-          rescue => e
-            expect(e.response.dig(:body, 'error', 'message')).to include("No run step found")
-          end
+          response
+        rescue StandardError => e
+          expect(e.response.dig(:body, "error", "message")).to include("No run step found")
         end
       end
     end
