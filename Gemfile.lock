@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     ruby-openai (6.2.0)
-      event_stream_parser (>= 0.3.0, < 1.0.0)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
 
@@ -18,7 +18,7 @@ GEM
       rexml
     diff-lcs (1.5.0)
     dotenv (2.8.1)
-    event_stream_parser (0.3.0)
+    event_stream_parser (1.0.0)
     faraday (2.7.11)
       base64
       faraday-net_http (>= 2.0, < 3.1)
