@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:48:30 GMT
+      - Sun, 26 Nov 2023 11:45:46 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1662'
+      - '1065'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -48,53 +48,59 @@ http_interactions:
       - '3500'
       X-Ratelimit-Limit-Tokens:
       - '90000'
+      X-Ratelimit-Limit-Tokens-Usage-Based:
+      - '90000'
       X-Ratelimit-Remaining-Requests:
       - '3499'
       X-Ratelimit-Remaining-Tokens:
+      - '89980'
+      X-Ratelimit-Remaining-Tokens-Usage-Based:
       - '89980'
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Ratelimit-Reset-Tokens:
       - 12ms
+      X-Ratelimit-Reset-Tokens-Usage-Based:
+      - 12ms
       X-Request-Id:
-      - e3520117a6c185aa497b476a931903cf
+      - d37ce9eab44ed35275edd3b48ca62658
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=qQOyENJW_eMpzuqZJ57HPTI7sZrdLVjmgF_crkqlLPw-1699998510-0-AfIHAG3xZQaskSUQ1I/rQ7IqkXtEoFrmAySx9Ph4jKw5OW9bH6vzkHWZcIqWJQ51RdW9AhwehFKiTGYKf/wTvEA=;
-        path=/; expires=Tue, 14-Nov-23 22:18:30 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=t5cjgUFXiv4smAMyVqtkvyjgUqtWI12P3KwdcCNWWPE-1700999146-0-AZrnb61s7Beqt7IWtGc2F+R6EcaSQIre1HQ3qFHpIX6F04X1O7gAXUpmrXRZcckYyGg2+EbiYxyTffwXeJ8Wj5o=;
+        path=/; expires=Sun, 26-Nov-23 12:15:46 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=GPagzY9uDe90wGR6AjsRioJ5kPjvnNdqdquXvCVbk.M-1699998510459-0-604800000;
+      - _cfuvid=XWD1z994UxUkiiIubJP2882wWnegMFdWWDQXy4qf4LQ-1700999146632-0-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 826275763b3f6383-LHR
+      - 82c1e3120f500acb-MAN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-8KvYiZvO6tf1mfgE7oMEpjzcf1XCu",
+          "id": "chatcmpl-8P7s1c2QVZW1Uqqd11S0cB78LBvoA",
           "object": "chat.completion",
-          "created": 1699998508,
+          "created": 1700999145,
           "model": "gpt-3.5-turbo-0613",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "Hello! How can I assist you today?"
+                "content": "Hi there! How can I assist you today?"
               },
               "finish_reason": "stop"
             }
           ],
           "usage": {
             "prompt_tokens": 9,
-            "completion_tokens": 9,
-            "total_tokens": 18
+            "completion_tokens": 10,
+            "total_tokens": 19
           }
         }
-  recorded_at: Tue, 14 Nov 2023 21:48:30 GMT
+  recorded_at: Sun, 26 Nov 2023 11:45:46 GMT
 recorded_with: VCR 6.1.0

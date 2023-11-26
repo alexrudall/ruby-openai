@@ -5,15 +5,10 @@ RSpec.describe OpenAI::Client do
       let(:stream) { false }
       let(:response) do
         OpenAI::Client.new.chat(
-          parameters: {
-            model: model,
-            messages: messages,
-            functions: functions,
-            stream: stream
-          }
+          parameters: parameters
         )
       end
-      let(:functions) { [] }
+      let(:parameters) { { model: model, messages: messages, stream: stream } }
       let(:content) { response.dig("choices", 0, "message", "content") }
       let(:cassette) { "#{model} #{'streamed' if stream} chat".downcase }
 
@@ -36,6 +31,14 @@ RSpec.describe OpenAI::Client do
                 "content" => "function"
               }
             ]
+          end
+          let(:parameters) do
+            {
+              model: model,
+              messages: messages,
+              stream: stream,
+              functions: functions
+            }
           end
           let(:functions) do
             [
