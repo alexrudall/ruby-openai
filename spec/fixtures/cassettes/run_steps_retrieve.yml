@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_vd1d6cmJiUkTigpDbCMKBwry/runs/run_kINaLRxQg4uZItMP0ExgGwAl/steps/step_BM4yN3TSI1mm2dbAwHUD0ATS
+    uri: https://api.openai.com/v1/threads/thread_164oz7o2wD9TP2LUri9GTGZT/runs/run_dI7saeH3pEMsJ1Ac2Cp7hHgO/steps/123
     body:
       encoding: US-ASCII
       string: ''
@@ -21,11 +21,11 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Fri, 10 Nov 2023 03:12:26 GMT
+      - Sun, 26 Nov 2023 12:00:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,48 +35,309 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - relay-platform
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - c98d26e1e592cc5ed61bdc178256cb8b
+      - cf25f51bb210ec1bce1b64f148000996
       Openai-Processing-Ms:
-      - '134'
+      - '77'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=Z8upcI8apeWDnihcDWKkTByN2a0A8rkiqgqiLSmP3bU-1699585946-0-AWqxZabRgRqQdQ1wpen84Q4/Zpuol1aP+qOmFuKwZv8Pua7C4WB7p99PsYITOMjv4VTmvf2QzVsoI3cgUbTl/pg=;
-        path=/; expires=Fri, 10-Nov-23 03:42:26 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=gnheA7sk0tLrvmmDCp9WdwqEXgvn9y6pm3nOuTP.NkI-1701000019-0-AYrDCUGv5F5g14Gt8b4RFTcoiEkqGn7R5qpq5i1EGZ/iruqzqBAQ829upBrUn8b9bydyTeeRQkq2knj+O9NKz+U=;
+        path=/; expires=Sun, 26-Nov-23 12:30:19 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
+      - _cfuvid=A76oQccwnP0i3DmzdiyFi_AhAxlnQ9lHYSeHKF.05co-1701000019197-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 823b1d21c9f1a229-YYZ
+      - 82c1f866b9da53a2-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "step_BM4yN3TSI1mm2dbAwHUD0ATS",
-          "object": "thread.run.step",
-          "created_at": 1699412073,
-          "run_id": "run_kINaLRxQg4uZItMP0ExgGwAl",
-          "assistant_id": "asst_SGTQseRVgIIasVsVHPDtQNis",
-          "thread_id": "thread_vd1d6cmJiUkTigpDbCMKBwry",
-          "type": "message_creation",
-          "status": "completed",
-          "cancelled_at": null,
-          "completed_at": 1699412111,
-          "expires_at": null,
-          "failed_at": null,
-          "last_error": null,
-          "step_details": {
-            "type": "message_creation",
-            "message_creation": {
-              "message_id": "msg_BQftVtMEnkvjJexPfj2jbm3m"
-            }
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
           }
         }
-  recorded_at: Fri, 10 Nov 2023 03:12:26 GMT
+  recorded_at: Sun, 26 Nov 2023 12:00:19 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_EgHf9xlB9MUhnzIMmjGNMh9T/runs/run_ItUrVgh28pozCrROc029nu3W/steps/123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 12:00:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 171817b6ecdfc774b7c05a7778742d96
+      Openai-Processing-Ms:
+      - '81'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=2oDn8mkWxDzA7WS7UdLKbu37lXGdT4PAIBzGTjIqk20-1701000056-0-AUC4q/p3hQfgHwiktSJinmT6hHryZEmE1VW7uBdEz2Wgc3vBuEdXrS1JCS8cmo6zfGKa8KpxEB56ip2uNnYa2UE=;
+        path=/; expires=Sun, 26-Nov-23 12:30:56 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=dJYniJ43OhgIhmBgHhBd_.h5bV3Ii5kKxZeNWUk6dO0-1701000056080-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1f94d186add7a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sun, 26 Nov 2023 12:00:56 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_HiVpI7w8yCtxT9kWf3vgbPza/runs/run_W66K96hZ64q1ruAWUUmuCw1h/steps/123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 12:01:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 4e0fc0e5335f175b6936304c5cb3175e
+      Openai-Processing-Ms:
+      - '78'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=8S3MjnMWsn8LDCtg6M7qLFP1MMg9YKYEQsZV6TmdQvE-1701000102-0-AYFk5ewKqAnw3htz3Z5r31YMwSfd0XYTOtm4BHRqBSbpInrhR+/mTBvHtxbcqrCgUA8RB7LO5TAKgMUiWRHNjt4=;
+        path=/; expires=Sun, 26-Nov-23 12:31:42 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=1vn4MO7tETnvmupO0DNJDMqShpZMjzx0awtFE0UloXs-1701000102935-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1fa720b4471db-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sun, 26 Nov 2023 12:01:42 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_PkpWQxrWRbk3oIgMRjsucrhG/runs/run_1blECdpYHFqbesLVuScD6dcK/steps/123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 12:01:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - a91d35404a7f3ff2c3f6c94a5d361a7a
+      Openai-Processing-Ms:
+      - '84'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=14JGwNQ6XLRdi6WOQ6870pBqvVR1kDF23td974Uj5Fw-1701000115-0-ASC1O+whl1FEFSm3ZFRAAwilJ4r2wdjLApxaAi9m4Otqo51urrFb71vf315sHpNdzWtvUuUCQsuxmomEyL5nPa4=;
+        path=/; expires=Sun, 26-Nov-23 12:31:55 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=omfiyP8XjefkZgGLDr2q9IBvvwZxqOVc6h2G8nDwCak-1701000115250-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1fabeff0edd7c-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sun, 26 Nov 2023 12:01:55 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_bR60V4ambvZEHqHDXXgnmDCr/runs/run_NAjX6p4waHWOiPvmqDHscA6e/steps/123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 12:03:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 6f65c0a0f2fe083a5224b830e41591ae
+      Openai-Processing-Ms:
+      - '87'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=yKLgelGgVU_f0ReQBG9r4mMyxZXV9oSA7Hp2wqoA__I-1701000206-0-AQXVOG1/2csM4P8dkli7Wf3HxC2aWispBQd1gmteIHR6PCraTtAkxFOuht0HGHqv2sgXGaNXyXvGMCDT2wGKhoM=;
+        path=/; expires=Sun, 26-Nov-23 12:33:26 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=B6ershxNREf4Tirzk7xZVZlkK_aDjstKfTamlkFdtbA-1701000206734-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1fcfaae896349-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sun, 26 Nov 2023 12:03:26 GMT
 recorded_with: VCR 6.1.0
