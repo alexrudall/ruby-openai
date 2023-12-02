@@ -144,6 +144,7 @@ RSpec.describe OpenAI::HTTP do
         it "calls the user proc for each data parsed as JSON" do
           expect(user_proc).to receive(:call).with(JSON.parse('{"foo": "bar"}'))
           expect(user_proc).to receive(:call).with(JSON.parse('{"baz": "qud"}'))
+          expect(user_proc).to receive(:call).with({})
 
           stream.call(<<~CHUNK)
             data: { "foo": "bar" }
