@@ -188,7 +188,7 @@ puts response.dig("choices", 0, "message", "content")
 
 [Quick guide to streaming Chat with Rails 7 and Hotwire](https://gist.github.com/alexrudall/cb5ee1e109353ef358adb4e66631799d)
 
-You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of completion chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. The hash will be empty when the stream is [terminated](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream). If OpenAI returns an error, `ruby-openai` will raise a Faraday error.
+You can stream from the API in realtime, which can be much faster and used to create a more engaging user experience. Pass a [Proc](https://ruby-doc.org/core-2.6/Proc.html) (or any object with a `#call` method) to the `stream` parameter to receive the stream of completion chunks as they are generated. Each time one or more chunks is received, the proc will be called once with each chunk, parsed as a Hash. The Hash will be empty when the stream is [terminated](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream). If OpenAI returns an error, `ruby-openai` will raise a Faraday error.
 
 ```ruby
 client.chat(
@@ -198,9 +198,10 @@ client.chat(
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
             print chunk.dig("choices", 0, "delta", "content")
+            print "Done" if chunk == {} # Stream has been terminated
         end
     })
-# => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
+# => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders...Done"
 ```
 
 Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby). We think that each call to the stream proc corresponds to a single token, so you can also try counting the number of calls to the proc to get the completion token count.
