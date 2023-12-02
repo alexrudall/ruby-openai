@@ -65,10 +65,15 @@ module OpenAI
         end
 
         parser.feed(chunk) do |_type, data|
-          parsed_data = data == '[DONE]' ? {} : JSON.parse(data)
-          user_proc.call(parsed_data)
+          user_proc.call(parse_stream_data(data: data))
         end
       end
+    end
+
+    def parse_stream_data(data:)
+      return {} if data == "[DONE]"
+
+      JSON.parse(data)
     end
 
     def conn(multipart: false)
