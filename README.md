@@ -108,6 +108,8 @@ OpenAI.configure do |config|
 end
 ```
 
+If the base URI of the proxy service you use already contains the API version, you may also need to set `api_version` to `''` to avoid getting a 404 error.
+
 #### Verbose Logging
 
 You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
