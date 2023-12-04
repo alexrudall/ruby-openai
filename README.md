@@ -108,6 +108,15 @@ OpenAI.configure do |config|
 end
 ```
 
+#### Extra Headers per Client
+
+You can dynamically pass headers per client object, which will be merged with any headers set globally with OpenAI.configure:
+
+```ruby
+client = OpenAI::Client.new(access_token: "access_token_goes_here")
+client.add_headers("X-Proxy-TTL" => "43200")
+```
+
 #### Verbose Logging
 
 You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
