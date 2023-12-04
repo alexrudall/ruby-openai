@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
 
-Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
+Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖🩵
 
 Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
