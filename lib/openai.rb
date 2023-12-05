@@ -1,5 +1,5 @@
 require "faraday"
-require "faraday/multipart"
+require "faraday/multipart" if Gem::Version.new(Faraday::VERSION) >= Gem::Version.new("2.0")
 
 require_relative "openai/http"
 require_relative "openai/client"
