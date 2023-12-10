@@ -502,6 +502,119 @@ You can delete assistants:
 client.assistants.delete(id: assistant_id)
 ```
 
+### Runs, Threads and Messages
+
+Once you have created an assistant as described above, you can use it to perform a `Run` on a `Thread` of `Messages` (see [introduction on Assistants](https://platform.openai.com/docs/assistants/how-it-works)). For example, as an initial setup:
+
+```
+# Create thread
+response = client.threads.create # Note: Once you create a thread, there is no way to list it or recover it currently (as of 2023-12-10). So hold onto the `id` 
+thread_id = response["id"]
+
+# Add initial message from user (see https://platform.openai.com/docs/api-reference/messages/createMessage)
+message_id = client.messages.create(
+    thread_id: thread_id,
+    parameters: {
+        role: "user", # Required for manually created messages
+        content: "Can you help me write an API library to interact with the OpenAI API please?"
+    })["id"]
+
+# Retrieve individual message
+message = client.messages.retrieve(thread_id: thread_id, id: message_id)
+
+# Review all messages on the thread
+messages = client.messages.list(thread_id: thread_id)
+```
+
+To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows:
+
+```
+# Create run (will use instruction/model/tools from Assistant's definition)
+response = client.runs.create(thread_id: thread_id,
+    parameters: {
+        assistant_id: assistant_id
+    })
+run_id = response['id']
+
+# Retrieve/poll Run to observe status
+response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+status = response['status']
+
+```
+
+The `status` response can include the following strings `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, or `expired` which you can handle as follows:
+
+```
+while true do
+    
+    response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+    status = response['status']
+
+    case status
+    when 'queued', 'in_progress', 'cancelling'
+        puts 'Sleeping'
+        sleep 1 # Wait one second and poll again
+    when 'completed'
+        break # Exit loop and report result to user
+    when 'requires_action'
+        # Handle tool calls (see below)
+    when 'cancelled', 'failed', 'expired'
+        puts response['last_error'].inspect
+        exit
+    else
+        puts "Unknown status response: #{status}"
+    end
+end
+```
+
+In case the status code is `requires_action`, one or more function calls must be evaluated to continue with the `Run` and submitted via `submit_tool_outputs`.
+
+```
+if status == 'requires_action'
+
+    tools_to_call = response.dig('required_action', 'submit_tool_outputs', 'tool_calls')
+
+    my_tool_outputs = tools_to_call.map { |tool|
+        # Call the functions based on the tool's name
+        function_name = tool.dig('function', 'name')
+        arguments = JSON.parse(
+              message.dig("function", "arguments"),
+              { symbolize_names: true },
+        )
+
+        
+        tool_output = case function_name
+        when "get_current_weather"
+            get_current_weather(**arguments)
+        end
+
+        [tool['id'], tool_output]
+    }
+
+    client.runs.submit_tool_outputs(thread_id: thread_id, run_id: run_id, parameters: { tool_outputs: my_tool_outputs })
+end
+```
+
+At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
+
+```
+client.runs.list(thread_id: thread_id)
+```
+
+If a run triggers a tool invocation
+
+
+
+
+To clean up after a thread is no longer needed:
+
+```
+# To delete the thread (and all associated messages):
+client.threads.delete(id: thread_id)
+
+client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after thread is deleted
+```
+
 ### Image Generation
 
 Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
