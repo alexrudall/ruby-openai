@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "event_stream_parser", ">= 0.3.0", "< 2.0.0"
-  spec.add_dependency "faraday", ">= 1"
+  spec.add_dependency "faraday", "~> 1.10.1"
   spec.add_dependency "faraday-multipart", ">= 1"
+  spec.add_dependency 'faraday_middleware', "< 1.2.0"
 end

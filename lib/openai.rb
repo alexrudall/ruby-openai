@@ -1,5 +1,12 @@
 require "faraday"
-require "faraday/multipart" if Gem::Version.new(Faraday::VERSION) >= Gem::Version.new("2.0")
+
+if Gem::Version.new(Faraday::VERSION) <= Gem::Version.new("2.0")
+  require 'faraday_middleware'
+  require 'logger'
+  # require 'json_api_client'
+else
+  require "faraday/multipart"
+end
 
 require_relative "openai/http"
 require_relative "openai/client"

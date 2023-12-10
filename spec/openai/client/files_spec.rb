@@ -45,6 +45,11 @@ RSpec.describe OpenAI::Client do
       let(:upload_cassette) { "#{cassette} upload" }
       let(:response) { OpenAI::Client.new.files.retrieve(id: upload_id) }
 
+      # binding.pry
+      # An error occurred while loading ./spec/openai/client/files_spec.rb
+      print("foo bar")
+      print(response)
+
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["filename"]).to eq(filename)
