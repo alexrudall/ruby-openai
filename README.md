@@ -450,6 +450,58 @@ You can also capture the events for a job:
 client.finetunes.list_events(id: fine_tune_id)
 ```
 
+### Assistants
+
+Assistants can call models to interact with threads and use tools to perform tasks (see [Assistant Overview](https://platform.openai.com/docs/assistants/overview).
+
+To create a new assistant (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant)):
+
+```
+response = client.assistants.create(
+    parameters: {
+        model: "gpt-3.5-turbo-1106",         # Retrieve via client.models.list. Assistants need 'gpt-3.5-turbo-1106' or later.
+        name: "OpenAI-Ruby test assistant", 
+        description: nil,
+        instructions: "You are a helpful assistant for coding a OpenAI API client using the OpenAI-Ruby gem.",
+        tools: [
+            { type: 'retrieval' },           # Allow access to files attached using file_ids
+            { type: 'code_interpreter' },    # Allow access to Python code interpreter 
+        ],
+        "file_ids": ["file-123"],            # See Files section above for how to upload files
+        "metadata": { my_internal_version_id: '1.0.0' }
+    })
+assistant_id = response["id"]
+```
+
+Given an `assistant_id` you can `retrieve` the current field values:
+
+```
+client.assistants.retrieve(id: assistant_id)
+```
+
+You can get a `list` of all assistants currently available under the organization:
+
+```
+client.assistants.list
+```
+
+You can modify an existing assistant using the assistant's id (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/modifyAssistant)):
+
+```
+response = client.assistants.modify(
+        id: assistant_id,
+        parameters: {
+            name: "Modified Test Assistant for OpenAI-Ruby",
+            metadata: { my_internal_version_id: '1.0.1' }
+        })
+```
+
+You can delete assistants:
+
+```
+client.assistants.delete(id: assistant_id)
+```
+
 ### Image Generation
 
 Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
