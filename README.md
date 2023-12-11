@@ -452,7 +452,7 @@ client.finetunes.list_events(id: fine_tune_id)
 
 ### Assistants
 
-Assistants can call models to interact with threads and use tools to perform tasks (see [Assistant Overview](https://platform.openai.com/docs/assistants/overview).
+Assistants can call models to interact with threads and use tools to perform tasks (see [Assistant Overview](https://platform.openai.com/docs/assistants/overview)).
 
 To create a new assistant (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant)):
 
