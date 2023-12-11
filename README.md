@@ -53,7 +53,7 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here")
 
 ### With Config
 
-For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcode secrets into your codebase - instead use something like [dotenv](https://github.com/motdotla/dotenv) to pass the keys safely into your environments.
+For a more robust setup, you can configure the gem with your API keys, for example in an `openai.rb` initializer file. Never hardcode secrets into your codebase - instead use something like [dotenv](https://github.com/bkeepers/dotenv) to pass the keys safely into your environments.
 
 ```ruby
 OpenAI.configure do |config|
