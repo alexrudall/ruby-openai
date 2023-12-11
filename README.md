@@ -456,7 +456,7 @@ Assistants can call models to interact with threads and use tools to perform tas
 
 To create a new assistant (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant)):
 
-```
+```ruby
 response = client.assistants.create(
     parameters: {
         model: "gpt-3.5-turbo-1106",         # Retrieve via client.models.list. Assistants need 'gpt-3.5-turbo-1106' or later.
@@ -475,19 +475,19 @@ assistant_id = response["id"]
 
 Given an `assistant_id` you can `retrieve` the current field values:
 
-```
+```ruby
 client.assistants.retrieve(id: assistant_id)
 ```
 
 You can get a `list` of all assistants currently available under the organization:
 
-```
+```ruby
 client.assistants.list
 ```
 
 You can modify an existing assistant using the assistant's id (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/modifyAssistant)):
 
-```
+```ruby
 response = client.assistants.modify(
         id: assistant_id,
         parameters: {
@@ -506,7 +506,7 @@ client.assistants.delete(id: assistant_id)
 
 Once you have created an assistant as described above, you need to prepare a `Thread` of `Messages` for the assistant to work on (see [introduction on Assistants](https://platform.openai.com/docs/assistants/how-it-works)). For example, as an initial setup you could do:
 
-```
+```ruby
 # Create thread
 response = client.threads.create # Note: Once you create a thread, there is no way to list it
                                  # or recover it currently (as of 2023-12-10). So hold onto the `id` 
@@ -529,7 +529,7 @@ messages = client.messages.list(thread_id: thread_id)
 
 To clean up after a thread is no longer needed:
 
-```
+```ruby
 # To delete the thread (and all associated messages):
 client.threads.delete(id: thread_id)
 
@@ -541,7 +541,7 @@ client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after 
 
 To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows (Note: This is one place where OpenAI will take your money):
 
-```
+```ruby
 # Create run (will use instruction/model/tools from Assistant's definition)
 response = client.runs.create(thread_id: thread_id,
     parameters: {
@@ -556,7 +556,7 @@ status = response['status']
 
 The `status` response can include the following strings `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, or `expired` which you can handle as follows:
 
-```
+```ruby
 while true do
     
     response = client.runs.retrieve(id: run_id, thread_id: thread_id)
@@ -581,7 +581,7 @@ end
 
 If the `status` response indicates that the `run` is `completed`, the associated `thread` will have one or more new `messages` attached:
 
-```
+```ruby
 # Either retrieve all messages in bulk again, or...
 messages = client.messages.list(thread_id: thread_id) # Note: as of 2023-12-11 adding limit or order options isn't working, yet
 
@@ -615,7 +615,7 @@ new_messages.each { |msg|
 
 At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
 
-```
+```ruby
 client.runs.list(thread_id: thread_id)
 ```
 
@@ -623,7 +623,7 @@ client.runs.list(thread_id: thread_id)
 
 In case you are allowing the assistant to access `function` tools (they are defined in the same way as functions during chat completion), you might get a status code of `requires_action` when the assistant wants you to evaluate one or more function tools:
 
-```
+```ruby
 def get_current_weather(location:, unit: "celsius")
     # Your function code goes here
     if location =~ /San Francisco/i
