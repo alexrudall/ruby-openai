@@ -526,11 +526,6 @@ message = client.messages.retrieve(thread_id: thread_id, id: message_id)
 # Review all messages on the thread
 messages = client.messages.list(thread_id: thread_id)
 ```
-At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
-
-```
-client.runs.list(thread_id: thread_id)
-```
 
 To clean up after a thread is no longer needed:
 
@@ -540,6 +535,129 @@ client.threads.delete(id: thread_id)
 
 client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after thread is deleted
 ```
+
+
+### Runs
+
+To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows (Note: This is one place where OpenAI will take your money):
+
+```
+# Create run (will use instruction/model/tools from Assistant's definition)
+response = client.runs.create(thread_id: thread_id,
+    parameters: {
+        assistant_id: assistant_id
+    })
+run_id = response['id']
+
+# Retrieve/poll Run to observe status
+response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+status = response['status']
+```
+
+The `status` response can include the following strings `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, or `expired` which you can handle as follows:
+
+```
+while true do
+    
+    response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+    status = response['status']
+
+    case status
+    when 'queued', 'in_progress', 'cancelling'
+        puts 'Sleeping'
+        sleep 1 # Wait one second and poll again
+    when 'completed'
+        break # Exit loop and report result to user
+    when 'requires_action'
+        # Handle tool calls (see below)
+    when 'cancelled', 'failed', 'expired'
+        puts response['last_error'].inspect
+        break # or `exit`
+    else
+        puts "Unknown status response: #{status}"
+    end
+end
+```
+
+If the `status` response indicates that the `run` is `completed`, the associated `thread` will have one or more new `messages` attached:
+
+```
+# Either retrieve all messages in bulk again, or...
+messages = client.messages.list(thread_id: thread_id) # Note: as of 2023-12-11 adding limit or order options isn't working, yet
+
+# Alternatively retrieve the `run steps` for the run which link to the messages:
+run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id)
+new_message_ids = run_steps['data'].filter_map { |step|
+  if step['type'] == 'message_creation'
+    step.dig('step_details', "message_creation", "message_id")
+  end # Ignore tool calls, because they don't create new messages.
+}
+
+# Retrieve the individual messages
+new_messages = new_message_ids.map { |msg_id|
+  client.messages.retrieve(id: msg_id, thread_id: thread_id)
+}
+
+# Find the actual response text in the content array of the messages
+new_messages.each { |msg|
+    msg['content'].each { |content_item|
+        case content_item['type']
+        when 'text'
+            puts content_item.dig('text', 'value')
+            # Also handle annotations
+        when 'image_file'
+            # Use File endpoint to retrieve file contents via id
+            id = content_item.dig('image_file', 'file_id')
+        end
+    }
+}
+```
+
+At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
+
+```
+client.runs.list(thread_id: thread_id)
+```
+
+#### Runs involving function tools
+
+In case you are allowing the assistant to access `function` tools (they are defined in the same way as functions during chat completion), you might get a status code of `requires_action` when the assistant wants you to evaluate one or more function tools:
+
+```
+def get_current_weather(location:, unit: "celsius")
+    # Your function code goes here
+    if location =~ /San Francisco/i
+        return unit == "celsius" ? "The weather is nice 🌞 at 27°C" : "The weather is nice 🌞 at 80°F"
+    else
+        return unit == "celsius" ? "The weather is icy 🥶 at -5°C" : "The weather is icy 🥶 at 23°F"
+    end 
+end
+
+if status == 'requires_action'
+
+    tools_to_call = response.dig('required_action', 'submit_tool_outputs', 'tool_calls')
+
+    my_tool_outputs = tools_to_call.map { |tool|
+        # Call the functions based on the tool's name
+        function_name = tool.dig('function', 'name')
+        arguments = JSON.parse(
+              tool.dig("function", "arguments"),
+              { symbolize_names: true },
+        )
+        
+        tool_output = case function_name
+        when "get_current_weather"
+            get_current_weather(**arguments)
+        end
+
+        { tool_call_id: tool['id'], output: tool_output }
+    }
+
+    client.runs.submit_tool_outputs(thread_id: thread_id, run_id: run_id, parameters: { tool_outputs: my_tool_outputs })
+end
+```
+
+Note that you have 10 minutes to submit your tool output before the run expires.
 
 ### Image Generation
 
