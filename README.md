@@ -148,7 +148,7 @@ or when configuring the gem:
 ```ruby
 OpenAI.configure do |config|
     config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    config.log_errors = false # Optional
+    config.log_errors = true # Optional
     config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
     config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
@@ -173,12 +173,12 @@ client.add_headers("X-Proxy-TTL" => "43200")
 
 ##### Errors
 
-By default, `ruby-openai` logs any `Faraday::Error`s encountered while executing a network request (e.g. 400s, 500s, SSL errors and more - see [here](https://www.rubydoc.info/github/lostisland/faraday/Faraday/Error) for a complete list of subclasses of `Faraday::Error` and what can cause them).
+By default, `ruby-openai` does not log any `Faraday::Error`s encountered while executing a network request to avoid leaking data (e.g. 400s, 500s, SSL errors and more - see [here](https://www.rubydoc.info/github/lostisland/faraday/Faraday/Error) for a complete list of subclasses of `Faraday::Error` and what can cause them).
 
-If you would like to disable this functionality, you can set `log_errors` to `false` when configuring the client:
+If you would like to enable this functionality, you can set `log_errors` to `true` when configuring the client:
 
 ```ruby
-  client = OpenAI::Client.new(log_errors: false)
+  client = OpenAI::Client.new(log_errors: true)
 ```
 
 ##### Faraday middleware

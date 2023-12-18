@@ -284,14 +284,14 @@ RSpec.describe OpenAI::HTTP do
       $stdout = @original_stdout
     end
 
-    it "happens by default" do
+    it "is disabled by default" do
       VCR.use_cassette(cassette, record: :none) do
         expect { OpenAI::Client.new.models.retrieve(id: "text-ada-001") }
           .to raise_error Faraday::Error
 
         $stdout.rewind
         captured_stdout = $stdout.string
-        expect(captured_stdout).to include("OpenAI HTTP Error")
+        expect(captured_stdout).not_to include("OpenAI HTTP Error")
       end
     end
 
