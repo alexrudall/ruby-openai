@@ -212,6 +212,7 @@ response = client.chat(
     parameters: {
         model: "gpt-4-vision-preview", # Required.
         messages: [{ role: "user", content: messages}], # Required.
+        max_tokens: 4096  # We need to pass in "max_tokens", the default value is 4096. If it is not passed in, the conversation return value will be incomplete.
     })
 puts response.dig("choices", 0, "message", "content")
 # => "The image depicts a serene natural landscape featuring a long wooden boardwalk extending straight ahead"
