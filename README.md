@@ -10,6 +10,50 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
 
 [🚢 Hire me](https://peaceterms.com?utm_source=ruby-openai&utm_medium=readme&utm_id=26072023) | [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 Twitter](https://twitter.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
+# Table of Contents
+
+- [Installation](#installation)
+  - [Bundler](#bundler)
+  - [Gem Install](#gem-install)
+- [Usage](#usage)
+  - [Quickstart](#quickstart)
+  - [With Config](#with-config)
+  - [Custom timeout or base URI](#custom-timeout-or-base-uri)
+  - [Extra Headers per Client](#extra-headers-per-client)
+  - [Verbose Logging](#verbose-logging)
+  - [Azure](#azure)
+- [Counting Tokens](#counting-tokens)
+- [Models](#models)
+- [Chat](#chat)
+  - [Streaming Chat](#streaming-chat)
+- [Vision](#vision)
+- [JSON Mode](#json-mode)
+- [Functions](#functions)
+- [Edits](#edits)
+- [Embeddings](#embeddings)
+- [Files](#files)
+- [Finetunes](#finetunes)
+- [Assistants](#assistants)
+- [Threads and Messages](#threads-and-messages)
+- [Runs](#runs)
+  - [Runs involving function tools](#runs-involving-function-tools)
+- [Image Generation](#image-generation)
+- [Image Edit](#image-edit)
+- [Image Variations](#image-variations)
+- [Moderations](#moderations)
+- [Whisper](#whisper)
+  - [Translate](#translate)
+  - [Transcribe](#transcribe)
+  - [Speech](#speech)
+- [Errors](#errors)
+- [Development](#development)
+- [Release](#release)
+- [Contributing](#contributing)
+- [License](#license)
+- [Code of Conduct](#code-of-conduct)
+
+## Installation
+
 ### Bundler
 
 Add this line to your application's Gemfile:
