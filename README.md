@@ -705,8 +705,11 @@ Note that you have 10 minutes to submit your tool output before the run expires.
 
 ### Image Generation
 
-Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
-if not specified the image will default to `1024x1024`.
+Generate images using DALL·E 2 or DALL·E 3! 
+
+#### DALL·E 2
+
+For DALL·E 2 the size of any generated images must be one of `256x256`, `512x512` or `1024x1024` - if not specified the image will default to `1024x1024`.
 
 ```ruby
 response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort", size: "256x256" })
@@ -715,6 +718,19 @@ puts response.dig("data", 0, "url")
 ```
 
 ![Ruby](https://i.ibb.co/6y4HJFx/img-d-Tx-Rf-RHj-SO5-Gho-Cbd8o-LJvw3.png)
+
+#### DALL·E 3
+
+For DALL·E 3 the size of any generated images must be one of `1024x1024`, `1024x1792` or `1792x1024`. Additionally the quality of the image can be specified to either `standard` or `hd`.
+
+```ruby
+response = client.images.generate(parameters: { prompt: "A spaniel cooking pasta wearing a hat of some sort", size: "1024x1792", quality: "standard" })
+puts response.dig("data", 0, "url")
+# => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
+```
+
+![Ruby](https://i.ibb.co/6y4HJFx/img-d-Tx-Rf-RHj-SO5-Gho-Cbd8o-LJvw3.png)
+
 
 ### Image Edit
 
