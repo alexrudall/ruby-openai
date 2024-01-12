@@ -73,7 +73,7 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
-  
+
     describe "#dall-e-3" do
       describe "#generate" do
         describe "#standard", :vcr do
@@ -90,7 +90,7 @@ RSpec.describe OpenAI::Client do
           let(:prompt) { "A lion cooking pasta wearing a hat of some sort" }
           let(:size) { "1024x1792" } # using a size only available in dall-e-3
           let(:model) { "dall-e-3" }
-    
+
           it "succeeds" do
             VCR.use_cassette(cassette) do
               expect(response.dig("data", 0, "url")).to include("dalle")
@@ -114,7 +114,7 @@ RSpec.describe OpenAI::Client do
           let(:size) { "1024x1792" }
           let(:model) { "dall-e-3" }
           let(:quality) { "hd" }
-    
+
           it "succeeds" do
             VCR.use_cassette(cassette) do
               expect(response.dig("data", 0, "url")).to include("dalle")
