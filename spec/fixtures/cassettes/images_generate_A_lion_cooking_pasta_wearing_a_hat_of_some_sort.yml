@@ -1,0 +1,73 @@
+---
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/generations
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"A lion cooking pasta wearing a hat of some sort","size":"1024x1792","model":"dall-e-3","quality":"hd"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 12 Jan 2024 19:20:54 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-3clrjdlztmfzmksxfsyoiaou
+      X-Request-Id:
+      - 69aaedef446d998c94d68fafd607da8c
+      Openai-Processing-Ms:
+      - '24085'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=LG6QLy.8enzl_uL7TiteJ3XnVeI7Fw0qoB.R_C5p3mY-1705087254-1-AcswiAj+uloT+6w6C2zsUxltqUsg1P0lJhPoAT9aunUkTUBxwksXSRts2Upyr504+LhAsOs2zoDIGXAuaYiXIFc=;
+        path=/; expires=Fri, 12-Jan-24 19:50:54 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=jkCBOf6JV3y0pc_FnifYoHg3kueZX1rsk8nf6SwMg8g-1705087254150-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8447c1d2fdb4360d-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "created": 1705087254,
+          "data": [
+            {
+              "revised_prompt": "A full-grown male lion, with his golden mane, intense eyes, and stately pose, is found in an unexpected scenario. He is in a brightly lit kitchen, standing near a cooktop. A large pot of boiling pasta is on the stove, steam rising from it. With one paw, he is deftly stirring the pasta, exhibiting a careful touch. He's wearing a red and white checkered chef's hat on his head. Despite his wild nature, he seems completely at ease, creating a surprising but unique image.",
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-H8Ae3VfCrtX9xszbJMBooz6u.png?st=2024-01-12T18%3A20%3A54Z&se=2024-01-12T20%3A20%3A54Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-12T16%3A51%3A42Z&ske=2024-01-13T16%3A51%3A42Z&sks=b&skv=2021-08-06&sig=XOxfI6omNpOBF4i4HgDaXQvZGPn%2Bs1atX1PPRIj2QiY%3D"
+            }
+          ]
+        }
+  recorded_at: Fri, 12 Jan 2024 19:20:54 GMT
+recorded_with: VCR 6.1.0
