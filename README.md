@@ -39,7 +39,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
   - [Runs involving function tools](#runs-involving-function-tools)
 - [Image Generation](#image-generation)
   - [DALL·E 2](#dalle-2)
-  - [DALL·E 2](#dalle-3)
+  - [DALL·E 3](#dalle-3)
 - [Image Edit](#image-edit)
 - [Image Variations](#image-variations)
 - [Moderations](#moderations)
