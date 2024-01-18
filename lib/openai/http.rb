@@ -99,10 +99,14 @@ module OpenAI
       parameters&.transform_values do |value|
         next value unless value.respond_to?(:close) # File or IO object.
 
+        # Faraday::UploadIO does not require a path, so we will pass it
+        # only if it is available. This allows StringIO objects to be
+        # passed in as well.
+        path = value.respond_to?(:path) ? value.path : nil
         # Doesn't seem like OpenAI needs mime_type yet, so not worth
         # the library to figure this out. Hence the empty string
         # as the second argument.
-        Faraday::UploadIO.new(value, "", value.path)
+        Faraday::UploadIO.new(value, "", path)
       end
     end
 
