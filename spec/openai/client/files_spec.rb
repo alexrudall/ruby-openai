@@ -24,6 +24,20 @@ RSpec.describe OpenAI::Client do
 
         it { expect { upload }.to raise_error(JSON::ParserError) }
       end
+
+      context "with an invalid purpose" do
+        let(:upload_purpose) { "invalid" }
+
+        it { expect { upload }.to raise_error(ArgumentError) }
+      end
+
+      context "with a file content" do
+        let(:file) { File.open(File.join(RSPEC_ROOT, "fixtures/files", filename)) }
+
+        it "succeeds" do
+          expect(upload["filename"]).to eq(filename)
+        end
+      end
     end
 
     describe "#list" do
