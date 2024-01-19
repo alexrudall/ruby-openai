@@ -110,7 +110,7 @@ RSpec.describe OpenAI::Client do
             )
           end
           let(:cassette) { "images generate #{prompt}" }
-          let(:prompt) { "A lion cooking pasta wearing a hat of some sort" }
+          let(:prompt) { "A springer spaniel cooking pasta wearing a hat of some sort" }
           let(:size) { "1024x1792" }
           let(:model) { "dall-e-3" }
           let(:quality) { "hd" }

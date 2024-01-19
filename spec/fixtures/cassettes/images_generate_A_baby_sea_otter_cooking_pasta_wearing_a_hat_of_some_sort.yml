@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 19 Jan 2024 10:56:44 GMT
+      - Fri, 19 Jan 2024 11:40:53 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-3clrjdlztmfzmksxfsyoiaou
       X-Request-Id:
-      - 86b88d9ff37ce4c1b619bfe68a053ac4
+      - 0137f54d99d1362b1e623d676116a4c9
       Openai-Processing-Ms:
-      - '6622'
+      - '6822'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,27 +45,27 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=wEx.D4yoyDlIamJuRHDX7t3Iy2xuKSID7gcx5oQYH_U-1705661804-1-AcXvhW9vr/0kmRsXfYLKZ08e225ESpjgCQwaNVltTonFLCCR1VbkWvZlDK8PA3h1zjdeaJ2XWuuWGGqozYboSJw=;
-        path=/; expires=Fri, 19-Jan-24 11:26:44 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=P36Wd_cn8juahMszhsJOx5kkOYVokwSxjGZmiTuOep8-1705664453-1-AWK8XEV35FFAXSMl+MBEJ2XPKC3KQc4hWuMvbTkdXErcByHJJo77vuiKXigfEXUDZKpOT8VxsAaRxiyE/ZV9wbE=;
+        path=/; expires=Fri, 19-Jan-24 12:10:53 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=pbNnl.ZFFdlZ.F6RKawMY12cxXvALOoPMBg5koRTL1Q-1705661804986-0-604800000;
+      - _cfuvid=BoKuzauoIz4K9oDwnJtEGtFjVAkD0lnYqLBXdB4lehc-1705664453478-0-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 847e8d5ee8e76aab-MAN
+      - 847ece06be0a0755-MAN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "created": 1705661804,
+          "created": 1705664453,
           "data": [
             {
-              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-7GZpu1NzukAdVUWonuhKR3w5.png?st=2024-01-19T09%3A56%3A44Z&se=2024-01-19T11%3A56%3A44Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T17%3A18%3A07Z&ske=2024-01-19T17%3A18%3A07Z&sks=b&skv=2021-08-06&sig=mCIggFyAoF1rwjJIvNJ%2BYoQzH1fzXwEf5JZ4WfBlwfU%3D"
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-TXGcLfiIhAqPEEED1eQ4SyMg.png?st=2024-01-19T10%3A40%3A53Z&se=2024-01-19T12%3A40%3A53Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T22%3A51%3A44Z&ske=2024-01-19T22%3A51%3A44Z&sks=b&skv=2021-08-06&sig=AFx2RqTU0Zb2Klk3QPFO06JtipjPmGadWbVVOVQkVeU%3D"
             }
           ]
         }
-  recorded_at: Fri, 19 Jan 2024 10:56:44 GMT
+  recorded_at: Fri, 19 Jan 2024 11:40:53 GMT
 recorded_with: VCR 6.1.0

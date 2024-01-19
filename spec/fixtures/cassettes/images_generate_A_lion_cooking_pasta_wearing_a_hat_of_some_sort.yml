@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/images/generations
     body:
       encoding: UTF-8
-      string: '{"prompt":"A lion cooking pasta wearing a hat of some sort","size":"1024x1792","model":"dall-e-3","quality":"hd"}'
+      string: '{"prompt":"A lion cooking pasta wearing a hat of some sort","size":"1024x1792","model":"dall-e-3"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 19 Jan 2024 10:57:37 GMT
+      - Fri, 19 Jan 2024 11:41:21 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,9 +35,9 @@ http_interactions:
       Openai-Organization:
       - user-3clrjdlztmfzmksxfsyoiaou
       X-Request-Id:
-      - fe907b9489e7d83f0ee5487803d84de6
+      - 5c602879c1c1d3c21b0faf3c8f1e417c
       Openai-Processing-Ms:
-      - '18721'
+      - '11625'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,28 +45,28 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=dky10DT3zM8QKLgzK2mHkmYovCtA_f5ajxO_H_xlHdo-1705661857-1-AdjemWtc+rfH0jZnFilOpv8vhCVI1Q0UWDKo6Piuq7hcqSOqb2Ljbw9K/MWPO0Z3fcE51bMq2z3tmngJyav+SGs=;
-        path=/; expires=Fri, 19-Jan-24 11:27:37 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=6DhyV5lYuSUqSaP7r3ndJlF9hodvtjR15fiMeK_IMGk-1705664481-1-AaNCm7swyfR8AXQ1X8Sn4C1vbpMqWrktIawC837YM6bDYGt8mE7sSBq4jwoQY3Xh7ECMdeb/rjs89/Z+dr6cgE4=;
+        path=/; expires=Fri, 19-Jan-24 12:11:21 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=acyy7yMbvNIeosUdp.I8NjwucsxX0JlooXaWXLC7vd8-1705661857796-0-604800000;
+      - _cfuvid=tETtXfFrcHhBNZcH5pZKFutvyt8ij_eev9lXQBKZFEg-1705664481896-0-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 847e8e5d28f90ac1-MAN
+      - 847ece99cb572218-MAN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "created": 1705661857,
+          "created": 1705664481,
           "data": [
             {
-              "revised_prompt": "A visually stunning image of a majestic lion standing inside a cozy kitchen. The lion, absorbed in his work, is carefully preparing a large pot of pasta. On his head, he wears a unique and whimsical hat, which adds a fun and lighthearted element to the scene. The room is filled with the warm, inviting aroma of the pasta and the cozy tones of the kitchen surroundings. The gentle lighting throws soft shadows that enhance the texture and detail of the lion's golden fur.",
-              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-yxaQdEs2eLxnYDouXYH8qq98.png?st=2024-01-19T09%3A57%3A37Z&se=2024-01-19T11%3A57%3A37Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T14%3A35%3A38Z&ske=2024-01-19T14%3A35%3A38Z&sks=b&skv=2021-08-06&sig=5khTdWBUB8dUJEfZ34IKawagP%2BEpAxY8FC8mXtdf3BM%3D"
+              "revised_prompt": "Imagine a scene where a majestic African lion is at the kitchen counter, showing its culinary skills by cooking pasta. It is wearing a hat, perhaps a chef's toque blanche, signifying its enthusiasm for the cooking task. The beast's huge paws are adroitly handling a large wooden spoon, stirring the pasta in a pot. The cooking station is set up with usual kitchen tools, including a stove, saucepans, and jars of herbs and spices. It's a humorous juxtaposition of wild savannah royalty mastering Italian cuisine.",
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-lPntzOJceaEP5Yw2qDqylhcI.png?st=2024-01-19T10%3A41%3A21Z&se=2024-01-19T12%3A41%3A21Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T16%3A48%3A54Z&ske=2024-01-19T16%3A48%3A54Z&sks=b&skv=2021-08-06&sig=ZkWonoooyYqC5qVhaKwDKOyni6UCZ%2BFL4Rq54mstq4c%3D"
             }
           ]
         }
-  recorded_at: Fri, 19 Jan 2024 10:57:37 GMT
+  recorded_at: Fri, 19 Jan 2024 11:41:21 GMT
 recorded_with: VCR 6.1.0
