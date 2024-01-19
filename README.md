@@ -726,12 +726,12 @@ puts response.dig("data", 0, "url")
 For DALL·E 3 the size of any generated images must be one of `1024x1024`, `1024x1792` or `1792x1024`. Additionally the quality of the image can be specified to either `standard` or `hd`.
 
 ```ruby
-response = client.images.generate(parameters: { prompt: "A spaniel cooking pasta wearing a hat of some sort", size: "1024x1792", quality: "standard" })
+response = client.images.generate(parameters: { prompt: "A springer spaniel cooking pasta wearing a hat of some sort", size: "1024x1792", quality: "standard" })
 puts response.dig("data", 0, "url")
 # => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
 
-![Ruby](https://i.ibb.co/6y4HJFx/img-d-Tx-Rf-RHj-SO5-Gho-Cbd8o-LJvw3.png)
+![Ruby](https://i.ibb.co/z2tCKv9/img-Goio0l-S0i81-NUNa-BIx-Eh-CT6-L.png)
 
 
 ### Image Edit
