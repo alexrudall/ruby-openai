@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/images/generations
     body:
       encoding: UTF-8
-      string: '{"prompt":"A baby sea otter cooking pasta wearing a hat of some sort","size":"256x256"}'
+      string: '{"prompt":"A baby sea otter cooking pasta wearing a hat of some sort","size":"256x256","model":"dall-e-2"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:49:05 GMT
+      - Fri, 19 Jan 2024 10:56:44 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,11 +33,11 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
+      - user-3clrjdlztmfzmksxfsyoiaou
       X-Request-Id:
-      - da2a8e023b3850d1963e74d15ea61265
+      - 86b88d9ff37ce4c1b619bfe68a053ac4
       Openai-Processing-Ms:
-      - '6793'
+      - '6622'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -45,27 +45,27 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=l8voAfjBmXkOVIzgl4o8njq.2O7pe8yiw.BRlQGzpJw-1699998545-0-Ad1XI+yQvIGADy+QVylNynfWFCBXG5+p3DOYyU6g95OU9tAbbFB8/vSbcmrdjQNG60e0wHbltmL/keeCeo3EOKQ=;
-        path=/; expires=Tue, 14-Nov-23 22:19:05 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=wEx.D4yoyDlIamJuRHDX7t3Iy2xuKSID7gcx5oQYH_U-1705661804-1-AcXvhW9vr/0kmRsXfYLKZ08e225ESpjgCQwaNVltTonFLCCR1VbkWvZlDK8PA3h1zjdeaJ2XWuuWGGqozYboSJw=;
+        path=/; expires=Fri, 19-Jan-24 11:26:44 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=gJPRUdTYYGlJO6V1X5vjcaCrDRZvoo_t43a91aLRwEo-1699998545009-0-604800000;
+      - _cfuvid=pbNnl.ZFFdlZ.F6RKawMY12cxXvALOoPMBg5koRTL1Q-1705661804986-0-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 8262762f0ecc4141-LHR
+      - 847e8d5ee8e76aab-MAN
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "created": 1699998544,
+          "created": 1705661804,
           "data": [
             {
-              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhhQPMiIQ0Es8OwrH/user-jxM65ijkZc1qRfHC0IJ8mOIc/img-74iavMuNGu1zboQISmi16Vc0.png?st=2023-11-14T20%3A49%3A04Z&se=2023-11-14T22%3A49%3A04Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-11-14T16%3A57%3A40Z&ske=2023-11-15T16%3A57%3A40Z&sks=b&skv=2021-08-06&sig=OSVXGW6mRn9WQeQE2oAm/wULPMzsiZZMw/vHuVQ0nBQ%3D"
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-7GZpu1NzukAdVUWonuhKR3w5.png?st=2024-01-19T09%3A56%3A44Z&se=2024-01-19T11%3A56%3A44Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T17%3A18%3A07Z&ske=2024-01-19T17%3A18%3A07Z&sks=b&skv=2021-08-06&sig=mCIggFyAoF1rwjJIvNJ%2BYoQzH1fzXwEf5JZ4WfBlwfU%3D"
             }
           ]
         }
-  recorded_at: Tue, 14 Nov 2023 21:49:05 GMT
+  recorded_at: Fri, 19 Jan 2024 10:56:44 GMT
 recorded_with: VCR 6.1.0
