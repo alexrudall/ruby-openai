@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants/asst_DZB5HnmnrQcDMrXTVPBjTyFt
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","name":"Test Assistant for OpenAI-Ruby"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Nov 2023 21:48:24 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 2296dca86992c2838fb2c871e1c5bc5c
+      Openai-Processing-Ms:
+      - '131'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=A2g1hzS493PAZXTY_5ywDxZ.FerPjFPFbIjOPbC98RU-1699998504-0-AewYbyjHFsytn5SoyDBEJAd53bOcfLWIIjR0aF6VW39GZAhLiI7fUFQPDwu/RU7ipSD4579mOOcotg6SnBD5xOI=;
+        path=/; expires=Tue, 14-Nov-23 22:18:24 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=8Z_AaJz8GOkjtQnh776txy1W0WgmXvDrnxTI92TZEhQ-1699998504890-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8262755deab023f0-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "asst_DZB5HnmnrQcDMrXTVPBjTyFt",
+          "object": "assistant",
+          "created_at": 1699998504,
+          "name": "Test Assistant for OpenAI-Ruby",
+          "description": null,
+          "model": "gpt-3.5-turbo",
+          "instructions": null,
+          "tools": [],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Tue, 14 Nov 2023 21:48:24 GMT
+recorded_with: VCR 6.1.0

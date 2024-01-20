@@ -11,5 +11,9 @@ module OpenAI
     def translate(parameters: {})
       @client.multipart_post(path: "/audio/translations", parameters: parameters)
     end
+
+    def speech(parameters: {})
+      @client.json_post(path: "/audio/speech", parameters: parameters)
+    end
   end
 end

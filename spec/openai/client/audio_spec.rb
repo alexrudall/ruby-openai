@@ -55,5 +55,24 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#speech" do
+      context "with audio", :vcr do
+        let(:model) { "tts-1" }
+
+        it "returns a working mp3 file as body" do
+          VCR.use_cassette("speech #{model} test") do
+            response = OpenAI::Client.new.audio.speech(
+              parameters: {
+                model: model,
+                input: "This is a speech test!",
+                voice: "alloy"
+              }
+            )
+            expect(response).not_to be_empty
+          end
+        end
+      end
+    end
   end
 end

@@ -5,6 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.3.1] - 2023-12-04
+
+### Fixed
+
+- Allow any kind of file (eg. PDFs) to be uploaded to the API, not just JSONL files. Thank you [@stefan-kp](https://github.com/stefan-kp) for the PR!
+
+## [6.3.0] - 2023-11-26
+
+### Added
+
+- Add ability to pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging - shout out to [@obie](https://github.com/obie) for pushing for this.
+- Add better error logging to the client by default.
+- Bump Event Source to v1, thank you [@atesgoral](https://github.com/atesgoral) @ Shopify!
+
+## [6.2.0] - 2023-11-15
+
+### Added
+
+- Add text-to-speech! Thank you [@codergeek121](https://github.com/codergeek121)
+
+## [6.1.0] - 2023-11-14
+
+### Added
+
+- Add support for Assistants, Threads, Messages and Runs. Thank you [@Haegin](https://github.com/Haegin) for the excellent work on this PR, and many reviewers for their contributions!
+
 ## [6.0.1] - 2023-11-07
 
 ### Fix

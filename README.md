@@ -1,14 +1,58 @@
 # Ruby OpenAI
 
-[![Gem Version](https://badge.fury.io/rb/ruby-openai.svg)](https://badge.fury.io/rb/ruby-openai)
+[![Gem Version](https://img.shields.io/gem/v/ruby-openai.svg)](https://rubygems.org/gems/ruby-openai)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
 
-Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
+Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖🩵
 
 Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [🚢 Hire me](https://peaceterms.com?utm_source=ruby-openai&utm_medium=readme&utm_id=26072023) | [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 Twitter](https://twitter.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
+
+# Table of Contents
+
+- [Installation](#installation)
+  - [Bundler](#bundler)
+  - [Gem Install](#gem-install)
+- [Usage](#usage)
+  - [Quickstart](#quickstart)
+  - [With Config](#with-config)
+  - [Custom timeout or base URI](#custom-timeout-or-base-uri)
+  - [Extra Headers per Client](#extra-headers-per-client)
+  - [Verbose Logging](#verbose-logging)
+  - [Azure](#azure)
+- [Counting Tokens](#counting-tokens)
+- [Models](#models)
+- [Chat](#chat)
+  - [Streaming Chat](#streaming-chat)
+- [Vision](#vision)
+- [JSON Mode](#json-mode)
+- [Functions](#functions)
+- [Edits](#edits)
+- [Embeddings](#embeddings)
+- [Files](#files)
+- [Finetunes](#finetunes)
+- [Assistants](#assistants)
+- [Threads and Messages](#threads-and-messages)
+- [Runs](#runs)
+  - [Runs involving function tools](#runs-involving-function-tools)
+- [Image Generation](#image-generation)
+- [Image Edit](#image-edit)
+- [Image Variations](#image-variations)
+- [Moderations](#moderations)
+- [Whisper](#whisper)
+  - [Translate](#translate)
+  - [Transcribe](#transcribe)
+  - [Speech](#speech)
+- [Errors](#errors)
+- [Development](#development)
+- [Release](#release)
+- [Contributing](#contributing)
+- [License](#license)
+- [Code of Conduct](#code-of-conduct)
+
+## Installation
 
 ### Bundler
 
@@ -106,6 +150,25 @@ OpenAI.configure do |config|
       "Helicone-Auth": "Bearer HELICONE_API_KEY" # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
     } # Optional
 end
+```
+
+#### Extra Headers per Client
+
+You can dynamically pass headers per client object, which will be merged with any headers set globally with OpenAI.configure:
+
+```ruby
+client = OpenAI::Client.new(access_token: "access_token_goes_here")
+client.add_headers("X-Proxy-TTL" => "43200")
+```
+
+#### Verbose Logging
+
+You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
+
+```ruby
+  client = OpenAI::Client.new do |f|
+    f.response :logger, Logger.new($stdout), bodies: true
+  end
 ```
 
 #### Azure
@@ -216,6 +279,57 @@ response = client.chat(
     })
 puts response.dig("choices", 0, "message", "content")
 # => "The image depicts a serene natural landscape featuring a long wooden boardwalk extending straight ahead"
+```
+
+#### JSON Mode
+
+You can set the response_format to ask for responses in JSON (at least for `gpt-3.5-turbo-1106`):
+
+```ruby
+  response = client.chat(
+    parameters: {
+        model: "gpt-3.5-turbo-1106",
+        response_format: { type: "json_object" },
+        messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
+        temperature: 0.7,
+    })
+    puts response.dig("choices", 0, "message", "content")
+    {
+      "name": "John",
+      "age": 30,
+      "city": "New York",
+      "hobbies": ["reading", "traveling", "hiking"],
+      "isStudent": false
+    }
+```
+
+You can stream it as well!
+
+```ruby
+  response = client.chat(
+    parameters: {
+      model: "gpt-3.5-turbo-1106",
+      messages: [{ role: "user", content: "Can I have some JSON please?"}],
+        response_format: { type: "json_object" },
+        stream: proc do |chunk, _bytesize|
+          print chunk.dig("choices", 0, "delta", "content")
+        end
+  })
+  {
+    "message": "Sure, please let me know what specific JSON data you are looking for.",
+    "JSON_data": {
+      "example_1": {
+        "key_1": "value_1",
+        "key_2": "value_2",
+        "key_3": "value_3"
+      },
+      "example_2": {
+        "key_4": "value_4",
+        "key_5": "value_5",
+        "key_6": "value_6"
+      }
+    }
+  }
 ```
 
 ### Functions
@@ -381,6 +495,215 @@ You can also capture the events for a job:
 client.finetunes.list_events(id: fine_tune_id)
 ```
 
+### Assistants
+
+Assistants can call models to interact with threads and use tools to perform tasks (see [Assistant Overview](https://platform.openai.com/docs/assistants/overview)).
+
+To create a new assistant (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant)):
+
+```ruby
+response = client.assistants.create(
+    parameters: {
+        model: "gpt-3.5-turbo-1106",         # Retrieve via client.models.list. Assistants need 'gpt-3.5-turbo-1106' or later.
+        name: "OpenAI-Ruby test assistant", 
+        description: nil,
+        instructions: "You are a helpful assistant for coding a OpenAI API client using the OpenAI-Ruby gem.",
+        tools: [
+            { type: 'retrieval' },           # Allow access to files attached using file_ids
+            { type: 'code_interpreter' },    # Allow access to Python code interpreter 
+        ],
+        "file_ids": ["file-123"],            # See Files section above for how to upload files
+        "metadata": { my_internal_version_id: '1.0.0' }
+    })
+assistant_id = response["id"]
+```
+
+Given an `assistant_id` you can `retrieve` the current field values:
+
+```ruby
+client.assistants.retrieve(id: assistant_id)
+```
+
+You can get a `list` of all assistants currently available under the organization:
+
+```ruby
+client.assistants.list
+```
+
+You can modify an existing assistant using the assistant's id (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/modifyAssistant)):
+
+```ruby
+response = client.assistants.modify(
+        id: assistant_id,
+        parameters: {
+            name: "Modified Test Assistant for OpenAI-Ruby",
+            metadata: { my_internal_version_id: '1.0.1' }
+        })
+```
+
+You can delete assistants:
+
+```
+client.assistants.delete(id: assistant_id)
+```
+
+### Threads and Messages
+
+Once you have created an assistant as described above, you need to prepare a `Thread` of `Messages` for the assistant to work on (see [introduction on Assistants](https://platform.openai.com/docs/assistants/how-it-works)). For example, as an initial setup you could do:
+
+```ruby
+# Create thread
+response = client.threads.create # Note: Once you create a thread, there is no way to list it
+                                 # or recover it currently (as of 2023-12-10). So hold onto the `id` 
+thread_id = response["id"]
+
+# Add initial message from user (see https://platform.openai.com/docs/api-reference/messages/createMessage)
+message_id = client.messages.create(
+    thread_id: thread_id,
+    parameters: {
+        role: "user", # Required for manually created messages
+        content: "Can you help me write an API library to interact with the OpenAI API please?"
+    })["id"]
+
+# Retrieve individual message
+message = client.messages.retrieve(thread_id: thread_id, id: message_id)
+
+# Review all messages on the thread
+messages = client.messages.list(thread_id: thread_id)
+```
+
+To clean up after a thread is no longer needed:
+
+```ruby
+# To delete the thread (and all associated messages):
+client.threads.delete(id: thread_id)
+
+client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after thread is deleted
+```
+
+
+### Runs
+
+To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows (Note: This is one place where OpenAI will take your money):
+
+```ruby
+# Create run (will use instruction/model/tools from Assistant's definition)
+response = client.runs.create(thread_id: thread_id,
+    parameters: {
+        assistant_id: assistant_id
+    })
+run_id = response['id']
+
+# Retrieve/poll Run to observe status
+response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+status = response['status']
+```
+
+The `status` response can include the following strings `queued`, `in_progress`, `requires_action`, `cancelling`, `cancelled`, `failed`, `completed`, or `expired` which you can handle as follows:
+
+```ruby
+while true do
+    
+    response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+    status = response['status']
+
+    case status
+    when 'queued', 'in_progress', 'cancelling'
+        puts 'Sleeping'
+        sleep 1 # Wait one second and poll again
+    when 'completed'
+        break # Exit loop and report result to user
+    when 'requires_action'
+        # Handle tool calls (see below)
+    when 'cancelled', 'failed', 'expired'
+        puts response['last_error'].inspect
+        break # or `exit`
+    else
+        puts "Unknown status response: #{status}"
+    end
+end
+```
+
+If the `status` response indicates that the `run` is `completed`, the associated `thread` will have one or more new `messages` attached:
+
+```ruby
+# Either retrieve all messages in bulk again, or...
+messages = client.messages.list(thread_id: thread_id) # Note: as of 2023-12-11 adding limit or order options isn't working, yet
+
+# Alternatively retrieve the `run steps` for the run which link to the messages:
+run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id)
+new_message_ids = run_steps['data'].filter_map { |step|
+  if step['type'] == 'message_creation'
+    step.dig('step_details', "message_creation", "message_id")
+  end # Ignore tool calls, because they don't create new messages.
+}
+
+# Retrieve the individual messages
+new_messages = new_message_ids.map { |msg_id|
+  client.messages.retrieve(id: msg_id, thread_id: thread_id)
+}
+
+# Find the actual response text in the content array of the messages
+new_messages.each { |msg|
+    msg['content'].each { |content_item|
+        case content_item['type']
+        when 'text'
+            puts content_item.dig('text', 'value')
+            # Also handle annotations
+        when 'image_file'
+            # Use File endpoint to retrieve file contents via id
+            id = content_item.dig('image_file', 'file_id')
+        end
+    }
+}
+```
+
+At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
+
+```ruby
+client.runs.list(thread_id: thread_id)
+```
+
+#### Runs involving function tools
+
+In case you are allowing the assistant to access `function` tools (they are defined in the same way as functions during chat completion), you might get a status code of `requires_action` when the assistant wants you to evaluate one or more function tools:
+
+```ruby
+def get_current_weather(location:, unit: "celsius")
+    # Your function code goes here
+    if location =~ /San Francisco/i
+        return unit == "celsius" ? "The weather is nice 🌞 at 27°C" : "The weather is nice 🌞 at 80°F"
+    else
+        return unit == "celsius" ? "The weather is icy 🥶 at -5°C" : "The weather is icy 🥶 at 23°F"
+    end 
+end
+
+if status == 'requires_action'
+
+    tools_to_call = response.dig('required_action', 'submit_tool_outputs', 'tool_calls')
+
+    my_tool_outputs = tools_to_call.map { |tool|
+        # Call the functions based on the tool's name
+        function_name = tool.dig('function', 'name')
+        arguments = JSON.parse(
+              tool.dig("function", "arguments"),
+              { symbolize_names: true },
+        )
+        
+        tool_output = case function_name
+        when "get_current_weather"
+            get_current_weather(**arguments)
+        end
+
+        { tool_call_id: tool['id'], output: tool_output }
+    }
+
+    client.runs.submit_tool_outputs(thread_id: thread_id, run_id: run_id, parameters: { tool_outputs: my_tool_outputs })
+end
+```
+
+Note that you have 10 minutes to submit your tool output before the run expires.
+
 ### Image Generation
 
 Generate an image using DALL·E! The size of any generated images must be one of `256x256`, `512x512` or `1024x1024` -
@@ -459,6 +782,22 @@ response = client.audio.transcribe(
     })
 puts response["text"]
 # => "Transcription of the text"
+```
+
+#### Speech
+
+The speech API takes as input the text and a voice and returns the content of an audio file you can listen to.
+
+```ruby
+response = client.audio.speech(
+  parameters: {
+    model: "tts-1",
+    input: "This is a speech test!",
+    voice: "alloy"
+  }
+)
+File.binwrite('demo.mp3', response)
+# => mp3 file that plays: "This is a speech test!"
 ```
 
 ### Errors

@@ -7,12 +7,33 @@ require_relative "openai/files"
 require_relative "openai/finetunes"
 require_relative "openai/images"
 require_relative "openai/models"
+require_relative "openai/assistants"
+require_relative "openai/threads"
+require_relative "openai/messages"
+require_relative "openai/runs"
+require_relative "openai/run_steps"
 require_relative "openai/audio"
 require_relative "openai/version"
 
 module OpenAI
   class Error < StandardError; end
   class ConfigurationError < Error; end
+
+  class MiddlewareErrors < Faraday::Middleware
+    def call(env)
+      @app.call(env)
+    rescue Faraday::Error => e
+      raise e unless e.response.is_a?(Hash)
+
+      logger = Logger.new($stdout)
+      logger.formatter = proc do |_severity, _datetime, _progname, msg|
+        "\033[31mOpenAI HTTP Error (spotted in ruby-openai #{VERSION}): #{msg}\n\033[0m"
+      end
+      logger.error(e.response[:body])
+
+      raise e
+    end
+  end
 
   class Configuration
     attr_writer :access_token
@@ -30,7 +51,7 @@ module OpenAI
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
-      @extra_headers = nil
+      @extra_headers = {}
     end
 
     def access_token

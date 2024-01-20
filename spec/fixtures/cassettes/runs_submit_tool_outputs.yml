@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_xS5kDdrGgAiEmfBgu8W9hUDM/runs/run_Q5GQ1iQ8Dz6yxMZviOVhfg3Z/submit_tool_outputs
+    body:
+      encoding: UTF-8
+      string: '{"tool_outputs":[{"tool_call_id":"call_Vfq8wpokTGewt0ubGCkeuwo1","output":"{\"success\":
+        true, \"output\": \"Hello, World\"}"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 14 Nov 2023 21:49:33 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '170'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - ed490656e30ce3517af644d4d4896d32
+      Openai-Processing-Ms:
+      - '78'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Idi1GsnvwzNtlMGokupSL1datMdF4olrpH16hn2rTXM-1699998573-0-Ab51hM+fdn1fvgvGIKfSVVlCRvt9PUCS/tMXVZdeH58K2i0vO0PlRfn4vVlNBUZ89POrOXEzEyl7lfyrJY7jBV8=;
+        path=/; expires=Tue, 14-Nov-23 22:19:33 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=lfnDsldfr.kd5siO5R69ID572aJOwU7jfb1R4qYHROI-1699998573194-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 826277093d826559-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Runs in status \"in_progress\" do not accept tool outputs.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Tue, 14 Nov 2023 21:49:33 GMT
+recorded_with: VCR 6.1.0

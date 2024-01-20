@@ -11,8 +11,6 @@ http_interactions:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Test:
-      - X-Default
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 14 Aug 2023 15:03:19 GMT
+      - Tue, 14 Nov 2023 21:49:25 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,73 +35,62 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - b9e328077bdf272ba83df37b78c0171c
+      - dbfdc68c03b807f9032ae4a787a2f0ec
       Openai-Processing-Ms:
-      - '164'
+      - '352'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=YW3LEBzgVbb3zRPY73g0QJbiFNRc.Ito1h13MA3eO84-1699998565-0-Aa/bvt/ZUgA8lO/hJC/HovSo+2G5cLKfBuDxOKrdpjo18KdlmUAexordUYA6wRrQ9sjrJgx6HJs3D5EpQD622p0=;
+        path=/; expires=Tue, 14-Nov-23 22:19:25 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=ObFB3Cje.0H2uPyh5bobPS_MqZqkf5o2hB6ODhOj1ac-1699998565928-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 7f6a15779a7a3864-LHR
+      - 826276da0c496442-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: '{"id":"modr-7nTOBOkEydGPJWMHwfEjezuoy0635","model":"text-moderation-005","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"harassment":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false,"self-harm/intent":false,"self-harm/instructions":false,"harassment/threatening":false,"violence":false},"category_scores":{"sexual":3.8446674e-06,"hate":1.6230814e-07,"harassment":1.4317567e-07,"self-harm":2.9722213e-07,"sexual/minors":2.1897237e-07,"hate/threatening":5.3975375e-09,"violence/graphic":3.0706494e-07,"self-harm/intent":2.1346543e-07,"self-harm/instructions":1.5678755e-09,"harassment/threatening":2.6646983e-08,"violence":2.8857137e-06}}]}'
-  recorded_at: Mon, 14 Aug 2023 15:03:19 GMT
-- request:
-    method: post
-    uri: https://api.openai.com/v1/moderations
-    body:
-      encoding: UTF-8
-      string: '{"input":"I''m worried about that."}'
-    headers:
-      Content-Type:
-      - application/json
-      Authorization:
-      - Bearer <OPENAI_ACCESS_TOKEN>
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Tue, 31 Oct 2023 17:48:18 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Openai-Version:
-      - '2020-10-01'
-      Openai-Organization:
-      - user-jxm65ijkzc1qrfhc0ij8moic
-      X-Request-Id:
-      - b588c46547172a59cde5f4b78f8bf780
-      Openai-Processing-Ms:
-      - '258'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
-      Cf-Cache-Status:
-      - DYNAMIC
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 81edba644838769e-LHR
-      Alt-Svc:
-      - h3=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: '{"id":"modr-8Fn8cCAWjLIkgeAPfnW98dWxSaFei","model":"text-moderation-006","results":[{"flagged":false,"categories":{"sexual":false,"hate":false,"harassment":false,"self-harm":false,"sexual/minors":false,"hate/threatening":false,"violence/graphic":false,"self-harm/intent":false,"self-harm/instructions":false,"harassment/threatening":false,"violence":false},"category_scores":{"sexual":3.142887362628244e-05,"hate":3.481573685348849e-06,"harassment":3.5785260479315184e-06,"self-harm":1.2955736110598082e-06,"sexual/minors":1.0942262633761857e-06,"hate/threatening":3.9819525454731775e-09,"violence/graphic":3.325664579278964e-07,"self-harm/intent":2.0095701813716005e-07,"self-harm/instructions":3.762874012380735e-09,"harassment/threatening":8.402972184740065e-08,"violence":2.143035271728877e-05}}]}'
-  recorded_at: Tue, 31 Oct 2023 17:48:18 GMT
+      string: |-
+        {
+          "id": "modr-8KvZdADkUU6dO1BlY2zTIhrDpmc9M",
+          "model": "text-moderation-006",
+          "results": [
+            {
+              "flagged": false,
+              "categories": {
+                "sexual": false,
+                "hate": false,
+                "harassment": false,
+                "self-harm": false,
+                "sexual/minors": false,
+                "hate/threatening": false,
+                "violence/graphic": false,
+                "self-harm/intent": false,
+                "self-harm/instructions": false,
+                "harassment/threatening": false,
+                "violence": false
+              },
+              "category_scores": {
+                "sexual": 0.00003175064193783328,
+                "hate": 3.4778734061546857e-6,
+                "harassment": 3.6136987091595074e-6,
+                "self-harm": 1.2846102208641241e-6,
+                "sexual/minors": 1.117846522902255e-6,
+                "hate/threatening": 3.989105934465442e-9,
+                "violence/graphic": 3.398185697278677e-7,
+                "self-harm/intent": 2.000100209897937e-7,
+                "self-harm/instructions": 3.7548302245227205e-9,
+                "harassment/threatening": 8.500402515210226e-8,
+                "violence": 0.000021952317183604464
+              }
+            }
+          ]
+        }
+  recorded_at: Tue, 14 Nov 2023 21:49:25 GMT
 recorded_with: VCR 6.1.0

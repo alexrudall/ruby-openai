@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alex"]
   spec.email         = ["alexrudall@users.noreply.github.com"]
 
-  spec.summary       = "OpenAI API + Ruby! 🤖❤️"
+  spec.summary       = "OpenAI API + Ruby! 🤖🩵"
   spec.homepage      = "https://github.com/alexrudall/ruby-openai"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "event_stream_parser", ">= 0.3.0", "< 1.0.0"
+  spec.add_dependency "event_stream_parser", ">= 0.3.0", "< 2.0.0"
   spec.add_dependency "faraday", ">= 1"
   spec.add_dependency "faraday-multipart", ">= 1"
 end

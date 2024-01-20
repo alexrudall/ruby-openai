@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 26 Nov 2023 12:03:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - 834820e6d5581eeed747b5f68bf5e93d
+      Openai-Processing-Ms:
+      - '78'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=gPv2VQf8Nxo5ZJVyHCKD7b3f0O8sfokcS5yRV3iZ63U-1701000206-0-AQSm94kwAg0078jMrvuXbtKSnu9zWeJvnXgLMzTWW75MPjrkbvqQy+doCzbt9Ogw034/Xko70Vele9gvgPjMe4c=;
+        path=/; expires=Sun, 26-Nov-23 12:33:26 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=qL401iFqCN..HKY6TtiTzELukKGkunswLhpXoeSF1SM-1701000206022-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 82c1fcf63dabdd54-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "asst_f62h3HTHAgj8wxU1XsOsbhdD",
+          "object": "assistant",
+          "created_at": 1701000205,
+          "name": "OpenAI-Ruby test assistant",
+          "description": null,
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
+          "file_ids": [],
+          "metadata": {}
+        }
+  recorded_at: Sun, 26 Nov 2023 12:03:26 GMT
+recorded_with: VCR 6.1.0

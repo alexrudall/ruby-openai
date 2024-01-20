@@ -5,5 +5,6 @@ module Ruby
     Error = ::OpenAI::Error
     ConfigurationError = ::OpenAI::ConfigurationError
     Configuration = ::OpenAI::Configuration
+    MiddlewareErrors = ::OpenAI::MiddlewareErrors
   end
 end

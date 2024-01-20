@@ -5,13 +5,10 @@ RSpec.describe OpenAI::Client do
       let(:stream) { false }
       let(:response) do
         OpenAI::Client.new.chat(
-          parameters: {
-            model: model,
-            messages: messages,
-            stream: stream
-          }
+          parameters: parameters
         )
       end
+      let(:parameters) { { model: model, messages: messages, stream: stream } }
       let(:content) { response.dig("choices", 0, "message", "content") }
       let(:cassette) { "#{model} #{'streamed' if stream} chat".downcase }
 
@@ -21,6 +18,54 @@ RSpec.describe OpenAI::Client do
         it "succeeds" do
           VCR.use_cassette(cassette) do
             expect(content.split.empty?).to eq(false)
+          end
+        end
+
+        context "with an invalid function call" do
+          let(:cassette) { "#{model} function call chat".downcase }
+          let(:messages) do
+            [
+              {
+                "role" => "function",
+                # "name" => "function",
+                "content" => "function"
+              }
+            ]
+          end
+          let(:parameters) do
+            {
+              model: model,
+              messages: messages,
+              stream: stream,
+              functions: functions
+            }
+          end
+          let(:functions) do
+            [
+              {
+                "name" => "function",
+                "description" => "function",
+                "parameters" =>
+                  {
+                    "type" => "object",
+                    "properties" => {
+                      "user" => {
+                        "type" => "string",
+                        "description" => "the full name of the user"
+                      }
+                    }
+                  }
+              }
+            ]
+          end
+
+          it "raises an error containing the reason" do
+            VCR.use_cassette(cassette) do
+              response
+            rescue Faraday::Error => e
+              expect(e.response.dig(:body, "error",
+                                    "message")).to include("Missing parameter 'name'")
+            end
           end
         end
 
