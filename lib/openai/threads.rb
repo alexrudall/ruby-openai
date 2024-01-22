@@ -4,10 +4,6 @@ module OpenAI
       @client = client.beta(assistants: "v1")
     end
 
-    def list
-      @client.get(path: "/threads")
-    end
-
     def retrieve(id:)
       @client.get(path: "/threads/#{id}")
     end
