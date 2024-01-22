@@ -19,5 +19,9 @@ module OpenAI
     def modify(id:, thread_id:, parameters: {})
       @client.json_post(path: "/threads/#{thread_id}/messages/#{id}", parameters: parameters)
     end
+
+    def files(thread_id:, id:)
+      @client.get(path: "/threads/#{thread_id}/messages/#{id}/files")
+    end
   end
 end
