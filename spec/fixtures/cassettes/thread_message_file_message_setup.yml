@@ -1,0 +1,312 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_oWxMuvNi2BNHlav3Y8N48ZIp/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:36:38 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 934123658d50583d3b8dccc875372107
+      Openai-Processing-Ms:
+      - '126'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=vDIWtfZsCYA5zJpBMOOutTVzLaVegYJmh105wtujA5Q-1705887398-1-AX39/utWNnQHR8o9S5QnSgzJyidppE2nsessFgzhghHKrPfSSwP3/2lvDE86yqw9JnuGYG1PBT5lATzUw4DQt+U=;
+        path=/; expires=Mon, 22-Jan-24 02:06:38 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=lOOFefPsJ2szIrfWnasl0xKg1wzEJ9g8IYMMdbXEVX0-1705887398011-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8494112bafdba796-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_2s8PIdaCk2vh9NLbTHtzjByz","object":"thread.message","created_at":1705887397,"thread_id":"thread_oWxMuvNi2BNHlav3Y8N48ZIp","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library to interact with the OpenAI API please?","annotations":[]}}],"file_ids":[],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Mon, 22 Jan 2024 01:36:37 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_WJiTdON0R0017PdzhkvbC5Q4/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:38:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 64f1f673a9f4bd497800ad6903e43f29
+      Openai-Processing-Ms:
+      - '120'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=77Dcd8ikvcC28bvB_vDjfmVwejPlypDmJPtDhmSOsdU-1705887522-1-AW9Tko7jI0XsF0UzMavL4Iw8TFi281HiCohPpGstJ97tet6+MxCnMAfh81r41LZq4yolVEJ1xdOXlJclwtC9MTM=;
+        path=/; expires=Mon, 22-Jan-24 02:08:42 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=7BV3bdYRND9ccyCY83Qnr4RfG.02.0YtUYRQenY3cWE-1705887522893-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 849414383c9a1eb6-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_djsrmd0PyczxmVZfVVjWnwnn","object":"thread.message","created_at":1705887522,"thread_id":"thread_WJiTdON0R0017PdzhkvbC5Q4","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library to interact with the OpenAI API please?","annotations":[]}}],"file_ids":[],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Mon, 22 Jan 2024 01:38:42 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_AKirbsE3nciZHq8rdhzb7sXk/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?","file_ids":["file-twnZg86CjsJ7li0MUEAhMTq3"]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:49:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - ed02f658e7c774e8f3497ce6a5d32717
+      Openai-Processing-Ms:
+      - '243'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=mTaugkCM5LjBcg72uW_QUQM3kP8LhV3Vyd_CLxn9uYU-1705888179-1-AY+es41N9FF4hXs2ZJdQvYbsJDcrt3uwZENnrDvsL2X/FJ2e18GSfagK15NKRO5M9Eu0y0YmmkW+Su8/3+Pfg40=;
+        path=/; expires=Mon, 22-Jan-24 02:19:39 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=u75oFfgydfiPd1_iM2JS3YvS3ALvWGMiYzo.SZxsMPE-1705888179466-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8494243eedf8a790-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_FaiJi8VTOwBDMVQnG8RLV0BB","object":"thread.message","created_at":1705888179,"thread_id":"thread_AKirbsE3nciZHq8rdhzb7sXk","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library to interact with the OpenAI API please?","annotations":[]}}],"file_ids":["file-twnZg86CjsJ7li0MUEAhMTq3"],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Mon, 22 Jan 2024 01:49:39 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_dfenfTL62VDpGwVxco5VtdSm/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?","file_ids":["file-yx6C2k0saVzdnxbJv6cqM3JO"]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:49:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 3728244ff53dd06e20232e6a026bfbe8
+      Openai-Processing-Ms:
+      - '192'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=zW1x7aRMmeHI4ag0Z2wnyaK343lq5CPRkyhWUbFa_o4-1705888195-1-Ae4MmT/yd/zNw7PGc0OUzyIiPOlCo8TNTP8r0f9XKEkP91tvurQEyGDUTTOhbsP8s/ZbIuSDNOfHobTXXz4WIhM=;
+        path=/; expires=Mon, 22-Jan-24 02:19:55 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=cL1vIc4CdfWJUZKyNIPIoN6Shzpuy9T6JRM7hdKQ0wA-1705888195900-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 849424a60b0d1feb-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_bpn5Eph269piueAN0M7hQeug","object":"thread.message","created_at":1705888195,"thread_id":"thread_dfenfTL62VDpGwVxco5VtdSm","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library to interact with the OpenAI API please?","annotations":[]}}],"file_ids":["file-yx6C2k0saVzdnxbJv6cqM3JO"],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Mon, 22 Jan 2024 01:49:55 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_Ow2BFl31anjKEgb6oojnKKZu/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library?","file_ids":["file-gJmzWvYOWXHv7UT4SI38tAJL"]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:56:27 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 03ede53a642d29a05e7e0940c03c51de
+      Openai-Processing-Ms:
+      - '258'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=xD7IJeb6jh4cWedxcdnJGsChXLp5YbkZf0lTdEXQWtw-1705888587-1-AW9hFLjXbDKksiquB8wflCvF48vbeorFTzCa1e4av141EYuwch1hC8g7D+uOzc5PSf2E+oMxD5i1V1TIidbONgw=;
+        path=/; expires=Mon, 22-Jan-24 02:26:27 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=tNvuKdEMIdi72OvQMU9GLrfx_MxDsymNUcXqRTioHoI-1705888587843-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84942e374b021e88-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_r3kQBDnC6l5JSL5Jcn235uVj","object":"thread.message","created_at":1705888587,"thread_id":"thread_Ow2BFl31anjKEgb6oojnKKZu","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library?","annotations":[]}}],"file_ids":["file-gJmzWvYOWXHv7UT4SI38tAJL"],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Mon, 22 Jan 2024 01:56:27 GMT
+recorded_with: VCR 6.1.0

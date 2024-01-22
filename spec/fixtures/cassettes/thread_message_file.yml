@@ -1,0 +1,269 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_WJiTdON0R0017PdzhkvbC5Q4/messages/msg_djsrmd0PyczxmVZfVVjWnwnn/files/file-m6Lfp5SoxoTcZrHO2C0Zp5lx
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:38:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - a79573ad05bc93045b5485e394008053
+      Openai-Processing-Ms:
+      - '90'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Kc.7vacZ5W65dDP5t1Hnduoo2a88qCYPrron_pqeqak-1705887524-1-AUstZaDutDmubp8g6jWpinDsC+e/RuHoCZfz6XuYwS5J3HqtKdCooEeCx9jVQw7RjY5eCQdVdu1YoVn0LhJoZjk=;
+        path=/; expires=Mon, 22-Jan-24 02:08:44 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XhntSpjOW0Gmpd5.qjaCBEUCQvTjSMXcsP6kBXACyTY-1705887524041-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8494143f9c241fd8-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No message file found with id 'file-m6Lfp5SoxoTcZrHO2C0Zp5lx'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Mon, 22 Jan 2024 01:38:43 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_AKirbsE3nciZHq8rdhzb7sXk/messages/msg_FaiJi8VTOwBDMVQnG8RLV0BB/files/file-twnZg86CjsJ7li0MUEAhMTq3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:49:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 4b41529ed946152a42aea97c8427873a
+      Openai-Processing-Ms:
+      - '83'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=aWV0JCL2nyY3BcC61_T25JPS9Ib98GWvD9RHz0Fnw.c-1705888179-1-AXQ4tftUHuBf4fpyp3mjsv6sADHBq5tXmdo5+0rT6aVKvTmLkkbPl9rOInpDenJ6Mbh9gvgqxi8/8BFdncuqxMc=;
+        path=/; expires=Mon, 22-Jan-24 02:19:39 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=BOjq6LGje27XZZwmBMK2AP19tapgpHR_OBFV3zckiOM-1705888179794-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 849424421cc11ea5-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "file-twnZg86CjsJ7li0MUEAhMTq3",
+          "object": "thread.message.file",
+          "created_at": 1705888179,
+          "message_id": "msg_FaiJi8VTOwBDMVQnG8RLV0BB"
+        }
+  recorded_at: Mon, 22 Jan 2024 01:49:39 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_dfenfTL62VDpGwVxco5VtdSm/messages/msg_bpn5Eph269piueAN0M7hQeug/files/file-yx6C2k0saVzdnxbJv6cqM3JO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:49:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 385c0305a0bea26bbfe79309827a79cc
+      Openai-Processing-Ms:
+      - '95'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Lk6OvXMe.Tkt5H9JgQQ_pk1y_3qgKiq9TFeV7PaRmJ4-1705888196-1-Adsbwhi3DH+ylWPeDabu5E4hF/bkWfmrvlZL9oiWH7uXOHZ9IJRlKBs9GlVx6HLVCKMXGuABsarlBDqBczM6HnM=;
+        path=/; expires=Mon, 22-Jan-24 02:19:56 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=2iLFpkhJgV2JZiVdke2BauIJ3HfRk4OZ1cPePm9SWVA-1705888196315-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 849424a93b4ea79f-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "file-yx6C2k0saVzdnxbJv6cqM3JO",
+          "object": "thread.message.file",
+          "created_at": 1705888195,
+          "message_id": "msg_bpn5Eph269piueAN0M7hQeug"
+        }
+  recorded_at: Mon, 22 Jan 2024 01:49:56 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_Ow2BFl31anjKEgb6oojnKKZu/messages/msg_r3kQBDnC6l5JSL5Jcn235uVj/files/file-gJmzWvYOWXHv7UT4SI38tAJL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 22 Jan 2024 01:56:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - 9fa0cdf7d122345593d75ba40fcc8a1c
+      Openai-Processing-Ms:
+      - '88'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=2ZQ1j3SnMAYv0o31Yb5U1OD4DZLvrP.CCy1v4Mei8YQ-1705888588-1-AeXRAZbLdnN6OqYgEO0gZCwNizd43awmNrxk5xDZpLjLMp3nDkpyHIOB3l6C6Qi5EnpCg9qiQZmbzvFcPMr1Kfs=;
+        path=/; expires=Mon, 22-Jan-24 02:26:28 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=wjYsSUB8gr6c42w2x0w0efo3d5ccDFI0V37Ru33gE3k-1705888588177-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 84942e3a6a45a789-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "file-gJmzWvYOWXHv7UT4SI38tAJL",
+          "object": "thread.message.file",
+          "created_at": 1705888587,
+          "message_id": "msg_r3kQBDnC6l5JSL5Jcn235uVj"
+        }
+  recorded_at: Mon, 22 Jan 2024 01:56:27 GMT
+recorded_with: VCR 6.1.0
