@@ -67,5 +67,18 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#files" do
+      let(:cassette) { "messages files" }
+      let(:response) do
+        OpenAI::Client.new.messages.files(thread_id: thread_id, id: message_id)
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq "list"
+        end
+      end
+    end
   end
 end
