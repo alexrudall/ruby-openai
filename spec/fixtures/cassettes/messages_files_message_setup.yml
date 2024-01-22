@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_0DKrDW2feqgymGHMUUFZ9ObF/messages
+    body:
+      encoding: UTF-8
+      string: '{"role":"user","content":"Can you help me write an API library to interact
+        with the OpenAI API please?"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 21 Jan 2024 23:07:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-ohkbyswyo4lresltjgbrr4oi
+      X-Request-Id:
+      - f6e63f5f13328c18128f8c610731cf8f
+      Openai-Processing-Ms:
+      - '125'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ppsZS2Hd0mYRLK3J8L0JN9ES9Vq1o.vc6XVnMaHbngY-1705878450-1-AQVA78lRf1CBr01z1i0FY4JTWfxFw3bYyQTz9mxay3iAtfVNVMZo5BjhccMofizuHjDNlanVAuPNT3UW4CQdS4Q=;
+        path=/; expires=Sun, 21-Jan-24 23:37:30 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=13lGTxjIXKF7qrdZCAZL93AXjnE4RxuTwHzpGsLxGak-1705878450383-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 849336b8f9641ff6-EZE
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"msg_N2lWLQ7b9RbUNMthHWXM87r1","object":"thread.message","created_at":1705878450,"thread_id":"thread_0DKrDW2feqgymGHMUUFZ9ObF","role":"user","content":[{"type":"text","text":{"value":"Can
+        you help me write an API library to interact with the OpenAI API please?","annotations":[]}}],"file_ids":[],"assistant_id":null,"run_id":null,"metadata":{}}'
+  recorded_at: Sun, 21 Jan 2024 23:07:29 GMT
+recorded_with: VCR 6.1.0
