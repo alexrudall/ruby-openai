@@ -39,11 +39,13 @@ module OpenAI
       unless PURPOSES.include?(purpose)
         raise ArgumentError, "`purpose` must be one of `#{PURPOSES.join(',')}`"
       end
-      validate_jsonl(file: file) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
+
+      validate_jsonl(file: file.path) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
     end
 
-    def validate_jsonl(file:)
-      File.open(file) do |file|
+    # 修改后
+    def validate_jsonl(file_path:)
+      File.open(file_path) do |file|
         file.each_line.with_index do |line, index|
           JSON.parse(line)
         rescue JSON::ParserError => e
@@ -55,18 +57,18 @@ module OpenAI
     def get_file(file_input)
       case file_input
       when String
-        return open_file(file_input)
-      when File, Tempfile then file_input
+        open_file(file_input)
+      when File, Tempfile
+        file_input
       else
         raise ArgumentError, "Invalid file input"
       end
     end
 
     def open_file(file_path)
-      return File.open(file_path)
+      File.open(file_path)
     rescue Errno::ENOENT => e
       raise StandardError, "File not found: #{e.message}"
     end
-
   end
 end
