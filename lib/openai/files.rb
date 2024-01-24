@@ -40,13 +40,13 @@ module OpenAI
         raise ArgumentError, "`purpose` must be one of `#{PURPOSES.join(',')}`"
       end
 
-      validate_jsonl(file: file.path) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
+      validate_jsonl(file: file) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
     end
 
     # 修改后
-    def validate_jsonl(file_path:)
-      File.open(file_path) do |file|
-        file.each_line.with_index do |line, index|
+    def validate_jsonl(file:)
+      File.open(file) do |open_file|
+        open_file.each_line.with_index do |line, index|
           JSON.parse(line)
         rescue JSON::ParserError => e
           raise JSON::ParserError, "#{e.message} - found on line #{index + 1} of #{file}"
