@@ -43,7 +43,6 @@ module OpenAI
       validate_jsonl(file: file) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
     end
 
-    # 修改后
     def validate_jsonl(file:)
       File.open(file) do |open_file|
         open_file.each_line.with_index do |line, index|
