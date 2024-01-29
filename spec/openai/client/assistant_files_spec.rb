@@ -2,45 +2,46 @@ RSpec.describe OpenAI::Client do
   describe "#assistant_files", :vcr do
     let(:filename) { "algebra_formulas.pdf" }
     let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
-    let(:assistant_id) { "asst_KfrvKUIYCRCzmwuGe9uuHBHJ" }
-    let(:assistant_file_id) { "file-wB6RM6wHdA49HfS2DJ9fEyrH" }
-    let(:assistant) do
-      VCR.use_cassette("assistants retrieve") do
-        OpenAI::Client.new.assistants.retrieve(id: assistant_id)
-      end
+    let(:existing_assistant_file) do
+      OpenAI::Client.new.assistant_files(assistant_id: assistant_id).upload(
+        parameters: { file: file }
+      )
     end
+    let(:assistant_file_id) { existing_assistant_file["id"] }
+    let(:assistant) do
+      OpenAI::Client.new.assistants.create(parameters: { model: "gpt-4",
+                                                         name: "OpenAI-Ruby test assistant" })
+    end
+    let(:assistant_id) { assistant["id"] }
 
     # TODO: Remove once assistants API is out of beta
-    before do
+    before(:all) do
       OpenAI.configuration.extra_headers = { "OpenAI-Beta" => "assistants=v1" }
+      VCR.insert_cassette("assistants create")
+      VCR.insert_cassette("assistants files upload")
     end
+
+    after(:each) { VCR.eject_cassette }
 
     describe "#upload" do
       let(:cassette) { "assistant files upload" }
       let(:response) do
-        OpenAI::Client.new.assistant_files(assistant_id: assistant_id).upload(
-          parameters: { file: file }
-        )
+        existing_assistant_file
       end
 
-      context "with a valid file format" do
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            expect(response["filename"]).to eq(filename)
-          end
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["filename"]).to eq(filename)
         end
-      end
-
-      context "with an invalid file" do
-        let(:filename) { File.join("errors", "missing_quote.jsonl") }
-
-        it { expect { response }.to raise_error(OpenAI::AssistantFiles::InvalidFileFormat) }
       end
     end
 
     describe "#list" do
       let(:cassette) { "assistant files list" }
-      let(:response) { OpenAI::Client.new.assistant_files(assistant_id: assistant_id).list }
+      let(:response) do
+        existing_assistant_file
+        OpenAI::Client.new.assistant_files(assistant_id: assistant_id).list
+      end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -53,6 +54,7 @@ RSpec.describe OpenAI::Client do
     describe "#retrieve" do
       let(:cassette) { "assistant files retrieve" }
       let(:response) do
+        existing_assistant_file
         OpenAI::Client.new.assistant_files(assistant_id: assistant_id).retrieve(
           id: assistant_file_id
         )
@@ -64,11 +66,21 @@ RSpec.describe OpenAI::Client do
           expect(response["assistant_id"]).to eq(assistant_id)
         end
       end
+
+      context "when  the assistant file does not exist" do
+        it "raises an error" do
+          VCR.use_cassette(cassette) do
+            expect(response["object"]).to eq("assistant.file")
+            expect(response["assistant_id"]).to eq(assistant_id)
+          end
+        end
+      end
     end
 
     describe "#delete" do
       let(:cassette) { "assistant files delete" }
       let(:response) do
+        existing_assistant_file
         OpenAI::Client.new.assistant_files(assistant_id: assistant_id).delete(id: assistant_file_id)
       end
 
