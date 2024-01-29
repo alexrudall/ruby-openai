@@ -78,6 +78,10 @@ module OpenAI
       json_post(path: "/moderations", parameters: parameters)
     end
 
+    def assistant_files(assistant_id:)
+      @assistant_files ||= OpenAI::AssistantFiles.new(client: self, assistant_id: assistant_id)
+    end
+
     def azure?
       @api_type&.to_sym == :azure
     end
