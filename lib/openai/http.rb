@@ -92,7 +92,7 @@ module OpenAI
       end
     end
 
-    def azure_uri(path:)
+    def azure_uri(path)
       base = File.join(@uri_base, path)
     
       # Remove the deployment to support assistants for azure
