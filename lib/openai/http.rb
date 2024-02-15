@@ -94,10 +94,13 @@ module OpenAI
 
     def azure_uri(path)
       base = File.join(@uri_base, path)
-    
+
       # Remove the deployment to support assistants for azure
-      base = base.gsub(/\/deployments\/.+\//, '/') if (path.include?('/assistants') || path.include?('/threads'))
-      
+      if path.include?("/assistants") || path.include?("/threads")
+        base = base.gsub(%r{/deployments/.+/},
+                         "/")
+      end
+
       "#{base}?api-version=#{@api_version}"
     end
 
