@@ -350,36 +350,39 @@ response =
           "content": "What is the weather like in San Francisco?",
         },
       ],
-      functions: [
+      tools: [
         {
-          name: "get_current_weather",
-          description: "Get the current weather in a given location",
-          parameters: {
-            type: :object,
-            properties: {
-              location: {
-                type: :string,
-                description: "The city and state, e.g. San Francisco, CA",
+          type: "function",
+          "function": {
+            name: "get_current_weather",
+            description: "Get the current weather in a given location",
+            parameters: {
+              type: :object,
+              properties: {
+                location: {
+                  type: :string,
+                  description: "The city and state, e.g. San Francisco, CA",
+                },
+                unit: {
+                  type: "string",
+                  enum: %w[celsius fahrenheit],
+                },
               },
-              unit: {
-                type: "string",
-                enum: %w[celsius fahrenheit],
-              },
+              required: ["location"],
             },
-            required: ["location"],
           },
-        },
+        }
       ],
     },
   )
 
 message = response.dig("choices", 0, "message")
 
-if message["role"] == "assistant" && message["function_call"]
-  function_name = message.dig("function_call", "name")
+if message["role"] == "assistant" && message["tool_calls"]
+  function_name = message.dig("tool_calls", "function",  "name")
   args =
     JSON.parse(
-      message.dig("function_call", "arguments"),
+      message.dig("tool_calls", "function", "arguments"),
       { symbolize_names: true },
     )
 
