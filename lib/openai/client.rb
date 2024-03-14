@@ -10,6 +10,7 @@ module OpenAI
       uri_base
       request_timeout
       extra_headers
+      azure_token_provider
     ].freeze
     attr_reader *CONFIG_KEYS, :faraday_middleware
 
@@ -17,9 +18,11 @@ module OpenAI
       CONFIG_KEYS.each do |key|
         # Set instance variables like api_type & access_token. Fall back to global config
         # if not present.
-        instance_variable_set("@#{key}", config[key] || OpenAI.configuration.send(key))
+        instance_variable_set("@#{key}",
+                              config.key?(key) ? config[key] : OpenAI.configuration.send(key))
       end
       @faraday_middleware = faraday_middleware
+      validate_credential_config!
     end
 
     def chat(parameters: {})
@@ -86,6 +89,20 @@ module OpenAI
       dup.tap do |client|
         client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
       end
+    end
+
+    private
+
+    def validate_credential_config!
+      if @access_token && @azure_token_provider
+        raise ConfigurationError,
+              "Only one of OpenAI access token or Azure token provider can be set! See https://github.com/alexrudall/ruby-openai#usage"
+      end
+
+      return if @access_token || @azure_token_provider
+
+      raise ConfigurationError,
+            "OpenAI access token or Azure token provider missing! See https://github.com/alexrudall/ruby-openai#usage"
     end
   end
 end

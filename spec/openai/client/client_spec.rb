@@ -30,7 +30,6 @@ RSpec.describe OpenAI::Client do
     let!(:c2) do
       OpenAI::Client.new(
         access_token: "access_token2",
-        organization_id: nil,
         request_timeout: 1,
         uri_base: "https://example.com/"
       )

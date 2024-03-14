@@ -36,9 +36,9 @@ module OpenAI
   end
 
   class Configuration
-    attr_writer :access_token
+    attr_reader :azure_token_provider
     attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
-                  :extra_headers
+                  :extra_headers, :access_token
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
@@ -52,13 +52,16 @@ module OpenAI
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
+      @azure_token_provider = nil
     end
 
-    def access_token
-      return @access_token if @access_token
+    def azure_token_provider=(provider)
+      unless provider.nil? || (provider.is_a?(Proc) && provider.arity.zero?)
+        raise ConfigurationError,
+              "OpenAI Azure AD token provider must be a Proc that takes no arguments"
+      end
 
-      error_text = "OpenAI access token missing! See https://github.com/alexrudall/ruby-openai#usage"
-      raise ConfigurationError, error_text
+      @azure_token_provider = provider
     end
   end
 

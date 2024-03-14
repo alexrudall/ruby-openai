@@ -186,6 +186,21 @@ To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognit
 
 where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
 
+##### Azure with Azure AD tokens
+
+To use Azure AD tokens you can configure the gem with a proc like this:
+
+```ruby
+    OpenAI.configure do |config|
+        config.azure_token_provider = ->() { your_code_caches_or_refreshes_token }
+        config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
+        config.api_type = :azure
+        config.api_version = "2023-03-15-preview"
+    end
+```
+
+The azure_token_provider will be called on every request. This allows tokens to be cached and periodically refreshed by your custom code.
+
 ### Counting Tokens
 
 OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
