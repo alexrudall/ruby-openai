@@ -56,12 +56,12 @@ module OpenAI
     end
 
     def azure_token_provider=(provider)
-      unless provider.nil? || (provider.is_a?(Proc) && provider.arity.zero?)
+      unless provider.nil? || provider.respond_to?(:to_proc)
         raise ConfigurationError,
-              "OpenAI Azure AD token provider must be a Proc that takes no arguments"
+              "OpenAI Azure AD token provider must be a Proc, Lambda, or respond to to_proc."
       end
 
-      @azure_token_provider = provider
+      @azure_token_provider = provider&.to_proc
     end
   end
 
