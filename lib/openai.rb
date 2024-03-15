@@ -36,9 +36,8 @@ module OpenAI
   end
 
   class Configuration
-    attr_reader :azure_token_provider
     attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
-                  :extra_headers, :access_token
+                  :extra_headers, :access_token, :azure_token_provider
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
@@ -53,15 +52,6 @@ module OpenAI
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
       @azure_token_provider = nil
-    end
-
-    def azure_token_provider=(provider)
-      unless provider.nil? || provider.respond_to?(:to_proc)
-        raise ConfigurationError,
-              "OpenAI Azure AD token provider must be a Proc, Lambda, or respond to to_proc."
-      end
-
-      @azure_token_provider = provider&.to_proc
     end
   end
 
