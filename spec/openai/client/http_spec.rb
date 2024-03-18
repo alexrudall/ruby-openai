@@ -241,9 +241,9 @@ RSpec.describe OpenAI::HTTP do
       end
 
       context "with assistants" do
-        let(:path) { "/assistants" }
+        let(:path) { "/assistants/test_assistant_id" }
         let(:uri_base) { "https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo" }
-        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/assistants?api-version=v1") }
+        it { expect(uri).to eq("https://custom-domain.openai.azure.com/openai/assistants/test_assistant_id?api-version=v1") }
       end
     end
   end

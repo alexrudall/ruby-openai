@@ -97,7 +97,7 @@ module OpenAI
 
       # Remove the deployment to support assistants for azure
       if path.include?("/assistants") || path.include?("/threads")
-        base = base.gsub(%r{/deployments/[^\/]+/},
+        base = base.gsub(%r{/deployments/[^/]+/},
                          "/")
       end
 
