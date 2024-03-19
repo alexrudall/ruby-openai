@@ -25,8 +25,7 @@ module OpenAI
     def azure_headers
       {
         "Content-Type" => "application/json",
-        **azure_auth_headers
-      }
+      }.merge(azure_auth_headers)
     end
 
     def azure_auth_headers
