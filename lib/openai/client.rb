@@ -34,6 +34,10 @@ module OpenAI
       json_post(path: "/embeddings", parameters: parameters)
     end
 
+    def completions(parameters: {})
+      json_post(path: "/completions", parameters: parameters)
+    end
+
     def audio
       @audio ||= OpenAI::Audio.new(client: self)
     end
