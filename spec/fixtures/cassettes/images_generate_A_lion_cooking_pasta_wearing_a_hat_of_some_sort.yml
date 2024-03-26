@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/generations
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"A lion cooking pasta wearing a hat of some sort","size":"1024x1792","model":"dall-e-3"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 19 Jan 2024 11:41:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-3clrjdlztmfzmksxfsyoiaou
+      X-Request-Id:
+      - 5c602879c1c1d3c21b0faf3c8f1e417c
+      Openai-Processing-Ms:
+      - '11625'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=6DhyV5lYuSUqSaP7r3ndJlF9hodvtjR15fiMeK_IMGk-1705664481-1-AaNCm7swyfR8AXQ1X8Sn4C1vbpMqWrktIawC837YM6bDYGt8mE7sSBq4jwoQY3Xh7ECMdeb/rjs89/Z+dr6cgE4=;
+        path=/; expires=Fri, 19-Jan-24 12:11:21 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=tETtXfFrcHhBNZcH5pZKFutvyt8ij_eev9lXQBKZFEg-1705664481896-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 847ece99cb572218-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "created": 1705664481,
+          "data": [
+            {
+              "revised_prompt": "Imagine a scene where a majestic African lion is at the kitchen counter, showing its culinary skills by cooking pasta. It is wearing a hat, perhaps a chef's toque blanche, signifying its enthusiasm for the cooking task. The beast's huge paws are adroitly handling a large wooden spoon, stirring the pasta in a pot. The cooking station is set up with usual kitchen tools, including a stove, saucepans, and jars of herbs and spices. It's a humorous juxtaposition of wild savannah royalty mastering Italian cuisine.",
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-lPntzOJceaEP5Yw2qDqylhcI.png?st=2024-01-19T10%3A41%3A21Z&se=2024-01-19T12%3A41%3A21Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T16%3A48%3A54Z&ske=2024-01-19T16%3A48%3A54Z&sks=b&skv=2021-08-06&sig=ZkWonoooyYqC5qVhaKwDKOyni6UCZ%2BFL4Rq54mstq4c%3D"
+            }
+          ]
+        }
+  recorded_at: Fri, 19 Jan 2024 11:41:21 GMT
+recorded_with: VCR 6.1.0
