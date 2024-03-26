@@ -52,7 +52,6 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
       - [Speech](#speech)
     - [Errors](#errors)
   - [Development](#development)
-    - [Warning](#warning)
   - [Release](#release)
   - [Contributing](#contributing)
   - [License](#license)
@@ -845,9 +844,8 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 To run all tests, execute the command `bundle exec rake`, which will also run the linter (Rubocop). This repository uses [VCR](https://github.com/vcr/vcr) to log API requests.
 
-### Warning
-
-If you have an `OPENAI_ACCESS_TOKEN` in your `ENV`, running the specs will use this to run the specs against the actual API, which will be slow and cost you money - 2 cents or more! Remove it from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
+> [!WARNING]
+> If you have an `OPENAI_ACCESS_TOKEN` in your `ENV`, running the specs will use this to run the specs against the actual API, which will be slow and cost you money - 2 cents or more! Remove it from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
 
 ## Release
 
