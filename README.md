@@ -506,12 +506,12 @@ To create a new assistant (see [API documentation](https://platform.openai.com/d
 response = client.assistants.create(
     parameters: {
         model: "gpt-3.5-turbo-1106",         # Retrieve via client.models.list. Assistants need 'gpt-3.5-turbo-1106' or later.
-        name: "OpenAI-Ruby test assistant", 
+        name: "OpenAI-Ruby test assistant",
         description: nil,
         instructions: "You are a helpful assistant for coding a OpenAI API client using the OpenAI-Ruby gem.",
         tools: [
             { type: 'retrieval' },           # Allow access to files attached using file_ids
-            { type: 'code_interpreter' },    # Allow access to Python code interpreter 
+            { type: 'code_interpreter' },    # Allow access to Python code interpreter
         ],
         "file_ids": ["file-123"],            # See Files section above for how to upload files
         "metadata": { my_internal_version_id: '1.0.0' }
@@ -555,7 +555,7 @@ Once you have created an assistant as described above, you need to prepare a `Th
 ```ruby
 # Create thread
 response = client.threads.create # Note: Once you create a thread, there is no way to list it
-                                 # or recover it currently (as of 2023-12-10). So hold onto the `id` 
+                                 # or recover it currently (as of 2023-12-10). So hold onto the `id`
 thread_id = response["id"]
 
 # Add initial message from user (see https://platform.openai.com/docs/api-reference/messages/createMessage)
@@ -582,7 +582,6 @@ client.threads.delete(id: thread_id)
 client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after thread is deleted
 ```
 
-
 ### Runs
 
 To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows (Note: This is one place where OpenAI will take your money):
@@ -604,7 +603,7 @@ The `status` response can include the following strings `queued`, `in_progress`,
 
 ```ruby
 while true do
-    
+
     response = client.runs.retrieve(id: run_id, thread_id: thread_id)
     status = response['status']
 
@@ -676,7 +675,7 @@ def get_current_weather(location:, unit: "celsius")
         return unit == "celsius" ? "The weather is nice 🌞 at 27°C" : "The weather is nice 🌞 at 80°F"
     else
         return unit == "celsius" ? "The weather is icy 🥶 at -5°C" : "The weather is icy 🥶 at 23°F"
-    end 
+    end
 end
 
 if status == 'requires_action'
@@ -690,7 +689,7 @@ if status == 'requires_action'
               tool.dig("function", "arguments"),
               { symbolize_names: true },
         )
-        
+
         tool_output = case function_name
         when "get_current_weather"
             get_current_weather(**arguments)
@@ -707,7 +706,7 @@ Note that you have 10 minutes to submit your tool output before the run expires.
 
 ### Image Generation
 
-Generate images using DALL·E 2 or DALL·E 3! 
+Generate images using DALL·E 2 or DALL·E 3!
 
 #### DALL·E 2
 
@@ -732,7 +731,6 @@ puts response.dig("data", 0, "url")
 ```
 
 ![Ruby](https://i.ibb.co/z2tCKv9/img-Goio0l-S0i81-NUNa-BIx-Eh-CT6-L.png)
-
 
 ### Image Edit
 
@@ -791,12 +789,14 @@ puts response["text"]
 
 The transcriptions API takes as input the audio file you want to transcribe and returns the text in the desired output file format.
 
+You can pass the language of the audio file to improve transcription quality. Supported languages are listed [here](https://github.com/openai/whisper#available-models-and-languages). You need to provide the language as an ISO-639-1 code, eg. "en" for English or "ne" for Nepali. You can look up the codes [here](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes).
+
 ```ruby
 response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
         file: File.open("path_to_file", "rb"),
-        language: "en"
+        language: "en" # Optional.
     })
 puts response["text"]
 # => "Transcription of the text"
