@@ -73,7 +73,6 @@ RSpec.describe OpenAI::Client do
           end
         end
 
-
         describe "streaming" do
           let(:chunks) { [] }
           let(:stream) do
