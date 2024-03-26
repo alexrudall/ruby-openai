@@ -796,6 +796,7 @@ response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
         file: File.open("path_to_file", "rb"),
+        language: "en"
     })
 puts response["text"]
 # => "Transcription of the text"
