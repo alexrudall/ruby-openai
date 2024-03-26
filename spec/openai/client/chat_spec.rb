@@ -66,8 +66,10 @@ RSpec.describe OpenAI::Client do
 
             it "succeeds" do
               VCR.use_cassette(cassette) do
-                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function", "name")).to eq("get_current_weather")
-                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function", "arguments")).to include("Peak District")
+                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function",
+                                    "name")).to eq("get_current_weather")
+                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function",
+                                    "arguments")).to include("Peak District")
               end
             end
           end
