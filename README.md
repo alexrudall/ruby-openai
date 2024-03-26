@@ -484,16 +484,16 @@ response = client.finetunes.retrieve(id: fine_tune_id)
 fine_tuned_model = response["fine_tuned_model"]
 ```
 
-This fine-tuned model name can then be used in completions:
+This fine-tuned model name can then be used in chat completions:
 
 ```ruby
-response = client.completions(
+response = client.chat(
     parameters: {
         model: fine_tuned_model,
-        prompt: "I love Mondays!"
+        messages: [{ role: "user", content: "I love Mondays!"}]
     }
 )
-response.dig("choices", 0, "text")
+response.dig("choices", 0, "message", "content")
 ```
 
 You can also capture the events for a job:
