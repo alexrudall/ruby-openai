@@ -21,50 +21,56 @@ RSpec.describe OpenAI::Client do
           end
         end
 
-        context "with an invalid function call" do
-          let(:cassette) { "#{model} function call chat".downcase }
-          let(:messages) do
-            [
-              {
-                "role" => "function",
-                # "name" => "function",
-                "content" => "function"
-              }
-            ]
-          end
+        context "with a tool call" do
           let(:parameters) do
             {
               model: model,
               messages: messages,
               stream: stream,
-              functions: functions
+              tools: tools
             }
           end
-          let(:functions) do
+          let(:tools) do
             [
               {
-                "name" => "function",
-                "description" => "function",
-                "parameters" =>
-                  {
-                    "type" => "object",
-                    "properties" => {
-                      "user" => {
-                        "type" => "string",
-                        "description" => "the full name of the user"
-                      }
+                "type" => "function",
+                "function" => {
+                  "name" => "get_current_weather",
+                  "description" => "Get the current weather in a given location",
+                  "parameters" =>
+                    {
+                      "type" => "object",
+                      "properties" => {
+                        "location" => {
+                          "type" => "string",
+                          "description" => "The geographic location to get the weather for"
+                        }
+                      },
+                      "required" => ["location"]
                     }
-                  }
+                }
               }
             ]
           end
 
-          it "raises an error containing the reason" do
-            VCR.use_cassette(cassette) do
-              response
-            rescue Faraday::Error => e
-              expect(e.response.dig(:body, "error",
-                                    "message")).to include("Missing parameter 'name'")
+          context "with a valid message" do
+            let(:cassette) { "#{model} valid tool call chat".downcase }
+            let(:messages) do
+              [
+                {
+                  "role" => "user",
+                  "content" => "What is the weather like in the Peak District?"
+                }
+              ]
+            end
+
+            it "succeeds" do
+              VCR.use_cassette(cassette) do
+                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function",
+                                    "name")).to eq("get_current_weather")
+                expect(response.dig("choices", 0, "message", "tool_calls", 0, "function",
+                                    "arguments")).to include("Peak District")
+              end
             end
           end
         end
