@@ -56,6 +56,7 @@ module OpenAI
 
     def access_token
       return @access_token if @access_token
+      return if @api_type&.to_sym == :ollama
 
       error_text = "OpenAI access token missing! See https://github.com/alexrudall/ruby-openai#usage"
       raise ConfigurationError, error_text
