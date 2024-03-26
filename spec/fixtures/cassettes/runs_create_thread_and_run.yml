@@ -1,0 +1,154 @@
+---
+http_interactions:
+  - request:
+      method: post
+      uri: https://api.openai.com/v1/assistants
+      body:
+        encoding: UTF-8
+        string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant"}'
+      headers:
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <OPENAI_ACCESS_TOKEN>
+        Openai-Beta:
+          - assistants=v1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 14 Nov 2023 21:49:29 GMT
+        Content-Type:
+          - application/json
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Openai-Version:
+          - '2020-10-01'
+        Openai-Organization:
+          - user-jxm65ijkzc1qrfhc0ij8moic
+        X-Request-Id:
+          - 4900191a0b5e3a54ec826ecbeb45052c
+        Openai-Processing-Ms:
+          - '73'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+        Cf-Cache-Status:
+          - DYNAMIC
+        Set-Cookie:
+          - __cf_bm=DUyUkQTMFYbN.XNiblBhiAIHcVm1hRu5qz3ES8tlHOY-1699998569-0-Ab2fFblugSFRNxf5vR2fhA1kQ1T7iYQYSqGIOTXJkuDvtraCFIDGzpcYqCJUbxdglyH53IiXoYsZ2hE8+1+aevA=;
+            path=/; expires=Tue, 14-Nov-23 22:19:29 GMT; domain=.api.openai.com; HttpOnly;
+            Secure; SameSite=None
+          - _cfuvid=vLu47G5BhsAsunv68l1FpO1KaMF8A7th3pDrO7LdWyM-1699998569015-0-604800000;
+            path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+        Server:
+          - cloudflare
+        Cf-Ray:
+          - 826276ef09b66538-LHR
+        Alt-Svc:
+          - h3=":443"; ma=86400
+      body:
+        encoding: ASCII-8BIT
+        string: |-
+          {
+            "id": "asst_kUkdYKmMKc1d14XO6pLYiNC0",
+            "object": "assistant",
+            "created_at": 1699998568,
+            "name": "OpenAI-Ruby test assistant",
+            "description": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [],
+            "file_ids": [],
+            "metadata": {}
+          }
+    recorded_at: Thu, 23 Nov 2023 14:36:27 GMT
+  - request:
+      method: post
+      uri: https://api.openai.com/v1/threads/runs
+      body:
+        encoding: UTF-8
+        string: '{"assistant_id":"asst_kUkdYKmMKc1d14XO6pLYiNC0"}'
+      headers:
+        Content-Type:
+          - application/json
+        Authorization:
+          - Bearer <OPENAI_ACCESS_TOKEN>
+        Openai-Beta:
+          - assistants=v1
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Ruby
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Thu, 23 Nov 2023 14:46:26 GMT
+        Content-Type:
+          - application/json
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Openai-Version:
+          - '2020-10-01'
+        Openai-Organization:
+          - employment-hero-5
+        X-Request-Id:
+          - 7fc02c5657c2f141044b68b7325b0cc3
+        Openai-Processing-Ms:
+          - '252'
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+        Cf-Cache-Status:
+          - DYNAMIC
+        Set-Cookie:
+          - __cf_bm=ebgO7shqyeoqFadRcJKKBKSb4i6RgABMvUxzLVaz5SM-1700750786-0-AbVXNjJBqLoRy/i4OJd7vIqWLDv+gKE0DtRKPKfU8SnyLxrsa2cbp7cqrj3TE5z/h1mQKOZNWqzvQpZwF56yUNM=;
+            path=/; expires=Thu, 23-Nov-23 15:16:26 GMT; domain=.api.openai.com; HttpOnly;
+            Secure; SameSite=None
+          - _cfuvid=vXYiHUV1pb0OfnC01FjrPGHRSIMJRfyFowakCbHXPuk-1700750786614-0-604800000;
+            path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+        Server:
+          - cloudflare
+        Cf-Ray:
+          - 82aa339d7d740997-HKG
+        Alt-Svc:
+          - h3=":443"; ma=86400
+      body:
+        encoding: ASCII-8BIT
+        string: |-
+          {
+            "id": "run_orrfuQVCrbGCdWkHr3uGusO3",
+            "object": "thread.run",
+            "created_at": 1699998569,
+            "assistant_id": "asst_kUkdYKmMKc1d14XO6pLYiNC0",
+            "thread_id": "thread_anpNURKjlkdrCnzVhzOBDPkb",
+            "status": "queued",
+            "started_at": null,
+            "expires_at": 1699999169,
+            "cancelled_at": null,
+            "failed_at": null,
+            "completed_at": null,
+            "last_error": null,
+            "model": "gpt-4",
+            "instructions": null,
+            "tools": [],
+            "file_ids": [],
+            "metadata": {}
+          }
+    recorded_at: Thu, 23 Nov 2023 14:46:27 GMT
+recorded_with: VCR 6.1.0
