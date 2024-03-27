@@ -6,6 +6,7 @@ module OpenAI
       api_type
       api_version
       access_token
+      log_errors
       organization_id
       uri_base
       request_timeout
@@ -17,7 +18,10 @@ module OpenAI
       CONFIG_KEYS.each do |key|
         # Set instance variables like api_type & access_token. Fall back to global config
         # if not present.
-        instance_variable_set("@#{key}", config[key] || OpenAI.configuration.send(key))
+        instance_variable_set(
+          "@#{key}",
+          config[key].nil? ? OpenAI.configuration.send(key) : config[key]
+        )
       end
       @faraday_middleware = faraday_middleware
     end
