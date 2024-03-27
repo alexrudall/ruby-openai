@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.4.0] - 2024-03-27
+
+### Added
+
+- Add DALL·E 3 to specs and README - thanks to [@Gary-H9](https://github.com/Gary-H9)
+- Add Whisper transcription language selection parameter to README - thanks to [@nfedyashev](https://github.com/nfedyashev)
+- Add bundle exec rake lint and bundle exec rake test to make development easier - thanks to [@ignacio-chiazzo](https://github.com/ignacio-chiazzo)
+- Add link to [https://github.com/sponsors/alexrudall](https://github.com/sponsors/alexrudall) when users run `bundle fund`
+
+### Fixed
+
+- Update README and spec to use tool calls instead of functions - thanks to [@mpallenjr](https://github.com/mpallenjr)
+- Remove nonexistent Thread#list method - thanks again! to [@ignacio-chiazzo](https://github.com/ignacio-chiazzo)
+- Update finetunes docs in README to use chat instead of completions endpoint - thanks to [@blefev](https://github.com/blefev)
+
 ## [6.3.1] - 2023-12-04
 
 ### Fixed
