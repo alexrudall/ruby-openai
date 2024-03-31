@@ -403,7 +403,7 @@ end
 
 Hit the OpenAI API for a completion using other GPT-3 models:
 
-````ruby
+```ruby
 response = client.completions(
     parameters: {
         model: "text-davinci-001",
@@ -412,6 +412,7 @@ response = client.completions(
     })
 puts response["choices"].map { |c| c["text"] }
 # => [", there lived a great"]
+```
 
 ### Edits
 
@@ -882,4 +883,3 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Ruby OpenAI project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
-````
