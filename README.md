@@ -427,7 +427,7 @@ response = client.edits(
 )
 puts response.dig("choices", 0, "text")
 # => What day of the week is it?
-````
+```
 
 ### Embeddings
 
@@ -882,3 +882,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Ruby OpenAI project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/alexrudall/ruby-openai/blob/main/CODE_OF_CONDUCT.md).
+````
