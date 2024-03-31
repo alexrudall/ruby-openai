@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo-instruct","prompt":"Once upon a time","max_tokens":5}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 31 Mar 2024 20:12:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - no-cache, must-revalidate
+      Openai-Model:
+      - gpt-3.5-turbo-instruct
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '363'
+      Openai-Version:
+      - '2020-10-01'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '3500'
+      X-Ratelimit-Limit-Tokens:
+      - '90000'
+      X-Ratelimit-Remaining-Requests:
+      - '3499'
+      X-Ratelimit-Remaining-Tokens:
+      - '89991'
+      X-Ratelimit-Reset-Requests:
+      - 17ms
+      X-Ratelimit-Reset-Tokens:
+      - 6ms
+      X-Request-Id:
+      - req_6a274b7a73c52b0fbf2145ca5f1e9fbf
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ZK5b4LtJsPBMzdMnaU837z6PMPEXsKabybnXGNeAmu4-1711915922-1.0.1.1-Fzur3qermYdXljcE8Z20zrY4Z5RD.UrreUTa7MVZUOUQcflGoKGPpTAykRjfvZ7mGo9ehY_kRdp4dRPfdrteBQ;
+        path=/; expires=Sun, 31-Mar-24 20:42:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Gh5SFdjA.KVOM3VmAG5grUJVRLihOStH3B_jABN7Nys-1711915922569-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 86d2fdefec9a531a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "cmpl-98vp4W2Nm6k1hJt3vzOqLVXTrhvX4",
+          "object": "text_completion",
+          "created": 1711915922,
+          "model": "gpt-3.5-turbo-instruct",
+          "choices": [
+            {
+              "text": ", there stood a wizard",
+              "index": 0,
+              "logprobs": null,
+              "finish_reason": "length"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 4,
+            "completion_tokens": 5,
+            "total_tokens": 9
+          }
+        }
+  recorded_at: Sun, 31 Mar 2024 20:12:02 GMT
+recorded_with: VCR 6.1.0
