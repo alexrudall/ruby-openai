@@ -399,6 +399,21 @@ end
 # => "The weather is nice 🌞"
 ```
 
+### Completions
+
+Hit the OpenAI API for a completion using other GPT-3 models:
+
+```ruby
+response = client.completions(
+    parameters: {
+        model: "text-davinci-001",
+        prompt: "Once upon a time",
+        max_tokens: 5
+    })
+puts response["choices"].map { |c| c["text"] }
+# => [", there lived a great"]
+```
+
 ### Edits
 
 Send a string and some instructions for what to do to the string:
