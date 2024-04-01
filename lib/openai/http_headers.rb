@@ -24,9 +24,18 @@ module OpenAI
 
     def azure_headers
       {
-        "Content-Type" => "application/json",
-        "api-key" => @access_token
-      }
+        "Content-Type" => "application/json"
+      }.merge(azure_auth_headers)
+    end
+
+    def azure_auth_headers
+      if @access_token
+        { "api-key" => @access_token }
+      elsif @azure_token_provider
+        { "Authorization" => "Bearer #{@azure_token_provider.call}" }
+      else
+        raise ConfigurationError, "access_token or azure_token_provider must be set."
+      end
     end
 
     def extra_headers

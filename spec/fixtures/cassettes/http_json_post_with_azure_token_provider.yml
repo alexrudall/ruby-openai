@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-02-01
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"role":"user","content":"Hello world!"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer some dynamic token 1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '844'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Apim-Request-Id:
+      - ae5004a9-c369-4338-a47d-48632d3f5cd4
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Ms-Region:
+      - West US
+      X-Ratelimit-Remaining-Requests:
+      - '99'
+      X-Ratelimit-Remaining-Tokens:
+      - '99356'
+      X-Accel-Buffering:
+      - 'no'
+      X-Ms-Rai-Invoked:
+      - 'true'
+      X-Request-Id:
+      - 8f70ec83-502e-4c64-9a5e-93d739c38f87
+      X-Ms-Client-Request-Id:
+      - Not-Set
+      Azureml-Model-Session:
+      - d050-20240305034755
+      Date:
+      - Thu, 14 Mar 2024 15:36:31 GMT
+    body:
+      encoding: UTF-8
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Hello
+        there! How can I help you today?","role":"assistant"}}],"created":1710430591,"id":"chatcmpl-92hQ7RElDgItcoG9tt2ca04nogXAj","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_68a7d165bf","usage":{"completion_tokens":10,"prompt_tokens":10,"total_tokens":20}}
+
+        '
+  recorded_at: Thu, 14 Mar 2024 15:36:32 GMT
+- request:
+    method: post
+    uri: https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-02-01
+    body:
+      encoding: UTF-8
+      string: '{"messages":[{"role":"user","content":"Who were the founders of Microsoft?"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer some dynamic token 2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, must-revalidate
+      Content-Length:
+      - '866'
+      Content-Type:
+      - application/json
+      Access-Control-Allow-Origin:
+      - "*"
+      Apim-Request-Id:
+      - db311928-ff91-4f95-86e2-d81af447d212
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      X-Ms-Region:
+      - West US
+      X-Ratelimit-Remaining-Requests:
+      - '98'
+      X-Ratelimit-Remaining-Tokens:
+      - '98707'
+      X-Accel-Buffering:
+      - 'no'
+      X-Ms-Rai-Invoked:
+      - 'true'
+      X-Request-Id:
+      - 97c847e8-fb53-4066-b945-4bdf5d6678bb
+      X-Ms-Client-Request-Id:
+      - Not-Set
+      Azureml-Model-Session:
+      - d049-20240305030653
+      Date:
+      - Thu, 14 Mar 2024 15:36:34 GMT
+    body:
+      encoding: UTF-8
+      string: '{"choices":[{"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}},"finish_reason":"stop","index":0,"logprobs":null,"message":{"content":"Bill
+        Gates and Paul Allen were the co-founders of Microsoft.","role":"assistant"}}],"created":1710430594,"id":"chatcmpl-92hQAu8N0u2x61gAyi8B4C0jc2nSl","model":"gpt-35-turbo","object":"chat.completion","prompt_filter_results":[{"prompt_index":0,"content_filter_results":{"hate":{"filtered":false,"severity":"safe"},"self_harm":{"filtered":false,"severity":"safe"},"sexual":{"filtered":false,"severity":"safe"},"violence":{"filtered":false,"severity":"safe"}}}],"system_fingerprint":"fp_68a7d165bf","usage":{"completion_tokens":13,"prompt_tokens":14,"total_tokens":27}}
+
+        '
+  recorded_at: Thu, 14 Mar 2024 15:36:34 GMT
+recorded_with: VCR 6.1.0
