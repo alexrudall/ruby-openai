@@ -40,10 +40,10 @@ RSpec.describe OpenAI::Client do
       let(:cassette) { "batches create" }
       let(:response) do
         OpenAI::Client.new.batches.create(parameters: {
-          input_file_id: "file-7Z7mpvlObMQXQH2f2VbnhUqT",
-          endpoint: "/v1/chat/completions",
-          completion_window: "24h"
-        })
+                                            input_file_id: "file-7Z7mpvlObMQXQH2f2VbnhUqT",
+                                            endpoint: "/v1/chat/completions",
+                                            completion_window: "24h"
+                                          })
       end
 
       it "succeeds" do
