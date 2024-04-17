@@ -1,0 +1,189 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches/batch_EGl05zZMgyyWvmehP3NpntWR/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Apr 2024 12:16:07 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - simonx1
+      X-Request-Id:
+      - req_b0783bd123df18b39f41b63ebb7920b0
+      Openai-Processing-Ms:
+      - '255'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=W_Qmlw6pnVOQN1Rs4vmnRHjAxffRli53topmcYQ2OAg-1713356167-1.0.1.1-4UOE4UjWvr6GvGTaFCi6fRd7nU8qTBXLBcf81SmmJszyX98wc_VQrFchEDJ0DYDCB2aK9KSnjFbhPxrHMqG3iA;
+        path=/; expires=Wed, 17-Apr-24 12:46:07 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=p5QtZIWky7eJnHd41AgqZu.dQelQyNXV96z7Te3tq8o-1713356167209-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 875c582a9ab163ae-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"batch_EGl05zZMgyyWvmehP3NpntWR","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-7Z7mpvlObMQXQH2f2VbnhUqT","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1713356166,"in_progress_at":null,"expires_at":1713442566,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1713356167,"cancelled_at":null,"request_counts":{"total":0,"completed":0,"failed":0},"metadata":null}'
+  recorded_at: Wed, 17 Apr 2024 12:16:07 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches/batch_wawYxDE3MOBsQy9zddibzjtK/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Apr 2024 12:27:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - simonx1
+      X-Request-Id:
+      - req_28434a8b078efc2f5011395b9e51421b
+      Openai-Processing-Ms:
+      - '1968'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=NwVCJT2_1mJLQ2pGskVYTSdFmcf9nszyBBYzKl4ztYk-1713356836-1.0.1.1-28LLv9p6w1jkedDLPNhbk4R4cN.RDYtX3tp3u3mi1aq_OEGlyxvJCzcpO.x6NZ7QQNGRnChs0abKVFS_dGxYgg;
+        path=/; expires=Wed, 17-Apr-24 12:57:16 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=dK1gzsg97wja.aSojbQgq6UcOf0C9odhzCAXyVgZ1ig-1713356836811-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 875c6878f9fb77b7-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"batch_wawYxDE3MOBsQy9zddibzjtK","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-7Z7mpvlObMQXQH2f2VbnhUqT","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1713356834,"in_progress_at":1713356835,"expires_at":1713443234,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1713356835,"cancelled_at":null,"request_counts":{"total":3,"completed":0,"failed":0},"metadata":null}'
+  recorded_at: Wed, 17 Apr 2024 12:27:16 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches/batch_og1ntZ79QXz05wXEOO8iIvbL/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 17 Apr 2024 12:27:35 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - simonx1
+      X-Request-Id:
+      - req_6400ef015c9b6523f2667bafe4000416
+      Openai-Processing-Ms:
+      - '915'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=gMQza5hJl79A9tvK2I62K5DVRoSkhUdV77naxG8qOfY-1713356855-1.0.1.1-4n9glhvElxWCEPeUtEOq0Sg2GgIN5FJPdjx6dWJ3yPXxi8G5DDF8en8v7LQjHSARF3yPwVuni0FTmpCrFdAERQ;
+        path=/; expires=Wed, 17-Apr-24 12:57:35 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=GSgur0FOggz58fkR0EyFxrOjcqwCSyH1h6m3NzBhmG8-1713356855217-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 875c68f29b7d63ab-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"batch_og1ntZ79QXz05wXEOO8iIvbL","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-7Z7mpvlObMQXQH2f2VbnhUqT","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1713356853,"in_progress_at":null,"expires_at":1713443253,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1713356854,"cancelled_at":null,"request_counts":{"total":0,"completed":0,"failed":0},"metadata":null}'
+  recorded_at: Wed, 17 Apr 2024 12:27:35 GMT
+recorded_with: VCR 6.1.0
