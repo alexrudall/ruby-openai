@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alex"]
   spec.email         = ["alexrudall@users.noreply.github.com"]
 
-  spec.summary       = "OpenAI API + Ruby! 🤖🩵"
+  spec.summary       = "OpenAI API + Ruby! 🤖❤️"
   spec.homepage      = "https://github.com/alexrudall/ruby-openai"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.6.0")
