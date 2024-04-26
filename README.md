@@ -685,6 +685,20 @@ At any time you can list all runs which have been performed on a particular thre
 client.runs.list(thread_id: thread_id)
 ```
 
+#### Create and Run
+
+You can also create a thread and run in one call like this:
+
+```ruby
+response = client.threads.create_and_run(
+    parameters: {
+        model: 'gpt-3.5-turbo',
+        messages: [{ role: 'user', content: "What's deep learning?"}]
+    })
+run_id = response['id']
+thread_id = response['thread_id']
+```
+
 #### Runs involving function tools
 
 In case you are allowing the assistant to access `function` tools (they are defined in the same way as functions during chat completion), you might get a status code of `requires_action` when the assistant wants you to evaluate one or more function tools:
