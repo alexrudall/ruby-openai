@@ -36,8 +36,8 @@ module OpenAI
   end
 
   class Configuration
-    attr_accessor :access_token, :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
-                  :extra_headers
+    attr_accessor :access_token, :api_type, :api_version, :organization_id,
+                  :uri_base, :request_timeout, :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
