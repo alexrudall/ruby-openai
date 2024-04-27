@@ -1,7 +1,7 @@
-RSpec.describe OpenAI::Client do
-  MAX_PROMPT_TOKENS = 256
-  MAX_COMPLETION_TOKENS = 16
+MAX_PROMPT_TOKENS = 256
+MAX_COMPLETION_TOKENS = 16
 
+RSpec.describe OpenAI::Client do
   describe "#runs" do
     let(:thread_id) do
       VCR.use_cassette("#{cassette} thread setup") do
@@ -62,7 +62,7 @@ RSpec.describe OpenAI::Client do
 
     describe "#create" do
       let(:stream) { false }
-      let(:cassette) { "runs #{"streamed" if stream} create" }
+      let(:cassette) { "runs #{'streamed' if stream} create" }
       let(:response) do
         OpenAI::Client.new.runs.create(
           thread_id: thread_id,
