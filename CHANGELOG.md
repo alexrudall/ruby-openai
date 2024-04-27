@@ -5,13 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.6.0] - 2024-04-27
+## [7.0.0] - 2024-04-27
 
 ### Added
 
 - Allow use of local LLMs like Ollama! Thanks to [@ThomasSevestre](https://github.com/ThomasSevestre)
 - Add Assistants endpoint to create and run a thread in one go, thank you [@quocphien90](https://github.com/
   quocphien90)
+
+### Removed
+
+- [BREAKING] Remove deprecated edits endpoint.
 
 ### Fixed
 
@@ -79,13 +83,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [BREAKING] Switch from legacy Finetunes to the new Fine-tune-jobs endpoints. Implemented by [@lancecarlson](https://github.com/lancecarlson)
 - [BREAKING] Remove deprecated Completions endpoints - use Chat instead.
 
-### Fix
+### Fixed
 
 - [BREAKING] Fix issue where :stream parameters were replaced by a boolean in the client application. Thanks to [@martinjaimem](https://github.com/martinjaimem), [@vickymadrid03](https://github.com/vickymadrid03) and [@nicastelo](https://github.com/nicastelo) for spotting and fixing this issue.
 
 ## [5.2.0] - 2023-10-30
 
-### Fix
+### Fixed
 
 - Added more spec-compliant SSE parsing: see here https://html.spec.whatwg.org/multipage/server-sent-events.html#event-stream-interpretation
 - Fixes issue where OpenAI or an intermediary returns only partial JSON per chunk of streamed data

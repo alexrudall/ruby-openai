@@ -26,10 +26,6 @@ module OpenAI
       json_post(path: "/chat/completions", parameters: parameters)
     end
 
-    def edits(parameters: {})
-      json_post(path: "/edits", parameters: parameters)
-    end
-
     def embeddings(parameters: {})
       json_post(path: "/embeddings", parameters: parameters)
     end
