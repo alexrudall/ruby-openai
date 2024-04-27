@@ -209,7 +209,7 @@ Create a client using to your ollama server and the pulled model, and stream a c
 ```ruby
 client = OpenAI::Client.new(
   api_type: :ollama,
-  uri_base: "http://127.0.0.1:11434"
+  uri_base: "http://localhost:11434"
 )
 
 client.chat(
