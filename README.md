@@ -749,17 +749,36 @@ client.messages.retrieve(thread_id: thread_id, id: message_id) # -> Fails after 
 
 ### Runs
 
-To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows (Note: This is one place where OpenAI will take your money):
+To submit a thread to be evaluated with the model of an assistant, create a `Run` as follows:
 
 ```ruby
 # Create run (will use instruction/model/tools from Assistant's definition)
 response = client.runs.create(thread_id: thread_id,
     parameters: {
-        assistant_id: assistant_id
+        assistant_id: assistant_id,
+        max_prompt_tokens: 256,
+        max_completion_tokens: 16
     })
 run_id = response['id']
+```
 
-# Retrieve/poll Run to observe status
+You can stream the message chunks as they come through:
+
+```ruby
+client.runs.create(thread_id: thread_id,
+    parameters: {
+        assistant_id: assistant_id,
+        max_prompt_tokens: 256,
+        max_completion_tokens: 16,
+        stream: proc do |chunk, _bytesize|
+          print chunk.dig("delta", "content", 0, "text", "value") if chunk["object"] == "thread.message.delta"
+        end
+    })
+```
+
+To get the status of a Run:
+
+```
 response = client.runs.retrieve(id: run_id, thread_id: thread_id)
 status = response['status']
 ```
@@ -768,23 +787,22 @@ The `status` response can include the following strings `queued`, `in_progress`,
 
 ```ruby
 while true do
-
     response = client.runs.retrieve(id: run_id, thread_id: thread_id)
     status = response['status']
 
     case status
     when 'queued', 'in_progress', 'cancelling'
-        puts 'Sleeping'
-        sleep 1 # Wait one second and poll again
+      puts 'Sleeping'
+      sleep 1 # Wait one second and poll again
     when 'completed'
-        break # Exit loop and report result to user
+      break # Exit loop and report result to user
     when 'requires_action'
-        # Handle tool calls (see below)
+      # Handle tool calls (see below)
     when 'cancelled', 'failed', 'expired'
-        puts response['last_error'].inspect
-        break # or `exit`
+      puts response['last_error'].inspect
+      break # or `exit`
     else
-        puts "Unknown status response: #{status}"
+      puts "Unknown status response: #{status}"
     end
 end
 ```
