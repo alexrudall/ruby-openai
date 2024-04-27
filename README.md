@@ -201,7 +201,7 @@ You can download Ollama [here](https://ollama.com/). On macOS you can install an
 ```bash
 brew install ollama
 ollama serve
-ollama pull llama3:latest # In new terminal.
+ollama pull llama3:latest # In new terminal tab.
 ```
 
 Create a client using to your ollama server and the pulled model, and stream a conversation for free:
