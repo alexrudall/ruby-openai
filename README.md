@@ -488,12 +488,24 @@ puts response.dig("data", 0, "embedding")
 ```
 
 ### Batches
+
 The Batches endpoint allows you to create and manage large batches of API requests to run asynchronously. Currently, only the `/v1/chat/completions` endpoint is supported for batches.
 
 To use the Batches endpoint, you need to first upload a JSONL file containing the batch requests using the Files endpoint. The file must be uploaded with the purpose set to `batch`. Each line in the JSONL file represents a single request and should have the following format:
 
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gpt-3.5-turbo", "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "What is 2+2?"}]}}
+{
+  "custom_id": "request-1",
+  "method": "POST",
+  "url": "/v1/chat/completions",
+  "body": {
+    "model": "gpt-3.5-turbo",
+    "messages": [
+      { "role": "system", "content": "You are a helpful assistant." },
+      { "role": "user", "content": "What is 2+2?" }
+    ]
+  }
+}
 ```
 
 Once you have uploaded the JSONL file, you can create a new batch by providing the file ID, endpoint, and completion window:
@@ -516,18 +528,28 @@ batch = client.batches.retrieve(id: batch_id)
 ```
 
 To cancel a batch that is in progress:
-    
+
 ```ruby
 client.batches.cancel(id: batch_id)
 ```
 
 You can also list all the batches:
-    
+
 ```ruby
 client.batches.list
 ```
 
-The output and error files for a batch can be accessed using the `output_file_id` and `error_file_id` fields in the batch object, respectively. These files are in JSONL format, with each line representing the output or error for a single request. The output object has the following format:
+Once the batch["completed_at"] is present, you can fetch the output or error files:
+
+```ruby
+batch = client.batches.retrieve(id: batch_id)
+output_file_id = batch["output_file_id"]
+output_response = client.files.content(id: output_file_id)
+error_file_id = batch["error_file_id"]
+error_response = client.files.content(id: error_file_id)
+```
+
+These files are in JSONL format, with each line representing the output or error for a single request. The lines can be in any order:
 
 ```json
 {
