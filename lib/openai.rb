@@ -37,8 +37,8 @@ module OpenAI
   end
 
   class Configuration
-    attr_writer :access_token
-    attr_accessor :api_type,
+    attr_accessor :access_token,
+                  :api_type,
                   :api_version,
                   :log_errors,
                   :organization_id,
