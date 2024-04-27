@@ -4,8 +4,8 @@ module OpenAI
       @client = client.beta(assistants: "v1")
     end
 
-    def list(thread_id:)
-      @client.get(path: "/threads/#{thread_id}/messages")
+    def list(thread_id:, parameters: {})
+      @client.get(path: "/threads/#{thread_id}/messages", parameters: parameters)
     end
 
     def retrieve(thread_id:, id:)

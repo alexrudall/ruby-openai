@@ -33,7 +33,7 @@ RSpec.describe OpenAI::Client do
     describe "#list" do
       let(:cassette) { "messages list" }
       let(:response) do
-        OpenAI::Client.new.messages.list(thread_id: thread_id)
+        OpenAI::Client.new.messages.list(thread_id: thread_id, parameters: { order: "asc" })
       end
 
       it "succeeds" do

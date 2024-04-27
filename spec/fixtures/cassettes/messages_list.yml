@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/threads/thread_Tg0kigak0X5UW6SrbD2eqo3o/messages
+    uri: https://api.openai.com/v1/threads/thread_y5AY3BMW96gyMaCt7yVHHbb2/messages?order=asc
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 22 Nov 2023 03:46:29 GMT
+      - Sat, 27 Apr 2024 12:17:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,25 +35,25 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - peggy-e1o8zu
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - adcdecda514fb4b5280ed6c69028d951
+      - req_4819306cdacbd0e32c49c5a5d79953f8
       Openai-Processing-Ms:
-      - '80'
+      - '89'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=1fTcEdBHf594D9mkZgF97mw6diO6QU_0CBz_SHYjLDI-1700624789-0-AZRpoGNNYrKUQHRiLVa5aRuJDJaMssHSsx79GFPbYbzXtBeDgfg1qc4f6BoAv3oU9OAC9XiHmZJRJx6TmY45X94=;
-        path=/; expires=Wed, 22-Nov-23 04:16:29 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=ZcPETcILIF6aF9wzK4ex9WDdl0wKLYOT9ZjS_o8Cr8w-1714220222-1.0.1.1-BtUmqmI.f.OaQ6pmcTW2xHz971HGTQ4zAIIUezrZnnfcNWqWroCg5MRZ54PvUdd7D5kaeQzKWZshCE4vQDMR8A;
+        path=/; expires=Sat, 27-Apr-24 12:47:02 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=ddAJEOtcVE0CFbyFNqrfyJanOIOqV.fGScWJeHKYHnc-1700624789142-0-604800000;
+      - _cfuvid=oIzhT8VXK6lrMjfe076cnGcIiI6.D0vhel2Y1UXkfco-1714220222420-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 829e2f832e87a214-YYZ
+      - 87aebf4468df1c3b-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -66,5 +66,5 @@ http_interactions:
           "last_id": null,
           "has_more": false
         }
-  recorded_at: Wed, 22 Nov 2023 03:46:29 GMT
+  recorded_at: Sat, 27 Apr 2024 12:17:02 GMT
 recorded_with: VCR 6.1.0
