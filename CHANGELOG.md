@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add missing Messages#list spec - thanks [@adammeghji](https://github.com/adammeghji)
 - Add Messages#modify to README - thanks to [@nas887](https://github.com/nas887)
 - Don't add the api_version (`/v1/`) to base_uris that already include it - thanks to [@kaiwren](https://github.com/kaiwren) for raising this issue
+- Allow passing a `StringIO` to Files#upload - thanks again to [@simonx1](https://github.com/simonx1)
+- Add Ruby 3.3 to CI
 
 ### Security
 
