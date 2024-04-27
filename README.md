@@ -204,7 +204,7 @@ ollama serve
 ollama pull llama3:latest # In new terminal.
 ```
 
-Create a client using to your ollama server and the pulled model:
+Create a client using to your ollama server and the pulled model, and stream a conversation for free:
 
 ```ruby
 client = OpenAI::Client.new(
@@ -212,16 +212,17 @@ client = OpenAI::Client.new(
   uri_base: "http://127.0.0.1:11434"
 )
 
-response = client.chat(
-  parameters: {
-    model: "llama3:latest", # Required.
-    messages: [{ role: "user", content: "Hello!"}], # Required.
-    temperature: 0.7,
-})
+client.chat(
+    parameters: {
+        model: "llama3", # Required.
+        messages: [{ role: "user", content: "Hello!"}], # Required.
+        temperature: 0.7,
+        stream: proc do |chunk, _bytesize|
+            print chunk.dig("choices", 0, "delta", "content")
+        end
+    })
 
-puts response.dig("choices", 0, "message", "content")
-
-# => Hello! It's nice to meet you. Is there something I can help you with, or would you like to chat?
+# => Hi! It's nice to meet you. Is there something I can help you with, or would you like to chat?
 ```
 
 ### Counting Tokens
