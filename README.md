@@ -4,13 +4,13 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
 
-Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖🩵
+Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [🚢 Hire me](https://peaceterms.com?utm_source=ruby-openai&utm_medium=readme&utm_id=26072023) | [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 Twitter](https://twitter.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
-# Table of Contents
+## Contents
 
 - [Ruby OpenAI](#ruby-openai)
 - [Table of Contents](#table-of-contents)
