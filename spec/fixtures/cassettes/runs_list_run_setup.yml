@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_81oRXfTYfWbikQAnfM4NayFO/runs
+    uri: https://api.openai.com/v1/threads/thread_SSgXQGQfqBA8OxF4iAPea2Eu/runs
     body:
       encoding: UTF-8
-      string: '{"assistant_id":"asst_4xUb13UOceg9b7L9C5pviAf9"}'
+      string: '{"assistant_id":"asst_BpT409NgPbNTFeQF2qjlVisq"}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:49:26 GMT
+      - Sat, 27 Apr 2024 12:10:42 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,46 +37,59 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - d2d3cd86ced4ac272cadc6bf2ca63e0d
+      - req_e139af55da0980b7f4f6343f897135ba
       Openai-Processing-Ms:
-      - '210'
+      - '276'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=J_bE4KpLmatFqEtmGfYP17hhz8jJQzd7r0nQL0JYXbM-1699998566-0-Aag8sOHZEFmImfWWDvn6oXxQpVFk6dLsEtLWohTnJFPEiq1v0B37ms3XDNyOU3yL4mAPQm0Dx1+q9FiLpSqJJQs=;
-        path=/; expires=Tue, 14-Nov-23 22:19:26 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=L7Q2kcb6.vCwS4jfUC3YGqMM8iPhBh5710EJ2FYtcsg-1714219842-1.0.1.1-c0VFEslqsJvqefw4b_WkmK5_lZxHzFhrcFCM3_XOBKX3ttV37.eGl1dH3Ssz1gUrVgsPYJzrUd2Rxe2Pa_TSwA;
+        path=/; expires=Sat, 27-Apr-24 12:40:42 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=uL.jDWA_nhlfR7Lijlzhhzt_FFb_nTjuolCjWwi6XI4-1699998566924-0-604800000;
+      - _cfuvid=_kwSqlMXEpvzbHsSp34ybr_jUYW.0bURH4Cl8s9K8qs-1714219842189-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 826276e11b216527-LHR
+      - 87aeb5facdff3dc1-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "run_1S9ZxYPpPsPn6DbsfU0rMRVq",
+          "id": "run_uV1lntTVYsCuxeuvpYARKBiW",
           "object": "thread.run",
-          "created_at": 1699998566,
-          "assistant_id": "asst_4xUb13UOceg9b7L9C5pviAf9",
-          "thread_id": "thread_81oRXfTYfWbikQAnfM4NayFO",
+          "created_at": 1714219841,
+          "assistant_id": "asst_BpT409NgPbNTFeQF2qjlVisq",
+          "thread_id": "thread_SSgXQGQfqBA8OxF4iAPea2Eu",
           "status": "queued",
           "started_at": null,
-          "expires_at": 1699999166,
+          "expires_at": 1714220441,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
+          "required_action": null,
           "last_error": null,
           "model": "gpt-4",
           "instructions": null,
           "tools": [],
           "file_ids": [],
-          "metadata": {}
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": null,
+          "max_prompt_tokens": null,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto"
         }
-  recorded_at: Tue, 14 Nov 2023 21:49:26 GMT
+  recorded_at: Sat, 27 Apr 2024 12:10:42 GMT
 recorded_with: VCR 6.1.0

@@ -31,7 +31,8 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.run_steps.list(
           thread_id: thread_id,
-          run_id: run_id
+          run_id: run_id,
+          parameters: { order: "asc" }
         )
       end
 

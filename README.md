@@ -682,10 +682,10 @@ If the `status` response indicates that the `run` is `completed`, the associated
 
 ```ruby
 # Either retrieve all messages in bulk again, or...
-messages = client.messages.list(thread_id: thread_id) # Note: as of 2023-12-11 adding limit or order options isn't working, yet
+messages = client.messages.list(thread_id: thread_id, parameters: { order: 'asc' })
 
 # Alternatively retrieve the `run steps` for the run which link to the messages:
-run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id)
+run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id, parameters: { order: 'asc' })
 new_message_ids = run_steps['data'].filter_map { |step|
   if step['type'] == 'message_creation'
     step.dig('step_details', "message_creation", "message_id")
@@ -712,10 +712,10 @@ new_messages.each { |msg|
 }
 ```
 
-At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
+At any time you can list all runs which have been performed on a particular thread or are currently running:
 
 ```ruby
-client.runs.list(thread_id: thread_id)
+client.runs.list(thread_id: thread_id, parameters: { order: "asc", limit: 3 })
 ```
 
 #### Create and Run
