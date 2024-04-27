@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Allow use of local LLMs like Ollama! Thanks to [@ThomasSevestre](https://github.com/ThomasSevestre)
 - Add Assistants endpoint to create and run a thread in one go, thank you [@quocphien90](https://github.com/
   quocphien90)
+- Add missing parameters (order, limit, etc) to Runs, RunSteps and Messages - thanks to [@shalecraig](https://github.com/shalecraig) and [@coezbek](https://github.com/coezbek)
 - Add missing Messages#list spec - thanks [@adammeghji](https://github.com/adammeghji)
 
 ### Removed
