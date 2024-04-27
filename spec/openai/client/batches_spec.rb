@@ -1,10 +1,19 @@
 RSpec.describe OpenAI::Client do
   describe "#batches" do
+    let(:filename) { "batch.jsonl" }
+    let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+    let(:upload_purpose) { "batch" }
+    let(:input_file) do
+      VCR.use_cassette(input_cassette) do
+        OpenAI::Client.new.files.upload(parameters: { file: file, purpose: upload_purpose })
+      end
+    end
+    let(:input_file_id) { input_file["id"] }
     let(:batch_id) do
       VCR.use_cassette("#{cassette} setup") do
         OpenAI::Client.new.batches.create(
           parameters: {
-            input_file_id: "file-7Z7mpvlObMQXQH2f2VbnhUqT",
+            input_file_id: input_file_id,
             endpoint: "/v1/chat/completions",
             completion_window: "24h"
           }
@@ -13,8 +22,9 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#list", :vcr do
-      let(:response) { OpenAI::Client.new.batches.list }
+      let(:input_cassette) { "batches list input" }
       let(:cassette) { "batches list" }
+      let(:response) { OpenAI::Client.new.batches.list }
 
       before { batch_id }
 
@@ -26,6 +36,7 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#retrieve" do
+      let(:input_cassette) { "batches retrieve input" }
       let(:cassette) { "batches retrieve" }
       let(:response) { OpenAI::Client.new.batches.retrieve(id: batch_id) }
 
@@ -37,10 +48,11 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#create" do
+      let(:input_cassette) { "batches create input" }
       let(:cassette) { "batches create" }
       let(:response) do
         OpenAI::Client.new.batches.create(parameters: {
-                                            input_file_id: "file-7Z7mpvlObMQXQH2f2VbnhUqT",
+                                            input_file_id: input_file_id,
                                             endpoint: "/v1/chat/completions",
                                             completion_window: "24h"
                                           })
@@ -54,7 +66,8 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#cancel" do
-      let(:cassette) { "batch cancel" }
+      let(:input_cassette) { "batches cancel input" }
+      let(:cassette) { "batches cancel" }
       let(:response) do
         OpenAI::Client.new.batches.cancel(id: batch_id)
       end

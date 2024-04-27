@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/batches
     body:
       encoding: UTF-8
-      string: '{"input_file_id":"file-7Z7mpvlObMQXQH2f2VbnhUqT","endpoint":"/v1/chat/completions","completion_window":"24h"}'
+      string: '{"input_file_id":"file-BwiY5C5hJwpUrCiCxwc1OOjH","endpoint":"/v1/chat/completions","completion_window":"24h"}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 17 Apr 2024 12:27:34 GMT
+      - Sat, 27 Apr 2024 13:03:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,43 +35,43 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - simonx1
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_f689346afff23108ac3e1cf1e228bff3
+      - req_a80985cbaeeac2a167e2cd7beaf165c2
       Openai-Processing-Ms:
-      - '134'
+      - '209'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=XQxpELroIj6bzFzqZmXXMsm1zYlJVnaqgEqE9e6ghHU-1713356854-1.0.1.1-bKf8c1ghfgDZlLo3Gtj97elNBwCTR9QhWzNeGHxOZZ08y3l7ClJjydXDsZu8gwE9R4KmegzGF8wUYIE6F2S6tA;
-        path=/; expires=Wed, 17-Apr-24 12:57:34 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=M7OLHb6e5_EV.C7m5jrmZaaaJYe0sD8Y.BnqDoYbn5E-1714223019-1.0.1.1-3zoWK576ldIrcOEONoVbMhX_F3hcYX49SJWlAJVH.oSsL_bB01k9eDE_gT.pPiWrnPl7K7EjJI2V5.sI3U1CjA;
+        path=/; expires=Sat, 27-Apr-24 13:33:39 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=1dBKe412HDK6iNCcLcVSxTnUupmwUz1SpGDTtLhsva4-1713356854010-0.0.1.1-604800000;
+      - _cfuvid=nNTXmv6zcVH.OBqPfhx.MjSXWiJgXLgMPVkfeovoxfY-1714223019037-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 875c68efeb5093db-LHR
+      - 87af03897db76e9f-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "batch_og1ntZ79QXz05wXEOO8iIvbL",
+          "id": "batch_PUHjvg0ufFNNqFUop8cDU5RR",
           "object": "batch",
           "endpoint": "/v1/chat/completions",
           "errors": null,
-          "input_file_id": "file-7Z7mpvlObMQXQH2f2VbnhUqT",
+          "input_file_id": "file-BwiY5C5hJwpUrCiCxwc1OOjH",
           "completion_window": "24h",
           "status": "validating",
           "output_file_id": null,
           "error_file_id": null,
-          "created_at": 1713356853,
+          "created_at": 1714223018,
           "in_progress_at": null,
-          "expires_at": 1713443253,
+          "expires_at": 1714309418,
           "finalizing_at": null,
           "completed_at": null,
           "failed_at": null,
@@ -85,5 +85,5 @@ http_interactions:
           },
           "metadata": null
         }
-  recorded_at: Wed, 17 Apr 2024 12:27:33 GMT
+  recorded_at: Sat, 27 Apr 2024 13:03:39 GMT
 recorded_with: VCR 6.1.0
