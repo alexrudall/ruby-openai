@@ -31,23 +31,6 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.extra_headers).to eq(extra_headers)
     end
 
-    context "without an access token" do
-      let(:access_token) { nil }
-
-      it "raises an error" do
-        expect { OpenAI::Client.new.chat }.to raise_error(OpenAI::ConfigurationError)
-      end
-    end
-
-    context "with ollama api_type" do
-      let(:access_token) { nil }
-      let(:api_type) { :ollama }
-
-      it "does not raises an error" do
-        expect { OpenAI::Client.new.chat }.not_to raise_error(OpenAI::ConfigurationError)
-      end
-    end
-
     context "with custom timeout and uri base" do
       before do
         OpenAI.configure do |config|

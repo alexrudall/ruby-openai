@@ -204,11 +204,10 @@ ollama serve
 ollama pull llama3:latest # In new terminal tab.
 ```
 
-Create a client using to your ollama server and the pulled model, and stream a conversation for free:
+Create a client using your Ollama server and the pulled model, and stream a conversation for free:
 
 ```ruby
 client = OpenAI::Client.new(
-  api_type: :ollama,
   uri_base: "http://localhost:11434"
 )
 

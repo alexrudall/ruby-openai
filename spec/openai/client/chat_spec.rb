@@ -3,9 +3,9 @@ RSpec.describe OpenAI::Client do
     context "with messages", :vcr do
       let(:messages) { [{ role: "user", content: "Hello!" }] }
       let(:stream) { false }
-      let(:client_parameters) { nil }
+      let(:uri_base) { nil }
       let(:response) do
-        OpenAI::Client.new(client_parameters).chat(
+        OpenAI::Client.new({uri_base: uri_base}).chat(
           parameters: parameters
         )
       end
@@ -175,13 +175,13 @@ RSpec.describe OpenAI::Client do
       end
 
       context "with Ollama + model: llama3" do
-        let(:client_parameters) { { api_type: :ollama, uri_base: "http://localhost:11434" } }
+        let(:uri_base) { "http://localhost:11434" }
         let(:model) { "llama3" }
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
             vcr_skip do
-              conn = Faraday.new(url: client_parameters[:uri_base])
+              conn = Faraday.new(url: uri_base)
               response = conn.get
             rescue Faraday::ConnectionFailed
               pending "This test needs `ollama serve` running locally with #{model} installed"

@@ -36,8 +36,7 @@ module OpenAI
   end
 
   class Configuration
-    attr_writer :access_token
-    attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
+    attr_accessor :access_token, :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
                   :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
@@ -52,14 +51,6 @@ module OpenAI
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
-    end
-
-    def access_token
-      return @access_token if @access_token
-      return if @api_type&.to_sym == :ollama
-
-      error_text = "OpenAI access token missing! See https://github.com/alexrudall/ruby-openai#usage"
-      raise ConfigurationError, error_text
     end
   end
 
