@@ -712,7 +712,7 @@ new_messages.each { |msg|
 }
 ```
 
-You can also update metadata on messages, including messages that come from the assistant.
+You can also update the metadata on messages, including messages that come from the assistant.
 
 ```ruby
 metadata = {
