@@ -1,7 +1,7 @@
-MAX_PROMPT_TOKENS = 256
-MAX_COMPLETION_TOKENS = 16
-
 RSpec.describe OpenAI::Client do
+  let(:max_prompt_tokens) { 256 }
+  let(:max_completion_tokens) { 16 }
+
   describe "#runs" do
     let(:thread_id) do
       VCR.use_cassette("#{cassette} thread setup") do
@@ -24,8 +24,8 @@ RSpec.describe OpenAI::Client do
           thread_id: thread_id,
           parameters: {
             assistant_id: assistant_id,
-            max_prompt_tokens: MAX_PROMPT_TOKENS,
-            max_completion_tokens: MAX_COMPLETION_TOKENS
+            max_prompt_tokens: max_prompt_tokens,
+            max_completion_tokens: max_completion_tokens
           }
         )["id"]
       end
@@ -69,8 +69,8 @@ RSpec.describe OpenAI::Client do
           parameters: {
             assistant_id: assistant_id,
             stream: stream,
-            max_prompt_tokens: MAX_PROMPT_TOKENS,
-            max_completion_tokens: MAX_COMPLETION_TOKENS
+            max_prompt_tokens: max_prompt_tokens,
+            max_completion_tokens: max_completion_tokens
           }
         )
       end
