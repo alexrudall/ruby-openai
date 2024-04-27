@@ -8,7 +8,7 @@ jobs:
   rubocop:
     parallelism: 1
     docker:
-      - image: cimg/ruby:3.1-node
+      - image: cimg/ruby:3.3-node
     steps:
       - checkout
       - ruby/install-deps
@@ -43,3 +43,4 @@ workflows:
                 - cimg/ruby:3.0-node
                 - cimg/ruby:3.1-node
                 - cimg/ruby:3.2-node
+                - cimg/ruby:3.3-node
