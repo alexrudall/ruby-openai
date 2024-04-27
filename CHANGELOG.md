@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Allow use of local LLMs like Ollama! Thanks to [@ThomasSevestre](https://github.com/ThomasSevestre)
 - Add Assistants endpoint to create and run a thread in one go, thank you [@quocphien90](https://github.com/
   quocphien90)
 
