@@ -194,17 +194,17 @@ where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/
 
 #### Ollama
 
-To use [Ollama](https://ollama.com/) API
+Ollama allows you to run open-source LLMs, such as Llama 3, locally. It [offers chat compatibility](https://github.com/ollama/ollama/blob/main/docs/openai.md) with the OpenAI API.
 
-You can install Ollama like this :
+You can download Ollama [here](https://ollama.com/). On macOS you can install and run Ollama like this:
 
 ```bash
 brew install ollama
 ollama serve
-ollama pull mistral:latest
+ollama pull llama3:latest # In new terminal.
 ```
 
-And you can create a client using to your ollama server and the pulled model :
+Create a client using to your ollama server and the pulled model:
 
 ```ruby
 client = OpenAI::Client.new(
@@ -214,21 +214,14 @@ client = OpenAI::Client.new(
 
 response = client.chat(
   parameters: {
-    model: "mistral:latest", # Required.
+    model: "llama3:latest", # Required.
     messages: [{ role: "user", content: "Hello!"}], # Required.
     temperature: 0.7,
 })
 
 puts response.dig("choices", 0, "message", "content")
 
-# =>
-# Hi there! How can I help you today?
-#
-# I'm here to answer any question you have, whether it's about a specific topic or just something random that's on your mind. I can also help generate ideas, provide explanations or definitions, and much more. Let me know what you need!
-#
-# If you have a very specific question in mind, feel free to ask it directly. If you're not quite sure what you're looking for, we can chat about the topic a little more to narrow down your question and get you the best answer possible. Either way works, just let me know what you need!
-#
-# So, what's on your mind today? Let me help you out!
+# => Hello! It's nice to meet you. Is there something I can help you with, or would you like to chat?
 ```
 
 ### Counting Tokens
