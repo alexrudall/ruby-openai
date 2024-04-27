@@ -340,4 +340,72 @@ http_interactions:
           }
         }
   recorded_at: Sun, 26 Nov 2023 12:03:26 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_w1cjcd2DwwrM5EN8kG6WGYek/runs/run_FpebZDfLbyZlQHeRbmrfzDAD/steps/123
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sat, 27 Apr 2024 20:48:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_1295422c3f6e537793d55cce4d90547f
+      Openai-Processing-Ms:
+      - '108'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=cx7G7QWKKcItOqvqcfY.lXa6Npt9VTsmhyURqgrEHPk-1714250898-1.0.1.1-koNvC2L5Fzdt9KDpSuz8D__D2KE8W4LbIn7vb0hvJviNqG_d6v2MkbpTXRWMDl3IYQO2D4dqFs1VLd2C8wuv1w;
+        path=/; expires=Sat, 27-Apr-24 21:18:18 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=3inGX1ftqEgH6tCAmILNY7X4KsU6ZpfITgMD8v3XQiw-1714250898250-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87b1ac304cdc1c3f-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "error": {
+            "message": "No run step found with id '123'.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Sat, 27 Apr 2024 20:48:18 GMT
 recorded_with: VCR 6.1.0

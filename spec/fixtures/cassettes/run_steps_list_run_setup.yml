@@ -92,4 +92,96 @@ http_interactions:
           "tool_choice": "auto"
         }
   recorded_at: Sat, 27 Apr 2024 12:14:08 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_EO0xmVOe25meTEQh1FffxSA0/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_0BWclWx3dwDhj27ciEm5LF1N"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 27 Apr 2024 20:48:15 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_9adeef3e12241e695b530fc8dd1b5160
+      Openai-Processing-Ms:
+      - '364'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=03BtCLKmL95Jn7YuMXWinzDGw9rnNXrMhDdbtFgch_Q-1714250895-1.0.1.1-a.7r98EQO3rSZd061JAjVsP2ELvRNru8hSyyTzLDoXGOMogJ7Xr8oxqV1sRMSrMH2XV2evtc7BvfCdSTCMvg6w;
+        path=/; expires=Sat, 27-Apr-24 21:18:15 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=n9pjaWZh7ZbAQHogo2_cEA_cIFNXbGoo_O3bAtkO_Nw-1714250895209-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87b1ac1bbb4d8ef6-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_CuODWoGymxBTjv4sNF2ADHdV",
+          "object": "thread.run",
+          "created_at": 1714250894,
+          "assistant_id": "asst_0BWclWx3dwDhj27ciEm5LF1N",
+          "thread_id": "thread_EO0xmVOe25meTEQh1FffxSA0",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1714251494,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "required_action": null,
+          "last_error": null,
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
+          "file_ids": [],
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": null,
+          "max_prompt_tokens": null,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto"
+        }
+  recorded_at: Sat, 27 Apr 2024 20:48:15 GMT
 recorded_with: VCR 6.1.0

@@ -2,17 +2,17 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads
+    uri: https://api.openai.com/v1/assistants
     body:
       encoding: UTF-8
-      string: "{}"
+      string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant"}'
     headers:
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Openai-Beta:
-      - assistants=v1
+      - assistants=v2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sat, 27 Apr 2024 20:48:06 GMT
+      - Sat, 27 Apr 2024 20:48:05 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,33 +37,42 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_a6f5e7bc975c33d8bc26cd3609cf4239
+      - req_7d1249580039ad0993d78881db5204a5
       Openai-Processing-Ms:
-      - '26'
+      - '83'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=HYnr_jWK75LfyQLV2aLM3juX7qJ3kFCnMGjel8i8Nbg-1714250886-1.0.1.1-ITm3aXfMC6GfufssdtcGOYQi3M4YEE6XtyEDXCEm4O7OWrFAczvuQxnDdRcyq1RmruuguRSFiDjUxbgpidtPNA;
-        path=/; expires=Sat, 27-Apr-24 21:18:06 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=wZPZ8NoGNwcPOolEkBElBVRJnvQjfc0Dvs0J1ih3a3o-1714250885-1.0.1.1-W3BR9fPasOx5mZ6bmmel.N0AIjGyY0Hiz18ZYF8lTqs0FQWDzVn8656c5ZRnENA2yfhsyBm28MIws6CwNlbyAA;
+        path=/; expires=Sat, 27-Apr-24 21:18:05 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=6yyK4lYjNyRSKi8zHn4IILLSX3mpAtrc4Hfo68v1BrY-1714250886671-0.0.1.1-604800000;
+      - _cfuvid=AMcubeeTRRLvtoLs3VwpxiZZP3PEHl_RJkIPxpvlDfg-1714250885744-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 87b1abe88b610c4c-SOF
+      - 87b1abe23e281c33-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "thread_vtqIr6xtaHeUONncxS5kapH5",
-          "object": "thread",
-          "created_at": 1714250886,
-          "metadata": {}
+          "id": "asst_egX4DtbRj2SHaCO4ST5fE4F6",
+          "object": "assistant",
+          "created_at": 1714250885,
+          "name": "OpenAI-Ruby test assistant",
+          "description": null,
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "tool_resources": {},
+          "metadata": {},
+          "response_format": "auto"
         }
-  recorded_at: Sat, 27 Apr 2024 20:48:06 GMT
+  recorded_at: Sat, 27 Apr 2024 20:48:05 GMT
 recorded_with: VCR 6.1.0

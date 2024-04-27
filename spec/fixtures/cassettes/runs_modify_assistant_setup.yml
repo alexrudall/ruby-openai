@@ -72,4 +72,79 @@ http_interactions:
           "metadata": {}
         }
   recorded_at: Tue, 14 Nov 2023 21:49:30 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/assistants
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 27 Apr 2024 20:48:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_6d523b11b46b263ae1157ba298337997
+      Openai-Processing-Ms:
+      - '81'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Tq85Md6Sd6JrBHlyZ.KyJt.Qya2UUCmnSpzJ8W2pFG4-1714250883-1.0.1.1-X.UiUZXHN1n48FXv6ov0MK1opODN282TlVwrNjufc9ToegoVfMoqmNsY17AxHM9XVLphEKKa66XNh5Yb6cDSCQ;
+        path=/; expires=Sat, 27-Apr-24 21:18:03 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=HVALzwI6qnLxwFXmcXRnaifupWrWb5uDq9OBhDxg4_8-1714250883069-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87b1abd1ab921c27-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "asst_XvOWHCKIAk1jjJzz4rHuoM8e",
+          "object": "assistant",
+          "created_at": 1714250882,
+          "name": "OpenAI-Ruby test assistant",
+          "description": null,
+          "model": "gpt-4",
+          "instructions": null,
+          "tools": [],
+          "top_p": 1.0,
+          "temperature": 1.0,
+          "tool_resources": {},
+          "metadata": {},
+          "response_format": "auto"
+        }
+  recorded_at: Sat, 27 Apr 2024 20:48:03 GMT
 recorded_with: VCR 6.1.0
