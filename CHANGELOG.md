@@ -22,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Update README DALL·E 3 error - thanks to [@clayton](https://github.com/clayton)
+- Fix README DALL·E 3 error - thanks to [@clayton](https://github.com/clayton)
+- Fix README tool_calls error and add missing tool_choice info - thanks to [@Jbrito6492](https://github.com/Jbrito6492)
 
 ## [6.5.0] - 2024-03-31
 
