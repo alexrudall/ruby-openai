@@ -48,7 +48,7 @@ module OpenAI
       elsif file_input.respond_to?(:read) && file_input.respond_to?(:rewind)
         file_input
       else
-        raise ArgumentError, "Invalid file input"
+        raise ArgumentError, "Invalid file - must be either a readable IO object or a path to a file."
       end
     end
 
