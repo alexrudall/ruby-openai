@@ -1,7 +1,7 @@
 module OpenAI
   class Assistants
     def initialize(client:)
-      @client = client.beta(assistants: "v1")
+      @client = client.beta(assistants: "v2")
     end
 
     def list

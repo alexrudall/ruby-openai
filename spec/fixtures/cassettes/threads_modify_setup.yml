@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:49:34 GMT
+      - Sat, 27 Apr 2024 20:48:27 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,33 +37,33 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 769c59f3488e221399d8a885e94fbedb
+      - req_ce1069f371b57f479c1c41e97f18cdc6
       Openai-Processing-Ms:
-      - '27'
+      - '24'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=KC9nfEaAPOrPI.aZRslayW6a7PMc_VlKMg5nqTNoSe4-1699998574-0-AViYUaBakC4HbIP+/6u9VFevtogWg9b4qV6jg08iQlToqWz5AB3cDr6Mfs4bN/pUk4X7+cIJi4faSmGRdWumKao=;
-        path=/; expires=Tue, 14-Nov-23 22:19:34 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=okRkbjGIQRDCL0canS7Vc23QO9nY70iZbDfkNZWSFJQ-1714250907-1.0.1.1-E3v2o3oAQBXjV39itxPaOw1PG.IBD3dAbWvFcAesU7vn1lOe5qlO8z0aFWR9kaJc9OrWsGsaqY0ydN5iTv5oaA;
+        path=/; expires=Sat, 27-Apr-24 21:18:27 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=0Ges82CU0wwrD..hlfceN52Dr5Nz6Q0HnTvVWVwUmeQ-1699998574141-0-604800000;
+      - _cfuvid=Ds5JOCB5_Q85i87ERn9ieaHH7gnNgqU31TV8kLRA6Mo-1714250907655-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 8262770f6f3c76fb-LHR
+      - 87b1ac6ba9e51ca0-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "thread_XaNJDdLqZ9LrOopr7AkBNlcu",
+          "id": "thread_j1vvHTQALQmrUquiqzFClZ3I",
           "object": "thread",
-          "created_at": 1699998574,
+          "created_at": 1714250907,
           "metadata": {}
         }
-  recorded_at: Tue, 14 Nov 2023 21:49:34 GMT
+  recorded_at: Sat, 27 Apr 2024 20:48:27 GMT
 recorded_with: VCR 6.1.0
