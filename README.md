@@ -24,6 +24,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
       - [Extra Headers per Client](#extra-headers-per-client)
       - [Verbose Logging](#verbose-logging)
       - [Azure](#azure)
+      - [Ollama](#ollama)
     - [Counting Tokens](#counting-tokens)
     - [Models](#models)
       - [Examples](#examples)
@@ -190,6 +191,38 @@ To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognit
 ```
 
 where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
+
+#### Ollama
+
+Ollama allows you to run open-source LLMs, such as Llama 3, locally. It [offers chat compatibility](https://github.com/ollama/ollama/blob/main/docs/openai.md) with the OpenAI API.
+
+You can download Ollama [here](https://ollama.com/). On macOS you can install and run Ollama like this:
+
+```bash
+brew install ollama
+ollama serve
+ollama pull llama3:latest # In new terminal tab.
+```
+
+Create a client using your Ollama server and the pulled model, and stream a conversation for free:
+
+```ruby
+client = OpenAI::Client.new(
+  uri_base: "http://localhost:11434"
+)
+
+client.chat(
+    parameters: {
+        model: "llama3", # Required.
+        messages: [{ role: "user", content: "Hello!"}], # Required.
+        temperature: 0.7,
+        stream: proc do |chunk, _bytesize|
+            print chunk.dig("choices", 0, "delta", "content")
+        end
+    })
+
+# => Hi! It's nice to meet you. Is there something I can help you with, or would you like to chat?
+```
 
 ### Counting Tokens
 

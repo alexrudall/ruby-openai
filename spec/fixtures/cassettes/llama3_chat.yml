@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:11434/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.8.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Sat, 27 Apr 2024 08:41:13 GMT
+      Content-Length:
+      - '17'
+    body:
+      encoding: UTF-8
+      string: Ollama is running
+  recorded_at: Sat, 27 Apr 2024 08:41:13 GMT
+- request:
+    method: post
+    uri: http://localhost:11434/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"llama3","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 27 Apr 2024 08:41:15 GMT
+      Content-Length:
+      - '377'
+    body:
+      encoding: UTF-8
+      string: '{"id":"chatcmpl-854","object":"chat.completion","created":1714207275,"model":"llama3","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+        It''s nice to meet you. Is there something I can help you with, or would you
+        like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":26,"total_tokens":38}}
+
+        '
+  recorded_at: Sat, 27 Apr 2024 08:41:15 GMT
+recorded_with: VCR 6.1.0

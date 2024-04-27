@@ -49,6 +49,8 @@ OPENAI_ACCESS_TOKEN to just run against the stored VCR responses.".freeze
       end
     end
   end
+
+  c.include VCRHelpers
 end
 
 RSPEC_ROOT = File.dirname __FILE__
