@@ -49,7 +49,7 @@ module OpenAI
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
     DEFAULT_REQUEST_TIMEOUT = 120
-    DEFAULT_LOG_ERRORS = true
+    DEFAULT_LOG_ERRORS = false
 
     def initialize
       @access_token = nil
