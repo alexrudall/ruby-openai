@@ -14,6 +14,7 @@ require_relative "openai/runs"
 require_relative "openai/run_steps"
 require_relative "openai/audio"
 require_relative "openai/version"
+require_relative "openai/batches"
 
 module OpenAI
   class Error < StandardError; end

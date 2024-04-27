@@ -1,0 +1,123 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/batches
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 27 Apr 2024 13:02:57 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_f4f18a2353e352b997ec95073b409398
+      Openai-Processing-Ms:
+      - '72'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=UD09vxGWXJ0xJvl_JJI2sJpIbj_zIJochqjT94Y533g-1714222977-1.0.1.1-7JyoJkqcUkxDqCswz.pHWpTJkRwWquXbNeCLllKffMmRD_ZUH3nTu02YW9NmGTlnDdw06xOTuLcKhrLJcYWoAg;
+        path=/; expires=Sat, 27-Apr-24 13:32:57 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=zZKiPQ9y7H5oqoRTF4XBHQUcQ2Y6ejKVylxf3mMtdX4-1714222977729-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87af028948c08eec-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "batch_AfuCFw8jZ14rbXkIQWDeYnMU",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-FBhzJKh5hRnQKCgiGk0ipMHa",
+              "completion_window": "24h",
+              "status": "validating",
+              "output_file_id": null,
+              "error_file_id": null,
+              "created_at": 1714222977,
+              "in_progress_at": null,
+              "expires_at": 1714309377,
+              "finalizing_at": null,
+              "completed_at": null,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 0,
+                "completed": 0,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_LZZPpO4LijHQyOIjQmJ0pQgm",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-zQaBd9PBocsMDmMPxZqLpiyV",
+              "completion_window": "24h",
+              "status": "in_progress",
+              "output_file_id": null,
+              "error_file_id": null,
+              "created_at": 1714222948,
+              "in_progress_at": 1714222948,
+              "expires_at": 1714309348,
+              "finalizing_at": null,
+              "completed_at": null,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 0,
+                "failed": 0
+              },
+              "metadata": null
+            }
+          ],
+          "first_id": "batch_AfuCFw8jZ14rbXkIQWDeYnMU",
+          "last_id": "batch_LZZPpO4LijHQyOIjQmJ0pQgm",
+          "has_more": false
+        }
+  recorded_at: Sat, 27 Apr 2024 13:02:57 GMT
+recorded_with: VCR 6.1.0

@@ -78,6 +78,10 @@ module OpenAI
       @run_steps ||= OpenAI::RunSteps.new(client: self)
     end
 
+    def batches
+      @batches ||= OpenAI::Batches.new(client: self)
+    end
+
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
     end
