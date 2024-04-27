@@ -271,4 +271,58 @@ RSpec.describe OpenAI::HTTP do
       }
     end
   end
+
+  describe "logging errors" do
+    let(:cassette) { "http get with error response".downcase }
+
+    before do
+      @original_stdout = $stdout
+      $stdout = StringIO.new
+    end
+
+    after do
+      $stdout = @original_stdout
+    end
+
+    it "is disabled by default" do
+      VCR.use_cassette(cassette, record: :none) do
+        expect { OpenAI::Client.new.models.retrieve(id: "text-ada-001") }
+          .to raise_error Faraday::Error
+
+        $stdout.rewind
+        captured_stdout = $stdout.string
+        expect(captured_stdout).not_to include("OpenAI HTTP Error")
+      end
+    end
+
+    describe "when log_errors is set to true" do
+      let(:log_errors) { true }
+
+      it "logs errors" do
+        VCR.use_cassette(cassette, record: :none) do
+          expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
+            .to raise_error Faraday::Error
+
+          $stdout.rewind
+          captured_stdout = $stdout.string
+          expect(captured_stdout).to include("OpenAI HTTP Error")
+        end
+      end
+    end
+
+    describe "when log_errors is set to false" do
+      let(:log_errors) { false }
+
+      it "does not log errors" do
+        VCR.use_cassette(cassette, record: :none) do
+          expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
+            .to raise_error Faraday::Error
+
+          $stdout.rewind
+          captured_stdout = $stdout.string
+          expect(captured_stdout).not_to include("OpenAI HTTP Error")
+        end
+      end
+    end
+  end
 end

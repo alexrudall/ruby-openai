@@ -22,7 +22,9 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
     - [With Config](#with-config)
       - [Custom timeout or base URI](#custom-timeout-or-base-uri)
       - [Extra Headers per Client](#extra-headers-per-client)
-      - [Verbose Logging](#verbose-logging)
+      - [Logging](#logging)
+        - [Errors](#errors)
+        - [Faraday middleware](#faraday-middleware)
       - [Azure](#azure)
       - [Ollama](#ollama)
     - [Counting Tokens](#counting-tokens)
@@ -148,6 +150,7 @@ or when configuring the gem:
 ```ruby
 OpenAI.configure do |config|
     config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+    config.log_errors = true # Optional
     config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
     config.uri_base = "https://oai.hconeai.com/" # Optional
     config.request_timeout = 240 # Optional
@@ -168,7 +171,19 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here")
 client.add_headers("X-Proxy-TTL" => "43200")
 ```
 
-#### Verbose Logging
+#### Logging
+
+##### Errors
+
+By default, `ruby-openai` does not log any `Faraday::Error`s encountered while executing a network request to avoid leaking data (e.g. 400s, 500s, SSL errors and more - see [here](https://www.rubydoc.info/github/lostisland/faraday/Faraday/Error) for a complete list of subclasses of `Faraday::Error` and what can cause them).
+
+If you would like to enable this functionality, you can set `log_errors` to `true` when configuring the client:
+
+```ruby
+  client = OpenAI::Client.new(log_errors: true)
+```
+
+##### Faraday middleware
 
 You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
 
