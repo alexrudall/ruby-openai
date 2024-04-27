@@ -599,7 +599,7 @@ Put your data in a `.jsonl` file like this:
 {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
 ```
 
-and pass the path to `client.files.upload` to upload it to OpenAI, and then interact with it:
+and pass the path (or a StringIO object) to `client.files.upload` to upload it to OpenAI, and then interact with it:
 
 ```ruby
 client.files.upload(parameters: { file: "path/to/sentiment.jsonl", purpose: "fine-tune" })
