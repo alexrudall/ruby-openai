@@ -1,4 +1,7 @@
 RSpec.describe OpenAI::Client do
+  MAX_PROMPT_TOKENS = 256
+  MAX_COMPLETION_TOKENS = 16
+
   describe "#runs" do
     let(:thread_id) do
       VCR.use_cassette("#{cassette} thread setup") do
@@ -20,7 +23,9 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.runs.create(
           thread_id: thread_id,
           parameters: {
-            assistant_id: assistant_id
+            assistant_id: assistant_id,
+            max_prompt_tokens: MAX_PROMPT_TOKENS,
+            max_completion_tokens: MAX_COMPLETION_TOKENS
           }
         )["id"]
       end
@@ -56,12 +61,16 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#create" do
-      let(:cassette) { "runs create" }
+      let(:stream) { false }
+      let(:cassette) { "runs #{"streamed" if stream} create" }
       let(:response) do
         OpenAI::Client.new.runs.create(
           thread_id: thread_id,
           parameters: {
-            assistant_id: assistant_id
+            assistant_id: assistant_id,
+            stream: stream,
+            max_prompt_tokens: MAX_PROMPT_TOKENS,
+            max_completion_tokens: MAX_COMPLETION_TOKENS
           }
         )
       end
@@ -69,6 +78,22 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread.run"
+        end
+      end
+
+      describe "streaming" do
+        let(:chunks) { [] }
+        let(:stream) do
+          proc do |chunk, _bytesize|
+            chunks << chunk
+          end
+        end
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            response
+            expect(chunks.dig(0, "id")).not_to be_nil
+          end
         end
       end
     end
