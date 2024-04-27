@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add support for Batches, thanks to [@simonx1](https://github.com/simonx1) for the PR!
 - Allow use of local LLMs like Ollama! Thanks to [@ThomasSevestre](https://github.com/ThomasSevestre)
-- Update to v2 of the Assistants beta.
+- Update to v2 of the Assistants beta & add documentation on streaming from an Assistant.
 - Add Assistants endpoint to create and run a thread in one go, thank you [@quocphien90](https://github.com/
   quocphien90)
 - Add missing parameters (order, limit, etc) to Runs, RunSteps and Messages - thanks to [@shalecraig](https://github.com/shalecraig) and [@coezbek](https://github.com/coezbek)
