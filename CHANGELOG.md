@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   quocphien90)
 - Add missing parameters (order, limit, etc) to Runs, RunSteps and Messages - thanks to [@shalecraig](https://github.com/shalecraig) and [@coezbek](https://github.com/coezbek)
 - Add missing Messages#list spec - thanks [@adammeghji](https://github.com/adammeghji)
+- Add Messages#modify to README - thanks to [@nas887](https://github.com/nas887)
 
 ### Removed
 
