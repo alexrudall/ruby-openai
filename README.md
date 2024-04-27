@@ -685,7 +685,7 @@ If the `status` response indicates that the `run` is `completed`, the associated
 messages = client.messages.list(thread_id: thread_id) # Note: as of 2023-12-11 adding limit or order options isn't working, yet
 
 # Alternatively retrieve the `run steps` for the run which link to the messages:
-run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id)
+run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id, parameters: { order: 'asc' })
 new_message_ids = run_steps['data'].filter_map { |step|
   if step['type'] == 'message_creation'
     step.dig('step_details', "message_creation", "message_id")
