@@ -29,7 +29,6 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
       - [Ollama](#ollama)
     - [Counting Tokens](#counting-tokens)
     - [Models](#models)
-      - [Examples](#examples)
     - [Chat](#chat)
       - [Streaming Chat](#streaming-chat)
       - [Vision](#vision)
@@ -258,23 +257,8 @@ There are different models that can be used to generate text. For a full list an
 
 ```ruby
 client.models.list
-client.models.retrieve(id: "text-ada-001")
+client.models.retrieve(id: "gpt-3.5-turbo")
 ```
-
-#### Examples
-
-- [GPT-4 (limited beta)](https://platform.openai.com/docs/models/gpt-4)
-  - gpt-4 (uses current version)
-  - gpt-4-0314
-  - gpt-4-32k
-- [GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5)
-  - gpt-3.5-turbo
-  - gpt-3.5-turbo-0301
-  - text-davinci-003
-- [GPT-3](https://platform.openai.com/docs/models/gpt-3)
-  - text-ada-001
-  - text-babbage-001
-  - text-curie-001
 
 ### Chat
 
@@ -387,7 +371,7 @@ You can stream it as well!
 
 ### Functions
 
-You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location, see the example below. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see this for more details](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_call_functions_with_chat_models.ipynb)).
+You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call them - eg., to use your method `get_current_weather` to get the weather in a given location. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see here](https://platform.openai.com/docs/api-reference/chat/create#chat-create-tool_choice)).
 
 ```ruby
 
@@ -398,7 +382,7 @@ end
 response =
   client.chat(
     parameters: {
-      model: "gpt-3.5-turbo-0613",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           "role": "user",
@@ -462,28 +446,12 @@ Hit the OpenAI API for a completion using other GPT-3 models:
 ```ruby
 response = client.completions(
     parameters: {
-        model: "text-davinci-001",
+        model: "gpt-3.5-turbo",
         prompt: "Once upon a time",
         max_tokens: 5
     })
 puts response["choices"].map { |c| c["text"] }
 # => [", there lived a great"]
-```
-
-### Edits
-
-Send a string and some instructions for what to do to the string:
-
-```ruby
-response = client.edits(
-    parameters: {
-        model: "text-davinci-edit-001",
-        input: "What day of the wek is it?",
-        instruction: "Fix the spelling mistakes"
-    }
-)
-puts response.dig("choices", 0, "text")
-# => What day of the week is it?
 ```
 
 ### Embeddings
@@ -624,7 +592,7 @@ You can then use this file ID to create a fine tuning job:
 response = client.finetunes.create(
     parameters: {
     training_file: file_id,
-    model: "gpt-3.5-turbo-0613"
+    model: "gpt-3.5-turbo"
 })
 fine_tune_id = response["id"]
 ```
@@ -1030,7 +998,7 @@ HTTP errors can be caught like this:
 
 ```
   begin
-    OpenAI::Client.new.models.retrieve(id: "text-ada-001")
+    OpenAI::Client.new.models.retrieve(id: "gpt-3.5-turbo")
   rescue Faraday::Error => e
     raise "Got a Faraday error: #{e}"
   end

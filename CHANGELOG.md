@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.0.0] - 2024-04-27
+
+### Added
+
+- Add support for Batches, thanks to [@simonx1](https://github.com/simonx1) for the PR!
+- Allow use of local LLMs like Ollama! Thanks to [@ThomasSevestre](https://github.com/ThomasSevestre)
+- Update to v2 of the Assistants beta & add documentation on streaming from an Assistant.
+- Add Assistants endpoint to create and run a thread in one go, thank you [@quocphien90](https://github.com/
+  quocphien90)
+- Add missing parameters (order, limit, etc) to Runs, RunSteps and Messages - thanks to [@shalecraig](https://github.com/shalecraig) and [@coezbek](https://github.com/coezbek)
+- Add missing Messages#list spec - thanks [@adammeghji](https://github.com/adammeghji)
+- Add Messages#modify to README - thanks to [@nas887](https://github.com/nas887)
+- Don't add the api_version (`/v1/`) to base_uris that already include it - thanks to [@kaiwren](https://github.com/kaiwren) for raising this issue
+- Allow passing a `StringIO` to Files#upload - thanks again to [@simonx1](https://github.com/simonx1)
+- Add Ruby 3.3 to CI
+
+### Security
+
+- [BREAKING] ruby-openai will no longer log out API errors by default - you can reenable by passing `log_errors: true` to your client. This will help to prevent leaking secrets to logs. Thanks to [@lalunamel](https://github.com/lalunamel) for this PR.
+
+### Removed
+
+- [BREAKING] Remove deprecated edits endpoint.
+
+### Fixed
+
+- Fix README DALL·E 3 error - thanks to [@clayton](https://github.com/clayton)
+- Fix README tool_calls error and add missing tool_choice info - thanks to [@Jbrito6492](https://github.com/Jbrito6492)
+
 ## [6.5.0] - 2024-03-31
 
 ### Added
@@ -67,13 +96,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [BREAKING] Switch from legacy Finetunes to the new Fine-tune-jobs endpoints. Implemented by [@lancecarlson](https://github.com/lancecarlson)
 - [BREAKING] Remove deprecated Completions endpoints - use Chat instead.
 
-### Fix
+### Fixed
 
 - [BREAKING] Fix issue where :stream parameters were replaced by a boolean in the client application. Thanks to [@martinjaimem](https://github.com/martinjaimem), [@vickymadrid03](https://github.com/vickymadrid03) and [@nicastelo](https://github.com/nicastelo) for spotting and fixing this issue.
 
 ## [5.2.0] - 2023-10-30
 
-### Fix
+### Fixed
 
 - Added more spec-compliant SSE parsing: see here https://html.spec.whatwg.org/multipage/server-sent-events.html#event-stream-interpretation
 - Fixes issue where OpenAI or an intermediary returns only partial JSON per chunk of streamed data

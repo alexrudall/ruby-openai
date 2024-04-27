@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-openai (6.5.0)
+    ruby-openai (7.0.0)
       event_stream_parser (>= 0.3.0, < 2.0.0)
       faraday (>= 1)
       faraday-multipart (>= 1)
