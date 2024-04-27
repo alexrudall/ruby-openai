@@ -204,6 +204,18 @@ RSpec.describe OpenAI::HTTP do
 
     it { expect(uri).to eq("https://api.openai.com/v1/chat") }
 
+    context "uri_base with version included" do
+      before do
+        OpenAI.configuration.uri_base = "https://api.openai.com/v1/"
+      end
+
+      after do
+        OpenAI.configuration.uri_base = "https://api.openai.com/"
+      end
+
+      it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+    end
+
     context "uri_base without trailing slash" do
       before do
         OpenAI.configuration.uri_base = "https://api.openai.com"
