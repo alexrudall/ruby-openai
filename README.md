@@ -712,6 +712,15 @@ new_messages.each { |msg|
 }
 ```
 
+You can also update the metadata on messages, including messages that come from the assistant.
+
+```ruby
+metadata = {
+  user_id: "abc123"
+}
+message = client.messages.modify(id: message_id, thread_id: thread_id, parameters: { metadata: metadata })
+```
+
 At any time you can list all runs which have been performed on a particular thread or are currently running:
 
 ```ruby
