@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add missing Messages#list spec - thanks [@adammeghji](https://github.com/adammeghji)
 - Add Messages#modify to README - thanks to [@nas887](https://github.com/nas887)
 
+### Security
+
+- [BREAKING] ruby-openai will no longer log out API errors by default - you can reenable by passing `log_errors: true` to your client. This will help to prevent leaking secrets to logs. Thanks to [@lalunamel](https://github.com/lalunamel) for this PR.
+
 ### Removed
 
 - [BREAKING] Remove deprecated edits endpoint.
