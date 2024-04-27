@@ -712,10 +712,10 @@ new_messages.each { |msg|
 }
 ```
 
-At any time you can list all runs which have been performed on a particular thread or are currently running (in descending/newest first order):
+At any time you can list all runs which have been performed on a particular thread or are currently running:
 
 ```ruby
-client.runs.list(thread_id: thread_id)
+client.runs.list(thread_id: thread_id, parameters: { order: "asc", limit: 3 })
 ```
 
 #### Create and Run

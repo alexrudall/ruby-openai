@@ -29,7 +29,7 @@ RSpec.describe OpenAI::Client do
     describe "#list" do
       let(:cassette) { "runs list" }
       let(:response) do
-        OpenAI::Client.new.runs.list(thread_id: thread_id)
+        OpenAI::Client.new.runs.list(thread_id: thread_id, parameters: { order: "asc" })
       end
 
       before { run_id }
