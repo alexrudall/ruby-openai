@@ -1,0 +1,80 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-d378277b5916682b36eb1b4be9f59e6c\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"local.path\"\r\nContent-Length: 159\r\nContent-Type:
+        \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"prompt\":\"Overjoyed with
+        my new phone! ->\", \"completion\":\" positive\"}\n{\"prompt\":\"@lakers disappoint
+        for a third straight night ->\", \"completion\":\" negative\"}\n\r\n-------------RubyMultipartPost-d378277b5916682b36eb1b4be9f59e6c\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-d378277b5916682b36eb1b4be9f59e6c--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-d378277b5916682b36eb1b4be9f59e6c
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '561'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 27 Apr 2024 19:39:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_328560cbd9986e316ea469c31d62bba2
+      Openai-Processing-Ms:
+      - '2467'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=MAMznYNNTvYhTSqABSqAeYt3PMejImKQrzNM15hxjLM-1714246762-1.0.1.1-q_7FJuNCbh8dL_oTl.bdY_0JBKZTBKRPaoT.60aarHGnjFKLvN_IM8IZDkiKPsm7Mv9AFDvSEYbIwd8EJVsghw;
+        path=/; expires=Sat, 27-Apr-24 20:09:22 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=nxM.eaGMc59pz1xiuz4MTF.IFWIbSfb5TF.xoVwQqR4-1714246762287-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87b14727bc816e9f-SOF
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-moVAfw5Z9umta9U8jAcl6kcs",
+          "purpose": "fine-tune",
+          "filename": "local.path",
+          "bytes": 159,
+          "created_at": 1714246759,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Sat, 27 Apr 2024 19:39:22 GMT
+recorded_with: VCR 6.1.0
