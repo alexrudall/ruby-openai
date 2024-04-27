@@ -1,6 +1,10 @@
 module OpenAI
   class Files
-    PURPOSES = %w[fine-tune assistants].freeze
+    PURPOSES = %w[
+      assistants
+      batch
+      fine-tune
+    ].freeze
 
     def initialize(client:)
       @client = client
@@ -51,7 +55,7 @@ module OpenAI
     def validate(file:, purpose:, file_input:)
       raise ArgumentError, "`file` is required" if file.nil?
       unless PURPOSES.include?(purpose)
-        raise ArgumentError, "`purpose` must one of `#{PURPOSES.join(',')}`"
+        raise ArgumentError, "`purpose` must be one of `#{PURPOSES.join(',')}`"
       end
 
       validate_jsonl(file: file) if file_input.is_a?(String) && file_input.end_with?(".jsonl")
