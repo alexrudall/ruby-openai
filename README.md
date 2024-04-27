@@ -371,7 +371,7 @@ You can stream it as well!
 
 ### Functions
 
-You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call those them. For example, if you want the model to use your method `get_current_weather` to get the current weather in a given location, see the example below. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see this for more details](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_call_functions_with_chat_models.ipynb)).
+You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call them - eg., to use your method `get_current_weather` to get the weather in a given location. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see here](https://platform.openai.com/docs/api-reference/chat/create#chat-create-tool_choice)).
 
 ```ruby
 
