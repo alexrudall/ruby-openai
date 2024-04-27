@@ -10,7 +10,6 @@ RSpec.describe OpenAI do
     let(:custom_uri_base) { "ghi789" }
     let(:custom_request_timeout) { 25 }
     let(:extra_headers) { { "User-Agent" => "OpenAI Ruby Gem #{OpenAI::VERSION}" } }
-    let(:api_type) { nil }
 
     before do
       OpenAI.configure do |config|
@@ -18,7 +17,6 @@ RSpec.describe OpenAI do
         config.api_version = api_version
         config.organization_id = organization_id
         config.extra_headers = extra_headers
-        config.api_type = api_type
       end
     end
 
