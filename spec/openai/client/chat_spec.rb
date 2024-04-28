@@ -11,7 +11,8 @@ RSpec.describe OpenAI::Client do
       end
       let(:parameters) { { model: model, messages: messages, stream: stream } }
       let(:content) { response.dig("choices", 0, "message", "content") }
-      let(:cassette) { "#{model} #{'streamed' if stream} chat".downcase }
+      let(:provider) { nil }
+      let(:cassette) { "#{"#{provider}_" if provider}#{model} #{'streamed' if stream} chat".downcase }
 
       context "with model: gpt-3.5-turbo" do
         let(:model) { "gpt-3.5-turbo" }
@@ -176,6 +177,7 @@ RSpec.describe OpenAI::Client do
 
       context "with Ollama + model: llama3" do
         let(:uri_base) { "http://localhost:11434" }
+        let(:provider) { "ollama" }
         let(:model) { "llama3" }
 
         it "succeeds" do
@@ -187,6 +189,36 @@ RSpec.describe OpenAI::Client do
             end
 
             expect(content.split.empty?).to eq(false)
+          end
+        end
+      end
+
+      context "with Groq + model: llama3" do
+        let(:uri_base) { "https://api.groq.com/openai" }
+        let(:provider) { "groq" }
+        let(:model) { "llama3-8b-8192" }
+        let(:access_token) { ENV.fetch("GROQ_ACCESS_TOKEN", nil) }
+        let(:response) do
+          OpenAI::Client.new({ uri_base: uri_base, access_token: access_token }).chat(
+            parameters: parameters
+          )
+        end
+        let(:chunks) { [] }
+        let(:stream) do
+          proc do |chunk, _bytesize|
+            print chunk["choices"][0]["delta"]["content"]
+            chunks << chunk
+          end
+        end
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            unless access_token
+              pending "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
+            end
+
+            response
+            expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
           end
         end
       end

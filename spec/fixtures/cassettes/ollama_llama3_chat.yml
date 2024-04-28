@@ -21,13 +21,13 @@ http_interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Sat, 27 Apr 2024 08:41:13 GMT
+      - Sun, 28 Apr 2024 12:58:36 GMT
       Content-Length:
       - '17'
     body:
       encoding: UTF-8
       string: Ollama is running
-  recorded_at: Sat, 27 Apr 2024 08:41:13 GMT
+  recorded_at: Sun, 28 Apr 2024 12:58:36 GMT
 - request:
     method: post
     uri: http://localhost:11434/v1/chat/completions
@@ -53,15 +53,15 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 27 Apr 2024 08:41:15 GMT
+      - Sun, 28 Apr 2024 12:58:37 GMT
       Content-Length:
-      - '377'
+      - '376'
     body:
       encoding: UTF-8
-      string: '{"id":"chatcmpl-854","object":"chat.completion","created":1714207275,"model":"llama3","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
+      string: '{"id":"chatcmpl-106","object":"chat.completion","created":1714309117,"model":"llama3","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"Hello!
         It''s nice to meet you. Is there something I can help you with, or would you
-        like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":12,"completion_tokens":26,"total_tokens":38}}
+        like to chat?"},"finish_reason":"stop"}],"usage":{"prompt_tokens":0,"completion_tokens":26,"total_tokens":26}}
 
         '
-  recorded_at: Sat, 27 Apr 2024 08:41:15 GMT
+  recorded_at: Sun, 28 Apr 2024 12:58:37 GMT
 recorded_with: VCR 6.1.0
