@@ -185,7 +185,7 @@ RSpec.describe OpenAI::Client do
             vcr_skip do
               Faraday.new(url: uri_base).get
             rescue Faraday::ConnectionFailed
-              pending "This test needs `ollama serve` running locally with #{model} installed"
+              skip "This test needs `ollama serve` running locally with #{model} installed"
             end
 
             expect(content.split.empty?).to eq(false)
@@ -206,7 +206,6 @@ RSpec.describe OpenAI::Client do
         let(:chunks) { [] }
         let(:stream) do
           proc do |chunk, _bytesize|
-            print chunk["choices"][0]["delta"]["content"]
             chunks << chunk
           end
         end
@@ -214,7 +213,7 @@ RSpec.describe OpenAI::Client do
         it "succeeds" do
           VCR.use_cassette(cassette) do
             unless access_token
-              pending "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
+              skip "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
             end
 
             response
