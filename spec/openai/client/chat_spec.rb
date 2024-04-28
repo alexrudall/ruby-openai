@@ -12,7 +12,9 @@ RSpec.describe OpenAI::Client do
       let(:parameters) { { model: model, messages: messages, stream: stream } }
       let(:content) { response.dig("choices", 0, "message", "content") }
       let(:provider) { nil }
-      let(:cassette) { "#{"#{provider}_" if provider}#{model} #{'streamed' if stream} chat".downcase }
+      let(:cassette) do
+        "#{"#{provider}_" if provider}#{model} #{'streamed' if stream} chat".downcase
+      end
 
       context "with model: gpt-3.5-turbo" do
         let(:model) { "gpt-3.5-turbo" }
