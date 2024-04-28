@@ -27,6 +27,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
         - [Faraday middleware](#faraday-middleware)
       - [Azure](#azure)
       - [Ollama](#ollama)
+      - [Groq](#groq)
     - [Counting Tokens](#counting-tokens)
     - [Models](#models)
     - [Chat](#chat)
@@ -239,6 +240,27 @@ client.chat(
 # => Hi! It's nice to meet you. Is there something I can help you with, or would you like to chat?
 ```
 
+#### Groq
+
+[Groq API Chat](https://console.groq.com/docs/quickstart) is broadly compatible with the OpenAI API, with a [few minor differences](https://console.groq.com/docs/openai). Get an access token from [here](https://console.groq.com/keys), then:
+
+````ruby
+  client = OpenAI::Client.new(
+    access_token: "groq_access_token_goes_here",
+    uri_base: "https://api.groq.com/"
+  )
+
+  client.chat(
+    parameters: {
+        model: "llama3", # Required.
+        messages: [{ role: "user", content: "Hello!"}], # Required.
+        temperature: 0.7,
+        stream: proc do |chunk, _bytesize|
+            print chunk.dig("choices", 0, "delta", "content")
+        end
+    })
+```
+
 ### Counting Tokens
 
 OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
@@ -247,7 +269,7 @@ To estimate the token-count of your text:
 
 ```ruby
 OpenAI.rough_token_count("Your text")
-```
+````
 
 If you need a more accurate count, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
 
