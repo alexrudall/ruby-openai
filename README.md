@@ -252,7 +252,7 @@ client.chat(
 
   client.chat(
     parameters: {
-        model: "llama3", # Required.
+        model: "llama3-8b-8192", # Required.
         messages: [{ role: "user", content: "Hello!"}], # Required.
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
