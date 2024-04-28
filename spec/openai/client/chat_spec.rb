@@ -197,9 +197,8 @@ RSpec.describe OpenAI::Client do
         let(:uri_base) { "https://api.groq.com/openai" }
         let(:provider) { "groq" }
         let(:model) { "llama3-8b-8192" }
-        let(:access_token) { ENV.fetch("GROQ_ACCESS_TOKEN", nil) }
         let(:response) do
-          OpenAI::Client.new({ uri_base: uri_base, access_token: access_token }).chat(
+          OpenAI::Client.new({ uri_base: uri_base }).chat(
             parameters: parameters
           )
         end
@@ -218,7 +217,6 @@ RSpec.describe OpenAI::Client do
               pending "This test needs the `OPENAI_ACCESS_TOKEN` to be a Groq API key"
             end
 
-            # response
             expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
           end
         end
