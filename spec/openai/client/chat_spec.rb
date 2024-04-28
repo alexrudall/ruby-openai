@@ -185,7 +185,7 @@ RSpec.describe OpenAI::Client do
             vcr_skip do
               Faraday.new(url: uri_base).get
             rescue Faraday::ConnectionFailed
-              skip "This test needs `ollama serve` running locally with #{model} installed"
+              pending "This test needs `ollama serve` running locally with #{model} installed"
             end
 
             expect(content.split.empty?).to eq(false)
@@ -212,8 +212,10 @@ RSpec.describe OpenAI::Client do
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
-            unless access_token
-              skip "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
+            vcr_skip do
+              unless access_token
+                pending "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
+              end
             end
 
             response

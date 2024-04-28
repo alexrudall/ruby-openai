@@ -15,6 +15,7 @@ VCR.configure do |c|
   }
   c.filter_sensitive_data("<OPENAI_ACCESS_TOKEN>") { OpenAI.configuration.access_token }
   c.filter_sensitive_data("<OPENAI_ORGANIZATION_ID>") { OpenAI.configuration.organization_id }
+  c.filter_sensitive_data("<GROQ_ACCESS_TOKEN>") { ENV.fetch("GROQ_ACCESS_TOKEN", nil) }
   if (user_id = ENV.fetch("OPENAI_USER_ID", nil))
     c.filter_sensitive_data("<OPENAI_USER_ID>") { user_id }
   end
