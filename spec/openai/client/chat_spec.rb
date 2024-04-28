@@ -212,13 +212,13 @@ RSpec.describe OpenAI::Client do
 
         it "succeeds" do
           VCR.use_cassette(cassette) do
-            vcr_skip do
-              unless access_token
-                pending "This test needs a `GROQ_ACCESS_TOKEN` environment variable to run"
-              end
+            tap do
+              response
+            rescue Faraday::UnauthorizedError
+              pending "This test needs the `OPENAI_ACCESS_TOKEN` to be a Groq API key"
             end
 
-            response
+            # response
             expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
           end
         end
