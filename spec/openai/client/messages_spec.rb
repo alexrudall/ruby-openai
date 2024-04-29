@@ -65,8 +65,7 @@ RSpec.describe OpenAI::Client do
     describe "#modify" do
       let(:cassette) { "messages modify" }
       let(:response) do
-        OpenAI::Client.new(          log_errors: true
-        ).messages.modify(
+        OpenAI::Client.new.messages.modify(
           id: message_id,
           thread_id: thread_id,
           parameters: {
