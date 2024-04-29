@@ -120,4 +120,280 @@ http_interactions:
           "has_more": false
         }
   recorded_at: Sat, 27 Apr 2024 13:02:57 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/batches
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:27:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_37c4738096df06b1cdd3574ab0aa9262
+      Openai-Processing-Ms:
+      - '275'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=8fQJ_Cw85pkn8vUraRZLO.pVOZ1avRnYR4E7UKd5TLc-1714433279-1.0.1.1-d6vgDMK1kbIxAFpWto0vxrOTh50hDr7Q0BfKZSc1Md7Y_K8fwQa4k0YoCgKSeGcu4ZwYymIgJo9KGsbPlVnm3g;
+        path=/; expires=Mon, 29-Apr-24 23:57:59 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=siKX63nxUeSg5ippWFnKQtqRB1_Ojlz5e4W9.5fz3Nw-1714433279734-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c310dbdbac6409-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "batch_gidid1h27isU29Yg0xFVrEw4",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-M7kN0Xj6JljJnpiV7zUUAIlW",
+              "completion_window": "24h",
+              "status": "validating",
+              "output_file_id": null,
+              "error_file_id": null,
+              "created_at": 1714433279,
+              "in_progress_at": null,
+              "expires_at": 1714519679,
+              "finalizing_at": null,
+              "completed_at": null,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 0,
+                "completed": 0,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_nxlrM7H9HBi2aEr6lDB75hBv",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-olNUMBePFrhJyuMEAvJSC1W8",
+              "completion_window": "24h",
+              "status": "completed",
+              "output_file_id": "file-XBfCbFfnc5DQwtqYYLjxeZHV",
+              "error_file_id": null,
+              "created_at": 1714223320,
+              "in_progress_at": 1714223321,
+              "expires_at": 1714309720,
+              "finalizing_at": 1714223382,
+              "completed_at": 1714223382,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 2,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_PUHjvg0ufFNNqFUop8cDU5RR",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-BwiY5C5hJwpUrCiCxwc1OOjH",
+              "completion_window": "24h",
+              "status": "cancelled",
+              "output_file_id": null,
+              "error_file_id": "file-c3u20eRJWsrgT0KCcaHWwvQJ",
+              "created_at": 1714223018,
+              "in_progress_at": null,
+              "expires_at": 1714309418,
+              "finalizing_at": null,
+              "completed_at": null,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": 1714223019,
+              "cancelled_at": 1714252234,
+              "request_counts": {
+                "total": 0,
+                "completed": 0,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_34QbcyhH4WIPPGl4H5LsQZBr",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-uFk9X2lZO7ug5rr95SjODqax",
+              "completion_window": "24h",
+              "status": "completed",
+              "output_file_id": "file-wm2T1A4YmTnFWwc9pf8yAu8j",
+              "error_file_id": null,
+              "created_at": 1714223011,
+              "in_progress_at": 1714223012,
+              "expires_at": 1714309411,
+              "finalizing_at": 1714223073,
+              "completed_at": 1714223073,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 2,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_nKe4BBzmYfJqFPbKe743NLRA",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-6hOLqRYsS9Btw7Ag2e4ashUB",
+              "completion_window": "24h",
+              "status": "cancelled",
+              "output_file_id": "file-EDziB1kp2BYluDwB7T0c1ufu",
+              "error_file_id": "file-g1GtaPmgyIUXNnr1CIXSo1Cc",
+              "created_at": 1714222982,
+              "in_progress_at": 1714222982,
+              "expires_at": 1714309382,
+              "finalizing_at": null,
+              "completed_at": null,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": 1714222982,
+              "cancelled_at": 1714252267,
+              "request_counts": {
+                "total": 2,
+                "completed": 1,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_0ii4rIpvpb1XwC7isnnPo7UN",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-FXV6zUECcn3Zfizm7J273QXx",
+              "completion_window": "24h",
+              "status": "completed",
+              "output_file_id": "file-2rZ2KGOEMt6UZGaOt6x5Zy7u",
+              "error_file_id": null,
+              "created_at": 1714222978,
+              "in_progress_at": 1714222979,
+              "expires_at": 1714309378,
+              "finalizing_at": 1714223040,
+              "completed_at": 1714223040,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 2,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_AfuCFw8jZ14rbXkIQWDeYnMU",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-FBhzJKh5hRnQKCgiGk0ipMHa",
+              "completion_window": "24h",
+              "status": "completed",
+              "output_file_id": "file-LEirJzpk0rzmkZztSIVeE3tP",
+              "error_file_id": null,
+              "created_at": 1714222977,
+              "in_progress_at": 1714222977,
+              "expires_at": 1714309377,
+              "finalizing_at": 1714223038,
+              "completed_at": 1714223038,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 2,
+                "failed": 0
+              },
+              "metadata": null
+            },
+            {
+              "id": "batch_LZZPpO4LijHQyOIjQmJ0pQgm",
+              "object": "batch",
+              "endpoint": "/v1/chat/completions",
+              "errors": null,
+              "input_file_id": "file-zQaBd9PBocsMDmMPxZqLpiyV",
+              "completion_window": "24h",
+              "status": "completed",
+              "output_file_id": "file-KmHShqD31LedY0hDoaunJrIi",
+              "error_file_id": null,
+              "created_at": 1714222948,
+              "in_progress_at": 1714222948,
+              "expires_at": 1714309348,
+              "finalizing_at": 1714223010,
+              "completed_at": 1714223011,
+              "failed_at": null,
+              "expired_at": null,
+              "cancelling_at": null,
+              "cancelled_at": null,
+              "request_counts": {
+                "total": 2,
+                "completed": 2,
+                "failed": 0
+              },
+              "metadata": null
+            }
+          ],
+          "first_id": "batch_gidid1h27isU29Yg0xFVrEw4",
+          "last_id": "batch_LZZPpO4LijHQyOIjQmJ0pQgm",
+          "has_more": false
+        }
+  recorded_at: Mon, 29 Apr 2024 23:27:59 GMT
 recorded_with: VCR 6.1.0

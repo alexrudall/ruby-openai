@@ -263,4 +263,72 @@ http_interactions:
           "tool_choice": "auto"
         }
   recorded_at: Sat, 27 Apr 2024 22:07:42 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_KlnvHahvNJuLPZRV3z252l0K/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_a1wlOh7EwkoJy66PvjiMMlFS","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:43 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_74d6a44c440e1632d9ff2065ee79c39b
+      Openai-Processing-Ms:
+      - '177'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=2zRLNfL9WezloFdZhHnYtl2kXUvx3XDG6aH_yn2I88M-1714433323-1.0.1.1-uG_MeZRAAaDXru4MMylzx6wVV0ERji1mZt7kAHH8SBD.VI5tvzUd2Gh1YLajlmRht6XHdJ91Y_L7AMW6fYCxRA;
+        path=/; expires=Mon, 29-Apr-24 23:58:43 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=va6f..aWdTqXp90dqjidKC0KKLQ1Yc4tp8E4eh1yde0-1714433323036-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c311eb18e15326-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Run creation requires a Thread with a user message or an assistant with instructions.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_thread"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:43 GMT
 recorded_with: VCR 6.1.0

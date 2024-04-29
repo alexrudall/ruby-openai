@@ -164,4 +164,72 @@ http_interactions:
           }
         }
   recorded_at: Sat, 27 Apr 2024 20:48:42 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_XfGoeHgrhrRtmi7jtBqRPXkg/messages/msg_OtZ1InUvH5HsQNlwVSXenAuH
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_bcd3fd0f7fefc5498933575a6e595673
+      Openai-Processing-Ms:
+      - '92'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=nppG83QjvU41ug3VuPlXOepxU4iG_iQLdt2JByL9GEo-1714433304-1.0.1.1-fQquzj_z3BSUg8ZCkki1VxH62JCS4h7mE2zTFmenQlxpJ4y7EJusdOSYBr5MhMGnbmc3vZwDm2jAC.o_8prffA;
+        path=/; expires=Mon, 29-Apr-24 23:58:24 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=q3PvEs4.l3iiCXdyhS.2jZMBrBpotQH0qJ.0jNXE8yE-1714433304622-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c311788bf963d6-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:24 GMT
 recorded_with: VCR 6.1.0

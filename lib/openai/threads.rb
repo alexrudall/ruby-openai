@@ -1,7 +1,7 @@
 module OpenAI
   class Threads
     def initialize(client:)
-      @client = client.beta(assistants: "v1")
+      @client = client.beta(assistants: "v2")
     end
 
     def retrieve(id:)

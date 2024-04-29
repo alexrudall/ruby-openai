@@ -92,4 +92,72 @@ http_interactions:
           "tool_choice": "auto"
         }
   recorded_at: Sat, 27 Apr 2024 22:28:09 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_BHE1Fd29L0k0x7qNCW8UM45M"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_8992275eefb93d9cec3b4e9c64dec97d
+      Openai-Processing-Ms:
+      - '81'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=mQLc5hiQEljpbRpRVxEP4QYcXGAC2.wbgAt.uQ1rxWQ-1714433327-1.0.1.1-vilmYjkj_QrvO4VvCUhiy5Kf4lS7aGLVXTYQ.nwcMykeRPy1Mzr9VB0qnfN1Hd0r2_yTarSBcpWzGsHUEv7QoA;
+        path=/; expires=Mon, 29-Apr-24 23:58:47 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=J9c8JIxnjX2z.vyZb79kMS6lVvECGZVXB_MY.TUNx3Q-1714433327482-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c312077fbc9466-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Run creation requires a Thread with a user message or an assistant with instructions.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_thread"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:47 GMT
 recorded_with: VCR 6.1.0
