@@ -101,7 +101,10 @@ require "openai"
 For a quick test you can pass your token directly to a new client:
 
 ```ruby
-client = OpenAI::Client.new(access_token: "access_token_goes_here")
+client = OpenAI::Client.new(
+  access_token: "access_token_goes_here",
+  log_errors: true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommended in production.
+)
 ```
 
 ### With Config
@@ -110,8 +113,9 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 
 ```ruby
 OpenAI.configure do |config|
-    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
+  config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+  config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
+  config.log_errors = true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommended in production.
 end
 ```
 
@@ -342,12 +346,12 @@ puts response.dig("choices", 0, "message", "content")
 
 #### JSON Mode
 
-You can set the response_format to ask for responses in JSON (at least for `gpt-3.5-turbo-1106`):
+You can set the response_format to ask for responses in JSON:
 
 ```ruby
   response = client.chat(
     parameters: {
-        model: "gpt-3.5-turbo-1106",
+        model: "gpt-3.5-turbo",
         response_format: { type: "json_object" },
         messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
         temperature: 0.7,
@@ -367,7 +371,7 @@ You can stream it as well!
 ```ruby
   response = client.chat(
     parameters: {
-      model: "gpt-3.5-turbo-1106",
+      model: "gpt-3.5-turbo",
       messages: [{ role: "user", content: "Can I have some JSON please?"}],
         response_format: { type: "json_object" },
         stream: proc do |chunk, _bytesize|
@@ -564,7 +568,7 @@ These files are in JSONL format, with each line representing the output or error
     "id": "chatcmpl-abc123",
     "object": "chat.completion",
     "created": 1677858242,
-    "model": "gpt-3.5-turbo-0301",
+    "model": "gpt-3.5-turbo",
     "choices": [
       {
         "index": 0,
@@ -660,16 +664,19 @@ To create a new assistant:
 ```ruby
 response = client.assistants.create(
     parameters: {
-        model: "gpt-3.5-turbo-1106",         # Retrieve via client.models.list. Assistants need 'gpt-3.5-turbo-1106' or later.
+        model: "gpt-3.5-turbo",
         name: "OpenAI-Ruby test assistant",
         description: nil,
-        instructions: "You are a helpful assistant for coding a OpenAI API client using the OpenAI-Ruby gem.",
+        instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
         tools: [
-            { type: 'retrieval' },           # Allow access to files attached using file_ids
-            { type: 'code_interpreter' },    # Allow access to Python code interpreter
+            { type: "code_interpreter" },
         ],
-        "file_ids": ["file-123"],            # See Files section above for how to upload files
-        "metadata": { my_internal_version_id: '1.0.0' }
+        tool_resources: {
+          "code_interpreter": {
+            "file_ids": [] # See Files section above for how to upload files
+          }
+        },
+        "metadata": { my_internal_version_id: "1.0.0" }
     })
 assistant_id = response["id"]
 ```
@@ -851,11 +858,7 @@ client.runs.list(thread_id: thread_id, parameters: { order: "asc", limit: 3 })
 You can also create a thread and run in one call like this:
 
 ```ruby
-response = client.threads.create_and_run(
-    parameters: {
-        model: 'gpt-3.5-turbo',
-        messages: [{ role: 'user', content: "What's deep learning?"}]
-    })
+response = client.runs.create_thread_and_run(parameters: { assistant_id: assistant_id })
 run_id = response['id']
 thread_id = response['thread_id']
 ```
