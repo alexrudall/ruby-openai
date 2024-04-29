@@ -87,51 +87,50 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
     headers:
       Date:
-      - Mon, 29 Apr 2024 23:27:27 GMT
+      - Mon, 29 Apr 2024 23:29:58 GMT
       Content-Type:
       - application/json
-      Content-Length:
-      - '240'
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
-      Www-Authenticate:
-      - Bearer realm="OpenAI API"
       Openai-Version:
       - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_2c8bf7547c63b8677474ec5114355c50
+      - req_316e2f198e40ecf860617eb64b3a282a
       Openai-Processing-Ms:
-      - '11'
+      - '26'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=5C_L_4qzucAF8L8QvSGu7KcDj4D.ZbVw97P3HfoIgtE-1714433247-1.0.1.1-t8zEm.4Ryw1nz7X9Q8jWIQcOtfyIEVk1yZ49.4U592mmAsAwaKNGUBtoUn1xX2mh1zxI7.dFy.LuYvWqNau03Q;
-        path=/; expires=Mon, 29-Apr-24 23:57:27 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=XQmVP18yjF0WCcemEgePo.LbETd35UG8utZ2uCScEb4-1714433398-1.0.1.1-QTWwQmnlv7ZRI0gIYRaySfzJh4BRjHoC7Otk2Tl38TQHiQtCo04GUJtKCJB9zdhRWqd2MNg_atLSjaZtJdvuOw;
+        path=/; expires=Mon, 29-Apr-24 23:59:58 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=vD0H32l25.ib2iLqUAjf.2ycgTgD9p5POJFh7N4nDYI-1714433247292-0.0.1.1-604800000;
+      - _cfuvid=3AfCE9f4raCI9W9ce0apLwhXdwjV6MuTjE897Nj9NDA-1714433398923-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 87c31012ac4693ef-LHR
+      - 87c313c65fa46395-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: |-
         {
-          "error": {
-            "message": "Incorrect API key provided: <OPENAI_ACCESS_TOKEN>. You can find your API key at https://platform.openai.com/account/api-keys.",
-            "type": "invalid_request_error",
-            "param": null,
-            "code": "invalid_api_key"
-          }
+          "id": "thread_sc5ZaG4SVT62mMf5PggP5w4V",
+          "object": "thread",
+          "created_at": 1714433398,
+          "metadata": {},
+          "tool_resources": {}
         }
-  recorded_at: Mon, 29 Apr 2024 23:27:27 GMT
+  recorded_at: Mon, 29 Apr 2024 23:29:58 GMT
 recorded_with: VCR 6.1.0
