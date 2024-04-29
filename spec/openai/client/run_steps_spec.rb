@@ -10,7 +10,8 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.assistants.create(
           parameters: {
             model: "gpt-4",
-            name: "OpenAI-Ruby test assistant"
+            name: "OpenAI-Ruby test assistant",
+            instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question"
           }
         )["id"]
       end
