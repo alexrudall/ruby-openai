@@ -248,7 +248,7 @@ client.chat(
 
 [Groq API Chat](https://console.groq.com/docs/quickstart) is broadly compatible with the OpenAI API, with a [few minor differences](https://console.groq.com/docs/openai). Get an access token from [here](https://console.groq.com/keys), then:
 
-````ruby
+```ruby
   client = OpenAI::Client.new(
     access_token: "groq_access_token_goes_here",
     uri_base: "https://api.groq.com/"
