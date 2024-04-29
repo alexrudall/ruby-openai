@@ -101,7 +101,10 @@ require "openai"
 For a quick test you can pass your token directly to a new client:
 
 ```ruby
-client = OpenAI::Client.new(access_token: "access_token_goes_here")
+client = OpenAI::Client.new(
+  access_token: "access_token_goes_here",
+  log_errors: true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommend in production.
+  )
 ```
 
 ### With Config
@@ -110,8 +113,9 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 
 ```ruby
 OpenAI.configure do |config|
-    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
+  config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+  config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
+  config.log_errors = true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommend in production.
 end
 ```
 
