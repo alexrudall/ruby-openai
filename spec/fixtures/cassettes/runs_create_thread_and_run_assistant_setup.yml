@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 29 Apr 2024 23:28:47 GMT
+      - Mon, 29 Apr 2024 23:30:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,32 +37,32 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_feba2a6eb1fcbdf59db6f5dbb1e0045e
+      - req_a34dd7b5beb7fa287a00d275c478b93b
       Openai-Processing-Ms:
-      - '79'
+      - '159'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=0PhPvaIKG9D8fhXlkL8qXY4Ly.izwt4IR1G9pehd1hA-1714433327-1.0.1.1-mvfW2fe_xzIyZ6uvsc1wsqQXcfNRNp6fXDCok2f01GS8uJmTpDAX8spsQzkOsG0XjfEEnbA8WLsxPdPLP598ag;
-        path=/; expires=Mon, 29-Apr-24 23:58:47 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=Mv4jvGGD2kDm9YsYuPxLwMMLRX.P7olaShsjEcLah4Q-1714433432-1.0.1.1-4Y7G207ZBpOay3SJK72Mq6hPzDCJW5adeNyZlCds5hqmfKAmUMWPT4vrs1x1dgQwFBGWzrkkaaBsO1yge96RpA;
+        path=/; expires=Tue, 30-Apr-24 00:00:32 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=mxz9SyA.F526WwRPPjgmpEqhNjl1c4IoYAB.7VFpPMA-1714433327194-0.0.1.1-604800000;
+      - _cfuvid=TMlQkEWLDgzYQqPCrSVhbQTIQCwSBmVkFZZ3T3aL_r0-1714433432516-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 87c31205ac356549-LHR
+      - 87c3149758f448b7-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_BHE1Fd29L0k0x7qNCW8UM45M",
+          "id": "asst_I1cheAOoglikkXv86S4q9tw4",
           "object": "assistant",
-          "created_at": 1714433327,
+          "created_at": 1714433432,
           "name": "OpenAI-Ruby test assistant",
           "description": null,
           "model": "gpt-4",
@@ -74,5 +74,5 @@ http_interactions:
           "metadata": {},
           "response_format": "auto"
         }
-  recorded_at: Mon, 29 Apr 2024 23:28:47 GMT
+  recorded_at: Mon, 29 Apr 2024 23:30:32 GMT
 recorded_with: VCR 6.1.0
