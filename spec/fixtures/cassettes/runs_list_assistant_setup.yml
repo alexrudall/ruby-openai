@@ -80,7 +80,9 @@ http_interactions:
     uri: https://api.openai.com/v1/assistants
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant"}'
+      string: '{"model":"gpt-4","name":"OpenAI-Ruby test assistant","instructions":"You
+        are a Ruby dev bot. When asked a question, write and run Ruby code to answer
+        the question"}'
     headers:
       Content-Type:
       - application/json
@@ -100,7 +102,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 29 Apr 2024 23:30:26 GMT
+      - Mon, 29 Apr 2024 23:35:24 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -112,36 +114,36 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_7d27f1d2a8cdfaa2c19235d42af69a03
+      - req_a7765f761551b47ec62b1774b4d56b3a
       Openai-Processing-Ms:
-      - '97'
+      - '75'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=dNoVuX87ER1KB4hvqKLKUhkP7gaNdo9UkMU3QovyeYg-1714433426-1.0.1.1-KJ4t1VJYfDyp3fsLyvlf_0zsBXJ69Hgj3LEpaUjGDToMINEdjlVuA7R6tFq1Nark_991mmIFceLXliyXPkSJRQ;
-        path=/; expires=Tue, 30-Apr-24 00:00:26 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=c8bMQ7pSQPCyagYHdXccJ23yv1dVA5Q0GPWMn5r.DNI-1714433724-1.0.1.1-IXXWXq9v6ngFgOzWahjDM8PaDDY0f0d_7lB6ZXTF82g6bAS1DrpRW8hiECLXn2NagsbPGNsj6P_gX_Io7kCpWw;
+        path=/; expires=Tue, 30-Apr-24 00:05:24 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=0pZZIvBobL3.zDBvKXYFBxt2TWY3LfTao9Oz1AY1Eb4-1714433426407-0.0.1.1-604800000;
+      - _cfuvid=ZUBMHLFUL4jtXTQFJZFolTWKrQBZ23J_5rdw5J56ofU-1714433724667-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 87c31471ad6d53a2-LHR
+      - 87c31bb9ef826533-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_f2IIJE6t3Hk4HIIwh7hcqCYF",
+          "id": "asst_UPL9MZQUmTZyWpQGgnfDVbwq",
           "object": "assistant",
-          "created_at": 1714433426,
+          "created_at": 1714433724,
           "name": "OpenAI-Ruby test assistant",
           "description": null,
           "model": "gpt-4",
-          "instructions": null,
+          "instructions": "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
           "tools": [],
           "top_p": 1.0,
           "temperature": 1.0,
@@ -149,5 +151,5 @@ http_interactions:
           "metadata": {},
           "response_format": "auto"
         }
-  recorded_at: Mon, 29 Apr 2024 23:30:26 GMT
+  recorded_at: Mon, 29 Apr 2024 23:35:24 GMT
 recorded_with: VCR 6.1.0

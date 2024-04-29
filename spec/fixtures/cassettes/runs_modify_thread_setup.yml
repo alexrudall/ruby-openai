@@ -91,7 +91,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 29 Apr 2024 23:30:30 GMT
+      - Mon, 29 Apr 2024 23:35:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -103,34 +103,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_55840c459b2a372beae10a9490f4f882
+      - req_73bfa67feb15f11e0c7eebbb4304829e
       Openai-Processing-Ms:
-      - '33'
+      - '24'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=b9UeuMyryP7s6_FdONK0PEGJE5RXmG_Uc2j_s1k1Zak-1714433430-1.0.1.1-_bDIhnDjRaiClV.wB2n.mkZgcLcCBwv3wn_MghEZkxDTjxcbjpGXJF_IVgqGiJkf0pbcRbffTM_._gDn383_pg;
-        path=/; expires=Tue, 30-Apr-24 00:00:30 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=Fvjeyc2lCAtBvNxVmLqLIyamI40fceD9iDQXnMbO.6s-1714433732-1.0.1.1-CV1uPYe0RCPOLRCV1cOgNkdw4ZkERVFmjZp4osexI0YKntgreIJBnw7nAhtD57Alv9rq80ny7jIUevtV94LTNQ;
+        path=/; expires=Tue, 30-Apr-24 00:05:32 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=l9.G80eohnIIXUWt8WYkkq9mWS3ZX24lw4E4SX8ykoM-1714433430525-0.0.1.1-604800000;
+      - _cfuvid=99xYbpX_UFwNTzmB2GI8mSVeT8GXHJ629V74WJbWcyE-1714433732742-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 87c3148bcc8693e0-LHR
+      - 87c31becbf5c4922-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "thread_51EJvM0qOlnbVTn19VeHdMQn",
+          "id": "thread_gdGHwrXQ8YPgNx7qPfWR7rIE",
           "object": "thread",
-          "created_at": 1714433430,
+          "created_at": 1714433732,
           "metadata": {},
           "tool_resources": {}
         }
-  recorded_at: Mon, 29 Apr 2024 23:30:30 GMT
+  recorded_at: Mon, 29 Apr 2024 23:35:32 GMT
 recorded_with: VCR 6.1.0

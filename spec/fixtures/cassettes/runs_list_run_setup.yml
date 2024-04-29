@@ -412,4 +412,392 @@ http_interactions:
           }
         }
   recorded_at: Mon, 29 Apr 2024 23:30:26 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_Y9LpJfErlQyTPSQCl75Uk3IF/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_2XOK1euGVH6FzbjtDxrIZzsm","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:33:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_b9f25402fb889a16758cb1d446f3e393
+      Openai-Processing-Ms:
+      - '276'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=KBIcbKAyrUXDz7yY65eg6lkb3y9aQhZ7ueIcAMO80jM-1714433619-1.0.1.1-rmjevrwf2_h45Z9tlxcgSGbfcuVFvsPOPXhAGTqdPBtTEi2kg6kNMPzIkmyJGy.BEikbdugOkWR9eYtSZOvrhg;
+        path=/; expires=Tue, 30-Apr-24 00:03:39 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=xiJg6RQsjDaeLZxyIZj0J7_LfVNNOmQeMxEbS3N3o.o-1714433619553-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31927afba9553-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Run creation requires a Thread with a user message or an assistant with instructions.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_thread"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:33:39 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_vuJhPfxLiXAZbC5pLRacLeev/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_vwDCY6skDIj2I0QmmkdKIJrr","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:33:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_1ec2764796e7b8ad515c8a3052b00039
+      Openai-Processing-Ms:
+      - '168'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=AKs9o5sy_bpbV5LQahaDHg7gV_SxwPa3na5J2J8jOss-1714433637-1.0.1.1-VCGqrAa4OsIkLe5RKjLEEjB3uSom3FU5bVKohN.9spuWJJ1pUuRIYmUYnYEf3VqMySq9DP6rIlDXHpDQ.G6RMQ;
+        path=/; expires=Tue, 30-Apr-24 00:03:57 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=PnXwdSqb2BHnvMCD4x5B9dmIcU4BNzCJmtDDyC.O.GI-1714433637268-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c319971d5806dd-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Run creation requires a Thread with a user message or an assistant with instructions.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_thread"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:33:57 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_DXksKVVGSdVrdk0horI6emCT/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_I14JD87FVk6uvgCjTOA07xU1","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:34:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '209'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_cdb70dd485ee89fc198728a8979ea41e
+      Openai-Processing-Ms:
+      - '168'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=NdH6TuueTSEHuCyFFH5D.gnY4Ix7mp0CDqL0G17nw.k-1714433667-1.0.1.1-r.6CFzBmvRJBAGaCFyK.waP0coDDQFjsqVjnSxyOnabLz4JPtpc7fBpe02Ok38Ws3FKTwIbL1kfMiIyi2JeLZg;
+        path=/; expires=Tue, 30-Apr-24 00:04:27 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XF9RFDrV06qOYolT3uc3V0nkJST9iUr3cTELtD_8yi8-1714433667535-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31a543c0877a8-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Run creation requires a Thread with a user message or an assistant with instructions.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_thread"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:34:27 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_2TmoNHweDuvw4c0tRA8yXXZt/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_lMFvIrGdJxzRoY8bKM1KSlIL","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:35:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_2d1a880c13d637de4bc481dd2aa3ec81
+      Openai-Processing-Ms:
+      - '304'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=VxImxto38V3oZOYFcwDw4DrWcoZ_s0xX9o7QnpuKYIs-1714433710-1.0.1.1-YQ79JD3kpxWlV.TcWbYs.5tAwOh5WFkvtRlbZWar37G8pp_nFMVVel6.BJ6r_Hjq0fkNTidf_N.N52b9iDmJTg;
+        path=/; expires=Tue, 30-Apr-24 00:05:10 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=.X3w2SZdUgU8fRDffgUJ4xLdxvxoI0NGkHxr34PHX_g-1714433710478-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31b5fcf6c63c5-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_QpXf5BGVtXVTcSenYcgnJh3K",
+          "object": "thread.run",
+          "created_at": 1714433710,
+          "assistant_id": "asst_lMFvIrGdJxzRoY8bKM1KSlIL",
+          "thread_id": "thread_2TmoNHweDuvw4c0tRA8yXXZt",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1714434310,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "required_action": null,
+          "last_error": null,
+          "model": "gpt-4",
+          "instructions": "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
+          "tools": [],
+          "tool_resources": {},
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": 16,
+          "max_prompt_tokens": 256,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto"
+        }
+  recorded_at: Mon, 29 Apr 2024 23:35:10 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_LlkcwBXgqA8UNe2W84J7tDpM/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_UPL9MZQUmTZyWpQGgnfDVbwq","max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:35:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_7ca1c762ca3bb0d34b1cb891d0383d06
+      Openai-Processing-Ms:
+      - '350'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=6M7h0LN1UhMzrCY.4ANeVKI3O.eGMyslXCMAIaBjPNk-1714433725-1.0.1.1-24GYwz1HNLv43RVVOQ_jCWQYPoOKfPdZBkk9E6qzKtRADxtv.OVtPMBQJEs5m7Fprf0epS9lYZSpnG1q2Ex_Hg;
+        path=/; expires=Tue, 30-Apr-24 00:05:25 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=invU0tZ7L81FH53ghZWhNYckHkUn1Xy4Fz1HF2xWOWo-1714433725203-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31bbb8ee871f0-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_cFlB86OJGLnSBM5sSiDS7aIg",
+          "object": "thread.run",
+          "created_at": 1714433724,
+          "assistant_id": "asst_UPL9MZQUmTZyWpQGgnfDVbwq",
+          "thread_id": "thread_LlkcwBXgqA8UNe2W84J7tDpM",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1714434324,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "required_action": null,
+          "last_error": null,
+          "model": "gpt-4",
+          "instructions": "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
+          "tools": [],
+          "tool_resources": {},
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": 16,
+          "max_prompt_tokens": 256,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto"
+        }
+  recorded_at: Mon, 29 Apr 2024 23:35:25 GMT
 recorded_with: VCR 6.1.0

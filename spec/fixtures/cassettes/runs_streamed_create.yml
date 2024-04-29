@@ -274,4 +274,143 @@ http_interactions:
           }
         }
   recorded_at: Mon, 29 Apr 2024 23:30:30 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_SGytyoGQFzrGUyBp3OSSlKcy/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","stream":true,"max_prompt_tokens":256,"max_completion_tokens":16}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:35:29 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_9ce60545532482f3b4a2f4d3e1dc02b2
+      Openai-Processing-Ms:
+      - '319'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=GxT06nuKglRdwnfHAHIiNVp4OuwXRU2xtY9D90yRRqI-1714433729-1.0.1.1-Gyw6iepqbWbX3P.BTXzlb5zF4Tdblup4PlzjEwAUeBc3HN2dPw.8yEUZsjCZoExkA6JjHkpvG2.YCwWu8L7jAA;
+        path=/; expires=Tue, 30-Apr-24 00:05:29 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=tG2TZxTgxch2jWZT1Lzt8.cEAnWlX2pjbEkNKgAcqrQ-1714433729189-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31bd4a941654a-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |+
+        event: thread.run.created
+        data: {"id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","object":"thread.run","created_at":1714433728,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","status":"queued","started_at":null,"expires_at":1714434328,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4","instructions":"You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question","tools":[],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":1.0,"top_p":1.0,"max_completion_tokens":16,"max_prompt_tokens":256,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto"}
+
+        event: thread.run.queued
+        data: {"id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","object":"thread.run","created_at":1714433728,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","status":"queued","started_at":null,"expires_at":1714434328,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4","instructions":"You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question","tools":[],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":1.0,"top_p":1.0,"max_completion_tokens":16,"max_prompt_tokens":256,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto"}
+
+        event: thread.run.in_progress
+        data: {"id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","object":"thread.run","created_at":1714433728,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","status":"in_progress","started_at":1714433729,"expires_at":1714434328,"cancelled_at":null,"failed_at":null,"completed_at":null,"required_action":null,"last_error":null,"model":"gpt-4","instructions":"You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question","tools":[],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":1.0,"top_p":1.0,"max_completion_tokens":16,"max_prompt_tokens":256,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":null,"usage":null,"response_format":"auto","tool_choice":"auto"}
+
+        event: thread.run.step.created
+        data: {"id":"step_csJRFWmiJNLv3ElBrh4wnWlo","object":"thread.run.step","created_at":1714433730,"run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","type":"message_creation","status":"in_progress","cancelled_at":null,"completed_at":null,"expires_at":1714434328,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR"}},"usage":null}
+
+        event: thread.run.step.in_progress
+        data: {"id":"step_csJRFWmiJNLv3ElBrh4wnWlo","object":"thread.run.step","created_at":1714433730,"run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","type":"message_creation","status":"in_progress","cancelled_at":null,"completed_at":null,"expires_at":1714434328,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR"}},"usage":null}
+
+        event: thread.message.created
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message","created_at":1714433730,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","status":"in_progress","incomplete_details":null,"incomplete_at":null,"completed_at":null,"role":"assistant","content":[],"attachments":[],"metadata":{}}
+
+        event: thread.message.in_progress
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message","created_at":1714433730,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","status":"in_progress","incomplete_details":null,"incomplete_at":null,"completed_at":null,"role":"assistant","content":[],"attachments":[],"metadata":{}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"Sure","annotations":[]}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":","}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" I"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" can"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" help"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" with"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" writing"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" Ruby"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" code"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":"."}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" However"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":","}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" as"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" an"}}]}}
+
+        event: thread.message.delta
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message.delta","delta":{"content":[{"index":0,"type":"text","text":{"value":" AI"}}]}}
+
+        event: thread.message.incomplete
+        data: {"id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR","object":"thread.message","created_at":1714433730,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","status":"incomplete","incomplete_details":{"reason":"max_tokens"},"incomplete_at":1714433732,"completed_at":null,"role":"assistant","content":[{"type":"text","text":{"value":"Sure, I can help with writing Ruby code. However, as an AI","annotations":[]}}],"attachments":[],"metadata":{}}
+
+        event: thread.run.step.completed
+        data: {"id":"step_csJRFWmiJNLv3ElBrh4wnWlo","object":"thread.run.step","created_at":1714433730,"run_id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","type":"message_creation","status":"completed","cancelled_at":null,"completed_at":1714433732,"expires_at":1714434328,"failed_at":null,"last_error":null,"step_details":{"type":"message_creation","message_creation":{"message_id":"msg_X9MPWjYNmdhcJd8fdiPFxhRR"}},"usage":{"prompt_tokens":27,"completion_tokens":16,"total_tokens":43}}
+
+        event: thread.run.completed
+        data: {"id":"run_B5f5IVSEP7Sa7tif3hCrtSbo","object":"thread.run","created_at":1714433728,"assistant_id":"asst_bZxEGReqm63trZ2h4pEDxSGU","thread_id":"thread_SGytyoGQFzrGUyBp3OSSlKcy","status":"incomplete","started_at":1714433729,"expires_at":null,"cancelled_at":null,"failed_at":null,"completed_at":1714433732,"required_action":null,"last_error":null,"model":"gpt-4","instructions":"You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question","tools":[],"tool_resources":{"code_interpreter":{"file_ids":[]}},"metadata":{},"temperature":1.0,"top_p":1.0,"max_completion_tokens":16,"max_prompt_tokens":256,"truncation_strategy":{"type":"auto","last_messages":null},"incomplete_details":{"reason":"max_prompt_tokens"},"usage":{"prompt_tokens":27,"completion_tokens":16,"total_tokens":43},"response_format":"auto","tool_choice":"auto"}
+
+        event: done
+        data: [DONE]
+
+  recorded_at: Mon, 29 Apr 2024 23:35:32 GMT
 recorded_with: VCR 6.1.0
+...

@@ -13,14 +13,15 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.assistants.create(
           parameters: {
             model: "gpt-4",
-            name: "OpenAI-Ruby test assistant"
+            name: "OpenAI-Ruby test assistant",
+            instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question"
           }
         )["id"]
       end
     end
     let(:run_id) do
       VCR.use_cassette("#{cassette} run setup") do
-        OpenAI::Client.new.runs.create(
+        OpenAI::Client.new(log_errors: true).runs.create(
           thread_id: thread_id,
           parameters: {
             assistant_id: assistant_id,
@@ -34,7 +35,7 @@ RSpec.describe OpenAI::Client do
     describe "#list" do
       let(:cassette) { "runs list" }
       let(:response) do
-        OpenAI::Client.new.runs.list(thread_id: thread_id, parameters: { order: "asc" })
+        OpenAI::Client.new(log_errors: true).runs.list(thread_id: thread_id, parameters: { order: "asc" })
       end
 
       before { run_id }
