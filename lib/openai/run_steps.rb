@@ -1,7 +1,7 @@
 module OpenAI
   class RunSteps
     def initialize(client:)
-      @client = client.beta(assistants: "v2")
+      @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
     end
 
     def list(thread_id:, run_id:, parameters: {})
