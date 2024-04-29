@@ -160,4 +160,84 @@ http_interactions:
           "metadata": {}
         }
   recorded_at: Sat, 27 Apr 2024 20:48:39 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/threads/thread_cQkVK3NnPhIoyf6ZIp7Ohb0r/messages/msg_M4cwypUl0keUl9Z3iAYc17hD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_1dfd06b0e5c0a43f518e1f01763c1c38
+      Openai-Processing-Ms:
+      - '99'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=q5iQitWWYFeTtO1kN.dwBj1DeQBQJ2TQt3Q5e3Jwwbg-1714433302-1.0.1.1-9A5j86CJ1.tusbLBzmp.vhE1gURTgzntcaoaVxbRnA.tvIn9641z9aCSRR7qNbhBrx1MiNtFfwCu_NrZYt2Edg;
+        path=/; expires=Mon, 29-Apr-24 23:58:22 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=8LHoBCfsE2yle2BkaNrO4QDBswKoVzsxMNyGeoBpJCw-1714433302667-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c3116c49080706-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "msg_M4cwypUl0keUl9Z3iAYc17hD",
+          "object": "thread.message",
+          "created_at": 1714433302,
+          "assistant_id": null,
+          "thread_id": "thread_cQkVK3NnPhIoyf6ZIp7Ohb0r",
+          "run_id": null,
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": {
+                "value": "Can you help me write an API library to interact with the OpenAI API please?",
+                "annotations": []
+              }
+            }
+          ],
+          "attachments": [],
+          "metadata": {}
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:22 GMT
 recorded_with: VCR 6.1.0

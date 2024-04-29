@@ -164,4 +164,290 @@ http_interactions:
           }
         }
   recorded_at: Sat, 27 Apr 2024 20:48:42 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_XfGoeHgrhrRtmi7jtBqRPXkg/messages/msg_OtZ1InUvH5HsQNlwVSXenAuH
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:24 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_bcd3fd0f7fefc5498933575a6e595673
+      Openai-Processing-Ms:
+      - '92'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=nppG83QjvU41ug3VuPlXOepxU4iG_iQLdt2JByL9GEo-1714433304-1.0.1.1-fQquzj_z3BSUg8ZCkki1VxH62JCS4h7mE2zTFmenQlxpJ4y7EJusdOSYBr5MhMGnbmc3vZwDm2jAC.o_8prffA;
+        path=/; expires=Mon, 29-Apr-24 23:58:24 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=q3PvEs4.l3iiCXdyhS.2jZMBrBpotQH0qJ.0jNXE8yE-1714433304622-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c311788bf963d6-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:24 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_EVTO6t46okTBOpzZGH04xmRw/messages/msg_Afo6ZFADquz3UOp0qQVa4mpg
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:31:44 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_ffb1658441efe5b2a279de3ac051c652
+      Openai-Processing-Ms:
+      - '83'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=oItoXwgrr7_DPzcf3TaeA.NUImAOry6T13C_Jy7ANL8-1714433504-1.0.1.1-4Xi1oEP8Mngh3M8HDvsrf5UlaN8gmy87sR2ZvpyIlVijVkkjRFgggUEs8nV8TR0CV6GoU8IoClXYnavmQ_qoNA;
+        path=/; expires=Tue, 30-Apr-24 00:01:44 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=qd33PStHltVywIO9aPku81p475zrFSXMCn1HX33rf2c-1714433504952-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c3165c7fed52ab-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:31:44 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_1OzNYsu1GGKtiiWp0YPWPLvG/messages/msg_DZMthtuQh4aEUozjsf2WAGZV
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:32:12 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_6d34c037c7c0878f076b70068fa50833
+      Openai-Processing-Ms:
+      - '92'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=DwabOoxTF2CFlY9ZOsdZRRLqh8zMS_BmbJWDweaLVD8-1714433532-1.0.1.1-vGZfJIQ2eq.79V8hOJ_TldNt0NahSOD6sQLncdIiYDsXK5.TzO2NJipaWQfusK.RvTwb33fSqzYZbQB1xSn6BQ;
+        path=/; expires=Tue, 30-Apr-24 00:02:12 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Ul26tjhr2fC38IT5dWGLYlS6X_n.eYvtHl.t5n4Sbfo-1714433532458-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c317088a8f76c3-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:32:12 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_9aksFceTGOrlNUXhYQyn1tAk/messages/msg_1fScUhjuzcaxWCwr7Z33PN0k
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":"true"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:32:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_b04de3ac3d59461f9e76fd2444b7c2bc
+      Openai-Processing-Ms:
+      - '110'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=W.61Iwyb7JBPhnycsuRU4Q3FSOcgarbtZYY52b2d7sc-1714433545-1.0.1.1-5x2JweHvFwBI7P_Spk6ND8vbaWdIiKZ5IXc13O5QgxbONBGNvrM0X63ufHEHdBtmRg8S8JcKVRiTkWnaATN1rA;
+        path=/; expires=Tue, 30-Apr-24 00:02:25 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=BFrZFbdOZMpGAlhXFWPaXe5zuOXTCSRNMLR39.3eGNc-1714433545989-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c3175cfed66430-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "msg_1fScUhjuzcaxWCwr7Z33PN0k",
+          "object": "thread.message",
+          "created_at": 1714433545,
+          "assistant_id": null,
+          "thread_id": "thread_9aksFceTGOrlNUXhYQyn1tAk",
+          "run_id": null,
+          "role": "user",
+          "content": [
+            {
+              "type": "text",
+              "text": {
+                "value": "Can you help me write an API library to interact with the OpenAI API please?",
+                "annotations": []
+              }
+            }
+          ],
+          "file_ids": [],
+          "metadata": {
+            "modified": "true"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:32:25 GMT
 recorded_with: VCR 6.1.0

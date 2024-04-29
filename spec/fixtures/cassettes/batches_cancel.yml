@@ -124,4 +124,66 @@ http_interactions:
       encoding: ASCII-8BIT
       string: '{"id":"batch_PUHjvg0ufFNNqFUop8cDU5RR","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-BwiY5C5hJwpUrCiCxwc1OOjH","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1714223018,"in_progress_at":null,"expires_at":1714309418,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1714223019,"cancelled_at":null,"request_counts":{"total":0,"completed":0,"failed":0},"metadata":null}'
   recorded_at: Sat, 27 Apr 2024 13:03:39 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches/batch_vMMPgZwommDlITEXwEN2PmDb/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_1b9b0babb2208a321a1f7eb63129e6dc
+      Openai-Processing-Ms:
+      - '561'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ATci08rzrFM.dLl99saogIc4.DM8fPgG3cGJQgAoVfI-1714433284-1.0.1.1-4nZrjlGBuLUeYyDi793C17fBXOaPBmqd.n6JKDBgu.oHQzMjf5QH0YUh.EEsFoHl6yoF6w.Uo5BsdCrCG3ypFQ;
+        path=/; expires=Mon, 29-Apr-24 23:58:04 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Oov5hun7cUlpR00qbg98Z6KBxqwqXmtOMH6UanVrt.g-1714433284725-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c310f93f8752cf-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"batch_vMMPgZwommDlITEXwEN2PmDb","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-ra9iGYj6YGXlcGlliaz8TEmm","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1714433283,"in_progress_at":null,"expires_at":1714519683,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1714433284,"cancelled_at":null,"request_counts":{"total":0,"completed":0,"failed":0},"metadata":null}'
+  recorded_at: Mon, 29 Apr 2024 23:28:04 GMT
 recorded_with: VCR 6.1.0

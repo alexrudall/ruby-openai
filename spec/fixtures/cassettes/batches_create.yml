@@ -86,4 +86,90 @@ http_interactions:
           "metadata": null
         }
   recorded_at: Sat, 27 Apr 2024 13:03:31 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches
+    body:
+      encoding: UTF-8
+      string: '{"input_file_id":"file-N7nsmzhfE6V1ssV48uSeHTbE","endpoint":"/v1/chat/completions","completion_window":"24h"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:28:02 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_f7ab3bf2ce956ffba92074a3f4b562c8
+      Openai-Processing-Ms:
+      - '412'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=XG5YMVvGUyU9gU9zygEmssgbGN3mB0dLCl5HsSGwir4-1714433282-1.0.1.1-G0NXO9r8HS46kTTBRLOkqJbECmKdr9r05MJDTeNxrsd58ssSF481ue51MyX6Sg4O3uSfIqgUvISsolOiJWey4A;
+        path=/; expires=Mon, 29-Apr-24 23:58:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Ld7fH.4BlER_ZkTk24YZK_ZZOtHSDf9XLd.cDBpRoTg-1714433282727-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c310ed8d336409-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "batch_DCSlpj7ogdBSa838BZx5UvUd",
+          "object": "batch",
+          "endpoint": "/v1/chat/completions",
+          "errors": null,
+          "input_file_id": "file-N7nsmzhfE6V1ssV48uSeHTbE",
+          "completion_window": "24h",
+          "status": "validating",
+          "output_file_id": null,
+          "error_file_id": null,
+          "created_at": 1714433282,
+          "in_progress_at": null,
+          "expires_at": 1714519682,
+          "finalizing_at": null,
+          "completed_at": null,
+          "failed_at": null,
+          "expired_at": null,
+          "cancelling_at": null,
+          "cancelled_at": null,
+          "request_counts": {
+            "total": 0,
+            "completed": 0,
+            "failed": 0
+          },
+          "metadata": null
+        }
+  recorded_at: Mon, 29 Apr 2024 23:28:02 GMT
 recorded_with: VCR 6.1.0

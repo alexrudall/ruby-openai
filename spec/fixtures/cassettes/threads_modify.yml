@@ -136,4 +136,209 @@ http_interactions:
           }
         }
   recorded_at: Sat, 27 Apr 2024 20:48:28 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_uJfx6VB7s6v33G7Mq9374bqN
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:29:58 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_f23f10eb5e112399baab221e05f53d17
+      Openai-Processing-Ms:
+      - '84'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=QZB5TUm9.FP.PEUTHxz95iRO5nZlhj5reP_9zIMBGUA-1714433398-1.0.1.1-Fj5VpSX7KGVztjmt7jQl.ZeOjuPFTu2fXMXsSa4XcIacaoIsCQW_i.xzfg2LoXnK4QZzuRX2.BS409f972zHvA;
+        path=/; expires=Mon, 29-Apr-24 23:59:58 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=vqbfXVxsqGX9kON9bz_FVAZbojJIEkMIl6O_so.Vg4Y-1714433398710-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c313c49e4a88a4-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:29:58 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_lSBjLdfYQgOwNp592snT4V2y
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":true}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:38:09 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '220'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_672eff0b029ee2972e7df085bc997dab
+      Openai-Processing-Ms:
+      - '89'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=TwrInHjtUV5rtBdxQ3TDnhuGrq_tYRzwS4Q_eAeyb4Q-1714433889-1.0.1.1-WpP5usFNd.33e_AFtKD7LwVZjF9LvbnmFuOocE0u_geRFRgCrWZ11MdFGK7dffJ0cxmC36ImUHLTMSgNhUGUbw;
+        path=/; expires=Tue, 30-Apr-24 00:08:09 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=UJFoBxWxEPHN6ci2HIHUi2jo5srC.3BJxtWkAy6Erh0-1714433889653-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31fc0edd324da-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Invalid type for 'metadata.modified': expected a string, but got a boolean instead.",
+            "type": "invalid_request_error",
+            "param": "metadata.modified",
+            "code": "invalid_type"
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:38:09 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_i3Hs96sQAsLBfOTU1Rl6137V
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"modified":"true"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:38:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_670da65ae8e1e780dbe57211a377e991
+      Openai-Processing-Ms:
+      - '129'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=GO83Kw2JX76CSlnvwKC5LnHUbDIdGQ73afZWTvkL6A8-1714433900-1.0.1.1-H9xNP3x.4kOVNrJ.R4bhn3k1F5njk7cOcrHykfz7CTPPhvLe8SlC2SHeS6iD_fBnVTFGrk1Y.e6Wfx60x8w3Aw;
+        path=/; expires=Tue, 30-Apr-24 00:08:20 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=.dmwG.cMze2DCI.zWGm8Lt7_6IazZDGejbnXb.LnyDs-1714433900526-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c32004ae1c7196-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "thread_i3Hs96sQAsLBfOTU1Rl6137V",
+          "object": "thread",
+          "created_at": 1714433900,
+          "metadata": {
+            "modified": "true"
+          },
+          "tool_resources": {}
+        }
+  recorded_at: Mon, 29 Apr 2024 23:38:20 GMT
 recorded_with: VCR 6.1.0

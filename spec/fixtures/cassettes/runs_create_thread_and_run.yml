@@ -92,4 +92,96 @@ http_interactions:
           "tool_choice": "auto"
         }
   recorded_at: Sat, 27 Apr 2024 22:28:09 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/runs
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_VcuNVLAXPQLIZhuKZwFsYN8n"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:35:36 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_32941e3c7a367374ae3414c07b3dddd6
+      Openai-Processing-Ms:
+      - '267'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=HWIvrwCxf48J5kE52ugZdaTmQkq1cv8YZgrEkrLArag-1714433736-1.0.1.1-UEMVH02QoShaYaE.bOPj0zCHMjn8ZJDVgFE3on4FSjCHX00HUVWwhvTmuH_if4oHCxYDDkW5XwlPpNUO9FKWYQ;
+        path=/; expires=Tue, 30-Apr-24 00:05:36 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=JgxbB8kKC5bNyYVzhItIM3j.BNZOwKEcdfbDsmlxhy8-1714433736191-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31c00b99e9490-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_FKkoUOnsuuCQZRFBCp5TazRv",
+          "object": "thread.run",
+          "created_at": 1714433736,
+          "assistant_id": "asst_VcuNVLAXPQLIZhuKZwFsYN8n",
+          "thread_id": "thread_jnsBJBYNua8w7kpue97pzxtu",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1714434336,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "required_action": null,
+          "last_error": null,
+          "model": "gpt-4",
+          "instructions": "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
+          "tools": [],
+          "tool_resources": {},
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": null,
+          "max_prompt_tokens": null,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto"
+        }
+  recorded_at: Mon, 29 Apr 2024 23:35:36 GMT
 recorded_with: VCR 6.1.0

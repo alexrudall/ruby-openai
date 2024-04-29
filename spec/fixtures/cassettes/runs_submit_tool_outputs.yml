@@ -207,4 +207,73 @@ http_interactions:
           }
         }
   recorded_at: Sat, 27 Apr 2024 22:07:52 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_8fbbGYQXQQ8rxRkvSi4smUqN/runs/run_SizI68F960B2zPxJ1TSdtEZO/submit_tool_outputs
+    body:
+      encoding: UTF-8
+      string: '{"tool_outputs":[{"tool_call_id":"call_Vfq8wpokTGewt0ubGCkeuwo1","output":"{\"success\":
+        true, \"output\": \"Hello, World\"}"}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 29 Apr 2024 23:35:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '170'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_7d7f724864c86abc95d4e14f939cd2c5
+      Openai-Processing-Ms:
+      - '100'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=GXebxeeRrzQF4CeyuMsVsqL3wz2PR5BeQklXLlB7OGo-1714433737-1.0.1.1-bcH3_Klw_BuEhc2Um3UE8JRDoiqjFTW64Hl18Hi1ro12FED6YJWEio.lKjKp5MUByRoXX1lb_ELdmJvUrSfUyw;
+        path=/; expires=Tue, 30-Apr-24 00:05:37 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=9T3AiIPC8_8WCs50nPxv4pCRBdSuVp54ECPGolIcjZM-1714433737704-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c31c0b3e0660f3-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Runs in status \"in_progress\" do not accept tool outputs.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Mon, 29 Apr 2024 23:35:37 GMT
 recorded_with: VCR 6.1.0
