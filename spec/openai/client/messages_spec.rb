@@ -70,7 +70,7 @@ RSpec.describe OpenAI::Client do
           thread_id: thread_id,
           parameters: {
             metadata: { modified: "true" }
-          },
+          }
         )
       end
 
