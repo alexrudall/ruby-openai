@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vector_stores/vs_ePcVDZvWrtnriEvWr8nNZMRH/file_batches/vsfb_21d3cfd33a4d412a87c49d6eec59c717/files
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 20:56:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_5d93157b96f17bc5b174d51922d8adde
+      Openai-Processing-Ms:
+      - '130'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Mf2Gs1GaGiP2oSbvrA2iPxZbPp3LFwI3LsmzzhQGM6s-1714510615-1.0.1.1-aY5pEt1sqvtL2TupaGPgcdQIOLyRMbDguidiGHaJp9I2t4vL_Fn54DbckkMOfPWldb4RdbpFeZ5VbDIFnCbEoQ;
+        path=/; expires=Tue, 30-Apr-24 21:26:55 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=yqek7SB410BpvVOCJENCg.CmMivh63aR6SafB31dpBY-1714510615078-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87ca70ee2d964d41-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "file-cEwnAjZSvtO66i8Qnj0R9d0M",
+              "object": "vector_store.file",
+              "created_at": 1714510613,
+              "vector_store_id": "vs_ePcVDZvWrtnriEvWr8nNZMRH",
+              "status": "completed",
+              "last_error": null
+            }
+          ],
+          "first_id": "file-cEwnAjZSvtO66i8Qnj0R9d0M",
+          "last_id": "file-cEwnAjZSvtO66i8Qnj0R9d0M",
+          "has_more": false
+        }
+  recorded_at: Tue, 30 Apr 2024 20:56:55 GMT
+recorded_with: VCR 6.1.0
