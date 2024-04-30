@@ -251,7 +251,7 @@ client.chat(
 ```ruby
   client = OpenAI::Client.new(
     access_token: "groq_access_token_goes_here",
-    uri_base: "https://api.groq.com/"
+    uri_base: "https://api.groq.com/openai"
   )
 
   client.chat(
