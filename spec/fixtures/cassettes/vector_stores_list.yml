@@ -1,0 +1,423 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vector_stores
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 16:41:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_7fe7f2272aa380c718d4868ff6bf1478
+      Openai-Processing-Ms:
+      - '4296'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Xj0meuvHkCWfLsgK0_Wd6Eg2133GNxD7te5GNu.DTaQ-1714495292-1.0.1.1-7IjErU0phAPqBAd39BxJH3hWEr7w5MKYnIpJ3nKOicIluTWz5CCyDVxgp2rmZD..vQgJyRM.PL9EDz6yXNfBNA;
+        path=/; expires=Tue, 30-Apr-24 17:11:32 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=IqXbcPpes0iLypA75HPe_i_ct8HPQDb4CiE43enZ3Ps-1714495292006-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c8fabb0893a15e-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "vs_oiqAHlXCyDvLbLKkwosUoEzG",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 8533,
+              "created_at": 1714488086,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1715092888,
+              "last_active_at": 1714488088
+            },
+            {
+              "id": "vs_wDKZE3u1QG02s4hIlmOnhryz",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 21731,
+              "created_at": 1714424522,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1715029325,
+              "last_active_at": 1714424525
+            },
+            {
+              "id": "vs_5lVyd3RuywTlD2C9RTSr4Ahc",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 21731,
+              "created_at": 1714424256,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1715029064,
+              "last_active_at": 1714424264
+            },
+            {
+              "id": "vs_kDaSrZn0K6OByX75VUPg7IM1",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 21731,
+              "created_at": 1714407818,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1715012620,
+              "last_active_at": 1714407820
+            },
+            {
+              "id": "vs_mKNwqmc8AuRlhOCjsoGG6AAC",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 2499,
+              "created_at": 1714149160,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714753963,
+              "last_active_at": 1714149163
+            },
+            {
+              "id": "vs_G4gLywzHD4Yi8jvdqr0KrEYY",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 37063,
+              "created_at": 1714063220,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 6,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 6
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714751315,
+              "last_active_at": 1714146515
+            },
+            {
+              "id": "vs_bJIL7am1S3k7fUKV8Rzr9fV3",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 17405,
+              "created_at": 1714062128,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 3,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 3
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714667946,
+              "last_active_at": 1714063146
+            },
+            {
+              "id": "vs_lvP93EdkzcqauBbL8beeUpB0",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 2011,
+              "created_at": 1714061253,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714666055,
+              "last_active_at": 1714061255
+            },
+            {
+              "id": "vs_MG3spNmOV0ZWNcxDQFfJFj7R",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 0,
+              "created_at": 1714061112,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 0,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 0
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714665981,
+              "last_active_at": 1714061181
+            },
+            {
+              "id": "vs_z2jchth1n7h2NpMutN4EotuB",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 48740,
+              "created_at": 1714059805,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 8,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 8
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714666820,
+              "last_active_at": 1714062020
+            },
+            {
+              "id": "vs_40lxyY3AzxqPCvRDMhZ0Kzzz",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 7453,
+              "created_at": 1713974267,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714579148,
+              "last_active_at": 1713974348
+            },
+            {
+              "id": "vs_mw6yXxETRuriQuSgLx2PZHqu",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 0,
+              "created_at": 1713970566,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 0,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 0
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714586893,
+              "last_active_at": 1713982093
+            },
+            {
+              "id": "vs_vt4HtY4e3u0GjqvvuoHIGxMg",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 2011,
+              "created_at": 1713900035,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714504838,
+              "last_active_at": 1713900038
+            },
+            {
+              "id": "vs_swIm5bNayBFl5izWXu1APT0T",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 2011,
+              "created_at": 1713899912,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 1,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 1
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714504714,
+              "last_active_at": 1713899914
+            },
+            {
+              "id": "vs_urSbY6q6cOKvU0Lt3RcYMKWE",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 4022,
+              "created_at": 1713898859,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 2,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 2
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714503818,
+              "last_active_at": 1713899018
+            },
+            {
+              "id": "vs_duQRnzxEoqIg5WfKT48HeIIx",
+              "object": "vector_store",
+              "name": null,
+              "status": "completed",
+              "usage_bytes": 20939,
+              "created_at": 1713897474,
+              "file_counts": {
+                "in_progress": 0,
+                "completed": 5,
+                "failed": 0,
+                "cancelled": 0,
+                "total": 5
+              },
+              "metadata": {},
+              "expires_after": {
+                "anchor": "last_active_at",
+                "days": 7
+              },
+              "expires_at": 1714502627,
+              "last_active_at": 1713897827
+            }
+          ],
+          "first_id": "vs_oiqAHlXCyDvLbLKkwosUoEzG",
+          "last_id": "vs_duQRnzxEoqIg5WfKT48HeIIx",
+          "has_more": false
+        }
+  recorded_at: Tue, 30 Apr 2024 16:41:32 GMT
+recorded_with: VCR 6.1.0
