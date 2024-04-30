@@ -5,7 +5,10 @@ module OpenAI
     end
 
     def list(vector_store_id:, id:, parameters: {})
-      @client.get(path: "/vector_stores/#{vector_store_id}/file_batches/#{id}/files", parameters: parameters)
+      @client.get(
+        path: "/vector_stores/#{vector_store_id}/file_batches/#{id}/files",
+        parameters: parameters
+      )
     end
 
     def retrieve(vector_store_id:, id:)
@@ -13,7 +16,10 @@ module OpenAI
     end
 
     def create(vector_store_id:, parameters: {})
-      @client.json_post(path: "/vector_stores/#{vector_store_id}/file_batches", parameters: parameters)
+      @client.json_post(
+        path: "/vector_stores/#{vector_store_id}/file_batches",
+        parameters: parameters
+      )
     end
 
     def cancel(vector_store_id:, id:)

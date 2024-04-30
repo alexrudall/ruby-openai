@@ -5,7 +5,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.vector_stores.create(parameters: {})["id"]
       end
     end
-    
+
     let(:filename) { "text.txt" }
     let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
     let(:upload_purpose) { "assistants" }
