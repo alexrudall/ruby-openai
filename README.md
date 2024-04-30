@@ -585,7 +585,7 @@ These files are in JSONL format, with each line representing the output or error
 If a request fails with a non-HTTP error, the error object will contain more information about the cause of the failure.
 
 ### Files
-
+#### For fine-tunning purposes
 Put your data in a `.jsonl` file like this:
 
 ```json
@@ -602,6 +602,24 @@ client.files.retrieve(id: "file-123")
 client.files.content(id: "file-123")
 client.files.delete(id: "file-123")
 ```
+
+#### For assistant purposes
+
+You can send a file path:
+
+```ruby
+client.files.upload(parameters: { file: "path/to/file.pdf", purpose: "assistants" })
+```
+
+or a File object
+
+```ruby
+my_file = File.open("path/to/file.pdf", "rb")
+client.files.upload(parameters: { file: my_file, purpose: "assistants" })
+```
+
+
+See supported file types on [API documentation](https://platform.openai.com/docs/assistants/tools/file-search/supported-files).
 
 ### Finetunes
 
@@ -655,6 +673,135 @@ You can also capture the events for a job:
 client.finetunes.list_events(id: fine_tune_id)
 ```
 
+### Vector Stores
+Vector Store objects give the File Search tool the ability to search your files.
+
+You can create a new vector store:
+
+```ruby
+response = client.vector_stores.create(
+  parameters: {
+    name: "my vector store",
+    file_ids: ["file-abc123", "file-def456"]
+  }
+)
+
+vector_store_id = response["id"]
+```
+
+Given a `vector_store_id` you can `retrieve` the current field values:
+
+```ruby
+client.vector_stores.retrieve(id: vector_store_id)
+```
+
+You can get a `list` of all vector stores currently available under the organization:
+
+```ruby
+client.vector_stores.list
+```
+
+You can modify an existing vector store, except for the `file_ids`:
+
+```ruby
+response = client.vector_stores.modify(
+  id: vector_store_id,
+  parameters: {
+    name: "Modified Test Vector Store",
+  }
+)
+```
+
+You can delete vector stores:
+
+```ruby
+client.vector_stores.delete(id: vector_store_id)
+```
+
+### Vector Store Files
+Vector store files represent files inside a vector store.
+
+You can create a new vector store file by attaching a File to a vector store.
+
+```ruby
+response = client.vector_store_files.create(
+  vector_store_id: "vector-store-abc123",
+  parameters: {
+    file_id: "file-abc123"
+  }
+)
+
+vector_store_file_id = response["id"]
+```
+
+Given a `vector_store_file_id` you can `retrieve` the current field values:
+
+```ruby
+client.vector_store_files.retrieve(
+  vector_store_id: "vector-store-abc123",
+  id: vector_store_file_id
+)
+```
+
+You can get a `list` of all vector store files currently available under the vector store:
+
+```ruby
+client.vector_store_files.list(vector_store_id: "vector-store-abc123")
+```
+
+You can delete a vector store file:
+
+```ruby
+client.vector_store_files.delete(
+  vector_store_id: "vector-store-abc123",
+  id: vector_store_file_id
+)
+```
+Note: This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the delete file endpoint.
+
+### Vector Store File Batches
+Vector store file batches represent operations to add multiple files to a vector store.
+
+You can create a new vector store file batch by attaching multiple Files to a vector store.
+
+```ruby
+response = client.vector_store_file_batches.create(
+  vector_store_id: "vector-store-abc123",
+  parameters: {
+    file_ids: ["file-abc123", "file-def456"]
+  }
+)
+
+file_batch_id = response["id"]
+```
+
+Given a `file_batch_id` you can `retrieve` the current field values:
+
+```ruby
+client.vector_store_file_batches.retrieve(
+  vector_store_id: "vector-store-abc123",
+  id: file_batch_id
+)
+```
+
+You can get a `list` of all vector store files in a batch currently available under the vector store:
+
+```ruby
+client.vector_store_file_batches.list(
+  vector_store_id: "vector-store-abc123",
+  id: file_batch_id
+)
+```
+
+You can cancel a vector store file batch (This attempts to cancel the processing of files in this batch as soon as possible):
+
+```ruby
+client.vector_store_file_batches.cancel(
+  vector_store_id: "vector-store-abc123",
+  id: file_batch_id
+)
+```
+
 ### Assistants
 
 Assistants are stateful actors that can have many conversations and use tools to perform tasks (see [Assistant Overview](https://platform.openai.com/docs/assistants/overview)).
@@ -670,10 +817,14 @@ response = client.assistants.create(
         instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
         tools: [
             { type: "code_interpreter" },
+            { type: "file_search" }
         ],
         tool_resources: {
-          "code_interpreter": {
-            "file_ids": [] # See Files section above for how to upload files
+          code_interpreter: {
+            file_ids: [] # See Files section above for how to upload files
+          },
+          file_search: {
+            vector_store_ids: [] # See Vector Stores section above for how to add vector stores
           }
         },
         "metadata": { my_internal_version_id: "1.0.0" }
