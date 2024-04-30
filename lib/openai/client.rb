@@ -82,6 +82,10 @@ module OpenAI
       @vector_stores ||= OpenAI::VectorStores.new(client: self)
     end
 
+    def vector_store_files
+      @vector_store_files ||= OpenAI::VectorStoreFiles.new(client: self)
+    end
+
     def batches
       @batches ||= OpenAI::Batches.new(client: self)
     end
