@@ -78,6 +78,10 @@ module OpenAI
       @run_steps ||= OpenAI::RunSteps.new(client: self)
     end
 
+    def vector_stores
+      @vector_stores ||= OpenAI::VectorStores.new(client: self)
+    end
+
     def batches
       @batches ||= OpenAI::Batches.new(client: self)
     end
