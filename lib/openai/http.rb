@@ -102,7 +102,7 @@ module OpenAI
         base = base.gsub(%r{/deployments/[^/]+/},
                          "/")
       end
-      
+
       "#{base}?api-version=#{@api_version}"
     end
 
