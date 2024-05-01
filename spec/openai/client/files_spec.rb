@@ -11,18 +11,38 @@ RSpec.describe OpenAI::Client do
     let(:upload_id) { upload["id"] }
 
     describe "#upload" do
-      let(:upload_cassette) { "files upload" }
+      let(:upload_cassette) { "files upload #{cassette_label}" }
 
-      context "with a valid JSON lines file" do
+      context "with an invalid file" do
+        let(:cassette_label) { "unused" }
+        let(:filename) { File.join("errors", "missing_quote.jsonl") }
+
+        it { expect { upload }.to raise_error(JSON::ParserError) }
+      end
+
+      context "with an invalid purpose" do
+        let(:cassette_label) { "unused" }
+        let(:upload_purpose) { "invalid" }
+
+        it { expect { upload }.to raise_error(ArgumentError) }
+      end
+
+      context "with a `File` instance content" do
+        let(:cassette_label) { "file" }
+        let(:file) { File.open(File.join(RSPEC_ROOT, "fixtures/files", filename)) }
+
         it "succeeds" do
           expect(upload["filename"]).to eq(filename)
         end
       end
 
-      context "with an invalid file" do
-        let(:filename) { File.join("errors", "missing_quote.jsonl") }
+      context "with a `StringIO` instance content" do
+        let(:cassette_label) { "stringio" }
+        let(:file) { StringIO.new(File.read(File.join(RSPEC_ROOT, "fixtures/files", filename))) }
 
-        it { expect { upload }.to raise_error(JSON::ParserError) }
+        it "succeeds" do
+          expect(upload["filename"]).to eq("local.path")
+        end
       end
     end
 

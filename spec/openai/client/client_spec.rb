@@ -113,10 +113,10 @@ RSpec.describe OpenAI::Client do
   end
 
   context "when using beta APIs" do
-    let(:client) { OpenAI::Client.new.beta(assistants: "v1") }
+    let(:client) { OpenAI::Client.new.beta(assistants: "v2") }
 
     it "sends the appropriate header value" do
-      expect(client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v1"
+      expect(client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v2"
     end
   end
 

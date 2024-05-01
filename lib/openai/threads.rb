@@ -1,11 +1,7 @@
 module OpenAI
   class Threads
     def initialize(client:)
-      @client = client.beta(assistants: "v1")
-    end
-
-    def list
-      @client.get(path: "/threads")
+      @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
     end
 
     def retrieve(id:)

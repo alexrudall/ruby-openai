@@ -1,11 +1,11 @@
 module OpenAI
   class Messages
     def initialize(client:)
-      @client = client.beta(assistants: "v1")
+      @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
     end
 
-    def list(thread_id:)
-      @client.get(path: "/threads/#{thread_id}/messages")
+    def list(thread_id:, parameters: {})
+      @client.get(path: "/threads/#{thread_id}/messages", parameters: parameters)
     end
 
     def retrieve(thread_id:, id:)

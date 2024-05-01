@@ -10,7 +10,8 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.assistants.create(
           parameters: {
             model: "gpt-4",
-            name: "OpenAI-Ruby test assistant"
+            name: "OpenAI-Ruby test assistant",
+            instructions: "When asked a question, write and run Ruby code to answer the question"
           }
         )["id"]
       end
@@ -31,7 +32,8 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.run_steps.list(
           thread_id: thread_id,
-          run_id: run_id
+          run_id: run_id,
+          parameters: { order: "asc" }
         )
       end
 

@@ -14,6 +14,7 @@ require_relative "openai/runs"
 require_relative "openai/run_steps"
 require_relative "openai/audio"
 require_relative "openai/version"
+require_relative "openai/batches"
 
 module OpenAI
   class Error < StandardError; end
@@ -36,29 +37,29 @@ module OpenAI
   end
 
   class Configuration
-    attr_writer :access_token
-    attr_accessor :api_type, :api_version, :organization_id, :uri_base, :request_timeout,
+    attr_accessor :access_token,
+                  :api_type,
+                  :api_version,
+                  :log_errors,
+                  :organization_id,
+                  :uri_base,
+                  :request_timeout,
                   :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
     DEFAULT_REQUEST_TIMEOUT = 120
+    DEFAULT_LOG_ERRORS = false
 
     def initialize
       @access_token = nil
       @api_type = nil
       @api_version = DEFAULT_API_VERSION
+      @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
-    end
-
-    def access_token
-      return @access_token if @access_token
-
-      error_text = "OpenAI access token missing! See https://github.com/alexrudall/ruby-openai#usage"
-      raise ConfigurationError, error_text
     end
   end
 

@@ -2,12 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/edits
+    uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
-      string: '{"model":"text-davinci-edit-001","input":"There are 7 days in a wek,
-        and between 28 and 31 in a month.","instruction":"Fix the misspelled word
-        ''week''"}'
+      string: '{"model":"gpt-3.5-turbo-instruct","prompt":"Once upon a time","max_tokens":5}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:48:43 GMT
+      - Sun, 31 Mar 2024 20:12:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,54 +35,64 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - text-davinci-edit:001
+      - gpt-3.5-turbo-instruct
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1218'
+      - '363'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
       X-Ratelimit-Limit-Requests:
-      - '20'
+      - '3500'
+      X-Ratelimit-Limit-Tokens:
+      - '90000'
       X-Ratelimit-Remaining-Requests:
-      - '19'
+      - '3499'
+      X-Ratelimit-Remaining-Tokens:
+      - '89991'
       X-Ratelimit-Reset-Requests:
-      - 3s
+      - 17ms
+      X-Ratelimit-Reset-Tokens:
+      - 6ms
       X-Request-Id:
-      - 5bf40253fa75700e0312886c1e6f53fa
+      - req_6a274b7a73c52b0fbf2145ca5f1e9fbf
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=lQYyMvSg8wJEPiAH5UIfnoxZHTwC9gPf56wlmtPEK0c-1699998523-0-ASNJ/3lTHcvf8cyjpKDHZtQ+ztm2AjVNrSMDCQoB3kETQRRU6so1g6eZhaDeot102rFBzWbf4sRnumjmo8aRpJU=;
-        path=/; expires=Tue, 14-Nov-23 22:18:43 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=ZK5b4LtJsPBMzdMnaU837z6PMPEXsKabybnXGNeAmu4-1711915922-1.0.1.1-Fzur3qermYdXljcE8Z20zrY4Z5RD.UrreUTa7MVZUOUQcflGoKGPpTAykRjfvZ7mGo9ehY_kRdp4dRPfdrteBQ;
+        path=/; expires=Sun, 31-Mar-24 20:42:02 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=QKdpVw6tj.ULe4To7aJIqy6AoXrLLcr6.NzNDt0GZV8-1699998523629-0-604800000;
+      - _cfuvid=Gh5SFdjA.KVOM3VmAG5grUJVRLihOStH3B_jABN7Nys-1711915922569-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 826275cb3cba730f-LHR
+      - 86d2fdefec9a531a-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "object": "edit",
-          "created": 1699998522,
+          "id": "cmpl-98vp4W2Nm6k1hJt3vzOqLVXTrhvX4",
+          "object": "text_completion",
+          "created": 1711915922,
+          "model": "gpt-3.5-turbo-instruct",
           "choices": [
             {
-              "text": "There are 7 days in a week, and between 28 and 31 in a month.\n",
-              "index": 0
+              "text": ", there stood a wizard",
+              "index": 0,
+              "logprobs": null,
+              "finish_reason": "length"
             }
           ],
           "usage": {
-            "prompt_tokens": 38,
-            "completion_tokens": 46,
-            "total_tokens": 84
+            "prompt_tokens": 4,
+            "completion_tokens": 5,
+            "total_tokens": 9
           }
         }
-  recorded_at: Tue, 14 Nov 2023 21:48:43 GMT
+  recorded_at: Sun, 31 Mar 2024 20:12:02 GMT
 recorded_with: VCR 6.1.0

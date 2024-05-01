@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.openai.com/v1/models/text-ada-001
+    uri: https://api.openai.com/v1/models/gpt-3.5-turbo-instruct
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:49:25 GMT
+      - Sat, 27 Apr 2024 11:46:19 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,9 +33,9 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       X-Request-Id:
-      - e58a70dc3bf4d8473f748de1539e29ab
+      - req_cf835448d20433cce7b43909bd0c7ea8
       Openai-Processing-Ms:
-      - '37'
+      - '40'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -43,25 +43,25 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=YETZ9j6i5pb9NEpfucrz0miIbO88Dfv1NWwYXHhq5Ck-1699998565-0-ATxjlUlYXdyqjlnpI9RxTBiSUpekcfEATS4Ipu1t6UzAiKB8u8pzX5OmahUUA2Gyn5mP6hDSJhzUkvknrZCr3s8=;
-        path=/; expires=Tue, 14-Nov-23 22:19:25 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=_eXpJA5dZ3Iz9_qoQNymKpqKLHLsZEdKqxGTCyOGtHQ-1714218379-1.0.1.1-LVHAwy3.gnF2dY_sbdaJGIq8NyFH4hqK9sdggW1vN1SW4oFDUyodj.uP584Q_lj9DkcUl3L6IsMqiWdqoFRqxg;
+        path=/; expires=Sat, 27-Apr-24 12:16:19 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=3HR1HpxZFK1QK00DowqPHd.oI2i7DYIYRgDK51ynwzA-1699998565300-0-604800000;
+      - _cfuvid=Gm6N._3EC58LRuLAqngsZG7PkgcZmFEjJCaqg2FodXU-1714218379420-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 826276d7c8f66367-LHR
+      - 87ae924608e47141-SOF
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "text-ada-001",
+          "id": "gpt-3.5-turbo-instruct",
           "object": "model",
-          "created": 1649364042,
-          "owned_by": "openai"
+          "created": 1692901427,
+          "owned_by": "system"
         }
-  recorded_at: Tue, 14 Nov 2023 21:49:25 GMT
+  recorded_at: Sat, 27 Apr 2024 11:46:19 GMT
 recorded_with: VCR 6.1.0

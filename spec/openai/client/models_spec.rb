@@ -13,7 +13,7 @@ RSpec.describe OpenAI::Client do
 
     describe "#retrieve" do
       let(:cassette) { "models retrieve" }
-      let(:response) { OpenAI::Client.new.models.retrieve(id: "text-ada-001") }
+      let(:response) { OpenAI::Client.new.models.retrieve(id: "gpt-3.5-turbo-instruct") }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
