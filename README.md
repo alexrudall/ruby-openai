@@ -603,6 +603,19 @@ client.files.content(id: "file-123")
 client.files.delete(id: "file-123")
 ```
 
+To get file content without parsing the response to JSON (usually when you use the assistants API), use:
+
+```ruby
+client.files.content(id: "file-123", parse_response: false)
+```
+
+And then you can save the file to disk:
+
+```ruby
+response = client.files.content(id: "file-123", parse_response: false)
+File.write("path/to/image.png", response)
+```
+
 ### Finetunes
 
 Upload your fine-tuning data in a `.jsonl` file as above and get its ID:
