@@ -73,13 +73,28 @@ RSpec.describe OpenAI::Client do
     end
 
     describe "#content" do
-      let(:cassette) { "files content" }
-      let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
+      context "when the file is parsed to JSON" do
+        let(:cassette) { "files content" }
+        let(:upload_cassette) { "#{cassette} upload" }
+        let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
 
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          expect(response.dig(1, "prompt")).to include("lakers")
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(response.dig(1, "prompt")).to include("lakers")
+          end
+        end
+      end
+
+      context "when the file not need to be parsed" do
+        let(:filename) { "image.png" }
+        let(:cassette) { "files content without parsing" }
+        let(:upload_cassette) { "#{cassette} upload without parsing" }
+        let(:response) { OpenAI::Client.new.files.content(id: upload_id, parse_response: false) }
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            expect(response).to include("PNG")
+          end
         end
       end
     end
