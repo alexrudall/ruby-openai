@@ -70,4 +70,74 @@ http_interactions:
           "status_details": null
         }
   recorded_at: Tue, 14 Nov 2023 21:48:48 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-IEqFvyYddjUqBQMUmGkkBqA4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 08 May 2024 15:13:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_3b9e8c9f49192d62b66bb332d0a8741b
+      Openai-Processing-Ms:
+      - '165'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=6froJNMilW5uBOznbTLUEFnOS2kpn.PALwnG9xMG4E0-1715181212-1.0.1.1-1kXteStmuSUyq8ITW_4qg_J4.HURjubEUDjHNmQVOsAtO_5vLz6pI4uqNiIRjf2zYY.dRmYKnKyZ9SHI0zILOQ;
+        path=/; expires=Wed, 08-May-24 15:43:32 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Gpuv_oDCgink2NGVlmwxXHqJ679iRupMi_u8n31TlSw-1715181212530-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 880a64f03a5b1ab6-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-IEqFvyYddjUqBQMUmGkkBqA4",
+          "purpose": "fine-tune",
+          "filename": "sentiment.jsonl",
+          "bytes": 159,
+          "created_at": 1715181211,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Wed, 08 May 2024 15:13:32 GMT
 recorded_with: VCR 6.1.0
