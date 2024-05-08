@@ -32,8 +32,8 @@ module OpenAI
       @client.get(path: "/files/#{id}")
     end
 
-    def content(id:)
-      @client.get(path: "/files/#{id}/content")
+    def content(id:, parse_response: true)
+      @client.get(path: "/files/#{id}/content", parse_response: parse_response)
     end
 
     def delete(id:)
