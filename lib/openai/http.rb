@@ -7,7 +7,7 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil, parse_response: true)
-      body_response = conn.get(uri(path: path), parameters) do |req|
+      body_response = conn(json: parse_response).get(uri(path: path), parameters) do |req|
         req.headers = headers
       end&.body
 
@@ -72,13 +72,13 @@ module OpenAI
       end
     end
 
-    def conn(multipart: false)
+    def conn(multipart: false, json: true)
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
         f.use MiddlewareErrors if @log_errors
         f.response :raise_error
-        f.response :json
+        f.response :json if json
       end
 
       @faraday_middleware&.call(connection)
