@@ -114,7 +114,7 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 ```ruby
 OpenAI.configure do |config|
   config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-  config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional.
+  config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
   config.log_errors = true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommended in production.
 end
 ```
@@ -995,7 +995,7 @@ response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
         file: File.open("path_to_file", "rb"),
-        language: "en" # Optional.
+        language: "en" # Optional
     })
 puts response["text"]
 # => "Transcription of the text"
@@ -1010,7 +1010,9 @@ response = client.audio.speech(
   parameters: {
     model: "tts-1",
     input: "This is a speech test!",
-    voice: "alloy"
+    voice: "alloy",
+    response_format: "mp3", # Optional
+    speed: 1.0 # Optional
   }
 )
 File.binwrite('demo.mp3', response)
