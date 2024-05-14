@@ -6,7 +6,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
+Stream text with GPT-4o, transcribe and translate audio with Whisper, or create images with DALL·E...
 
 [🚢 Hire me](https://peaceterms.com?utm_source=ruby-openai&utm_medium=readme&utm_id=26072023) | [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 Twitter](https://twitter.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
@@ -233,7 +233,7 @@ client = OpenAI::Client.new(
 
 client.chat(
     parameters: {
-        model: "llama3", # Required.
+        model: "gpt-4o", # Required.
         messages: [{ role: "user", content: "Hello!"}], # Required.
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
@@ -273,7 +273,7 @@ To estimate the token-count of your text:
 
 ```ruby
 OpenAI.rough_token_count("Your text")
-````
+```
 
 If you need a more accurate count, try [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby).
 
@@ -283,7 +283,7 @@ There are different models that can be used to generate text. For a full list an
 
 ```ruby
 client.models.list
-client.models.retrieve(id: "gpt-3.5-turbo")
+client.models.retrieve(id: "gpt-4o")
 ```
 
 ### Chat
@@ -293,7 +293,7 @@ GPT is a model that can be used to generate text in a conversational style. You 
 ```ruby
 response = client.chat(
     parameters: {
-        model: "gpt-3.5-turbo", # Required.
+        model: "gpt-4o", # Required.
         messages: [{ role: "user", content: "Hello!"}], # Required.
         temperature: 0.7,
     })
@@ -310,7 +310,7 @@ You can stream from the API in realtime, which can be much faster and used to cr
 ```ruby
 client.chat(
     parameters: {
-        model: "gpt-3.5-turbo", # Required.
+        model: "gpt-4o", # Required.
         messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
@@ -351,7 +351,7 @@ You can set the response_format to ask for responses in JSON:
 ```ruby
   response = client.chat(
     parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         response_format: { type: "json_object" },
         messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
         temperature: 0.7,
@@ -371,7 +371,7 @@ You can stream it as well!
 ```ruby
   response = client.chat(
     parameters: {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       messages: [{ role: "user", content: "Can I have some JSON please?"}],
         response_format: { type: "json_object" },
         stream: proc do |chunk, _bytesize|
@@ -408,7 +408,7 @@ end
 response =
   client.chat(
     parameters: {
-      model: "gpt-3.5-turbo",
+      model: "gpt-4o",
       messages: [
         {
           "role": "user",
@@ -472,7 +472,7 @@ Hit the OpenAI API for a completion using other GPT-3 models:
 ```ruby
 response = client.completions(
     parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         prompt: "Once upon a time",
         max_tokens: 5
     })
@@ -508,7 +508,7 @@ To use the Batches endpoint, you need to first upload a JSONL file containing th
   "method": "POST",
   "url": "/v1/chat/completions",
   "body": {
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4o",
     "messages": [
       { "role": "system", "content": "You are a helpful assistant." },
       { "role": "user", "content": "What is 2+2?" }
@@ -568,7 +568,7 @@ These files are in JSONL format, with each line representing the output or error
     "id": "chatcmpl-abc123",
     "object": "chat.completion",
     "created": 1677858242,
-    "model": "gpt-3.5-turbo",
+    "model": "gpt-4o",
     "choices": [
       {
         "index": 0,
@@ -618,7 +618,7 @@ You can then use this file ID to create a fine tuning job:
 response = client.finetunes.create(
     parameters: {
     training_file: file_id,
-    model: "gpt-3.5-turbo"
+    model: "gpt-4o"
 })
 fine_tune_id = response["id"]
 ```
@@ -664,7 +664,7 @@ To create a new assistant:
 ```ruby
 response = client.assistants.create(
     parameters: {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o",
         name: "OpenAI-Ruby test assistant",
         description: nil,
         instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
@@ -1023,7 +1023,7 @@ HTTP errors can be caught like this:
 
 ```
   begin
-    OpenAI::Client.new.models.retrieve(id: "gpt-3.5-turbo")
+    OpenAI::Client.new.models.retrieve(id: "gpt-4o")
   rescue Faraday::Error => e
     raise "Got a Faraday error: #{e}"
   end
