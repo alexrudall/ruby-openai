@@ -233,7 +233,7 @@ client = OpenAI::Client.new(
 
 client.chat(
     parameters: {
-        model: "gpt-4o", # Required.
+        model: "llama3", # Required.
         messages: [{ role: "user", content: "Hello!"}], # Required.
         temperature: 0.7,
         stream: proc do |chunk, _bytesize|
