@@ -14,7 +14,6 @@
 /.yardoc
 /_yardoc/
 /doc/
-/TAGS
 
 # Used by dotenv library to load environment variables.
 .env
