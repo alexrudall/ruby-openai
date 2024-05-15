@@ -39,7 +39,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
     - [Embeddings](#embeddings)
     - [Batches](#batches)
     - [Files](#files)
-      - [For fine-tunning purposes](#for-fine-tunning-purposes)
+      - [For fine-tuning purposes](#for-fine-tuning-purposes)
       - [For assistant purposes](#for-assistant-purposes)
     - [Finetunes](#finetunes)
     - [Vector Stores](#vector-stores)
