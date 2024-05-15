@@ -590,7 +590,7 @@ These files are in JSONL format, with each line representing the output or error
 If a request fails with a non-HTTP error, the error object will contain more information about the cause of the failure.
 
 ### Files
-#### For fine-tunning purposes
+#### For fine-tuning purposes
 Put your data in a `.jsonl` file like this:
 
 ```json
