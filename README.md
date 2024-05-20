@@ -421,7 +421,7 @@ response =
           function: {
             name: "get_current_weather",
             description: "Get the current weather in a given location",
-            parameters: {
+            parameters: {  # Format: https://json-schema.org/understanding-json-schema
               type: :object,
               properties: {
                 location: {
@@ -438,31 +438,46 @@ response =
           },
         }
       ],
-      tool_choice: {
-        type: "function",
-        function: {
-          name: "get_current_weather"
-        }
-      }
+      tool_choice: "required"  # Optional, defaults to "auto"
+                               # Can also put "none" or specific functions, see docs
     },
   )
 
 message = response.dig("choices", 0, "message")
+function_messages = []
 
 if message["role"] == "assistant" && message["tool_calls"]
-  function_name = message.dig("tool_calls", 0, "function", "name")
-  args =
-    JSON.parse(
-      message.dig("tool_calls", 0, "function", "arguments"),
+  messages["tool_calls"].each do |tool_calls|
+    tool_call_id = tool_call.dig("id")
+    function_name = tool_call.dig("function", "name")
+    function_args = JSON.parse(
+      tool_call.dig("function", "arguments"),
       { symbolize_names: true },
     )
+    function_response = case function_name
+      when "get_current_weather"
+        get_current_weather(**args)  # => "The weather is nice 🌞"
+      else
+        # decide how to handle
+    end
 
-  case function_name
-  when "get_current_weather"
-    get_current_weather(**args)
+    function_messages << [{
+      tool_call_id: tool_call_id,
+      role: "tool",
+      name: function_name,
+      content: function_response
+    }]
   end
+
+  second_response = client.chat(
+    parameters: {
+      model: "gpt-4o",
+      messages: function_messages
+  })
+
+  # At this point, the model has decided to call functions, you've called the functions
+  # and provided the response back, and the model has considered this and responded.
 end
-# => "The weather is nice 🌞"
 ```
 
 ### Completions
