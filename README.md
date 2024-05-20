@@ -405,16 +405,18 @@ def get_current_weather(location:, unit: "fahrenheit")
   # use a weather api to fetch weather
 end
 
+messages = [
+  {
+    "role": "user",
+    "content": "What is the weather like in San Francisco?",
+  },
+]
+
 response =
   client.chat(
     parameters: {
       model: "gpt-4o",
-      messages: [
-        {
-          "role": "user",
-          "content": "What is the weather like in San Francisco?",
-        },
-      ],
+      messages: messages,  # Defined above because we'll use it again
       tools: [
         {
           type: "function",
@@ -444,7 +446,6 @@ response =
   )
 
 message = response.dig("choices", 0, "message")
-function_messages = []
 
 if message["role"] == "assistant" && message["tool_calls"]
   messages["tool_calls"].each do |tool_calls|
@@ -461,18 +462,18 @@ if message["role"] == "assistant" && message["tool_calls"]
         # decide how to handle
     end
 
-    function_messages << [{
+    messages << [{
       tool_call_id: tool_call_id,
       role: "tool",
       name: function_name,
       content: function_response
-    }]
+    }]  # Extend the conversation with the results of the functions
   end
 
   second_response = client.chat(
     parameters: {
       model: "gpt-4o",
-      messages: function_messages
+      messages: messages
   })
 
   # At this point, the model has decided to call functions, you've called the functions
