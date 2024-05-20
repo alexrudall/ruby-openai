@@ -4,6 +4,7 @@ module OpenAI
       assistants
       batch
       fine-tune
+      vision
     ].freeze
 
     def initialize(client:)
