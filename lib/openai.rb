@@ -60,7 +60,7 @@ module OpenAI
       @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
-      @open_timeout DEFAULT_OPEN_TIMEOUT
+      @open_timeout = DEFAULT_OPEN_TIMEOUT
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
     end
