@@ -10,12 +10,14 @@ RSpec.describe OpenAI::HTTP do
     before do
       VCR.turn_off!
       WebMock.allow_net_connect!
+      OpenAI.configuration.open_timeout = timeout
       OpenAI.configuration.request_timeout = timeout
     end
 
     after do
       VCR.turn_on!
       WebMock.disable_net_connect!
+      OpenAI.configuration.open_timeout = OpenAI::Configuration::DEFAULT_OPEN_TIMEOUT
       OpenAI.configuration.request_timeout = OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT
     end
 

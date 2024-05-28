@@ -9,6 +9,7 @@ module OpenAI
       log_errors
       organization_id
       uri_base
+      open_timeout
       request_timeout
       extra_headers
     ].freeze

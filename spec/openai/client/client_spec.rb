@@ -22,6 +22,7 @@ RSpec.describe OpenAI::Client do
         api_type: "azure",
         access_token: "access_token1",
         organization_id: "organization_id1",
+        open_timeout: 2,
         request_timeout: 60,
         uri_base: "https://oai.hconeai.com/",
         extra_headers: { "test" => "X-Test" }
@@ -31,6 +32,7 @@ RSpec.describe OpenAI::Client do
       OpenAI::Client.new(
         access_token: "access_token2",
         organization_id: nil,
+        open_timeout: 1,
         request_timeout: 1,
         uri_base: "https://example.com/"
       )
@@ -40,6 +42,7 @@ RSpec.describe OpenAI::Client do
       expect(c0.azure?).to eq(false)
       expect(c0.access_token).to eq(ENV.fetch("OPENAI_ACCESS_TOKEN", "dummy-token"))
       expect(c0.organization_id).to eq("organization_id0")
+      expect(c0.open_timeout).to eq(OpenAI::Configuration::DEFAULT_OPEN_TIMEOUT)
       expect(c0.request_timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
       expect(c0.send(:headers).values).to include("Bearer #{c0.access_token}")
@@ -52,6 +55,7 @@ RSpec.describe OpenAI::Client do
       expect(c1.azure?).to eq(true)
       expect(c1.access_token).to eq("access_token1")
       expect(c1.organization_id).to eq("organization_id1")
+      expect(c1.open_timeout).to eq(2)
       expect(c1.request_timeout).to eq(60)
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
       expect(c1.send(:headers).values).to include(c1.access_token)
@@ -63,6 +67,7 @@ RSpec.describe OpenAI::Client do
       expect(c2.azure?).to eq(false)
       expect(c2.access_token).to eq("access_token2")
       expect(c2.organization_id).to eq("organization_id0") # Fall back to default.
+      expect(c2.open_timeout).to eq(1)
       expect(c2.request_timeout).to eq(1)
       expect(c2.uri_base).to eq("https://example.com/")
       expect(c2.send(:headers).values).to include("Bearer #{c2.access_token}")

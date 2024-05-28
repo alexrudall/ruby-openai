@@ -43,11 +43,13 @@ module OpenAI
                   :log_errors,
                   :organization_id,
                   :uri_base,
+                  :open_timeout,
                   :request_timeout,
                   :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
+    DEFAULT_OPEN_TIMEOUT = 5
     DEFAULT_REQUEST_TIMEOUT = 120
     DEFAULT_LOG_ERRORS = false
 
@@ -58,6 +60,7 @@ module OpenAI
       @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
+      @open_timeout DEFAULT_OPEN_TIMEOUT
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
     end

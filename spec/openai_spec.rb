@@ -8,6 +8,7 @@ RSpec.describe OpenAI do
     let(:api_version) { "v2" }
     let(:organization_id) { "def456" }
     let(:custom_uri_base) { "ghi789" }
+    let(:custom_open_timeout) { 2 }
     let(:custom_request_timeout) { 25 }
     let(:extra_headers) { { "User-Agent" => "OpenAI Ruby Gem #{OpenAI::VERSION}" } }
 
@@ -25,6 +26,7 @@ RSpec.describe OpenAI do
       expect(OpenAI.configuration.api_version).to eq(api_version)
       expect(OpenAI.configuration.organization_id).to eq(organization_id)
       expect(OpenAI.configuration.uri_base).to eq("https://api.openai.com/")
+      expect(OpenAI.configuration.open_timeout).to eq(5)
       expect(OpenAI.configuration.request_timeout).to eq(120)
       expect(OpenAI.configuration.extra_headers).to eq(extra_headers)
     end
@@ -33,6 +35,7 @@ RSpec.describe OpenAI do
       before do
         OpenAI.configure do |config|
           config.uri_base = custom_uri_base
+          config.open_timeout = custom_open_timeout
           config.request_timeout = custom_request_timeout
         end
       end
@@ -42,6 +45,7 @@ RSpec.describe OpenAI do
         expect(OpenAI.configuration.api_version).to eq(api_version)
         expect(OpenAI.configuration.organization_id).to eq(organization_id)
         expect(OpenAI.configuration.uri_base).to eq(custom_uri_base)
+        expect(OpenAI.configuration.open_timeout).to eq(custom_open_timeout)
         expect(OpenAI.configuration.request_timeout).to eq(custom_request_timeout)
         expect(OpenAI.configuration.extra_headers).to eq(extra_headers)
       end

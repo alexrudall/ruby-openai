@@ -72,6 +72,7 @@ module OpenAI
 
     def conn(multipart: false)
       connection = Faraday.new do |f|
+        f.options[:open_timeout] = @open_timeout
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
         f.use MiddlewareErrors if @log_errors
