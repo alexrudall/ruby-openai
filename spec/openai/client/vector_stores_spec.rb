@@ -13,6 +13,7 @@ RSpec.describe OpenAI::Client do
       end
 
       it "succeeds" do
+        vector_store_id # Need something to list.
         VCR.use_cassette(cassette) do
           expect(response.dig("data", 0, "object")).to eq("vector_store")
         end
