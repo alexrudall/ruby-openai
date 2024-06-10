@@ -402,7 +402,8 @@ You can describe and pass in functions and the model will intelligently choose t
 ```ruby
 
 def get_current_weather(location:, unit: "fahrenheit")
-  # use a weather api to fetch weather
+  # Here you could use a weather api to fetch the weather.
+  "The weather in #{location} is nice 🌞 #{unit}"
 end
 
 messages = [
@@ -448,7 +449,7 @@ response =
 message = response.dig("choices", 0, "message")
 
 if message["role"] == "assistant" && message["tool_calls"]
-  messages["tool_calls"].each do |tool_calls|
+  message["tool_calls"].each do |tool_call|
     tool_call_id = tool_call.dig("id")
     function_name = tool_call.dig("function", "name")
     function_args = JSON.parse(
@@ -457,17 +458,20 @@ if message["role"] == "assistant" && message["tool_calls"]
     )
     function_response = case function_name
       when "get_current_weather"
-        get_current_weather(**args)  # => "The weather is nice 🌞"
+        get_current_weather(**function_args)  # => "The weather is nice 🌞"
       else
         # decide how to handle
     end
 
-    messages << [{
+    # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a tool_calls argument.
+    messages << message
+
+    messages << {
       tool_call_id: tool_call_id,
       role: "tool",
       name: function_name,
       content: function_response
-    }]  # Extend the conversation with the results of the functions
+    }  # Extend the conversation with the results of the functions
   end
 
   second_response = client.chat(
@@ -476,9 +480,12 @@ if message["role"] == "assistant" && message["tool_calls"]
       messages: messages
   })
 
+  puts second_response.dig("choices", 0, "message", "content")
+
   # At this point, the model has decided to call functions, you've called the functions
   # and provided the response back, and the model has considered this and responded.
 end
+# => "It looks like the weather is nice and sunny in San Francisco! If you're planning to go out, it should be a pleasant day."
 ```
 
 ### Completions
