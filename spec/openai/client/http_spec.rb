@@ -263,7 +263,7 @@ RSpec.describe OpenAI::HTTP do
 
     it {
       expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-                              "Content-Type" => "application/json", "OpenAI-Organization" => nil })
+                              "Content-Type" => "application/json" })
     }
 
     describe "with Azure" do
