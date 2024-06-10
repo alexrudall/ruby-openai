@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix broken link in README table of contents - thanks to [@garrettgsb](https://github.com/garrettgsb)!
+- Skip sending nil headers - thanks to [@drnic](https://github.com/drnic)!
 
 ## [7.0.1] - 2024-04-30
 
