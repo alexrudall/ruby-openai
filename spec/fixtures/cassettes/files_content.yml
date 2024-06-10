@@ -64,4 +64,68 @@ http_interactions:
         {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
         {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
   recorded_at: Tue, 14 Nov 2023 21:48:50 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-YFBzZnjohFoCYSed0p8uxl4l/content
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 08 May 2024 15:13:34 GMT
+      Content-Type:
+      - application/octet-stream
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename="sentiment.jsonl"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_770d19915224f3697980a9dfc6c2dc46
+      Openai-Processing-Ms:
+      - '223'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Ijt.RDBe2LRuWDrawneQjguz3u3w1RAHqokPgyQHqxM-1715181214-1.0.1.1-BwQflBXlMg88aEzi9jqEBTCk8gGmhM17HpG0kUJfepNLgu75W5Ee5GKJ4NNKBfemcJ9QEgGbPZ_wLEZTU73ADg;
+        path=/; expires=Wed, 08-May-24 15:43:34 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=66AJVsOTXM9lv12yQMz7YOXInenGgGcVrLlgXS33Ro8-1715181214300-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 880a64fa78bc876d-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |
+        {"prompt":"Overjoyed with my new phone! ->", "completion":" positive"}
+        {"prompt":"@lakers disappoint for a third straight night ->", "completion":" negative"}
+  recorded_at: Wed, 08 May 2024 15:13:34 GMT
 recorded_with: VCR 6.1.0
