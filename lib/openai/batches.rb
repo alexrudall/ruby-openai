@@ -4,8 +4,8 @@ module OpenAI
       @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
     end
 
-    def list
-      @client.get(path: "/batches")
+    def list(parameters: {})
+      @client.get(path: "/batches", parameters: parameters)
     end
 
     def retrieve(id:)

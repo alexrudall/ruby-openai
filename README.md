@@ -526,11 +526,9 @@ puts response.dig("data", 0, "embedding")
 ```
 
 ### Batches
-
-The Batches endpoint allows you to create and manage large batches of API requests to run asynchronously. Currently, only the `/v1/chat/completions` endpoint is supported for batches.
+The Batches endpoint allows you to create and manage large batches of API requests to run asynchronously. Currently, the supported endpoints for batches are `/v1/chat/completions` (Chat Completions API) and `/v1/embeddings` (Embeddings API).
 
 To use the Batches endpoint, you need to first upload a JSONL file containing the batch requests using the Files endpoint. The file must be uploaded with the purpose set to `batch`. Each line in the JSONL file represents a single request and should have the following format:
-
 ```json
 {
   "custom_id": "request-1",

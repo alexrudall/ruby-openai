@@ -24,13 +24,35 @@ RSpec.describe OpenAI::Client do
     describe "#list", :vcr do
       let(:input_cassette) { "batches list input" }
       let(:cassette) { "batches list" }
+      let(:limit) { 10 }
       let(:response) { OpenAI::Client.new.batches.list }
+      let(:existing_batch) do
+        OpenAI::Client.new.batches.create(
+          parameters: {
+            input_file_id: input_file_id,
+            endpoint: "/v1/chat/completions",
+            completion_window: "24h"
+          }
+        )
+      end
 
       before { batch_id }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response.dig("data", 0, "object")).to eq("batch")
+        end
+      end
+
+      it "supports after and limit parameters" do
+        VCR.use_cassette(cassette) do
+          response = OpenAI::Client.new.batches.list(parameters: {
+                                                       after: existing_batch["id"],
+                                                       limit: limit
+                                                     })
+
+          expect(response.dig("data", 0, "object")).to eq("batch")
+          expect(response["data"].length).to be <= limit
         end
       end
     end
