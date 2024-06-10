@@ -44,6 +44,17 @@ RSpec.describe OpenAI::Client do
           expect(upload["filename"]).to eq("local.path")
         end
       end
+
+      context "with a vision purpose" do
+        let(:cassette_label) { "vision" }
+        let(:filename) { "image.png" }
+        let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+        let(:upload_purpose) { "vision" }
+
+        it "succeeds" do
+          expect(upload["filename"]).to eq(filename)
+        end
+      end
     end
 
     describe "#list" do

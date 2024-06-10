@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWU0ZjIyYjM2YzEwZDk1ZGU5YjQ0ZTIyNTQ0YjhmOWE2DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iaW1hZ2UucG5nIg0KQ29udGVudC1MZW5ndGg6IDI0OQ0KQ29udGVudC1UeXBlOiANCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQqJUE5HDQoaCgAAAA1JSERSAAAARAAAAEQIBgAAADgTk7IAAAAJcEhZcwAACxMAAAsTAQCanBgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAI5JREFUeAHt0EENwCAAADE2cZhELPxIOA2thH5z7T24/sFDSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICIkDw2gDZ2/Zik4AAAAASUVORK5CYIINCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1lNGYyMmIzNmMxMGQ5NWRlOWI0NGUyMjU0NGI4ZjlhNg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJwdXJwb3NlIg0KDQp2aXNpb24NCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1lNGYyMmIzNmMxMGQ5NWRlOWI0NGUyMjU0NGI4ZjlhNi0tDQo=
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-e4f22b36c10d95de9b44e22544b8f9a6
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '647'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 20 May 2024 14:51:20 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_50cd6c516271b9baa63eae8f073e8cb0
+      Openai-Processing-Ms:
+      - '173'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=m7s.bHGeDgmZ8ZkeUeihRbC5GbEvtoJqNoAAeLh2fd4-1716216680-1.0.1.1-nYdGlj2Mt7tLKchM.e1sI5oxO3KX.oRt5PK5o4DjLGokGq4cKZeSQa1wkyB9VAJy_KJDsO.gXW54XkmykIUDjQ;
+        path=/; expires=Mon, 20-May-24 15:21:20 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=iqxjJlVM_MFjXPyX.EabB4blPnfalmChuVeZqv1mnnk-1716216680506-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 886d24eafc14877d-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-k9YAWNtDl3k8JTtQoySe8t2i",
+          "purpose": "vision",
+          "filename": "image.png",
+          "bytes": 249,
+          "created_at": 1716216680,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Mon, 20 May 2024 14:51:20 GMT
+recorded_with: VCR 6.1.0
