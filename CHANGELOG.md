@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add vision as permitted purpose for files - thanks to [@willywg](https://github.com/willywg) for the PR.
+- Add new Vector Store endpoints - thanks to [@willywg](https://github.com/willywg) for this important PR!
+- Add vision as permitted purpose for files - thanks again to [@willywg](https://github.com/willywg) for the PR.
 - Add improved README example of tool calling - thanks [@krschacht](https://github.com/krschacht) - check out his project [HostedGPT](https://github.com/AllYourBot/hostedgpt)!
 
 ### Fixed
