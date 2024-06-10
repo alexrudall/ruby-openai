@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.1.0] - 2024-06-10
+
+### Added
+
+- Add new Vector Store endpoints - thanks to [@willywg](https://github.com/willywg) for this PR!
+- Add parameters to batches.list endpoint so you can for example use `after` - thanks to [@marckohlbrugge](https://github.com/marckohlbrugge)!
+- Add vision as permitted purpose for files - thanks again to [@willywg](https://github.com/willywg) for the PR.
+- Add improved README example of tool calling - thanks [@krschacht](https://github.com/krschacht) - check out his project [HostedGPT](https://github.com/AllYourBot/hostedgpt)!
+
+### Fixed
+
+- Fix broken link in README table of contents - thanks to [@garrettgsb](https://github.com/garrettgsb)!
+- Skip sending nil headers - thanks to [@drnic](https://github.com/drnic)!
+
 ## [7.0.1] - 2024-04-30
 
 ### Fixed
