@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-9d4b08578a07a38d43f31b7d4ec179d6\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"text.txt\"\r\nContent-Length: 12\r\nContent-Type:
+        \r\nContent-Transfer-Encoding: binary\r\n\r\nHello world!\r\n-------------RubyMultipartPost-9d4b08578a07a38d43f31b7d4ec179d6\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nassistants\r\n-------------RubyMultipartPost-9d4b08578a07a38d43f31b7d4ec179d6--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-9d4b08578a07a38d43f31b7d4ec179d6
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '412'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 20:57:04 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_21964119e56a018b8b00698597f42cb6
+      Openai-Processing-Ms:
+      - '317'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=bviGzlDF..DQ0KO8MBAHUaTjtTIaRbZnq0odSanfOjc-1714510624-1.0.1.1-C4XW4a96lnVPkqWk5I6qwBxLrbSqFVInETD2q9g9dkO_louIzzDhzAkIpreojkPmEgOVrnJGHnb0PTt0ty9ucw;
+        path=/; expires=Tue, 30-Apr-24 21:27:04 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=9R1vgPCl56KEwKDhhY4DCWkPS0lP8vWeRP6xvEc7OCY-1714510624660-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87ca71291e5d6042-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-FCgJPLryUiHJru6yPtHzjjh3",
+          "purpose": "assistants",
+          "filename": "text.txt",
+          "bytes": 12,
+          "created_at": 1714510624,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Tue, 30 Apr 2024 20:57:04 GMT
+recorded_with: VCR 6.1.0
