@@ -186,8 +186,9 @@ RSpec.describe OpenAI::Client do
           VCR.use_cassette(cassette) do
             tap do
               Faraday.new(url: uri_base).get
-            rescue Faraday::ConnectionFailed
+            rescue Faraday::ConnectionFailed => e
               pending "This test needs `ollama serve` running locally with #{model} installed"
+              raise e
             end
 
             expect(content.split.empty?).to eq(false)
