@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add vision as permitted purpose for files - thanks to [@willywg](https://github.com/willywg) for the PR.
 - Add improved README example of tool calling - thanks [@krschacht](https://github.com/krschacht) - check out his project [HostedGPT](https://github.com/AllYourBot/hostedgpt)!
 
+### Fixed
+
+- Fix broken link in README table of contents - thanks to [@garrettgsb](https://github.com/garrettgsb)!
+
 ## [7.0.1] - 2024-04-30
 
 ### Fixed
