@@ -11,9 +11,6 @@
 /test/version_tmp/
 /tmp/
 /.bundle/
-/.yardoc
-/_yardoc/
-/doc/
 
 # Used by dotenv library to load environment variables.
 .env
