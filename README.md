@@ -330,7 +330,28 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: OpenAPI currently does not report token usage for streaming responses. To count tokens while streaming, try `OpenAI.rough_token_count` or [tiktoken_ruby](https://github.com/IAPark/tiktoken_ruby). We think that each call to the stream proc corresponds to a single token, so you can also try counting the number of calls to the proc to get the completion token count.
+Note: In order to get usage information, you can provide the [`stream_options` parameter](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream_options) and OpenAI will provide a final chunk with the usage.  Here is an example:
+
+```ruby
+stream_proc = proc { |chunk, _bytesize| puts "--------------"; puts chunk.inspect; }
+client.chat(
+    parameters: {
+        model: "gpt-4o",
+        stream: stream_proc,
+        stream_options: { include_usage: true },
+        messages: [{ role: "user", content: "Hello!"}],
+    })
+# => --------------
+# => {"id"=>"chatcmpl-7bbq05PiZqlHxjV1j7OHnKKDURKaf", "object"=>"chat.completion.chunk", "created"=>1718750612, "model"=>"gpt-4o-2024-05-13", "system_fingerprint"=>"fp_9cb5d38cf7", "choices"=>[{"index"=>0, "delta"=>{"role"=>"assistant", "content"=>""}, "logprobs"=>nil, "finish_reason"=>nil}], "usage"=>nil}
+# => --------------
+# => {"id"=>"chatcmpl-7bbq05PiZqlHxjV1j7OHnKKDURKaf", "object"=>"chat.completion.chunk", "created"=>1718750612, "model"=>"gpt-4o-2024-05-13", "system_fingerprint"=>"fp_9cb5d38cf7", "choices"=>[{"index"=>0, "delta"=>{"content"=>"Hello"}, "logprobs"=>nil, "finish_reason"=>nil}], "usage"=>nil}
+# => --------------
+# => ... more content chunks
+# => --------------
+# => {"id"=>"chatcmpl-7bbq05PiZqlHxjV1j7OHnKKDURKaf", "object"=>"chat.completion.chunk", "created"=>1718750612, "model"=>"gpt-4o-2024-05-13", "system_fingerprint"=>"fp_9cb5d38cf7", "choices"=>[{"index"=>0, "delta"=>{}, "logprobs"=>nil, "finish_reason"=>"stop"}], "usage"=>nil}
+# => --------------
+# => {"id"=>"chatcmpl-7bbq05PiZqlHxjV1j7OHnKKDURKaf", "object"=>"chat.completion.chunk", "created"=>1718750612, "model"=>"gpt-4o-2024-05-13", "system_fingerprint"=>"fp_9cb5d38cf7", "choices"=>[], "usage"=>{"prompt_tokens"=>9, "completion_tokens"=>9, "total_tokens"=>18}}
+```
 
 #### Vision
 
