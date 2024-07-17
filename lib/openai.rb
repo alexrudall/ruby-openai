@@ -63,6 +63,7 @@ module OpenAI
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
+      @proxy = nil
     end
   end
 
