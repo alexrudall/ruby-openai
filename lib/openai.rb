@@ -90,3 +90,5 @@ module OpenAI
     [1, estimate].max
   end
 end
+
+require_relative "middleware/beta"

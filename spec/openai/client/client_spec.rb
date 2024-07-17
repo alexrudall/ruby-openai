@@ -44,7 +44,9 @@ RSpec.describe OpenAI::Client do
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
       expect(c0.send(:headers).values).to include("Bearer #{c0.access_token}")
       expect(c0.send(:headers).values).to include(c0.organization_id)
-      expect(c0.send(:connection).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
+      expect(c0.send(:connection).options.timeout).to eq(
+        OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT
+      )
       expect(c0.send(:uri, path: "")).to include(OpenAI::Configuration::DEFAULT_URI_BASE)
       expect(c0.send(:headers).values).to include("X-Default")
       expect(c0.send(:headers).values).not_to include("X-Test")
@@ -109,14 +111,6 @@ RSpec.describe OpenAI::Client do
         expect(c1).to receive(:get).with(path: "/models").once
         expect(c2).to receive(:get).with(path: "/models").once
       end
-    end
-  end
-
-  context "when using beta APIs" do
-    let(:client) { OpenAI::Client.new.beta(assistants: "v2") }
-
-    it "sends the appropriate header value" do
-      expect(client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v2"
     end
   end
 

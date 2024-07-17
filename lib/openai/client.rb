@@ -107,12 +107,6 @@ module OpenAI
       @api_type&.to_sym == :azure
     end
 
-    def beta(apis)
-      dup.tap do |client|
-        client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
-      end
-    end
-
     private
 
     attr_reader :connection, :multipart_connection
@@ -122,6 +116,7 @@ module OpenAI
         faraday.options[:timeout] = @request_timeout
         faraday.request(:multipart) if multipart
         faraday.use MiddlewareErrors if @log_errors
+        faraday.use BetaMiddleware
         faraday.response :raise_error
         faraday.response :json
       end
