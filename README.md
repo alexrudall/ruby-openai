@@ -185,6 +185,26 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here")
 client.add_headers("X-Proxy-TTL" => "43200")
 ```
 
+#### Proxy support
+
+You can use proxy with Faraday
+
+```ruby
+proxy = {
+  :uri      => 'http://proxy.example.com',
+  :user     => 'foo',
+  :password => 'bar'
+}
+
+OpenAI::Client.new(access_token: "access_token_goes_here", proxy: proxy)
+```
+
+Or use with string
+
+```ruby
+OpenAI::Client.new(access_token: "access_token_goes_here", proxy: "foo:bar@http://proxy.example.com")
+```
+
 #### Logging
 
 ##### Errors
