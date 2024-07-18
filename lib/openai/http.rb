@@ -7,32 +7,32 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil)
-      parse_jsonl(conn.get(uri(path: path), parameters) do |req|
+      parse_jsonl(connection.get(uri(path: path), parameters) do |req|
         req.headers = headers
       end&.body)
     end
 
     def post(path:)
-      parse_jsonl(conn.post(uri(path: path)) do |req|
+      parse_jsonl(connection.post(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
     end
 
     def json_post(path:, parameters:)
-      conn.post(uri(path: path)) do |req|
+      connection.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
       end&.body
     end
 
     def multipart_post(path:, parameters: nil)
-      conn(multipart: true).post(uri(path: path)) do |req|
+      multipart_connection.post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body
     end
 
     def delete(path:)
-      conn.delete(uri(path: path)) do |req|
+      connection.delete(uri(path: path)) do |req|
         req.headers = headers
       end&.body
     end
@@ -68,20 +68,6 @@ module OpenAI
           user_proc.call(JSON.parse(data)) unless data == "[DONE]"
         end
       end
-    end
-
-    def conn(multipart: false)
-      connection = Faraday.new do |f|
-        f.options[:timeout] = @request_timeout
-        f.request(:multipart) if multipart
-        f.use MiddlewareErrors if @log_errors
-        f.response :raise_error
-        f.response :json
-      end
-
-      @faraday_middleware&.call(connection)
-
-      connection
     end
 
     def uri(path:)

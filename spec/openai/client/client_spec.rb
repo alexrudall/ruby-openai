@@ -44,7 +44,7 @@ RSpec.describe OpenAI::Client do
       expect(c0.uri_base).to eq(OpenAI::Configuration::DEFAULT_URI_BASE)
       expect(c0.send(:headers).values).to include("Bearer #{c0.access_token}")
       expect(c0.send(:headers).values).to include(c0.organization_id)
-      expect(c0.send(:conn).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
+      expect(c0.send(:connection).options.timeout).to eq(OpenAI::Configuration::DEFAULT_REQUEST_TIMEOUT)
       expect(c0.send(:uri, path: "")).to include(OpenAI::Configuration::DEFAULT_URI_BASE)
       expect(c0.send(:headers).values).to include("X-Default")
       expect(c0.send(:headers).values).not_to include("X-Test")
@@ -55,7 +55,7 @@ RSpec.describe OpenAI::Client do
       expect(c1.request_timeout).to eq(60)
       expect(c1.uri_base).to eq("https://oai.hconeai.com/")
       expect(c1.send(:headers).values).to include(c1.access_token)
-      expect(c1.send(:conn).options.timeout).to eq(60)
+      expect(c1.send(:connection).options.timeout).to eq(60)
       expect(c1.send(:uri, path: "")).to include("https://oai.hconeai.com/")
       expect(c1.send(:headers).values).not_to include("X-Default")
       expect(c1.send(:headers).values).to include("X-Test")
@@ -67,7 +67,7 @@ RSpec.describe OpenAI::Client do
       expect(c2.uri_base).to eq("https://example.com/")
       expect(c2.send(:headers).values).to include("Bearer #{c2.access_token}")
       expect(c2.send(:headers).values).to include(c2.organization_id)
-      expect(c2.send(:conn).options.timeout).to eq(1)
+      expect(c2.send(:connection).options.timeout).to eq(1)
       expect(c2.send(:uri, path: "")).to include("https://example.com/")
       expect(c2.send(:headers).values).to include("X-Default")
       expect(c2.send(:headers).values).not_to include("X-Test")
@@ -128,9 +128,7 @@ RSpec.describe OpenAI::Client do
     end
 
     it "sets the logger" do
-      connection = Faraday.new
-      client.faraday_middleware.call(connection)
-      expect(connection.builder.handlers).to include Faraday::Response::Logger
+      expect(client.send(:connection).builder.handlers).to include Faraday::Response::Logger
     end
   end
 end

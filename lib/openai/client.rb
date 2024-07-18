@@ -12,7 +12,7 @@ module OpenAI
       request_timeout
       extra_headers
     ].freeze
-    attr_reader *CONFIG_KEYS, :faraday_middleware
+    attr_reader *CONFIG_KEYS
 
     def initialize(config = {}, &faraday_middleware)
       CONFIG_KEYS.each do |key|
@@ -23,7 +23,12 @@ module OpenAI
           config[key].nil? ? OpenAI.configuration.send(key) : config[key]
         )
       end
-      @faraday_middleware = faraday_middleware
+
+      @connection = build_connection
+      faraday_middleware&.call(@connection)
+
+      @multipart_connection = build_connection(multipart: true)
+      faraday_middleware&.call(@multipart_connection)
     end
 
     def chat(parameters: {})
@@ -105,6 +110,20 @@ module OpenAI
     def beta(apis)
       dup.tap do |client|
         client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
+      end
+    end
+
+    private
+
+    attr_reader :connection, :multipart_connection
+
+    def build_connection(multipart: false)
+      Faraday.new do |faraday|
+        faraday.options[:timeout] = @request_timeout
+        faraday.request(:multipart) if multipart
+        faraday.use MiddlewareErrors if @log_errors
+        faraday.response :raise_error
+        faraday.response :json
       end
     end
   end
