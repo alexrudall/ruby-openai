@@ -116,7 +116,7 @@ module OpenAI
         faraday.options[:timeout] = @request_timeout
         faraday.request(:multipart) if multipart
         faraday.use MiddlewareErrors if @log_errors
-        faraday.use BetaMiddleware
+        faraday.use MiddlewareBeta
         faraday.response :raise_error
         faraday.response :json
       end

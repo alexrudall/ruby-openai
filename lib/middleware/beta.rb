@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module OpenAI
-  class BetaMiddleware < Faraday::Middleware
+  class MiddlewareBeta < Faraday::Middleware
     BETA_REGEX = %r{
       \A/#{OpenAI.configuration.api_version}
       /(assistants|batches|threads|vector_stores)
