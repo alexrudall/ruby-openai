@@ -16,8 +16,12 @@ module OpenAI
       @client.json_post(path: "/threads/#{thread_id}/messages", parameters: parameters)
     end
 
-    def modify(id:, thread_id:, parameters: {})
+    def modify(thread_id:, id:, parameters: {})
       @client.json_post(path: "/threads/#{thread_id}/messages/#{id}", parameters: parameters)
+    end
+
+    def delete(thread_id:, id:)
+      @client.delete(path: "/threads/#{thread_id}/messages/#{id}")
     end
   end
 end

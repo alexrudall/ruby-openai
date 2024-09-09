@@ -80,5 +80,18 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#delete" do
+      let(:cassette) { "messages delete" }
+      let(:response) do
+        OpenAI::Client.new.messages.delete(thread_id: thread_id, id: message_id)
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("thread.message.deleted")
+        end
+      end
+    end
   end
 end
