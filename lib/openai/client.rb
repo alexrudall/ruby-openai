@@ -2,6 +2,7 @@ module OpenAI
   class Client
     include OpenAI::HTTP
 
+    SENSITIVE_ATTRIBUTES = %i[@access_token @organization_id @extra_headers].freeze
     CONFIG_KEYS = %i[
       api_type
       api_version
@@ -106,6 +107,16 @@ module OpenAI
       dup.tap do |client|
         client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
       end
+    end
+
+    def inspect
+      vars = instance_variables.map do |var|
+        value = instance_variable_get(var)
+
+        SENSITIVE_ATTRIBUTES.include?(var) ? "#{var}=[REDACTED]" : "#{var}=#{value.inspect}"
+      end
+
+      "#<#{self.class}:#{object_id} #{vars.join(', ')}>"
     end
   end
 end
