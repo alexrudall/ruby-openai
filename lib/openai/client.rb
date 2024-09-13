@@ -107,5 +107,17 @@ module OpenAI
         client.add_headers("OpenAI-Beta": apis.map { |k, v| "#{k}=#{v}" }.join(";"))
       end
     end
+
+    def inspect
+      sensitive_attributes = %i[@access_token @organization_id @extra_headers]
+
+      vars = instance_variables.map do |var|
+        value = instance_variable_get(var)
+
+        sensitive_attributes.include?(var) ? "#{var}=[REDACTED]" : "#{var}=#{value.inspect}"
+      end
+
+      "#<#{self.class}:#{object_id} #{vars.join(', ')}>"
+    end
   end
 end
