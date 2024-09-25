@@ -1200,6 +1200,20 @@ puts response["text"]
 # => "Transcription of the text"
 ```
 
+If you are using Ruby on Rails with Active Storage, you would need to send an audio or video file like this (User has_one_attached):
+```ruby
+user.media.blob.open do |file|
+  response = client.audio.transcribe(
+    parameters: {
+        model: "whisper-1",
+        file: File.open(temp_file, "rb"),
+        language: "en" # Optional
+    })
+  puts response["text"]
+  # => "Transcription of the text"
+end
+```
+
 #### Speech
 
 The speech API takes as input the text and a voice and returns the content of an audio file you can listen to.
