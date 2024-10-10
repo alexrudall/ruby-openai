@@ -11,8 +11,8 @@ module OpenAI
       @client = client
     end
 
-    def list
-      @client.get(path: "/files")
+    def list(parameters: {})
+      @client.get(path: "/files", parameters: parameters)
     end
 
     def upload(parameters: {})
