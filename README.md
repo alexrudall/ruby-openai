@@ -139,7 +139,9 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here")
 
 #### Custom timeout or base URI
 
-The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client. You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code) or [Velvet](https://docs.usevelvet.com/docs/getting-started), and add arbitrary other headers e.g. for [openai-caching-proxy-worker](https://github.com/6/openai-caching-proxy-worker):
+- The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client.
+- You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code) or [Velvet](https://docs.usevelvet.com/docs/getting-started)
+- You can also add arbitrary other headers e.g. for [openai-caching-proxy-worker](https://github.com/6/openai-caching-proxy-worker), eg.:
 
 ```ruby
 client = OpenAI::Client.new(
@@ -326,7 +328,7 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: In order to get usage information, you can provide the [`stream_options` parameter](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream_options) and OpenAI will provide a final chunk with the usage.  Here is an example:
+Note: In order to get usage information, you can provide the [`stream_options` parameter](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream_options) and OpenAI will provide a final chunk with the usage. Here is an example:
 
 ```ruby
 stream_proc = proc { |chunk, _bytesize| puts "--------------"; puts chunk.inspect; }
@@ -547,9 +549,11 @@ puts response.dig("data", 0, "embedding")
 ```
 
 ### Batches
+
 The Batches endpoint allows you to create and manage large batches of API requests to run asynchronously. Currently, the supported endpoints for batches are `/v1/chat/completions` (Chat Completions API) and `/v1/embeddings` (Embeddings API).
 
 To use the Batches endpoint, you need to first upload a JSONL file containing the batch requests using the Files endpoint. The file must be uploaded with the purpose set to `batch`. Each line in the JSONL file represents a single request and should have the following format:
+
 ```json
 {
   "custom_id": "request-1",
@@ -633,7 +637,9 @@ These files are in JSONL format, with each line representing the output or error
 If a request fails with a non-HTTP error, the error object will contain more information about the cause of the failure.
 
 ### Files
+
 #### For fine-tuning purposes
+
 Put your data in a `.jsonl` file like this:
 
 ```json
@@ -665,7 +671,6 @@ or a File object
 my_file = File.open("path/to/file.pdf", "rb")
 client.files.upload(parameters: { file: my_file, purpose: "assistants" })
 ```
-
 
 See supported file types on [API documentation](https://platform.openai.com/docs/assistants/tools/file-search/supported-files).
 
@@ -722,6 +727,7 @@ client.finetunes.list_events(id: fine_tune_id)
 ```
 
 ### Vector Stores
+
 Vector Store objects give the File Search tool the ability to search your files.
 
 You can create a new vector store:
@@ -767,6 +773,7 @@ client.vector_stores.delete(id: vector_store_id)
 ```
 
 ### Vector Store Files
+
 Vector store files represent files inside a vector store.
 
 You can create a new vector store file by attaching a File to a vector store.
@@ -805,9 +812,11 @@ client.vector_store_files.delete(
   id: vector_store_file_id
 )
 ```
+
 Note: This will remove the file from the vector store but the file itself will not be deleted. To delete the file, use the delete file endpoint.
 
 ### Vector Store File Batches
+
 Vector store file batches represent operations to add multiple files to a vector store.
 
 You can create a new vector store file batch by attaching multiple Files to a vector store.
