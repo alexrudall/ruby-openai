@@ -86,13 +86,24 @@ module OpenAI
 
     def uri(path:)
       if azure?
-        base = File.join(@uri_base, path)
-        "#{base}?api-version=#{@api_version}"
+        azure_uri(path)
       elsif @uri_base.include?(@api_version)
         File.join(@uri_base, path)
       else
         File.join(@uri_base, @api_version, path)
       end
+    end
+
+    def azure_uri(path)
+      base = File.join(@uri_base, path)
+
+      # Remove the deployment to support assistants for azure
+      if path.include?("/assistants") || path.include?("/threads")
+        base = base.gsub(%r{/deployments/[^/]+/},
+                         "/")
+      end
+
+      "#{base}?api-version=#{@api_version}"
     end
 
     def multipart_parameters(parameters)
