@@ -41,7 +41,8 @@ module OpenAI
 
     def parse_jsonl(response)
       return unless response
-      return response unless response.is_a?(String)
+
+      return response unless response.is_a?(String) && response.is_utf8?
 
       # Convert a multiline string of JSON objects to a JSON array.
       response = response.gsub("}\n{", "},{").prepend("[").concat("]")
