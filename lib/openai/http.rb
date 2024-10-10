@@ -73,6 +73,7 @@ module OpenAI
     def conn(multipart: false)
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
+        f.proxy = @proxy if @proxy
         f.request(:multipart) if multipart
         f.use MiddlewareErrors if @log_errors
         f.response :raise_error
