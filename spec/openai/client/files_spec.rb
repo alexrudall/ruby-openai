@@ -60,7 +60,7 @@ RSpec.describe OpenAI::Client do
     describe "#list" do
       let(:cassette) { "files list" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.list }
+      let(:response) { OpenAI::Client.new.files.list(parameters: { purpose: "fine-tune" }) }
 
       before { upload }
 
