@@ -1,6 +1,6 @@
 module OpenAI
   class Images
-    def initialize(client: nil)
+    def initialize(client:)
       @client = client
     end
 

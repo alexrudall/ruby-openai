@@ -1,7 +1,7 @@
 module OpenAI
   class VectorStoreFileBatches
     def initialize(client:)
-      @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
+      @client = client
     end
 
     def list(vector_store_id:, id:, parameters: {})
