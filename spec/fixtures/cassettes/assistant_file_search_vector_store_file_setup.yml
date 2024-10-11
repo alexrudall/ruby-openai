@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/vector_stores/vs_cmYFY5IPhAxGxtqchgYVRdsZ/files
+    uri: https://api.openai.com/v1/vector_stores/vs_aENQHuebOtV0JTXgJF3JTkTU/files
     body:
       encoding: UTF-8
-      string: '{"file_id":"file-XvcMoKvis7CvQUSTEtNw31LB"}'
+      string: '{"file_id":"file-m2NU6eb0PIvENSYcPSILFqTM"}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Oct 2024 13:57:25 GMT
+      - Fri, 11 Oct 2024 14:31:28 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,36 +37,36 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_07a6ebb88dd06655579d321c01db5ac9
+      - req_1bb586fbe621d47cd18b0fe7ba0f8c6f
       Openai-Processing-Ms:
-      - '279'
+      - '257'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=qkQxvPkp5X0wfqrVtqZBYSeUtkzBqqFP1k483Uzd1Zg-1728655045-1.0.1.1-Y3TdSqHYDD1TucQsWl6F3taJWmH2pi59TUqIPbv2DiGuGb.YiWQK362yPfR5baZg1FIyPLj6aJJC4ogOzEPO_g;
-        path=/; expires=Fri, 11-Oct-24 14:27:25 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=RVGNv5arw_BB4HG5zt_fpx4h_5QQSkKl7J4UrDIVk4E-1728657088-1.0.1.1-jfdKXOtKSLkDhkX_INjPXSnWo0GVw6wyVFkDaRb97tM1CfmZNuYzAMbPZ9OI5sGhk3RLXdUapzKyD.NLiQqX5Q;
+        path=/; expires=Fri, 11-Oct-24 15:01:28 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=2Jf.P3jGZHcx7yE4sI8J8pkxMphIxyiF0eTRa80FJNM-1728655045502-0.0.1.1-604800000;
+      - _cfuvid=xJ.qnJ7V7v9SCuuPr8tg2FV0xOZ3hnrcB2nUsqFj.ck-1728657088887-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8d0f5befcccb653a-LHR
+      - 8d0f8dd2cde860e9-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "file-XvcMoKvis7CvQUSTEtNw31LB",
+          "id": "file-m2NU6eb0PIvENSYcPSILFqTM",
           "object": "vector_store.file",
           "usage_bytes": 0,
-          "created_at": 1728655045,
-          "vector_store_id": "vs_cmYFY5IPhAxGxtqchgYVRdsZ",
+          "created_at": 1728657088,
+          "vector_store_id": "vs_aENQHuebOtV0JTXgJF3JTkTU",
           "status": "in_progress",
           "last_error": null,
           "chunking_strategy": {
@@ -77,5 +77,5 @@ http_interactions:
             }
           }
         }
-  recorded_at: Fri, 11 Oct 2024 13:57:25 GMT
+  recorded_at: Fri, 11 Oct 2024 14:31:28 GMT
 recorded_with: VCR 6.1.0

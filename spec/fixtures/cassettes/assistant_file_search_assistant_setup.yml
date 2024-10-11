@@ -6,7 +6,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"model":"gpt-4o","name":"Answer finder","instructions":"You are a
-        file search tool. Find the answer in the given files, please.","tools":[{"type":"file_search"}],"tool_resources":{"file_search":{"vector_store_ids":["vs_cmYFY5IPhAxGxtqchgYVRdsZ"]}}}'
+        file search tool. Find the answer in the given files, please.","tools":[{"type":"file_search"}],"tool_resources":{"file_search":{"vector_store_ids":["vs_aENQHuebOtV0JTXgJF3JTkTU"]}}}'
     headers:
       Content-Type:
       - application/json
@@ -26,7 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Oct 2024 13:57:26 GMT
+      - Fri, 11 Oct 2024 14:31:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,34 +38,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_75f0cc56e804304bf37517373810cfc4
+      - req_9aff2e43a8343e16b97fa372ba40f229
       Openai-Processing-Ms:
-      - '234'
+      - '185'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=jNPgmT.oWYElywF0mkmbIxZ5rV2BCoLqePkRrpKTTy4-1728655046-1.0.1.1-rxhV.glbKkXAGpIMwI6oAC7diyuRfD82HbIFSs5w49hqtJaphETizyIEpJqyjhhYtXMEaz1lUcgEm2GoqO0edQ;
-        path=/; expires=Fri, 11-Oct-24 14:27:26 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=J5th95yaZcE1K5DIma4sRu1yzzB8L3C.xkDfMbGKCyA-1728657090-1.0.1.1-fOU4RcyV3qIe8onP7sm1RKdw2GmxqSNnEY1EimOOZQ4_Lyi1aN1C1tyvtDsGL9hRERkJpYkXyARFYifKi_.y9g;
+        path=/; expires=Fri, 11-Oct-24 15:01:30 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=VKnalc8o6Ku1zVQ923MXBsAkgnFmHCbqaWnyipDOq9A-1728655046495-0.0.1.1-604800000;
+      - _cfuvid=PIElpZeT5dXrasX50ccDZBeJ7Vb2Awz3DcOfCYVoqjU-1728657090406-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8d0f5bf5ffe26415-LHR
+      - 8d0f8ddcee63bee4-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "asst_HKdf58KPyocAGLc4lc5iLvl7",
+          "id": "asst_GmHlRPTg8SwVCOF3imde6g95",
           "object": "assistant",
-          "created_at": 1728655046,
+          "created_at": 1728657090,
           "name": "Answer finder",
           "description": null,
           "model": "gpt-4o",
@@ -86,12 +86,12 @@ http_interactions:
           "tool_resources": {
             "file_search": {
               "vector_store_ids": [
-                "vs_cmYFY5IPhAxGxtqchgYVRdsZ"
+                "vs_aENQHuebOtV0JTXgJF3JTkTU"
               ]
             }
           },
           "metadata": {},
           "response_format": "auto"
         }
-  recorded_at: Fri, 11 Oct 2024 13:57:26 GMT
+  recorded_at: Fri, 11 Oct 2024 14:31:30 GMT
 recorded_with: VCR 6.1.0

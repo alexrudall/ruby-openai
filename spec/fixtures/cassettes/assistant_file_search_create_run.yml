@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/threads/thread_i22xHkDsr88wruHZONdS5GYu/runs?include%5B%5D=step_details.tool_calls%5B*%5D.file_search.results%5B*%5D.content
+    uri: https://api.openai.com/v1/threads/thread_Z8kflIC6P6N5SpnkPW4q7waD/runs?include%5B%5D=step_details.tool_calls%5B*%5D.file_search.results%5B*%5D.content
     body:
       encoding: UTF-8
-      string: '{"assistant_id":"asst_HKdf58KPyocAGLc4lc5iLvl7"}'
+      string: '{"assistant_id":"asst_GmHlRPTg8SwVCOF3imde6g95"}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Oct 2024 13:57:27 GMT
+      - Fri, 11 Oct 2024 14:31:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,39 +37,39 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_9efbc553fff2436e5a04e2ecdf466d67
+      - req_3c7868bdb3aee4876c4e5fc88482aa12
       Openai-Processing-Ms:
-      - '508'
+      - '1529'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=3p7sATngFmbjDvkp6lyCnIZUSMGGn5hioJYFJaCHGOM-1728655047-1.0.1.1-YZA7.WSjStjBeIlc2YLK0HMzboVzhihRxkmlUYJsPDY3E4kEIkg9oSe9oqNdWCtitrlZf7wrI4tpsB6ccRjtxg;
-        path=/; expires=Fri, 11-Oct-24 14:27:27 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=yEy_La0N_7ygTEtd0aBUwnZcifS.6_vkO2aXQn6CVVY-1728657092-1.0.1.1-iT5u3w5flYinx8IrUVMsLiBqDY2Dvcxzyy1c7RjSaqlbuRcT273WjtTOlmV5.fiU8CPOpCmjSo5R26oQw8OlHw;
+        path=/; expires=Fri, 11-Oct-24 15:01:32 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=ODOX_jOaQ6LV5zXhPKTOBkigZYgQpIXAJS7My.Kz2Hc-1728655047256-0.0.1.1-604800000;
+      - _cfuvid=0.IX1DlCkq_.QXXZsrdeAdBxR1AJJA1q7LOEmVNxnnQ-1728657092159-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8d0f5bf948c0631c-LHR
+      - 8d0f8ddf9e8693de-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "run_o88o29ivUdwnxMEibhuwSfsT",
+          "id": "run_LsibmhG9KxLws7LJzv92DaHs",
           "object": "thread.run",
-          "created_at": 1728655046,
-          "assistant_id": "asst_HKdf58KPyocAGLc4lc5iLvl7",
-          "thread_id": "thread_i22xHkDsr88wruHZONdS5GYu",
+          "created_at": 1728657091,
+          "assistant_id": "asst_GmHlRPTg8SwVCOF3imde6g95",
+          "thread_id": "thread_Z8kflIC6P6N5SpnkPW4q7waD",
           "status": "queued",
           "started_at": null,
-          "expires_at": 1728655646,
+          "expires_at": 1728657691,
           "cancelled_at": null,
           "failed_at": null,
           "completed_at": null,
@@ -104,5 +104,5 @@ http_interactions:
           "tool_choice": "auto",
           "parallel_tool_calls": true
         }
-  recorded_at: Fri, 11 Oct 2024 13:57:27 GMT
+  recorded_at: Fri, 11 Oct 2024 14:31:32 GMT
 recorded_with: VCR 6.1.0

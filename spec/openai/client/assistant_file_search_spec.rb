@@ -1,5 +1,5 @@
 RSpec.describe OpenAI::Client do
-  let(:cassette) { "file search" }
+  let(:cassette) { "assistant file search" }
   let(:vector_store_id) do
     VCR.use_cassette("#{cassette} vector_store setup") do
       OpenAI::Client.new.vector_stores.create(parameters: {})["id"]
@@ -67,40 +67,38 @@ RSpec.describe OpenAI::Client do
     end
   end
 
-  describe "#runs" do
-    describe "#create" do
-      let(:query_parameters) do
-        { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
-      end
+  describe "assistant file search" do
+    let(:query_parameters) do
+      { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
+    end
 
-      it "includes the chunk(s) found in the file search" do
-        VCR.use_cassette("#{cassette} step retrieve") do
-          steps = {}
-          result = []
-          10.times do
-            break if result != []
+    it "includes the chunk(s) found in the file search" do
+      VCR.use_cassette("#{cassette} step retrieve") do
+        steps = {}
+        result = []
+        10.times do
+          break if result != []
 
-            steps = OpenAI::Client.new.run_steps.list(
-              thread_id: thread_id,
-              run_id: run_id,
-              parameters: { order: "asc" }
-            )
-            sleep(0.5)
-            redo if steps["data"].empty?
+          steps = OpenAI::Client.new.run_steps.list(
+            thread_id: thread_id,
+            run_id: run_id,
+            parameters: { order: "asc" }
+          )
+          sleep(0.5)
+          redo if steps["data"].empty?
 
-            result = OpenAI::Client.new.run_steps.retrieve(
-              thread_id: thread_id,
-              run_id: run_id,
-              id: steps["data"].last["id"],
-              parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
-            )
-          end
-
-          expect(
-            result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0,
-                       "text")
-          ).to include("Activation of the rapidly adapting Pacinian corpuscles")
+          result = OpenAI::Client.new.run_steps.retrieve(
+            thread_id: thread_id,
+            run_id: run_id,
+            id: steps["data"].last["id"],
+            parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
+          )
         end
+
+        expect(
+          result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0,
+                      "text")
+        ).to include("Activation of the rapidly adapting Pacinian corpuscles")
       end
     end
   end
