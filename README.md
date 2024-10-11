@@ -1116,7 +1116,7 @@ Note that you have 10 minutes to submit your tool output before the run expires.
 
 Take a deep breath. You might need a drink for this one.
 
-It's possible for OpenAI to share what chunks it used in its internal RAG Pipeline to create its filesearch example.
+It's possible for OpenAI to share what chunks it used in its internal RAG Pipeline to create its filesearch results.
 
 An example spec can be found [here](https://github.com/alexrudall/ruby-openai/blob/main/spec/openai/client/assistant_file_search_spec.rb) that does this, just so you know it's possible.
 
