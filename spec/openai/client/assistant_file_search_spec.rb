@@ -29,10 +29,11 @@ RSpec.describe OpenAI::Client do
   let(:thread_id) do
     VCR.use_cassette("#{cassette} thread setup") do
       OpenAI::Client.new.threads.create(parameters: {
-        messages: [
-          { role: "user", content: "Give the description of a nociceptor as written in the given file." }
-        ]
-      })["id"]
+                                          messages: [
+                                            { role: "user",
+                                              content: "Find the description of a nociceptor." }
+                                          ]
+                                        })["id"]
     end
   end
   let(:assistant_id) do
@@ -49,7 +50,7 @@ RSpec.describe OpenAI::Client do
             file_search: {
               vector_store_ids: [vector_store_id]
             }
-          },
+          }
         }
       )["id"]
     end
@@ -68,7 +69,9 @@ RSpec.describe OpenAI::Client do
 
   describe "#runs" do
     describe "#create" do
-      let(:query_parameters) { { include: ["step_details.tool_calls[*].file_search.results[*].content"] } }
+      let(:query_parameters) do
+        { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
+      end
 
       it "includes the chunk(s) found in the file search" do
         VCR.use_cassette("#{cassette} step retrieve") do
@@ -94,7 +97,8 @@ RSpec.describe OpenAI::Client do
           end
 
           expect(
-            result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0, "text")
+            result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0,
+                       "text")
           ).to include("Activation of the rapidly adapting Pacinian corpuscles")
         end
       end

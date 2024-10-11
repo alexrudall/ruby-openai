@@ -13,7 +13,8 @@ module OpenAI
     end
 
     def create(thread_id:, parameters: {}, query_parameters: {})
-      @client.json_post(path: "/threads/#{thread_id}/runs", parameters: parameters, query_parameters: query_parameters)
+      @client.json_post(path: "/threads/#{thread_id}/runs", parameters: parameters,
+                        query_parameters: query_parameters)
     end
 
     def modify(id:, thread_id:, parameters: {})
