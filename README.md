@@ -1111,6 +1111,100 @@ end
 
 Note that you have 10 minutes to submit your tool output before the run expires.
 
+#### Exploring chunks used in File Search
+
+Take a deep breath. You might need a drink for this one.
+
+It's possible for OpenAI to share what chunks it used in its internal RAG Pipeline to create its filesearch example.
+
+An example spec can be found [here](https://github.com/alexrudall/ruby-openai/blob/main/spec/openai/client/assistant_file_search_spec.rb) that does this, just so you know it's possible.
+
+Here's how to get the chunks used in a file search. In this example I'm using [this file](https://css4.pub/2015/textbook/somatosensory.pdf):
+
+```
+require "openai"
+
+# Make a client
+client = OpenAI::Client.new(
+  access_token: "access_token_goes_here",
+  log_errors: true # Don't do this in production.
+)
+
+# Upload your file(s)
+file_id = client.files.upload(
+  parameters: {
+    file: "path/to/somatosensory.pdf",
+    purpose: "assistants"
+  }
+)["id"]
+
+# Create a vector store to store the vectorised file(s)
+vector_store_id = client.vector_stores.create(parameters: {})["id"]
+
+# Vectorise the file(s)
+client.vector_store_files.create(
+  vector_store_id: vector_store_id,
+  parameters: { file_id: file_id }
+)
+
+# Create an assistant, referencing the vector store
+assistant_id = client.assistants.create(
+  parameters: {
+    model: "gpt-4o",
+    name: "Answer finder",
+    instructions: "You are a file search tool. Find the answer in the given files, please.",
+    tools: [
+      { type: "file_search" }
+    ],
+    tool_resources: {
+      file_search: {
+        vector_store_ids: [vector_store_id]
+      }
+    }
+  }
+)["id"]
+
+# Create a thread with your question
+client.threads.create(parameters: {
+  messages: [
+    { role: "user",
+      content: "Find the description of a nociceptor." }
+  ]
+})
+
+# Run the thread to generate the response. Include the "GIVE ME THE CHUNKS" incantation.
+client.runs.create(
+  thread_id: thread_id,
+  query_parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] }, # incantation
+  parameters: {
+    assistant_id: assistant_id
+  }
+)
+
+# Get the steps that happened in the run
+steps = client.run_steps.list(
+  thread_id: thread_id,
+  run_id: run_id,
+  parameters: { order: "asc" }
+)
+
+# Get the last step ID (or whichever one you want to look at)
+step_id = steps["data"].last["id"]
+
+# Get the last step (or whichever one you need). Include the "GIVE ME THE CHUNKS" incantation again.
+step = client.run_steps.retrieve(
+  thread_id: thread_id,
+  run_id: run_id,
+  id: step_id,
+  parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] } # incantation
+)
+
+# Now we've got the chunk info, buried deep:
+print result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0, "text")
+
+# And if you just want to see the actual result (not the chunk):
+```
+
 ### Image Generation
 
 Generate images using DALL·E 2 or DALL·E 3!

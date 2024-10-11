@@ -26,16 +26,6 @@ RSpec.describe OpenAI::Client do
       )["id"]
     end
   end
-  let(:thread_id) do
-    VCR.use_cassette("#{cassette} thread setup") do
-      OpenAI::Client.new.threads.create(parameters: {
-                                          messages: [
-                                            { role: "user",
-                                              content: "Find the description of a nociceptor." }
-                                          ]
-                                        })["id"]
-    end
-  end
   let(:assistant_id) do
     VCR.use_cassette("#{cassette} assistant setup") do
       OpenAI::Client.new.assistants.create(
@@ -53,6 +43,16 @@ RSpec.describe OpenAI::Client do
           }
         }
       )["id"]
+    end
+  end
+  let(:thread_id) do
+    VCR.use_cassette("#{cassette} thread setup") do
+      OpenAI::Client.new.threads.create(parameters: {
+                                          messages: [
+                                            { role: "user",
+                                              content: "Find the description of a nociceptor." }
+                                          ]
+                                        })["id"]
     end
   end
   let(:run_id) do
