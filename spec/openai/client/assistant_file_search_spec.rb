@@ -59,7 +59,9 @@ RSpec.describe OpenAI::Client do
     VCR.use_cassette("#{cassette} create run") do
       OpenAI::Client.new.runs.create(
         thread_id: thread_id,
-        query_parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] },
+        query_parameters: {
+          include: ["step_details.tool_calls[*].file_search.results[*].content"]
+        },
         parameters: {
           assistant_id: assistant_id
         }
@@ -93,7 +95,7 @@ RSpec.describe OpenAI::Client do
 
         expect(
           result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0,
-                      "text")
+                     "text")
         ).to include("Activation of the rapidly adapting Pacinian corpuscles")
       end
     end
