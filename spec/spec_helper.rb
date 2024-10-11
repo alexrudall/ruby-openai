@@ -3,6 +3,7 @@ require "dotenv/load"
 require "openai"
 require "openai/compatibility"
 require "vcr"
+require "byebug"
 
 Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }
 
