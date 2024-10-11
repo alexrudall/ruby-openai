@@ -59,7 +59,7 @@ RSpec.describe OpenAI::Client do
     VCR.use_cassette("#{cassette} create run") do
       OpenAI::Client.new.runs.create(
         thread_id: thread_id,
-        query_parameters: query_parameters,
+        query_parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] },
         parameters: {
           assistant_id: assistant_id
         }
@@ -68,10 +68,6 @@ RSpec.describe OpenAI::Client do
   end
 
   describe "assistant file search" do
-    let(:query_parameters) do
-      { include: ["step_details.tool_calls[*].file_search.results[*].content"] }
-    end
-
     it "includes the chunk(s) found in the file search" do
       VCR.use_cassette("#{cassette} step retrieve") do
         steps = {}
