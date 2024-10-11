@@ -8,8 +8,8 @@ module OpenAI
       @client.get(path: "/threads/#{thread_id}/runs/#{run_id}/steps", parameters: parameters)
     end
 
-    def retrieve(thread_id:, run_id:, id:)
-      @client.get(path: "/threads/#{thread_id}/runs/#{run_id}/steps/#{id}")
+    def retrieve(thread_id:, run_id:, id:, parameters: {})
+      @client.get(path: "/threads/#{thread_id}/runs/#{run_id}/steps/#{id}", parameters: parameters)
     end
   end
 end

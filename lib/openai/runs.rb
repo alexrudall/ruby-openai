@@ -12,8 +12,8 @@ module OpenAI
       @client.get(path: "/threads/#{thread_id}/runs/#{id}")
     end
 
-    def create(thread_id:, query_parameters: {}, parameters: {})
-      @client.json_post(path: "/threads/#{thread_id}/runs", query_parameters: query_parameters, parameters: parameters)
+    def create(thread_id:, parameters: {}, query_parameters: {})
+      @client.json_post(path: "/threads/#{thread_id}/runs", parameters: parameters, query_parameters: query_parameters)
     end
 
     def modify(id:, thread_id:, parameters: {})

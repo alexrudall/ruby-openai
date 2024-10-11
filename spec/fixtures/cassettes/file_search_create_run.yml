@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/threads/thread_i22xHkDsr88wruHZONdS5GYu/runs?include%5B%5D=step_details.tool_calls%5B*%5D.file_search.results%5B*%5D.content
+    body:
+      encoding: UTF-8
+      string: '{"assistant_id":"asst_HKdf58KPyocAGLc4lc5iLvl7"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 11 Oct 2024 13:57:27 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_9efbc553fff2436e5a04e2ecdf466d67
+      Openai-Processing-Ms:
+      - '508'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=3p7sATngFmbjDvkp6lyCnIZUSMGGn5hioJYFJaCHGOM-1728655047-1.0.1.1-YZA7.WSjStjBeIlc2YLK0HMzboVzhihRxkmlUYJsPDY3E4kEIkg9oSe9oqNdWCtitrlZf7wrI4tpsB6ccRjtxg;
+        path=/; expires=Fri, 11-Oct-24 14:27:27 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=ODOX_jOaQ6LV5zXhPKTOBkigZYgQpIXAJS7My.Kz2Hc-1728655047256-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d0f5bf948c0631c-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "run_o88o29ivUdwnxMEibhuwSfsT",
+          "object": "thread.run",
+          "created_at": 1728655046,
+          "assistant_id": "asst_HKdf58KPyocAGLc4lc5iLvl7",
+          "thread_id": "thread_i22xHkDsr88wruHZONdS5GYu",
+          "status": "queued",
+          "started_at": null,
+          "expires_at": 1728655646,
+          "cancelled_at": null,
+          "failed_at": null,
+          "completed_at": null,
+          "required_action": null,
+          "last_error": null,
+          "model": "gpt-4o",
+          "instructions": "You are a file search tool. Find the answer in the given files, please.",
+          "tools": [
+            {
+              "type": "file_search",
+              "file_search": {
+                "ranking_options": {
+                  "ranker": "default_2024_08_21",
+                  "score_threshold": 0.0
+                }
+              }
+            }
+          ],
+          "tool_resources": {},
+          "metadata": {},
+          "temperature": 1.0,
+          "top_p": 1.0,
+          "max_completion_tokens": null,
+          "max_prompt_tokens": null,
+          "truncation_strategy": {
+            "type": "auto",
+            "last_messages": null
+          },
+          "incomplete_details": null,
+          "usage": null,
+          "response_format": "auto",
+          "tool_choice": "auto",
+          "parallel_tool_calls": true
+        }
+  recorded_at: Fri, 11 Oct 2024 13:57:27 GMT
+recorded_with: VCR 6.1.0
