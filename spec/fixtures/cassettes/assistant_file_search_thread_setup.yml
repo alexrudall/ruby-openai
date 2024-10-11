@@ -5,8 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/threads
     body:
       encoding: UTF-8
-      string: '{"messages":[{"role":"user","content":"Give the description of a nociceptor
-        as written in the given file."}]}'
+      string: '{"messages":[{"role":"user","content":"Find the description of a nociceptor."}]}'
     headers:
       Content-Type:
       - application/json
@@ -26,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 11 Oct 2024 13:57:26 GMT
+      - Fri, 11 Oct 2024 14:31:30 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,36 +37,36 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_e8e09c412a2928008bb8d6ee27021dcc
+      - req_476abaa78917a72500a258541a9e645c
       Openai-Processing-Ms:
-      - '97'
+      - '909'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=FHr5zzMBvZvu.d6Q1iOAOiKVjhcKSJUYOuglZ8uefv0-1728655046-1.0.1.1-dDsmQ6sKOQg9yN9ywhC._4vuFe5idLm2ZHW1cYJrVXR36Vaxw6T6wHfdV2b3LvsXaO9nrJPsHfcMtfR7OP2SVg;
-        path=/; expires=Fri, 11-Oct-24 14:27:26 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=RTvquL6o4qHueyeVBS1Z2qV4KZ00Gg1Sdmq3CKdoBrA-1728657090-1.0.1.1-ea2tVOzd6t2QhdB2UPLkbMJdJQ3WlMFeKAIyAIUleZAdAOtw33Z07YTTJBIXQb.pJDEt27pHJNP4RpIjE3F9lA;
+        path=/; expires=Fri, 11-Oct-24 15:01:30 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=DVsH4fcCQHsitA94wnELA9HuFlMTbvSSCmaIp4qQW8w-1728655046012-0.0.1.1-604800000;
+      - _cfuvid=wqvbuE2etd301wgW_PkCGEjUKDNt.HrAg.RV.YVMxZI-1728657090004-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8d0f5bf2cb01beab-LHR
+      - 8d0f8dd60b035316-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "thread_i22xHkDsr88wruHZONdS5GYu",
+          "id": "thread_Z8kflIC6P6N5SpnkPW4q7waD",
           "object": "thread",
-          "created_at": 1728655045,
+          "created_at": 1728657089,
           "metadata": {},
           "tool_resources": {}
         }
-  recorded_at: Fri, 11 Oct 2024 13:57:25 GMT
+  recorded_at: Fri, 11 Oct 2024 14:31:30 GMT
 recorded_with: VCR 6.1.0
