@@ -50,6 +50,7 @@ Stream text with GPT-4o, transcribe and translate audio with Whisper, or create 
     - [Runs](#runs)
       - [Create and Run](#create-and-run)
       - [Runs involving function tools](#runs-involving-function-tools)
+      - [Exploring chunks used in File Search](#exploring-chunks-used-in-file-search)
     - [Image Generation](#image-generation)
       - [DALL·E 2](#dalle-2)
       - [DALL·E 3](#dalle-3)
@@ -1190,9 +1191,6 @@ steps = client.run_steps.list(
   run_id: run_id,
   parameters: { order: "asc" }
 )
-
-# Get the last step ID (or whichever one you want to look at)
-step_id = steps["data"].first["id"]
 
 # Retrieve all the steps. Include the "GIVE ME THE CHUNKS" incantation again.
 steps = steps["data"].map do |step|
