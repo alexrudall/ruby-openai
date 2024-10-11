@@ -1142,10 +1142,13 @@ file_id = client.files.upload(
 vector_store_id = client.vector_stores.create(parameters: {})["id"]
 
 # Vectorise the file(s)
-client.vector_store_files.create(
+vector_store_file_id = client.vector_store_files.create(
   vector_store_id: vector_store_id,
   parameters: { file_id: file_id }
-)
+)["id"]
+
+# Check that the file is vectorised (wait for status to be "completed")
+client.vector_store_files.retrieve(vector_store_id: vector_store_id, id: vector_store_file_id)["status"]
 
 # Create an assistant, referencing the vector store
 assistant_id = client.assistants.create(
@@ -1165,21 +1168,21 @@ assistant_id = client.assistants.create(
 )["id"]
 
 # Create a thread with your question
-client.threads.create(parameters: {
+thread_id = client.threads.create(parameters: {
   messages: [
     { role: "user",
       content: "Find the description of a nociceptor." }
   ]
-})
+})["id"]
 
 # Run the thread to generate the response. Include the "GIVE ME THE CHUNKS" incantation.
-client.runs.create(
+run_id = client.runs.create(
   thread_id: thread_id,
-  query_parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] }, # incantation
   parameters: {
     assistant_id: assistant_id
-  }
-)
+  },
+  query_parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] } # incantation
+)["id"]
 
 # Get the steps that happened in the run
 steps = client.run_steps.list(
@@ -1189,20 +1192,33 @@ steps = client.run_steps.list(
 )
 
 # Get the last step ID (or whichever one you want to look at)
-step_id = steps["data"].last["id"]
+step_id = steps["data"].first["id"]
 
-# Get the last step (or whichever one you need). Include the "GIVE ME THE CHUNKS" incantation again.
-step = client.run_steps.retrieve(
-  thread_id: thread_id,
-  run_id: run_id,
-  id: step_id,
-  parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] } # incantation
-)
+# Retrieve all the steps. Include the "GIVE ME THE CHUNKS" incantation again.
+steps = steps["data"].map do |step|
+  client.run_steps.retrieve(
+    thread_id: thread_id,
+    run_id: run_id,
+    id: step["id"],
+    parameters: { include: ["step_details.tool_calls[*].file_search.results[*].content"] } # incantation
+  )
+end
 
-# Now we've got the chunk info, buried deep:
-print result.dig("step_details", "tool_calls", 0, "file_search", "results", 0, "content", 0, "text")
+# Now we've got the chunk info, buried deep. Loop through the steps and find chunks if included:
+chunks = steps.flat_map do |step|
+  included_results = step.dig("step_details", "tool_calls", 0, "file_search", "results")
 
-# And if you just want to see the actual result (not the chunk):
+  next if included_results.nil? || included_results.empty?
+
+  included_results.flat_map do |result|
+    result["content"].map do |content|
+      content["text"]
+    end
+  end
+end.compact
+
+# The first chunk will be the closest match to the prompt. Finally, if you want to view the completed message(s):
+client.messages.list(thread_id: thread_id)
 ```
 
 ### Image Generation
