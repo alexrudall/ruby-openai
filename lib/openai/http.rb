@@ -18,7 +18,7 @@ module OpenAI
       end&.body)
     end
 
-    def json_post(path:, query_parameters:, parameters:)
+    def json_post(path:, query_parameters: {}, parameters:)
       conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
         req.params = query_parameters
