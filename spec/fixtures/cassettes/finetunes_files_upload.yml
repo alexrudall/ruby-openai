@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/files
     body:
       encoding: UTF-8
-      string: "-------------RubyMultipartPost-7fec0cf5a4477491a173eb07ae79aa79\r\nContent-Disposition:
+      string: "-------------RubyMultipartPost-735cd2fd746fb94de2000b04e4635df3\r\nContent-Disposition:
         form-data; name=\"file\"; filename=\"sarcastic.jsonl\"\r\nContent-Length:
         2676\r\nContent-Type: \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"messages\":
         [{\"role\": \"system\", \"content\": \"Marv is a factual chatbot that is also
@@ -44,11 +44,11 @@ http_interactions:
         [{\"role\": \"system\", \"content\": \"Marv is a factual chatbot that is also
         sarcastic.\"}, {\"role\": \"user\", \"content\": \"How many planets are in
         our solar system?\"}, {\"role\": \"assistant\", \"content\": \"Eight. Sorry,
-        Pluto, you're still not on the list!\"}]}\n\r\n-------------RubyMultipartPost-7fec0cf5a4477491a173eb07ae79aa79\r\nContent-Disposition:
-        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-7fec0cf5a4477491a173eb07ae79aa79--\r\n"
+        Pluto, you're still not on the list!\"}]}\n\r\n-------------RubyMultipartPost-735cd2fd746fb94de2000b04e4635df3\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nfine-tune\r\n-------------RubyMultipartPost-735cd2fd746fb94de2000b04e4635df3--\r\n"
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-7fec0cf5a4477491a173eb07ae79aa79
+      - multipart/form-data; boundary=-----------RubyMultipartPost-735cd2fd746fb94de2000b04e4635df3
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -65,7 +65,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:48:55 GMT
+      - Tue, 15 Oct 2024 06:54:39 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -77,25 +77,27 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 61d7d7cc28741579332a06bc94bc9674
+      - req_a5184393d0d0a8f56fac8b6fb3dd8ded
       Openai-Processing-Ms:
-      - '441'
+      - '322'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
+      - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=jKWMdOIHYQTilz80ZOpikdLanoZb.ZDLhzklH7FrtjM-1699998535-0-AVG13lK/ND+fWRzRubsl9wPkoFFvkpUyg7oeT3m0S4yeMviWPmo7x1MxeFD7QAE4IfIAhquU2lc0AE9BZLNKqrM=;
-        path=/; expires=Tue, 14-Nov-23 22:18:55 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=UQdt62As9U98mPoseDraKNkV09vXVryJOLVH87pm9tM-1728975279-1.0.1.1-qqdhygyYrz45YlJrTe1X7161rmaQKWiUBUmhqglQIX4jYmiy7t.sRNhC9u9yh_LDUYyowRA15bYlcJMJphvWKg;
+        path=/; expires=Tue, 15-Oct-24 07:24:39 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=eTsbDV.Ixs4j4g1zeU20FC8U3Vu43IYyIXdew67Ik_M-1699998535589-0-604800000;
+      - _cfuvid=jVWttiB64.h1QEkCpeJntKcTNLcgBMSVz0hLWVUuFHo-1728975279571-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8262761bcbce4139-LHR
+      - 8d2de6267eab406b-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -103,13 +105,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-ciQ5Wxyk73nzPmsypiLfLMtG",
+          "id": "file-Cbl1lel9YuFDEEYeJu0Kxyvq",
           "purpose": "fine-tune",
           "filename": "sarcastic.jsonl",
           "bytes": 2676,
-          "created_at": 1699998535,
+          "created_at": 1728975279,
           "status": "processed",
           "status_details": null
         }
-  recorded_at: Tue, 14 Nov 2023 21:48:55 GMT
+  recorded_at: Tue, 15 Oct 2024 06:54:39 GMT
 recorded_with: VCR 6.1.0
