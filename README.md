@@ -1119,7 +1119,7 @@ file_id = client.files.upload(
   }
 )["id"]
 
-# Create assistant
+# Create assistant (You could also use an existing one here)
 assistant_id = client.assistants.create(
   parameters: {
     model: "gpt-4o",
