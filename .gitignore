@@ -65,6 +65,7 @@ build-iPhoneSimulator/
 .vscode
 .vs/
 
+# Just to make it quicker to test README examples that use /path/to as an example eg. when testing file upload.
 /path/to/*
 
 # Mac
