@@ -49,6 +49,7 @@ Stream text with GPT-4o, transcribe and translate audio with Whisper, or create 
     - [Threads and Messages](#threads-and-messages)
     - [Runs](#runs)
       - [Create and Run](#create-and-run)
+      - [Vision in a thread](#vision-in-a-thread)
       - [Runs involving function tools](#runs-involving-function-tools)
       - [Exploring chunks used in File Search](#exploring-chunks-used-in-file-search)
     - [Image Generation](#image-generation)
