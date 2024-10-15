@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/vector_stores/vs_ePcVDZvWrtnriEvWr8nNZMRH/file_batches
+    uri: https://api.openai.com/v1/vector_stores/vs_Jhsj39YoypHdDXGlrTHtx3ir/file_batches
     body:
       encoding: UTF-8
-      string: '{"file_ids":["file-cEwnAjZSvtO66i8Qnj0R9d0M"]}'
+      string: '{"file_ids":["file-SsFSl4UvE63Gw3hoiC4P74e4"]}'
     headers:
       Content-Type:
       - application/json
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 30 Apr 2024 20:56:54 GMT
+      - Tue, 15 Oct 2024 07:01:32 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,36 +35,38 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - gojom-1
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_8d320fce7748107730d9d405b28623f5
+      - req_2c903681ca3a1293a2c6fce32df37d51
       Openai-Processing-Ms:
-      - '1345'
+      - '1750'
       Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
+      - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=SwPHin4piuDwtklPtj502hRIK9uCEYQTXgh31SyaSKM-1714510614-1.0.1.1-h0Z_K_u70zj2Heisvf_qypRqpLX1gZ7EUBqxOEW9qkJcpokLLnxhsc6nJepW9ZgIR8dPsy7Xt0P3nE0o04d1Kw;
-        path=/; expires=Tue, 30-Apr-24 21:26:54 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=ZTdwLg8ThMEuU_PISZYI.PSjUIQRtqo_JOo_hPQhlz0-1728975692-1.0.1.1-w0ip5ysqGEH6iAzr7e_fqvd3mXYBSvcpNideg6N_0OzXJ0FjuTCR_7X2Zj08GW_xdx4trRxhL8AqkRl08gHkqw;
+        path=/; expires=Tue, 15-Oct-24 07:31:32 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=w0QMulbhz7kIKKZUTSS54CnF8vaaiRJIHwvnAHgCaMU-1714510614383-0.0.1.1-604800000;
+      - _cfuvid=4IY9SE.AH_IPH7TB742a.WGu358a3wmtQ3qUG3UeOIs-1728975692370-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 87ca70e2490e77c3-GRU
+      - 8d2df0313f3f93ec-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "vsfb_21d3cfd33a4d412a87c49d6eec59c717",
+          "id": "vsfb_b776bc9508004e9db5711d1acad854c7",
           "object": "vector_store.file_batch",
-          "created_at": 1714510614,
+          "created_at": 1728975692,
           "status": "in_progress",
-          "vector_store_id": "vs_ePcVDZvWrtnriEvWr8nNZMRH",
+          "vector_store_id": "vs_Jhsj39YoypHdDXGlrTHtx3ir",
           "file_counts": {
             "in_progress": 1,
             "completed": 0,
@@ -73,5 +75,5 @@ http_interactions:
             "total": 1
           }
         }
-  recorded_at: Tue, 30 Apr 2024 20:56:54 GMT
+  recorded_at: Tue, 15 Oct 2024 07:01:32 GMT
 recorded_with: VCR 6.1.0

@@ -29,6 +29,12 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.vector_store_file_batches.list(vector_store_id: vector_store_id,
                                                           id: file_batch_id)
+      rescue Faraday::ServerError => e
+        # 500 error is caused by the file batch not being processed yet, so we handle it here.
+        raise unless e.response[:status] == 500
+
+        # Wait for the file batch to be processed.
+        sleep 0.5 && retry
       end
 
       before { file_batch_id }
