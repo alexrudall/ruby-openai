@@ -167,16 +167,6 @@ RSpec.describe OpenAI::Client do
         end
       end
 
-      context "with model: gpt-3.5-turbo-0301" do
-        let(:model) { "gpt-3.5-turbo-0301" }
-
-        it "succeeds" do
-          VCR.use_cassette(cassette) do
-            expect(content.split.empty?).to eq(false)
-          end
-        end
-      end
-
       context "with Ollama + model: llama3" do
         let(:uri_base) { "http://localhost:11434" }
         let(:provider) { "ollama" }

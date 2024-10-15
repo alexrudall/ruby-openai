@@ -1,6 +1,6 @@
 RSpec.describe OpenAI::Client do
   describe "#finetunes", :vcr do
-    let(:model) { "gpt-3.5-turbo-0613" }
+    let(:model) { "gpt-4o-2024-08-06" }
 
     describe "#list" do
       let(:cassette) { "finetunes list" }

@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/fine_tuning/jobs
     body:
       encoding: UTF-8
-      string: '{"training_file":"file-ciQ5Wxyk73nzPmsypiLfLMtG","model":"gpt-3.5-turbo-0613"}'
+      string: '{"training_file":"file-Cbl1lel9YuFDEEYeJu0Kxyvq","model":"gpt-4o-2024-08-06"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 14 Nov 2023 21:48:56 GMT
+      - Tue, 15 Oct 2024 06:54:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,23 +35,25 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - b3a11779dce7e5ce1fdae596ac14baca
+      - req_9c2e43b138498be89798f86332840af4
       Openai-Processing-Ms:
-      - '774'
+      - '784'
       Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
+      - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=jTwwkePz7sJ4JnXFDMIr0OmYRMm07FXAEND9UCfvUbw-1699998536-0-Ac288qtFI51/byOhWxKVB0d8a2pqz4KO3gvuRY+klYqFUaBHVLIlzcUkQAP9d80Un0Pc9cYskeoStMsEFF5NzaA=;
-        path=/; expires=Tue, 14-Nov-23 22:18:56 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=Iz.NSf1GuLaua9hbNKS5fIPs7SXTeQSg0dq_YoVpkJ8-1728975281-1.0.1.1-C6daxpTlYx0niPCLLGL2oSfw6uCTkuzVVtMspJ2PXh.ZQF3aBh_VBty.FolPAiAu7Q58fg4Oc1m72lT4ct3J6w;
+        path=/; expires=Tue, 15-Oct-24 07:24:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=TEwR3EzX34B9eKCVZzjEnfmJSbduHZO0R4HlvsAWLXc-1699998536869-0-604800000;
+      - _cfuvid=xdRFUb5aY6f5vg0KDFlNX6R5bLzBXqONukB.MICaBo8-1728975281001-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 82627621c9df24b7-LHR
+      - 8d2de62c7aa393e3-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -59,23 +61,27 @@ http_interactions:
       string: |-
         {
           "object": "fine_tuning.job",
-          "id": "ftjob-rT0CMczT7AVa1A1PSbPj5rOk",
-          "model": "gpt-3.5-turbo-0613",
-          "created_at": 1699998536,
+          "id": "ftjob-FO6z0rNnNUmHe4xiVOHC7TEk",
+          "model": "gpt-4o-2024-08-06",
+          "created_at": 1728975280,
           "finished_at": null,
           "fine_tuned_model": null,
           "organization_id": "org-Rf437IxKhhQPMiIQ0Es8OwrH",
           "result_files": [],
           "status": "validating_files",
           "validation_file": null,
-          "training_file": "file-ciQ5Wxyk73nzPmsypiLfLMtG",
+          "training_file": "file-Cbl1lel9YuFDEEYeJu0Kxyvq",
           "hyperparameters": {
             "n_epochs": "auto",
             "batch_size": "auto",
             "learning_rate_multiplier": "auto"
           },
           "trained_tokens": null,
-          "error": null
+          "error": {},
+          "user_provided_suffix": null,
+          "seed": 167471248,
+          "estimated_finish": null,
+          "integrations": []
         }
-  recorded_at: Tue, 14 Nov 2023 21:48:56 GMT
+  recorded_at: Tue, 15 Oct 2024 06:54:40 GMT
 recorded_with: VCR 6.1.0
