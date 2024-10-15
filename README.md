@@ -1072,6 +1072,71 @@ run_id = response['id']
 thread_id = response['thread_id']
 ```
 
+#### Vision in a thread
+
+You can include images in a thread and they will be described & read by the LLM. In this example I'm using [this file](https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png):
+
+```
+require "openai"
+
+# Make a client
+client = OpenAI::Client.new(
+  access_token: "access_token_goes_here",
+  log_errors: true # Don't log errors in production.
+)
+
+# Upload image as a file
+file_id = client.files.upload(
+  parameters: {
+    file: "path/to/example.png",
+    purpose: "assistants"
+  }
+)["id"]
+
+# Create assistant
+assistant_id = client.assistants.create(
+    parameters: {
+        model: "gpt-4o",
+        name: "Image reader",
+        instructions: "You are an image describer. You describe the contents of images."
+    })["id"]
+
+# Create thread
+thread_id = client.threads.create["id"]
+
+# Add image in message
+client.messages.create(
+    thread_id: thread_id,
+    parameters: {
+        role: "user", # Required for manually created messages
+        content: [
+          {
+            "type": "text",
+            "text": "What's in this image?"
+          },
+          {
+            "type": "image_file",
+            "image_file": { "file_id": file_id }
+          }
+        ]
+    })
+
+# Run thread
+run_id = client.runs.create(thread_id: thread_id, parameters: { assistant_id: assistant_id })["id"]
+
+# Wait until run in complete
+status = nil
+until status == "completed" do
+  sleep(0.1)
+  status = client.runs.retrieve(id: run_id, thread_id: thread_id)['status']
+end
+
+# Get the response
+messages = client.messages.list(thread_id: thread_id, parameters: { order: 'asc' })
+messages.dig("data", -1, "content", 0, "text", "value")
+=> "The image contains a placeholder graphic with a tilted, stylized representation of a postage stamp in the top part, which includes an abstract landscape with hills and a sun. Below the stamp, in the middle of the image, there is italicized text in a light golden color that reads, \"This is just an example.\" The background is a light pastel shade, and a yellow border frames the entire image."
+```
+
 #### Runs involving function tools
 
 In case you are allowing the assistant to access `function` tools (they are defined in the same way as functions during chat completion), you might get a status code of `requires_action` when the assistant wants you to evaluate one or more function tools:
@@ -1128,7 +1193,7 @@ require "openai"
 # Make a client
 client = OpenAI::Client.new(
   access_token: "access_token_goes_here",
-  log_errors: true # Don't do this in production.
+  log_errors: true # Don't log errors in production.
 )
 
 # Upload your file(s)
