@@ -147,15 +147,15 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here")
 
 ```ruby
 client = OpenAI::Client.new(
-    access_token: "access_token_goes_here",
-    uri_base: "https://oai.hconeai.com/",
-    request_timeout: 240,
-    extra_headers: {
-      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
-      "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
-      "Helicone-Auth": "Bearer HELICONE_API_KEY", # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
-      "helicone-stream-force-format" => "true", # Use this with Helicone otherwise streaming drops chunks # https://github.com/alexrudall/ruby-openai/issues/251
-    }
+  access_token: "access_token_goes_here",
+  uri_base: "https://oai.hconeai.com/",
+  request_timeout: 240,
+  extra_headers: {
+    "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+    "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
+    "Helicone-Auth": "Bearer HELICONE_API_KEY", # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
+    "helicone-stream-force-format" => "true", # Use this with Helicone otherwise streaming drops chunks # https://github.com/alexrudall/ruby-openai/issues/251
+  }
 )
 ```
 
@@ -163,16 +163,16 @@ or when configuring the gem:
 
 ```ruby
 OpenAI.configure do |config|
-    config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    config.log_errors = true # Optional
-    config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
-    config.uri_base = "https://oai.hconeai.com/" # Optional
-    config.request_timeout = 240 # Optional
-    config.extra_headers = {
-      "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
-      "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
-      "Helicone-Auth": "Bearer HELICONE_API_KEY" # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
-    } # Optional
+  config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+  config.log_errors = true # Optional
+  config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
+  config.uri_base = "https://oai.hconeai.com/" # Optional
+  config.request_timeout = 240 # Optional
+  config.extra_headers = {
+    "X-Proxy-TTL" => "43200", # For https://github.com/6/openai-caching-proxy-worker#specifying-a-cache-ttl
+    "X-Proxy-Refresh": "true", # For https://github.com/6/openai-caching-proxy-worker#refreshing-the-cache
+    "Helicone-Auth": "Bearer HELICONE_API_KEY" # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
+  } # Optional
 end
 ```
 
@@ -194,7 +194,7 @@ By default, `ruby-openai` does not log any `Faraday::Error`s encountered while e
 If you would like to enable this functionality, you can set `log_errors` to `true` when configuring the client:
 
 ```ruby
-  client = OpenAI::Client.new(log_errors: true)
+client = OpenAI::Client.new(log_errors: true)
 ```
 
 ##### Faraday middleware
@@ -202,9 +202,9 @@ If you would like to enable this functionality, you can set `log_errors` to `tru
 You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
 
 ```ruby
-  client = OpenAI::Client.new do |f|
-    f.response :logger, Logger.new($stdout), bodies: true
-  end
+client = OpenAI::Client.new do |f|
+  f.response :logger, Logger.new($stdout), bodies: true
+end
 ```
 
 #### Azure
@@ -212,12 +212,12 @@ You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middlew
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
 
 ```ruby
-    OpenAI.configure do |config|
-        config.access_token = ENV.fetch("AZURE_OPENAI_API_KEY")
-        config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
-        config.api_type = :azure
-        config.api_version = "2023-03-15-preview"
-    end
+OpenAI.configure do |config|
+  config.access_token = ENV.fetch("AZURE_OPENAI_API_KEY")
+  config.uri_base = ENV.fetch("AZURE_OPENAI_URI")
+  config.api_type = :azure
+  config.api_version = "2023-03-15-preview"
+end
 ```
 
 where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
@@ -242,14 +242,15 @@ client = OpenAI::Client.new(
 )
 
 client.chat(
-    parameters: {
-        model: "llama3", # Required.
-        messages: [{ role: "user", content: "Hello!"}], # Required.
-        temperature: 0.7,
-        stream: proc do |chunk, _bytesize|
-            print chunk.dig("choices", 0, "delta", "content")
-        end
-    })
+  parameters: {
+    model: "llama3", # Required.
+    messages: [{ role: "user", content: "Hello!"}], # Required.
+    temperature: 0.7,
+    stream: proc do |chunk, _bytesize|
+      print chunk.dig("choices", 0, "delta", "content")
+    end
+  }
+)
 
 # => Hi! It's nice to meet you. Is there something I can help you with, or would you like to chat?
 ```
@@ -259,20 +260,21 @@ client.chat(
 [Groq API Chat](https://console.groq.com/docs/quickstart) is broadly compatible with the OpenAI API, with a [few minor differences](https://console.groq.com/docs/openai). Get an access token from [here](https://console.groq.com/keys), then:
 
 ```ruby
-  client = OpenAI::Client.new(
-    access_token: "groq_access_token_goes_here",
-    uri_base: "https://api.groq.com/openai"
-  )
+client = OpenAI::Client.new(
+  access_token: "groq_access_token_goes_here",
+  uri_base: "https://api.groq.com/openai"
+)
 
-  client.chat(
-    parameters: {
-        model: "llama3-8b-8192", # Required.
-        messages: [{ role: "user", content: "Hello!"}], # Required.
-        temperature: 0.7,
-        stream: proc do |chunk, _bytesize|
-            print chunk.dig("choices", 0, "delta", "content")
-        end
-    })
+client.chat(
+  parameters: {
+    model: "llama3-8b-8192", # Required.
+    messages: [{ role: "user", content: "Hello!"}], # Required.
+    temperature: 0.7,
+    stream: proc do |chunk, _bytesize|
+     print chunk.dig("choices", 0, "delta", "content")
+    end
+  }
+)
 ```
 
 ### Counting Tokens
@@ -302,11 +304,12 @@ GPT is a model that can be used to generate text in a conversational style. You 
 
 ```ruby
 response = client.chat(
-    parameters: {
-        model: "gpt-4o", # Required.
-        messages: [{ role: "user", content: "Hello!"}], # Required.
-        temperature: 0.7,
-    })
+  parameters: {
+    model: "gpt-4o", # Required.
+    messages: [{ role: "user", content: "Hello!"}], # Required.
+    temperature: 0.7,
+  }
+)
 puts response.dig("choices", 0, "message", "content")
 # => "Hello! How may I assist you today?"
 ```
@@ -319,14 +322,15 @@ You can stream from the API in realtime, which can be much faster and used to cr
 
 ```ruby
 client.chat(
-    parameters: {
-        model: "gpt-4o", # Required.
-        messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
-        temperature: 0.7,
-        stream: proc do |chunk, _bytesize|
-            print chunk.dig("choices", 0, "delta", "content")
-        end
-    })
+  parameters: {
+    model: "gpt-4o", # Required.
+    messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
+    temperature: 0.7,
+    stream: proc do |chunk, _bytesize|
+      print chunk.dig("choices", 0, "delta", "content")
+    end
+  }
+)
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
@@ -335,12 +339,13 @@ Note: In order to get usage information, you can provide the [`stream_options` p
 ```ruby
 stream_proc = proc { |chunk, _bytesize| puts "--------------"; puts chunk.inspect; }
 client.chat(
-    parameters: {
-        model: "gpt-4o",
-        stream: stream_proc,
-        stream_options: { include_usage: true },
-        messages: [{ role: "user", content: "Hello!"}],
-    })
+  parameters: {
+    model: "gpt-4o",
+    stream: stream_proc,
+    stream_options: { include_usage: true },
+    messages: [{ role: "user", content: "Hello!"}],
+  }
+)
 # => --------------
 # => {"id"=>"chatcmpl-7bbq05PiZqlHxjV1j7OHnKKDURKaf", "object"=>"chat.completion.chunk", "created"=>1718750612, "model"=>"gpt-4o-2024-05-13", "system_fingerprint"=>"fp_9cb5d38cf7", "choices"=>[{"index"=>0, "delta"=>{"role"=>"assistant", "content"=>""}, "logprobs"=>nil, "finish_reason"=>nil}], "usage"=>nil}
 # => --------------
@@ -367,10 +372,11 @@ messages = [
   }
 ]
 response = client.chat(
-    parameters: {
-        model: "gpt-4-vision-preview", # Required.
-        messages: [{ role: "user", content: messages}], # Required.
-    })
+  parameters: {
+    model: "gpt-4-vision-preview", # Required.
+    messages: [{ role: "user", content: messages}], # Required.
+  }
+)
 puts response.dig("choices", 0, "message", "content")
 # => "The image depicts a serene natural landscape featuring a long wooden boardwalk extending straight ahead"
 ```
@@ -380,21 +386,22 @@ puts response.dig("choices", 0, "message", "content")
 You can set the response_format to ask for responses in JSON:
 
 ```ruby
-  response = client.chat(
-    parameters: {
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
-        temperature: 0.7,
-    })
-    puts response.dig("choices", 0, "message", "content")
-    {
-      "name": "John",
-      "age": 30,
-      "city": "New York",
-      "hobbies": ["reading", "traveling", "hiking"],
-      "isStudent": false
-    }
+response = client.chat(
+  parameters: {
+    model: "gpt-4o",
+    response_format: { type: "json_object" },
+    messages: [{ role: "user", content: "Hello! Give me some JSON please."}],
+    temperature: 0.7,
+  })
+  puts response.dig("choices", 0, "message", "content")
+  # =>
+  # {
+  #   "name": "John",
+  #   "age": 30,
+  #   "city": "New York",
+  #   "hobbies": ["reading", "traveling", "hiking"],
+  #   "isStudent": false
+  # }
 ```
 
 You can stream it as well!
@@ -404,26 +411,28 @@ You can stream it as well!
     parameters: {
       model: "gpt-4o",
       messages: [{ role: "user", content: "Can I have some JSON please?"}],
-        response_format: { type: "json_object" },
-        stream: proc do |chunk, _bytesize|
-          print chunk.dig("choices", 0, "delta", "content")
-        end
-  })
-  {
-    "message": "Sure, please let me know what specific JSON data you are looking for.",
-    "JSON_data": {
-      "example_1": {
-        "key_1": "value_1",
-        "key_2": "value_2",
-        "key_3": "value_3"
-      },
-      "example_2": {
-        "key_4": "value_4",
-        "key_5": "value_5",
-        "key_6": "value_6"
-      }
+      response_format: { type: "json_object" },
+      stream: proc do |chunk, _bytesize|
+        print chunk.dig("choices", 0, "delta", "content")
+      end
     }
-  }
+  )
+  # =>
+  # {
+  #   "message": "Sure, please let me know what specific JSON data you are looking for.",
+  #   "JSON_data": {
+  #     "example_1": {
+  #       "key_1": "value_1",
+  #       "key_2": "value_2",
+  #       "key_3": "value_3"
+  #     },
+  #     "example_2": {
+  #       "key_4": "value_4",
+  #       "key_5": "value_5",
+  #       "key_6": "value_6"
+  #     }
+  #   }
+  # }
 ```
 
 ### Functions
@@ -431,7 +440,6 @@ You can stream it as well!
 You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call them - eg., to use your method `get_current_weather` to get the weather in a given location. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see here](https://platform.openai.com/docs/api-reference/chat/create#chat-create-tool_choice)).
 
 ```ruby
-
 def get_current_weather(location:, unit: "fahrenheit")
   # Here you could use a weather api to fetch the weather.
   "The weather in #{location} is nice 🌞 #{unit}"
@@ -472,8 +480,9 @@ response =
           },
         }
       ],
-      tool_choice: "required"  # Optional, defaults to "auto"
-                               # Can also put "none" or specific functions, see docs
+      # Optional, defaults to "auto"
+      # Can also put "none" or specific functions, see docs
+      tool_choice: "required"
     },
   )
 
@@ -487,12 +496,13 @@ if message["role"] == "assistant" && message["tool_calls"]
       tool_call.dig("function", "arguments"),
       { symbolize_names: true },
     )
-    function_response = case function_name
+    function_response =
+      case function_name
       when "get_current_weather"
         get_current_weather(**function_args)  # => "The weather is nice 🌞"
       else
         # decide how to handle
-    end
+      end
 
     # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a tool_calls argument.
     messages << message
@@ -509,7 +519,8 @@ if message["role"] == "assistant" && message["tool_calls"]
     parameters: {
       model: "gpt-4o",
       messages: messages
-  })
+    }
+  )
 
   puts second_response.dig("choices", 0, "message", "content")
 
@@ -525,11 +536,12 @@ Hit the OpenAI API for a completion using other GPT-3 models:
 
 ```ruby
 response = client.completions(
-    parameters: {
-        model: "gpt-4o",
-        prompt: "Once upon a time",
-        max_tokens: 5
-    })
+  parameters: {
+    model: "gpt-4o",
+    prompt: "Once upon a time",
+    max_tokens: 5
+  }
+)
 puts response["choices"].map { |c| c["text"] }
 # => [", there lived a great"]
 ```
@@ -540,10 +552,10 @@ You can use the embeddings endpoint to get a vector of numbers representing an i
 
 ```ruby
 response = client.embeddings(
-    parameters: {
-        model: "text-embedding-ada-002",
-        input: "The food was delicious and the waiter..."
-    }
+  parameters: {
+    model: "text-embedding-ada-002",
+    input: "The food was delicious and the waiter..."
+  }
 )
 
 puts response.dig("data", 0, "embedding")
@@ -689,9 +701,9 @@ You can then use this file ID to create a fine tuning job:
 
 ```ruby
 response = client.finetunes.create(
-    parameters: {
-    training_file: file_id,
-    model: "gpt-4o"
+  parameters: {
+  training_file: file_id,
+  model: "gpt-4o"
 })
 fine_tune_id = response["id"]
 ```
@@ -714,17 +726,17 @@ This fine-tuned model name can then be used in chat completions:
 
 ```ruby
 response = client.chat(
-    parameters: {
-        model: fine_tuned_model,
-        messages: [{ role: "user", content: "I love Mondays!"}]
-    }
+  parameters: {
+    model: fine_tuned_model,
+    messages: [{ role: "user", content: "I love Mondays!" }]
+  }
 )
 response.dig("choices", 0, "message", "content")
 ```
 
 You can also capture the events for a job:
 
-```
+```ruby
 client.finetunes.list_events(id: fine_tune_id)
 ```
 
@@ -869,25 +881,26 @@ To create a new assistant:
 
 ```ruby
 response = client.assistants.create(
-    parameters: {
-        model: "gpt-4o",
-        name: "OpenAI-Ruby test assistant",
-        description: nil,
-        instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
-        tools: [
-            { type: "code_interpreter" },
-            { type: "file_search" }
-        ],
-        tool_resources: {
-          code_interpreter: {
-            file_ids: [] # See Files section above for how to upload files
-          },
-          file_search: {
-            vector_store_ids: [] # See Vector Stores section above for how to add vector stores
-          }
-        },
-        "metadata": { my_internal_version_id: "1.0.0" }
-    })
+  parameters: {
+    model: "gpt-4o",
+    name: "OpenAI-Ruby test assistant",
+    description: nil,
+    instructions: "You are a Ruby dev bot. When asked a question, write and run Ruby code to answer the question",
+    tools: [
+      { type: "code_interpreter" },
+      { type: "file_search" }
+    ],
+    tool_resources: {
+      code_interpreter: {
+        file_ids: [] # See Files section above for how to upload files
+      },
+      file_search: {
+        vector_store_ids: [] # See Vector Stores section above for how to add vector stores
+      }
+    },
+    "metadata": { my_internal_version_id: "1.0.0" }
+  }
+)
 assistant_id = response["id"]
 ```
 
@@ -907,16 +920,17 @@ You can modify an existing assistant using the assistant's id (see [API document
 
 ```ruby
 response = client.assistants.modify(
-        id: assistant_id,
-        parameters: {
-            name: "Modified Test Assistant for OpenAI-Ruby",
-            metadata: { my_internal_version_id: '1.0.1' }
-        })
+  id: assistant_id,
+  parameters: {
+    name: "Modified Test Assistant for OpenAI-Ruby",
+    metadata: { my_internal_version_id: '1.0.1' }
+  }
+)
 ```
 
 You can delete assistants:
 
-```
+```ruby
 client.assistants.delete(id: assistant_id)
 ```
 
@@ -932,11 +946,12 @@ thread_id = response["id"]
 
 # Add initial message from user (see https://platform.openai.com/docs/api-reference/messages/createMessage)
 message_id = client.messages.create(
-    thread_id: thread_id,
-    parameters: {
-        role: "user", # Required for manually created messages
-        content: "Can you help me write an API library to interact with the OpenAI API please?"
-    })["id"]
+  thread_id: thread_id,
+  parameters: {
+    role: "user", # Required for manually created messages
+    content: "Can you help me write an API library to interact with the OpenAI API please?"
+  }
+)["id"]
 
 # Retrieve individual message
 message = client.messages.retrieve(thread_id: thread_id, id: message_id)
@@ -960,32 +975,38 @@ To submit a thread to be evaluated with the model of an assistant, create a `Run
 
 ```ruby
 # Create run (will use instruction/model/tools from Assistant's definition)
-response = client.runs.create(thread_id: thread_id,
-    parameters: {
-        assistant_id: assistant_id,
-        max_prompt_tokens: 256,
-        max_completion_tokens: 16
-    })
+response = client.runs.create(
+  thread_id: thread_id,
+  parameters: {
+    assistant_id: assistant_id,
+    max_prompt_tokens: 256,
+    max_completion_tokens: 16
+  }
+)
 run_id = response['id']
 ```
 
 You can stream the message chunks as they come through:
 
 ```ruby
-client.runs.create(thread_id: thread_id,
-    parameters: {
-        assistant_id: assistant_id,
-        max_prompt_tokens: 256,
-        max_completion_tokens: 16,
-        stream: proc do |chunk, _bytesize|
-          print chunk.dig("delta", "content", 0, "text", "value") if chunk["object"] == "thread.message.delta"
-        end
-    })
+client.runs.create(
+  thread_id: thread_id,
+  parameters: {
+    assistant_id: assistant_id,
+    max_prompt_tokens: 256,
+    max_completion_tokens: 16,
+    stream: proc do |chunk, _bytesize|
+      if chunk["object"] == "thread.message.delta"
+        print chunk.dig("delta", "content", 0, "text", "value")
+      end
+    end
+  }
+)
 ```
 
 To get the status of a Run:
 
-```
+```ruby
 response = client.runs.retrieve(id: run_id, thread_id: thread_id)
 status = response['status']
 ```
@@ -994,23 +1015,23 @@ The `status` response can include the following strings `queued`, `in_progress`,
 
 ```ruby
 while true do
-    response = client.runs.retrieve(id: run_id, thread_id: thread_id)
-    status = response['status']
+  response = client.runs.retrieve(id: run_id, thread_id: thread_id)
+  status = response['status']
 
-    case status
-    when 'queued', 'in_progress', 'cancelling'
-      puts 'Sleeping'
-      sleep 1 # Wait one second and poll again
-    when 'completed'
-      break # Exit loop and report result to user
-    when 'requires_action'
-      # Handle tool calls (see below)
-    when 'cancelled', 'failed', 'expired'
-      puts response['last_error'].inspect
-      break # or `exit`
-    else
-      puts "Unknown status response: #{status}"
-    end
+  case status
+  when 'queued', 'in_progress', 'cancelling'
+    puts 'Sleeping'
+    sleep 1 # Wait one second and poll again
+  when 'completed'
+    break # Exit loop and report result to user
+  when 'requires_action'
+    # Handle tool calls (see below)
+  when 'cancelled', 'failed', 'expired'
+    puts response['last_error'].inspect
+    break # or `exit`
+  else
+    puts "Unknown status response: #{status}"
+  end
 end
 ```
 
@@ -1022,30 +1043,30 @@ messages = client.messages.list(thread_id: thread_id, parameters: { order: 'asc'
 
 # Alternatively retrieve the `run steps` for the run which link to the messages:
 run_steps = client.run_steps.list(thread_id: thread_id, run_id: run_id, parameters: { order: 'asc' })
-new_message_ids = run_steps['data'].filter_map { |step|
+new_message_ids = run_steps['data'].filter_map do |step|
   if step['type'] == 'message_creation'
     step.dig('step_details', "message_creation", "message_id")
   end # Ignore tool calls, because they don't create new messages.
-}
+end
 
 # Retrieve the individual messages
-new_messages = new_message_ids.map { |msg_id|
+new_messages = new_message_ids.map do |msg_id|
   client.messages.retrieve(id: msg_id, thread_id: thread_id)
-}
+end
 
 # Find the actual response text in the content array of the messages
-new_messages.each { |msg|
-    msg['content'].each { |content_item|
-        case content_item['type']
-        when 'text'
-            puts content_item.dig('text', 'value')
-            # Also handle annotations
-        when 'image_file'
-            # Use File endpoint to retrieve file contents via id
-            id = content_item.dig('image_file', 'file_id')
-        end
-    }
-}
+new_messages.each do |msg|
+  msg['content'].each do |content_item|
+    case content_item['type']
+    when 'text'
+      puts content_item.dig('text', 'value')
+      # Also handle annotations
+    when 'image_file'
+      # Use File endpoint to retrieve file contents via id
+      id = content_item.dig('image_file', 'file_id')
+    end
+  end
+end
 ```
 
 You can also update the metadata on messages, including messages that come from the assistant.
@@ -1054,7 +1075,11 @@ You can also update the metadata on messages, including messages that come from 
 metadata = {
   user_id: "abc123"
 }
-message = client.messages.modify(id: message_id, thread_id: thread_id, parameters: { metadata: metadata })
+message = client.messages.modify(
+  id: message_id,
+  thread_id: thread_id,
+  parameters: { metadata: metadata },
+)
 ```
 
 At any time you can list all runs which have been performed on a particular thread or are currently running:
@@ -1077,7 +1102,7 @@ thread_id = response['thread_id']
 
 You can include images in a thread and they will be described & read by the LLM. In this example I'm using [this file](https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png):
 
-```
+```ruby
 require "openai"
 
 # Make a client
@@ -1090,40 +1115,45 @@ client = OpenAI::Client.new(
 file_id = client.files.upload(
   parameters: {
     file: "path/to/example.png",
-    purpose: "assistants"
+    purpose: "assistants",
   }
 )["id"]
 
 # Create assistant
 assistant_id = client.assistants.create(
-    parameters: {
-        model: "gpt-4o",
-        name: "Image reader",
-        instructions: "You are an image describer. You describe the contents of images."
-    })["id"]
+  parameters: {
+    model: "gpt-4o",
+    name: "Image reader",
+    instructions: "You are an image describer. You describe the contents of images.",
+  }
+)["id"]
 
 # Create thread
 thread_id = client.threads.create["id"]
 
 # Add image in message
 client.messages.create(
-    thread_id: thread_id,
-    parameters: {
-        role: "user", # Required for manually created messages
-        content: [
-          {
-            "type": "text",
-            "text": "What's in this image?"
-          },
-          {
-            "type": "image_file",
-            "image_file": { "file_id": file_id }
-          }
-        ]
-    })
+  thread_id: thread_id,
+  parameters: {
+    role: "user", # Required for manually created messages
+    content: [
+      {
+        "type": "text",
+        "text": "What's in this image?"
+      },
+      {
+        "type": "image_file",
+        "image_file": { "file_id": file_id }
+      }
+    ]
+  }
+)
 
 # Run thread
-run_id = client.runs.create(thread_id: thread_id, parameters: { assistant_id: assistant_id })["id"]
+run_id = client.runs.create(
+  thread_id: thread_id,
+  parameters: { assistant_id: assistant_id }
+)["id"]
 
 # Wait until run in complete
 status = nil
@@ -1144,35 +1174,41 @@ In case you are allowing the assistant to access `function` tools (they are defi
 
 ```ruby
 def get_current_weather(location:, unit: "celsius")
-    # Your function code goes here
-    if location =~ /San Francisco/i
-        return unit == "celsius" ? "The weather is nice 🌞 at 27°C" : "The weather is nice 🌞 at 80°F"
-    else
-        return unit == "celsius" ? "The weather is icy 🥶 at -5°C" : "The weather is icy 🥶 at 23°F"
-    end
+  # Your function code goes here
+  if location =~ /San Francisco/i
+    return unit == "celsius" ? "The weather is nice 🌞 at 27°C" : "The weather is nice 🌞 at 80°F"
+  else
+    return unit == "celsius" ? "The weather is icy 🥶 at -5°C" : "The weather is icy 🥶 at 23°F"
+  end
 end
 
 if status == 'requires_action'
+  tools_to_call = response.dig('required_action', 'submit_tool_outputs', 'tool_calls')
 
-    tools_to_call = response.dig('required_action', 'submit_tool_outputs', 'tool_calls')
+  my_tool_outputs = tools_to_call.map { |tool|
+    # Call the functions based on the tool's name
+    function_name = tool.dig('function', 'name')
+    arguments = JSON.parse(
+      tool.dig("function", "arguments"),
+      { symbolize_names: true },
+    )
 
-    my_tool_outputs = tools_to_call.map { |tool|
-        # Call the functions based on the tool's name
-        function_name = tool.dig('function', 'name')
-        arguments = JSON.parse(
-              tool.dig("function", "arguments"),
-              { symbolize_names: true },
-        )
+    tool_output = case function_name
+    when "get_current_weather"
+      get_current_weather(**arguments)
+    end
 
-        tool_output = case function_name
-        when "get_current_weather"
-            get_current_weather(**arguments)
-        end
-
-        { tool_call_id: tool['id'], output: tool_output }
+    {
+      tool_call_id: tool['id'],
+      output: tool_output,
     }
+  }
 
-    client.runs.submit_tool_outputs(thread_id: thread_id, run_id: run_id, parameters: { tool_outputs: my_tool_outputs })
+  client.runs.submit_tool_outputs(
+    thread_id: thread_id,
+    run_id: run_id,
+    parameters: { tool_outputs: my_tool_outputs }
+  )
 end
 ```
 
@@ -1188,7 +1224,7 @@ An example spec can be found [here](https://github.com/alexrudall/ruby-openai/bl
 
 Here's how to get the chunks used in a file search. In this example I'm using [this file](https://css4.pub/2015/textbook/somatosensory.pdf):
 
-```
+```ruby
 require "openai"
 
 # Make a client
@@ -1294,7 +1330,12 @@ Generate images using DALL·E 2 or DALL·E 3!
 For DALL·E 2 the size of any generated images must be one of `256x256`, `512x512` or `1024x1024` - if not specified the image will default to `1024x1024`.
 
 ```ruby
-response = client.images.generate(parameters: { prompt: "A baby sea otter cooking pasta wearing a hat of some sort", size: "256x256" })
+response = client.images.generate(
+  parameters: {
+    prompt: "A baby sea otter cooking pasta wearing a hat of some sort",
+    size: "256x256",
+  }
+)
 puts response.dig("data", 0, "url")
 # => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
@@ -1306,7 +1347,14 @@ puts response.dig("data", 0, "url")
 For DALL·E 3 the size of any generated images must be one of `1024x1024`, `1024x1792` or `1792x1024`. Additionally the quality of the image can be specified to either `standard` or `hd`.
 
 ```ruby
-response = client.images.generate(parameters: { prompt: "A springer spaniel cooking pasta wearing a hat of some sort", model: "dall-e-3", size: "1024x1792", quality: "standard" })
+response = client.images.generate(
+  parameters: {
+    prompt: "A springer spaniel cooking pasta wearing a hat of some sort",
+    model: "dall-e-3",
+    size: "1024x1792",
+    quality: "standard",
+  }
+)
 puts response.dig("data", 0, "url")
 # => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
@@ -1318,7 +1366,13 @@ puts response.dig("data", 0, "url")
 Fill in the transparent part of an image, or upload a mask with transparent sections to indicate the parts of an image that can be changed according to your prompt...
 
 ```ruby
-response = client.images.edit(parameters: { prompt: "A solid red Ruby on a blue background", image: "image.png", mask: "mask.png" })
+response = client.images.edit(
+  parameters: {
+    prompt: "A solid red Ruby on a blue background",
+    image: "image.png",
+    mask: "mask.png",
+  }
+)
 puts response.dig("data", 0, "url")
 # => "https://oaidalleapiprodscus.blob.core.windows.net/private/org-Rf437IxKhh..."
 ```
@@ -1358,10 +1412,11 @@ The translations API takes as input the audio file in any of the supported langu
 
 ```ruby
 response = client.audio.translate(
-    parameters: {
-        model: "whisper-1",
-        file: File.open("path_to_file", "rb"),
-    })
+  parameters: {
+    model: "whisper-1",
+    file: File.open("path_to_file", "rb"),
+  }
+)
 puts response["text"]
 # => "Translation of the text"
 ```
@@ -1374,11 +1429,12 @@ You can pass the language of the audio file to improve transcription quality. Su
 
 ```ruby
 response = client.audio.transcribe(
-    parameters: {
-        model: "whisper-1",
-        file: File.open("path_to_file", "rb"),
-        language: "en" # Optional
-    })
+  parameters: {
+    model: "whisper-1",
+    file: File.open("path_to_file", "rb"),
+    language: "en", # Optional
+  }
+)
 puts response["text"]
 # => "Transcription of the text"
 ```
@@ -1394,7 +1450,7 @@ response = client.audio.speech(
     input: "This is a speech test!",
     voice: "alloy",
     response_format: "mp3", # Optional
-    speed: 1.0 # Optional
+    speed: 1.0, # Optional
   }
 )
 File.binwrite('demo.mp3', response)
@@ -1405,12 +1461,12 @@ File.binwrite('demo.mp3', response)
 
 HTTP errors can be caught like this:
 
-```
-  begin
-    OpenAI::Client.new.models.retrieve(id: "gpt-4o")
-  rescue Faraday::Error => e
-    raise "Got a Faraday error: #{e}"
-  end
+```ruby
+begin
+  OpenAI::Client.new.models.retrieve(id: "gpt-4o")
+rescue Faraday::Error => e
+  raise "Got a Faraday error: #{e}"
+end
 ```
 
 ## Development
