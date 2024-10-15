@@ -724,7 +724,7 @@ response.dig("choices", 0, "message", "content")
 
 You can also capture the events for a job:
 
-```
+```ruby
 client.finetunes.list_events(id: fine_tune_id)
 ```
 
@@ -916,7 +916,7 @@ response = client.assistants.modify(
 
 You can delete assistants:
 
-```
+```ruby
 client.assistants.delete(id: assistant_id)
 ```
 
@@ -985,7 +985,7 @@ client.runs.create(thread_id: thread_id,
 
 To get the status of a Run:
 
-```
+```ruby
 response = client.runs.retrieve(id: run_id, thread_id: thread_id)
 status = response['status']
 ```
@@ -1077,7 +1077,7 @@ thread_id = response['thread_id']
 
 You can include images in a thread and they will be described & read by the LLM. In this example I'm using [this file](https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png):
 
-```
+```ruby
 require "openai"
 
 # Make a client
@@ -1188,7 +1188,7 @@ An example spec can be found [here](https://github.com/alexrudall/ruby-openai/bl
 
 Here's how to get the chunks used in a file search. In this example I'm using [this file](https://css4.pub/2015/textbook/somatosensory.pdf):
 
-```
+```ruby
 require "openai"
 
 # Make a client
@@ -1405,7 +1405,7 @@ File.binwrite('demo.mp3', response)
 
 HTTP errors can be caught like this:
 
-```
+```ruby
   begin
     OpenAI::Client.new.models.retrieve(id: "gpt-4o")
   rescue Faraday::Error => e
