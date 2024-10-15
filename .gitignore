@@ -65,5 +65,7 @@ build-iPhoneSimulator/
 .vscode
 .vs/
 
+/path/to/*
+
 # Mac
 .DS_Store
