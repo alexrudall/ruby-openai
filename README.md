@@ -235,7 +235,9 @@ client = OpenAI::Client.new(log_errors: true)
 
 ##### Faraday middleware
 
-You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg. to enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
+You can pass [Faraday middleware](https://lostisland.github.io/faraday/#/middleware/index) to the client in a block, eg:
+
+- To enable verbose logging with Ruby's [Logger](https://ruby-doc.org/3.2.2/stdlibs/logger/Logger.html):
 
 ```ruby
 client = OpenAI::Client.new do |f|
@@ -243,6 +245,13 @@ client = OpenAI::Client.new do |f|
 end
 ```
 
+- To add a web debugging proxy:
+
+```ruby
+  client = OpenAI::Client.new do |f|
+    f.proxy = { uri: "http://localhost:8888" }
+  end
+```
 #### Azure
 
 To use the [Azure OpenAI Service](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/) API, you can configure the gem like this:
