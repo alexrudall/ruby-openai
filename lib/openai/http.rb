@@ -25,8 +25,8 @@ module OpenAI
       end&.body
     end
 
-    def multipart_post(path:, parameters: nil)
-      conn(multipart: true).post(uri(path: path)) do |req|
+    def multipart_post(path:, parameters: nil, plain_text_response: false)
+      conn(multipart: true, plain_text: plain_text_response).post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body
@@ -71,13 +71,13 @@ module OpenAI
       end
     end
 
-    def conn(multipart: false)
+    def conn(multipart: false, plain_text: false)
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
         f.use MiddlewareErrors if @log_errors
         f.response :raise_error
-        f.response :json
+        f.response :json unless plain_text
       end
 
       @faraday_middleware&.call(connection)
