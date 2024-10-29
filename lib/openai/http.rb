@@ -11,8 +11,8 @@ module OpenAI
         req.headers = headers
       end
 
-      content_type = response.headers['content-type']
-      content_type == 'application/octet-stream' ? response.body : parse_jsonl(response.body)
+      content_type = response.headers["content-type"]
+      content_type == "application/octet-stream" ? response.body : parse_jsonl(response.body)
     end
 
     def post(path:)
