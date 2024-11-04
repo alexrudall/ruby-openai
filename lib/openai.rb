@@ -18,6 +18,7 @@ require_relative "openai/vector_store_file_batches"
 require_relative "openai/audio"
 require_relative "openai/version"
 require_relative "openai/batches"
+require_relative "openai/real_time"
 
 module OpenAI
   class Error < StandardError; end

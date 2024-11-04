@@ -95,6 +95,10 @@ module OpenAI
       @batches ||= OpenAI::Batches.new(client: self)
     end
 
+    def real_time
+      @real_time ||= OpenAI::RealTime.new(client: self)
+    end
+
     def moderations(parameters: {})
       json_post(path: "/moderations", parameters: parameters)
     end
