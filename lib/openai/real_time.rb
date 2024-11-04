@@ -6,9 +6,14 @@ module OpenAI
     def initialize(client:)
       @client = client
       @websocket = nil
+      @on_message = nil
     end
 
-    def connect(model: "gpt-4o-realtime-preview-2024-10-01", &block)
+    def on_message(&block)
+      @on_message = block
+    end
+
+    def connect(model: "gpt-4o-realtime-preview-2024-10-01")
       uri = "#{File.join(@client.websocket_uri_base, @client.api_version, 'realtime')}?model=#{model}"
       headers = {
         "Authorization" => "Bearer #{@client.access_token}",
@@ -16,7 +21,7 @@ module OpenAI
       }
       EM.run do
         @websocket = Faye::WebSocket::Client.new(uri, nil, headers: headers)
-        @websocket.on :message, &block
+        @websocket.on :message, @on_message
       end
     end
 
