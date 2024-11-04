@@ -10,6 +10,7 @@ module OpenAI
       log_errors
       organization_id
       uri_base
+      websocket_uri_base
       request_timeout
       extra_headers
     ].freeze
