@@ -1,3 +1,5 @@
+require "async/http/faraday"
+
 RSpec.describe OpenAI::HTTP do
   describe "with an aggressive timeout" do
     let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }
@@ -31,7 +33,7 @@ RSpec.describe OpenAI::HTTP do
 
     describe ".json_post" do
       let(:response) do
-        OpenAI::Client.new.chat(parameters: parameters)
+        OpenAI::Client.new(async: true).chat(parameters: parameters)
       end
 
       let(:parameters) do

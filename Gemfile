@@ -3,6 +3,7 @@ source "https://rubygems.org"
 # Include gem dependencies from ruby-openai.gemspec
 gemspec
 
+gem "async-http-faraday", "~> 0.19.0"
 gem "byebug", "~> 11.1.3"
 gem "dotenv", "~> 2.8.1"
 gem "rake", "~> 13.2"

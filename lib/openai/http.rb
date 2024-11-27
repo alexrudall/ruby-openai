@@ -78,6 +78,7 @@ module OpenAI
         f.use MiddlewareErrors if @log_errors
         f.response :raise_error
         f.response :json
+        f.adapter :async_http if @async
       end
 
       @faraday_middleware&.call(connection)
