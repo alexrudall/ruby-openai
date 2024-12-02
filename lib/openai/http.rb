@@ -87,13 +87,13 @@ module OpenAI
     def build_azure_uri(path:, parameters: nil)
       case path
       when /\/chat\/completions\z/
-        base = File.join(@uri_base,'deployments',"#{parameters[:model]}",path)
+        base = File.join(@uri_base,'deployments', "#{parameters[:model]}",path)
       when /\/completions\z/
-        base = File.join(@uri_base,'deployments',"#{parameters[:model]}","chat",path)
+        base = File.join(@uri_base,'deployments', "#{parameters[:model]}","chat",path)
       else
-        base = File.join(@uri_base,path)
+        base = File.join(@uri_base, path)
       end
-      "#{base}?api-version=#{@api_version}" 
+      "#{base}?api-version=#{@api_version}"
     end
 
     def uri(path:,parameters: nil)
