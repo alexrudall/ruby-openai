@@ -1,4 +1,5 @@
 ### Ruby ###
+.ruby-version
 *.gem
 *.rbc
 /.config

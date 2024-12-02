@@ -1,5 +1,4 @@
 require "event_stream_parser"
-
 require_relative "http_headers"
 
 module OpenAI
@@ -7,7 +6,7 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil)
-      parse_jsonl(conn.get(uri(path: path), parameters) do |req|
+      parse_jsonl(conn.get(uri(path: path, parameters: parameters), parameters) do |req|
         req.headers = headers
       end&.body)
     end
@@ -19,14 +18,14 @@ module OpenAI
     end
 
     def json_post(path:, parameters:, query_parameters: {})
-      conn.post(uri(path: path)) do |req|
+      conn.post(uri(path: path, parameters: parameters)) do |req|
         configure_json_post_request(req, parameters)
         req.params = req.params.merge(query_parameters)
       end&.body
     end
 
     def multipart_post(path:, parameters: nil)
-      conn(multipart: true).post(uri(path: path)) do |req|
+      conn(multipart: true).post(uri(path: path, parameters: parameters)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
       end&.body
@@ -85,10 +84,21 @@ module OpenAI
       connection
     end
 
-    def uri(path:)
+    def build_azure_uri(path:, parameters: nil)
+      case path
+      when /\/chat\/completions\z/
+        base = File.join(@uri_base,'deployments',"#{parameters[:model]}",path)
+      when /\/completions\z/
+        base = File.join(@uri_base,'deployments',"#{parameters[:model]}","chat",path)
+      else
+        base = File.join(@uri_base,path)
+      end
+      "#{base}?api-version=#{@api_version}" 
+    end
+
+    def uri(path:,parameters: nil)
       if azure?
-        base = File.join(@uri_base, path)
-        "#{base}?api-version=#{@api_version}"
+        build_azure_uri(path: path, parameters: parameters)
       elsif @uri_base.include?(@api_version)
         File.join(@uri_base, path)
       else
