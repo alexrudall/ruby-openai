@@ -28,6 +28,7 @@ Stream text with GPT-4o, transcribe and translate audio with Whisper, or create 
       - [Azure](#azure)
       - [Ollama](#ollama)
       - [Groq](#groq)
+      - [Gemini](#gemini)
     - [Counting Tokens](#counting-tokens)
     - [Models](#models)
     - [Chat](#chat)
@@ -275,6 +276,30 @@ client.chat(
     end
   }
 )
+```
+
+#### Gemini
+
+[Gemini API Chat](https://ai.google.dev/gemini-api/docs/openai) is also broadly compatible with the OpenAI API, and [currently in beta](https://ai.google.dev/gemini-api/docs/openai#current-limitations). Get an access token from [here](https://aistudio.google.com/app/apikey), then:
+
+```ruby
+client = OpenAI::Client.new(
+  access_token: "gemini_access_token_goes_here",
+  uri_base: "https://generativelanguage.googleapis.com/v1beta/openai/"
+)
+
+client.chat(
+  parameters: {
+    model: "gemini-1.5-flash", # Required.
+    messages: [{ role: "user", content: "Hello!"}], # Required.
+    temperature: 0.7,
+    stream: proc do |chunk, _bytesize|
+     print chunk.dig("choices", 0, "delta", "content")
+    end
+  }
+)
+
+# => Hello there! How can I help you today?
 ```
 
 ### Counting Tokens
