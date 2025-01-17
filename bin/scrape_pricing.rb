@@ -6,80 +6,87 @@ require_relative "../lib/openai"
 
 begin
   playwright_path = `which playwright`.strip
-  abort "playwright not found. Please install playwright with `npm install -g playwright && playwright install`" if playwright_path.empty?
+  if playwright_path.empty?
+    abort "playwright not found. Please install playwright with " \
+          "`npm install -g playwright && playwright install`"
+  end
   chrome_path = `which chrome`.strip
   chrome_path = `which chromium`.strip if chrome_path.empty?
-  abort "Neither chromium nor chrome found. Please install chromium before continuing" if chrome_path.empty?
+  if chrome_path.empty?
+    abort "Neither chromium nor chrome found. Please install chromium before continuing"
+  end
 
-  abort "OPENAI_ACCESS_TOKEN not set. Please set the OPENAI_ACCESS_TOKEN environment variable before continuing" if ENV["OPENAI_ACCESS_TOKEN"]&.empty?
+  if ENV["OPENAI_ACCESS_TOKEN"] && ENV["OPENAI_ACCESS_TOKEN"].empty?
+    abort "OPENAI_ACCESS_TOKEN not set. Please set the OPENAI_ACCESS_TOKEN " \
+          "environment variable before continuing"
+  end
 
   pricing_data = ""
-  
+
   Playwright.create(playwright_cli_executable_path: playwright_path) do |playwright|
     chromium = playwright.chromium
     browser = chromium.launch(
       headless: false,
       args: ["--window-size=1920,1080"]
     )
-    
+
     puts "reading pricing data from openai pricing page"
     page = browser.new_page
     page.goto("https://openai.com/api/pricing/")
-    
+
     puts "Waiting for the page to be fully loaded"
     page.wait_for_load_state(state: "domcontentloaded")
 
     puts "extracting pricing data from the page"
     elements = page.query_selector_all("div.m\\:max-w-container").take(5)
-    
+
     pricing_data = elements.map do |element|
       rows = element.query_selector_all("div.grid-cols-autofit")
       rows.map do |row|
         # Get all cells in the row
         cells = row.query_selector_all("div.m\\:border-l-\\[1px\\]")
-        
+
         # Extract text from each cell, strip whitespace, and filter out empty cells
         row_data = cells.map { |cell| cell.text_content.strip }.reject(&:empty?)
         row_data if row_data.any?
       end.compact
     end
-    
+
     puts "\nPricing Table Data:"
     pricing_data.each do |row|
       puts row.join(" | ")
     end
-    
+
     browser.close
   end
 
   puts "processing pricing data"
   OpenAI.configure do |config|
     config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-    config.log_errors = true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommended in production because it could leak private data to your logs.
+    config.log_errors = true
   end
 
-  client = OpenAI::Client.new    
+  client = OpenAI::Client.new
   messages = [
-    { 
-      role: "user", 
+    {
+      role: "user",
       content: [
-        { 
-          type: "text", 
-          text: DATA.read.gsub("<%= pricing_data %>", pricing_data.to_s) 
+        {
+          type: "text",
+          text: DATA.read.gsub("<%= pricing_data %>", pricing_data.to_s)
         }
       ]
     }
   ]
 
   response = client.chat(parameters: {
-    model: "gpt-4o-mini",
-    messages: messages
-  })
-
+                           model: "gpt-4o-mini",
+                           messages: messages
+                         })
 
   pricing = response.dig("choices", 0, "message", "content").strip.downcase
   puts pricing
-rescue => e
+rescue StandardError => e
   puts "An error occurred: #{e.class} - #{e.message}"
   puts e.backtrace
 end
@@ -93,7 +100,7 @@ I'll give you a pricing table and you'll extract the pricing details from each m
 
 Read the data provided in the `# Pricing data to process` section. 
 Extract the pricing details from each model.
-Format the data as a ruby hash with the following keys: 
+Format the data as json object with the following keys: 
 * model
 * input
 * cached input
@@ -104,7 +111,7 @@ Format the data as a ruby hash with the following keys:
 Use plain numbers for the prices without any currency notation.
 Take into account that audio-enabled models (e.g. gpt-4o-audio-preview-2024-12-17) there's no input cached nor batch pricing, take the values from the Text section. 
 
-Respond with the ruby hash as plain text without any formatting ready to be written to a ruby file.
+Respond with a json object as plain text without any formatting ready to be written to a ruby file.
 
 ## Input data format
 
@@ -149,9 +156,27 @@ $12.00 / 1M output** tokens
 
 the expected output is:
 {
-  "gpt-4o" => {input: 2.5, cached_input: 1.25, output: 10.0, audio_input: nil, audio_output: nil},
-  "gpt-4o-audio-preview-2024-11-20" => {input: 2.5, cached_input: 2.5, output: 10.0, audio_input: 40.0, audio_output: 80.0},
-  "o1-mini" => {input: 3.0, cached_input: 1.5, output: 12.0, audio_input: nil, audio_output: nil},
+  "gpt-4o": {
+    "input": 2.5,
+    "cached_input": 1.25,
+    "output": 10.0,
+    "audio_input": null,
+    "audio_output": null
+  },
+  "gpt-4o-audio-preview-2024-11-20": {
+    "input": 2.5,
+    "cached_input": 2.5,
+    "output": 10.0,
+    "audio_input": 40.0,
+    "audio_output": 80.0
+  },
+  "o1-mini": {
+    "input": 3.0,
+    "cached_input": 1.5,
+    "output": 12.0,
+    "audio_input": null,
+    "audio_output": null
+  }
 }
 
 ## Pricing Data to process

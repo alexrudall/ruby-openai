@@ -116,7 +116,7 @@ module OpenAI
         SENSITIVE_ATTRIBUTES.include?(var) ? "#{var}=[REDACTED]" : "#{var}=#{value.inspect}"
       end
 
-      "#<#{self.class}:#{object_id} #{vars.join(", ")}>"
+      "#<#{self.class}:#{object_id} #{vars.join(', ')}>"
     end
 
     private

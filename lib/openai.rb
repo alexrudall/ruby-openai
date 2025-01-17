@@ -44,6 +44,7 @@ module OpenAI
     attr_accessor :access_token,
                   :api_type,
                   :api_version,
+                  :costs_table_path,
                   :log_errors,
                   :organization_id,
                   :uri_base,
@@ -59,6 +60,7 @@ module OpenAI
       @access_token = nil
       @api_type = nil
       @api_version = DEFAULT_API_VERSION
+      @costs_table_path = File.expand_path("../data/costs_table.json", __dir__)
       @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE

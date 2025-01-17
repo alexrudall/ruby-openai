@@ -1,28 +1,48 @@
-RSpec.describe OpenAI::Pricing do
-  COSTS = {
-    "gpt-4o" => {input: 2.50, cached_input: 1.25, output: 10.0, audio_input: nil, audio_output: nil},
-    "gpt-4o-audio-preview" => {input: 2.5, cached_input: 1.25, output: 10.0, audio_input: 40.0, audio_output: 80.0}
-  }
+module OpenAI
+  class Pricing
+    # rubocop:disable Metrics/MethodLength
+    def self.costs_table
+      {
+        "gpt-4o" => {
+          input: 2.50,
+          cached_input: 1.25,
+          output: 10.0,
+          audio_input: nil,
+          audio_output: nil
+        },
+        "gpt-4o-audio-preview" => {
+          input: 2.5,
+          cached_input: 1.25,
+          output: 10.0,
+          audio_input: 40.0,
+          audio_output: 80.0
+        }
+      }.freeze
+    end
+    # rubocop:enable Metrics/MethodLength
+  end
+end
 
+RSpec.describe OpenAI::Pricing do
   describe ".calculate" do
     context "with invalid inputs" do
       it "returns empty hash when model is nil" do
-        response = described_class.new.calculate({"model" => nil}, COSTS)
+        response = described_class.new.calculate({ "model" => nil })
         expect(response).to eq({})
       end
 
       it "returns empty hash when model is empty" do
-        response = described_class.new.calculate({"model" => ""}, COSTS)
+        response = described_class.new.calculate({ "model" => "" })
         expect(response).to eq({})
       end
 
       it "returns empty hash when usage is empty" do
-        response = described_class.new.calculate({"model" => "gpt-4o", "usage" => {}}, COSTS)
+        response = described_class.new.calculate({ "model" => "gpt-4o", "usage" => {} })
         expect(response).to eq({})
       end
 
       it "returns empty hash when usage is nil" do
-        response = described_class.new.calculate({"model" => "gpt-4o", "usage" => nil}, COSTS)
+        response = described_class.new.calculate({ "model" => "gpt-4o", "usage" => nil })
         expect(response).to eq({})
       end
     end
@@ -48,9 +68,9 @@ RSpec.describe OpenAI::Pricing do
           }
         }
 
-        result = described_class.new.calculate(response, COSTS)
+        result = described_class.new.calculate(response)
 
-        expect(result[:prompt_cost]).to eq(0.0001875, )
+        expect(result[:prompt_cost]).to eq(0.0001875)
         expect(result[:completion_cost]).to eq(0.002)
         expect(result[:total_cost]).to eq(0.0021875)
 
@@ -87,9 +107,9 @@ RSpec.describe OpenAI::Pricing do
           }
         }
 
-        result = described_class.new.calculate(response, COSTS)
+        result = described_class.new.calculate(response)
 
-        expect(result[:prompt_cost]).to eq(0.004375, )
+        expect(result[:prompt_cost]).to eq(0.004375)
         expect(result[:completion_cost]).to eq(0.012)
         expect(result[:total_cost]).to eq(0.016375)
 
