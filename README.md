@@ -8,7 +8,9 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Stream text with GPT-4o, transcribe and translate audio with Whisper, or create images with DALL·E...
 
-[🚀 Hire me to build your Rails+AI app](https://insertrobot.com) | [📚 Rails AI](https://railsai.com) | [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
+📧 Sign up [here](https://mailchi.mp/8c7b574726a9/ruby-openai) to be first to hear about new releases!
+
+[🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
 ## Contents
 
