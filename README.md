@@ -1,14 +1,15 @@
 # Ruby OpenAI
-
 [![Gem Version](https://img.shields.io/gem/v/ruby-openai.svg)](https://rubygems.org/gems/ruby-openai)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Stream text with GPT-4o, transcribe and translate audio with Whisper, or create images with DALL·E...
+Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
 
-📧 Sign up [here](https://mailchi.mp/8c7b574726a9/ruby-openai) to be first to hear about new releases!
+💥 Click [subscribe now](https://mailchi.mp/8c7b574726a9/ruby-openai) to hear first about new releases in the Rails AI newsletter!
+
+[![RailsAI Newsletter](https://github.com/user-attachments/assets/737cbb99-6029-42b8-9f22-a106725a4b1f)](https://mailchi.mp/8c7b574726a9/ruby-openai)
 
 [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
