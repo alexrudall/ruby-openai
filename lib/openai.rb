@@ -47,6 +47,7 @@ module OpenAI
                   :organization_id,
                   :uri_base,
                   :request_timeout,
+                  :proxy,
                   :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
@@ -63,6 +64,7 @@ module OpenAI
       @uri_base = DEFAULT_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
+      @proxy = nil
     end
   end
 
