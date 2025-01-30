@@ -7,21 +7,42 @@ RSpec.describe OpenAI::Client do
 
         let(:response) do
           OpenAI::Client.new.audio.transcribe(
-            parameters: {
-              model: model,
-              file: File.open(audio, "rb")
-            }
+            parameters: parameters
           )
         end
-        let(:content) { response["text"] }
-        let(:cassette) { "audio #{model} transcribe".downcase }
+        let(:parameters) do
+          {
+            model: model,
+            file: File.open(audio, "rb")
+          }
+        end
 
         context "with model: whisper-1" do
           let(:model) { "whisper-1" }
+          let(:cassette) { "audio #{model} transcribe".downcase }
+          let(:content) { response["text"] }
 
           it "succeeds" do
             VCR.use_cassette(cassette) do
               expect(content.empty?).to eq(false)
+            end
+          end
+
+          context "with response_format: 'vtt'" do
+            let(:parameters) do
+              {
+                model: model,
+                file: File.open(audio, "rb"),
+                response_format: response_format
+              }
+            end
+            let(:response_format) { "vtt" }
+            let(:cassette) { "audio #{model} transcribe with #{response_format} format".downcase }
+
+            it "succeeds" do
+              VCR.use_cassette(cassette) do
+                expect(response).to include("WEBVTT")
+              end
             end
           end
         end
