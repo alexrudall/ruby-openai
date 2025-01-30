@@ -28,15 +28,15 @@ module OpenAI
     end
 
     def chat(parameters: {})
-      json_post(path: "/chat/completions", parameters: parameters)
+      merge_cost_data json_post(path: "/chat/completions", parameters: parameters)
     end
 
     def embeddings(parameters: {})
-      json_post(path: "/embeddings", parameters: parameters)
+      merge_cost_data json_post(path: "/embeddings", parameters: parameters)
     end
 
     def completions(parameters: {})
-      json_post(path: "/completions", parameters: parameters)
+      merge_cost_data json_post(path: "/completions", parameters: parameters)
     end
 
     def audio
@@ -117,6 +117,16 @@ module OpenAI
       end
 
       "#<#{self.class}:#{object_id} #{vars.join(', ')}>"
+    end
+
+    private
+
+    def merge_cost_data(response)
+      return if response.empty?
+      return unless response["usage"]
+
+      cost_data = OpenAI::Pricing.calculate(response)
+      response.tap { |r| r.merge!(cost: cost_data) }
     end
   end
 end

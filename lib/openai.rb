@@ -18,9 +18,10 @@ require_relative "openai/vector_store_file_batches"
 require_relative "openai/audio"
 require_relative "openai/version"
 require_relative "openai/batches"
-
+require_relative "openai/pricing"
 module OpenAI
   class Error < StandardError; end
+
   class ConfigurationError < Error; end
 
   class MiddlewareErrors < Faraday::Middleware
@@ -43,6 +44,7 @@ module OpenAI
     attr_accessor :access_token,
                   :api_type,
                   :api_version,
+                  :costs_table_path,
                   :log_errors,
                   :organization_id,
                   :uri_base,
@@ -58,6 +60,7 @@ module OpenAI
       @access_token = nil
       @api_type = nil
       @api_version = DEFAULT_API_VERSION
+      @costs_table_path = File.expand_path("../data/costs_table.json", __dir__)
       @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
