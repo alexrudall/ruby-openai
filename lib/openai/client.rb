@@ -10,6 +10,7 @@ module OpenAI
       log_errors
       organization_id
       uri_base
+      websocket_uri_base
       request_timeout
       extra_headers
     ].freeze
@@ -93,6 +94,10 @@ module OpenAI
 
     def batches
       @batches ||= OpenAI::Batches.new(client: self)
+    end
+
+    def real_time
+      @real_time ||= OpenAI::RealTime.new(client: self)
     end
 
     def moderations(parameters: {})

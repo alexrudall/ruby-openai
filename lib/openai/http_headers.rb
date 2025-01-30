@@ -22,6 +22,13 @@ module OpenAI
       }.compact
     end
 
+    def openai_realtime_headers
+      {
+        "Authorization" => "Bearer #{@client.access_token}",
+        "OpenAI-Beta" => "realtime=v1"
+      }
+    end
+
     def azure_headers
       {
         "Content-Type" => "application/json",

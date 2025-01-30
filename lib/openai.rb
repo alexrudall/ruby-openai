@@ -18,6 +18,7 @@ require_relative "openai/vector_store_file_batches"
 require_relative "openai/audio"
 require_relative "openai/version"
 require_relative "openai/batches"
+require_relative "openai/real_time"
 
 module OpenAI
   class Error < StandardError; end
@@ -46,11 +47,13 @@ module OpenAI
                   :log_errors,
                   :organization_id,
                   :uri_base,
+                  :websocket_uri_base,
                   :request_timeout,
                   :extra_headers
 
     DEFAULT_API_VERSION = "v1".freeze
     DEFAULT_URI_BASE = "https://api.openai.com/".freeze
+    DEFAULT_WEBSOCKET_URI_BASE = "wss://api.openai.com/".freeze
     DEFAULT_REQUEST_TIMEOUT = 120
     DEFAULT_LOG_ERRORS = false
 
@@ -61,6 +64,7 @@ module OpenAI
       @log_errors = DEFAULT_LOG_ERRORS
       @organization_id = nil
       @uri_base = DEFAULT_URI_BASE
+      @websocket_uri_base = DEFAULT_WEBSOCKET_URI_BASE
       @request_timeout = DEFAULT_REQUEST_TIMEOUT
       @extra_headers = {}
     end
