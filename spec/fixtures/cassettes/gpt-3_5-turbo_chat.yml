@@ -23,47 +23,37 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 26 Nov 2023 11:45:46 GMT
+      - Mon, 13 Jan 2025 12:50:43 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Access-Control-Allow-Origin:
-      - "*"
-      Cache-Control:
-      - no-cache, must-revalidate
-      Openai-Model:
-      - gpt-3.5-turbo-0613
+      Access-Control-Expose-Headers:
+      - X-Request-ID
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1065'
+      - '258'
       Openai-Version:
       - '2020-10-01'
-      Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
       X-Ratelimit-Limit-Requests:
-      - '3500'
+      - '10000'
       X-Ratelimit-Limit-Tokens:
-      - '90000'
-      X-Ratelimit-Limit-Tokens-Usage-Based:
-      - '90000'
+      - '200000'
       X-Ratelimit-Remaining-Requests:
-      - '3499'
+      - '9999'
       X-Ratelimit-Remaining-Tokens:
-      - '89980'
-      X-Ratelimit-Remaining-Tokens-Usage-Based:
-      - '89980'
+      - '199981'
       X-Ratelimit-Reset-Requests:
-      - 17ms
+      - 8.64s
       X-Ratelimit-Reset-Tokens:
-      - 12ms
-      X-Ratelimit-Reset-Tokens-Usage-Based:
-      - 12ms
+      - 5ms
       X-Request-Id:
-      - d37ce9eab44ed35275edd3b48ca62658
+      - req_79dffb9126ab277aeae17d13f19862a7
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
@@ -75,32 +65,46 @@ http_interactions:
       Server:
       - cloudflare
       Cf-Ray:
-      - 82c1e3120f500acb-MAN
+      - 7b15d86a4a0edd70-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-8P7s1c2QVZW1Uqqd11S0cB78LBvoA",
+          "id": "chatcmpl-ApEBuZmSu5v0WhXCz19jR6O7garIm",
           "object": "chat.completion",
-          "created": 1700999145,
-          "model": "gpt-3.5-turbo-0613",
+          "created": 1736772642,
+          "model": "gpt-3.5-turbo-0125",
           "choices": [
             {
               "index": 0,
               "message": {
                 "role": "assistant",
-                "content": "Hi there! How can I assist you today?"
+                "content": "Hello! How can I assist you today?",
+                "refusal": null
               },
+              "logprobs": null,
               "finish_reason": "stop"
             }
           ],
           "usage": {
             "prompt_tokens": 9,
             "completion_tokens": 10,
-            "total_tokens": 19
-          }
+            "total_tokens": 19,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": null
         }
-  recorded_at: Sun, 26 Nov 2023 11:45:46 GMT
+  recorded_at: Mon, 13 Jan 2025 12:50:43 GMT
 recorded_with: VCR 6.1.0
