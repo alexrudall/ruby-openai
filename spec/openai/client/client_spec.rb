@@ -112,6 +112,41 @@ RSpec.describe OpenAI::Client do
     end
   end
 
+  context "when using admin endpoints" do
+    let(:admin_token) { "admin-token" }
+
+    context "with admin token configured" do
+      let(:client) do
+        OpenAI::Client.new(admin_token: admin_token)
+      end
+
+      it "creates a new client instance with admin token as access token" do
+        admin_client = client.admin
+        expect(admin_client).not_to eq(client)
+        expect(admin_client.access_token).to eq(admin_token)
+        expect(client.access_token).not_to eq(admin_token) # Original unchanged
+      end
+    end
+
+    context "when using both beta and admin" do
+      let(:client) do
+        OpenAI::Client.new(admin_token: admin_token)
+      end
+
+      it "allows chaining beta and admin" do
+        admin_beta_client = client.beta(assistants: "v2").admin
+        expect(admin_beta_client.access_token).to eq(admin_token)
+        expect(admin_beta_client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v2"
+      end
+
+      it "allows chaining admin and beta" do
+        admin_beta_client = client.admin.beta(assistants: "v2")
+        expect(admin_beta_client.access_token).to eq(admin_token)
+        expect(admin_beta_client.send(:headers)["OpenAI-Beta"]).to eq "assistants=v2"
+      end
+    end
+  end
+
   context "when using beta APIs" do
     let(:client) { OpenAI::Client.new.beta(assistants: "v2") }
 

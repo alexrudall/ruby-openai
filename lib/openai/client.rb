@@ -2,18 +2,20 @@ module OpenAI
   class Client
     include OpenAI::HTTP
 
-    SENSITIVE_ATTRIBUTES = %i[@access_token @organization_id @extra_headers].freeze
+    SENSITIVE_ATTRIBUTES = %i[@access_token @admin_token @organization_id @extra_headers].freeze
     CONFIG_KEYS = %i[
+      access_token
+      admin_token
       api_type
       api_version
-      access_token
+      extra_headers
       log_errors
       organization_id
-      uri_base
       request_timeout
-      extra_headers
+      uri_base
     ].freeze
     attr_reader *CONFIG_KEYS, :faraday_middleware
+    attr_writer :access_token
 
     def initialize(config = {}, &faraday_middleware)
       CONFIG_KEYS.each do |key|
@@ -99,8 +101,23 @@ module OpenAI
       json_post(path: "/moderations", parameters: parameters)
     end
 
+    def usage
+      @usage ||= OpenAI::Usage.new(client: self)
+    end
+
     def azure?
       @api_type&.to_sym == :azure
+    end
+
+    def admin
+      unless admin_token
+        e = "You must set an OPENAI_ADMIN_TOKEN= to use administrative endpoints:\n\n  https://platform.openai.com/settings/organization/admin-keys"
+        raise AuthenticationError, e
+      end
+
+      dup.tap do |client|
+        client.access_token = client.admin_token
+      end
     end
 
     def beta(apis)

@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/organization/usage/moderations?start_time=1738865073
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ADMIN_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 07 Feb 2025 18:04:33 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_207c8eb17be04cb8f18f6dc68eb88206
+      Openai-Processing-Ms:
+      - '271'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=OjZBcnRDOs4DU3cEXSNDbXFI1Xv_gpUX0BTY39RfhLM-1738951473-1.0.1.1-_RAsxVSUNo5bHXArsPDK1jW7GkbOm_3kNGiaDKzoEJMteBF_QSWDd0w8DGeELn60PsqzJqGN7Spq9KxhE33ZDQ;
+        path=/; expires=Fri, 07-Feb-25 18:34:33 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=szTr0eO6axf4Ynzr3IibDHsvPQXrrafVSSzYfyJBLUc-1738951473588-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 90e54d935f6e9428-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "page",
+          "data": [
+            {
+              "object": "bucket",
+              "start_time": 1738865073,
+              "end_time": 1738886400,
+              "results": []
+            },
+            {
+              "object": "bucket",
+              "start_time": 1738886400,
+              "end_time": 1738951473,
+              "results": []
+            }
+          ],
+          "has_more": false,
+          "next_page": null
+        }
+  recorded_at: Fri, 07 Feb 2025 18:04:33 GMT
+recorded_with: VCR 6.1.0
