@@ -1,0 +1,96 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/organization/usage/vector_stores?start_time=1739096063
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ADMIN_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 10 Feb 2025 15:33:01 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_c419e320b5a97b928469afafaa69c6c1
+      Openai-Processing-Ms:
+      - '1386'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=SidFuLBgL7ANVdqPNXUmAmFDuycg_3wYzPen1yy4zQE-1739201581-1.0.1.1-KE8YY9AupjlTEPmef2sXLtY7G2f8NBiAyy5AIQ_JikWHJXaJE8gzbTxt.OV5F5GNCnm8VbyG1mq9CQ5bYxmyiQ;
+        path=/; expires=Mon, 10-Feb-25 16:03:01 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=T6FyCyckNlx5SdEijG0ajCZE9D0rD4hnERLIDCXyU7s-1739201581463-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 90fd27b29cd79578-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "page",
+          "data": [
+            {
+              "object": "bucket",
+              "start_time": 1739096063,
+              "end_time": 1739145600,
+              "results": [
+                {
+                  "object": "organization.usage.vector_stores.result",
+                  "usage_bytes": 22957948,
+                  "project_id": null
+                }
+              ]
+            },
+            {
+              "object": "bucket",
+              "start_time": 1739145600,
+              "end_time": 1739201580,
+              "results": [
+                {
+                  "object": "organization.usage.vector_stores.result",
+                  "usage_bytes": 15893964,
+                  "project_id": null
+                }
+              ]
+            }
+          ],
+          "has_more": false,
+          "next_page": null
+        }
+  recorded_at: Mon, 10 Feb 2025 15:33:01 GMT
+recorded_with: VCR 6.1.0

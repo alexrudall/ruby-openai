@@ -1,3 +1,3 @@
 module OpenAI
-  VERSION = "7.3.1".freeze
+  VERSION = "7.4.0".freeze
 end

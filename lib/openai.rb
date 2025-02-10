@@ -18,10 +18,12 @@ require_relative "openai/vector_store_file_batches"
 require_relative "openai/audio"
 require_relative "openai/version"
 require_relative "openai/batches"
+require_relative "openai/usage"
 
 module OpenAI
   class Error < StandardError; end
   class ConfigurationError < Error; end
+  class AuthenticationError < Error; end
 
   class MiddlewareErrors < Faraday::Middleware
     def call(env)
@@ -41,6 +43,7 @@ module OpenAI
 
   class Configuration
     attr_accessor :access_token,
+                  :admin_token,
                   :api_type,
                   :api_version,
                   :log_errors,
@@ -56,6 +59,7 @@ module OpenAI
 
     def initialize
       @access_token = nil
+      @admin_token = nil
       @api_type = nil
       @api_version = DEFAULT_API_VERSION
       @log_errors = DEFAULT_LOG_ERRORS
