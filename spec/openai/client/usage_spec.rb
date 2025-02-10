@@ -27,6 +27,7 @@ RSpec.describe OpenAI::Client do
       images
       audio_speeches
       audio_transcriptions
+      vector_stores
       costs
     ].each do |endpoint|
       include_examples "usage endpoint", endpoint
