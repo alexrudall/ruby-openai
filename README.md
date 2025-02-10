@@ -20,7 +20,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
   - [Installation](#installation)
     - [Bundler](#bundler)
     - [Gem install](#gem-install)
-  - [Usage](#usage)
+  - [How to use](#how-to-use)
     - [Quickstart](#quickstart)
     - [With Config](#with-config)
       - [Custom timeout or base URI](#custom-timeout-or-base-uri)
@@ -103,7 +103,7 @@ and require with:
 require "openai"
 ```
 
-## Usage
+## How to use
 
 - Get your API key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
 - If you belong to multiple organizations, you can get your Organization ID from [https://platform.openai.com/account/org-settings](https://platform.openai.com/account/org-settings)
@@ -126,6 +126,7 @@ For a more robust setup, you can configure the gem with your API keys, for examp
 ```ruby
 OpenAI.configure do |config|
   config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
+  config.admin_token = ENV.fetch("OPENAI_ADMIN_TOKEN") # Optional, used for admin endpoints, created here: https://platform.openai.com/settings/organization/admin-keys
   config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
   config.log_errors = true # Highly recommended in development, so you can see what errors OpenAI is returning. Not recommended in production because it could leak private data to your logs.
 end
@@ -137,10 +138,10 @@ Then you can create a client like this:
 client = OpenAI::Client.new
 ```
 
-You can still override the config defaults when making new clients; any options not included will fall back to any global config set with OpenAI.configure. e.g. in this example the organization_id, request_timeout, etc. will fallback to any set globally using OpenAI.configure, with only the access_token overridden:
+You can still override the config defaults when making new clients; any options not included will fall back to any global config set with OpenAI.configure. e.g. in this example the organization_id, request_timeout, etc. will fallback to any set globally using OpenAI.configure, with only the access_token and admin_token overridden:
 
 ```ruby
-client = OpenAI::Client.new(access_token: "access_token_goes_here")
+client = OpenAI::Client.new(access_token: "access_token_goes_here", admin_token: "admin_token_goes_here")
 ```
 
 #### Custom timeout or base URI
@@ -168,8 +169,9 @@ or when configuring the gem:
 ```ruby
 OpenAI.configure do |config|
   config.access_token = ENV.fetch("OPENAI_ACCESS_TOKEN")
-  config.log_errors = true # Optional
+  config.admin_token = ENV.fetch("OPENAI_ADMIN_TOKEN") # Optional, used for admin endpoints, created here: https://platform.openai.com/settings/organization/admin-keys
   config.organization_id = ENV.fetch("OPENAI_ORGANIZATION_ID") # Optional
+  config.log_errors = true # Optional
   config.uri_base = "https://oai.hconeai.com/" # Optional
   config.request_timeout = 240 # Optional
   config.extra_headers = {
@@ -1462,7 +1464,20 @@ File.binwrite('demo.mp3', response)
 ```
 
 ### Usage
-The Usage API provides information about the consumption of various OpenAI services within your organization. You can retrieve usage data for different endpoints and time periods.
+The Usage API provides information about the cost of various OpenAI services within your organization.
+To use Admin APIs like Usage, you need to set an OPENAI_ADMIN_TOKEN, which can be generated [here](https://platform.openai.com/settings/organization/admin-keys).
+
+```ruby
+OpenAI.configure do |config|
+  config.admin_token = ENV.fetch("OPENAI_ADMIN_TOKEN")
+end
+
+# or
+
+client = OpenAI::Client.new(admin_token: "123abc")
+```
+
+You can retrieve usage data for different endpoints and time periods:
 
 ```ruby
 one_day_ago = Time.now.to_i - 86_400
@@ -1527,15 +1542,11 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 To run all tests, execute the command `bundle exec rake`, which will also run the linter (Rubocop). This repository uses [VCR](https://github.com/vcr/vcr) to log API requests.
 
 > [!WARNING]
-> If you have an `OPENAI_ACCESS_TOKEN` in your `ENV`, running the specs will use this to run the specs against the actual API, which will be slow and cost you money - 2 cents or more! Remove it from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
+> If you have an `OPENAI_ACCESS_TOKEN` and `OPENAI_ADMIN_TOKEN` in your `ENV`, running the specs will hit the actual API, which will be slow and cost you money - 2 cents or more! Remove them from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
 
 ## Release
 
-First run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN in your environment or pass it in like this:
-
-```
-OPENAI_ACCESS_TOKEN=123abc bundle exec rspec
-```
+First run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN and OPENAI_ADMIN_TOKEN in your environment.
 
 Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bundle install` to update Gemfile.lock, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
