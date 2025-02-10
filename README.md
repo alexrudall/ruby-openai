@@ -65,6 +65,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
       - [Translate](#translate)
       - [Transcribe](#transcribe)
       - [Speech](#speech)
+    - [Usage](#usage)
     - [Errors](#errors-1)
   - [Development](#development)
   - [Release](#release)
@@ -1458,6 +1459,51 @@ response = client.audio.speech(
 )
 File.binwrite('demo.mp3', response)
 # => mp3 file that plays: "This is a speech test!"
+```
+
+### Usage
+The Usage API provides information about the consumption of various OpenAI services within your organization. You can retrieve usage data for different endpoints and time periods.
+
+```ruby
+one_day_ago = Time.now.to_i - 86_400
+
+# Retrieve costs data
+response = client.usage.costs(parameters: { start_time: one_day_ago })
+response["data"].each do |bucket|
+  bucket["results"].each do |result|
+    puts "#{Time.at(bucket["start_time"]).to_date}: $#{result.dig("amount", "value").round(2)}"
+  end
+end
+=> 2025-02-09: $0.0
+=> 2025-02-10: $0.42
+
+# Retrieve completions usage data
+response = client.usage.completions(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve embeddings usage data
+response = client.usage.embeddings(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve moderations usage data
+response = client.usage.moderations(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve image generation usage data
+response = client.usage.images(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve audio speech usage data
+response = client.usage.audio_speeches(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve audio transcription usage data
+response = client.usage.audio_transcriptions(parameters: { start_time: one_day_ago })
+puts response["data"]
+
+# Retrieve vector stores usage data
+response = client.usage.vector_stores(parameters: { start_time: one_day_ago })
+puts response["data"]
 ```
 
 ### Errors
