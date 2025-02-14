@@ -7,9 +7,10 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil)
-      parse_jsonl(conn.get(uri(path: path), parameters) do |req|
-        req.headers = headers
-      end&.body)
+      response = conn.get(uri(path: path), parameters) { |req| req.headers = headers }
+      parse_jsonl(response.body)
+    rescue JSON::ParserError
+      response.body
     end
 
     def post(path:)
