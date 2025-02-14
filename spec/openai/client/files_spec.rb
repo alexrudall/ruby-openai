@@ -128,5 +128,32 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#fetch_image" do
+      let(:cassette) { "files fetch_image" }
+      let(:upload_cassette) { "#{cassette} upload" }
+      let(:filename) { "image.png" }
+      let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+      let(:upload_purpose) { "vision" }
+
+      def poll_until_processed(max_attempts: 10)
+        VCR.use_cassette("#{cassette}_poll", record: :new_episodes) do
+          max_attempts.times do |attempt|
+            retrieved = OpenAI::Client.new.files.retrieve(id: upload_id)
+            return retrieved if retrieved["status"] == "processed"
+            raise "File not processed after #{max_attempts} attempts" if attempt == max_attempts - 1
+          end
+        end
+      end
+
+      it "succeeds in uploading and retrieving an image" do
+        VCR.use_cassette(cassette) do
+          poll_until_processed
+          response = OpenAI::Client.new.files.content(id: upload_id)
+          expect(response).to be_a(String)
+          expect(response.size).to be > 0
+        end
+      end
+    end
   end
 end
