@@ -6,10 +6,10 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWJkNGUyYmRmM2NmY2QzNTgyZDYyNWRmMGYxYmNiZDM2DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iaW1hZ2UucG5nIg0KQ29udGVudC1MZW5ndGg6IDI0OQ0KQ29udGVudC1UeXBlOiANCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQqJUE5HDQoaCgAAAA1JSERSAAAARAAAAEQIBgAAADgTk7IAAAAJcEhZcwAACxMAAAsTAQCanBgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAI5JREFUeAHt0EENwCAAADE2cZhELPxIOA2thH5z7T24/sFDSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICIkDw2gDZ2/Zik4AAAAASUVORK5CYIINCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1iZDRlMmJkZjNjZmNkMzU4MmQ2MjVkZjBmMWJjYmQzNg0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJwdXJwb3NlIg0KDQp2aXNpb24NCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1iZDRlMmJkZjNjZmNkMzU4MmQ2MjVkZjBmMWJjYmQzNi0tDQo=
+        LS0tLS0tLS0tLS0tLVJ1YnlNdWx0aXBhcnRQb3N0LWI0ODhhNWJhYWY0NTBkODE1MmY1M2ZlYTkwOWJjZDM1DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iaW1hZ2UucG5nIg0KQ29udGVudC1MZW5ndGg6IDI0OQ0KQ29udGVudC1UeXBlOiANCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IGJpbmFyeQ0KDQqJUE5HDQoaCgAAAA1JSERSAAAARAAAAEQIBgAAADgTk7IAAAAJcEhZcwAACxMAAAsTAQCanBgAAAABc1JHQgCuzhzpAAAABGdBTUEAALGPC/xhBQAAAI5JREFUeAHt0EENwCAAADE2cZhELPxIOA2thH5z7T24/sFDSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICIkDw2gDZ2/Zik4AAAAASUVORK5CYIINCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1iNDg4YTViYWFmNDUwZDgxNTJmNTNmZWE5MDliY2QzNQ0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJwdXJwb3NlIg0KDQp2aXNpb24NCi0tLS0tLS0tLS0tLS1SdWJ5TXVsdGlwYXJ0UG9zdC1iNDg4YTViYWFmNDUwZDgxNTJmNTNmZWE5MDliY2QzNS0tDQo=
     headers:
       Content-Type:
-      - multipart/form-data; boundary=-----------RubyMultipartPost-bd4e2bdf3cfcd3582d625df0f1bcbd36
+      - multipart/form-data; boundary=-----------RubyMultipartPost-b488a5baaf450d8152f53fea909bcd35
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Content-Length:
@@ -26,7 +26,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 14 Feb 2025 12:35:55 GMT
+      - Fri, 14 Feb 2025 14:55:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -38,9 +38,9 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_1a48daf6a46643c912d6632b4abeacf6
+      - req_6075462c500e86d26593dfea7915eb55
       Openai-Processing-Ms:
-      - '221'
+      - '213'
       Access-Control-Allow-Origin:
       - "*"
       Strict-Transport-Security:
@@ -48,17 +48,17 @@ http_interactions:
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=.Ry0xEQzGd2Epy1ImEivveotG_N1Z.sVH5ZTtDaH9Rs-1739536555-1.0.1.1-PasptjvMGNJZLcCsE2ftGVOjHUePPS5HFMULmnI8.tEjCa4EPfefjAIulN0WaRtcALIlJA_ivbtweH2.hOg8tA;
-        path=/; expires=Fri, 14-Feb-25 13:05:55 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=CwwusKBX0wkDw87d2t3u_Z.vLMcriSzf2Ek1pvKaalE-1739544938-1.0.1.1-zNjyPqormxZJCEUxKCJdV.z90dq3TRpfLVcvWzA_jPJanQcdk.H7M4KZXzktgoAl.qFK8bs_vpX4rxGxRtiLow;
+        path=/; expires=Fri, 14-Feb-25 15:25:38 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=7PRb5QSLuZ3MqZ8gPqZqsu1UcNfEprahJWx8kMtSmtA-1739536555816-0.0.1.1-604800000;
+      - _cfuvid=Of90_9phKYsAfXNizMnfU17SZKEvzxfV2EZA5ZqUZsk-1739544938691-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 911d19ce3fbf9520-LHR
+      - 911de678ad1f0038-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
@@ -66,13 +66,13 @@ http_interactions:
       string: |
         {
           "object": "file",
-          "id": "file-8wnPtwpUdezRLfXfcXFC2J",
+          "id": "file-K3gwyzsbpt6RXuAfWzgUeh",
           "purpose": "vision",
           "filename": "image.png",
           "bytes": 249,
-          "created_at": 1739536555,
+          "created_at": 1739544938,
           "status": "processed",
           "status_details": null
         }
-  recorded_at: Fri, 14 Feb 2025 12:35:55 GMT
+  recorded_at: Fri, 14 Feb 2025 14:55:38 GMT
 recorded_with: VCR 6.1.0
