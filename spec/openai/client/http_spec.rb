@@ -196,6 +196,15 @@ RSpec.describe OpenAI::HTTP do
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
     end
+
+    context "with a non-json string containing newline-brace pattern" do
+      let(:body) { "Hello}\n{World" }
+      let(:parsed) { OpenAI::Client.new.send(:parse_json, body) }
+
+      it "returns the original string when JSON parsing fails" do
+        expect(parsed).to eq("Hello}\n{World")
+      end
+    end
   end
 
   describe ".uri" do

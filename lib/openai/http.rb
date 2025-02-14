@@ -44,12 +44,15 @@ module OpenAI
       return unless response
       return response unless response.is_a?(String)
 
+      original_response = response.dup
       if response.include?("}\n{")
-        # Convert a multiline string of JSON objects to a JSON array.
+        # Attempt to convert what looks like a multiline string of JSON objects to a JSON array.
         response = response.gsub("}\n{", "},{").prepend("[").concat("]")
       end
 
-      try_parse_json(response)
+      JSON.parse(response)
+    rescue JSON::ParserError
+      original_response
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
