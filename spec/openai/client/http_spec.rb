@@ -106,7 +106,7 @@ RSpec.describe OpenAI::HTTP do
 
   describe ".get" do
     context "with an error response" do
-      let(:cassette) { "http get with error response".downcase }
+      let(:cassette) { "mocks/http get with error response".downcase }
 
       it "raises an HTTP error" do
         VCR.use_cassette(cassette, record: :none) do
@@ -189,10 +189,10 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
-  describe ".parse_jsonl" do
+  describe ".parse_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.new.send(:parse_jsonl, body) }
+      let(:parsed) { OpenAI::Client.new.send(:parse_json, body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
     end
@@ -285,7 +285,7 @@ RSpec.describe OpenAI::HTTP do
   end
 
   describe "logging errors" do
-    let(:cassette) { "http get with error response".downcase }
+    let(:cassette) { "mocks/http get with error response".downcase }
 
     before do
       @original_stdout = $stdout
