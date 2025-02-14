@@ -7,10 +7,9 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil)
-      response = conn.get(uri(path: path), parameters) { |req| req.headers = headers }
-      parse_jsonl(response.body)
-    rescue JSON::ParserError
-      response.body
+      parse_jsonl(conn.get(uri(path: path), parameters) do |req|
+        req.headers = headers
+      end&.body)
     end
 
     def post(path:)
@@ -49,6 +48,8 @@ module OpenAI
       response = response.gsub("}\n{", "},{").prepend("[").concat("]")
 
       JSON.parse(response)
+    rescue JSON::ParserError
+      response
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
