@@ -11,5 +11,9 @@ module OpenAI
     def retrieve(id:)
       @client.get(path: "/models/#{id}")
     end
+
+    def delete(id:)
+      @client.delete(path: "/models/#{id}")
+    end  
   end
 end
