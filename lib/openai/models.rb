@@ -14,6 +14,6 @@ module OpenAI
 
     def delete(id:)
       @client.delete(path: "/models/#{id}")
-    end  
+    end
   end
 end
