@@ -1,7 +1,6 @@
 require "bundler/setup"
 require "dotenv/load"
 require "openai"
-require "openai/compatibility"
 require "vcr"
 require "byebug"
 
