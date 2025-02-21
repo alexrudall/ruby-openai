@@ -7,47 +7,52 @@ module OpenAI
     include HTTPHeaders
 
     def get(path:, parameters: nil)
-      parse_jsonl(conn.get(uri(path: path), parameters) do |req|
+      parse_json(conn.get(uri(path: path), parameters) do |req|
         req.headers = headers
       end&.body)
     end
 
     def post(path:)
-      parse_jsonl(conn.post(uri(path: path)) do |req|
+      parse_json(conn.post(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
     end
 
     def json_post(path:, parameters:, query_parameters: {})
-      conn.post(uri(path: path)) do |req|
+      parse_json(conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
         req.params = req.params.merge(query_parameters)
-      end&.body
+      end&.body)
     end
 
     def multipart_post(path:, parameters: nil)
-      conn(multipart: true).post(uri(path: path)) do |req|
+      parse_json(conn(multipart: true).post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end&.body
+      end&.body)
     end
 
     def delete(path:)
-      conn.delete(uri(path: path)) do |req|
+      parse_json(conn.delete(uri(path: path)) do |req|
         req.headers = headers
-      end&.body
+      end&.body)
     end
 
     private
 
-    def parse_jsonl(response)
+    def parse_json(response)
       return unless response
       return response unless response.is_a?(String)
 
-      # Convert a multiline string of JSON objects to a JSON array.
-      response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+      original_response = response.dup
+      if response.include?("}\n{")
+        # Attempt to convert what looks like a multiline string of JSON objects to a JSON array.
+        response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+      end
 
       JSON.parse(response)
+    rescue JSON::ParserError
+      original_response
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.

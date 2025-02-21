@@ -129,7 +129,7 @@ RSpec.describe OpenAI::Client do
           end
 
           context "with an error response with a JSON body" do
-            let(:cassette) { "#{model} streamed chat with json error response".downcase }
+            let(:cassette) { "mocks/#{model} streamed chat with json error response".downcase }
 
             it "raises an HTTP error with the parsed body" do
               VCR.use_cassette(cassette, record: :none) do
@@ -151,7 +151,7 @@ RSpec.describe OpenAI::Client do
           end
 
           context "with an error response without a JSON body" do
-            let(:cassette) { "#{model} streamed chat with error response".downcase }
+            let(:cassette) { "mocks/#{model} streamed chat with error response".downcase }
 
             it "raises an HTTP error" do
               VCR.use_cassette(cassette, record: :none) do

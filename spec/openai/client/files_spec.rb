@@ -128,5 +128,40 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#fetch_image" do
+      let(:cassette) { "files fetch_image" }
+      let(:upload_cassette) { "#{cassette} upload" }
+      let(:retrieve_cassette) { "#{cassette} retrieve" }
+      let(:filename) { "image.png" }
+      let(:file) { File.join(RSPEC_ROOT, "fixtures/files", filename) }
+      let(:upload_purpose) { "vision" }
+      let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
+
+      before do
+        # We need to check the file has been processed by OpenAI
+        # before we can delete it.
+        retrieved = VCR.use_cassette(retrieve_cassette) do
+          OpenAI::Client.new.files.retrieve(id: upload_id)
+        end
+        tries = 0
+        until retrieved["status"] == "processed"
+          raise "File not processed after 10 tries" if tries > 10
+
+          sleep(1)
+          retrieved = VCR.use_cassette(retrieve_cassette, record: :all) do
+            OpenAI::Client.new.files.retrieve(id: upload_id)
+          end
+          tries += 1
+        end
+      end
+
+      it "succeeds in uploading and retrieving an image" do
+        VCR.use_cassette(cassette) do
+          expect(response).to be_a(String)
+          expect(response.size).to be > 0
+        end
+      end
+    end
   end
 end

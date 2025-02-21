@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-K3gwyzsbpt6RXuAfWzgUeh/content
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Feb 2025 14:55:39 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '249'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename="image.png"
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_a5152835bd870146f9ab8757b5da7dfd
+      Openai-Processing-Ms:
+      - '146'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=OU9._V0EmSRhM4s0ZTGsIS9Cl9p96JNMkYRPUhp_5Zc-1739544939-1.0.1.1-HSKYH1OiIdlBJAoRJSe1_nhJYAhmMyJF753RZNSM_nP06JvyNTPFSeedU_dF4DsuIfp9SL3sepk9Twcxme7NPg;
+        path=/; expires=Fri, 14-Feb-25 15:25:39 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=3UUB2JFeoIxCEm1YHTZn.YuCUyNpuMcLz4KkvNW1aLE-1739544939273-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 911de67c9f9d0038-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgB7dBBDcAgAAAxNnGYRCz8SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv2YpOAAAAAElFTkSuQmCC
+  recorded_at: Fri, 14 Feb 2025 14:55:39 GMT
+recorded_with: VCR 6.1.0
