@@ -6,6 +6,7 @@ module OpenAI
       fine-tune
       vision
       user_data
+      evals
     ].freeze
 
     def initialize(client:)
