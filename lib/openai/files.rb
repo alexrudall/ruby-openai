@@ -5,6 +5,7 @@ module OpenAI
       batch
       fine-tune
       vision
+      user_data
     ].freeze
 
     def initialize(client:)
