@@ -37,6 +37,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
       - [Streaming Chat](#streaming-chat)
       - [Vision](#vision)
       - [JSON Mode](#json-mode)
+    - [Responses API](#responses-api)
     - [Functions](#functions)
     - [Completions](#completions)
     - [Embeddings](#embeddings)
@@ -439,6 +440,74 @@ You can stream it as well!
   #     }
   #   }
   # }
+```
+
+### Responses API
+OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+
+```ruby
+response = client.responses(parameters: {
+  model: "gpt-4o",
+  input: "Hello!"
+})
+
+puts response.dig("output", 0, "content", 0, "text")
+```
+#### Follow-up Messages (former threads functionality available in the Assistant API)
+```ruby
+followup = client.responses(parameters: {
+  model: "gpt-4o",
+  input: "Remind me, what is my name?",
+  previous_response_id: response["id"]
+})
+
+puts followup.dig("output", 0, "content", 0, "text")
+```
+
+#### Tool Calls
+```ruby
+response = client.responses(parameters: {
+  model: "gpt-4o",
+  input: "What's the weather in Paris?",
+  tools: [
+    {
+      "type" => "function",
+      "name" => "get_current_weather",
+      "description" => "Get the current weather in a given location",
+      "parameters" => {
+        "type" => "object",
+        "properties" => {
+          "location" => {
+            "type" => "string",
+            "description" => "The geographic location to get the weather for"
+          }
+        },
+        "required" => ["location"]
+      }
+    }
+  ]
+})
+
+puts response.dig("output", 0, "name") # => "get_current_weather"
+```
+
+#### Streaming
+```ruby
+chunks = []
+streamer = proc { |chunk, _| chunks << chunk }
+
+client.responses(parameters: {
+  model: "gpt-4o",
+  input: "Hello!",
+  stream: streamer
+})
+
+output = chunks
+  .select { |c| c["type"] == "response.output_text.delta" }
+  .map { |c| c["delta"] }
+  .join
+
+puts output
 ```
 
 ### Functions
