@@ -14,9 +14,8 @@ RSpec.describe OpenAI::Client do
       let(:content) { response.dig("output", 0, "content", 0, "text") }
       let(:provider) { nil }
       let(:cassette) do
-        "#{"#{provider}_" if provider}#{model} #{'streamed' if stream} ResponsesAPI responses".downcase
+        "#{provider}#{model} #{stream ? 'streamed' : ''} ResponsesAPI responses".downcase
       end
-
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -29,7 +28,8 @@ RSpec.describe OpenAI::Client do
         let(:input_followup) { "Remind me, what is my name?" }
         let(:previous_response_id) { response["id"] }
         let(:followup_parameters) do
-          { model: model, input: input_followup, stream: stream, previous_response_id: previous_response_id }
+          { model: model, input: input_followup, stream: stream,
+            previous_response_id: previous_response_id }
         end
         let(:followup_response) do
           OpenAI::Client.new({ uri_base: uri_base }).responses(
@@ -38,7 +38,10 @@ RSpec.describe OpenAI::Client do
         end
         let(:followup_content) { followup_response.dig("output", 0, "content", 0, "text") }
         let(:cassette) do
-          "#{"#{provider}_" if provider}#{model} #{'streamed' if stream} with followup message ResponsesAPI responses".downcase
+          message_suffix = "with followup message ResponsesAPI responses"
+          "#{if provider
+               "#{provider}_"
+             end}#{model} #{stream ? 'streamed' : ''} #{message_suffix}".downcase
         end
 
         it "remembers the conversation history" do
@@ -75,7 +78,7 @@ RSpec.describe OpenAI::Client do
                   },
                   "required" => ["location"]
                 }
-              }
+            }
           ]
         end
 
@@ -105,9 +108,9 @@ RSpec.describe OpenAI::Client do
           VCR.use_cassette(cassette) do
             response
             output_text = chunks
-              .select { |chunk| chunk["type"] == "response.output_text.delta" }
-              .map { |chunk| chunk["delta"] }
-              .join
+                          .select { |chunk| chunk["type"] == "response.output_text.delta" }
+                          .map { |chunk| chunk["delta"] }
+                          .join
 
             expect(output_text).to eq("Hi there! How can I assist you today?")
           end
@@ -133,9 +136,9 @@ RSpec.describe OpenAI::Client do
             VCR.use_cassette(cassette) do
               response
               output_text = stream.chunks
-                .select { |chunk| chunk["type"] == "response.output_text.delta" }
-                .map { |chunk| chunk["delta"] }
-                .join
+                                  .select { |chunk| chunk["type"] == "response.output_text.delta" }
+                                  .map { |chunk| chunk["delta"] }
+                                  .join
 
               expect(output_text).to eq("Hi there! How can I assist you today?")
             end
