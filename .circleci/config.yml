@@ -38,6 +38,7 @@ workflows:
           matrix:
             parameters:
               ruby-image:
+                - cimg/ruby:2.7-node
                 - cimg/ruby:3.0-node
                 - cimg/ruby:3.1-node
                 - cimg/ruby:3.2-node
