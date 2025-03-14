@@ -29,6 +29,7 @@ Stream text with GPT-4, transcribe and translate audio with Whisper, or create i
         - [Errors](#errors)
         - [Faraday middleware](#faraday-middleware)
       - [Azure](#azure)
+      - [Deepseek](#deepseek)
       - [Ollama](#ollama)
       - [Groq](#groq)
     - [Counting Tokens](#counting-tokens)
@@ -227,6 +228,28 @@ end
 ```
 
 where `AZURE_OPENAI_URI` is e.g. `https://custom-domain.openai.azure.com/openai/deployments/gpt-35-turbo`
+
+#### Deepseek
+
+[Deepseek](https://api-docs.deepseek.com/) is compatible with the OpenAI chat API. Get an access token from [here](https://platform.deepseek.com/api_keys), then:
+
+```ruby
+client = OpenAI::Client.new(
+  access_token: "deepseek_access_token_goes_here",
+  uri_base: "https://api.deepseek.com/"
+)
+
+client.chat(
+  parameters: {
+    model: "deepseek-chat", # Required.
+    messages: [{ role: "user", content: "Hello!"}], # Required.
+    temperature: 0.7,
+    stream: proc do |chunk, _bytesize|
+     print chunk.dig("choices", 0, "delta", "content")
+    end
+  }
+)
+```
 
 #### Ollama
 
