@@ -1,7 +1,7 @@
 module OpenAI
   class Batches
     def initialize(client:)
-      @client = client.beta(assistants: OpenAI::Assistants::BETA_VERSION)
+      @client = client
     end
 
     def list(parameters: {})
