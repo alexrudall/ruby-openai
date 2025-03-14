@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/responses/resp_67d446bcc1a08190a1f3f7842de0638e08a3114a8a19a00a/input_items
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:09:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_901dcf3a75dce4fe113432672a73354a
+      Openai-Processing-Ms:
+      - '23'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=3pyC0nF1IF54TScqMNfmdNaHFT_kMSl1GmkOOS02kJE-1741964990-1.0.1.1-1rydeAt5r22oHhI.79dyn4AnHxVvOK4GsHC4hbofY4QcsJIXdxZfodPMxDV5rlC.YB9oqRMLts43HXgDU8vhmcsqmSGSeaDLjGL18Q4JFSs;
+        path=/; expires=Fri, 14-Mar-25 15:39:50 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=AmaE1UGcPpkZBQRQPhb.nkesfDWyNeNkuV9WxE5WM88-1741964990213-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204b1c3aacc946f-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "type": "message",
+              "id": "msg_67d446bcc218819084eed23fbd37401f08a3114a8a19a00a",
+              "status": "completed",
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Hello, this is a test response for listing input items"
+                }
+              ]
+            }
+          ],
+          "first_id": "msg_67d446bcc218819084eed23fbd37401f08a3114a8a19a00a",
+          "last_id": "msg_67d446bcc218819084eed23fbd37401f08a3114a8a19a00a",
+          "has_more": false
+        }
+  recorded_at: Fri, 14 Mar 2025 15:09:50 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o","input":"Hello, this is a test response for listing
+        input items"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:09:49 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_d26a968d6385eaf4f0caf232dbcc58f4
+      Openai-Processing-Ms:
+      - '1191'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Nwu4VDFXMZlKQzSNNvMjzOfNqBJWWESt6SCCj8i3520-1741964989-1.0.1.1-kujGVeufMZyXxnRCMGE4MK9Lk962.aLfSHKurNo4j13Phm2MUnK42Rj.wJeYIEr2uiT_3A5H2qt8uekqROv6CsbZdsrPXL.eWVHx17r3I_w;
+        path=/; expires=Fri, 14-Mar-25 15:39:49 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=jS00o0jTac1oFdPYFgOWCUWXyES_pHn9Ghd5Xq9_fgA-1741964989992-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204b1bb0ff9f656-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_67d446bcc1a08190a1f3f7842de0638e08a3114a8a19a00a",
+          "object": "response",
+          "created_at": 1741964988,
+          "status": "completed",
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "model": "gpt-4o-2024-08-06",
+          "output": [
+            {
+              "type": "message",
+              "id": "msg_67d446bd6dd88190b48dd82f38e2df5c08a3114a8a19a00a",
+              "status": "completed",
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Hello! If you'd like to list some items, feel free to share them, and I'll be happy to assist with any information or organization you need.",
+                  "annotations": []
+                }
+              ]
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "reasoning": {
+            "effort": null,
+            "generate_summary": null
+          },
+          "store": true,
+          "temperature": 1.0,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 36,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 31,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 67
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 14 Mar 2025 15:09:49 GMT
+recorded_with: VCR 6.1.0

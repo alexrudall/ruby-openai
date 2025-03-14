@@ -1,0 +1,235 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o","input":"Hello! My name is Szymon.","stream":false}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:09:40 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_c4156514aa1f2a93c4654b0df2e29991
+      Openai-Processing-Ms:
+      - '593'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=rof_wJX4FQyTn1ZOmv8ZdyNIvdv6O29D2HT6rfIrvbw-1741964980-1.0.1.1-8xyURTtPXmRJfvy7Kfqa0NAYP1VLORHTl_EJei3T.Dc274hRPKBMJY913Jtcjt.sXsDN2IulGZwT22HyESwOwIXMHTJqusZCLVQm5cDc6vU;
+        path=/; expires=Fri, 14-Mar-25 15:39:40 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=4Lx3ECYDdCwp6DI2sI30Sy8bDCO9__bHJEmc67uqo2Q-1741964980716-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204b184dd04ed02-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_67d446b410f88190a9f4f5feb1b3a9770626d14df4446205",
+          "object": "response",
+          "created_at": 1741964980,
+          "status": "completed",
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "model": "gpt-4o-2024-08-06",
+          "output": [
+            {
+              "type": "message",
+              "id": "msg_67d446b45f848190aa5182879977e3be0626d14df4446205",
+              "status": "completed",
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Hello Szymon! How can I assist you today?",
+                  "annotations": []
+                }
+              ]
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "reasoning": {
+            "effort": null,
+            "generate_summary": null
+          },
+          "store": true,
+          "temperature": 1.0,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 34,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 13,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 47
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 14 Mar 2025 15:09:40 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o","input":"Remind me, what is my name?","stream":false,"previous_response_id":"resp_67d446b410f88190a9f4f5feb1b3a9770626d14df4446205"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:09:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_bdac11ff38906cb111ee1fbde0f33f5d
+      Openai-Processing-Ms:
+      - '477'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=OdvetqXWAqSSj46cS97AhpUps2LqMK_gAJjq0nAcw9Y-1741964981-1.0.1.1-yz99YI4LEq3F9Vj1WsRSP4TOnC68DL_vaZ2HYzkTc6eC.cu2_mLOXYq0glSFHKiK4.M.PDig1Dp5OS5M7zJTOBtJf_IDl.5p6DI44JE66_c;
+        path=/; expires=Fri, 14-Mar-25 15:39:41 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=I0MGAjzV_Zrt04U5odUI7fPbgv6QdayCQ_wouuQSuks-1741964981381-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204b189cd8eb6d8-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_67d446b4dab88190ae60edb8c230176e0626d14df4446205",
+          "object": "response",
+          "created_at": 1741964980,
+          "status": "completed",
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "model": "gpt-4o-2024-08-06",
+          "output": [
+            {
+              "type": "message",
+              "id": "msg_67d446b5225081908e104a5c32494c380626d14df4446205",
+              "status": "completed",
+              "role": "assistant",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Your name is Szymon!",
+                  "annotations": []
+                }
+              ]
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": "resp_67d446b410f88190a9f4f5feb1b3a9770626d14df4446205",
+          "reasoning": {
+            "effort": null,
+            "generate_summary": null
+          },
+          "store": true,
+          "temperature": 1.0,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 63,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 8,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 71
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 14 Mar 2025 15:09:41 GMT
+recorded_with: VCR 6.1.0
