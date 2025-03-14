@@ -328,6 +328,12 @@ client.models.list
 client.models.retrieve(id: "gpt-4o")
 ```
 
+You can also delete any finetuned model you generated, if you're an account Owner on your OpenAI organization:
+
+```ruby
+client.models.delete(id: "ft:gpt-4o-mini:acemeco:suffix:abc123")
+```
+
 ### Chat
 
 GPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
@@ -856,6 +862,12 @@ You can also capture the events for a job:
 
 ```ruby
 client.finetunes.list_events(id: fine_tune_id)
+```
+
+You can also delete any finetuned model you generated, if you're an account Owner on your OpenAI organization:
+
+```ruby
+client.models.delete(id: fine_tune_id)
 ```
 
 ### Vector Stores
