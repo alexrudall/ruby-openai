@@ -5,7 +5,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Stream text with GPT-4, transcribe and translate audio with Whisper, or create images with DALL·E...
+Stream chats with the Responses API, transcribe and translate audio with Whisper, create images with DALL·E, and much more...
 
 💥 Click [subscribe now](https://mailchi.mp/8c7b574726a9/ruby-openai) to hear first about new releases in the Rails AI newsletter!
 
