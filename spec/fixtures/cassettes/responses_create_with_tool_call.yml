@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 14 Mar 2025 15:09:42 GMT
+      - Fri, 14 Mar 2025 15:11:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,34 +37,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_e8e6d44428ce2484561b7cf2dfb06932
+      - req_fa435768220b77eb974f47d35854ff51
       Openai-Processing-Ms:
-      - '891'
+      - '920'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=uwrBwgOv2mQ_lzWYGzxB5nPRS66eco6Brqe6L0NEERQ-1741964982-1.0.1.1-nDmz8yeMlDfDOh61hp1YYn5MSzuaBPbZU8pBaIUW_iKsGuptFSMthhwnro7tQbrrrEHX8Q7ArJrHrWBi6G5gWbO7AvWHAvLb2fbFNVEIVh0;
-        path=/; expires=Fri, 14-Mar-25 15:39:42 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=GCBowHi6wmRJ7Kc6RN2kzIEv5J_C7p0J8pc9GVjJhdM-1741965101-1.0.1.1-_PedoaaESkQ5d4m.YbjUT2U2GcmVlEmkfnot3Hl_YVu_qoqxeWGvDGNae0dpMmiU0_KETePWKBgNlHaSdZGafyqLPgezMRDT1V3upM32JXg;
+        path=/; expires=Fri, 14-Mar-25 15:41:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=1dF6_eW7hVELfxIZZ0RK7e5uWecYJkQ33E0KiHOpUYk-1741964982483-0.0.1.1-604800000;
+      - _cfuvid=6ziXbv.RybvJgLp8yQyyLviGb6L1By2PjSBAupTxu.4-1741965101148-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 9204b18df83d71de-LHR
+      - 9204b4738ca6459f-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_67d446b588f4819090dcc170041d07240bf8324e552767ad",
+          "id": "resp_67d4472c2fe88190bc9589237f2344530ea042f062abe44d",
           "object": "response",
-          "created_at": 1741964981,
+          "created_at": 1741965100,
           "status": "completed",
           "error": null,
           "incomplete_details": null,
@@ -74,10 +74,10 @@ http_interactions:
           "output": [
             {
               "type": "function_call",
-              "id": "fc_67d446b63c8881909dac82eefa1ccb290bf8324e552767ad",
-              "call_id": "call_cBitmKZR2iT6feugdoMWQv2w",
+              "id": "fc_67d4472cf13c81909d777f43067f5a890ea042f062abe44d",
+              "call_id": "call_fUL4HcLUJuOTMPvhZR4DQKJy",
               "name": "get_current_weather",
-              "arguments": "{\"location\":\"Peak District, UK\"}",
+              "arguments": "{\"location\":\"Peak District\"}",
               "status": "completed"
             }
           ],
@@ -122,14 +122,14 @@ http_interactions:
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 19,
+            "output_tokens": 17,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 296
+            "total_tokens": 294
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Fri, 14 Mar 2025 15:09:42 GMT
+  recorded_at: Fri, 14 Mar 2025 15:11:41 GMT
 recorded_with: VCR 6.1.0
