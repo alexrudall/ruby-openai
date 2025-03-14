@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 12 Mar 2025 16:59:40 GMT
+      - Fri, 14 Mar 2025 15:06:38 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,36 +35,36 @@ http_interactions:
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
-      - tropic-7
+      - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_7576f65fceb4761f57674f6036a97a16
+      - req_7c33238b5d427a9a389712d764788b0c
       Openai-Processing-Ms:
-      - '718'
+      - '1332'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=zsBa8zzM5XeGXfIZj9WLik3iW4nxV4BkHwgOp8w2VYE-1741798780-1.0.1.1-VbaoulWxc2gxi_8f8X3sn7FFyZr2bh9W5RWNhp9xL9Pb1HfAtt_jjgY_4Om_mhY5zPDxsYGByW.gEkjtL8bGfsFM4uWI6ViQXJIOmlxihTU;
-        path=/; expires=Wed, 12-Mar-25 17:29:40 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=AfRmiEBgvIeucYTH3eOOar2KuKYtl7qfSHs9fp6iaIE-1741964798-1.0.1.1-q2pD99q1HHDFMSGDOyWil6CKyYgWOErj.qjx7DrdmtWEkd0nNJ74ii1qCTF8OSMCWhhlBvlDfRJ8yCkiw8v7uHnxS7hykEK5XdWaMqvuW4Q;
+        path=/; expires=Fri, 14-Mar-25 15:36:38 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=5Lm6TRl2k0DmlAFx_Fzr8EztRlBS8mnbjnghZCBsN_8-1741798780381-0.0.1.1-604800000;
+      - _cfuvid=y287i_._abTADXx8qz_2FuV6TSUnGWyq.LtZPi7uJNc-1741964798451-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 91f4d7e2bcc9ecb3-WAW
+      - 9204ad0d0cb8953e-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_67d1bd7b96508191b78a43b809c2a6b804541f6e0fe60866",
+          "id": "resp_67d445fd11e881909eeda588bd03afc90edc854cee1aeda8",
           "object": "response",
-          "created_at": 1741798779,
+          "created_at": 1741964797,
           "status": "completed",
           "error": null,
           "incomplete_details": null,
@@ -74,8 +74,8 @@ http_interactions:
           "output": [
             {
               "type": "function_call",
-              "id": "fc_67d1bd7c22bc8191904dc1180edc277804541f6e0fe60866",
-              "call_id": "call_gdFtKNOAxjykUcoLyb6YovEc",
+              "id": "fc_67d445fe46bc81909220b5c257a6663a0edc854cee1aeda8",
+              "call_id": "call_j4g3DtIoX4qJXz6ZLvDQp2Ma",
               "name": "get_current_weather",
               "arguments": "{\"location\":\"Peak District\"}",
               "status": "completed"
@@ -131,5 +131,5 @@ http_interactions:
           "user": null,
           "metadata": {}
         }
-  recorded_at: Wed, 12 Mar 2025 16:59:40 GMT
+  recorded_at: Fri, 14 Mar 2025 15:06:38 GMT
 recorded_with: VCR 6.1.0

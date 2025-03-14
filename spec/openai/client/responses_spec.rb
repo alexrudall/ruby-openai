@@ -6,7 +6,7 @@ RSpec.describe OpenAI::Client do
       let(:stream) { false }
       let(:uri_base) { nil }
       let(:response) do
-        OpenAI::Client.new({ uri_base: uri_base }).responses(
+        OpenAI::Client.new({ uri_base: uri_base }).responses.create(
           parameters: parameters
         )
       end
@@ -32,7 +32,7 @@ RSpec.describe OpenAI::Client do
             previous_response_id: previous_response_id }
         end
         let(:followup_response) do
-          OpenAI::Client.new({ uri_base: uri_base }).responses(
+          OpenAI::Client.new({ uri_base: uri_base }).responses.create(
             parameters: followup_parameters
           )
         end
@@ -108,10 +108,9 @@ RSpec.describe OpenAI::Client do
           VCR.use_cassette(cassette) do
             response
             output_text = chunks
-                          .select { |chunk| chunk["type"] == "response.output_text.delta" }
-                          .map { |chunk| chunk["delta"] }
-                          .join
-
+              .select { |chunk| chunk["type"] == "response.output_text.delta" }
+              .map { |chunk| chunk["delta"] }
+              .join
             expect(output_text).to include("?")
           end
         end
@@ -121,11 +120,9 @@ RSpec.describe OpenAI::Client do
           let(:stream) do
             Class.new do
               attr_reader :chunks
-
               def initialize
                 @chunks = []
               end
-
               def call(chunk)
                 @chunks << chunk
               end
@@ -136,10 +133,9 @@ RSpec.describe OpenAI::Client do
             VCR.use_cassette(cassette) do
               response
               output_text = stream.chunks
-                                  .select { |chunk| chunk["type"] == "response.output_text.delta" }
-                                  .map { |chunk| chunk["delta"] }
-                                  .join
-
+                .select { |chunk| chunk["type"] == "response.output_text.delta" }
+                .map { |chunk| chunk["delta"] }
+                .join
               expect(output_text).to include("?")
             end
           end
@@ -153,6 +149,75 @@ RSpec.describe OpenAI::Client do
               expect { response }.to raise_error(ArgumentError)
             end
           end
+        end
+      end
+    end
+
+    describe "#retrieve", :vcr do
+      let(:model) { "gpt-4o" }
+      let(:response_id) do
+        VCR.use_cassette("retrieve response setup") do
+          OpenAI::Client.new.responses.create(
+            parameters: {
+              model: model,
+              input: "Hello, this is a test response"
+            }
+          )["id"]
+        end
+      end
+      let(:response) { OpenAI::Client.new.responses.retrieve(response_id: response_id) }
+      let(:cassette) { "retrieve response" }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("response")
+          expect(response["id"]).to eq(response_id)
+        end
+      end
+    end
+
+    describe "#delete", :vcr do
+      let(:model) { "gpt-4o" }
+      let(:response_id) do
+        VCR.use_cassette("delete response setup") do
+          OpenAI::Client.new.responses.create(
+            parameters: {
+              model: model,
+              input: "Hello, this is a test response for deletion"
+            }
+          )["id"]
+        end
+      end
+      let(:response) { OpenAI::Client.new.responses.delete(response_id: response_id) }
+      let(:cassette) { "delete response" }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["deleted"]).to eq(true)
+          expect(response["id"]).to eq(response_id)
+        end
+      end
+    end
+
+    describe "#input_items", :vcr do
+      let(:model) { "gpt-4o" }
+      let(:response_id) do
+        VCR.use_cassette("input_items response setup") do
+          OpenAI::Client.new.responses.create(
+            parameters: {
+              model: model,
+              input: "Hello, this is a test response for listing input items"
+            }
+          )["id"]
+        end
+      end
+      let(:response) { OpenAI::Client.new.responses.input_items(response_id: response_id) }
+      let(:cassette) { "input_items response" }
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("list")
+          expect(response["data"]).to be_an(Array)
         end
       end
     end

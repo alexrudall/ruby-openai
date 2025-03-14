@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.openai.com/v1/responses
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-4o","input":"Hello!","stream":false}'
+      string: '{"model":"gpt-4o","input":"Hello, this is a test response for deletion"}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 14 Mar 2025 15:06:34 GMT
+      - Fri, 14 Mar 2025 15:06:41 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,34 +35,34 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_0295be9d898ade4007f340873d25a4a7
+      - req_39404dd7e70b31878e0115e0ef88e613
       Openai-Processing-Ms:
-      - '747'
+      - '522'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=2xTazkUJQeRpM2u3BZljVgd38od2pkcIsBtxv8RDsPw-1741964794-1.0.1.1-3_8dJvXuJEIG.Pts6m.hzDhvqsKZRlZPlj4JJy4rrm3nbK8lKB8MBrlZ3N_wwZAgbdlSVOZ_Rlaaexyq3Qoj0rbMSsDXhHtTY_if7OKA4qw;
-        path=/; expires=Fri, 14-Mar-25 15:36:34 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=QxOCmuLeeQCPrm6B73MYj0pfEtIYlAm40AhF44sD2D0-1741964801-1.0.1.1-5nhk2u7doxCAtDc7CEiCsbKBhUiPMx4ixwVLjRB3ud6bfuesclWBFNVV5nt19N7vibbHJXY6.HH.KJrTCDB.LrQxfP7LXfn5ILeghP7ZWn8;
+        path=/; expires=Fri, 14-Mar-25 15:36:41 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=I_mFdrd88.teQCNNUpmp39e31OMa5CmClQZkNB94uO4-1741964794640-0.0.1.1-604800000;
+      - _cfuvid=4rOnydtquEgGn8NPPmLWoAhU.ozZ1HRZOdXF7GLLIdw-1741964801642-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 9204acf8ea7d633d-LHR
+      - 9204ad260f97d1fa-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "resp_67d445f9d824819081ea8d4562874e8d08a0000965b21888",
+          "id": "resp_67d446010fac819080aeccd9d146af1d07af00462e0a6d30",
           "object": "response",
-          "created_at": 1741964793,
+          "created_at": 1741964801,
           "status": "completed",
           "error": null,
           "incomplete_details": null,
@@ -72,13 +72,13 @@ http_interactions:
           "output": [
             {
               "type": "message",
-              "id": "msg_67d445fa5148819088a48efc3f6d78bd08a0000965b21888",
+              "id": "msg_67d446014ee48190934387cfad27503307af00462e0a6d30",
               "status": "completed",
               "role": "assistant",
               "content": [
                 {
                   "type": "output_text",
-                  "text": "Hi there! How can I assist you today?",
+                  "text": "Got it! If you have any questions or need assistance, feel free to ask.",
                   "annotations": []
                 }
               ]
@@ -102,18 +102,18 @@ http_interactions:
           "top_p": 1.0,
           "truncation": "disabled",
           "usage": {
-            "input_tokens": 27,
+            "input_tokens": 34,
             "input_tokens_details": {
               "cached_tokens": 0
             },
-            "output_tokens": 11,
+            "output_tokens": 18,
             "output_tokens_details": {
               "reasoning_tokens": 0
             },
-            "total_tokens": 38
+            "total_tokens": 52
           },
           "user": null,
           "metadata": {}
         }
-  recorded_at: Fri, 14 Mar 2025 15:06:34 GMT
+  recorded_at: Fri, 14 Mar 2025 15:06:41 GMT
 recorded_with: VCR 6.1.0
