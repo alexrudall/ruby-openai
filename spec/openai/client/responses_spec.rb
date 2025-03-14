@@ -1,18 +1,17 @@
 RSpec.describe OpenAI::Client do
   describe "#responses" do
-    context "with messages", :vcr do
+    describe "#create", :vcr do
       let(:model) { "gpt-4o" }
       let(:input) { "Hello!" }
       let(:stream) { false }
       let(:uri_base) { nil }
+      let(:parameters) { { model: model, input: input, stream: stream } }
       let(:response) do
         OpenAI::Client.new({ uri_base: uri_base }).responses.create(
           parameters: parameters
         )
       end
-      let(:parameters) { { model: model, input: input, stream: stream } }
       let(:content) { response.dig("output", 0, "content", 0, "text") }
-      let(:provider) { nil }
       let(:cassette) { "responses create" }
 
       it "succeeds" do
@@ -147,7 +146,7 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#retrieve", :vcr do
+    describe "#retrieve" do
       let(:model) { "gpt-4o" }
       let(:response_id) do
         VCR.use_cassette("responses retrieve setup") do
@@ -170,7 +169,7 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#delete", :vcr do
+    describe "#delete" do
       let(:model) { "gpt-4o" }
       let(:response_id) do
         VCR.use_cassette("responses delete setup") do
@@ -193,7 +192,7 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#input_items", :vcr do
+    describe "#input_items" do
       let(:model) { "gpt-4o" }
       let(:response_id) do
         VCR.use_cassette("responses input_items setup") do
