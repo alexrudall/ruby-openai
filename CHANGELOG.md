@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [BREAKING] Try to JSON parse everything. If it fails, always fall back to returning the raw response. Thank you to [@gregszero](https://github.com/gregszero) and the many others who raised this issue.
+- [BREAKING] An unknown file type will no longer prevent file upload, but instead raise a warning.
+- Add `user_data` and `evals` as options for known File types - thank you to [jontec](https://github.com/jontec) for this fix!
 
 ### Removed
 

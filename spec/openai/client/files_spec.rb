@@ -21,10 +21,21 @@ RSpec.describe OpenAI::Client do
       end
 
       context "with an invalid purpose" do
-        let(:cassette_label) { "unused" }
+        let(:cassette_label) { "invalid purpose" }
         let(:upload_purpose) { "invalid" }
 
-        it { expect { upload }.to raise_error(ArgumentError) }
+        it "logs a warning" do
+          expected_message = "The purpose 'invalid' for file 'sentiment.jsonl' is not in the known "
+          expected_message += "purpose list: #{OpenAI::Files::PURPOSES.join(', ')}."
+
+          expect(OpenAI).to receive(:log_message)
+            .with("Warning", expected_message, :warn)
+            .and_call_original
+
+          allow_any_instance_of(OpenAI::Client).to receive(:multipart_post).and_return({})
+
+          upload
+        end
       end
 
       context "with a `File` instance content" do

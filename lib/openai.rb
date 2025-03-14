@@ -1,6 +1,5 @@
 require "faraday"
 require "faraday/multipart" if Gem::Version.new(Faraday::VERSION) >= Gem::Version.new("2.0")
-
 require_relative "openai/http"
 require_relative "openai/client"
 require_relative "openai/files"
@@ -31,13 +30,7 @@ module OpenAI
       @app.call(env)
     rescue Faraday::Error => e
       raise e unless e.response.is_a?(Hash)
-
-      logger = Logger.new($stdout)
-      logger.formatter = proc do |_severity, _datetime, _progname, msg|
-        "\033[31mOpenAI HTTP Error (spotted in ruby-openai #{VERSION}): #{msg}\n\033[0m"
-      end
-      logger.error(e.response[:body])
-
+      OpenAI.log_message("OpenAI HTTP Error", e.response[:body], :error)
       raise e
     end
   end
@@ -73,25 +66,37 @@ module OpenAI
 
   class << self
     attr_writer :configuration
-  end
 
-  def self.configuration
-    @configuration ||= OpenAI::Configuration.new
-  end
+    def configuration
+      @configuration ||= OpenAI::Configuration.new
+    end
 
-  def self.configure
-    yield(configuration)
-  end
+    def configure
+      yield(configuration)
+    end
 
-  # Estimate the number of tokens in a string, using the rules of thumb from OpenAI:
-  # https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
-  def self.rough_token_count(content = "")
-    raise ArgumentError, "rough_token_count requires a string" unless content.is_a? String
-    return 0 if content.empty?
+    # Estimate the number of tokens in a string, using the rules of thumb from OpenAI:
+    # https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them
+    def rough_token_count(content = "")
+      raise ArgumentError, "rough_token_count requires a string" unless content.is_a? String
+      return 0 if content.empty?
+      count_by_chars = content.size / 4.0
+      count_by_words = content.split.size * 4.0 / 3
+      estimate = ((count_by_chars + count_by_words) / 2.0).round
+      [1, estimate].max
+    end
 
-    count_by_chars = content.size / 4.0
-    count_by_words = content.split.size * 4.0 / 3
-    estimate = ((count_by_chars + count_by_words) / 2.0).round
-    [1, estimate].max
+    # Log a message with appropriate formatting
+    # @param prefix [String] Prefix to add to the message
+    # @param message [String] The message to log
+    # @param level [Symbol] The log level (:error, :warn, etc.)
+    def log_message(prefix, message, level = :warn)
+      color = level == :error ? "\033[31m" : "\033[33m"
+      logger = Logger.new($stdout)
+      logger.formatter = proc do |_severity, _datetime, _progname, msg|
+        "#{color}#{prefix} (spotted in ruby-openai #{VERSION}): #{msg}\n\033[0m"
+      end
+      logger.send(level, message)
+    end
   end
 end
