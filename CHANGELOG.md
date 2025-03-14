@@ -11,12 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [BREAKING] Try to JSON parse everything. If it fails, always fall back to returning the raw response. Thank you to [@gregszero](https://github.com/gregszero) and the many others who raised this issue.
 
-### Fixed
-
-- [BREAKING] Backwards compatibility for `require "ruby/openai"` is removed - from v8 on you MUST use `require "openai"`. This fixes a deprecation warning with Ruby 3.4. Thanks to [@ndemianc](https://github.com/ndemianc) for this PR.
-
 ### Removed
 
+- [BREAKING] Backwards compatibility for `require "ruby/openai"` is removed - from v8 on you MUST use `require "openai"`. This fixes a deprecation warning with Ruby 3.4. Thanks to [@ndemianc](https://github.com/ndemianc) for this PR.
 - [BREAKING] Removed support for Ruby 2.6. ruby-openai may still work with this version but it's no longer supported.
 
 ## [7.4.0] - 2024-02-10
