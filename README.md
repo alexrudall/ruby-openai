@@ -1650,6 +1650,12 @@ To run all tests, execute the command `bundle exec rake`, which will also run th
 > [!WARNING]
 > If you have an `OPENAI_ACCESS_TOKEN` and `OPENAI_ADMIN_TOKEN` in your `ENV`, running the specs will hit the actual API, which will be slow and cost you money - 2 cents or more! Remove them from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
 
+### To check for deprecations
+
+```
+bundle exec ruby -e "Warning[:deprecated] = true; require 'rspec'; exit RSpec::Core::Runner.run(['spec/openai/client/http_spec.rb:25'])"
+```
+
 ## Release
 
 First run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN and OPENAI_ADMIN_TOKEN in your environment.
