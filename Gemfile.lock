@@ -91,7 +91,7 @@ DEPENDENCIES
   rspec (~> 3.13)
   rubocop (~> 1.74.0)
   ruby-openai!
-  vcr (~> 6.1)
+  vcr (~> 6.3.1)
   webmock (~> 3.25.1)
 
 BUNDLED WITH
