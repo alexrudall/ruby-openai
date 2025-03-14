@@ -472,9 +472,10 @@ You can stream it as well!
 ```ruby
 response = client.responses.create(parameters: {
   model: "gpt-4o",
-  input: "Hello!"
+  input: "Hello! I'm Szymon!"
 })
 puts response.dig("output", 0, "content", 0, "text")
+# => Hello Szymon! How can I assist you today?
 ```
 
 #### Follow-up Messages
@@ -485,6 +486,7 @@ followup = client.responses.create(parameters: {
   previous_response_id: response["id"]
 })
 puts followup.dig("output", 0, "content", 0, "text")
+# => Your name is Szymon! How can I help you today?
 ```
 
 #### Tool Calls
@@ -510,29 +512,32 @@ response = client.responses.create(parameters: {
     }
   ]
 })
-puts response.dig("output", 0, "name") # => "get_current_weather"
+puts response.dig("output", 0, "name")
+# => "get_current_weather"
 ```
 
 #### Streaming
 ```ruby
-chunks = []
-streamer = proc { |chunk, _| chunks << chunk }
-client.responses.create(parameters: {
-  model: "gpt-4o",
-  input: "Hello!",
-  stream: streamer
-})
-output = chunks
-  .select { |c| c["type"] == "response.output_text.delta" }
-  .map { |c| c["delta"] }
-  .join
-puts output
+client.responses.create(
+  parameters: {
+    model: "gpt-4o", # Required.
+    input: "Hello!", # Required.
+    stream: proc do |chunk, _bytesize|
+      if chunk["type"] == "response.output_text.delta"
+        print chunk["delta"]
+        $stdout.flush  # Ensure output is displayed immediately
+      end
+    end
+  }
+)
+# => "Hi there! How can I assist you today?..."
 ```
 
 #### Retrieve a Response
 ```ruby
 retrieved_response = client.responses.retrieve(response_id: response["id"])
-puts retrieved_response["object"] # => "response"
+puts retrieved_response["object"]
+# => "response"
 ```
 
 #### Delete a Response
