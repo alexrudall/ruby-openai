@@ -543,7 +543,8 @@ puts retrieved_response["object"]
 #### Delete a Response
 ```ruby
 deletion = client.responses.delete(response_id: response["id"])
-puts deletion["deleted"] # => true
+puts deletion["deleted"]
+# => true
 ```
 
 #### List Input Items
