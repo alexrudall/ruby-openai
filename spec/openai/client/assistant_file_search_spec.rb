@@ -82,8 +82,11 @@ RSpec.describe OpenAI::Client do
             run_id: run_id,
             parameters: { order: "asc" }
           )
-          sleep(0.5)
-          redo if steps["data"].empty?
+
+          if steps["data"].empty?
+            sleep(10)
+            next # Skip to next iteration if no data
+          end
 
           result = OpenAI::Client.new.run_steps.retrieve(
             thread_id: thread_id,
