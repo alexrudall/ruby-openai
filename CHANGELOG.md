@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [BREAKING] Backwards compatibility for `require "ruby/openai"` is removed - from v8 on you MUST use `require "openai"`. This fixes a deprecation warning with Ruby 3.4. Thanks to [@ndemianc](https://github.com/ndemianc) for this PR.
 - [BREAKING] Removed support for Ruby 2.6. ruby-openai may still work with this version but it's no longer supported.
+- Removed the 'OpenAI-Beta' header from Batches API requests.
 
 ## [7.4.0] - 2025-02-10
 
