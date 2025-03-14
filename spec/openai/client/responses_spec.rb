@@ -101,9 +101,9 @@ RSpec.describe OpenAI::Client do
           VCR.use_cassette(cassette) do
             response
             output_text = chunks
-              .select { |chunk| chunk["type"] == "response.output_text.delta" }
-              .map { |chunk| chunk["delta"] }
-              .join
+                          .select { |chunk| chunk["type"] == "response.output_text.delta" }
+                          .map { |chunk| chunk["delta"] }
+                          .join
             expect(output_text).to include("?")
           end
         end
@@ -113,9 +113,11 @@ RSpec.describe OpenAI::Client do
           let(:stream) do
             Class.new do
               attr_reader :chunks
+
               def initialize
                 @chunks = []
               end
+
               def call(chunk)
                 @chunks << chunk
               end
@@ -126,9 +128,9 @@ RSpec.describe OpenAI::Client do
             VCR.use_cassette(cassette) do
               response
               output_text = stream.chunks
-                .select { |chunk| chunk["type"] == "response.output_text.delta" }
-                .map { |chunk| chunk["delta"] }
-                .join
+                                  .select { |chunk| chunk["type"] == "response.output_text.delta" }
+                                  .map { |chunk| chunk["delta"] }
+                                  .join
               expect(output_text).to include("?")
             end
           end
