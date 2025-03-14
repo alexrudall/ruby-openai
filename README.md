@@ -466,7 +466,7 @@ You can stream it as well!
 ```
 
 ### Responses API
-OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+[OpenAI's most advanced interface for generating model responses](https://platform.openai.com/docs/api-reference/responses). Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
 
 #### Create a Response
 ```ruby

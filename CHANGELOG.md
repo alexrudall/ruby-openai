@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add Responses endpoints - thanks to my excellent colleague [@simonx1](https://github.com/simonx1) for your work on this!
 - Add docs for the Deepseek chat API.
 
 ### Changed
