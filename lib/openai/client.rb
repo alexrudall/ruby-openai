@@ -5,7 +5,7 @@ module OpenAI
     SENSITIVE_ATTRIBUTES = %i[@access_token @admin_token @organization_id @extra_headers].freeze
     CONFIG_KEYS = %i[access_token admin_token api_type api_version extra_headers
                      log_errors organization_id request_timeout uri_base].freeze
-    attr_reader *CONFIG_KEYS, :faraday_middleware
+    attr_reader(*CONFIG_KEYS, :faraday_middleware)
     attr_writer :access_token
 
     def initialize(config = {}, &faraday_middleware)
