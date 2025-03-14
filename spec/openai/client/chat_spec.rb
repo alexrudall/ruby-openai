@@ -185,6 +185,34 @@ RSpec.describe OpenAI::Client do
         end
       end
 
+      context "with Deepseek + model: deepseek-chat" do
+        let(:uri_base) { "https://api.deepseek.com/" }
+        let(:provider) { "deepseek" }
+        let(:model) { "deepseek-chat" }
+        let(:response) do
+          OpenAI::Client.new({ uri_base: uri_base }).chat(
+            parameters: parameters
+          )
+        end
+        let(:chunks) { [] }
+        let(:stream) do
+          proc do |chunk, _bytesize|
+            chunks << chunk
+          end
+        end
+
+        it "succeeds" do
+          VCR.use_cassette(cassette) do
+            tap do
+              response
+            rescue Faraday::UnauthorizedError
+              pending "This test needs the `OPENAI_ACCESS_TOKEN` to be a Deepseek API key"
+            end
+            expect(chunks.dig(0, "choices", 0, "index")).to eq(0)
+          end
+        end
+      end
+
       context "with Groq + model: llama3" do
         let(:uri_base) { "https://api.groq.com/openai" }
         let(:provider) { "groq" }
