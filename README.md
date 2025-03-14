@@ -468,28 +468,28 @@ You can stream it as well!
 ### Responses API
 OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
 
+#### Create a Response
 ```ruby
-response = client.responses(parameters: {
+response = client.responses.create(parameters: {
   model: "gpt-4o",
   input: "Hello!"
 })
-
 puts response.dig("output", 0, "content", 0, "text")
 ```
-#### Follow-up Messages (former threads functionality available in the Assistant API)
+
+#### Follow-up Messages
 ```ruby
-followup = client.responses(parameters: {
+followup = client.responses.create(parameters: {
   model: "gpt-4o",
   input: "Remind me, what is my name?",
   previous_response_id: response["id"]
 })
-
 puts followup.dig("output", 0, "content", 0, "text")
 ```
 
 #### Tool Calls
 ```ruby
-response = client.responses(parameters: {
+response = client.responses.create(parameters: {
   model: "gpt-4o",
   input: "What's the weather in Paris?",
   tools: [
@@ -510,7 +510,6 @@ response = client.responses(parameters: {
     }
   ]
 })
-
 puts response.dig("output", 0, "name") # => "get_current_weather"
 ```
 
@@ -518,19 +517,34 @@ puts response.dig("output", 0, "name") # => "get_current_weather"
 ```ruby
 chunks = []
 streamer = proc { |chunk, _| chunks << chunk }
-
-client.responses(parameters: {
+client.responses.create(parameters: {
   model: "gpt-4o",
   input: "Hello!",
   stream: streamer
 })
-
 output = chunks
   .select { |c| c["type"] == "response.output_text.delta" }
   .map { |c| c["delta"] }
   .join
-
 puts output
+```
+
+#### Retrieve a Response
+```ruby
+retrieved_response = client.responses.retrieve(response_id: response["id"])
+puts retrieved_response["object"] # => "response"
+```
+
+#### Delete a Response
+```ruby
+deletion = client.responses.delete(response_id: response["id"])
+puts deletion["deleted"] # => true
+```
+
+#### List Input Items
+```ruby
+input_items = client.responses.input_items(response_id: response["id"])
+puts input_items["object"] # => "list"
 ```
 
 ### Functions
