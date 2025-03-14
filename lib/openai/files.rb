@@ -20,9 +20,7 @@ module OpenAI
     def upload(parameters: {})
       file_input = parameters[:file]
       file = prepare_file_input(file_input: file_input)
-
       validate(file: file, purpose: parameters[:purpose], file_input: file_input)
-
       @client.multipart_post(
         path: "/files",
         parameters: parameters.merge(file: file)
@@ -57,8 +55,12 @@ module OpenAI
 
     def validate(file:, purpose:, file_input:)
       raise ArgumentError, "`file` is required" if file.nil?
+
       unless PURPOSES.include?(purpose)
-        raise ArgumentError, "`purpose` must be one of `#{PURPOSES.join(',')}`"
+        filename = file_input.is_a?(String) ? File.basename(file_input) : "uploaded file"
+        message = "The purpose '#{purpose}' for file '#{filename}' is not in the known purpose "
+        message += "list: #{PURPOSES.join(', ')}."
+        OpenAI.log_message("Warning", message, :warn)
       end
 
       validate_jsonl(file: file) if file_input.is_a?(String) && file_input.end_with?(".jsonl")

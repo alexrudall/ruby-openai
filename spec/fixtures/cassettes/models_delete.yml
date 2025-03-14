@@ -1,18 +1,16 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://api.openai.com/v1/threads
+    method: delete
+    uri: https://api.openai.com/v1/models/ft:123
     body:
-      encoding: UTF-8
-      string: '{"messages":[{"role":"user","content":"Find the description of a nociceptor."}]}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Content-Type:
       - application/json
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
-      Openai-Beta:
-      - assistants=v2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -21,52 +19,55 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Date:
-      - Fri, 11 Oct 2024 14:31:30 GMT
+      - Fri, 14 Mar 2025 16:27:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
       Openai-Version:
       - '2020-10-01'
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - req_476abaa78917a72500a258541a9e645c
+      - req_f3aa46fca70f6e573cbd6c099b79e7ff
       Openai-Processing-Ms:
-      - '909'
+      - '87'
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=RTvquL6o4qHueyeVBS1Z2qV4KZ00Gg1Sdmq3CKdoBrA-1728657090-1.0.1.1-ea2tVOzd6t2QhdB2UPLkbMJdJQ3WlMFeKAIyAIUleZAdAOtw33Z07YTTJBIXQb.pJDEt27pHJNP4RpIjE3F9lA;
-        path=/; expires=Fri, 11-Oct-24 15:01:30 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=dheP4FgO74F2kzJyx1PRXDmCdmGSgyXaIc3evnqa.Fg-1741969634-1.0.1.1-rnk0u_ENkSbxCpNmLnSOYGA5WhxWvo6HYDC7WmV.753xNOtUzd2Q7pq7CNCqD5MaRX5pZolCAUF1M.jgxZ6JpqLE5sWCSn5tc25LCkGnmDU;
+        path=/; expires=Fri, 14-Mar-25 16:57:14 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=wqvbuE2etd301wgW_PkCGEjUKDNt.HrAg.RV.YVMxZI-1728657090004-0.0.1.1-604800000;
+      - _cfuvid=2ThzUr01e8u1WXCmD4Y3hxPV6sx3dP55bRkXtNIegOM-1741969634836-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       X-Content-Type-Options:
       - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 8d0f8dd60b035316-LHR
+      - 920523284e87beba-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
-      string: |-
+      string: |
         {
-          "id": "thread_Z8kflIC6P6N5SpnkPW4q7waD",
-          "object": "thread",
-          "created_at": 1728657089,
-          "metadata": {},
-          "tool_resources": {}
+          "error": {
+            "message": "The model 'ft:123' does not exist",
+            "type": "invalid_request_error",
+            "param": "model",
+            "code": "model_not_found"
+          }
         }
-  recorded_at: Fri, 11 Oct 2024 14:31:30 GMT
-recorded_with: VCR 6.1.0
+  recorded_at: Fri, 14 Mar 2025 16:27:14 GMT
+recorded_with: VCR 6.3.1

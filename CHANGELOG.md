@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.0.0] - 2025-03-14
+
+### Added
+
+- Add Responses endpoints - thanks to my excellent colleague [@simonx1](https://github.com/simonx1) for your work on this!
+- Add docs for the Deepseek chat API.
+- Add Models#delete - thanks to [bennysghost](https://github.com/bennysghost).
+
+### Fixed
+
+- [BREAKING] Try to JSON parse everything. If it fails, fall back gracefully to returning the raw response. Thank you to [@gregszero](https://github.com/gregszero) and the many others who raised this issue.
+- [BREAKING] An unknown file type will no longer prevent file upload, but instead raise a warning.
+- [BREAKING] ruby-openai longer requires "faraday/multipart" for Faraday 1 users (Faraday 1 already includes it and it was causing a warning). Thanks to [ajGingrich](https://github.com/ajGingrich) for raising this!
+- Add `user_data` and `evals` as options for known File types - thank you to [jontec](https://github.com/jontec) for this fix!
+- Fix a syntax ambiguity in Client.rb - thank you to [viralpraxis](https://github.com/viralpraxis).
+
+### Removed
+
+- [BREAKING] Backwards compatibility for `require "ruby/openai"` is removed - from v8 on you MUST use `require "openai"`. This fixes a deprecation warning with Ruby 3.4. Thanks to [@ndemianc](https://github.com/ndemianc) for this PR.
+- [BREAKING] Removed support for Ruby 2.6. ruby-openai may still work with this version but it's no longer supported.
+- Removed the 'OpenAI-Beta' header from Batches API requests.
+
 ## [7.4.0] - 2025-02-10
 
 ### Added

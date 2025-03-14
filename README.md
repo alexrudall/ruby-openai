@@ -328,6 +328,12 @@ client.models.list
 client.models.retrieve(id: "gpt-4o")
 ```
 
+You can also delete any finetuned model you generated, if you're an account Owner on your OpenAI organization:
+
+```ruby
+client.models.delete(id: "ft:gpt-4o-mini:acemeco:suffix:abc123")
+```
+
 ### Chat
 
 GPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
@@ -466,15 +472,16 @@ You can stream it as well!
 ```
 
 ### Responses API
-OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+[OpenAI's most advanced interface for generating model responses](https://platform.openai.com/docs/api-reference/responses). Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
 
 #### Create a Response
 ```ruby
 response = client.responses.create(parameters: {
   model: "gpt-4o",
-  input: "Hello!"
+  input: "Hello! I'm Szymon!"
 })
 puts response.dig("output", 0, "content", 0, "text")
+# => Hello Szymon! How can I assist you today?
 ```
 
 #### Follow-up Messages
@@ -485,6 +492,7 @@ followup = client.responses.create(parameters: {
   previous_response_id: response["id"]
 })
 puts followup.dig("output", 0, "content", 0, "text")
+# => Your name is Szymon! How can I help you today?
 ```
 
 #### Tool Calls
@@ -510,35 +518,39 @@ response = client.responses.create(parameters: {
     }
   ]
 })
-puts response.dig("output", 0, "name") # => "get_current_weather"
+puts response.dig("output", 0, "name")
+# => "get_current_weather"
 ```
 
 #### Streaming
 ```ruby
-chunks = []
-streamer = proc { |chunk, _| chunks << chunk }
-client.responses.create(parameters: {
-  model: "gpt-4o",
-  input: "Hello!",
-  stream: streamer
-})
-output = chunks
-  .select { |c| c["type"] == "response.output_text.delta" }
-  .map { |c| c["delta"] }
-  .join
-puts output
+client.responses.create(
+  parameters: {
+    model: "gpt-4o", # Required.
+    input: "Hello!", # Required.
+    stream: proc do |chunk, _bytesize|
+      if chunk["type"] == "response.output_text.delta"
+        print chunk["delta"]
+        $stdout.flush  # Ensure output is displayed immediately
+      end
+    end
+  }
+)
+# => "Hi there! How can I assist you today?..."
 ```
 
 #### Retrieve a Response
 ```ruby
 retrieved_response = client.responses.retrieve(response_id: response["id"])
-puts retrieved_response["object"] # => "response"
+puts retrieved_response["object"]
+# => "response"
 ```
 
 #### Delete a Response
 ```ruby
 deletion = client.responses.delete(response_id: response["id"])
-puts deletion["deleted"] # => true
+puts deletion["deleted"]
+# => true
 ```
 
 #### List Input Items
@@ -850,6 +862,12 @@ You can also capture the events for a job:
 
 ```ruby
 client.finetunes.list_events(id: fine_tune_id)
+```
+
+You can also delete any finetuned model you generated, if you're an account Owner on your OpenAI organization:
+
+```ruby
+client.models.delete(id: fine_tune_id)
 ```
 
 ### Vector Stores
@@ -1649,6 +1667,12 @@ To run all tests, execute the command `bundle exec rake`, which will also run th
 
 > [!WARNING]
 > If you have an `OPENAI_ACCESS_TOKEN` and `OPENAI_ADMIN_TOKEN` in your `ENV`, running the specs will hit the actual API, which will be slow and cost you money - 2 cents or more! Remove them from your environment with `unset` or similar if you just want to run the specs against the stored VCR responses.
+
+### To check for deprecations
+
+```
+bundle exec ruby -e "Warning[:deprecated] = true; require 'rspec'; exit RSpec::Core::Runner.run(['spec/openai/client/http_spec.rb:25'])"
+```
 
 ## Release
 
