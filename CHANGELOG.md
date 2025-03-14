@@ -16,8 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [BREAKING] Try to JSON parse everything. If it fails, always fall back to returning the raw response. Thank you to [@gregszero](https://github.com/gregszero) and the many others who raised this issue.
 - [BREAKING] An unknown file type will no longer prevent file upload, but instead raise a warning.
+- [BREAKING] ruby-openai longer requires "faraday/multipart" for Faraday 1 users (Faraday 1 already includes it and it was causing a warning). Thanks to [ajGingrich](https://github.com/ajGingrich) for raising this!
 - Add `user_data` and `evals` as options for known File types - thank you to [jontec](https://github.com/jontec) for this fix!
-- ruby-openai longer requires "faraday/multipart" for Faraday 1 users (Faraday 1 already includes it and it was causing a warning). Thanks to [ajGingrich](https://github.com/ajGingrich) for raising this!
 
 ### Removed
 
