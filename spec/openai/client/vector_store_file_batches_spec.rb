@@ -34,7 +34,8 @@ RSpec.describe OpenAI::Client do
         raise unless e.response[:status] == 500
 
         # Wait for the file batch to be processed.
-        sleep 0.5 && retry
+        sleep 0.5
+        retry
       end
 
       before { file_batch_id }
