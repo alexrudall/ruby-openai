@@ -30,6 +30,7 @@ module OpenAI
       @app.call(env)
     rescue Faraday::Error => e
       raise e unless e.response.is_a?(Hash)
+
       OpenAI.log_message("OpenAI HTTP Error", e.response[:body], :error)
       raise e
     end
@@ -80,6 +81,7 @@ module OpenAI
     def rough_token_count(content = "")
       raise ArgumentError, "rough_token_count requires a string" unless content.is_a? String
       return 0 if content.empty?
+
       count_by_chars = content.size / 4.0
       count_by_words = content.split.size * 4.0 / 3
       estimate = ((count_by_chars + count_by_words) / 2.0).round
