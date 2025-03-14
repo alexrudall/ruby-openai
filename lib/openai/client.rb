@@ -32,10 +32,6 @@ module OpenAI
       json_post(path: "/completions", parameters: parameters)
     end
 
-    def responses(parameters: {})
-      json_post(path: "/responses", parameters: parameters)
-    end
-
     def audio
       @audio ||= OpenAI::Audio.new(client: self)
     end
@@ -54,6 +50,10 @@ module OpenAI
 
     def models
       @models ||= OpenAI::Models.new(client: self)
+    end
+
+    def responses
+      @responses ||= OpenAI::Responses.new(client: self)
     end
 
     def assistants
