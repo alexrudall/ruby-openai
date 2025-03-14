@@ -50,7 +50,7 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.run_steps.retrieve(
           thread_id: thread_id,
           run_id: run_id,
-          id: "123"
+          id: "step_123"
         )
       end
 
