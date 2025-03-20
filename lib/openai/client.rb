@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 module OpenAI
   class Client
     include OpenAI::HTTP
@@ -136,3 +137,4 @@ module OpenAI
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
