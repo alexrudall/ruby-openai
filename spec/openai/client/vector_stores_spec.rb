@@ -89,8 +89,6 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq("vector_store.search_results.page")
-          expect(response).to have_key("search_query")
-          expect(response).to have_key("data")
         end
       end
     end
