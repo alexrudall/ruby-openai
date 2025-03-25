@@ -23,5 +23,9 @@ module OpenAI
     def delete(id:)
       @client.delete(path: "/vector_stores/#{id}")
     end
+
+    def search(id:, parameters: {})
+      @client.json_post(path: "/vector_stores/#{id}/search", parameters: parameters)
+    end
   end
 end
