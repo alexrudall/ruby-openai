@@ -927,6 +927,27 @@ response = client.vector_stores.modify(
 )
 ```
 
+You can search a vector store for relevant chunks based on a query:
+
+```ruby
+response = client.vector_stores.search(
+  id: vector_store_id,
+  parameters: {
+    query: "What is the return policy?",
+    max_num_results: 20,
+    ranking_options: {
+      # Add any ranking options here in line with the API documentation
+    },
+    rewrite_query: true,
+    filters: {
+      type: "eq",
+      property: "region",
+      value: "us"
+    }
+  }
+)
+```
+
 You can delete vector stores:
 
 ```ruby
@@ -963,27 +984,6 @@ You can get a `list` of all vector store files currently available under the vec
 
 ```ruby
 client.vector_store_files.list(vector_store_id: "vector-store-abc123")
-```
-
-You can search a vector store for relevant chunks based on a query:
-
-```ruby
-response = client.vector_stores.search(
-  id: vector_store_id,
-  parameters: {
-    query: "What is the return policy?",
-    max_num_results: 20,
-    ranking_options: {
-      # Add any ranking options here in line with the API documentation
-    },
-    rewrite_query: true,
-    filters: {
-      type: "eq",
-      property: "region",
-      value: "us"
-    }
-  }
-)
 ```
 
 You can delete a vector store file:
