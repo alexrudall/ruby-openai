@@ -1,4 +1,5 @@
 # Ruby OpenAI
+
 [![Gem Version](https://img.shields.io/gem/v/ruby-openai.svg)](https://rubygems.org/gems/ruby-openai)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alexrudall/ruby-openai/blob/main/LICENSE.txt)
 [![CircleCI Build Status](https://circleci.com/gh/alexrudall/ruby-openai.svg?style=shield)](https://circleci.com/gh/alexrudall/ruby-openai)
@@ -16,7 +17,7 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 ## Contents
 
 - [Ruby OpenAI](#ruby-openai)
-- [Table of Contents](#table-of-contents)
+  - [Contents](#contents)
   - [Installation](#installation)
     - [Bundler](#bundler)
     - [Gem install](#gem-install)
@@ -39,6 +40,13 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
       - [Vision](#vision)
       - [JSON Mode](#json-mode)
     - [Responses API](#responses-api)
+      - [Create a Response](#create-a-response)
+      - [Follow-up Messages](#follow-up-messages)
+      - [Tool Calls](#tool-calls)
+      - [Streaming](#streaming)
+      - [Retrieve a Response](#retrieve-a-response)
+      - [Delete a Response](#delete-a-response)
+      - [List Input Items](#list-input-items)
     - [Functions](#functions)
     - [Completions](#completions)
     - [Embeddings](#embeddings)
@@ -70,6 +78,7 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
     - [Usage](#usage)
     - [Errors](#errors-1)
   - [Development](#development)
+    - [To check for deprecations](#to-check-for-deprecations)
   - [Release](#release)
   - [Contributing](#contributing)
   - [License](#license)
@@ -88,7 +97,7 @@ gem "ruby-openai"
 And then execute:
 
 ```bash
-$ bundle install
+bundle install
 ```
 
 ### Gem install
@@ -96,7 +105,7 @@ $ bundle install
 Or install with:
 
 ```bash
-$ gem install ruby-openai
+gem install ruby-openai
 ```
 
 and require with:
@@ -472,9 +481,11 @@ You can stream it as well!
 ```
 
 ### Responses API
+
 [OpenAI's most advanced interface for generating model responses](https://platform.openai.com/docs/api-reference/responses). Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
 
 #### Create a Response
+
 ```ruby
 response = client.responses.create(parameters: {
   model: "gpt-4o",
@@ -485,6 +496,7 @@ puts response.dig("output", 0, "content", 0, "text")
 ```
 
 #### Follow-up Messages
+
 ```ruby
 followup = client.responses.create(parameters: {
   model: "gpt-4o",
@@ -496,6 +508,7 @@ puts followup.dig("output", 0, "content", 0, "text")
 ```
 
 #### Tool Calls
+
 ```ruby
 response = client.responses.create(parameters: {
   model: "gpt-4o",
@@ -523,6 +536,7 @@ puts response.dig("output", 0, "name")
 ```
 
 #### Streaming
+
 ```ruby
 client.responses.create(
   parameters: {
@@ -540,6 +554,7 @@ client.responses.create(
 ```
 
 #### Retrieve a Response
+
 ```ruby
 retrieved_response = client.responses.retrieve(response_id: response["id"])
 puts retrieved_response["object"]
@@ -547,6 +562,7 @@ puts retrieved_response["object"]
 ```
 
 #### Delete a Response
+
 ```ruby
 deletion = client.responses.delete(response_id: response["id"])
 puts deletion["deleted"]
@@ -554,6 +570,7 @@ puts deletion["deleted"]
 ```
 
 #### List Input Items
+
 ```ruby
 input_items = client.responses.input_items(response_id: response["id"])
 puts input_items["object"] # => "list"
@@ -906,6 +923,27 @@ response = client.vector_stores.modify(
   id: vector_store_id,
   parameters: {
     name: "Modified Test Vector Store",
+  }
+)
+```
+
+You can search a vector store for relevant chunks based on a query:
+
+```ruby
+response = client.vector_stores.search(
+  id: vector_store_id,
+  parameters: {
+    query: "What is the return policy?",
+    max_num_results: 20,
+    ranking_options: {
+      # Add any ranking options here in line with the API documentation
+    },
+    rewrite_query: true,
+    filters: {
+      type: "eq",
+      property: "region",
+      value: "us"
+    }
   }
 )
 ```
@@ -1588,6 +1626,7 @@ File.binwrite('demo.mp3', response)
 ```
 
 ### Usage
+
 The Usage API provides information about the cost of various OpenAI services within your organization.
 To use Admin APIs like Usage, you need to set an OPENAI_ADMIN_TOKEN, which can be generated [here](https://platform.openai.com/settings/organization/admin-keys).
 

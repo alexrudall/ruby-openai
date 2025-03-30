@@ -72,5 +72,25 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "#search" do
+      let(:cassette) { "vector_stores search" }
+      let(:response) do
+        OpenAI::Client.new.vector_stores.search(
+          id: vector_store_id,
+          parameters: {
+            query: "Test search query",
+            max_num_results: 5,
+            rewrite_query: false
+          }
+        )
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("vector_store.search_results.page")
+        end
+      end
+    end
   end
 end
