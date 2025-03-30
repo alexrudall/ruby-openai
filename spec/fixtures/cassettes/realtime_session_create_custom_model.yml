@@ -1,0 +1,112 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/realtime/sessions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o-realtime-preview-2024-12-18"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - realtime=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 18 Dec 2024 12:35:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - org-123456789
+      Openai-Processing-Ms:
+      - '180'
+      Openai-Version:
+      - '2024-12-17'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Remaining-Requests:
+      - '9998'
+      X-Ratelimit-Reset-Requests:
+      - 6ms
+      X-Request-Id:
+      - req_987654321fedcba
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=def456; path=/; expires=Wed, 18-Dec-24 13:05:56 GMT; domain=.api.openai.com;
+        HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 987654321fedcba-IAD
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id": "session_real123abc",
+          "object": "realtime.session",
+          "model": "gpt-4o-realtime-preview-2024-12-18",
+          "expires_at": 1734626783,
+          "modalities": [
+            "audio",
+            "text"
+          ],
+          "instructions": "",
+          "voice": "alloy",
+          "turn_detection": {
+            "type": "server_vad",
+            "threshold": 0.5,
+            "prefix_padding_ms": 300,
+            "silence_duration_ms": 200
+          },
+          "input_audio_format": "pcm16",
+          "output_audio_format": "pcm16",
+          "input_audio_transcription": null,
+          "tool_choice": "auto",
+          "temperature": 0.8,
+          "max_response_output_tokens": "inf",
+          "tools": [],
+          "ice_servers": [
+            {
+              "urls": ["stun:stun1.example.net"]
+            },
+            {
+              "urls": ["turn:turn.example.org"],
+              "username": "user123",
+              "credential": "password123"
+            }
+          ],
+          "session_id": "session_real123abc",
+          "audio_input_config": {
+            "sampling_rate": 16000,
+            "channels": 1,
+            "encoding": "opus"
+          },
+          "audio_output_config": {
+            "sampling_rate": 24000,
+            "channels": 1,
+            "encoding": "opus"
+          }
+        }
+  recorded_at: Wed, 18 Dec 2024 12:35:56 GMT
+recorded_with: VCR 6.3.1
