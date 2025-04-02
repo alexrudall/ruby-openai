@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.deepseek.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"deepseek-chat","messages":[{"role":"user","content":"Hello!"}],"stream":true}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 14:01:48 GMT
+      Content-Type:
+      - text/event-stream; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - HWWAFSESID=4f80b21df41f1b00278; path=/
+      - HWWAFSESTIME=1741960906660; path=/
+      - __cf_bm=bkZ_rAGKeMcFuEmpKGqGohOg6qpTgp5GWypVkmtSMzg-1741960908-1.0.1.1-wp7edLbMPVL0QQuHACSFgexsqPqiU8lHwXvMBu1JhnTrGgg_K.YO7CqB1AA8faOi6QafzgaINYYlknIxd2tuZngaVs5n0hizlc0WA9A1vZQ;
+        path=/; expires=Fri, 14-Mar-25 14:31:48 GMT; domain=.deepseek.com; HttpOnly;
+        Secure; SameSite=None
+      Cache-Control:
+      - no-cache
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Ds-Trace-Id:
+      - 484b5ea42361ec2319c06e8cbde6f223
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Cache-Status:
+      - DYNAMIC
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 92044e1b1ace6347-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        ZGF0YTogeyJpZCI6IjIzNmQyMTIzLWUwOTctNDg1My05MTRkLTBjN2VlNTYxZTJiYSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NDE5NjA5MDgsIm1vZGVsIjoiZGVlcHNlZWstY2hhdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzNhNTc3MGUxYjRfcHJvZDAyMjUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsicm9sZSI6ImFzc2lzdGFudCIsImNvbnRlbnQiOiIifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XX0KCmRhdGE6IHsiaWQiOiIyMzZkMjEyMy1lMDk3LTQ4NTMtOTE0ZC0wYzdlZTU2MWUyYmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzQxOTYwOTA4LCJtb2RlbCI6ImRlZXBzZWVrLWNoYXQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF8zYTU3NzBlMWI0X3Byb2QwMjI1IiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiJIZWxsbyJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dfQoKZGF0YTogeyJpZCI6IjIzNmQyMTIzLWUwOTctNDg1My05MTRkLTBjN2VlNTYxZTJiYSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NDE5NjA5MDgsIm1vZGVsIjoiZGVlcHNlZWstY2hhdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzNhNTc3MGUxYjRfcHJvZDAyMjUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiEifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XX0KCmRhdGE6IHsiaWQiOiIyMzZkMjEyMy1lMDk3LTQ4NTMtOTE0ZC0wYzdlZTU2MWUyYmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzQxOTYwOTA4LCJtb2RlbCI6ImRlZXBzZWVrLWNoYXQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF8zYTU3NzBlMWI0X3Byb2QwMjI1IiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgSG93In0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV19CgpkYXRhOiB7ImlkIjoiMjM2ZDIxMjMtZTA5Ny00ODUzLTkxNGQtMGM3ZWU1NjFlMmJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc0MTk2MDkwOCwibW9kZWwiOiJkZWVwc2Vlay1jaGF0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfM2E1NzcwZTFiNF9wcm9kMDIyNSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGNhbiJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dfQoKZGF0YTogeyJpZCI6IjIzNmQyMTIzLWUwOTctNDg1My05MTRkLTBjN2VlNTYxZTJiYSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NDE5NjA5MDgsIm1vZGVsIjoiZGVlcHNlZWstY2hhdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzNhNTc3MGUxYjRfcHJvZDAyMjUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiBJIn0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV19CgpkYXRhOiB7ImlkIjoiMjM2ZDIxMjMtZTA5Ny00ODUzLTkxNGQtMGM3ZWU1NjFlMmJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc0MTk2MDkwOCwibW9kZWwiOiJkZWVwc2Vlay1jaGF0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfM2E1NzcwZTFiNF9wcm9kMDIyNSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIGFzc2lzdCJ9LCJsb2dwcm9icyI6bnVsbCwiZmluaXNoX3JlYXNvbiI6bnVsbH1dfQoKZGF0YTogeyJpZCI6IjIzNmQyMTIzLWUwOTctNDg1My05MTRkLTBjN2VlNTYxZTJiYSIsIm9iamVjdCI6ImNoYXQuY29tcGxldGlvbi5jaHVuayIsImNyZWF0ZWQiOjE3NDE5NjA5MDgsIm1vZGVsIjoiZGVlcHNlZWstY2hhdCIsInN5c3RlbV9maW5nZXJwcmludCI6ImZwXzNhNTc3MGUxYjRfcHJvZDAyMjUiLCJjaG9pY2VzIjpbeyJpbmRleCI6MCwiZGVsdGEiOnsiY29udGVudCI6IiB5b3UifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XX0KCmRhdGE6IHsiaWQiOiIyMzZkMjEyMy1lMDk3LTQ4NTMtOTE0ZC0wYzdlZTU2MWUyYmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzQxOTYwOTA4LCJtb2RlbCI6ImRlZXBzZWVrLWNoYXQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF8zYTU3NzBlMWI0X3Byb2QwMjI1IiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIgdG9kYXkifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XX0KCmRhdGE6IHsiaWQiOiIyMzZkMjEyMy1lMDk3LTQ4NTMtOTE0ZC0wYzdlZTU2MWUyYmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzQxOTYwOTA4LCJtb2RlbCI6ImRlZXBzZWVrLWNoYXQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF8zYTU3NzBlMWI0X3Byb2QwMjI1IiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiI/In0sImxvZ3Byb2JzIjpudWxsLCJmaW5pc2hfcmVhc29uIjpudWxsfV19CgpkYXRhOiB7ImlkIjoiMjM2ZDIxMjMtZTA5Ny00ODUzLTkxNGQtMGM3ZWU1NjFlMmJhIiwib2JqZWN0IjoiY2hhdC5jb21wbGV0aW9uLmNodW5rIiwiY3JlYXRlZCI6MTc0MTk2MDkwOCwibW9kZWwiOiJkZWVwc2Vlay1jaGF0Iiwic3lzdGVtX2ZpbmdlcnByaW50IjoiZnBfM2E1NzcwZTFiNF9wcm9kMDIyNSIsImNob2ljZXMiOlt7ImluZGV4IjowLCJkZWx0YSI6eyJjb250ZW50IjoiIPCfmIoifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOm51bGx9XX0KCmRhdGE6IHsiaWQiOiIyMzZkMjEyMy1lMDk3LTQ4NTMtOTE0ZC0wYzdlZTU2MWUyYmEiLCJvYmplY3QiOiJjaGF0LmNvbXBsZXRpb24uY2h1bmsiLCJjcmVhdGVkIjoxNzQxOTYwOTA4LCJtb2RlbCI6ImRlZXBzZWVrLWNoYXQiLCJzeXN0ZW1fZmluZ2VycHJpbnQiOiJmcF8zYTU3NzBlMWI0X3Byb2QwMjI1IiwiY2hvaWNlcyI6W3siaW5kZXgiOjAsImRlbHRhIjp7ImNvbnRlbnQiOiIifSwibG9ncHJvYnMiOm51bGwsImZpbmlzaF9yZWFzb24iOiJzdG9wIn1dLCJ1c2FnZSI6eyJwcm9tcHRfdG9rZW5zIjo1LCJjb21wbGV0aW9uX3Rva2VucyI6MTEsInRvdGFsX3Rva2VucyI6MTYsInByb21wdF90b2tlbnNfZGV0YWlscyI6eyJjYWNoZWRfdG9rZW5zIjowfSwicHJvbXB0X2NhY2hlX2hpdF90b2tlbnMiOjAsInByb21wdF9jYWNoZV9taXNzX3Rva2VucyI6NX19CgpkYXRhOiBbRE9ORV0KCg==
+  recorded_at: Fri, 14 Mar 2025 14:01:56 GMT
+recorded_with: VCR 6.1.0

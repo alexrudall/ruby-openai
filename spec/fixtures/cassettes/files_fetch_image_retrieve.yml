@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/files/file-K3gwyzsbpt6RXuAfWzgUeh
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Feb 2025 14:55:38 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_a69c47545eca3821335b1d969f38d351
+      Openai-Processing-Ms:
+      - '50'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=4U9Wp6hNHG.yfESAELNnI6tyERcXSoY5aN2p1feHKu8-1739544938-1.0.1.1-R_DKDjENdsn6knyIPBKNwe7uxrHniHogLQeR4RxWASaS9XShfRDjb8N7M9Ztwlcpu62UJ8Ehd2Wy9p64ahzfjg;
+        path=/; expires=Fri, 14-Feb-25 15:25:38 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=A2rCOmzJfrjtBXJbQPfBD6VQjiJc1kCzo75fumzx4qs-1739544938927-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 911de67b29f3bed7-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-K3gwyzsbpt6RXuAfWzgUeh",
+          "purpose": "vision",
+          "filename": "image.png",
+          "bytes": 249,
+          "created_at": 1739544938,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Fri, 14 Feb 2025 14:55:38 GMT
+recorded_with: VCR 6.1.0

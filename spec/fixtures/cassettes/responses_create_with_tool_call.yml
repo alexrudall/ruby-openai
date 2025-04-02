@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4o","input":"What is the weather like in the Peak District?","stream":false,"tools":[{"type":"function","name":"get_current_weather","description":"Get
+        the current weather in a given location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"The
+        geographic location to get the weather for"}},"required":["location"]}}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:11:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_fa435768220b77eb974f47d35854ff51
+      Openai-Processing-Ms:
+      - '920'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=GCBowHi6wmRJ7Kc6RN2kzIEv5J_C7p0J8pc9GVjJhdM-1741965101-1.0.1.1-_PedoaaESkQ5d4m.YbjUT2U2GcmVlEmkfnot3Hl_YVu_qoqxeWGvDGNae0dpMmiU0_KETePWKBgNlHaSdZGafyqLPgezMRDT1V3upM32JXg;
+        path=/; expires=Fri, 14-Mar-25 15:41:41 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=6ziXbv.RybvJgLp8yQyyLviGb6L1By2PjSBAupTxu.4-1741965101148-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204b4738ca6459f-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_67d4472c2fe88190bc9589237f2344530ea042f062abe44d",
+          "object": "response",
+          "created_at": 1741965100,
+          "status": "completed",
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "model": "gpt-4o-2024-08-06",
+          "output": [
+            {
+              "type": "function_call",
+              "id": "fc_67d4472cf13c81909d777f43067f5a890ea042f062abe44d",
+              "call_id": "call_fUL4HcLUJuOTMPvhZR4DQKJy",
+              "name": "get_current_weather",
+              "arguments": "{\"location\":\"Peak District\"}",
+              "status": "completed"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "reasoning": {
+            "effort": null,
+            "generate_summary": null
+          },
+          "store": true,
+          "temperature": 1.0,
+          "text": {
+            "format": {
+              "type": "text"
+            }
+          },
+          "tool_choice": "auto",
+          "tools": [
+            {
+              "type": "function",
+              "description": "Get the current weather in a given location",
+              "name": "get_current_weather",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "location": {
+                    "type": "string",
+                    "description": "The geographic location to get the weather for"
+                  }
+                },
+                "required": [
+                  "location"
+                ]
+              },
+              "strict": true
+            }
+          ],
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 277,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 17,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 294
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 14 Mar 2025 15:11:41 GMT
+recorded_with: VCR 6.1.0

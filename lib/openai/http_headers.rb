@@ -19,7 +19,7 @@ module OpenAI
         "Content-Type" => "application/json",
         "Authorization" => "Bearer #{@access_token}",
         "OpenAI-Organization" => @organization_id
-      }
+      }.compact
     end
 
     def azure_headers

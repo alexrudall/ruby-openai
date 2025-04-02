@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/vector_stores
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 07:01:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_94ff528d59fed8facc619df94d182c0d
+      Openai-Processing-Ms:
+      - '46'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=1HqtluZ3FY7mmMiCBGwiGHdoxwhNuRyIkNaHG3OL7nY-1728975689-1.0.1.1-TCSy92E6brTiGHH4Sob77NntYEWwFM82qEmufR1LIj_c5s4_9p5dCAaqBlLFbRD_OrqUbMa_k1z_EwFGALm5xw;
+        path=/; expires=Tue, 15-Oct-24 07:31:29 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Dm38neGAiSWdmSLi_A1AbAF4QDEGEwrKnwcuUelRJo0-1728975689933-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d2df02cebb3cd54-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "vs_Jhsj39YoypHdDXGlrTHtx3ir",
+          "object": "vector_store",
+          "name": null,
+          "status": "completed",
+          "usage_bytes": 0,
+          "created_at": 1728975689,
+          "file_counts": {
+            "in_progress": 0,
+            "completed": 0,
+            "failed": 0,
+            "cancelled": 0,
+            "total": 0
+          },
+          "metadata": {},
+          "expires_after": null,
+          "expires_at": null,
+          "last_active_at": 1728975689
+        }
+  recorded_at: Tue, 15 Oct 2024 07:01:29 GMT
+recorded_with: VCR 6.1.0

@@ -11,8 +11,8 @@ RSpec.describe OpenAI::Client do
       )
     end
 
-    context "with model: babbage-similarity" do
-      let(:model) { "babbage-similarity" }
+    context "with model: text-embedding-ada-002" do
+      let(:model) { "text-embedding-ada-002" }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do

@@ -35,7 +35,7 @@ RSpec.describe OpenAI::Client do
       let(:response) do
         OpenAI::Client.new.threads.modify(
           id: thread_id,
-          parameters: { metadata: { modified: true } }
+          parameters: { metadata: { modified: "true" } }
         )
       end
 
