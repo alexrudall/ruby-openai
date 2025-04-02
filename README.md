@@ -330,7 +330,6 @@ client.chat(
   }
 )
 ```
->>>>>>> main
 
 ### Counting Tokens
 
