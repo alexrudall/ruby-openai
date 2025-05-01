@@ -18,7 +18,7 @@ module OpenAI
     end
 
     def call(chunk, _bytes, env)
-      handle_http_error(chunk: chunk, env: env) if env&.status != 200
+      handle_http_error(chunk: chunk, env: env) if env && env.status != 200
 
       parser.feed(chunk) do |event, data|
         next if data == DONE
