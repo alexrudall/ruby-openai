@@ -2,7 +2,7 @@ RSpec.describe OpenAI::Stream do
   let(:user_proc) { proc { |data, event| [data, event] } }
   let(:stream) { OpenAI::Stream.new(user_proc: user_proc) }
   let(:bytes) { 0 }
-  let(:env) { Faraday::Env.new(status: 200) }
+  let(:env) { Faraday::Env.new.tap { |env| env.status = 200 } }
 
   describe "#call" do
     context "with a proc" do
