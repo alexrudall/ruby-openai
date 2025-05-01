@@ -55,27 +55,6 @@ module OpenAI
       original_response
     end
 
-    # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
-    # For each chunk, the inner user_proc is called giving it the JSON object. The JSON object could
-    # be a data object or an error object as described in the OpenAI API documentation.
-    #
-    # @param user_proc [Proc] The inner proc to call for each JSON object in the chunk.
-    # @return [Proc] An outer proc that iterates over a raw stream, converting it to JSON.
-    def to_json_stream(user_proc:)
-      parser = EventStreamParser::Parser.new
-
-      proc do |chunk, _bytes, env|
-        if env && env.status != 200
-          raise_error = Faraday::Response::RaiseError.new
-          raise_error.on_complete(env.merge(body: try_parse_json(chunk)))
-        end
-
-        parser.feed(chunk) do |_type, data|
-          user_proc.call(JSON.parse(data)) unless data == "[DONE]"
-        end
-      end
-    end
-
     def conn(multipart: false)
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
@@ -120,7 +99,7 @@ module OpenAI
       req_parameters = parameters.dup
 
       if parameters[:stream].respond_to?(:call)
-        req.options.on_data = to_json_stream(user_proc: parameters[:stream])
+        req.options.on_data = Stream.new(user_proc: parameters[:stream]).to_proc
         req_parameters[:stream] = true # Necessary to tell OpenAI to stream.
       elsif parameters[:stream]
         raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
@@ -128,12 +107,6 @@ module OpenAI
 
       req.headers = headers
       req.body = req_parameters.to_json
-    end
-
-    def try_parse_json(maybe_json)
-      JSON.parse(maybe_json)
-    rescue JSON::ParserError
-      maybe_json
     end
   end
 end
