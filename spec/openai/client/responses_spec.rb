@@ -91,7 +91,7 @@ RSpec.describe OpenAI::Client do
       describe "streaming" do
         let(:chunks) { [] }
         let(:stream) do
-          proc do |chunk, _bytesize|
+          proc do |chunk, _event|
             chunks << chunk
           end
         end
@@ -112,13 +112,15 @@ RSpec.describe OpenAI::Client do
           let(:cassette) { "responses stream without proc" }
           let(:stream) do
             Class.new do
-              attr_reader :chunks
+              attr_reader :chunks, :events
 
               def initialize
                 @chunks = []
+                @events = []
               end
 
-              def call(chunk)
+              def call(chunk, event)
+                @events << event
                 @chunks << chunk
               end
             end.new
@@ -132,6 +134,8 @@ RSpec.describe OpenAI::Client do
                                   .map { |chunk| chunk["delta"] }
                                   .join
               expect(output_text).to include("?")
+              expect(stream.events.first).to eq("response.created")
+              expect(stream.events.last).to eq("response.completed")
             end
           end
         end
