@@ -19,9 +19,23 @@ module OpenAI
     private
 
     def open_files(parameters)
-      parameters = parameters.merge(image: File.open(parameters[:image]))
-      parameters = parameters.merge(mask: File.open(parameters[:mask])) if parameters[:mask]
-      parameters
+      params = parameters.dup
+
+      if params[:image].is_a?(Array)
+        # Create indexed image parameters (image[0], image[1], etc.)
+        image_array = params[:image]
+        params.delete(:image)
+
+        image_array.each_with_index do |img_path, index|
+          params[:"image[#{index}]"] = File.open(img_path)
+        end
+      else
+        params[:image] = File.open(params[:image])
+      end
+
+      params[:mask] = File.open(params[:mask]) if params[:mask]
+
+      params
     end
   end
 end
