@@ -140,7 +140,7 @@ RSpec.describe OpenAI::Client do
 
       it "converts array of images to image[] parameter" do
         VCR.use_cassette("images edit multiple") do
-          expect(response.dig("data",0, "b64_json")).to be_a(String)
+          expect(response.dig("data", 0, "b64_json")).to be_a(String)
         end
       end
     end
