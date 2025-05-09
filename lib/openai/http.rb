@@ -73,10 +73,10 @@ module OpenAI
             raise_error = Faraday::Response::RaiseError.new
             raise_error.on_complete(env.merge(body: parsed_error))
           end
-        end
-
-        parser.feed(chunk) do |_type, data|
-          user_proc.call(JSON.parse(data)) unless data == "[DONE]"
+        else
+          parser.feed(chunk) do |_type, data|
+            user_proc.call(JSON.parse(data)) unless data == "[DONE]"
+          end
         end
       end
     end
