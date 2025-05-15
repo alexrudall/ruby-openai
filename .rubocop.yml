@@ -24,6 +24,9 @@ Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
 
+Metrics/ModuleLength:
+  Max: 150
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
