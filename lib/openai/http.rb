@@ -12,6 +12,12 @@ module OpenAI
       end&.body)
     end
 
+    def get_file(path:, parameters: nil)
+      parse_json(conn.get(uri(path: path), parameters) do |req|
+        req.headers = headers.merge({ "Accept" => "application/octet-stream" })
+      end&.body)
+    end
+
     def post(path:)
       parse_json(conn.post(uri(path: path)) do |req|
         req.headers = headers
