@@ -123,5 +123,26 @@ RSpec.describe OpenAI::Client do
         end
       end
     end
+
+    describe "with multiple images", :vcr do
+      let(:response) do
+        OpenAI::Client.new.images.edit(
+          parameters: {
+            image: [
+              File.join(RSPEC_ROOT, "fixtures/files", "image.png"),
+              File.join(RSPEC_ROOT, "fixtures/files", "mask.png")
+            ],
+            prompt: "Create a collage from these images",
+            model: "gpt-image-1" # Required for multiple images
+          }
+        )
+      end
+
+      it "converts array of images to image[] parameter" do
+        VCR.use_cassette("images edit multiple") do
+          expect(response.dig("data", 0, "b64_json")).to be_a(String)
+        end
+      end
+    end
   end
 end
