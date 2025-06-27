@@ -12,6 +12,11 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 
 [🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
+[![https://infertogo.com]()](https://infertogo.com)
+Sponsored by InferToGo - The inference addon for your PaaS application.
+
+Huge thanks to [all current and past sponsors](https://github.com/sponsors/alexrudall)!
+
 ## Contents
 
 - [Ruby OpenAI](#ruby-openai)
