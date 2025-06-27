@@ -8,7 +8,7 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Stream chats with the Responses API, transcribe and translate audio with Whisper, create images with DALL·E, and much more...
 
-[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="300" height="300">](https://infertogo.com)
+[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="200" height="200">](https://infertogo.com)
 
 _Sponsored by [InferToGo](https://infertogo.com) - The inference addon for your PaaS application._
 
