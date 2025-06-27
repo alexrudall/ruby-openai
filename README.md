@@ -8,15 +8,13 @@ Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
 Stream chats with the Responses API, transcribe and translate audio with Whisper, create images with DALL·E, and much more...
 
-💥 Click [subscribe now](https://mailchi.mp/8c7b574726a9/ruby-openai) to hear first about new releases in the Rails AI newsletter!
-
-[🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
-
 [<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="300" height="300">](https://infertogo.com)
 
 Sponsored by [InferToGo](https://infertogo.com) - The inference addon for your PaaS application.
 
 With thanks to [all sponsors](https://github.com/sponsors/alexrudall)!
+
+[🎮 Ruby AI Builders Discord](https://discord.gg/k4Uc224xVD) | [🐦 X](https://x.com/alexrudall) | [🧠 Anthropic Gem](https://github.com/alexrudall/anthropic) | [🚂 Midjourney Gem](https://github.com/alexrudall/midjourney)
 
 ## Contents
 
