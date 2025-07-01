@@ -70,3 +70,5 @@ build-iPhoneSimulator/
 
 # Mac
 .DS_Store
+
+INCIDENT_RESPONSE_PLAN.md
