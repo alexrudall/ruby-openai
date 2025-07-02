@@ -177,6 +177,43 @@ RSpec.describe OpenAI::HTTP do
         end
       end
 
+      context "with a HTTP error response with body containing JSON split across chunks" do
+        it "raise an error" do
+          env = Faraday::Env.from(
+            method: :post,
+            url: URI("http://example.com"),
+            status: 400,
+            request: {},
+            response: Faraday::Response.new
+          )
+
+          expected_body = {
+            "error" => {
+              "message" => "Test error",
+              "type" => "test_error",
+              "param" => nil,
+              "code" => "test"
+            }
+          }
+
+          json = expected_body.to_json
+          # Split the JSON into two chunks in the middle
+          chunks = [json[0..(json.length / 2)], json[((json.length / 2) + 1)..]]
+
+          begin
+            chunks.each do |chunk|
+              stream.call(chunk, 0, env)
+            end
+          rescue Faraday::BadRequestError => e
+            expect(e.response).to include(status: 400)
+            expect(e.response[:body]).to eq(expected_body)
+          else
+            raise "Expected to raise Faraday::BadRequestError"
+          end
+        end
+      end
+
+
       context "when called with JSON split across chunks" do
         it "calls the user proc with the data parsed as JSON" do
           expect(user_proc).to receive(:call).with(JSON.parse('{ "foo": "bar" }'))
