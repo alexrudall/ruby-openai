@@ -10,22 +10,20 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 
 **Sponsors**
 
-**Sponsors**
-
 <table>
 <tr>
-<td width="200" align="center" valign="top">
+<td width="300" align="center" valign="top">
 
-[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="200" height="200">](https://infertogo.com)
+[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="300" height="300">](https://infertogo.com)
 
-_[InferToGo](https://infertogo.com) - The inference addon for your PaaS application._
+<sub>_[InferToGo](https://infertogo.com) - The inference addon for your PaaS application._</sub>
 
 </td>
-<td width="200" align="center" valign="top">
+<td width="300" align="center" valign="top">
 
-[<img src="https://github.com/user-attachments/assets/3feb834c-2721-404c-a64d-02104ed4aba7" alt="SerpApi logo: Purple rounded square with 4 connected white holes" width="200" height="200">](https://serpapi.com/?utm_source=ruby-openai)
+[<img src="https://github.com/user-attachments/assets/3feb834c-2721-404c-a64d-02104ed4aba7" alt="SerpApi logo: Purple rounded square with 4 connected white holes" width="300" height="300">](https://serpapi.com/?utm_source=ruby-openai)
 
-_[SerpApi](https://serpapi.com/?utm_source=ruby-openai) - Search API: Enhance your LLM's knowledge with data from search engines like Google and Bing using our simple API._
+<sub>_[SerpApi](https://serpapi.com/?utm_source=ruby-openai) - Enhance your LLM's knowledge with data from search engines like Google and Bing using our simple API._</sub>
 
 </td>
 </tr>
