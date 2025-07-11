@@ -23,7 +23,7 @@ _[InferToGo](https://infertogo.com) - The inference addon for your PaaS applicat
 </td>
 <td width="200" align="center" valign="top">
 
-[<img src="" alt="SerpApi logo: Purple rounded square with 4 connected white holes" width="200" height="200">](https://serpapi.com/?utm_source=ruby-openai)
+[<img src="https://github.com/user-attachments/assets/3feb834c-2721-404c-a64d-02104ed4aba7" alt="SerpApi logo: Purple rounded square with 4 connected white holes" width="200" height="200">](https://serpapi.com/?utm_source=ruby-openai)
 
 _[SerpApi](https://serpapi.com/?utm_source=ruby-openai) - Search API: Enhance your LLM's knowledge with data from search engines like Google and Bing using our simple API._
 
