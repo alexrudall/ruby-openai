@@ -14,9 +14,9 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 <tr>
 <td width="300" align="center" valign="top">
 
-[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="300" height="300">](https://infertogo.com)
+[<img src="https://github.com/user-attachments/assets/b97e036d-3f22-4116-be97-8f8d1c432a4f" alt="InferToGo logo: man in suit falling, black and white" width="300" height="300">](https://infertogo.com/?utm_source=ruby-openai)
 
-<sub>_[InferToGo](https://infertogo.com) - The inference addon for your PaaS application._</sub>
+<sub>_[InferToGo](https://infertogo.com/?utm_source=ruby-openai) - The inference addon for your PaaS application._</sub>
 
 </td>
 <td width="300" align="center" valign="top">
