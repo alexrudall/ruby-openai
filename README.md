@@ -10,8 +10,6 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 
 **Sponsors**
 
-**Sponsors**
-
 <table>
 <tr>
 <td width="200" align="center" valign="top">
