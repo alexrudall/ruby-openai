@@ -23,7 +23,7 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
 
 [<img src="https://github.com/user-attachments/assets/3feb834c-2721-404c-a64d-02104ed4aba7" alt="SerpApi logo: Purple rounded square with 4 connected white holes" width="300" height="300">](https://serpapi.com/?utm_source=ruby-openai)
 
-<sub>_[SerpApi](https://serpapi.com/?utm_source=ruby-openai) - Enhance your LLM's knowledge with data from search engines like Google and Bing using our simple API._</sub>
+<sub>_[SerpApi - Search API](https://serpapi.com/?utm_source=ruby-openai) - Enhance your LLM's knowledge with data from search engines like Google and Bing using our simple API._</sub>
 
 </td>
 </tr>
