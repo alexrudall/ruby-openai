@@ -271,7 +271,7 @@ client.chat(
     model: "deepseek-chat", # Required.
     messages: [{ role: "user", content: "Hello!"}], # Required.
     temperature: 0.7,
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
      print chunk.dig("choices", 0, "delta", "content")
     end
   }
@@ -302,7 +302,7 @@ client.chat(
     model: "llama3", # Required.
     messages: [{ role: "user", content: "Hello!"}], # Required.
     temperature: 0.7,
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
       print chunk.dig("choices", 0, "delta", "content")
     end
   }
@@ -326,7 +326,7 @@ client.chat(
     model: "llama3-8b-8192", # Required.
     messages: [{ role: "user", content: "Hello!"}], # Required.
     temperature: 0.7,
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
      print chunk.dig("choices", 0, "delta", "content")
     end
   }
@@ -388,7 +388,7 @@ client.chat(
     model: "gpt-4o", # Required.
     messages: [{ role: "user", content: "Describe a character called Anna!"}], # Required.
     temperature: 0.7,
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
       print chunk.dig("choices", 0, "delta", "content")
     end
   }
@@ -474,7 +474,7 @@ You can stream it as well!
       model: "gpt-4o",
       messages: [{ role: "user", content: "Can I have some JSON please?"}],
       response_format: { type: "json_object" },
-      stream: proc do |chunk, _bytesize|
+      stream: proc do |chunk, _event|
         print chunk.dig("choices", 0, "delta", "content")
       end
     }
@@ -559,7 +559,7 @@ client.responses.create(
   parameters: {
     model: "gpt-4o", # Required.
     input: "Hello!", # Required.
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
       if chunk["type"] == "response.output_text.delta"
         print chunk["delta"]
         $stdout.flush  # Ensure output is displayed immediately
@@ -1180,7 +1180,7 @@ client.runs.create(
     assistant_id: assistant_id,
     max_prompt_tokens: 256,
     max_completion_tokens: 16,
-    stream: proc do |chunk, _bytesize|
+    stream: proc do |chunk, _event|
       if chunk["object"] == "thread.message.delta"
         print chunk.dig("delta", "content", 0, "text", "value")
       end
