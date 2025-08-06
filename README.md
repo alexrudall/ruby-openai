@@ -647,6 +647,10 @@ response =
 message = response.dig("choices", 0, "message")
 
 if message["role"] == "assistant" && message["tool_calls"]
+
+  # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a tool_calls argument.
+  messages << message
+
   message["tool_calls"].each do |tool_call|
     tool_call_id = tool_call.dig("id")
     function_name = tool_call.dig("function", "name")
@@ -661,9 +665,6 @@ if message["role"] == "assistant" && message["tool_calls"]
       else
         # decide how to handle
       end
-
-    # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a tool_calls argument.
-    messages << message
 
     messages << {
       tool_call_id: tool_call_id,
