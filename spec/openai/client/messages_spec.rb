@@ -30,6 +30,19 @@ RSpec.describe OpenAI::Client do
       end
     end
 
+    describe "#list" do
+      let(:cassette) { "messages list" }
+      let(:response) do
+        OpenAI::Client.new.messages.list(thread_id: thread_id, parameters: { order: "asc" })
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("list")
+        end
+      end
+    end
+
     describe "#create" do
       let(:cassette) { "messages create" }
       let(:response) do
@@ -56,7 +69,7 @@ RSpec.describe OpenAI::Client do
           id: message_id,
           thread_id: thread_id,
           parameters: {
-            metadata: { modified: true }
+            metadata: { modified: "true" }
           }
         )
       end
@@ -64,6 +77,19 @@ RSpec.describe OpenAI::Client do
       it "succeeds" do
         VCR.use_cassette(cassette) do
           expect(response["object"]).to eq "thread.message"
+        end
+      end
+    end
+
+    describe "#delete" do
+      let(:cassette) { "messages delete" }
+      let(:response) do
+        OpenAI::Client.new.messages.delete(thread_id: thread_id, id: message_id)
+      end
+
+      it "succeeds" do
+        VCR.use_cassette(cassette) do
+          expect(response["object"]).to eq("thread.message.deleted")
         end
       end
     end

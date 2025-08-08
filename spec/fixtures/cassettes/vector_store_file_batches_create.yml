@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/vector_stores/vs_yrC4Y143ue4kRkSxu1VW8ece/file_batches
+    body:
+      encoding: UTF-8
+      string: '{"file_ids":["file-0cXHcvZknvN0EVU5JpYm5S0U"]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 20:57:03 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_8638f3897e8c10d74d1190da9f93d209
+      Openai-Processing-Ms:
+      - '1320'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=_9xWEs0qkyyHhWE4G.xiCuJ7sWhzQDslhHKnn52wtn4-1714510623-1.0.1.1-beVdeaEW61ignNBFm9iLhg7PLkWIloagNkeksWrIVDIlrGvw33cRJARNQ9qXTzzkum8eIwTQX_0.1pIodbMXZQ;
+        path=/; expires=Tue, 30-Apr-24 21:27:03 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=b09APS.Dvj7RBLVOouT5TcjuifdpbuQvMsKIeJ3HNEM-1714510623065-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87ca71188de61d38-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "vsfb_2ff3927d8fd542d59610690b460d5d62",
+          "object": "vector_store.file_batch",
+          "created_at": 1714510622,
+          "status": "in_progress",
+          "vector_store_id": "vs_yrC4Y143ue4kRkSxu1VW8ece",
+          "file_counts": {
+            "in_progress": 1,
+            "completed": 0,
+            "failed": 0,
+            "cancelled": 0,
+            "total": 1
+          }
+        }
+  recorded_at: Tue, 30 Apr 2024 20:57:03 GMT
+recorded_with: VCR 6.1.0

@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vector_stores/vs_byyoIIfTk2DjCONUuvGFZwrd/files/file-wVFDYrCLN5iNPWQid43qSLaj
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 18:55:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_b2e1ca7e3050e8e167942d210786d09b
+      Openai-Processing-Ms:
+      - '114'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=v1cXwQH_H3ti0ihlMyGXU763pVFLLBIXjXZocZF2Lq0-1714503305-1.0.1.1-CBXBPaeHdW3U3WxZY3WQQWHC2bZXSPel28owDZa5nmgGRdZPiy40jAS6aRZN1MFa6OHsNvhldCQkWm_0HDRJAQ;
+        path=/; expires=Tue, 30-Apr-24 19:25:05 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=eaxIupAaujae5M022roi_f7tpBETscIChreIkDymmqU-1714503305351-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c9be787e151b0e-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "file-wVFDYrCLN5iNPWQid43qSLaj",
+          "object": "vector_store.file",
+          "usage_bytes": 1036,
+          "created_at": 1714503303,
+          "vector_store_id": "vs_byyoIIfTk2DjCONUuvGFZwrd",
+          "status": "completed",
+          "last_error": null
+        }
+  recorded_at: Tue, 30 Apr 2024 18:55:05 GMT
+recorded_with: VCR 6.1.0

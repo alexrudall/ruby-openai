@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/images/generations
+    body:
+      encoding: UTF-8
+      string: '{"prompt":"A springer spaniel cooking pasta wearing a hat of some sort","size":"1024x1792","model":"dall-e-3","quality":"hd"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 19 Jan 2024 11:41:43 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-3clrjdlztmfzmksxfsyoiaou
+      X-Request-Id:
+      - 841b96c7c3e59de019ca442e5a5fd952
+      Openai-Processing-Ms:
+      - '21223'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=3UWJ2o4PsE.3GO8keMie.8V4pYciys6GwDed_VxnWJs-1705664503-1-AZIZVBfFXLqTHjOpGtj74TRLZyZZG+gWXkjVPF3QVrmAEwogEG0mhkUFbn8TdunFcI7lALYQVopwePkvz63u9vg=;
+        path=/; expires=Fri, 19-Jan-24 12:11:43 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=p7znYjVqwOf1GbVBfYNSd7M6bFYHy1bC0lPsFZGVcUA-1705664503377-0-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 847ecee48fc70756-MAN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "created": 1705664503,
+          "data": [
+            {
+              "revised_prompt": "A Springer Spaniel, a breed of medium-sized dog known for its happy-go-lucky personality and long ears, is standing on its hind legs undeniably excited about preparing a delicious pasta meal. The pooch is wearing a comical, oversized chef's hat that's tilting to the side due to its weight and making the whole scene quite amusing. There are ingredients like tomatoes, olives, and basil scattered around hinting at a possible recipe for marinara pasta. The mischievous grin on the pet's face promises some shenanigans in the kitchen.",
+              "url": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-yUfNie34j2cA3IrAwdyJpfdb/user-3ClrjdlztmfzMKsxFSYOIAOu/img-cmjF40NV4CA8oW8sFimbaDtt.png?st=2024-01-19T10%3A41%3A43Z&se=2024-01-19T12%3A41%3A43Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2024-01-18T22%3A17%3A03Z&ske=2024-01-19T22%3A17%3A03Z&sks=b&skv=2021-08-06&sig=jLf8Wk1RayKzcHpT5rNiuBNmaD3ZtU0ZNC5J4psyS/U%3D"
+            }
+          ]
+        }
+  recorded_at: Fri, 19 Jan 2024 11:41:43 GMT
+recorded_with: VCR 6.1.0

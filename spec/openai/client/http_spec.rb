@@ -106,7 +106,7 @@ RSpec.describe OpenAI::HTTP do
 
   describe ".get" do
     context "with an error response" do
-      let(:cassette) { "http get with error response".downcase }
+      let(:cassette) { "mocks/http get with error response".downcase }
 
       it "raises an HTTP error" do
         VCR.use_cassette(cassette, record: :none) do
@@ -189,12 +189,21 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
-  describe ".parse_jsonl" do
+  describe ".parse_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }
-      let(:parsed) { OpenAI::Client.new.send(:parse_jsonl, body) }
+      let(:parsed) { OpenAI::Client.new.send(:parse_json, body) }
 
       it { expect(parsed).to eq([{ "prompt" => ":)" }, { "prompt" => ":(" }]) }
+    end
+
+    context "with a non-json string containing newline-brace pattern" do
+      let(:body) { "Hello}\n{World" }
+      let(:parsed) { OpenAI::Client.new.send(:parse_json, body) }
+
+      it "returns the original string when JSON parsing fails" do
+        expect(parsed).to eq("Hello}\n{World")
+      end
     end
   end
 
@@ -203,6 +212,18 @@ RSpec.describe OpenAI::HTTP do
     let(:uri) { OpenAI::Client.new.send(:uri, path: path) }
 
     it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+
+    context "uri_base with version included" do
+      before do
+        OpenAI.configuration.uri_base = "https://api.openai.com/v1/"
+      end
+
+      after do
+        OpenAI.configuration.uri_base = "https://api.openai.com/"
+      end
+
+      it { expect(uri).to eq("https://api.openai.com/v1/chat") }
+    end
 
     context "uri_base without trailing slash" do
       before do
@@ -251,7 +272,7 @@ RSpec.describe OpenAI::HTTP do
 
     it {
       expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-                              "Content-Type" => "application/json", "OpenAI-Organization" => nil })
+                              "Content-Type" => "application/json" })
     }
 
     describe "with Azure" do
@@ -269,6 +290,60 @@ RSpec.describe OpenAI::HTTP do
         expect(headers).to eq({ "Content-Type" => "application/json",
                                 "api-key" => OpenAI.configuration.access_token })
       }
+    end
+  end
+
+  describe "logging errors" do
+    let(:cassette) { "mocks/http get with error response".downcase }
+
+    before do
+      @original_stdout = $stdout
+      $stdout = StringIO.new
+    end
+
+    after do
+      $stdout = @original_stdout
+    end
+
+    it "is disabled by default" do
+      VCR.use_cassette(cassette, record: :none) do
+        expect { OpenAI::Client.new.models.retrieve(id: "text-ada-001") }
+          .to raise_error Faraday::Error
+
+        $stdout.rewind
+        captured_stdout = $stdout.string
+        expect(captured_stdout).not_to include("OpenAI HTTP Error")
+      end
+    end
+
+    describe "when log_errors is set to true" do
+      let(:log_errors) { true }
+
+      it "logs errors" do
+        VCR.use_cassette(cassette, record: :none) do
+          expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
+            .to raise_error Faraday::Error
+
+          $stdout.rewind
+          captured_stdout = $stdout.string
+          expect(captured_stdout).to include("OpenAI HTTP Error")
+        end
+      end
+    end
+
+    describe "when log_errors is set to false" do
+      let(:log_errors) { false }
+
+      it "does not log errors" do
+        VCR.use_cassette(cassette, record: :none) do
+          expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
+            .to raise_error Faraday::Error
+
+          $stdout.rewind
+          captured_stdout = $stdout.string
+          expect(captured_stdout).not_to include("OpenAI HTTP Error")
+        end
+      end
     end
   end
 end

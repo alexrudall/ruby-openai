@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/vector_stores
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Apr 2024 16:41:34 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - gojom-1
+      X-Request-Id:
+      - req_10a3172ba3a5cf01c4e14c690795a646
+      Openai-Processing-Ms:
+      - '298'
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=fx_YqjkKO9nH08e8caafVXLyhi8Wb5i2lQ1W3mld.YM-1714495294-1.0.1.1-WqFQ33scAb7HkBjiRb63lwUTxFCg8l2yLS6HLgjFuD2S037nbt4fKh5.SBDB_F69klK_MmdGJSTWaUJK26nObw;
+        path=/; expires=Tue, 30-Apr-24 17:11:34 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=HkOfANtrx.fzf8512ER8ESBZJorcTSQiUs1V.PgPP1g-1714495294435-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 87c8fae359a51a91-GRU
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "vs_kWaCiN8Ii4e1hefIou5skq9g",
+          "object": "vector_store",
+          "name": null,
+          "status": "completed",
+          "usage_bytes": 0,
+          "created_at": 1714495294,
+          "file_counts": {
+            "in_progress": 0,
+            "completed": 0,
+            "failed": 0,
+            "cancelled": 0,
+            "total": 0
+          },
+          "metadata": {},
+          "expires_after": null,
+          "expires_at": null,
+          "last_active_at": 1714495294
+        }
+  recorded_at: Tue, 30 Apr 2024 16:41:34 GMT
+recorded_with: VCR 6.1.0

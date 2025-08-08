@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/batches/batch_67d450d136988190a52c317c904bba69/cancel
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:52:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_cb3815aa23785e565628b6a65c4f105a
+      Openai-Processing-Ms:
+      - '626'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=z6Qaav1W7ZS6UMQ.QrckOoH1Sl.SoX.o3uMy1hP4p5w-1741967570-1.0.1.1-t9cgO3Tq0XzWPZKDUL5AkXI90RyYI_1aYGYUpqDjwqe5gj7_5fGnFEeSem5818ySfVavs5cisTtThDGBeFLYQ1KMrdb6mBDQqf5kX73rKIs;
+        path=/; expires=Fri, 14-Mar-25 16:22:50 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=2OyeRYWwr2KRqwGt_2Iuj3O2SQZJ_Dd5YAgGjOqfrdY-1741967570297-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204f0bd7843d1fb-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":"batch_67d450d136988190a52c317c904bba69","object":"batch","endpoint":"/v1/chat/completions","errors":null,"input_file_id":"file-EFcEfUGSc6QsJMU7zYwMW3","completion_window":"24h","status":"cancelling","output_file_id":null,"error_file_id":null,"created_at":1741967569,"in_progress_at":null,"expires_at":1742053969,"finalizing_at":null,"completed_at":null,"failed_at":null,"expired_at":null,"cancelling_at":1741967569,"cancelled_at":null,"request_counts":{"total":0,"completed":0,"failed":0},"metadata":null}'
+  recorded_at: Fri, 14 Mar 2025 15:52:50 GMT
+recorded_with: VCR 6.1.0

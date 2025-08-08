@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vector_stores/vs_Jhsj39YoypHdDXGlrTHtx3ir/file_batches/vsfb_b776bc9508004e9db5711d1acad854c7/files
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 07:01:32 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '369'
+      Connection:
+      - keep-alive
+      X-Request-Id:
+      - req_35c852d7d417877c0fbb3134de873c76
+      Openai-Processing-Ms:
+      - '383'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=NpTmSbu5RxI8CKFP4E0XyoGLUQvyJa4waDkFbItYQIc-1728975692-1.0.1.1-EqnmX0I9NDmmL5VaGHG9HRHHIHko47zS_SE.O181_PNj1WXs.n.5W.3Pnwa6hXBG7f5MTQjmZvR3Fydsjn6f0g;
+        path=/; expires=Tue, 15-Oct-24 07:31:32 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=upzTkvjZwR10eK2KNVoC8s3yGJvQkkiNdgx_3fqDLWI-1728975692985-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d2df03dbbcd60fd-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "The server had an error processing your request. Sorry about that! You can retry your request, or contact us through our help center at help.openai.com if you keep seeing this error. (Please include the request ID req_35c852d7d417877c0fbb3134de873c76 in your email.)",
+            "type": "server_error",
+            "param": null,
+            "code": null
+          }
+        }
+  recorded_at: Tue, 15 Oct 2024 07:01:32 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vector_stores/vs_Jhsj39YoypHdDXGlrTHtx3ir/file_batches/vsfb_b776bc9508004e9db5711d1acad854c7/files
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - assistants=v2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Oct 2024 07:01:34 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_75cb3e626b15fcc76be6d62f97c03d92
+      Openai-Processing-Ms:
+      - '152'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=JrKXYbtU0lT3FTClCzjKtplHBNi4HQn8q9dSWLd4kyc-1728975694-1.0.1.1-U0uHRVutP9W8np1psESv.bICGVhOxHhgxI1NZP6lmNC6pICiy.ANjV7nPVznRHe1R5kW5c1fSLgSP2OLIe2pFw;
+        path=/; expires=Tue, 15-Oct-24 07:31:34 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=Bx9AlSTXQGl4AavzoLnGzd_TNFpxfTVexUSwRhs7UKo-1728975694114-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 8d2df0419e2794ea-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "file-SsFSl4UvE63Gw3hoiC4P74e4",
+              "object": "vector_store.file",
+              "created_at": 1728975692,
+              "vector_store_id": "vs_Jhsj39YoypHdDXGlrTHtx3ir",
+              "status": "completed",
+              "last_error": null
+            }
+          ],
+          "first_id": "file-SsFSl4UvE63Gw3hoiC4P74e4",
+          "last_id": "file-SsFSl4UvE63Gw3hoiC4P74e4",
+          "has_more": false
+        }
+  recorded_at: Tue, 15 Oct 2024 07:01:34 GMT
+recorded_with: VCR 6.1.0

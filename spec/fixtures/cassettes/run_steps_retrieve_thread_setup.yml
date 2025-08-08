@@ -12,7 +12,7 @@ http_interactions:
       Authorization:
       - Bearer <OPENAI_ACCESS_TOKEN>
       Openai-Beta:
-      - assistants=v1
+      - assistants=v2
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 26 Nov 2023 12:03:25 GMT
+      - Fri, 14 Mar 2025 16:46:16 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,33 +37,36 @@ http_interactions:
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       X-Request-Id:
-      - 634bb06bf83af16c708b5d447dac549c
+      - req_9f5c0e23d90e2d56ace60d3dc899a0a1
       Openai-Processing-Ms:
-      - '26'
+      - '191'
       Strict-Transport-Security:
-      - max-age=15724800; includeSubDomains
+      - max-age=31536000; includeSubDomains; preload
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=xBNML5jzgMeJoZc2u1ofHWguMOlP2B_IV45BmRAWVGM-1701000205-0-AXs/YqQO3xz5Ah+tkwRIpAwh/XN/MGjWvOAwn57scNVPeyB7hrgovCstoll5H85zKZdsR0bfBIinv8v5QTgwXZ8=;
-        path=/; expires=Sun, 26-Nov-23 12:33:25 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=xnQUjDqp2guOG.etqYmpI5XoHRJGz8jNwgRVjrv4S9E-1741970776-1.0.1.1-BBGtLkS3ejCyo3sv2h9rnOy0.exiX6KzrWcIZjjGgpbNO98KeHv64wwK4y2Ses2ILsRZ0TPSxcDASNcveewEGPmPvnBFTL2f4VKHk26vNNs;
+        path=/; expires=Fri, 14-Mar-25 17:16:16 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=hj789rSXnHqt_rICkYtXSR8VA4MHuNvJA2jmixipuCo-1701000205741-0-604800000;
+      - _cfuvid=NZr3kLjB7bP0Lp5ox4CGDzBp.xSx60dW.6JHJ4FgJWE-1741970776443-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
       Server:
       - cloudflare
       Cf-Ray:
-      - 82c1fcf4ed9060f7-LHR
+      - 92053f067aeb5672-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |-
         {
-          "id": "thread_bR60V4ambvZEHqHDXXgnmDCr",
+          "id": "thread_H6hq4f78l5gxCtSydD79yb6S",
           "object": "thread",
-          "created_at": 1701000205,
-          "metadata": {}
+          "created_at": 1741970776,
+          "metadata": {},
+          "tool_resources": {}
         }
-  recorded_at: Sun, 26 Nov 2023 12:03:25 GMT
-recorded_with: VCR 6.1.0
+  recorded_at: Fri, 14 Mar 2025 16:46:16 GMT
+recorded_with: VCR 6.3.1

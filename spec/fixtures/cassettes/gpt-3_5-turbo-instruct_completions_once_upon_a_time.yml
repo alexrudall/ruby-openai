@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.openai.com/v1/chat/completions
+    uri: https://api.openai.com/v1/completions
     body:
       encoding: UTF-8
-      string: '{"model":"gpt-3.5-turbo-0301","messages":[{"role":"user","content":"Hello!"}],"stream":false}'
+      string: '{"model":"gpt-3.5-turbo-instruct","prompt":"Once upon a time","max_tokens":5}'
     headers:
       Content-Type:
       - application/json
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 26 Nov 2023 11:45:51 GMT
+      - Sun, 31 Mar 2024 20:12:02 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -35,11 +35,11 @@ http_interactions:
       Cache-Control:
       - no-cache, must-revalidate
       Openai-Model:
-      - gpt-3.5-turbo-0301
+      - gpt-3.5-turbo-instruct
       Openai-Organization:
       - user-jxm65ijkzc1qrfhc0ij8moic
       Openai-Processing-Ms:
-      - '1126'
+      - '363'
       Openai-Version:
       - '2020-10-01'
       Strict-Transport-Security:
@@ -48,59 +48,51 @@ http_interactions:
       - '3500'
       X-Ratelimit-Limit-Tokens:
       - '90000'
-      X-Ratelimit-Limit-Tokens-Usage-Based:
-      - '90000'
       X-Ratelimit-Remaining-Requests:
       - '3499'
       X-Ratelimit-Remaining-Tokens:
-      - '89980'
-      X-Ratelimit-Remaining-Tokens-Usage-Based:
-      - '89980'
+      - '89991'
       X-Ratelimit-Reset-Requests:
       - 17ms
       X-Ratelimit-Reset-Tokens:
-      - 12ms
-      X-Ratelimit-Reset-Tokens-Usage-Based:
-      - 12ms
+      - 6ms
       X-Request-Id:
-      - 24cc3456b58b01836c03c53ce3d9a6d3
+      - req_6a274b7a73c52b0fbf2145ca5f1e9fbf
       Cf-Cache-Status:
       - DYNAMIC
       Set-Cookie:
-      - __cf_bm=bghgrXd05E_wIaKgG5DKsuJ6sJVcNEi3C3efaeyiQVQ-1700999151-0-AfcmXOGdhxo3S6p/wLSgQggXhZ9kKbcnw3yP1Moj3SREx+enMtWPVnLn7WOaHx3FjmMCJYJcsYMp7N3N4+U29Dw=;
-        path=/; expires=Sun, 26-Nov-23 12:15:51 GMT; domain=.api.openai.com; HttpOnly;
+      - __cf_bm=ZK5b4LtJsPBMzdMnaU837z6PMPEXsKabybnXGNeAmu4-1711915922-1.0.1.1-Fzur3qermYdXljcE8Z20zrY4Z5RD.UrreUTa7MVZUOUQcflGoKGPpTAykRjfvZ7mGo9ehY_kRdp4dRPfdrteBQ;
+        path=/; expires=Sun, 31-Mar-24 20:42:02 GMT; domain=.api.openai.com; HttpOnly;
         Secure; SameSite=None
-      - _cfuvid=29S6CdH9XzZCV9eAsVSGHHE5Qv00.QDH7CLKwOmw774-1700999151266-0-604800000;
+      - _cfuvid=Gh5SFdjA.KVOM3VmAG5grUJVRLihOStH3B_jABN7Nys-1711915922569-0.0.1.1-604800000;
         path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
       Server:
       - cloudflare
       Cf-Ray:
-      - 82c1e32f7d5963d7-LHR
+      - 86d2fdefec9a531a-LHR
       Alt-Svc:
       - h3=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: |
         {
-          "id": "chatcmpl-8P7s6GTw72U6PkhJ7XEOpcfpHpAKk",
-          "object": "chat.completion",
-          "created": 1700999150,
-          "model": "gpt-3.5-turbo-0301",
+          "id": "cmpl-98vp4W2Nm6k1hJt3vzOqLVXTrhvX4",
+          "object": "text_completion",
+          "created": 1711915922,
+          "model": "gpt-3.5-turbo-instruct",
           "choices": [
             {
+              "text": ", there stood a wizard",
               "index": 0,
-              "message": {
-                "role": "assistant",
-                "content": "Hi there! How can I assist you today?"
-              },
-              "finish_reason": "stop"
+              "logprobs": null,
+              "finish_reason": "length"
             }
           ],
           "usage": {
-            "prompt_tokens": 10,
-            "completion_tokens": 10,
-            "total_tokens": 20
+            "prompt_tokens": 4,
+            "completion_tokens": 5,
+            "total_tokens": 9
           }
         }
-  recorded_at: Sun, 26 Nov 2023 11:45:51 GMT
+  recorded_at: Sun, 31 Mar 2024 20:12:02 GMT
 recorded_with: VCR 6.1.0

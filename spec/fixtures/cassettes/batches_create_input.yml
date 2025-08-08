@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/files
+    body:
+      encoding: UTF-8
+      string: "-------------RubyMultipartPost-fc1c466b91575c689919924594d3e356\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"batch.jsonl\"\r\nContent-Length: 468\r\nContent-Type:
+        \r\nContent-Transfer-Encoding: binary\r\n\r\n{\"custom_id\": \"request-1\",
+        \"method\": \"POST\", \"url\": \"/v1/chat/completions\", \"body\": {\"model\":
+        \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"system\", \"content\": \"You
+        are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"What is 2+2?\"}]}}\n{\"custom_id\":
+        \"request-2\", \"method\": \"POST\", \"url\": \"/v1/chat/completions\", \"body\":
+        {\"model\": \"gpt-3.5-turbo\", \"messages\": [{\"role\": \"system\", \"content\":
+        \"You are a helpful assistant.\"}, {\"role\": \"user\", \"content\": \"What
+        is 3+2?\"}]}}\n\r\n-------------RubyMultipartPost-fc1c466b91575c689919924594d3e356\r\nContent-Disposition:
+        form-data; name=\"purpose\"\r\n\r\nbatch\r\n-------------RubyMultipartPost-fc1c466b91575c689919924594d3e356--\r\n"
+    headers:
+      Content-Type:
+      - multipart/form-data; boundary=-----------RubyMultipartPost-fc1c466b91575c689919924594d3e356
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Content-Length:
+      - '867'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:52:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_f36fc5d983130b58ff50d6acec755699
+      Openai-Processing-Ms:
+      - '390'
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=0E7eBsjpTHMz3p.8tCuTJp5T18lsoCh20cf5P8T6Kwo-1741967568-1.0.1.1-SPJdqNXv3q0antjCxd89t6tsg_Bf2md5xAByPax9MIfHvkwKbzwJ6PpymgNZWkPKPn825K4nra6SsDGZKwvdBeclEfRHLYB9sKuIQd0D3kA;
+        path=/; expires=Fri, 14-Mar-25 16:22:48 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XRXkhXG5ZnLLrYrOcnUT1g6ENdKkAcxVxpbfARjd.Uc-1741967568081-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9204f0b12a8b4911-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "object": "file",
+          "id": "file-SQ38s1FVw83BEb6baok3Av",
+          "purpose": "batch",
+          "filename": "batch.jsonl",
+          "bytes": 468,
+          "created_at": 1741967567,
+          "expires_at": null,
+          "status": "processed",
+          "status_details": null
+        }
+  recorded_at: Fri, 14 Mar 2025 15:52:48 GMT
+recorded_with: VCR 6.1.0

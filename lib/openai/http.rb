@@ -6,47 +6,53 @@ module OpenAI
   module HTTP
     include HTTPHeaders
 
-    def get(path:)
-      parse_jsonl(conn.get(uri(path: path)) do |req|
+    def get(path:, parameters: nil)
+      parse_json(conn.get(uri(path: path), parameters) do |req|
         req.headers = headers
       end&.body)
     end
 
     def post(path:)
-      parse_jsonl(conn.post(uri(path: path)) do |req|
+      parse_json(conn.post(uri(path: path)) do |req|
         req.headers = headers
       end&.body)
     end
 
-    def json_post(path:, parameters:)
-      conn.post(uri(path: path)) do |req|
+    def json_post(path:, parameters:, query_parameters: {})
+      parse_json(conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
-      end&.body
+        req.params = req.params.merge(query_parameters)
+      end&.body)
     end
 
     def multipart_post(path:, parameters: nil)
-      conn(multipart: true).post(uri(path: path)) do |req|
+      parse_json(conn(multipart: true).post(uri(path: path)) do |req|
         req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
         req.body = multipart_parameters(parameters)
-      end&.body
+      end&.body)
     end
 
     def delete(path:)
-      conn.delete(uri(path: path)) do |req|
+      parse_json(conn.delete(uri(path: path)) do |req|
         req.headers = headers
-      end&.body
+      end&.body)
     end
 
     private
 
-    def parse_jsonl(response)
+    def parse_json(response)
       return unless response
       return response unless response.is_a?(String)
 
-      # Convert a multiline string of JSON objects to a JSON array.
-      response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+      original_response = response.dup
+      if response.include?("}\n{")
+        # Attempt to convert what looks like a multiline string of JSON objects to a JSON array.
+        response = response.gsub("}\n{", "},{").prepend("[").concat("]")
+      end
 
       JSON.parse(response)
+    rescue JSON::ParserError
+      original_response
     end
 
     # Given a proc, returns an outer proc that can be used to iterate over a JSON stream of chunks.
@@ -74,7 +80,7 @@ module OpenAI
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
-        f.use MiddlewareErrors
+        f.use MiddlewareErrors if @log_errors
         f.response :raise_error
         f.response :json
       end
@@ -88,6 +94,8 @@ module OpenAI
       if azure?
         base = File.join(@uri_base, path)
         "#{base}?api-version=#{@api_version}"
+      elsif @uri_base.include?(@api_version)
+        File.join(@uri_base, path)
       else
         File.join(@uri_base, @api_version, path)
       end
@@ -97,10 +105,14 @@ module OpenAI
       parameters&.transform_values do |value|
         next value unless value.respond_to?(:close) # File or IO object.
 
+        # Faraday::UploadIO does not require a path, so we will pass it
+        # only if it is available. This allows StringIO objects to be
+        # passed in as well.
+        path = value.respond_to?(:path) ? value.path : nil
         # Doesn't seem like OpenAI needs mime_type yet, so not worth
         # the library to figure this out. Hence the empty string
         # as the second argument.
-        Faraday::UploadIO.new(value, "", value.path)
+        Faraday::UploadIO.new(value, "", path)
       end
     end
 
