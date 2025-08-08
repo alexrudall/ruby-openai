@@ -338,6 +338,57 @@ end
 # => "The weather is nice 🌞"
 ```
 
+### Responses
+
+The [Responses API](https://platform.openai.com/docs/api-reference/responses) provides enhanced chat completions with advanced features like file search capabilities for Retrieval Augmented Generation (RAG). You can use it to search through documents in vector stores and get AI responses based on the content:
+
+```ruby
+response = client.responses(
+    parameters: {
+        model: "gpt-4o-mini", # Required.
+        input: [{ role: "user", content: "What protocols are mentioned in the documents?"}], # Required.
+        max_output_tokens: 1000,
+        tools: [{ 
+            type: "file_search",
+            vector_store_ids: ["vs_abc123..."] # Your vector store ID
+        }]
+    })
+
+# The response has a different structure than chat completions
+message_output = response["output"].find { |output| output["type"] == "message" }
+puts message_output.dig("content", 0, "text")
+# => "The documents mention several protocols: Protocol #0 - Know The Unfiltered Truth..."
+```
+
+#### File Search with Vector Stores
+
+To use file search capabilities, you first need to upload documents to a vector store via the OpenAI dashboard or API, then reference the vector store ID in your tools:
+
+```ruby
+# Example with document search
+response = client.responses(
+    parameters: {
+        model: "gpt-4o-mini",
+        input: [
+            { role: "user", content: "Summarize the key points from the uploaded research papers" }
+        ],
+        tools: [{
+            type: "file_search",
+            vector_store_ids: ["vs_your_vector_store_id"]
+        }]
+    })
+
+# Access the AI's response based on document content
+ai_response = response["output"].find { |output| output["type"] == "message" }
+content = ai_response.dig("content", 0, "text")
+annotations = ai_response.dig("content", 0, "annotations") # File citations
+
+puts content
+# Response will include information extracted from your documents with citations
+```
+
+Note: The Responses API uses `input` instead of `messages` and has a different response structure with multiple outputs including file search results and the final message.
+
 ### Edits
 
 Send a string and some instructions for what to do to the string:
