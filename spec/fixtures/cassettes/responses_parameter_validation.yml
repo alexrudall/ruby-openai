@@ -1,0 +1,143 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","input":"Test input for parameter validation"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Aug 2025 05:21:16 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit-Requests:
+      - '5000'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '4999'
+      X-Ratelimit-Remaining-Tokens:
+      - '39984'
+      X-Ratelimit-Reset-Requests:
+      - 12ms
+      X-Ratelimit-Reset-Tokens:
+      - 24ms
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-bwkbmuf5hz7yjfjuqiuo1oyw
+      Openai-Project:
+      - proj_sG0wrxnySBO6rLohMGwHTSlc
+      X-Request-Id:
+      - req_0aff82d225d82af3a86a86fafed2cca3
+      Openai-Processing-Ms:
+      - '13026'
+      X-Envoy-Upstream-Service-Time:
+      - '13031'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=6rZ7cBGTYod.fbtArNJiXBexQ2LaJ9ht.4IXUc.efXs-1754630476-1.0.1.1-ih_cpEHbNtvS4L.1IgejNBnw.8oiS7V.Tg4YgPcu3Bia.Qb0oXKw0MXf1rFMDurKDe2lIub8UNDGKtE8ToDOueQSr2YMBcfzq8oSFfO2x8E;
+        path=/; expires=Fri, 08-Aug-25 05:51:16 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=7k9UfVMugtBzUI_MN..aWCU2BITKc0M_0215QCcMaVE-1754630476276-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96bc916adf6f2588-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_6895893f3a30819dbb2dc12a773f9f6f0606eae8747740ed",
+          "object": "response",
+          "created_at": 1754630463,
+          "status": "completed",
+          "background": false,
+          "error": null,
+          "incomplete_details": null,
+          "instructions": null,
+          "max_output_tokens": null,
+          "max_tool_calls": null,
+          "model": "gpt-4-0613",
+          "output": [
+            {
+              "id": "msg_6895893fcd8c819d8cc872932593d5010606eae8747740ed",
+              "type": "message",
+              "status": "completed",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": "1. Email: test.email+alex@leetestcode.com\n2. Password: Test123!\n3. Username: Alex123\n4. Phone number: +1234567890\n5. Age: 25\n6. Website URL: https://www.testwebsite.com\n7. Address : 123 Test St, Test City, Test State, 12345, Test Country\n8. Credit card number: 4123456789012345\n9. Social security number: 123-45-6789\n10. Date: 2022-02-20\n11. Time: 02:20:00\n12. Decimal number: 123.45\n13. Boolean: true\n14. Postal code: 12345\n15. IP address: 192.168.0.1\n16. Coordinates: 40.712776, -74.005974 \n17. Text: This is a test text.\n18. Hex color code: #FF6347\n19. File path: /var/www/html/testfile\n20. Image URL: https://www.testwebsite.com/image.jpg\n21. JSON string: {\"name\":\"Test\", \"age\":30, \"city\":\"New York\"}\n22. XML string:  <test><name>Test</name><age>30</age><city>New York</city></test>\n23. Binary string: 10101001\n24. List: ['apple', 'banana', 'mango']\n25. Dictionary: {'name': 'Test', 'age': 25, 'profession': 'Developer'}\n26. Country code: US\n27. Currency code: USD\n28. Language code: en\n29. Number: 12345678\n30. Empty string: \"\"\n31. Null: null\n32. Unicode string: \u00f1, \u00e9, \u00fc.\n33. Special characters: !@#$%^&*()\n34. Guid/UUID: 550e8400-e29b-41d4-a716-446655440000\n35. Timezone: America/New_York\n36. Locale: en_US"
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "reasoning": {
+            "effort": null,
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 1.0,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 11,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 439,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 450
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 08 Aug 2025 05:21:16 GMT
+recorded_with: VCR 6.1.0

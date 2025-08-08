@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"invalid-model-name","input":"Test input"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 08 Aug 2025 05:21:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '184'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-bwkbmuf5hz7yjfjuqiuo1oyw
+      Openai-Project:
+      - proj_sG0wrxnySBO6rLohMGwHTSlc
+      X-Request-Id:
+      - req_25d6441c4d0c8cc080b9b005f78e4a94
+      Openai-Processing-Ms:
+      - '83'
+      X-Envoy-Upstream-Service-Time:
+      - '90'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=VAN5UN8oy1.2Q90BvFQa9ckddE_SM12vHtsh.kF6Xbc-1754630462-1.0.1.1-iuiZ8yZiKKvgKdNfuptU6XaDZ_5p2tbTQ.6iHabMt3tJf6iqLkNCs8FbxVA2KAdpUAzyfWc2DID21BqT8kkWO6zaEo_3jumMtjN3FaESpPE;
+        path=/; expires=Fri, 08-Aug-25 05:51:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=XXGt7I66c.mCq0lIbxE1lRiMegxl_uL.5y2o9gMyBfE-1754630462979-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96bc91681b445c6a-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "The requested model 'invalid-model-name' does not exist.",
+            "type": "invalid_request_error",
+            "param": "model",
+            "code": "model_not_found"
+          }
+        }
+  recorded_at: Fri, 08 Aug 2025 05:21:03 GMT
+recorded_with: VCR 6.1.0

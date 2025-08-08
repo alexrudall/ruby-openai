@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 08 Aug 2025 05:21:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '175'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-bwkbmuf5hz7yjfjuqiuo1oyw
+      Openai-Project:
+      - proj_sG0wrxnySBO6rLohMGwHTSlc
+      X-Request-Id:
+      - req_75b0082f36c62e5df24e5a7d5dcd9a65
+      Openai-Processing-Ms:
+      - '13'
+      X-Envoy-Upstream-Service-Time:
+      - '18'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=CxtaNLbbuHkr0yx.WH8GuAqiLYjWO7lxSOEcbkw8QhY-1754630462-1.0.1.1-70Y35Rp2cHfU.74_tt40zS7Fwyxi2MxFjtHJFZy7JSLY1mW3XmxYTu3qVBOp_XSL6HVUrQ9t3ua8B2UWQx8qQSdLwlMPAxGyEN.K.3HpW5g;
+        path=/; expires=Fri, 08-Aug-25 05:51:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=IioS7YE2yF0XNEyFln6jBP2aRwD7_G7f3iFboqRvGIU-1754630462630-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96bc91666f4b96df-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Missing required parameter: 'input'.",
+            "type": "invalid_request_error",
+            "param": "input",
+            "code": "missing_required_parameter"
+          }
+        }
+  recorded_at: Fri, 08 Aug 2025 05:21:02 GMT
+recorded_with: VCR 6.1.0

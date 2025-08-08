@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","input":"Test with optional parameters","max_output_tokens":100,"temperature":0.7}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 08 Aug 2025 05:21:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit-Requests:
+      - '5000'
+      X-Ratelimit-Limit-Tokens:
+      - '40000'
+      X-Ratelimit-Remaining-Requests:
+      - '4999'
+      X-Ratelimit-Remaining-Tokens:
+      - '39856'
+      X-Ratelimit-Reset-Requests:
+      - 12ms
+      X-Ratelimit-Reset-Tokens:
+      - 214ms
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-bwkbmuf5hz7yjfjuqiuo1oyw
+      Openai-Project:
+      - proj_sG0wrxnySBO6rLohMGwHTSlc
+      X-Request-Id:
+      - req_bf3b1466987470187fb7f6a406eaa8e5
+      Openai-Processing-Ms:
+      - '4468'
+      X-Envoy-Upstream-Service-Time:
+      - '4475'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=2UHJNHkdf5m5zrIoGkxeMFzhq0c0p28D1OrQOZGGfBg-1754630481-1.0.1.1-zxBCv58_2nYmAiPQ19fKq.x5_5eXufx6Ha02I7sZzLoVTjx7FcQnDDCWFUkHIUmum5e_Bawg7wNlQcGSBdBKrZi7xcXbqn2aIsJrMmI29n8;
+        path=/; expires=Fri, 08-Aug-25 05:51:21 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=8M5oVmxgp0QdvsL511vQRiQCbhhxqzX3O.5lWM_rolw-1754630481037-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96bc91be2dab875d-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "resp_6895894c89d48191a4df21a091c581f80ed4acbf4e5fb5e7",
+          "object": "response",
+          "created_at": 1754630476,
+          "status": "incomplete",
+          "background": false,
+          "error": null,
+          "incomplete_details": {
+            "reason": "max_output_tokens"
+          },
+          "instructions": null,
+          "max_output_tokens": 100,
+          "max_tool_calls": null,
+          "model": "gpt-4-0613",
+          "output": [
+            {
+              "id": "msg_6895894e5a908191ae5807d225d089e40ed4acbf4e5fb5e7",
+              "type": "message",
+              "status": "incomplete",
+              "content": [
+                {
+                  "type": "output_text",
+                  "annotations": [],
+                  "logprobs": [],
+                  "text": "Sure, I can show you an example of a function with optional parameters in Python:\n\n```python\ndef greet(name, greeting=\"Hello\"):\n    print(f\"{greeting}, {name}\")\n\n# calling the function with both parameters\ngreet(\"John\", \"Good morning\")\n\n# calling the function with only the required parameter\ngreet(\"John\")\n```\n\nIn this function, `name` is a required parameter, while `greeting` is an optional parameter. If `greeting`"
+                }
+              ],
+              "role": "assistant"
+            }
+          ],
+          "parallel_tool_calls": true,
+          "previous_response_id": null,
+          "prompt_cache_key": null,
+          "reasoning": {
+            "effort": null,
+            "summary": null
+          },
+          "safety_identifier": null,
+          "service_tier": "default",
+          "store": true,
+          "temperature": 0.7,
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "tool_choice": "auto",
+          "tools": [],
+          "top_logprobs": 0,
+          "top_p": 1.0,
+          "truncation": "disabled",
+          "usage": {
+            "input_tokens": 10,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 100,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 110
+          },
+          "user": null,
+          "metadata": {}
+        }
+  recorded_at: Fri, 08 Aug 2025 05:21:21 GMT
+recorded_with: VCR 6.1.0

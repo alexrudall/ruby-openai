@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/responses
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-4","input":"Search for information about Ruby programming
+        in the uploaded documents.","tools":[{"type":"file_search","vector_store_ids":["vs_nonexistent123"]}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Fri, 08 Aug 2025 05:21:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '169'
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-bwkbmuf5hz7yjfjuqiuo1oyw
+      Openai-Project:
+      - proj_sG0wrxnySBO6rLohMGwHTSlc
+      X-Request-Id:
+      - req_bc15558ae22ab5f210591ecc2b40118d
+      Openai-Processing-Ms:
+      - '17'
+      X-Envoy-Upstream-Service-Time:
+      - '22'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=qsrWMkTQF_MeP6XBQ1V.HRQZLypZ4EDJ5YstAH3LIHI-1754630462-1.0.1.1-TNYTbmFNrI9zjGP8PgcJNjWnFQhzZLS7mmT8efN58PAldkNsboljhdebsw4lu1TEHPwphi80C9DM_MXw2vDa88rIeKvPn1wn6Jdw4r.qYHA;
+        path=/; expires=Fri, 08-Aug-25 05:51:02 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=VI.ZneF4RGYRqp2B0Szkphilrsq9pg.TmadZ.e_RqEA-1754630462366-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96bc91653deb31f8-MIA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Hosted tool 'file_search' is not supported with gpt-4.",
+            "type": "invalid_request_error",
+            "param": "tools",
+            "code": null
+          }
+        }
+  recorded_at: Fri, 08 Aug 2025 05:21:02 GMT
+recorded_with: VCR 6.1.0
