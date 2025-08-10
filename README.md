@@ -540,11 +540,14 @@ You can stream it as well!
 
 ```ruby
 response = client.responses.create(parameters: {
-  model: "gpt-4o",
-  input: "Hello! I'm Szymon!"
+  model: "gpt-5",
+  input: "Hello! I'm Szymon!",
+  reasoning: {
+    "effort": "minimal"
+  }
 })
 puts response.dig("output", 0, "content", 0, "text")
-# => Hello Szymon! How can I assist you today?
+# => Hi Szymon! Great to meet you. How can I help today?
 ```
 
 #### Follow-up Messages
