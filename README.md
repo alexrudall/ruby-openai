@@ -6,7 +6,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Stream chats with the Responses API, transcribe and translate audio with Whisper, create images with DALL·E, and much more...
+Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversations, and much more...
 
 **Sponsors**
 
