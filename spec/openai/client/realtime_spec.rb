@@ -4,10 +4,10 @@ RSpec.describe OpenAI::Realtime do
 
   describe "#create" do
     it "uses the specified model" do
-      custom_model = "gpt-4o-realtime-preview-2024-12-18"
-      VCR.use_cassette("realtime_session_create_custom_model") do
-        response = realtime.create(parameters: { model: custom_model })
-        expect(response["model"]).to eq(custom_model)
+      model = "gpt-4o-realtime-preview-2024-12-18"
+      VCR.use_cassette("realtime_session_create") do
+        response = realtime.create(parameters: { model: model })
+        expect(response["model"]).to eq(model)
       end
     end
 
