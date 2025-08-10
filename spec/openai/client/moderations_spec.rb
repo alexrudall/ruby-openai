@@ -1,6 +1,6 @@
 RSpec.describe OpenAI::Client do
   describe "#moderations", :vcr do
-    let(:input) { "I'm worried about that." }
+    let(:input) { "Have a great day!" }
     let(:cassette) { "moderations #{input}".downcase }
     let(:response) do
       OpenAI::Client.new.moderations(
