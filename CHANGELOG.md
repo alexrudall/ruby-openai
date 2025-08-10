@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add Security.md and activate private vulnerability reporting
 - Add multi-image upload - thank you to [@ryankon](https://github.com/ryankon) and others for requesting.
+- Handle OpenAI::Files request parameters - thank you to [@okorepanov](https://github.com/okorepanov) for the PR.
 
 ## [8.1.0] - 2025-03-30
 
