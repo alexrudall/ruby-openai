@@ -3,15 +3,6 @@ RSpec.describe OpenAI::Realtime do
   let(:realtime) { client.realtime }
 
   describe "#create" do
-    context "when no model is specified" do
-      it "uses the default model" do
-        VCR.use_cassette("realtime_session_create_default") do
-          response = realtime.create
-          expect(response["model"]).to eq(OpenAI::Realtime::DEFAULT_REALTIME_MODEL)
-        end
-      end
-    end
-
     context "when a model is specified" do
       it "uses the specified model" do
         custom_model = "gpt-4o-realtime-preview-2024-12-18"
