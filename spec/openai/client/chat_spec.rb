@@ -107,7 +107,7 @@ RSpec.describe OpenAI::Client do
 
                   message["tool_calls"].each do |tool_call|
                     messages << {
-                      tool_call_id: tool_call.dig("id"),
+                      tool_call_id: tool_call["id"],
                       role: "tool",
                       name: "get_current_weather",
                       content: "The weather is nice 🌞"
@@ -121,7 +121,7 @@ RSpec.describe OpenAI::Client do
                     }
                   )
 
-                  expect(second_response.dig("error")).to be_nil
+                  expect(second_response["error"]).to be_nil
                 end
               end
             end
