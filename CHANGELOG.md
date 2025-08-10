@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add multi-image upload - thank you to [@ryankon](https://github.com/ryankon) and others for requesting.
 - Handle OpenAI::Files request parameters - thank you to [@okorepanov](https://github.com/okorepanov) for the PR.
 - Add Gemini docs - thanks to [@francis](https://github.com/francis).
+- Add web proxy debugging docs - thanks to [@cpb](https://github.com/cpb).
 
 ## [8.1.0] - 2025-03-30
 
