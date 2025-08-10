@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Handle OpenAI::Files request parameters - thank you to [@okorepanov](https://github.com/okorepanov) for the PR.
 - Add Gemini docs - thanks to [@francis](https://github.com/francis).
 - Add web proxy debugging docs - thanks to [@cpb](https://github.com/cpb).
+- Add Rails / ActiveStorage transcription docs - thanks to [@AndreyAzimov](https://github.com/AndreyAzimov).
 
 ## [8.1.0] - 2025-03-30
 
