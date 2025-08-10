@@ -1660,7 +1660,7 @@ File.binwrite('demo.mp3', response)
 
 ### Realtime
 
-The [Realtime API](https://platform.openai.com/docs/guides/realtime) allows you to create a live speech-to-speech session with an OpenAI model. It responds with a session object, plus a client_secret key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API.
+The [Realtime API](https://platform.openai.com/docs/guides/realtime) allows you to create a live speech-to-speech session with an OpenAI model. It responds with a session object, plus a client_secret key which contains a usable ephemeral API token that can be used to [authenticate browser clients for a WebRTC connection](https://platform.openai.com/docs/guides/realtime#connect-with-webrtc).
 
 ```ruby
 response = client.realtime.create(parameters: { model: "gpt-4o-realtime-preview-2024-12-17" })
