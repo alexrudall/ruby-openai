@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add Security.md and activate private vulnerability reporting
 - Add multi-image upload - thank you to [@ryankon](https://github.com/ryankon) and others for requesting.
 
 ## [8.1.0] - 2025-03-30
