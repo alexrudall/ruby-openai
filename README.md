@@ -6,7 +6,7 @@
 
 Use the [OpenAI API](https://openai.com/blog/openai-api/) with Ruby! 🤖❤️
 
-Stream chats with the Responses API, transcribe and translate audio with Whisper, create images with DALL·E, and much more...
+Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversations, and much more...
 
 **Sponsors**
 
@@ -540,11 +540,14 @@ You can stream it as well!
 
 ```ruby
 response = client.responses.create(parameters: {
-  model: "gpt-4o",
-  input: "Hello! I'm Szymon!"
+  model: "gpt-5",
+  input: "Hello! I'm Szymon!",
+  reasoning: {
+    "effort": "minimal"
+  }
 })
 puts response.dig("output", 0, "content", 0, "text")
-# => Hello Szymon! How can I assist you today?
+# => Hi Szymon! Great to meet you. How can I help today?
 ```
 
 #### Follow-up Messages
@@ -682,8 +685,7 @@ response =
 message = response.dig("choices", 0, "message")
 
 if message["role"] == "assistant" && message["tool_calls"]
-
-  # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a tool_calls argument.
+  # For a subsequent message with the role "tool", OpenAI requires the preceding message to have a single tool_calls argument.
   messages << message
 
   message["tool_calls"].each do |tool_call|
@@ -1681,7 +1683,7 @@ user.media.blob.open do |file|
   response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
-        file: File.open(temp_file, "rb"),
+        file: File.open(file, "rb"),
         language: "en" # Optional
     })
   puts response["text"]

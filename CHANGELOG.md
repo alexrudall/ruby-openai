@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.2.0] - 2025-08-10
+
+### Added
+
+- Add Security.md and activate private vulnerability reporting
+- Add RealTime endpoint to create WebRTC token - thank you to [@ngelx](https://github.com/ngelx) for the PR and others for input!
+- Add multi-image upload - thank you to [@ryankon](https://github.com/ryankon) and others for requesting.
+- Refactor streaming so that Chat, Responses, Assistant Runs and any others where events are streamed now send the event to the Proc, replacing unused _bytesize. Search the README for `_event` to see how to use this. Important change implemented by [@ingemar](https://github.com/ingemar)!
+- Handle OpenAI::Files request parameters - thank you to [@okorepanov](https://github.com/okorepanov) for the PR.
+- Add Gemini docs - thanks to [@francis](https://github.com/francis).
+- Add web proxy debugging docs - thanks to [@cpb](https://github.com/cpb).
+- Add Rails / ActiveStorage transcription docs - thanks to [@AndreyAzimov](https://github.com/AndreyAzimov).
+
 ## [8.1.0] - 2025-03-30
 
 ### Added

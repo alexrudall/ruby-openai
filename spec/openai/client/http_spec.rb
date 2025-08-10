@@ -201,10 +201,12 @@ RSpec.describe OpenAI::HTTP do
 
     let(:headers) { OpenAI::Client.new.send(:headers) }
 
-    it {
-      expect(headers).to eq({ "Authorization" => "Bearer #{OpenAI.configuration.access_token}",
-                              "Content-Type" => "application/json" })
-    }
+    it "includes expected headers" do
+      expect(headers).to have_key("Authorization")
+      expect(headers["Authorization"]).to match(/^Bearer .+/)
+      expect(headers).to have_key("Content-Type")
+      expect(headers["Content-Type"]).to eq("application/json")
+    end
 
     describe "with Azure" do
       before do
@@ -217,10 +219,12 @@ RSpec.describe OpenAI::HTTP do
 
       let(:headers) { OpenAI::Client.new.send(:headers) }
 
-      it {
-        expect(headers).to eq({ "Content-Type" => "application/json",
-                                "api-key" => OpenAI.configuration.access_token })
-      }
+      it "includes expected headers" do
+        expect(headers).to have_key("api-key")
+        expect(headers["api-key"]).not_to be_nil
+        expect(headers).to have_key("Content-Type")
+        expect(headers["Content-Type"]).to eq("application/json")
+      end
     end
   end
 
