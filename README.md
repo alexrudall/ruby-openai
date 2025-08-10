@@ -1658,17 +1658,17 @@ File.binwrite('demo.mp3', response)
 # => mp3 file that plays: "This is a speech test!"
 ```
 
-### Real-Time
+### Realtime
 
-The Real-Time API allows you to create a real-time session with an OpenAI model. It responds with a session object, plus a client_secret key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API.
+The Realtime API allows you to create a live speech-to-speech session with an OpenAI model. It responds with a session object, plus a client_secret key which contains a usable ephemeral API token that can be used to authenticate browser clients for the Realtime API.
 
 ```ruby
-response = client.real_time.create(parameters: { model: "gpt-4o-realtime-preview-2024-12-17" })
+response = client.realtime.create(parameters: { model: "gpt-4o-realtime-preview-2024-12-17" })
 puts "ephemeral key: #{response.dig('client_secret', 'value')}"
 # => "ephemeral key: ek_abc123"
 ```
 
-Then in the client-side application, make a POST request to the Real-Time API with the ephemeral key and the SDP offer.
+Then in the client-side Javascript application, make a POST request to the Real-Time API with the ephemeral key and the SDP offer.
 
 ```js
 const OPENAI_REALTIME_URL = 'https://api.openai.com/v1/realtime/sessions'

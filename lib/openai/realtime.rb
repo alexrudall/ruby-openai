@@ -1,5 +1,5 @@
 module OpenAI
-  class RealTime
+  class Realtime
     DEFAULT_REALTIME_MODEL = "gpt-4o-realtime-preview-2024-12-17".freeze
 
     def initialize(client:)

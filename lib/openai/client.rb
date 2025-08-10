@@ -93,8 +93,8 @@ module OpenAI
       @batches ||= OpenAI::Batches.new(client: self)
     end
 
-    def real_time
-      @real_time ||= OpenAI::RealTime.new(client: self)
+    def realtime
+      @realtime ||= OpenAI::Realtime.new(client: self)
     end
 
     def moderations(parameters: {})

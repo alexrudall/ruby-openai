@@ -1,13 +1,13 @@
-RSpec.describe OpenAI::RealTime do
+RSpec.describe OpenAI::Realtime do
   let(:client) { OpenAI::Client.new }
-  let(:realtime) { client.real_time }
+  let(:realtime) { client.realtime }
 
   describe "#create" do
     context "when no model is specified" do
       it "uses the default model" do
         VCR.use_cassette("realtime_session_create_default") do
           response = realtime.create
-          expect(response["model"]).to eq(OpenAI::RealTime::DEFAULT_REALTIME_MODEL)
+          expect(response["model"]).to eq(OpenAI::Realtime::DEFAULT_REALTIME_MODEL)
         end
       end
     end
