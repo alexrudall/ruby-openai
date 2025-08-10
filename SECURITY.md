@@ -1,4 +1,5 @@
 # Security Policy
+
 Thank you for helping us keep ruby-openai and any systems it interacts with secure.
 
 ## Reporting Security Issues
