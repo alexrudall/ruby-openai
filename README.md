@@ -1681,7 +1681,7 @@ user.media.blob.open do |file|
   response = client.audio.transcribe(
     parameters: {
         model: "whisper-1",
-        file: File.open(temp_file, "rb"),
+        file: File.open(file, "rb"),
         language: "en" # Optional
     })
   puts response["text"]
