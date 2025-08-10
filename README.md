@@ -1564,6 +1564,21 @@ puts response.dig("data", 0, "url")
 
 ![Ruby](https://i.ibb.co/sWVh3BX/dalle-ruby.png)
 
+You can also upload arrays of images, eg.
+
+```ruby
+  client = OpenAI::Client.new
+  response = client.images.edit(
+    parameters: {
+      model: "gpt-image-1",
+      image: [File.open(base_image_path, "rb"), "image.png"],
+      prompt: "Take the first image as base and apply the second image as a watermark on the bottom right corner",
+      size: "1024x1024"
+      # Removed response_format parameter as it's not supported with gpt-image-1
+    }
+  )
+```
+
 ### Image Variations
 
 Create n variations of an image.
