@@ -29,12 +29,12 @@ module OpenAI
       file.close if file.is_a?(File)
     end
 
-    def retrieve(id:)
-      @client.get(path: "/files/#{id}")
+    def retrieve(id:, parameters: {})
+      @client.get(path: "/files/#{id}", parameters: parameters)
     end
 
-    def content(id:)
-      @client.get(path: "/files/#{id}/content")
+    def content(id:, parameters: {})
+      @client.get(path: "/files/#{id}/content", parameters: parameters)
     end
 
     def delete(id:)
