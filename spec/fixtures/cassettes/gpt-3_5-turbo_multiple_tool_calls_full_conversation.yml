@@ -1,0 +1,257 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-3.5-turbo","messages":[{"role":"user","content":"What
+        is the weather like in San Francisco and Japan?"}],"stream":false,"tools":[{"type":"function","function":{"name":"get_current_weather","description":"Get
+        the current weather in a given location","parameters":{"type":"object","properties":{"location":{"type":"string","description":"The
+        geographic location to get the weather for"}},"required":["location"]}}}],"tool_choice":"required"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Aug 2025 14:27:17 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '1095'
+      Openai-Project:
+      - proj_GeQgevTU0ldCrlkkXei9bV0k
+      Openai-Version:
+      - '2020-10-01'
+      X-Envoy-Upstream-Service-Time:
+      - '1308'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '50000000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '49999984'
+      X-Ratelimit-Reset-Requests:
+      - 6ms
+      X-Ratelimit-Reset-Tokens:
+      - 0s
+      X-Request-Id:
+      - req_076e19be0a37445683b86c1790c391a2
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=.FEh2Ialk3iUIgn5xob9.0rOOX_RATuK3FLmk5CdPIQ-1754836037-1.0.1.1-q6orBCU0W1IN91SW_J.ekybHP27lVWCbiew3.EdZF3N3hby30R2ka_xLaMeX.1ay5eXFxr9YF8uPGxXeMyCL1VL4D9_.kV5muZXqhwvSh1w;
+        path=/; expires=Sun, 10-Aug-25 14:57:17 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=KIoEfW0H_xRTApddy_kiIA2u9H6_f4zjsFA.VjdZuCs-1754836037356-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96d02c467b1ad77e-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-C31IySwlUa8hdaSKKxS7JazofVfCy",
+          "object": "chat.completion",
+          "created": 1754836036,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": null,
+                "tool_calls": [
+                  {
+                    "id": "call_jpE40AW1quMaiDYWNV4Aob6D",
+                    "type": "function",
+                    "function": {
+                      "name": "get_current_weather",
+                      "arguments": "{\"location\": \"San Francisco\"}"
+                    }
+                  },
+                  {
+                    "id": "call_AZ51gEeXi37kKhFpXrcJzNQl",
+                    "type": "function",
+                    "function": {
+                      "name": "get_current_weather",
+                      "arguments": "{\"location\": \"Japan\"}"
+                    }
+                  }
+                ],
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "tool_calls"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 70,
+            "completion_tokens": 46,
+            "total_tokens": 116,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": null
+        }
+  recorded_at: Sun, 10 Aug 2025 14:27:17 GMT
+- request:
+    method: post
+    uri: https://api.openai.com/v1/chat/completions
+    body:
+      encoding: UTF-8
+      string: "{\"model\":\"gpt-3.5-turbo\",\"messages\":[{\"role\":\"user\",\"content\":\"What
+        is the weather like in San Francisco and Japan?\"},{\"role\":\"assistant\",\"content\":null,\"tool_calls\":[{\"id\":\"call_jpE40AW1quMaiDYWNV4Aob6D\",\"type\":\"function\",\"function\":{\"name\":\"get_current_weather\",\"arguments\":\"{\\\"location\\\":
+        \\\"San Francisco\\\"}\"}},{\"id\":\"call_AZ51gEeXi37kKhFpXrcJzNQl\",\"type\":\"function\",\"function\":{\"name\":\"get_current_weather\",\"arguments\":\"{\\\"location\\\":
+        \\\"Japan\\\"}\"}}],\"refusal\":null,\"annotations\":[]},{\"tool_call_id\":\"call_jpE40AW1quMaiDYWNV4Aob6D\",\"role\":\"tool\",\"name\":\"get_current_weather\",\"content\":\"The
+        weather is nice \U0001F31E\"},{\"tool_call_id\":\"call_AZ51gEeXi37kKhFpXrcJzNQl\",\"role\":\"tool\",\"name\":\"get_current_weather\",\"content\":\"The
+        weather is nice \U0001F31E\"}]}"
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 10 Aug 2025 14:27:18 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Request-ID
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      Openai-Processing-Ms:
+      - '437'
+      Openai-Project:
+      - proj_GeQgevTU0ldCrlkkXei9bV0k
+      Openai-Version:
+      - '2020-10-01'
+      X-Envoy-Upstream-Service-Time:
+      - '490'
+      X-Ratelimit-Limit-Requests:
+      - '10000'
+      X-Ratelimit-Limit-Tokens:
+      - '50000000'
+      X-Ratelimit-Remaining-Requests:
+      - '9999'
+      X-Ratelimit-Remaining-Tokens:
+      - '49999970'
+      X-Ratelimit-Reset-Requests:
+      - 6ms
+      X-Ratelimit-Reset-Tokens:
+      - 0s
+      X-Request-Id:
+      - req_1619ffde9bc04acd9c6c0622c5ef77ea
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=h__9zuzi47aStP0G9GWXRgK_HjLqYgaEftrdn3pmOSk-1754836038-1.0.1.1-xJ.MZLdLbvZtZv7heRK9ExGsEzkHRq4MWszDAXx92cylOgIH0mRg63kLiLiVX5iEefz.eMVfATrHxt6yfnqdR_HQkQbIL9zNys22PpLqWOY;
+        path=/; expires=Sun, 10-Aug-25 14:57:18 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=JWTQlkdLGwWXR20DFmzadXtZM24JFn8oWClYIRtK25c-1754836038242-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 96d02c52a9de60ef-LHR
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+          "id": "chatcmpl-C31IzRF7qzHC7AOBlp2K1Fed9HWzf",
+          "object": "chat.completion",
+          "created": 1754836037,
+          "model": "gpt-3.5-turbo-0125",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "The weather in both San Francisco and Japan is nice.",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 104,
+            "completion_tokens": 11,
+            "total_tokens": 115,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default",
+          "system_fingerprint": null
+        }
+  recorded_at: Sun, 10 Aug 2025 14:27:18 GMT
+recorded_with: VCR 6.3.1
