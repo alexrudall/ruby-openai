@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.2.0] - 2025-08-10
+
+### Added
+
+- Add multi-image upload - thank you to [@ryankon](https://github.com/ryankon) and others for requesting.
+
 ## [8.1.0] - 2025-03-30
 
 ### Added
