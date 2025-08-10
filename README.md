@@ -92,6 +92,7 @@ Stream chats with the Responses API, transcribe and translate audio with Whisper
       - [Translate](#translate)
       - [Transcribe](#transcribe)
       - [Speech](#speech)
+    - [Real-Time](#real-time)
     - [Usage](#usage)
     - [Errors](#errors-1)
   - [Development](#development)
@@ -1655,6 +1656,33 @@ response = client.audio.speech(
 )
 File.binwrite('demo.mp3', response)
 # => mp3 file that plays: "This is a speech test!"
+```
+
+### Realtime
+
+The [Realtime API](https://platform.openai.com/docs/guides/realtime) allows you to create a live speech-to-speech session with an OpenAI model. It responds with a session object, plus a client_secret key which contains a usable ephemeral API token that can be used to [authenticate browser clients for a WebRTC connection](https://platform.openai.com/docs/guides/realtime#connect-with-webrtc).
+
+```ruby
+response = client.realtime.create(parameters: { model: "gpt-4o-realtime-preview-2024-12-17" })
+puts "ephemeral key: #{response.dig('client_secret', 'value')}"
+# => "ephemeral key: ek_abc123"
+```
+
+Then in the client-side Javascript application, make a POST request to the Real-Time API with the ephemeral key and the SDP offer.
+
+```js
+const OPENAI_REALTIME_URL = 'https://api.openai.com/v1/realtime/sessions'
+const MODEL = 'gpt-4o-realtime-preview-2024-12-17'
+
+const response = await fetch(`${OPENAI_REALTIME_URL}?model=${MODEL}`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/sdp',
+    'Authorization': `Bearer ${ephemeralKey}`,
+    'OpenAI-Beta': 'realtime=v1'
+  },
+  body: offer.sdp
+})
 ```
 
 ### Usage
