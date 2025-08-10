@@ -245,7 +245,7 @@ client = OpenAI::Client.new do |f|
 end
 ```
 
-- To add a web debugging proxy:
+- To add a web debugging proxy like [Charles](https://www.charlesproxy.com/documentation/welcome/):
 
 ```ruby
   client = OpenAI::Client.new do |f|
