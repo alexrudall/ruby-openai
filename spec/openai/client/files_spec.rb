@@ -85,7 +85,7 @@ RSpec.describe OpenAI::Client do
     describe "#retrieve" do
       let(:cassette) { "files retrieve" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.retrieve(id: upload_id) }
+      let(:response) { OpenAI::Client.new.files.retrieve(id: upload_id, parameters: {}) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -97,7 +97,7 @@ RSpec.describe OpenAI::Client do
     describe "#content" do
       let(:cassette) { "files content" }
       let(:upload_cassette) { "#{cassette} upload" }
-      let(:response) { OpenAI::Client.new.files.content(id: upload_id) }
+      let(:response) { OpenAI::Client.new.files.content(id: upload_id, parameters: {}) }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
