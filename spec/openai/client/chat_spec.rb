@@ -82,7 +82,7 @@ RSpec.describe OpenAI::Client do
         describe "streaming" do
           let(:chunks) { [] }
           let(:stream) do
-            proc do |chunk, _bytesize|
+            proc do |chunk, _event|
               chunks << chunk
             end
           end
@@ -196,7 +196,7 @@ RSpec.describe OpenAI::Client do
         end
         let(:chunks) { [] }
         let(:stream) do
-          proc do |chunk, _bytesize|
+          proc do |chunk, _event|
             chunks << chunk
           end
         end
@@ -224,7 +224,7 @@ RSpec.describe OpenAI::Client do
         end
         let(:chunks) { [] }
         let(:stream) do
-          proc do |chunk, _bytesize|
+          proc do |chunk, _event|
             chunks << chunk
           end
         end
