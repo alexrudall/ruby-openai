@@ -547,6 +547,8 @@ response = client.responses.create(parameters: {
   }
 })
 puts response.dig("output", 0, "content", 0, "text")
+# => Thinking about how to answer this...
+puts response.dig("output", 1, "content", 0, "text")
 # => Hi Szymon! Great to meet you. How can I help today?
 ```
 
