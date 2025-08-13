@@ -6,6 +6,7 @@ gemspec
 # Development dependencies. Not included in the publised gem.
 gem "byebug", "~> 11.1.3"
 gem "dotenv", "~> 2.8.1" # >= v3 will require removing support for Ruby 2.7 from CI.
+gem "mime-types", "~> 3.5"
 gem "rake", "~> 13.2.1"
 gem "rspec", "~> 3.13"
 gem "rubocop", "~> 1.74.0"

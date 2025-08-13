@@ -87,11 +87,9 @@ module OpenAI
         # Faraday::UploadIO does not require a path, so we will pass it
         # only if it is available. This allows StringIO objects to be
         # passed in as well.
-        path = value.respond_to?(:path) ? value.path : nil
-        # Doesn't seem like OpenAI needs mime_type yet, so not worth
-        # the library to figure this out. Hence the empty string
-        # as the second argument.
-        Faraday::UploadIO.new(value, "", path)
+        return Faraday::UploadIO.new(value, "", nil) unless value.respond_to?(:path)
+
+        Faraday::UploadIO.new(value, mime_type_for(value.path), value.path)
       end
     end
 
@@ -107,6 +105,10 @@ module OpenAI
 
       req.headers = headers
       req.body = req_parameters.to_json
+    end
+
+    def mime_type_for(path)
+      MIME::Types.of(path).first.to_s
     end
   end
 end
