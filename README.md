@@ -77,6 +77,7 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
     - [Vector Store Files](#vector-store-files)
     - [Vector Store File Batches](#vector-store-file-batches)
     - [Assistants](#assistants)
+    - [Conversations](#conversations)
     - [Threads and Messages](#threads-and-messages)
     - [Runs](#runs)
       - [Create and Run](#create-and-run)
@@ -1095,6 +1096,122 @@ You can cancel a vector store file batch (This attempts to cancel the processing
 client.vector_store_file_batches.cancel(
   vector_store_id: "vector-store-abc123",
   id: file_batch_id
+)
+```
+
+### Conversations
+
+The Conversations API enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
+
+#### Creating a Conversation
+
+To create a new conversation:
+
+```ruby
+response = client.conversations.create(
+  parameters: {
+    metadata: { purpose: "customer_support" }
+  }
+)
+conversation_id = response["id"]
+```
+
+#### Listing Conversations
+
+To list all conversations:
+
+```ruby
+response = client.conversations.list
+conversations = response["data"]
+
+# With parameters
+response = client.conversations.list(
+  parameters: { 
+    limit: 20,
+    order: "desc"
+  }
+)
+```
+
+#### Retrieving a Conversation
+
+To retrieve a specific conversation:
+
+```ruby
+conversation = client.conversations.retrieve(id: conversation_id)
+```
+
+#### Modifying a Conversation
+
+To update a conversation's metadata:
+
+```ruby
+response = client.conversations.modify(
+  id: conversation_id,
+  parameters: {
+    metadata: { status: "resolved" }
+  }
+)
+```
+
+#### Deleting a Conversation
+
+To delete a conversation:
+
+```ruby
+response = client.conversations.delete(id: conversation_id)
+```
+
+#### Managing Messages in Conversations
+
+You can add, retrieve, and manage messages within a conversation:
+
+##### Creating a Message
+
+```ruby
+response = client.conversations.create_message(
+  conversation_id: conversation_id,
+  parameters: {
+    content: "Hello! How can I help you today?",
+    role: "assistant",
+    metadata: { message_type: "greeting" }
+  }
+)
+message_id = response["id"]
+```
+
+##### Listing Messages
+
+```ruby
+# List all messages in a conversation
+response = client.conversations.messages(conversation_id: conversation_id)
+messages = response["data"]
+
+# With parameters
+response = client.conversations.messages(
+  conversation_id: conversation_id,
+  parameters: { 
+    limit: 10,
+    order: "asc"
+  }
+)
+```
+
+##### Retrieving a Specific Message
+
+```ruby
+message = client.conversations.retrieve_message(
+  conversation_id: conversation_id,
+  message_id: message_id
+)
+```
+
+##### Deleting a Message
+
+```ruby
+response = client.conversations.delete_message(
+  conversation_id: conversation_id,
+  message_id: message_id
 )
 ```
 

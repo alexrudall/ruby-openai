@@ -105,6 +105,10 @@ module OpenAI
       @usage ||= OpenAI::Usage.new(client: self)
     end
 
+    def conversations
+      @conversations ||= OpenAI::Conversations.new(client: self)
+    end
+
     def azure?
       @api_type&.to_sym == :azure
     end
