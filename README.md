@@ -1162,33 +1162,46 @@ To delete a conversation:
 response = client.conversations.delete(id: conversation_id)
 ```
 
-#### Managing Messages in Conversations
+#### Managing Items in Conversations
 
-You can add, retrieve, and manage messages within a conversation:
+You can add, retrieve, and manage items within a conversation.
 
-##### Creating a Message
+##### Creating Items
 
 ```ruby
-response = client.conversations.create_message(
+# Create multiple items at once
+response = client.conversations.create_items(
   conversation_id: conversation_id,
   parameters: {
-    content: "Hello! How can I help you today?",
-    role: "assistant",
-    metadata: { message_type: "greeting" }
+    items: [
+      {
+        type: "message",
+        role: "user",
+        content: [
+          { type: "input_text", text: "Hello!" }
+        ]
+      },
+      {
+        type: "message",
+        role: "assistant",
+        content: [
+          { type: "input_text", text: "How are you?" }
+        ]
+      }
+    ]
   }
 )
-message_id = response["id"]
 ```
 
-##### Listing Messages
+##### Listing Items
 
 ```ruby
-# List all messages in a conversation
-response = client.conversations.messages(conversation_id: conversation_id)
-messages = response["data"]
+# List all items in a conversation
+response = client.conversations.list_items(conversation_id: conversation_id)
+items = response["data"]
 
 # With parameters
-response = client.conversations.messages(
+response = client.conversations.list_items(
   conversation_id: conversation_id,
   parameters: { 
     limit: 10,
@@ -1197,21 +1210,21 @@ response = client.conversations.messages(
 )
 ```
 
-##### Retrieving a Specific Message
+##### Retrieving a Specific Item
 
 ```ruby
-message = client.conversations.retrieve_message(
+item = client.conversations.get_item(
   conversation_id: conversation_id,
-  message_id: message_id
+  item_id: item_id
 )
 ```
 
-##### Deleting a Message
+##### Deleting an Item
 
 ```ruby
-response = client.conversations.delete_message(
+response = client.conversations.delete_item(
   conversation_id: conversation_id,
-  message_id: message_id
+  item_id: item_id
 )
 ```
 

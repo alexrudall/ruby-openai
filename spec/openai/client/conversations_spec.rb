@@ -5,11 +5,21 @@ RSpec.describe OpenAI::Client do
         OpenAI::Client.new.conversations.create(parameters: {})["id"]
       end
     end
-    let(:message_id) do
-      VCR.use_cassette("#{cassette} message setup") do
-        OpenAI::Client.new.conversations.create_message(
+    let(:item_id) do
+      VCR.use_cassette("#{cassette} item setup") do
+        OpenAI::Client.new.conversations.create_items(
           conversation_id: conversation_id,
-          parameters: { content: "Hello, this is a test message" }
+          parameters: {
+            items: [
+              {
+                type: "message",
+                role: "user",
+                content: [
+                  { type: "input_text", text: "Hello, this is a test item" }
+                ]
+              }
+            ]
+          }
         )["id"]
       end
     end
@@ -104,13 +114,13 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#messages" do
-      let(:cassette) { "conversations messages" }
+    describe "#list_items" do
+      let(:cassette) { "conversations list items" }
       let(:response) do
-        OpenAI::Client.new.conversations.messages(conversation_id: conversation_id)
+        OpenAI::Client.new.conversations.list_items(conversation_id: conversation_id)
       end
 
-      before { message_id }
+      before { item_id }
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
@@ -120,7 +130,7 @@ RSpec.describe OpenAI::Client do
 
       context "with parameters" do
         let(:response) do
-          OpenAI::Client.new.conversations.messages(
+          OpenAI::Client.new.conversations.list_items(
             conversation_id: conversation_id,
             parameters: { limit: 5 }
           )
@@ -134,68 +144,99 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#retrieve_message" do
-      let(:cassette) { "conversations retrieve message" }
+    describe "#get_item" do
+      let(:cassette) { "conversations get item" }
       let(:response) do
-        OpenAI::Client.new.conversations.retrieve_message(
+        OpenAI::Client.new.conversations.get_item(
           conversation_id: conversation_id,
-          message_id: message_id
+          item_id: item_id
         )
       end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("conversation.message")
+          expect(response["object"]).to eq("conversation.item")
         end
       end
     end
 
-    describe "#create_message" do
-      let(:cassette) { "conversations create message" }
+    describe "#create_items" do
+      let(:cassette) { "conversations create items" }
       let(:response) do
-        OpenAI::Client.new.conversations.create_message(
+        OpenAI::Client.new.conversations.create_items(
           conversation_id: conversation_id,
-          parameters: { content: "Hello, this is a test message" }
+          parameters: {
+            items: [
+              {
+                type: "message",
+                role: "user",
+                content: [
+                  { type: "input_text", text: "Hello!" }
+                ]
+              },
+              {
+                type: "message",
+                role: "assistant",
+                content: [
+                  { type: "input_text", text: "How are you?" }
+                ]
+              }
+            ]
+          }
         )
       end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("conversation.message")
+          expect(response["object"]).to eq("conversation.item")
         end
       end
 
-      context "with additional parameters" do
+      context "with multiple items" do
         let(:response) do
-          OpenAI::Client.new.conversations.create_message(
+          OpenAI::Client.new.conversations.create_items(
             conversation_id: conversation_id,
             parameters: {
-              content: "Hello with metadata",
-              metadata: { test: "value" }
+              items: [
+                {
+                  type: "message",
+                  role: "user",
+                  content: [
+                    { type: "input_text", text: "Hello!" }
+                  ]
+                },
+                {
+                  type: "message",
+                  role: "user",
+                  content: [
+                    { type: "input_text", text: "How are you?" }
+                  ]
+                }
+              ]
             }
           )
         end
 
-        it "succeeds with additional parameters" do
+        it "succeeds with multiple items" do
           VCR.use_cassette(cassette) do
-            expect(response["object"]).to eq("conversation.message")
+            expect(response["object"]).to eq("conversation.item")
           end
         end
       end
     end
 
-    describe "#delete_message" do
-      let(:cassette) { "conversations delete message" }
+    describe "#delete_item" do
+      let(:cassette) { "conversations delete item" }
       let(:response) do
-        OpenAI::Client.new.conversations.delete_message(
+        OpenAI::Client.new.conversations.delete_item(
           conversation_id: conversation_id,
-          message_id: message_id
+          item_id: item_id
         )
       end
 
       it "succeeds" do
         VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("conversation.message.deleted")
+          expect(response["object"]).to eq("conversation.item.deleted")
         end
       end
     end

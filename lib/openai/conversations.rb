@@ -24,21 +24,21 @@ module OpenAI
       @client.delete(path: "/conversations/#{id}")
     end
 
-    # Message operations within a conversation
-    def messages(conversation_id:, parameters: {})
-      @client.get(path: "/conversations/#{conversation_id}/messages", parameters: parameters)
+    # Item operations within a conversation
+    def create_items(conversation_id:, parameters: {})
+      @client.json_post(path: "/conversations/#{conversation_id}/items", parameters: parameters)
     end
 
-    def retrieve_message(conversation_id:, message_id:)
-      @client.get(path: "/conversations/#{conversation_id}/messages/#{message_id}")
+    def list_items(conversation_id:, parameters: {})
+      @client.get(path: "/conversations/#{conversation_id}/items", parameters: parameters)
     end
 
-    def create_message(conversation_id:, parameters: {})
-      @client.json_post(path: "/conversations/#{conversation_id}/messages", parameters: parameters)
+    def get_item(conversation_id:, item_id:)
+      @client.get(path: "/conversations/#{conversation_id}/items/#{item_id}")
     end
 
-    def delete_message(conversation_id:, message_id:)
-      @client.delete(path: "/conversations/#{conversation_id}/messages/#{message_id}")
+    def delete_item(conversation_id:, item_id:)
+      @client.delete(path: "/conversations/#{conversation_id}/items/#{item_id}")
     end
   end
 end
