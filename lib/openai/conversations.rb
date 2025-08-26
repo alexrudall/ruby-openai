@@ -4,10 +4,6 @@ module OpenAI
       @client = client
     end
 
-    def list(parameters: {})
-      @client.get(path: "/conversations", parameters: parameters)
-    end
-
     def retrieve(id:)
       @client.get(path: "/conversations/#{id}")
     end

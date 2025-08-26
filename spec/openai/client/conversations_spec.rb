@@ -24,29 +24,6 @@ RSpec.describe OpenAI::Client do
       end
     end
 
-    describe "#list" do
-      let(:cassette) { "conversations list" }
-      let(:response) { OpenAI::Client.new.conversations.list }
-
-      it "succeeds" do
-        VCR.use_cassette(cassette) do
-          expect(response["object"]).to eq("list")
-        end
-      end
-
-      context "with parameters" do
-        let(:response) do
-          OpenAI::Client.new.conversations.list(parameters: { limit: 10 })
-        end
-
-        it "succeeds with parameters" do
-          VCR.use_cassette(cassette) do
-            expect(response["object"]).to eq("list")
-          end
-        end
-      end
-    end
-
     describe "#retrieve" do
       let(:cassette) { "conversations retrieve" }
       let(:response) { OpenAI::Client.new.conversations.retrieve(id: conversation_id) }

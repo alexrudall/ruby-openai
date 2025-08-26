@@ -1103,6 +1103,16 @@ client.vector_store_file_batches.cancel(
 
 The Conversations API enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
 
+**Supported Endpoints:**
+- `POST /v1/conversations` - Create a conversation
+- `GET /v1/conversations/{id}` - Retrieve a conversation  
+- `PATCH /v1/conversations/{id}` - Modify a conversation
+- `DELETE /v1/conversations/{id}` - Delete a conversation
+- `POST /v1/conversations/{id}/items` - Create items in a conversation
+- `GET /v1/conversations/{id}/items` - List items in a conversation
+- `GET /v1/conversations/{id}/items/{item_id}` - Get a specific item
+- `DELETE /v1/conversations/{id}/items/{item_id}` - Delete an item
+
 #### Creating a Conversation
 
 To create a new conversation:
@@ -1114,23 +1124,6 @@ response = client.conversations.create(
   }
 )
 conversation_id = response["id"]
-```
-
-#### Listing Conversations
-
-To list all conversations:
-
-```ruby
-response = client.conversations.list
-conversations = response["data"]
-
-# With parameters
-response = client.conversations.list(
-  parameters: { 
-    limit: 20,
-    order: "desc"
-  }
-)
 ```
 
 #### Retrieving a Conversation
