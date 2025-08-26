@@ -1,0 +1,130 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/conversations/conv_67d4472a0be881909acc6775dded8b11
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:11:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_b123c456d789e012f345g678901234cd
+      Openai-Processing-Ms:
+      - '300'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "conv_67d4472a0be881909acc6775dded8b11",
+          "object": "conversation.deleted",
+          "deleted": true
+        }
+  recorded_at: Fri, 14 Mar 2025 15:11:42 GMT
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/conversations/conv_67d4472a0be881909acc6775dded8b11
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Tue, 26 Aug 2025 02:10:57 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '240'
+      Connection:
+      - keep-alive
+      Www-Authenticate:
+      - Bearer realm="OpenAI API"
+      X-Request-Id:
+      - 254b471a-2564-4fed-aa09-61d4103f7514
+      Openai-Processing-Ms:
+      - '36'
+      Openai-Version:
+      - '2020-10-01'
+      X-Envoy-Upstream-Service-Time:
+      - '38'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=m5jWrowGv5.TDm2cg9SY1hfBpUN5lZblQi4o78QAN.c-1756174257-1.0.1.1-rtEqVOFOEBBf1UfmTcRWTef9pp6dVxQe5SyC0zz2bvZybjOWU_TPNUFiWGFvb7Dg0g8Jxf428G8qsMccOchEeSNAfjbOYCIuxITUsIqSNUg;
+        path=/; expires=Tue, 26-Aug-25 02:40:57 GMT; domain=.api.openai.com; HttpOnly;
+        Secure; SameSite=None
+      - _cfuvid=9Deg4EKcd49fiVDsF50XOpyrV2u.hDUPP2EocgpiVvQ-1756174257566-0.0.1.1-604800000;
+        path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 974fcbb3ed2124af-OMA
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "error": {
+            "message": "Incorrect API key provided: <OPENAI_ACCESS_TOKEN>. You can find your API key at https://platform.openai.com/account/api-keys.",
+            "type": "invalid_request_error",
+            "param": null,
+            "code": "invalid_api_key"
+          }
+        }
+  recorded_at: Tue, 26 Aug 2025 02:10:57 GMT
+recorded_with: VCR 6.3.1
