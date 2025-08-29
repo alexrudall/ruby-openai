@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [8.3.0] - 2025-08-29
 
+### Added
+
 - Add Conversations API - thanks to [@parterburn](https://github.com/parterburn) for the great PR!
 
 ## [8.2.1] - 2025-08-29
