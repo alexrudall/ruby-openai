@@ -106,6 +106,26 @@ RSpec.describe OpenAI::Stream do
           CHUNK
         end
       end
+
+      context "when called with only 2 arguments (like Faraday 2.1.0)" do
+        it "handles the call without env parameter" do
+          expect(user_proc).to receive(:call)
+            .with(
+              JSON.parse('{"foo": "bar"}'),
+              "event.test"
+            )
+
+          # Faraday 2.1.0 calls with only (chunk, size), not (chunk, size, env)
+          expect do
+            stream.call(<<~CHUNK, bytes)
+              event: event.test
+              data: { "foo": "bar" }
+
+              #
+            CHUNK
+          end.not_to raise_error
+        end
+      end
     end
   end
 
