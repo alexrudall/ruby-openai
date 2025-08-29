@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix bug introduce in v8.2 which broke streaming with Faraday 2.1.0 - thanks to [@fabioxgn](https://github.com/fabioxgn) for the excellent PR!
+- Fix bug introduce in v8.2 which broke streaming with Faraday 2.1.0 - thanks to [@daikimiura](https://github.com/daikimiura) for the excellent PR!
 
 ## [8.2.0] - 2025-08-10
 
