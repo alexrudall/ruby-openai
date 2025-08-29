@@ -76,8 +76,8 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
     - [Vector Stores](#vector-stores)
     - [Vector Store Files](#vector-store-files)
     - [Vector Store File Batches](#vector-store-file-batches)
-    - [Assistants](#assistants)
     - [Conversations](#conversations)
+    - [Assistants](#assistants)
     - [Threads and Messages](#threads-and-messages)
     - [Runs](#runs)
       - [Create and Run](#create-and-run)
@@ -1101,11 +1101,11 @@ client.vector_store_file_batches.cancel(
 
 ### Conversations
 
-The Conversations API enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
+The [Conversations API](https://platform.openai.com/docs/api-reference/conversations) enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
 
 **Supported Endpoints:**
 - `POST /v1/conversations` - Create a conversation
-- `GET /v1/conversations/{id}` - Retrieve a conversation  
+- `GET /v1/conversations/{id}` - Retrieve a conversation
 - `PATCH /v1/conversations/{id}` - Modify a conversation
 - `DELETE /v1/conversations/{id}` - Delete a conversation
 - `POST /v1/conversations/{id}/items` - Create items in a conversation
@@ -1196,7 +1196,7 @@ items = response["data"]
 # With parameters
 response = client.conversations.list_items(
   conversation_id: conversation_id,
-  parameters: { 
+  parameters: {
     limit: 10,
     order: "asc"
   }
