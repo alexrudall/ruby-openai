@@ -1,0 +1,151 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/conversations/conv_67d4472a0be881909acc6775dded8b11/items
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:11:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_d123e456f789g012h345i678901234gh
+      Openai-Processing-Ms:
+      - '200'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "item_67d4472a5bb88190bee168ec5d59d790",
+              "object": "conversation.item",
+              "conversation_id": "conv_67d4472a0be881909acc6775dded8b11",
+              "type": "message",
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Hello!"
+                }
+              ],
+              "created_at": 1741965103
+            }
+          ],
+          "first_id": "item_67d4472a5bb88190bee168ec5d59d790",
+          "last_id": "item_67d4472a5bb88190bee168ec5d59d790",
+          "has_more": false
+        }
+  recorded_at: Fri, 14 Mar 2025 15:11:44 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/conversations/conv_67d4472a0be881909acc6775dded8b11/items?limit=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 14 Mar 2025 15:11:44 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Organization:
+      - user-jxm65ijkzc1qrfhc0ij8moic
+      X-Request-Id:
+      - req_d123e456f789g012h345i678901234gh
+      Openai-Processing-Ms:
+      - '200'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      X-Content-Type-Options:
+      - nosniff
+      Server:
+      - cloudflare
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "item_67d4472a5bb88190bee168ec5d59d790",
+              "object": "conversation.item",
+              "conversation_id": "conv_67d4472a0be881909acc6775dded8b11",
+              "type": "message",
+              "role": "user",
+              "content": [
+                {
+                  "type": "input_text",
+                  "text": "Hello!"
+                }
+              ],
+              "created_at": 1741965103
+            }
+          ],
+          "first_id": "item_67d4472a5bb88190bee168ec5d59d790",
+          "last_id": "item_67d4472a5bb88190bee168ec5d59d790",
+          "has_more": false
+        }
+  recorded_at: Fri, 14 Mar 2025 15:11:44 GMT
+recorded_with: VCR 6.3.1

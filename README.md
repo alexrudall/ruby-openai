@@ -77,6 +77,7 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
     - [Vector Store Files](#vector-store-files)
     - [Vector Store File Batches](#vector-store-file-batches)
     - [Assistants](#assistants)
+    - [Conversations](#conversations)
     - [Threads and Messages](#threads-and-messages)
     - [Runs](#runs)
       - [Create and Run](#create-and-run)
@@ -1095,6 +1096,128 @@ You can cancel a vector store file batch (This attempts to cancel the processing
 client.vector_store_file_batches.cancel(
   vector_store_id: "vector-store-abc123",
   id: file_batch_id
+)
+```
+
+### Conversations
+
+The Conversations API enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
+
+**Supported Endpoints:**
+- `POST /v1/conversations` - Create a conversation
+- `GET /v1/conversations/{id}` - Retrieve a conversation  
+- `PATCH /v1/conversations/{id}` - Modify a conversation
+- `DELETE /v1/conversations/{id}` - Delete a conversation
+- `POST /v1/conversations/{id}/items` - Create items in a conversation
+- `GET /v1/conversations/{id}/items` - List items in a conversation
+- `GET /v1/conversations/{id}/items/{item_id}` - Get a specific item
+- `DELETE /v1/conversations/{id}/items/{item_id}` - Delete an item
+
+#### Creating a Conversation
+
+To create a new conversation:
+
+```ruby
+response = client.conversations.create(
+  parameters: {
+    metadata: { purpose: "customer_support" }
+  }
+)
+conversation_id = response["id"]
+```
+
+#### Retrieving a Conversation
+
+To retrieve a specific conversation:
+
+```ruby
+conversation = client.conversations.retrieve(id: conversation_id)
+```
+
+#### Modifying a Conversation
+
+To update a conversation's metadata:
+
+```ruby
+response = client.conversations.modify(
+  id: conversation_id,
+  parameters: {
+    metadata: { status: "resolved" }
+  }
+)
+```
+
+#### Deleting a Conversation
+
+To delete a conversation:
+
+```ruby
+response = client.conversations.delete(id: conversation_id)
+```
+
+#### Managing Items in Conversations
+
+You can add, retrieve, and manage items within a conversation.
+
+##### Creating Items
+
+```ruby
+# Create multiple items at once
+response = client.conversations.create_items(
+  conversation_id: conversation_id,
+  parameters: {
+    items: [
+      {
+        type: "message",
+        role: "user",
+        content: [
+          { type: "input_text", text: "Hello!" }
+        ]
+      },
+      {
+        type: "message",
+        role: "assistant",
+        content: [
+          { type: "input_text", text: "How are you?" }
+        ]
+      }
+    ]
+  }
+)
+```
+
+##### Listing Items
+
+```ruby
+# List all items in a conversation
+response = client.conversations.list_items(conversation_id: conversation_id)
+items = response["data"]
+
+# With parameters
+response = client.conversations.list_items(
+  conversation_id: conversation_id,
+  parameters: { 
+    limit: 10,
+    order: "asc"
+  }
+)
+```
+
+##### Retrieving a Specific Item
+
+```ruby
+item = client.conversations.get_item(
+  conversation_id: conversation_id,
+  item_id: item_id
+)
+```
+
+##### Deleting an Item
+
+```ruby
+response = client.conversations.delete_item(
+  conversation_id: conversation_id,
+  item_id: item_id
 )
 ```
 

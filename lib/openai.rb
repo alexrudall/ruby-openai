@@ -21,6 +21,7 @@ require_relative "openai/audio"
 require_relative "openai/version"
 require_relative "openai/batches"
 require_relative "openai/usage"
+require_relative "openai/conversations"
 
 module OpenAI
   class Error < StandardError; end
