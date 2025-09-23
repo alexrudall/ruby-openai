@@ -134,6 +134,14 @@ and require with:
 require "openai"
 ```
 
+## Compatibility with offical OpenAI library
+
+OpenAI now publishes their own [Ruby client library](https://github.com/openai/openai-ruby), which uses the same namespace as this one. If you are working with a codebase that uses both, you can require this one with this alternate path to avoid collisions:
+
+```ruby
+require "ruby/openai"
+```
+
 ## How to use
 
 - Get your API key from [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
