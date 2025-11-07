@@ -458,7 +458,7 @@ client.chat(
 
 #### Vision
 
-You can use the GPT-4 Vision model to generate a description of an image:
+You can use the GPT-4o as a Vision model to generate a description of an image:
 
 ```ruby
 messages = [
@@ -471,7 +471,7 @@ messages = [
 ]
 response = client.chat(
   parameters: {
-    model: "gpt-4-vision-preview", # Required.
+    model: "gpt-4o", # Required.
     messages: [{ role: "user", content: messages}], # Required.
   }
 )
