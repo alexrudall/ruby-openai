@@ -6,35 +6,35 @@ module OpenAI
   module HTTP
     include HTTPHeaders
 
-    def get(path:, parameters: nil)
+    def get(path:, parameters: nil, extra_headers: {})
       parse_json(conn.get(uri(path: path), parameters) do |req|
-        req.headers = headers
+        req.headers = headers.merge!(extra_headers)
       end&.body)
     end
 
-    def post(path:)
+    def post(path:, extra_headers: {})
       parse_json(conn.post(uri(path: path)) do |req|
-        req.headers = headers
+        req.headers = headers.merge!(extra_headers)
       end&.body)
     end
 
-    def json_post(path:, parameters:, query_parameters: {})
+    def json_post(path:, parameters:, query_parameters: {}, extra_headers: {})
       parse_json(conn.post(uri(path: path)) do |req|
-        configure_json_post_request(req, parameters)
+        configure_json_post_request(req, parameters, extra_headers: extra_headers)
         req.params = req.params.merge(query_parameters)
       end&.body)
     end
 
-    def multipart_post(path:, parameters: nil)
+    def multipart_post(path:, parameters: nil, extra_headers: {})
       parse_json(conn(multipart: true).post(uri(path: path)) do |req|
-        req.headers = headers.merge({ "Content-Type" => "multipart/form-data" })
+        req.headers = headers.merge("Content-Type" => "multipart/form-data").merge!(extra_headers)
         req.body = multipart_parameters(parameters)
       end&.body)
     end
 
-    def delete(path:)
+    def delete(path:, extra_headers: {})
       parse_json(conn.delete(uri(path: path)) do |req|
-        req.headers = headers
+        req.headers = headers.merge!(extra_headers)
       end&.body)
     end
 
@@ -95,7 +95,7 @@ module OpenAI
       end
     end
 
-    def configure_json_post_request(req, parameters)
+    def configure_json_post_request(req, parameters, extra_headers: {})
       req_parameters = parameters.dup
 
       if parameters[:stream].respond_to?(:call)
@@ -105,7 +105,7 @@ module OpenAI
         raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
       end
 
-      req.headers = headers
+      req.headers = headers.merge!(extra_headers)
       req.body = req_parameters.to_json
     end
   end
