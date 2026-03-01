@@ -113,6 +113,12 @@ module OpenAI
       @api_type&.to_sym == :azure
     end
 
+    def initialize_dup(original)
+      super
+      @connection = nil
+      @multipart_connection = nil
+    end
+
     def admin
       unless admin_token
         e = "You must set an OPENAI_ADMIN_TOKEN= to use administrative endpoints:\n\n  https://platform.openai.com/settings/organization/admin-keys"
