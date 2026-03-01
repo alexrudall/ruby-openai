@@ -57,9 +57,9 @@ module OpenAI
 
     def conn(multipart: false)
       if multipart
-        @multipart_connection ||= build_connection(multipart: true)
+        @multipart_conn ||= build_connection(multipart: true)
       else
-        @connection ||= build_connection
+        @conn ||= build_connection
       end
     end
 

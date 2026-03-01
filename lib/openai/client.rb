@@ -115,8 +115,8 @@ module OpenAI
 
     def initialize_dup(original)
       super
-      @connection = nil
-      @multipart_connection = nil
+      @conn = nil
+      @multipart_conn = nil
     end
 
     def admin
