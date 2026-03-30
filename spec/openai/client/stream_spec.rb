@@ -107,6 +107,30 @@ RSpec.describe OpenAI::Stream do
         end
       end
 
+      context "when the response status is not 200" do
+        let(:error_env) do
+          Faraday::Env.new.tap do |env|
+            env.status = 401
+            env.response = Faraday::Response.new
+          end
+        end
+
+        it "does not call the user proc" do
+          expect(user_proc).not_to receive(:call)
+
+          stream.call('{"error": "unauthorized"}', bytes, error_env)
+        end
+
+        it "preserves the error body for the middleware stack" do
+          stream.call('{"error": ', bytes, error_env)
+          stream.call('"unauthorized"}', bytes, error_env)
+
+          error_env.response.finish(error_env)
+
+          expect(error_env.body).to eq('{"error": "unauthorized"}')
+        end
+      end
+
       context "when called with only 2 arguments (like Faraday 2.1.0)" do
         it "handles the call without env parameter" do
           expect(user_proc).to receive(:call)

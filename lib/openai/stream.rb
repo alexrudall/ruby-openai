@@ -18,7 +18,7 @@ module OpenAI
     end
 
     def call(chunk, _bytes, env = nil)
-      handle_http_error(chunk: chunk, env: env) if env && env.status != 200
+      return accumulate_error_body(chunk, env) if env&.status && env.status != 200
 
       parser.feed(chunk) do |event, data|
         next if data == DONE
@@ -36,15 +36,12 @@ module OpenAI
 
     attr_reader :user_proc, :parser, :user_proc_arity
 
-    def handle_http_error(chunk:, env:)
-      raise_error = Faraday::Response::RaiseError.new
-      raise_error.on_complete(env.merge(body: try_parse_json(chunk)))
-    end
+    def accumulate_error_body(chunk, env)
+      @error_body = (@error_body || "") + chunk
+      return if @error_body_callback_set
 
-    def try_parse_json(maybe_json)
-      JSON.parse(maybe_json)
-    rescue JSON::ParserError
-      maybe_json
+      env.response.on_complete { |e| e.body = @error_body }
+      @error_body_callback_set = true
     end
   end
 end
