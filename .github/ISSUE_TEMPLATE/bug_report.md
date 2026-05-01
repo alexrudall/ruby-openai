@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: ''
+title: "[Bug]: "
+labels: bug
 assignees: ''
 
 ---
@@ -19,6 +19,14 @@ Steps to reproduce the behavior:
 
 **Expected behavior**
 A clear and concise description of what you expected to happen.
+
+**Versions**
+- ruby-openai:
+- Ruby:
+- Faraday:
+
+**Security note**
+If this report may involve exposure of tokens, request data, response data, files, or logs, please stop and use GitHub private vulnerability reporting instead of opening a public issue.
 
 **Screenshots**
 If applicable, add screenshots to help explain your problem.

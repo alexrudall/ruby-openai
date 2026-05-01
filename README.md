@@ -35,6 +35,7 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
 
 - [Ruby OpenAI](#ruby-openai)
   - [Contents](#contents)
+  - [Project Policies](#project-policies)
   - [Installation](#installation)
     - [Bundler](#bundler)
     - [Gem install](#gem-install)
@@ -103,6 +104,13 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
   - [Contributing](#contributing)
   - [License](#license)
   - [Code of Conduct](#code-of-conduct)
+
+## Project Policies
+
+- [Security policy](SECURITY.md)
+- [Support and end-of-life policy](SUPPORT.md)
+- [Migration guides](MIGRATION.md)
+- [Changelog](CHANGELOG.md)
 
 ## Installation
 
@@ -1951,9 +1959,19 @@ bundle exec ruby -e "Warning[:deprecated] = true; require 'rspec'; exit RSpec::C
 
 ## Release
 
-First run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN and OPENAI_ADMIN_TOKEN in your environment.
+Ruby OpenAI follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html):
+
+- Major releases may include breaking changes, removals, or support changes.
+- Minor releases add backwards-compatible functionality.
+- Patch releases fix backwards-compatible bugs or security issues.
+
+Before releasing, run the specs without VCR so they actually hit the API. This will cost 2 cents or more. Set OPENAI_ACCESS_TOKEN and OPENAI_ADMIN_TOKEN in your environment.
 
 Then update the version number in `version.rb`, update `CHANGELOG.md`, run `bundle install` to update Gemfile.lock, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+After the tag is pushed, publish or update the corresponding GitHub Release using the changelog entry.
+
+Release notes are published through GitHub Releases, git tags, RubyGems, and `CHANGELOG.md`. Security releases are identified in the changelog and release notes, and may also use GitHub Security Advisories. Major releases, security releases, and end-of-life notices may also be shared through the community channels linked at the top of this README.
 
 ## Contributing
 
