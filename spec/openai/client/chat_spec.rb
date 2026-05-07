@@ -199,6 +199,53 @@ RSpec.describe OpenAI::Client do
             end
           end
 
+          context "with a custom middleware handling rate limit errors" do
+            let(:cassette) { "mocks/#{model} streamed chat with rate limit error".downcase }
+
+            rate_limit_error = Class.new(StandardError) do
+              attr_reader :retry_after, :error_body
+
+              define_method(:initialize) do |retry_after:, error_body:|
+                @retry_after = retry_after
+                @error_body = error_body
+                super("Rate limited, retry after #{retry_after}s")
+              end
+            end
+
+            rate_limit_middleware = Class.new(Faraday::Middleware) do
+              define_method(:on_complete) do |env|
+                return unless env.status == 429
+
+                raise rate_limit_error.new(
+                  retry_after: env.response_headers["x-mock-retry-after"],
+                  error_body: JSON.parse(env.body)
+                )
+              end
+            end
+
+            it "raises the custom error with rate limit details" do
+              client = OpenAI::Client.new do |f|
+                f.use rate_limit_middleware
+              end
+
+              VCR.use_cassette(cassette, record: :none) do
+                client.chat(parameters: parameters)
+              rescue rate_limit_error => e
+                expect(e.retry_after).to eq("42")
+                expect(e.error_body).to eq({
+                                             "error" => {
+                                               "message" => "Mock rate limit error",
+                                               "type" => "mock",
+                                               "param" => nil,
+                                               "code" => "rate_limit_exceeded"
+                                             }
+                                           })
+              else
+                raise "Expected to raise custom rate limit error"
+              end
+            end
+          end
+
           context "with an error response without a JSON body" do
             let(:cassette) { "mocks/#{model} streamed chat with error response".downcase }
 
