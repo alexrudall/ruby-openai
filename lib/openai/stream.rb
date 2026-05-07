@@ -18,7 +18,31 @@ module OpenAI
     end
 
     def call(chunk, _bytes, env = nil)
-      handle_http_error(chunk: chunk, env: env) if env && env.status != 200
+      if env && env.status != 200 && @error_env.nil?
+        @error_body = +""
+        @error_env = env
+      end
+
+      if @error_env
+        @error_body << chunk
+
+        # Buffer error chunks until we have complete JSON, then raise with
+        # the full body. Without this, only the first chunk (often just "{")
+        # would be captured, losing the actual API error message.
+        parsed = try_parse_json(@error_body)
+        unless parsed.is_a?(String)
+          raise_error = Faraday::Response::RaiseError.new
+          raise_error.on_complete(@error_env.merge(body: parsed))
+        end
+
+        # Safety valve: raise with raw body if we've buffered too much
+        if @error_body.bytesize > 65_536
+          raise_error = Faraday::Response::RaiseError.new
+          raise_error.on_complete(@error_env.merge(body: @error_body))
+        end
+
+        return
+      end
 
       parser.feed(chunk) do |event, data|
         next if data == DONE
@@ -35,11 +59,6 @@ module OpenAI
     private
 
     attr_reader :user_proc, :parser, :user_proc_arity
-
-    def handle_http_error(chunk:, env:)
-      raise_error = Faraday::Response::RaiseError.new
-      raise_error.on_complete(env.merge(body: try_parse_json(chunk)))
-    end
 
     def try_parse_json(maybe_json)
       JSON.parse(maybe_json)
