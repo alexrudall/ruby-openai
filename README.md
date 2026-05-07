@@ -377,6 +377,26 @@ client.chat(
 # => Hello there! How can I help you today?
 ```
 
+#### API NODE
+
+[API NODE](https://apinode.pro) provides an OpenAI-compatible API gateway. You can use it by setting `uri_base` and passing an API NODE access token:
+
+```ruby
+client = OpenAI::Client.new(
+  access_token: ENV.fetch("APINODE_API_KEY"),
+  uri_base: "https://apinode.pro"
+)
+
+response = client.responses.create(
+  parameters: {
+    model: "gpt-5.5",
+    input: "Hello!"
+  }
+)
+
+puts response.dig("output", 0, "content", 0, "text")
+```
+
 ### Counting Tokens
 
 OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
