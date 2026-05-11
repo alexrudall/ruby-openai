@@ -379,7 +379,7 @@ client.chat(
 
 ### Counting Tokens
 
-OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://platform.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
+OpenAI parses prompt text into [tokens](https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them), which are words or portions of words. (These tokens are unrelated to your API access_token.) Counting tokens can help you estimate your [costs](https://openai.com/pricing). It can also help you ensure your prompt text size is within the max-token limits of your model's context window, and choose an appropriate [`max_tokens`](https://developers.openai.com/docs/api-reference/chat/create#chat/create-max_tokens) completion parameter so your response will fit as well.
 
 To estimate the token-count of your text:
 
@@ -406,7 +406,7 @@ client.models.delete(id: "ft:gpt-4o-mini:acemeco:suffix:abc123")
 
 ### Chat
 
-GPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://platform.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
+GPT is a model that can be used to generate text in a conversational style. You can use it to [generate a response](https://developers.openai.com/docs/api-reference/chat/create) to a sequence of [messages](https://platform.openai.com/docs/guides/chat/introduction):
 
 ```ruby
 response = client.chat(
@@ -440,7 +440,7 @@ client.chat(
 # => "Anna is a young woman in her mid-twenties, with wavy chestnut hair that falls to her shoulders..."
 ```
 
-Note: In order to get usage information, you can provide the [`stream_options` parameter](https://platform.openai.com/docs/api-reference/chat/create#chat-create-stream_options) and OpenAI will provide a final chunk with the usage. Here is an example:
+Note: In order to get usage information, you can provide the [`stream_options` parameter](https://developers.openai.com/docs/api-reference/chat/create#chat-create-stream_options) and OpenAI will provide a final chunk with the usage. Here is an example:
 
 ```ruby
 stream_proc = proc { |chunk, _bytesize| puts "--------------"; puts chunk.inspect; }
@@ -543,7 +543,7 @@ You can stream it as well!
 
 ### Responses API
 
-[OpenAI's most advanced interface for generating model responses](https://platform.openai.com/docs/api-reference/responses). Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+[OpenAI's most advanced interface for generating model responses](https://developers.openai.com/docs/api-reference/responses). Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
 
 #### Create a Response
 
@@ -644,7 +644,7 @@ puts input_items["object"] # => "list"
 
 ### Functions
 
-You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call them - eg., to use your method `get_current_weather` to get the weather in a given location. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see here](https://platform.openai.com/docs/api-reference/chat/create#chat-create-tool_choice)).
+You can describe and pass in functions and the model will intelligently choose to output a JSON object containing arguments to call them - eg., to use your method `get_current_weather` to get the weather in a given location. Note that tool_choice is optional, but if you exclude it, the model will choose whether to use the function or not ([see here](https://developers.openai.com/docs/api-reference/chat/create#chat-create-tool_choice)).
 
 ```ruby
 def get_current_weather(location:, unit: "fahrenheit")
@@ -1109,7 +1109,7 @@ client.vector_store_file_batches.cancel(
 
 ### Conversations
 
-The [Conversations API](https://platform.openai.com/docs/api-reference/conversations) enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
+The [Conversations API](https://developers.openai.com/docs/api-reference/conversations) enables you to create and manage persistent conversations with your models. This is useful for maintaining conversation state across multiple interactions.
 
 **Supported Endpoints:**
 - `POST /v1/conversations` - Create a conversation
@@ -1272,7 +1272,7 @@ You can get a `list` of all assistants currently available under the organizatio
 client.assistants.list
 ```
 
-You can modify an existing assistant using the assistant's id (see [API documentation](https://platform.openai.com/docs/api-reference/assistants/modifyAssistant)):
+You can modify an existing assistant using the assistant's id (see [API documentation](https://developers.openai.com/docs/api-reference/assistants/modifyAssistant)):
 
 ```ruby
 response = client.assistants.modify(
@@ -1300,7 +1300,7 @@ response = client.threads.create # Note: Once you create a thread, there is no w
                                  # or recover it currently (as of 2023-12-10). So hold onto the `id`
 thread_id = response["id"]
 
-# Add initial message from user (see https://platform.openai.com/docs/api-reference/messages/createMessage)
+# Add initial message from user (see https://developers.openai.com/docs/api-reference/messages/createMessage)
 message_id = client.messages.create(
   thread_id: thread_id,
   parameters: {
