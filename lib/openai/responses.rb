@@ -8,8 +8,8 @@ module OpenAI
       @client.json_post(path: "/responses", parameters: parameters)
     end
 
-    def retrieve(response_id:)
-      @client.get(path: "/responses/#{response_id}")
+    def retrieve(response_id:, parameters: {})
+      @client.get(path: "/responses/#{response_id}", parameters: parameters)
     end
 
     def delete(response_id:)
