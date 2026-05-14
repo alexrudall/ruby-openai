@@ -56,6 +56,14 @@ module OpenAI
     end
 
     def conn(multipart: false)
+      if multipart
+        @multipart_conn ||= build_connection(multipart: true)
+      else
+        @conn ||= build_connection
+      end
+    end
+
+    def build_connection(multipart: false)
       connection = Faraday.new do |f|
         f.options[:timeout] = @request_timeout
         f.request(:multipart) if multipart
