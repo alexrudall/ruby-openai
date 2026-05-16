@@ -21,16 +21,16 @@ module OpenAI
       @faraday_middleware = faraday_middleware
     end
 
-    def chat(parameters: {})
-      json_post(path: "/chat/completions", parameters: parameters)
+    def chat(parameters: {}, extra_headers: {})
+      json_post(path: "/chat/completions", parameters: parameters, extra_headers: extra_headers)
     end
 
-    def embeddings(parameters: {})
-      json_post(path: "/embeddings", parameters: parameters)
+    def embeddings(parameters: {}, extra_headers: {})
+      json_post(path: "/embeddings", parameters: parameters, extra_headers: extra_headers)
     end
 
-    def completions(parameters: {})
-      json_post(path: "/completions", parameters: parameters)
+    def completions(parameters: {}, extra_headers: {})
+      json_post(path: "/completions", parameters: parameters, extra_headers: extra_headers)
     end
 
     def audio
@@ -97,8 +97,8 @@ module OpenAI
       @realtime ||= OpenAI::Realtime.new(client: self)
     end
 
-    def moderations(parameters: {})
-      json_post(path: "/moderations", parameters: parameters)
+    def moderations(parameters: {}, extra_headers: {})
+      json_post(path: "/moderations", parameters: parameters, extra_headers: extra_headers)
     end
 
     def usage

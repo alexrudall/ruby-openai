@@ -1,4 +1,47 @@
 RSpec.describe OpenAI::HTTP do
+  describe "extra_headers" do
+    include WebMock::API
+
+    let(:client) { OpenAI::Client.new }
+    let(:custom_headers) { { "X-Custom-Header" => "custom-value", "X-Another" => "another-value" } }
+    let(:chat_url) { "https://api.openai.com/v1/chat/completions" }
+
+    before do
+      VCR.turn_off!
+      WebMock.disable_net_connect!
+      stub_request(:post, chat_url)
+        .to_return(status: 200, body: { choices: [] }.to_json, headers: {})
+    end
+
+    after do
+      WebMock.reset!
+      VCR.turn_on!
+    end
+
+    it "merges extra_headers into the request" do
+      client.chat(parameters: { model: "gpt-4", messages: [] }, extra_headers: custom_headers)
+
+      assert_requested(:post, chat_url, headers: custom_headers)
+    end
+
+    it "allows extra_headers to override default headers" do
+      client.chat(
+        parameters: { model: "gpt-4", messages: [] },
+        extra_headers: { "Content-Type" => "application/json; charset=utf-8" }
+      )
+
+      assert_requested(
+        :post, chat_url, headers: { "Content-Type" => "application/json; charset=utf-8" }
+      )
+    end
+
+    it "works without extra_headers (backward compatible)" do
+      client.chat(parameters: { model: "gpt-4", messages: [] })
+
+      assert_requested(:post, chat_url)
+    end
+  end
+
   describe "with an aggressive timeout" do
     let(:timeout_errors) { [Faraday::ConnectionFailed, Faraday::TimeoutError] }
     let(:timeout) { 0 }
