@@ -221,6 +221,24 @@ OpenAI.configure do |config|
 end
 ```
 
+#### Tuning Engines
+
+[Tuning Engines](https://www.tuningengines.com/) provides a governed OpenAI-compatible endpoint for Ruby and Rails apps that need centralized model routing, policy controls, audit logs, traces, approvals, and cost visibility.
+
+```ruby
+client = OpenAI::Client.new(
+  access_token: ENV.fetch("TUNING_ENGINES_API_KEY"),
+  uri_base: "https://api.tuningengines.com/v1"
+)
+
+client.chat(
+  parameters: {
+    model: ENV.fetch("TUNING_ENGINES_MODEL", "gpt-4o-mini"),
+    messages: [{ role: "user", content: "Hello from Ruby!" }]
+  }
+)
+```
+
 #### Extra Headers per Client
 
 You can dynamically pass headers per client object, which will be merged with any headers set globally with OpenAI.configure:
