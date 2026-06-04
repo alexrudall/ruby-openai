@@ -186,7 +186,7 @@ client = OpenAI::Client.new(access_token: "access_token_goes_here", admin_token:
 #### Custom timeout or base URI
 
 - The default timeout for any request using this library is 120 seconds. You can change that by passing a number of seconds to the `request_timeout` when initializing the client.
-- You can also change the base URI used for all requests, eg. to use observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code) or [Velvet](https://docs.usevelvet.com/docs/getting-started)
+- You can also change the base URI used for all requests, eg. to use local inference servers, OpenAI-compatible gateways, or observability tools like [Helicone](https://docs.helicone.ai/quickstart/integrate-in-one-line-of-code) or [Velvet](https://docs.usevelvet.com/docs/getting-started)
 - You can also add arbitrary other headers e.g. for [openai-caching-proxy-worker](https://github.com/6/openai-caching-proxy-worker), eg.:
 
 ```ruby
@@ -200,6 +200,17 @@ client = OpenAI::Client.new(
     "Helicone-Auth": "Bearer HELICONE_API_KEY", # For https://docs.helicone.ai/getting-started/integration-method/openai-proxy
     "helicone-stream-force-format" => "true", # Use this with Helicone otherwise streaming drops chunks # https://github.com/alexrudall/ruby-openai/issues/251
   }
+)
+```
+
+For applications that need to switch between OpenAI and an OpenAI-compatible
+endpoint in different environments, a common pattern is to read the base URI
+from `OPENAI_BASE_URL`:
+
+```ruby
+client = OpenAI::Client.new(
+  access_token: ENV.fetch("OPENAI_ACCESS_TOKEN"),
+  uri_base: ENV.fetch("OPENAI_BASE_URL", "https://api.openai.com/")
 )
 ```
 
