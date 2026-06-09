@@ -258,10 +258,16 @@ RSpec.describe OpenAI::HTTP do
         VCR.use_cassette(cassette, record: :none) do
           expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
             .to raise_error Faraday::Error
-
           $stdout.rewind
           captured_stdout = $stdout.string
           expect(captured_stdout).to include("OpenAI HTTP Error")
+        end
+      end
+
+      it "includes the API error message in the exception" do
+        VCR.use_cassette(cassette, record: :none) do
+          expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
+            .to raise_error(Faraday::Error, /Test error/)
         end
       end
     end
@@ -273,7 +279,6 @@ RSpec.describe OpenAI::HTTP do
         VCR.use_cassette(cassette, record: :none) do
           expect { OpenAI::Client.new(log_errors: log_errors).models.retrieve(id: "text-ada-001") }
             .to raise_error Faraday::Error
-
           $stdout.rewind
           captured_stdout = $stdout.string
           expect(captured_stdout).not_to include("OpenAI HTTP Error")

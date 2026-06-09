@@ -29,15 +29,18 @@ module OpenAI
   class AuthenticationError < Error; end
 
   class MiddlewareErrors < Faraday::Middleware
-    def call(env)
-      @app.call(env)
-    rescue Faraday::Error => e
-      raise e unless e.response.is_a?(Hash)
+  def call(env)
+    @app.call(env)
+  rescue Faraday::Error => e
+    raise e unless e.response.is_a?(Hash)
 
-      OpenAI.log_message("OpenAI HTTP Error", e.response[:body], :error)
-      raise e
-    end
+    OpenAI.log_message("OpenAI HTTP Error", e.response[:body], :error)
+
+    body = e.response[:body]
+    api_message = body.is_a?(Hash) ? body.dig("error", "message") : nil
+    raise e, api_message ? "#{e.message} - #{api_message}" : e.message
   end
+end
 
   class Configuration
     attr_accessor :access_token,
