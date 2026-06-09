@@ -35,7 +35,10 @@ module OpenAI
       raise e unless e.response.is_a?(Hash)
 
       OpenAI.log_message("OpenAI HTTP Error", e.response[:body], :error)
-      raise e
+
+      body = e.response[:body]
+      api_message = body.is_a?(Hash) ? body.dig("error", "message") : nil
+      raise e, api_message ? "#{e.message} - #{api_message}" : e.message
     end
   end
 
