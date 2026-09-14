@@ -6,9 +6,10 @@ module OpenAI
   module HTTP
     include HTTPHeaders
 
-    def get(path:, parameters: nil)
+    def get(path:, parameters: nil, headers: {}, stream: nil)
       parse_json(conn.get(uri(path: path), parameters) do |req|
-        req.headers = headers
+        req.headers = self.headers.merge(headers)
+        configure_stream_request(req, stream) if stream
       end&.body)
     end
 
@@ -18,9 +19,10 @@ module OpenAI
       end&.body)
     end
 
-    def json_post(path:, parameters:, query_parameters: {})
+    def json_post(path:, parameters:, query_parameters: {}, headers: {})
       parse_json(conn.post(uri(path: path)) do |req|
         configure_json_post_request(req, parameters)
+        req.headers = req.headers.merge(headers)
         req.params = req.params.merge(query_parameters)
       end&.body)
     end
@@ -93,6 +95,15 @@ module OpenAI
         # as the second argument.
         Faraday::UploadIO.new(value, "", path)
       end
+    end
+
+    def configure_stream_request(req, stream)
+      unless stream.respond_to?(:call)
+        raise ArgumentError, "The stream parameter must be a Proc or have a #call method"
+      end
+
+      req.headers["Accept"] = "text/event-stream"
+      req.options.on_data = Stream.new(user_proc: stream).to_proc
     end
 
     def configure_json_post_request(req, parameters)
