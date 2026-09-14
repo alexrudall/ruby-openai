@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.openai.com/v1/agents/sessions/sess_082400d4e629ee47006aa7d37f66788191bb0bc3b4c8df63a4
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:59:27 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '3656'
+      X-Request-Id:
+      - req_b0395ef05c254509816bff7445e69f9e
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Kycwn95U28oOsCD77FLt093LLEdiClpMU1YPLWNKkNI-1789383563.3932095-1.0.1.1-ey_P_bF3NVluXKvC3xthRP4_Aajcw0UwMDm92uhXtRHBv0Pd4XtN6NC23k.rBu0QWqLaRqdIS1_TMfrk8v8cdvxAqN5FGWpY3dNzy2qEF9OOebgNjdjObSmyRbeTd6eN;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:29:27 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aee1c73aa460a4-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "sess_082400d4e629ee47006aa7d37f66788191bb0bc3b4c8df63a4",
+          "object": "agent.session.deleted",
+          "deleted": true
+        }
+  recorded_at: Mon, 14 Sep 2026 10:59:27 GMT
+recorded_with: VCR 6.3.1

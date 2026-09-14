@@ -1,0 +1,83 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/vaults
+    body:
+      encoding: UTF-8
+      string: '{"name":"ruby-openai spec","metadata":{"env":"spec"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:55:13 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '188'
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '503'
+      X-Request-Id:
+      - req_b81fb3b35fcf4dae8193a6e02d581869
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=lQP5X1Oan5Irc0xTeO573znJddfVKSM1hGUJ5xEa5Tg-1789383312.6312432-1.0.1.1-dRJCM8TXNfjjawP97JfZopIipwxIMvA0appACmATw2xXvVI3_ctTBMFBDpLKBN5a1xG0o3.WK982i0MS8mevPR_8Ux68rXuseChaUgBRoWrW3SCrj1FHA4qK9EilCk6O;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:25:13 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aedba7ed85eeaf-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id": "vault_63e44852d22345fe816055e57782fe65622ee9b3223f4061bf",
+          "object": "vault",
+          "name": "ruby-openai spec",
+          "metadata": {
+            "env": "spec"
+          },
+          "created_at": 1789383312
+        }
+  recorded_at: Mon, 14 Sep 2026 10:55:13 GMT
+recorded_with: VCR 6.3.1

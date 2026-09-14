@@ -120,6 +120,53 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
+  describe ".get with headers" do
+    it "merges the extra headers into the request" do
+      stub = stub_request(:get, "https://api.openai.com/v1/agents/x")
+             .with(headers: { "Accept" => "application/octet-stream" })
+             .to_return(status: 200, body: "bytes")
+      OpenAI::Client.new.get(path: "/agents/x", headers: { "Accept" => "application/octet-stream" })
+      expect(stub).to have_been_requested
+    end
+  end
+
+  describe ".get with raw" do
+    it "returns the body without parsing JSON" do
+      stub_request(:get, "https://api.openai.com/v1/agents/x")
+        .to_return(status: 200, body: '{"a":1}', headers: { "Content-Type" => "text/plain" })
+      expect(OpenAI::Client.new.get(path: "/agents/x", raw: true)).to eq('{"a":1}')
+    end
+  end
+
+  describe ".get with stream" do
+    let(:user_proc) { proc { |data| data } }
+
+    it "sets on_data with an OpenAI::Stream and the SSE accept header" do
+      stream = instance_double(OpenAI::Stream, to_proc: proc {})
+      expect(OpenAI::Stream).to receive(:new).with(user_proc: user_proc).and_return(stream)
+      stub = stub_request(:get, "https://api.openai.com/v1/agents/sessions/s/events")
+             .with(headers: { "Accept" => "text/event-stream" })
+             .to_return(status: 200, body: "")
+      OpenAI::Client.new.get(path: "/agents/sessions/s/events", stream: user_proc)
+      expect(stub).to have_been_requested
+    end
+
+    it "raises when stream is not callable" do
+      expect { OpenAI::Client.new.get(path: "/x", stream: true) }.to raise_error(ArgumentError)
+    end
+  end
+
+  describe ".json_post with headers" do
+    it "merges the extra headers into the request" do
+      stub = stub_request(:post, "https://api.openai.com/v1/agents/sessions/s/events")
+             .with(headers: { "Idempotency-Key" => "abc" })
+             .to_return(status: 200, body: "{}")
+      OpenAI::Client.new.json_post(path: "/agents/sessions/s/events", parameters: {},
+                                   headers: { "Idempotency-Key" => "abc" })
+      expect(stub).to have_been_requested
+    end
+  end
+
   describe ".parse_json" do
     context "with a jsonl string" do
       let(:body) { "{\"prompt\":\":)\"}\n{\"prompt\":\":(\"}\n" }

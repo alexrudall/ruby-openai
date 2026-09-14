@@ -2,6 +2,7 @@ require "bundler/setup"
 require "dotenv/load"
 require "openai"
 require "vcr"
+require "webmock/rspec"
 require "byebug"
 
 Dir[File.expand_path("spec/support/**/*.rb")].sort.each { |f| require f }

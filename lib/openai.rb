@@ -22,6 +22,7 @@ require_relative "openai/version"
 require_relative "openai/batches"
 require_relative "openai/usage"
 require_relative "openai/conversations"
+require_relative "openai/agents"
 
 module OpenAI
   class Error < StandardError; end

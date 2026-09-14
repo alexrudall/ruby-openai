@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/environments/templates/envtmpl_8bb9725a14bd4bd5b791f4216764f97c11b508e96c5d478db6
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:52:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '81'
+      X-Request-Id:
+      - req_cec7c615426444baa85301339a6f4959
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=oCRsy8on50ENhKXQxB6xH3V2v9OYxn.es3txv1zMGgY-1789383175.2660904-1.0.1.1-COG1bLjgf2cL8zxrW5fIdyVvh8UgHRO7glzHQ3N51gaQb5W.mjAJqj3U7300s2mYeGI44t2janOVcZzbrhoyxn1sOR2b9EaCBOnl3.BP3gOMGjPP7JDoM.kiou_k1kno;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:22:55 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aed84d6957b812-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "envtmpl_8bb9725a14bd4bd5b791f4216764f97c11b508e96c5d478db6",
+          "name": "ruby-openai spec",
+          "object": "agent.environment.template",
+          "created_at": 1789383175,
+          "updated_at": 1789383175,
+          "packages": {
+            "python": [],
+            "system": [],
+            "npm": []
+          },
+          "network": {
+            "access": "enabled",
+            "allowed_domains": []
+          },
+          "capability_directories": [],
+          "skills": [],
+          "plugins": [],
+          "files": []
+        }
+  recorded_at: Mon, 14 Sep 2026 10:52:55 GMT
+recorded_with: VCR 6.3.1
