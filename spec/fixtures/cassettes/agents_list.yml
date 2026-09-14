@@ -1,0 +1,152 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents?limit=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:52:53 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '37'
+      X-Request-Id:
+      - req_75effcc275064eb88488811126238a93
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=.9qFFcZLnoQG.JiEiQet2BohSf.0.S82gFxZb3VJfko-1789383172.8656037-1.0.1.1-ED9c3bhAcEdJ7EFUjOc_SWaEh_01Jhjjh5d78yKvtulo73mxSmJzo6r1aRP61yuUU0ZgbM7IjT.XDFVTtcUWHQtc9_71_kbRirJ3W_hDYcGMQUbPE1vJqcyVSbL2nLo0;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:22:53 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aed83e68a7cbfe-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "agent_88cdf86c320c4839a202cd61b74bb205fcbe622c383e41c98a",
+              "object": "agent",
+              "created_at": 1789383168,
+              "updated_at": 1789383168,
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "model": "gpt-5.4-mini",
+              "reasoning": {
+                "effort": "none",
+                "summary": null
+              },
+              "text": {
+                "format": {
+                  "type": "text"
+                },
+                "verbosity": "medium"
+              },
+              "service_tier": "auto",
+              "instructions": null,
+              "tools": [],
+              "multi_agent": {
+                "enabled": false,
+                "max_concurrent_subagents": null
+              }
+            },
+            {
+              "id": "agent_c53d360b799b44899933863434426c4ae2735f88a54e421697",
+              "object": "agent",
+              "created_at": 1789383167,
+              "updated_at": 1789383167,
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "model": "gpt-5.4-mini",
+              "reasoning": {
+                "effort": "none",
+                "summary": null
+              },
+              "text": {
+                "format": {
+                  "type": "text"
+                },
+                "verbosity": "medium"
+              },
+              "service_tier": "auto",
+              "instructions": "You are a helpful assistant.",
+              "tools": [
+                {
+                  "type": "function",
+                  "name": "get_weather",
+                  "description": "Get the weather for a city",
+                  "parameters": {
+                    "required": [
+                      "city"
+                    ],
+                    "properties": {
+                      "city": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "defer_loading": false
+                }
+              ],
+              "multi_agent": {
+                "enabled": false,
+                "max_concurrent_subagents": null
+              }
+            }
+          ],
+          "first_id": "agent_88cdf86c320c4839a202cd61b74bb205fcbe622c383e41c98a",
+          "last_id": "agent_c53d360b799b44899933863434426c4ae2735f88a54e421697",
+          "has_more": false
+        }
+  recorded_at: Mon, 14 Sep 2026 10:52:53 GMT
+recorded_with: VCR 6.3.1

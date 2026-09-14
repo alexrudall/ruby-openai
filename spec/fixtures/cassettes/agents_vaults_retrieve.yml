@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vaults/vault_3988ea11b4c540da904587605b2416c2e1579673e84f499fa7
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:55:14 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '28'
+      X-Request-Id:
+      - req_331c82d3259847c2825581151b0f5983
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=bgYwvkQ0VwBDWhTLD.hQk51nb.LvwH.40hVGFdJLZIk-1789383314.2013228-1.0.1.1-XSMNdI_K91_5okEXlpS3acbwe3u78y5l30f6iumtOWeHIhI1vbIvlXGcLli2kA2uURYW0iaR4Jyi7p2s6b3sADQtCPDJoYU8RVU8dCUUM1F.8qoLpkoE3bH6IwN2cjXq;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:25:14 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aedbb1b9fac003-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "vault_3988ea11b4c540da904587605b2416c2e1579673e84f499fa7",
+          "object": "vault",
+          "name": "ruby-openai spec",
+          "metadata": {},
+          "created_at": 1789383313
+        }
+  recorded_at: Mon, 14 Sep 2026 10:55:14 GMT
+recorded_with: VCR 6.3.1

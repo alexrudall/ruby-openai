@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/agents
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-5.4-mini","name":"ruby-openai spec","instructions":"You
+        are a helpful assistant.","tools":[{"type":"function","name":"get_weather","description":"Get
+        the weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]}}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:52:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '899'
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '669'
+      X-Request-Id:
+      - req_c3fc01c7f8bc4a809f7b7c6e6768ea8c
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=GH7gxKUtWJmEiJebb.PHIa3AZjXUK0ccYMp1LZ_NOt8-1789383166.8784816-1.0.1.1-mq.U04ym.hlw5Y1Sna1Se0FGY.3UOkbU2z.sh7UmXpiyQ0FXA7psPHz7i6RFTPx973BhBM913AAwa21sYKQqSAYe2XalIkTp0Pn9f3cDoFzwHO7AsuiY3KGcsoh4ES9V;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:22:47 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aed818fd56ee45-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id": "agent_c53d360b799b44899933863434426c4ae2735f88a54e421697",
+          "object": "agent",
+          "created_at": 1789383167,
+          "updated_at": 1789383167,
+          "name": "ruby-openai spec",
+          "metadata": {},
+          "model": "gpt-5.4-mini",
+          "reasoning": {
+            "effort": "none",
+            "summary": null
+          },
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "service_tier": "auto",
+          "instructions": "You are a helpful assistant.",
+          "tools": [
+            {
+              "type": "function",
+              "name": "get_weather",
+              "description": "Get the weather for a city",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "city"
+                ]
+              },
+              "defer_loading": false
+            }
+          ],
+          "multi_agent": {
+            "enabled": false,
+            "max_concurrent_subagents": null
+          }
+        }
+  recorded_at: Mon, 14 Sep 2026 10:52:47 GMT
+recorded_with: VCR 6.3.1

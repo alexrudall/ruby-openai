@@ -1,0 +1,652 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/agents/sessions
+    body:
+      encoding: UTF-8
+      string: '{"environment":{"type":"none"},"agent":{"model":"gpt-5.4-mini","instructions":"Reply
+        with one word."},"input":"Say hi"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '810'
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '1663'
+      X-Request-Id:
+      - req_419dc5c7ab7a4a1a8225e99514db274d
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=bzgYZMYmDNR2wsvIr72n4ofIUZoYZTaFCOd8R5iS3sM-1789383258.8996227-1.0.1.1-2c4OtxnI0rTlM3wXq4cXaXVH7kTH0T9EY9B0beoBAbTnIwPSzMF8Jocuam_TnX0fLTaxrThWK4Ow6dp.TseQUmDW6spnIJHu01XYCgVE1iKKYza4a17K8ImVHU__mRZn;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:20 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aeda581e88c527-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "in_progress",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:20 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '167'
+      X-Request-Id:
+      - req_36615d8fd6564d99a093f2fe6dc2079e
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=lp1XLzcaiAgYDlKCH5tuhPMuMKM2C2zCm6KVrmbpCrY-1789383260.8684034-1.0.1.1-iAFtBr9._A8YcRA.cuJM7OX1KAXWaecYFrS65xuUy7kBfGAUtwVt7w2Eyc5_WyBkDgpvnEsI2OyCgwEmKU.sSB5D9oWzie_wrKhphFssud_FQxsdI9dVIxJb.QefINSd;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:21 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aeda646debc052-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "in_progress",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:21 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '117'
+      X-Request-Id:
+      - req_e7f97e2381474ea2b2b4e3d2b25e33bd
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=WDrtKjoJu6GwrA2WyjR.xcRK9WGqzLEyU7Ji4YJJUzw-1789383263.576279-1.0.1.1-PQY4Ljk8NyrxNLJVcV3MK6M3pilzCMAvtFamQJVIi8BsbKiXEOOcUtYn3gOT2KtmG.qTin67.D9W6mOiQy.VTC8SLz.v5s7wbQnrwe0aBtTsbxCgKTxr0NOL7WVGusbb;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:23 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aeda755f36fc49-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "in_progress",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:23 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:26 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '118'
+      X-Request-Id:
+      - req_9ff5234d71d4445da355f0dc9690e208
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=wyzGmbSocl3fbwhCqjcRLFOI5CqYiuEX_EGbQHiEL10-1789383265.9486148-1.0.1.1-iXJRUrV3GS.M9r3TbIyfXj5lXfc0y3y8q614aQH5p_6.llnq7R5PS5YO.s_TKU94ejDaKVLRxVzTkRUVnjFQjU1KLO6.V2GcUJVrusXsz5FpoL151Dp4jxp3DOd7RFgD;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:26 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aeda842b803bc3-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "in_progress",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:26 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '230'
+      X-Request-Id:
+      - req_5ecaba619aad4669973cccb6913cbc99
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=Y.wEPmPbz5gJ4LOaUIKsKCTIPyjj1mstEjvuyH8I1uI-1789383268.8998494-1.0.1.1-cXsjTIcR33Jp9nPTB5LiQd.6h4s5OzYeWIFXRyw4Y.eMc33ZBKN8m0QoUy8zJJjxumEnCuqblkCW0n.V6wAjnYAzY9bgxjf.3Kd.7acXKhnXCLzMT7.Rle4dyA5zHeyd;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aeda969bb7c4d9-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "in_progress",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:29 GMT
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '158'
+      X-Request-Id:
+      - req_74f4437e223a4a3ca8d172bccd6dddd0
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=N43RA74obxlOzjx1qaieKYsIRdCU1sRFeCbLrcZRZz8-1789383271.7131088-1.0.1.1-u_7R4so1DR7zGx9TEbHIykoMjkgIr81VM0guyN9c5NluQW9qHWSU46FtL2F79Uh3SnsaO1DcE5oZgLuGbs3VqH0DT549wUAEBcfd.LVT0EzKJNgH3x2Sqgy1XPo3Bv_y;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:32 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aedaa8385c9e03-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {},
+          "id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+          "object": "agent.session",
+          "created_at": 1789383259,
+          "last_active_at": 1789383259,
+          "status": "idle",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": null
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:31 GMT
+recorded_with: VCR 6.3.1

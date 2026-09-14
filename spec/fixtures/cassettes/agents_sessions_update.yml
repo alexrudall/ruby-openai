@@ -1,0 +1,123 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/agents/sessions/sess_0110b89fef12832a006aa7d363779c8191953a5e4185624396
+    body:
+      encoding: UTF-8
+      string: '{"metadata":{"env":"spec"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:58:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '387'
+      X-Request-Id:
+      - req_64b801d9f90341cb814927f39eaae50a
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=pjTTcGYKaamIIy5aNKKxEhgqFBboZDizNCncuWpYa.8-1789383535.5994825-1.0.1.1-b6R_808ehNhrpmHN0AZRkuIVhM6GVOrPyvQNP2J0BbLJ3VHHlh1BTh.vAhlCS4kAiEzQfPU1UXN6GGR2h1APcLByf6Wv16mi6wqlzWFN_WJ1BGhjDBfbjKcYaeWEozfj;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:28:56 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aee1197fbdbf2f-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "metadata": {
+            "env": "spec"
+          },
+          "id": "sess_0110b89fef12832a006aa7d363779c8191953a5e4185624396",
+          "object": "agent.session",
+          "created_at": 1789383523,
+          "last_active_at": 1789383523,
+          "status": "idle",
+          "required_actions": [],
+          "error": null,
+          "agent": {
+            "id": "agent_60fadd4fc9ec449db3006a2143176c9dd56f5071b70c4519bf",
+            "name": null,
+            "model": "gpt-5.4-mini",
+            "reasoning": {
+              "effort": "none",
+              "summary": null
+            },
+            "text": {
+              "format": {
+                "type": "text"
+              },
+              "verbosity": "medium"
+            },
+            "service_tier": "auto",
+            "instructions": "Reply with one word.",
+            "tools": [],
+            "multi_agent": {
+              "enabled": false,
+              "max_concurrent_subagents": null
+            }
+          },
+          "environment": {
+            "type": "none"
+          },
+          "vault_ids": [],
+          "usage": {
+            "input_tokens": 5384,
+            "input_tokens_details": {
+              "cached_tokens": 0
+            },
+            "output_tokens": 5,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 5389
+          }
+        }
+  recorded_at: Mon, 14 Sep 2026 10:58:56 GMT
+recorded_with: VCR 6.3.1

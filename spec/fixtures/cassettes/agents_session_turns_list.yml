@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions/sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f/turns
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:54:32 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '468'
+      X-Request-Id:
+      - req_a16546bd8ea74d888196121f5c773584
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=waykqlSsUCJkhdigcqSuxB9KbXuUmWIwywMqH5ludho-1789383272.108176-1.0.1.1-wjukSmNFXIEgHHrdUYLJ9Roght9OVx3OKu2v.lz7RhiYFn2ImbQX0_YXoMXuMigPDWe_Nuy3xyv5eUSQOKRJBDs19VtVUhPDTTI89ZWeCiIWO8dNOFrx0LFI3SW._vrW;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:24:32 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aedaaaadae818a-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "turn_03405fae48360d1c006aa7d262e29481919d6dbe607a7bcaa1",
+              "object": "agent.session.turn",
+              "session_id": "sess_03405fae48360d1c006aa7d25bd45881919bbae5bced8de02f",
+              "agent_id": "agent_720a7d1f95d448128c13ebb9244192212ccc7363db0f46e1a5",
+              "subagent_id": null,
+              "status": "completed",
+              "created_at": 1789383265,
+              "started_at": 1789383265,
+              "completed_at": 1789383265,
+              "error": null,
+              "usage": {
+                "input_tokens": 5384,
+                "input_tokens_details": {
+                  "cached_tokens": 0
+                },
+                "output_tokens": 5,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 5389
+              }
+            }
+          ],
+          "first_id": "turn_03405fae48360d1c006aa7d262e29481919d6dbe607a7bcaa1",
+          "last_id": "turn_03405fae48360d1c006aa7d262e29481919d6dbe607a7bcaa1",
+          "has_more": false
+        }
+  recorded_at: Mon, 14 Sep 2026 10:54:32 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/agents
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-5.4-mini","name":"ruby-openai spec"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:52:50 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '521'
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '1109'
+      X-Request-Id:
+      - req_82ef2fc0cd92497fac360e61ab4bcc63
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=gbbzJonTDpJyFH9JxazRCu4E_..r.yC8h66BNkycx6Y-1789383168.963266-1.0.1.1-32b3cETyziuD48IEEDpaFCId88BWEimmvP3JlnPm1xCC6A5HqqrU2aC8sNdLJqePWOrGL16RmZb5XnBOJoXK5Ge_ZnPSLe9g5elElZ4zyDb6c37ZDmUV9nkPFRI.1LUT;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:22:50 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aed82609a5eeaf-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "id": "agent_ce6fc053817d4f3b8689ec9734ed2fc74a22c815512b4622b1",
+          "object": "agent",
+          "created_at": 1789383169,
+          "updated_at": 1789383169,
+          "name": "ruby-openai spec",
+          "metadata": {},
+          "model": "gpt-5.4-mini",
+          "reasoning": {
+            "effort": "none",
+            "summary": null
+          },
+          "text": {
+            "format": {
+              "type": "text"
+            },
+            "verbosity": "medium"
+          },
+          "service_tier": "auto",
+          "instructions": null,
+          "tools": [],
+          "multi_agent": {
+            "enabled": false,
+            "max_concurrent_subagents": null
+          }
+        }
+  recorded_at: Mon, 14 Sep 2026 10:52:50 GMT
+recorded_with: VCR 6.3.1

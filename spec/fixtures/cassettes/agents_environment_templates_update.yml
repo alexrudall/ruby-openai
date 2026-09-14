@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/agents/environments/templates/envtmpl_f8aff19309a94173959fdf0cf9a05601543cdd71d61548a98a
+    body:
+      encoding: UTF-8
+      string: '{"name":"renamed"}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:52:56 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '222'
+      X-Request-Id:
+      - req_b785f7917f274fe181305dbaf09dec88
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=9wn7B1KWpwNiM91zDWFeuGVll8ilZFOtU8a3wyL_H1g-1789383176.307009-1.0.1.1-Mb_kqzAVj71lECVNnF.jpun59A4.CD9NzNxIrkG8kBl5mXz_ZQN31S4DWkkGJe9TOieIep2pvzSxbdGnpFlhRHmPzXplq0AvdKJatos5tjK._axsnUvt7A.3ycn0QLmQ;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:22:56 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aed853ebfa570e-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "id": "envtmpl_f8aff19309a94173959fdf0cf9a05601543cdd71d61548a98a",
+          "name": "renamed",
+          "object": "agent.environment.template",
+          "created_at": 1789383176,
+          "updated_at": 1789383176,
+          "packages": {
+            "python": [],
+            "system": [],
+            "npm": []
+          },
+          "network": {
+            "access": "enabled",
+            "allowed_domains": []
+          },
+          "capability_directories": [],
+          "skills": [],
+          "plugins": [],
+          "files": []
+        }
+  recorded_at: Mon, 14 Sep 2026 10:52:56 GMT
+recorded_with: VCR 6.3.1

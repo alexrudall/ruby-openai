@@ -1,0 +1,309 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/agents/sessions?limit=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:59:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '1391'
+      X-Request-Id:
+      - req_486ab31a7fff46c282d31917d2d2e362
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=pscfFzZPfU.udeiIlAOgCilXAVdobFz8Da1gZQkQJIM-1789383549.0478358-1.0.1.1-LoJirwBD4u6bQf2beYvlwHDOQnDvAGTxyykoKrpqU8coTAGKoA.sjS2X6STa.5z_olBfNrPdmFVxlnz_cciDIqnPiXgeBJOSCNxz8QSkqmz44n7LE8oI7LxoHiW_871s;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:29:10 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aee16d8b98ecc7-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "metadata": {},
+              "id": "sess_07f07949553a1dc7006aa7d370d370819186d5632b894e95df",
+              "object": "agent.session",
+              "created_at": 1789383536,
+              "last_active_at": 1789383536,
+              "status": "idle",
+              "required_actions": [],
+              "error": null,
+              "agent": {
+                "id": "agent_85a47511ea2541508187463697775be3c403b4be2e274a86af",
+                "name": null,
+                "model": "gpt-5.4-mini",
+                "reasoning": {
+                  "effort": "none",
+                  "summary": null
+                },
+                "text": {
+                  "format": {
+                    "type": "text"
+                  },
+                  "verbosity": "medium"
+                },
+                "service_tier": "auto",
+                "instructions": "Reply with one word.",
+                "tools": [],
+                "multi_agent": {
+                  "enabled": false,
+                  "max_concurrent_subagents": null
+                }
+              },
+              "environment": {
+                "type": "none"
+              },
+              "vault_ids": [],
+              "usage": null
+            },
+            {
+              "metadata": {
+                "env": "spec"
+              },
+              "id": "sess_0110b89fef12832a006aa7d363779c8191953a5e4185624396",
+              "object": "agent.session",
+              "created_at": 1789383523,
+              "last_active_at": 1789383523,
+              "status": "idle",
+              "required_actions": [],
+              "error": null,
+              "agent": {
+                "id": "agent_60fadd4fc9ec449db3006a2143176c9dd56f5071b70c4519bf",
+                "name": null,
+                "model": "gpt-5.4-mini",
+                "reasoning": {
+                  "effort": "none",
+                  "summary": null
+                },
+                "text": {
+                  "format": {
+                    "type": "text"
+                  },
+                  "verbosity": "medium"
+                },
+                "service_tier": "auto",
+                "instructions": "Reply with one word.",
+                "tools": [],
+                "multi_agent": {
+                  "enabled": false,
+                  "max_concurrent_subagents": null
+                }
+              },
+              "environment": {
+                "type": "none"
+              },
+              "vault_ids": [],
+              "usage": {
+                "input_tokens": 5384,
+                "input_tokens_details": {
+                  "cached_tokens": 0
+                },
+                "output_tokens": 5,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 5389
+              }
+            },
+            {
+              "metadata": {},
+              "id": "sess_0b746563d02787d2006aa7d35193b88191bd51c0d9117a997a",
+              "object": "agent.session",
+              "created_at": 1789383505,
+              "last_active_at": 1789383505,
+              "status": "idle",
+              "required_actions": [],
+              "error": null,
+              "agent": {
+                "id": "agent_b979d92036ba42eb9c67193bf8c6884af210877505d5446a82",
+                "name": null,
+                "model": "gpt-5.4-mini",
+                "reasoning": {
+                  "effort": "none",
+                  "summary": null
+                },
+                "text": {
+                  "format": {
+                    "type": "text"
+                  },
+                  "verbosity": "medium"
+                },
+                "service_tier": "auto",
+                "instructions": "Reply with one word.",
+                "tools": [],
+                "multi_agent": {
+                  "enabled": false,
+                  "max_concurrent_subagents": null
+                }
+              },
+              "environment": {
+                "type": "none"
+              },
+              "vault_ids": [],
+              "usage": {
+                "input_tokens": 5384,
+                "input_tokens_details": {
+                  "cached_tokens": 5120
+                },
+                "output_tokens": 5,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 5389
+              }
+            },
+            {
+              "metadata": {},
+              "id": "sess_08d512019d1b077b006aa7d34fab40819180e6a36b2f42d679",
+              "object": "agent.session",
+              "created_at": 1789383503,
+              "last_active_at": 1789383503,
+              "status": "idle",
+              "required_actions": [],
+              "error": null,
+              "agent": {
+                "id": "agent_315414a647af4ca89bcd50d938796138c81c861d12594f9896",
+                "name": null,
+                "model": "gpt-5.4-mini",
+                "reasoning": {
+                  "effort": "none",
+                  "summary": null
+                },
+                "text": {
+                  "format": {
+                    "type": "text"
+                  },
+                  "verbosity": "medium"
+                },
+                "service_tier": "auto",
+                "instructions": "Reply with one word.",
+                "tools": [],
+                "multi_agent": {
+                  "enabled": false,
+                  "max_concurrent_subagents": null
+                }
+              },
+              "environment": {
+                "type": "none"
+              },
+              "vault_ids": [],
+              "usage": {
+                "input_tokens": 5384,
+                "input_tokens_details": {
+                  "cached_tokens": 5120
+                },
+                "output_tokens": 5,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 5389
+              }
+            },
+            {
+              "metadata": {},
+              "id": "sess_093dfcf223ad0442006aa7d304ee508191ba9457f71c54e0df",
+              "object": "agent.session",
+              "created_at": 1789383428,
+              "last_active_at": 1789383428,
+              "status": "idle",
+              "required_actions": [],
+              "error": null,
+              "agent": {
+                "id": "agent_e8bf0cdaebc548e3bd20574c068d4311d042c570d5154f2787",
+                "name": null,
+                "model": "gpt-5.4-mini",
+                "reasoning": {
+                  "effort": "none",
+                  "summary": null
+                },
+                "text": {
+                  "format": {
+                    "type": "text"
+                  },
+                  "verbosity": "medium"
+                },
+                "service_tier": "auto",
+                "instructions": "Reply with one word.",
+                "tools": [],
+                "multi_agent": {
+                  "enabled": false,
+                  "max_concurrent_subagents": null
+                }
+              },
+              "environment": {
+                "type": "none"
+              },
+              "vault_ids": [],
+              "usage": {
+                "input_tokens": 5384,
+                "input_tokens_details": {
+                  "cached_tokens": 5120
+                },
+                "output_tokens": 5,
+                "output_tokens_details": {
+                  "reasoning_tokens": 0
+                },
+                "total_tokens": 5389
+              }
+            }
+          ],
+          "first_id": "sess_07f07949553a1dc7006aa7d370d370819186d5632b894e95df",
+          "last_id": "sess_093dfcf223ad0442006aa7d304ee508191ba9457f71c54e0df",
+          "has_more": true
+        }
+  recorded_at: Mon, 14 Sep 2026 10:59:10 GMT
+recorded_with: VCR 6.3.1

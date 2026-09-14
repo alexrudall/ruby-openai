@@ -1,0 +1,117 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.openai.com/v1/vaults?limit=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Openai-Beta:
+      - agents=v1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 14 Sep 2026 10:55:15 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Openai-Organization:
+      - tropic-7
+      Openai-Project:
+      - proj_cjP6titQoKsBgLelIZheKqAN
+      Openai-Version:
+      - '2020-10-01'
+      Openai-Processing-Ms:
+      - '93'
+      X-Request-Id:
+      - req_d2610736cb094249a990cb61b271436e
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,openai-processing-ms,openai-version,openai-organization,openai-project
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=EZMYB20nvjOaz.CxoeRDqqbEbL5_GJWIMrR1eE56RxU-1789383315.4712486-1.0.1.1-lZUlmw4w9aynsn2zj5hgl_71NtRRenIdDi3.VSLDlIkB1mbWqIeTs0qUT6gfZubKv1_Nkya2l8EVSG_rYQzRXw3QO51gSLqCYn9tMmqUZuT_ncDXfRAYboxvLDG1Ju3p;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Mon,
+        14 Sep 2026 11:25:15 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a3aedbb9bfd4ccaf-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "object": "list",
+          "data": [
+            {
+              "id": "vault_8536da5731ff4207a1834e68c78e37b51b3f5e6c437c4400a9",
+              "object": "vault",
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "created_at": 1789383309
+            },
+            {
+              "id": "vault_f10e10e63dc444c78eaa05d2aa6dc87496c957a244aa462e86",
+              "object": "vault",
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "created_at": 1789383306
+            },
+            {
+              "id": "vault_cf331617db5c40feb81bab7c9f7f60fe0935735c80974083b2",
+              "object": "vault",
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "created_at": 1789383304
+            },
+            {
+              "id": "vault_980794839c644b56a3971aca27566cafab7e5627e34b46b28a",
+              "object": "vault",
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "created_at": 1789383301
+            },
+            {
+              "id": "vault_f09f85e22fcb4ca6bb8805901f1932a716fb55e1e0704fafb3",
+              "object": "vault",
+              "name": "ruby-openai spec",
+              "metadata": {},
+              "created_at": 1789383299
+            }
+          ],
+          "first_id": "vault_8536da5731ff4207a1834e68c78e37b51b3f5e6c437c4400a9",
+          "last_id": "vault_f09f85e22fcb4ca6bb8805901f1932a716fb55e1e0704fafb3",
+          "has_more": false
+        }
+  recorded_at: Mon, 14 Sep 2026 10:55:15 GMT
+recorded_with: VCR 6.3.1
