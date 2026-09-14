@@ -130,6 +130,14 @@ RSpec.describe OpenAI::HTTP do
     end
   end
 
+  describe ".get with raw" do
+    it "returns the body without parsing JSON" do
+      stub_request(:get, "https://api.openai.com/v1/agents/x")
+        .to_return(status: 200, body: '{"a":1}', headers: { "Content-Type" => "text/plain" })
+      expect(OpenAI::Client.new.get(path: "/agents/x", raw: true)).to eq('{"a":1}')
+    end
+  end
+
   describe ".get with stream" do
     let(:user_proc) { proc { |data| data } }
 

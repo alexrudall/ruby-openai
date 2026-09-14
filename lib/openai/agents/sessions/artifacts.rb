@@ -18,11 +18,12 @@ module OpenAI
           @client.delete(path: "/agents/sessions/#{session_id}/artifacts/#{id}")
         end
 
-        # Download the artifact's raw bytes. Returns a String.
+        # Download the artifact's raw bytes. Returns the body as a String without JSON parsing.
         def content(session_id:, id:)
           @client.get(
             path: "/agents/sessions/#{session_id}/artifacts/#{id}/content",
-            headers: { "Accept" => "application/octet-stream" }
+            headers: { "Accept" => "application/octet-stream" },
+            raw: true
           )
         end
       end

@@ -31,6 +31,10 @@ module OpenAI
       end
 
       # Yields each event as (event, type) and returns nil once the turn has finished.
+      #
+      # The reader thread may not have connected by the time the input is submitted. That is
+      # fine: the events endpoint replays the turn's events from the moment the input was
+      # accepted, so a subscription opened shortly after still receives `turn.created`.
       def run(&block)
         ensure_idle!
         queue = Queue.new

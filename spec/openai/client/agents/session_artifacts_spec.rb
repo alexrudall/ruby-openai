@@ -56,6 +56,14 @@ RSpec.describe OpenAI::Client do
         expect(stub).to have_been_requested
         expect(response).to eq("raw bytes")
       end
+
+      it "does not parse JSON-looking content" do
+        stub_request(:get, "#{base}/art_1/content")
+          .to_return(status: 200, body: '{"x":1}',
+                     headers: { "Content-Type" => "application/octet-stream" })
+        response = client.agents.sessions.artifacts.content(session_id: "sess_x", id: "art_1")
+        expect(response).to eq('{"x":1}')
+      end
     end
   end
 end

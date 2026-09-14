@@ -6,11 +6,13 @@ module OpenAI
   module HTTP
     include HTTPHeaders
 
-    def get(path:, parameters: nil, headers: {}, stream: nil)
-      parse_json(conn.get(uri(path: path), parameters) do |req|
+    # Pass `raw: true` to return the response body as delivered instead of parsing JSON.
+    def get(path:, parameters: nil, headers: {}, stream: nil, raw: false)
+      response = conn.get(uri(path: path), parameters) do |req|
         req.headers = self.headers.merge(headers)
         configure_stream_request(req, stream) if stream
-      end&.body)
+      end
+      raw ? response&.body : parse_json(response&.body)
     end
 
     def post(path:)
