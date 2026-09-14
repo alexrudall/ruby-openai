@@ -1232,15 +1232,15 @@ response = client.conversations.delete_item(
 
 ### Agents
 
-The [Agents API](https://platform.openai.com/docs/api-reference/agents) (beta) runs managed, tool-using agents in server-side sessions. Every call sends the `OpenAI-Beta: agents=v1` header for you. All methods take plain hashes and return the parsed JSON response.
+The [Agents API](https://platform.openai.com/docs/api-reference/agents) (beta) runs managed, tool-using agents in server-side sessions. Every call sends the `OpenAI-Beta: agents=v1` header for you. Methods take plain hashes and return the parsed JSON response, except the streaming methods (which yield events to your proc) and `artifacts.content` (which returns the raw bytes as a String).
 
 **Supported Endpoints:**
 - `client.agents` - create, retrieve, update, list, delete agents
 - `client.agents.sessions` - create, retrieve, update, list, delete sessions; `stream` one turn with tool handlers
 - `client.agents.sessions.events` - submit input events, stream live events
-- `client.agents.sessions.items`, `.turns`, `.subagents` (with `.items` and `.turns`), `.artifacts`
-- `client.agents.environments` - retrieve environments, `.files` (create, list), `.templates` (CRUD)
-- `client.agents.vaults` - CRUD vaults, `.credentials` (CRUD)
+- `client.agents.sessions.items`, `.turns`, `.subagents` (with `.items` and `.turns`), `.artifacts` (retrieve, list, delete, `content`)
+- `client.agents.environments` - retrieve environments, `.files` (create, list), `.templates` (create, retrieve, update, list, delete)
+- `client.agents.vaults` - create, retrieve, list, delete vaults; `.credentials` (create, retrieve, update, list, delete)
 
 #### Creating an Agent
 
@@ -1286,10 +1286,10 @@ session = client.agents.sessions.create(
 )
 session_id = session["id"]
 
-# Poll until the turn finishes
+# Poll until the turn finishes (status is one of idle, in_progress, requires_action, failed)
 loop do
   session = client.agents.sessions.retrieve(id: session_id)
-  break if session["status"] == "idle"
+  break unless session["status"] == "in_progress"
   sleep 1
 end
 
@@ -1331,7 +1331,7 @@ client.agents.sessions.stream(
 end
 ```
 
-To follow the raw event stream yourself (for example from a different process), pass a proc to `events.stream`. The connection stays open until the server closes it:
+To follow the raw event stream yourself (for example from a different process), pass a proc to `events.stream`. The connection stays open until the server closes it. Note that the client's `request_timeout` (120 seconds by default) applies to each read, so raise it if you expect long gaps between events:
 
 ```ruby
 client.agents.sessions.events.stream(

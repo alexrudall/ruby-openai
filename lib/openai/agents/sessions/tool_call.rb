@@ -62,9 +62,22 @@ module OpenAI
 
         output = @handler.call(arguments)
         output = output.to_json if output.is_a?(Hash)
-        return output if output.nil? || output.is_a?(String) || output.is_a?(Array)
+        return output if output.nil? || output.is_a?(String)
+        return output if output.is_a?(Array) && content_parts?(output)
 
-        raise ArgumentError, "Tool output must be a String, Hash, Array or nil"
+        raise ArgumentError, "Tool output must be a String, Hash, Array of content parts or nil"
+      end
+
+      # Array outputs must be input_text or input_image content parts.
+      def content_parts?(parts)
+        parts.all? do |part|
+          part = JSON.parse(part.to_json)
+          case part["type"]
+          when "input_text" then part["text"].is_a?(String)
+          when "input_image" then part["image_url"].is_a?(String)
+          else false
+          end
+        end
       end
 
       def parse_arguments(arguments)

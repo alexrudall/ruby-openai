@@ -72,6 +72,19 @@ RSpec.describe OpenAI::Agents::SessionStream do
       expect(key).not_to be_nil
     end
 
+    it "accepts content part arrays and rejects other arrays" do
+      handlers = { "get_weather" => ->(_a) { [{ type: "input_text", text: "21C" }] } }
+      sessions.stream(id: session_id, input: "weather?", tool_handlers: handlers) { |_e, _t| nil }
+      event = events_posts.last.first["events"].first
+      expect(event["success"]).to be(true)
+      expect(event["output"]).to eq([{ "type" => "input_text", "text" => "21C" }])
+
+      events_posts.clear
+      handlers = { "get_weather" => ->(_a) { [1, 2] } }
+      sessions.stream(id: session_id, input: "weather?", tool_handlers: handlers) { |_e, _t| nil }
+      expect(events_posts.last.first["events"].first["success"]).to be(false)
+    end
+
     it "submits a failure when the handler raises" do
       handler = ->(_args) { raise "boom" }
       sessions.stream(id: session_id, input: "weather?",
