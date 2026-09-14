@@ -1,0 +1,132 @@
+event: agent.session.turn.created
+data: {"type":"agent.session.turn.created","event_id":"evt_2fa37cff3c1b4c83b9303a4735ab2606321fcb96a11b47228a","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","turn":{"id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","object":"agent.session.turn","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","agent_id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","subagent_id":null,"status":"queued","created_at":1789383723,"started_at":null,"completed_at":null,"error":null,"usage":null}}
+
+event: agent.session.turn.item.added
+data: {"type":"agent.session.turn.item.added","event_id":"evt_be3a0761b3e2444fab795b7afd7ebbbfb6d43e94eeb74c17bc","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":null,"item":{"type":"message","id":"msg_552fe069f4c9c79d7db47b16f31694b4eb17d71ee3c956f84f","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","role":"user","content":[{"type":"input_text","text":"What is the weather in Paris?"}],"status":"completed","phase":null}}
+
+event: agent.session.in_progress
+data: {"type":"agent.session.in_progress","event_id":"evt_f3d474cca62b4cfe9ce533ef119f7f6700025c61b603477f92","session":{"metadata":{},"id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","object":"agent.session","created_at":1789383703,"last_active_at":1789383703,"status":"in_progress","required_actions":[],"error":null,"agent":{"id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","name":null,"model":"gpt-5.4-mini","reasoning":{"effort":"none","summary":null},"text":{"format":{"type":"text"},"verbosity":"medium"},"service_tier":"auto","instructions":"Use the get_weather tool when asked about weather, then answer in one sentence.","tools":[{"type":"function","name":"get_weather","description":"Get the weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]},"defer_loading":false}],"multi_agent":{"enabled":false,"max_concurrent_subagents":null}},"environment":{"type":"none"},"vault_ids":[],"usage":null}}
+
+event: agent.session.turn.in_progress
+data: {"type":"agent.session.turn.in_progress","event_id":"evt_58a88775192a4e6f8260a76b6b2bef9bbfdebb15e5894ea38f","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","turn":{"id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","object":"agent.session.turn","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","agent_id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","subagent_id":null,"status":"in_progress","created_at":1789383723,"started_at":1789383723,"completed_at":null,"error":null,"usage":null}}
+
+event: agent.session.turn.item.added
+data: {"type":"agent.session.turn.item.added","event_id":"evt_abbceb1922674374af2a298266b4bb3730d95906126441e0a6","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":0,"item":{"type":"message","id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","role":"assistant","content":[],"status":"in_progress","phase":"commentary"}}
+
+event: agent.session.turn.content_part.added
+data: {"type":"agent.session.turn.content_part.added","event_id":"evt_a873f5901d7b453fb887268b60b60840504ac84a84774723ad","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"part":{"type":"output_text","text":""}}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_14e5f89dd8c9439c8337cd93accb3b4304c278ae76b3492e93","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":"I"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_5a9387b0791e4b6eb51cc10afce6475573932e434cbb41dcae","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":"’ll"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_70ab33103dd24bbb9fefefc44d807aef5a9403e3a1e240e482","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" check"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_048245250a41455ab28f9f8f085ff5e8728d5aa725e04541b5","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" the"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_3fd61ce95f6c4ad8b5115f3d0332a192915cb10b01ae495aae","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" weather"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_b2b43aa3a382499ca577130ce0b44c247d76f3409db54dacb5","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" for"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_4c7ef16a086b4fb998c55936a189b9071c739667b09f43ba88","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" Paris"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_8b6fcec0acf54ad096ba6d1aa386764edd93728f66fe481f94","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" and"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_3fd90a6e36f2404692fe8de623c4a3c8cbd6374796044b2793","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" then"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_1d60cbef64b443d8a6ad771cc06b1cd705022f91535e41898d","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" give"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_b8c146b2de674f52b929412ae239bf256265bd7aa74b4eb497","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" you"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_538976ec2c164704b8b8be74de10567acb11147c487842fcb9","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" a"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_46ff45d0b0464c7c866a0e36cadcc5907992ffe03aa94abf92","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" one"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_a760e9c8a12f4df4b04ba18a61f3ec72737c26141ee14b2790","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":"-s"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_597574a7f9a8401dbd4047c3571b1716d71d72620a7e4991af","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":"entence"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_0230e536056d4b8c9cdbf968fe7e62f5cc8bf502bf934a8084","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":" answer"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_5db4224cc567448896937a95e1c251d9548e1018124e430c80","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"delta":"."}
+
+event: agent.session.turn.output_text.done
+data: {"type":"agent.session.turn.output_text.done","event_id":"evt_b2c0514fc7714fe4b477eec6d12851abe91855ba07a04e328b","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"text":"I’ll check the weather for Paris and then give you a one-sentence answer."}
+
+event: agent.session.turn.content_part.done
+data: {"type":"agent.session.turn.content_part.done","event_id":"evt_cbce3d7fd34b48c49590238b1455da8d814fa27ab1294cceb0","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","output_index":0,"content_index":0,"part":{"type":"output_text","text":"I’ll check the weather for Paris and then give you a one-sentence answer."}}
+
+event: agent.session.turn.item.done
+data: {"type":"agent.session.turn.item.done","event_id":"evt_d184439695054c26aab66992936d3f1d989c72813f4042d48e","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":0,"item":{"type":"message","id":"msg_095c4c2c42304665016aa7d42d1e0887d1bf805d07c809f0c3","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","role":"assistant","status":"completed","content":[{"type":"output_text","text":"I’ll check the weather for Paris and then give you a one-sentence answer."}],"phase":"commentary"}}
+
+event: agent.session.turn.item.added
+data: {"type":"agent.session.turn.item.added","event_id":"evt_0d62ac3c7f5c4c5dbc3ad817537b884a3efa4846c6c247539e","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":0,"item":{"type":"function_call","id":"call_l44NaKe90dlGhLIxdV6EaATw","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","call_id":"call_l44NaKe90dlGhLIxdV6EaATw","name":"get_weather","arguments":{"city":"Paris"},"status":"in_progress"}}
+
+event: agent.session.requires_action
+data: {"type":"agent.session.requires_action","event_id":"evt_87b2be675e324b7c840c0a19a87800ffa52ecfbc4b144c518e","session":{"metadata":{},"id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","object":"agent.session","created_at":1789383703,"last_active_at":1789383728,"status":"requires_action","required_actions":[{"type":"function_call","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","call_id":"call_l44NaKe90dlGhLIxdV6EaATw","name":"get_weather","arguments":{"city":"Paris"}}],"error":null,"agent":{"id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","name":null,"model":"gpt-5.4-mini","reasoning":{"effort":"none","summary":null},"text":{"format":{"type":"text"},"verbosity":"medium"},"service_tier":"auto","instructions":"Use the get_weather tool when asked about weather, then answer in one sentence.","tools":[{"type":"function","name":"get_weather","description":"Get the weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]},"defer_loading":false}],"multi_agent":{"enabled":false,"max_concurrent_subagents":null}},"environment":{"type":"none"},"vault_ids":[],"usage":null}}
+
+event: agent.session.turn.item.added
+data: {"type":"agent.session.turn.item.added","event_id":"evt_fc543adbd5ea4024ad6381a539e9925c2eb0d85915014ba589","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":null,"item":{"id":"fco_call_l44NaKe90dlGhLIxdV6EaATw","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","type":"function_call_output","call_id":"call_l44NaKe90dlGhLIxdV6EaATw","status":"completed","output":"{\"temperature\":21,\"unit\":\"C\"}","error":null}}
+
+event: agent.session.in_progress
+data: {"type":"agent.session.in_progress","event_id":"evt_13eae30b31cc417bb9dbf675c3ddb568da92e2ccc9ed4e2fb5","session":{"metadata":{},"id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","object":"agent.session","created_at":1789383703,"last_active_at":1789383729,"status":"in_progress","required_actions":[],"error":null,"agent":{"id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","name":null,"model":"gpt-5.4-mini","reasoning":{"effort":"none","summary":null},"text":{"format":{"type":"text"},"verbosity":"medium"},"service_tier":"auto","instructions":"Use the get_weather tool when asked about weather, then answer in one sentence.","tools":[{"type":"function","name":"get_weather","description":"Get the weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]},"defer_loading":false}],"multi_agent":{"enabled":false,"max_concurrent_subagents":null}},"environment":{"type":"none"},"vault_ids":[],"usage":null}}
+
+event: agent.session.turn.item.done
+data: {"type":"agent.session.turn.item.done","event_id":"evt_6bbcc720cae34f0796e34b06150423ca393d419f076941ab96","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":1,"item":{"type":"function_call","id":"call_l44NaKe90dlGhLIxdV6EaATw","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","call_id":"call_l44NaKe90dlGhLIxdV6EaATw","name":"get_weather","arguments":{"city":"Paris"},"status":"completed"}}
+
+event: agent.session.turn.item.added
+data: {"type":"agent.session.turn.item.added","event_id":"evt_46c31585fc694ce0ab579296aa4700f1a4b5d31065574add8b","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":2,"item":{"type":"message","id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","role":"assistant","content":[],"status":"in_progress","phase":"final_answer"}}
+
+event: agent.session.turn.content_part.added
+data: {"type":"agent.session.turn.content_part.added","event_id":"evt_aa66cae2fe854417ad759d3c0ad80a5a46bc907bde9f414589","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"part":{"type":"output_text","text":""}}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_5caf913d44c4445ea5eec3ff8bb0a124f495edb50c75402eb4","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":"Paris"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_e46b386528784dab89d75bb69886808b486c1c17341d4f4a82","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":" is"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_abae713dd3c94b4692038dd98759e29a0f4b7a079ab04a70a0","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":" "}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_ba56467e064e4f93805c3395a262e3a3d3bea38cc6db41c8a2","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":"21"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_97cc0f0db5b14011ab7ba1d32de32bfdc6bf4b08a9d6475e82","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":"°C"}
+
+event: agent.session.turn.output_text.delta
+data: {"type":"agent.session.turn.output_text.delta","event_id":"evt_6f09fdfe6f594770a7088e650ca4d88348954353cc0748c5ad","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"delta":"."}
+
+event: agent.session.turn.output_text.done
+data: {"type":"agent.session.turn.output_text.done","event_id":"evt_bf9912c1287b4f63831e23faa2f8d97a59aa384dcdbc4d0d9f","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"text":"Paris is 21°C."}
+
+event: agent.session.turn.content_part.done
+data: {"type":"agent.session.turn.content_part.done","event_id":"evt_db2f759fbd7548749832a7e42f4d8300ad89b87cd0294d418a","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","item_id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","output_index":2,"content_index":0,"part":{"type":"output_text","text":"Paris is 21°C."}}
+
+event: agent.session.turn.item.done
+data: {"type":"agent.session.turn.item.done","event_id":"evt_16ac3f4be1a14d05b8b2ecf046839ebf009ea81c03974c68b5","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","output_index":2,"item":{"type":"message","id":"msg_095c4c2c42304665016aa7d4355e4487d1b5e650be14de0b4a","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","role":"assistant","status":"completed","content":[{"type":"output_text","text":"Paris is 21°C."}],"phase":"final_answer"}}
+
+event: agent.session.turn.completed
+data: {"type":"agent.session.turn.completed","event_id":"evt_af1ae302b3db41968f451318dc8872a460d4930c353349559d","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","turn_id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","turn":{"id":"turn_094226705b0fa5b3006aa7d42d6f148191b38bc71c24e91f79","object":"agent.session.turn","session_id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","agent_id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","subagent_id":null,"status":"completed","created_at":1789383723,"started_at":1789383723,"completed_at":1789383734,"error":null,"usage":null},"usage":null}
+
+event: agent.session.idle
+data: {"type":"agent.session.idle","event_id":"evt_9c8c7905239c43e9b4772b18a4d9941ac25447a6f67e4ef7aa","session":{"metadata":{},"id":"sess_094226705b0fa5b3006aa7d41719448191bb59885485a89279","object":"agent.session","created_at":1789383703,"last_active_at":1789383729,"status":"idle","required_actions":[],"error":null,"agent":{"id":"agent_f1e05a33dbf1484e8dccee32ba90d1135cce5c61a56f4e6bb1","name":null,"model":"gpt-5.4-mini","reasoning":{"effort":"none","summary":null},"text":{"format":{"type":"text"},"verbosity":"medium"},"service_tier":"auto","instructions":"Use the get_weather tool when asked about weather, then answer in one sentence.","tools":[{"type":"function","name":"get_weather","description":"Get the weather for a city","parameters":{"type":"object","properties":{"city":{"type":"string"}},"required":["city"]},"defer_loading":false}],"multi_agent":{"enabled":false,"max_concurrent_subagents":null}},"environment":{"type":"none"},"vault_ids":[],"usage":null}}
+
