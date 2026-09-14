@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add Agents API (beta): `client.agents` with sessions, events, items, turns, subagents, artifacts, environments, templates, vaults and credentials, plus a `sessions.stream` helper that runs tool handlers.
 - Add public support, end-of-life, and migration documentation.
 - Add clearer issue template labels and bug report version fields.
 

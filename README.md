@@ -78,6 +78,7 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
     - [Vector Store Files](#vector-store-files)
     - [Vector Store File Batches](#vector-store-file-batches)
     - [Conversations](#conversations)
+    - [Agents](#agents)
     - [Assistants](#assistants)
     - [Threads and Messages](#threads-and-messages)
     - [Runs](#runs)
@@ -1227,6 +1228,178 @@ response = client.conversations.delete_item(
   conversation_id: conversation_id,
   item_id: item_id
 )
+```
+
+### Agents
+
+The [Agents API](https://platform.openai.com/docs/api-reference/agents) (beta) runs managed, tool-using agents in server-side sessions. Every call sends the `OpenAI-Beta: agents=v1` header for you. All methods take plain hashes and return the parsed JSON response.
+
+**Supported Endpoints:**
+- `client.agents` - create, retrieve, update, list, delete agents
+- `client.agents.sessions` - create, retrieve, update, list, delete sessions; `stream` one turn with tool handlers
+- `client.agents.sessions.events` - submit input events, stream live events
+- `client.agents.sessions.items`, `.turns`, `.subagents` (with `.items` and `.turns`), `.artifacts`
+- `client.agents.environments` - retrieve environments, `.files` (create, list), `.templates` (CRUD)
+- `client.agents.vaults` - CRUD vaults, `.credentials` (CRUD)
+
+#### Creating an Agent
+
+```ruby
+agent = client.agents.create(
+  parameters: {
+    model: "gpt-5.4-mini",
+    name: "Weather helper",
+    instructions: "Use the get_weather tool when asked about the weather.",
+    tools: [
+      {
+        type: "function",
+        name: "get_weather",
+        description: "Get the weather for a city",
+        parameters: {
+          type: "object",
+          properties: { city: { type: "string" } },
+          required: ["city"]
+        }
+      }
+    ]
+  }
+)
+agent_id = agent["id"]
+
+client.agents.retrieve(id: agent_id)
+client.agents.update(id: agent_id, parameters: { name: "Renamed" })
+client.agents.list(parameters: { limit: 20 })
+client.agents.delete(id: agent_id)
+```
+
+#### Running a Session
+
+A session binds an agent to an execution environment. Use `environment: { type: "none" }` for a conversation-only session (which requires an initial `input`), or `type: "openai_hosted"` for a sandboxed environment the agent can run commands in. You can reference a saved agent with `agent_id:` or define one inline with `agent:`.
+
+```ruby
+session = client.agents.sessions.create(
+  parameters: {
+    environment: { type: "none" },
+    agent_id: agent_id,
+    input: "Hello!"
+  }
+)
+session_id = session["id"]
+
+# Poll until the turn finishes
+loop do
+  session = client.agents.sessions.retrieve(id: session_id)
+  break if session["status"] == "idle"
+  sleep 1
+end
+
+# Read the transcript
+items = client.agents.sessions.items.list(session_id: session_id)
+items["data"].each { |item| puts "#{item["role"]}: #{item.dig("content", 0, "text")}" }
+
+# Send more input as an event
+client.agents.sessions.events.create(
+  session_id: session_id,
+  idempotency_key: SecureRandom.uuid,
+  parameters: {
+    events: [
+      {
+        type: "agent.session.input.message",
+        input: [{ role: "user", content: [{ type: "input_text", text: "And in Berlin?" }] }]
+      }
+    ]
+  }
+)
+
+client.agents.sessions.turns.list(session_id: session_id)
+client.agents.sessions.delete(id: session_id)
+```
+
+#### Streaming a Turn with Tool Handlers
+
+`sessions.stream` submits input to an idle session, follows its event stream, runs your Ruby handlers for any function calls the agent makes, submits the results back, and returns once the session is idle again. Handlers receive the parsed arguments hash and may return a String, Hash, Array of content parts, or nil.
+
+```ruby
+client.agents.sessions.stream(
+  id: session_id,
+  input: "What's the weather in Paris?",
+  tool_handlers: {
+    "get_weather" => ->(args) { { temperature: 21, unit: "C", city: args["city"] } }
+  }
+) do |event, type|
+  print event["delta"] if type == "agent.session.turn.output_text.delta"
+end
+```
+
+To follow the raw event stream yourself (for example from a different process), pass a proc to `events.stream`. The connection stays open until the server closes it:
+
+```ruby
+client.agents.sessions.events.stream(
+  session_id: session_id,
+  stream: proc { |event, type| puts "#{type}: #{event["event_id"]}" }
+)
+```
+
+You can also stream the events of a brand new session by passing `stream:` when creating it:
+
+```ruby
+client.agents.sessions.create(
+  parameters: {
+    environment: { type: "none" },
+    agent_id: agent_id,
+    input: "Hello!",
+    stream: proc { |event, type| puts type }
+  }
+)
+```
+
+#### Environments and Templates
+
+```ruby
+session = client.agents.sessions.create(
+  parameters: { environment: { type: "openai_hosted" }, agent_id: agent_id }
+)
+environment_id = session["environment"]["id"]
+
+client.agents.environments.retrieve(id: environment_id) # wait for "status" => "connected"
+
+client.agents.environments.files.create(
+  environment_id: environment_id,
+  parameters: { type: "inline", path: "/workspace/hello.txt", data: Base64.strict_encode64("hello") }
+)
+client.agents.environments.files.list(environment_id: environment_id)
+
+template = client.agents.environments.templates.create(
+  parameters: { name: "python-tools", packages: { python: ["requests"] } }
+)
+client.agents.environments.templates.list
+client.agents.environments.templates.delete(id: template["id"])
+```
+
+#### Vaults and Credentials
+
+Vaults hold credentials that hosted tools (such as MCP servers) can use without exposing secrets to the model.
+
+```ruby
+vault = client.agents.vaults.create(parameters: { name: "integrations" })
+
+credential = client.agents.vaults.credentials.create(
+  vault_id: vault["id"],
+  parameters: {
+    name: "internal-mcp",
+    auth: { type: "static_bearer", token: ENV["MCP_TOKEN"], mcp_server_url: "https://mcp.example.com" }
+  }
+)
+
+# Rotate the secret
+client.agents.vaults.credentials.update(
+  vault_id: vault["id"],
+  id: credential["id"],
+  parameters: { auth: { type: "static_bearer", token: ENV["NEW_MCP_TOKEN"] } }
+)
+
+client.agents.vaults.credentials.list(vault_id: vault["id"])
+client.agents.vaults.delete(id: vault["id"])
 ```
 
 ### Assistants
