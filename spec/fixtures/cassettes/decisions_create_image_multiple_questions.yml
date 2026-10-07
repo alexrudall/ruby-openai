@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/decisions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-6-luna","input":[{"role":"user","content":[{"type":"input_text","text":"Inspect
+        this image."},{"type":"input_image","image_url":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACOSURBVHgB7dBBDcAgAAAxNnGYRCz8SDgNrYR+c+09uP7BQ0gICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAgJISEkhISQEBJCQkgICSEhJISEkBASQkJICAkhISSEhJAQEkJCSAiJA8NoA2dv2YpOAAAAAElFTkSuQmCC"}]}],"questions":[{"type":"predicate","name":"contains_text","instructions":"Does
+        the image contain readable text?"},{"type":"choice","name":"kind","instructions":"What
+        kind of image is this?","choices":[{"value":"photo","description":"A photograph
+        of a real scene."},{"value":"graphic","description":"An icon, shape, or illustration."}]}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 14:25:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit-Requests:
+      - '30000'
+      X-Ratelimit-Limit-Tokens:
+      - '180000000'
+      X-Ratelimit-Remaining-Requests:
+      - '29999'
+      X-Ratelimit-Remaining-Tokens:
+      - '179999712'
+      X-Ratelimit-Reset-Requests:
+      - 2ms
+      X-Ratelimit-Reset-Tokens:
+      - 0s
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,retry-after,server-timing-total
+      Server-Timing-Total:
+      - '168.319'
+      Openai-Processing-Ms:
+      - '168'
+      X-Request-Id:
+      - req_0ba34f1c7cbb4bb0851b918497a4a43b
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=DTUMxh_HD6bGa1lIvPnx8kxVHzo5bapJyWDuGpJtr.8-1791383130.1055799-1.0.1.1-Jri6HLpfk3Qy_3ipkP4GXOvg01SG4j09vRGVE14kmDOu51IZwKpbWmKcHmBbRwSj1LUZSjyw3h1otbW3I.5HJlFt4LLbRps40H8GhB8od821MF.roGX4t_SbPRl3fWEl;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed,
+        07 Oct 2026 14:55:30 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a46d935329bb4d3f-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"model":"gpt-6-luna","answers":[{"type":"predicate","name":"contains_text","probability":0.0},{"type":"choice","name":"kind","choice":"graphic","probabilities":[{"value":"photo","probability":0.0},{"value":"graphic","probability":1.0}],"confidence":1.0}],"usage":{"input_tokens":288,"input_tokens_details":{"cached_tokens":0,"cache_write_tokens":0},"output_tokens":0,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":288}}'
+  recorded_at: Wed, 07 Oct 2026 14:25:30 GMT
+recorded_with: VCR 6.3.1

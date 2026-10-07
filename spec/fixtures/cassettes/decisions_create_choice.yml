@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/decisions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-6-luna","input":"I was charged twice for my order.","questions":[{"type":"choice","name":"department","instructions":"Which
+        department should handle this complaint?","choices":[{"value":"billing","description":"Payments,
+        invoices, and refunds."},{"value":"technical","description":"Problems using
+        the product."},{"value":"shipping","description":"Delivery and tracking."},{"value":"other","description":"Requests
+        outside these categories."}]}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 14:25:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit-Requests:
+      - '30000'
+      X-Ratelimit-Limit-Tokens:
+      - '180000000'
+      X-Ratelimit-Remaining-Requests:
+      - '29998'
+      X-Ratelimit-Remaining-Tokens:
+      - '179999691'
+      X-Ratelimit-Reset-Requests:
+      - 4ms
+      X-Ratelimit-Reset-Tokens:
+      - 0s
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,retry-after,server-timing-total
+      Server-Timing-Total:
+      - '132.117'
+      Openai-Processing-Ms:
+      - '132'
+      X-Request-Id:
+      - req_7af0252d6b564cd99f8c1f673956a564
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=70bW_k.Q5hAaIRBfnQCUb5nfg5nPUOdqMuWyecolttc-1791383129.5962949-1.0.1.1-ZvO5m4hiuK.z57VcYQOCeAdQLiE7xQjawenL8gDbMoVS_FIH_ZwYw6d7H8Uj6XQD3Uvg4zDJ6.97ahFiA6S5eL6zL7n74MNS.phfGWrnFvoKxZVLqjwLIrsHo2GAwWvs;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed,
+        07 Oct 2026 14:55:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a46d934ffbc0c3b7-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"model":"gpt-6-luna","answers":[{"type":"choice","name":"department","choice":"billing","probabilities":[{"value":"billing","probability":1.0},{"value":"technical","probability":0.0},{"value":"shipping","probability":0.0},{"value":"other","probability":0.0}],"confidence":1.0}],"usage":{"input_tokens":145,"input_tokens_details":{"cached_tokens":0,"cache_write_tokens":0},"output_tokens":0,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":145}}'
+  recorded_at: Wed, 07 Oct 2026 14:25:29 GMT
+recorded_with: VCR 6.3.1

@@ -1,0 +1,86 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.openai.com/v1/decisions
+    body:
+      encoding: UTF-8
+      string: '{"model":"gpt-6-luna","input":"Export fails in Safari but works in
+        Chrome.","questions":[{"type":"score","name":"severity","instructions":"How
+        severe is this issue?","levels":[{"label":"Cosmetic","description":"Appearance
+        only; no lost functionality."},{"label":"Workaround available","description":"A
+        task fails, but another way works."},{"label":"Fully blocked","description":"A
+        task fails with no workaround."}]}]}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer <OPENAI_ACCESS_TOKEN>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Oct 2026 14:25:29 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Ratelimit-Limit-Requests:
+      - '30000'
+      X-Ratelimit-Limit-Tokens:
+      - '180000000'
+      X-Ratelimit-Remaining-Requests:
+      - '29997'
+      X-Ratelimit-Remaining-Tokens:
+      - '179999544'
+      X-Ratelimit-Reset-Requests:
+      - 6ms
+      X-Ratelimit-Reset-Tokens:
+      - 0s
+      Vary:
+      - origin, access-control-request-method, access-control-request-headers
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - CF-Ray
+      - x-request-id,retry-after,server-timing-total
+      Server-Timing-Total:
+      - '127.967'
+      Openai-Processing-Ms:
+      - '128'
+      X-Request-Id:
+      - req_65e3619a1494464ea7a547877e76e0e5
+      X-Openai-Proxy-Wasm:
+      - v0.1
+      Server:
+      - cloudflare
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=djaOxuAob0ykaTMAJJXz8UU.dh7Af5bDGxANHJmdGOY-1791383129.833432-1.0.1.1-l0PRJmNIu30T5ZOXzGjAPk8Y4iYjeGeWRl6fqEuy_lQoX2b.kRMyHkcBcLcNTlox7hu0HtANUoWEenMqFfjhX5SmL28zZAb1FWYXOJH2doKD9wSbhAHo4L_NJmIKdLOA;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed,
+        07 Oct 2026 14:55:29 GMT
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      X-Content-Type-Options:
+      - nosniff
+      Cf-Ray:
+      - a46d93517b5474b7-WAW
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"model":"gpt-6-luna","answers":[{"type":"score","name":"severity","score":0.97,"probabilities":[{"value":0,"label":"Cosmetic","probability":0.03},{"value":1,"label":"Workaround
+        available","probability":0.97},{"value":2,"label":"Fully blocked","probability":0.0}],"confidence":0.96}],"usage":{"input_tokens":146,"input_tokens_details":{"cached_tokens":0,"cache_write_tokens":0},"output_tokens":0,"output_tokens_details":{"reasoning_tokens":0},"total_tokens":146}}'
+  recorded_at: Wed, 07 Oct 2026 14:25:29 GMT
+recorded_with: VCR 6.3.1
