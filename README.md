@@ -91,6 +91,11 @@ Stream GPT-5 chats with the Responses API, initiate Realtime WebRTC conversation
     - [Image Edit](#image-edit)
     - [Image Variations](#image-variations)
     - [Moderations](#moderations)
+    - [Decisions](#decisions)
+      - [Predicate](#predicate)
+      - [Choice](#choice)
+      - [Score](#score)
+      - [Images and Multiple Questions](#images-and-multiple-questions)
     - [Whisper](#whisper)
       - [Translate](#translate)
       - [Transcribe](#transcribe)
@@ -1771,6 +1776,150 @@ Pass a string to check if it violates OpenAI's Content Policy:
 response = client.moderations(parameters: { input: "I'm worried about that." })
 puts response.dig("results", 0, "category_scores", "hate")
 # => 5.505014632944949e-05
+```
+
+### Decisions
+
+The [Decisions API](https://developers.openai.com/api/docs/guides/decisions) evaluates text, images, or both and returns typed answers: the probability that a condition is true, a choice from a fixed set, or a score against ordered levels. Use it to classify content, route requests, and prioritize work. It is currently in public beta, and `gpt-6-luna` is the only supported model.
+
+**Supported Endpoints:**
+- `POST /v1/decisions` - Evaluate one or more questions against shared input
+
+Each request takes a `model`, an `input` (a string, or user messages with `input_text` and `input_image` parts) and a `questions` array. Give each question a unique `name`: the response's `answers` array comes back in question order and echoes that name. Any answer can have the type `refusal` instead of the question's type, so check `type` before reading the result.
+
+#### Predicate
+
+A `predicate` question returns the probability (0 to 1) that a condition is true:
+
+```ruby
+response = client.decisions.create(
+  parameters: {
+    model: "gpt-6-luna",
+    input: "I was charged twice for my order.",
+    questions: [
+      {
+        type: "predicate",
+        name: "billing_issue",
+        instructions: "Is this complaint about a billing problem?"
+      }
+    ]
+  }
+)
+answer = response["answers"].first
+puts answer["probability"] if answer["type"] == "predicate"
+# => 1.0
+```
+
+#### Choice
+
+A `choice` question selects one of the values you supply, with a probability for each option and an overall `confidence`:
+
+```ruby
+response = client.decisions.create(
+  parameters: {
+    model: "gpt-6-luna",
+    input: "I was charged twice for my order.",
+    questions: [
+      {
+        type: "choice",
+        name: "department",
+        instructions: "Which department should handle this complaint?",
+        choices: [
+          { value: "billing", description: "Payments, invoices, and refunds." },
+          { value: "technical", description: "Problems using the product." },
+          { value: "shipping", description: "Delivery and tracking." },
+          { value: "other", description: "Requests outside these categories." }
+        ]
+      }
+    ]
+  }
+)
+answer = response["answers"].first
+puts answer["choice"], answer["confidence"] if answer["type"] == "choice"
+# => billing
+# => 1.0
+```
+
+#### Score
+
+A `score` question rates the input against ordered `levels`, lowest first. Level indices start at 0, and the returned `score` is the probability-weighted average of those indices, so it can fall between levels:
+
+```ruby
+response = client.decisions.create(
+  parameters: {
+    model: "gpt-6-luna",
+    input: "Export fails in Safari but works in Chrome.",
+    questions: [
+      {
+        type: "score",
+        name: "severity",
+        instructions: "How severe is this issue?",
+        levels: [
+          { label: "Cosmetic", description: "Appearance only; no lost functionality." },
+          { label: "Workaround available", description: "A task fails, but another way works." },
+          { label: "Fully blocked", description: "A task fails with no workaround." }
+        ]
+      }
+    ]
+  }
+)
+answer = response["answers"].first
+if answer["type"] == "score"
+  puts answer["score"]
+  answer["probabilities"].each { |level| puts "#{level['label']}: #{level['probability']}" }
+end
+# => 0.97
+# => Cosmetic: 0.03
+# => Workaround available: 0.97
+# => Fully blocked: 0.0
+```
+
+#### Images and Multiple Questions
+
+Images must be inline base64 data URLs; hosted URLs and `file_id` inputs are not supported. Independent questions can share one request, and each can use a different type:
+
+```ruby
+require "base64"
+
+image_url = "data:image/png;base64,#{Base64.strict_encode64(File.binread('product.png'))}"
+
+response = client.decisions.create(
+  parameters: {
+    model: "gpt-6-luna",
+    input: [
+      {
+        role: "user",
+        content: [
+          { type: "input_text", text: "Inspect the product in this photo." },
+          { type: "input_image", image_url: image_url }
+        ]
+      }
+    ],
+    questions: [
+      {
+        type: "predicate",
+        name: "visible_damage",
+        instructions: "Does the product have visible damage, such as a crack, tear, or dent?"
+      },
+      {
+        type: "choice",
+        name: "category",
+        instructions: "What kind of product is this?",
+        choices: [
+          { value: "electronics" },
+          { value: "furniture" },
+          { value: "clothing" },
+          { value: "other" }
+        ]
+      }
+    ]
+  }
+)
+response["answers"].each do |answer|
+  next warn("Refused: #{answer['name']}") if answer["type"] == "refusal"
+
+  puts "#{answer['name']}: #{answer['probability'] || answer['choice']}"
+end
 ```
 
 ### Whisper
